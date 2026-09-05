@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Crystal Road</title>
+<style>
+  html,body{margin:0;height:100%;background:#0b0d16;overflow:hidden;touch-action:none;font-family:Georgia,'Times New Roman',serif;-webkit-user-select:none;user-select:none;}
+  #wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;}
+  #stage{position:relative;}
+  canvas{position:absolute;left:0;top:0;display:block;}
+  #c{image-rendering:pixelated;image-rendering:crisp-edges;}
+  #t{pointer-events:none;}
+  #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#f2e9d8;font-size:16px;}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+  <canvas id="c"></canvas>
+  <canvas id="t"></canvas>
+  <div id="loading">Loading the road…</div>
+</div></div>
+<script>
+const ASSETS=__ASSETS__;
+__GAME__
+</script>
+</body>
+</html>
