@@ -33,15 +33,15 @@ const BIG=EXTRA>40; // tall phone: roomier controls
 const cv=document.getElementById('c'),tc=document.getElementById('t'),stage=document.getElementById('stage');
 cv.width=W;cv.height=H;const ctx=cv.getContext('2d');ctx.imageSmoothingEnabled=false;
 const tx=tc.getContext('2d');let SC=1,TS=1;
-const wrapEl=document.getElementById('wrap');function availH(){if(!wrapEl)return innerHeight;const cs=getComputedStyle(wrapEl);return wrapEl.clientHeight-(parseFloat(cs.paddingTop)||0)-(parseFloat(cs.paddingBottom)||0);}
+const wrapEl=document.getElementById('wrap');function availH(){if(!wrapEl)return innerHeight;const cs=getComputedStyle(wrapEl);const vv=window.visualViewport?window.visualViewport.height:wrapEl.clientHeight;return Math.min(vv,wrapEl.clientHeight)-(parseFloat(cs.paddingTop)||0)-(parseFloat(cs.paddingBottom)||0);}
 function fit(){SC=Math.min(innerWidth/W,availH()/H);const dpr=Math.min(3,window.devicePixelRatio||1);TS=Math.max(3,SC*dpr);
   stage.style.width=cv.style.width=tc.style.width=W*SC+'px';stage.style.height=cv.style.height=tc.style.height=H*SC+'px';
   tc.width=Math.round(W*TS);tc.height=Math.round(H*TS);}
-addEventListener('resize',fit);fit();
+addEventListener('resize',fit);if(window.visualViewport)window.visualViewport.addEventListener('resize',fit);fit();
 const rand=Math.random,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),R=Math.round;
 function rng(seed){return()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};}
 const now=()=>Date.now();
-const ROLL={};function roll(key,target){const r=ROLL[key]||(ROLL[key]={v:target});const d=target-r.v;if(Math.abs(d)<1e-9||Math.abs(d)>Math.abs(target)*1e6)r.v=target;else r.v+=d*Math.min(1,0.18*Math.max(1,(60*rollDt)));return r.v;}
+const ROLL={};function roll(key,target){const r=ROLL[key]||(ROLL[key]={v:target});const d=target-r.v;if(Math.abs(d)<1e-9||Math.abs(d)>Math.abs(target)*1e6)r.v=target;else r.v+=d*Math.min(1,(HOLD?0.16:0.32)*Math.max(1,(60*rollDt)));return r.v;}
 let rollDt=1/60;
 function fmtNum(n){n=Math.floor(n);if(n<1000)return String(n);const u=['K','M','B','T','Qa','Qi','Sx','Sp','Oc','No','Dc'];let i=-1,v=n;while(v>=1000&&i<u.length-1){v/=1000;i++;}return (v>=100?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2))+u[i];}
 
@@ -133,25 +133,25 @@ const HEROES=[
   {id:'bram',name:'Bram',cls:'berserker',zone:3},
 ];
 const ENEMIES={
-  slime:{name:'Slime',hp:0.7,atk:0.6,def:0.3,spd:8,range:'melee'},bat:{name:'Bat',hp:0.5,atk:0.7,def:0.2,spd:13,range:'melee',fly:true},orc:{name:'Orc',hp:1.0,atk:1.0,def:0.6,spd:9,range:'melee'},
-  skeleton:{name:'Skeleton',hp:0.9,atk:1.0,def:0.7,spd:10,range:'melee'},marshbat:{name:'Marsh Bat',hp:0.6,atk:0.9,def:0.3,spd:14,range:'melee',fly:true},werewolf:{name:'Werewolf',hp:1.3,atk:1.3,def:0.6,spd:12,range:'melee'},
-  armoredorc:{name:'Armored Orc',hp:1.6,atk:1.1,def:1.5,spd:8,range:'melee'},skelarcher:{name:'Skeleton Archer',hp:0.8,atk:1.2,def:0.5,spd:11,range:'ranged'},eliteorc:{name:'Elite Orc',hp:1.8,atk:1.5,def:1.0,spd:9,range:'melee'},
-  armoredskel:{name:'Ash Skeleton',hp:1.5,atk:1.2,def:1.6,spd:9,range:'melee'},greatskel:{name:'Bone Reaver',hp:1.9,atk:1.7,def:0.9,spd:6,range:'melee'},necromancer:{name:'The Hollow King',scale:2,hp:7.0,atk:1.7,def:1.0,spd:8,range:'aoe',boss:true},
-  werebear:{name:'Werebear',hp:1.7,atk:1.5,def:0.9,spd:8,range:'melee'},orcrider:{name:'Orc Rider',hp:1.6,atk:1.4,def:0.8,spd:12,range:'melee'},
-  oldgrowth:{name:'Old Growth',uid:'werebear',scale:3,hp:6.0,atk:1.8,def:1.1,spd:7,range:'melee',boss:true},
-  sandtyrant:{name:'The Sand Tyrant',uid:'orcrider',scale:3,hp:6.5,atk:1.9,def:1.0,spd:10,range:'melee',boss:true},
-  hunterking:{name:'The Hunter King',uid:'skelarcher',scale:3,hp:6.0,atk:2.0,def:0.9,spd:11,range:'ranged',boss:true},
-  graveknight:{name:'Grave Knight',uid:'greatskel',scale:3,hp:7.0,atk:2.0,def:1.4,spd:7,range:'melee',boss:true},
-  core:{name:'The Foundry Core',uid:'drone',scale:1,native:true,hp:9.0,atk:2.2,def:1.4,spd:9,range:'aoe',boss:true},
+  slime:{name:'Slime',hp:0.7,atk:0.6,def:0.3,spd:8,range:'melee'},bat:{name:'Bat',hp:0.5,atk:0.7,def:0.2,spd:13,range:'melee',fly:true,traits:['stun']},orc:{name:'Orc',hp:1.0,atk:1.0,def:0.6,spd:9,range:'melee'},
+  skeleton:{name:'Skeleton',hp:0.9,atk:1.0,def:0.7,spd:10,range:'melee'},marshbat:{name:'Marsh Bat',hp:0.6,atk:0.9,def:0.3,spd:14,range:'melee',fly:true,traits:['poison']},werewolf:{name:'Werewolf',hp:1.3,atk:1.3,def:0.6,spd:12,range:'melee'},
+  armoredorc:{name:'Armored Orc',hp:1.6,atk:1.1,def:1.5,spd:8,range:'melee'},skelarcher:{name:'Skeleton Archer',hp:0.8,atk:1.2,def:0.5,spd:11,range:'ranged',traits:['charge']},eliteorc:{name:'Elite Orc',hp:1.8,atk:1.5,def:1.0,spd:9,range:'melee'},
+  armoredskel:{name:'Ash Skeleton',hp:1.5,atk:1.2,def:1.6,spd:9,range:'melee'},greatskel:{name:'Bone Reaver',hp:1.9,atk:1.7,def:0.9,spd:6,range:'melee',traits:['charge']},necromancer:{name:'The Hollow King',scale:2,hp:7.0,atk:1.7,def:1.0,spd:8,range:'aoe',boss:true,mech:{drain:true,summon:[{at:0.7,id:'skeleton',n:2},{at:0.35,id:'armoredskel',n:2}]}},
+  werebear:{name:'Werebear',hp:1.7,atk:1.5,def:0.9,spd:8,range:'melee',traits:['enrage']},orcrider:{name:'Orc Rider',hp:1.6,atk:1.4,def:0.8,spd:12,range:'melee',traits:['charge']},
+  oldgrowth:{name:'Old Growth',uid:'werebear',scale:3,hp:6.0,atk:1.8,def:1.1,spd:7,range:'melee',boss:true,mech:{enrage:0.3,charge:true}},
+  sandtyrant:{name:'The Sand Tyrant',uid:'orcrider',scale:3,hp:6.5,atk:1.9,def:1.0,spd:10,range:'melee',boss:true,mech:{charge:true,enrage:0.25,summon:[{at:0.5,id:'sandorc',n:2}]}},
+  hunterking:{name:'The Hunter King',uid:'skelarcher',scale:3,hp:6.0,atk:2.0,def:0.9,spd:11,range:'ranged',boss:true,mech:{charge:true,summon:[{at:0.6,id:'skelarcher',n:2}]}},
+  graveknight:{name:'Grave Knight',uid:'greatskel',scale:3,hp:7.0,atk:2.0,def:1.4,spd:7,range:'melee',boss:true,mech:{charge:true,raise:true,summon:[{at:0.7,id:'skeleton',n:2}]}},
+  core:{name:'The Foundry Core',uid:'drone',scale:1,native:true,hp:9.0,atk:2.2,def:1.4,spd:9,range:'aoe',boss:true,mech:{charge:true,shieldAllies:true,summon:[{at:0.6,id:'scoutdroid',n:2}]}},
   scoutdroid:{name:'Scout Droid',uid:'drone',native:true,nscale:0.3,hue:0,hp:0.9,atk:1.2,def:0.8,spd:13,range:'ranged',fly:true},
-  warddroid:{name:'Warden Droid',uid:'drone',native:true,nscale:0.42,hue:120,hp:1.6,atk:1.5,def:1.3,spd:9,range:'aoe',fly:true},
-  bogslime:{name:'Bog Slime',uid:'slime',hue:60,hp:1.0,atk:0.8,def:0.4,spd:7,range:'melee'},frostbat:{name:'Frost Bat',uid:'bat',hue:170,hp:0.7,atk:0.9,def:0.3,spd:14,range:'melee',fly:true},
-  direwolf:{name:'Dire Wolf',uid:'werewolf',hue:300,hp:1.5,atk:1.5,def:0.7,spd:13,range:'melee'},cavetroll:{name:'Cave Troll',uid:'werebear',hue:200,hp:2.1,atk:1.6,def:1.2,spd:6,range:'melee'},
-  ironhusk:{name:'Iron Husk',uid:'skeleton',hue:200,hp:1.3,atk:1.2,def:1.5,spd:9,range:'melee'},sentinel:{name:'Sentinel',uid:'armoredskel',hue:120,hp:1.8,atk:1.4,def:1.9,spd:8,range:'melee'},
+  warddroid:{name:'Warden Droid',uid:'drone',native:true,nscale:0.42,hue:120,hp:1.6,atk:1.5,def:1.3,spd:9,range:'aoe',fly:true,traits:['shieldAllies']},
+  bogslime:{name:'Bog Slime',uid:'slime',hue:60,hp:1.0,atk:0.8,def:0.4,spd:7,range:'melee',traits:['poison']},frostbat:{name:'Frost Bat',uid:'bat',hue:170,hp:0.7,atk:0.9,def:0.3,spd:14,range:'melee',fly:true,traits:['stun']},
+  direwolf:{name:'Dire Wolf',uid:'werewolf',hue:300,hp:1.5,atk:1.5,def:0.7,spd:13,range:'melee'},cavetroll:{name:'Cave Troll',uid:'werebear',hue:200,hp:2.1,atk:1.6,def:1.2,spd:6,range:'melee',traits:['enrage']},
+  ironhusk:{name:'Iron Husk',uid:'skeleton',hue:200,hp:1.3,atk:1.2,def:1.5,spd:9,range:'melee'},sentinel:{name:'Sentinel',uid:'armoredskel',hue:120,hp:1.8,atk:1.4,def:1.9,spd:8,range:'melee',traits:['shieldAllies']},
   sandorc:{name:'Sand Orc',uid:'orc',hue:40,hp:1.2,atk:1.2,def:0.8,spd:9,range:'melee'},
-  slimeking:{name:'The Slime King',uid:'slime',scale:4,hp:5.0,atk:1.3,def:0.5,spd:6,range:'melee',boss:true},
-  alphawolf:{name:'The Alpha',uid:'werewolf',scale:3,hp:5.5,atk:1.6,def:0.7,spd:10,range:'melee',boss:true},
-  warlord:{name:'Orc Warlord',uid:'eliteorc',scale:3,hp:6.0,atk:1.7,def:1.2,spd:8,range:'melee',boss:true},
+  slimeking:{name:'The Slime King',uid:'slime',scale:4,mech:{summon:[{at:0.5,id:'slime',n:2}]},hp:5.0,atk:1.3,def:0.5,spd:6,range:'melee',boss:true},
+  alphawolf:{name:'The Alpha',uid:'werewolf',scale:3,mech:{summon:[{at:0.6,id:'werewolf',n:2}],howl:0.3},hp:5.5,atk:1.6,def:0.7,spd:10,range:'melee',boss:true},
+  warlord:{name:'Orc Warlord',uid:'eliteorc',scale:3,mech:{charge:true,shieldAllies:true,summon:[{at:0.5,id:'orc',n:2}]},hp:6.0,atk:1.7,def:1.2,spd:8,range:'melee',boss:true},
 };
 const ZONES=[
   {name:'Greenhollow Fields',lv:1,fights:24,pool:['slime','bat','orc'],boss:'slimeking',scene:'hills',recruit:'vex'},
@@ -177,6 +177,23 @@ const TREE=[
   {branch:'Camp',id:'march',name:'Long Stride',desc:'+4% march speed per rank',max:999,base:60,cur:'gold'},
   {branch:'Camp',id:'rest',name:'Warm Fire',desc:'+2% healing after each fight',max:999,base:90,cur:'gold'},
   {branch:'Camp',id:'quest',name:'Provisions',desc:'+6% quest rewards per rank',max:999,base:200,cur:'gold'},
+  {branch:'Party',id:'spd',name:'Quickstep',desc:'+2% action speed per rank',max:50,base:200,cur:'gold'},
+  {branch:'Party',id:'regen',name:'Second Wind',desc:'Heroes heal 1% HP each turn per rank',max:10,base:400,cur:'gold'},
+  {branch:'Party',id:'front',name:'Vanguard',desc:'+5% defense for the front hero per rank',max:999,base:160,cur:'gold'},
+  {branch:'Party',id:'def',name:'Bulwark',desc:'+4% defense per rank',max:999,base:120,cur:'gold'},
+  {branch:'Party',id:'crit',name:'Keen Edge',desc:'+1% critical chance for every hero',max:40,base:250,cur:'gold'},
+  {branch:'Tap',id:'tapcrit',name:'Sharp Taps',desc:'+2% chance a tap deals triple damage',max:25,base:120,cur:'gold'},
+  {branch:'Tap',id:'tapgold',name:'Pickpocket',desc:'Taps steal 0.5% of an enemy\'s bounty per rank',max:20,base:300,cur:'gold'},
+  {branch:'Tap',id:'tapsurge',name:'Resonance',desc:'Taps charge the Crystal Surge',max:5,base:600,cur:'gold'},
+  {branch:'Camp',id:'keys',name:'Locksmith',desc:'Catacomb keys return 8% faster per rank',max:10,base:500,cur:'gold'},
+  {branch:'Camp',id:'haggle',name:'Haggling',desc:'Villagers cost 3% less to hire per rank',max:20,base:250,cur:'gold'},
+  {branch:'Camp',id:'swift',name:'Swift Return',desc:'Quests finish 3% sooner per rank',max:20,base:350,cur:'gold'},
+  {branch:'Camp',id:'ore',name:'Prospecting',desc:'+5% ore from every source',max:999,base:150,cur:'gold'},
+  {branch:'Camp',id:'offline',name:'Night Watch',desc:'+30 min offline cap (8h base, 12h max)',max:8,base:800,cur:'gold'},
+  {branch:'Crystal',id:'b_ore',name:'Deep Veins',desc:'+15% ore from every source',max:99,base:3,cur:'dust'},
+  {branch:'Crystal',id:'b_dust',name:'Crystal Memory',desc:'+5% dust from every Reforge',max:20,base:8,cur:'dust'},
+  {branch:'Crystal',id:'b_keys',name:'Deeper Halls',desc:'+1 catacomb key held',max:3,base:12,cur:'dust'},
+  {branch:'Crystal',id:'b_surge',name:'Resonant Heart',desc:'Crystal Surge charges 10% faster',max:10,base:5,cur:'dust'},
   {branch:'Crystal',id:'b_gold',name:'Gilded Road',desc:'+15% gold from every source',max:99,base:3,cur:'dust'},
   {branch:'Crystal',id:'b_xp',name:'Old Wisdom',desc:'+15% experience',max:99,base:3,cur:'dust'},
   {branch:'Crystal',id:'b_dmg',name:'Sharpened Fate',desc:'+8% damage dealt',max:99,base:4,cur:'dust'},
@@ -184,10 +201,23 @@ const TREE=[
 ];
 const xpNeed=l=>R(30*Math.pow(l,1.6)*Math.pow(1.03,l));
 const treeLv=id=>G.tree[id]||0;
-function heroStats(h){const c=CLASSES[h.cls],L=h.lvl-1;let hp=c.hp+c.ghp*L,atk=c.atk+c.gatk*L,def=c.def+c.gdef*L;
+const TALENTS={
+  knight:[{id:'ironguard',name:'Iron Guard',desc:'Shield Wall also shields the hero behind'},{id:'riposte',name:'Riposte',desc:'While shielded, 20% chance to counter each hit'},{id:'unbroken',name:'Unbroken',desc:'Once per fight, survive a killing blow at 1 HP'}],
+  cleric:[{id:'mending',name:'Mending',desc:'Basic attacks heal the weakest ally 5%'},{id:'echo',name:'Divine Echo',desc:'Sanctuary heals again next turn at 15%'},{id:'lastrites',name:'Last Rites',desc:'Revived allies act immediately'}],
+  rogue:[{id:'quickdraw',name:'Quickdraw',desc:'Start every fight with 30% ability charge'},{id:'executioner',name:'Executioner',desc:'Shadowstep +50% vs enemies under 30% HP'},{id:'poison',name:'Poisoned Steel',desc:'Critical hits poison the target'}],
+  mage:[{id:'burn',name:'Arcane Burn',desc:'Spells make the target take 20% more damage'},{id:'stars',name:'Falling Stars',desc:'Meteor adds three small follow-up impacts'},{id:'overflow',name:'Overflow',desc:'Kills refund 20% ability charge'}],
+  ranger:[{id:'pierce',name:'Piercing Shot',desc:'Attacks have a 50% chance to hit a second enemy'},{id:'mark',name:"Hunter's Mark",desc:'Each hit on the same enemy adds 5% damage, up to 50%'},{id:'deadeye',name:'Deadeye',desc:'15% crit chance against bleeding enemies'}],
+  berserker:[{id:'frenzy',name:'Blood Frenzy',desc:'Kills extend Rage by two turns'},{id:'defiant',name:'Defiant Rage',desc:'Rage no longer increases damage taken below 30% HP'},{id:'warcry',name:'Warcry',desc:'Rage also gives the party +20% attack for three turns'}]};
+function talentReq(i){return{lvl:[10,25,45][i],gold:R([800,6000,40000][i]*Math.pow(2,G.reforges||0))};}
+function buyTalent(h,i){h.talents=h.talents||{};const t=TALENTS[h.cls][i],q=talentReq(i);if(h.talents[t.id]){toast(t.name+': '+t.desc);return;}if(h.lvl<q.lvl){toast(t.name+' needs Lv '+q.lvl+': '+t.desc);return;}if(G.gold<q.gold){toast(t.name+' costs '+fmtNum(q.gold)+' gold: '+t.desc);return;}G.gold-=q.gold;h.talents[t.id]=true;sfx('level',true);toast(h.name+' learns '+t.name,C.goldL);}
+const TITLES={knight:['Knight','Paladin','Crusader','Warden'],cleric:['Cleric','Bishop','Oracle','Saint'],rogue:['Rogue','Assassin','Shadow','Phantom'],mage:['Mage','Archmage','Sorcerer','Magus'],ranger:['Ranger','Marksman','Sharpshot','Windwalker'],berserker:['Berserker','Warlord','Titan','Juggernaut']};
+function heroTitle(h){return (TITLES[h.cls]||[CLASSES[h.cls].name])[Math.min(3,h.tier||0)];}
+function promoteReq(h){const t=h.tier||0;return{lvl:30*(t+1),gold:R(5000*Math.pow(12,t)),dust:5*(t+1)};}
+function promoteHero(h){const t=h.tier||0;if(t>=3){toast(h.name+' is already a '+heroTitle(h));return;}const q=promoteReq(h);if(h.lvl<q.lvl){toast('Reach Lv '+q.lvl+' first');return;}if(G.gold<q.gold||G.dust<q.dust){toast('Needs '+fmtNum(q.gold)+' gold and '+q.dust+' dust');return;}G.gold-=q.gold;G.dust-=q.dust;h.tier=t+1;refreshStats(h);h.hp=h.maxhp;sfx('level',true);levelBurst(h);banner(h.name+' becomes a '+heroTitle(h),'+30% to every stat, ability power up',3,'any');}
+function heroStats(h){const c=CLASSES[h.cls],L=h.lvl-1,tm=Math.pow(1.3,h.tier||0);let hp=(c.hp+c.ghp*L)*tm,atk=(c.atk+c.gatk*L)*tm,def=(c.def+c.gdef*L)*tm;
   const eq=h.eq||{};if(eq.weapon)atk+=itemStat(eq.weapon);if(eq.cape)def+=itemStat(eq.cape);if(eq.charm)hp+=itemStat(eq.charm);
-  hp*=1+0.04*treeLv('hp');atk*=1+0.04*treeLv('atk');return{maxhp:R(hp),atk:R(atk),def:R(def),spd:c.spd};}
-function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.25,G.reforges||0);return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
+  hp*=1+0.04*treeLv('hp');atk*=1+0.04*treeLv('atk');def*=1+0.04*treeLv('def');return{maxhp:R(hp),atk:R(atk),def:R(def),spd:c.spd};}
+function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.25,G.reforges||0)*(G.zone===0&&!G.delve?0.75:1);return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
 // items
 let itemSeq=1;
 function itemStat(it){const rf=1+0.1*(G.reforges||0),base=it.slot==='weapon'?6:it.slot==='cape'?3:12;return R(base*Math.pow(2.2,it.rank)*Math.pow(1.10,it.lvl)*rf);}
@@ -197,8 +227,8 @@ function itemStatLabel(it){return (it.slot==='weapon'?'+'+fmtNum(itemStat(it))+'
 function wielders(it){return Object.values(CLASSES).filter(c=>c.weapon===it.kind).map(c=>c.name).join('/');}
 function ascendCost(it){return R(40*Math.pow(4,it.rank)*Math.pow(1.14,it.lvl));}
 function ascendCap(){return Math.min(4,1+(G.reforges||0));}
-function ascendItem(it,h){if(it.rank>=4){toast('Already Sunforged');return;}if(it.rank>=ascendCap()){toast(RANKS[it.rank+1]+' needs '+(it.rank+1-(G.reforges||0))+' more Reforge'+(it.rank-(G.reforges||0)?'s':''));return;}const c=ascendCost(it);if(G.ore<c){toast('Need '+fmtNum(c)+' ore');return;}G.ore-=c;it.rank++;if(h)refreshStats(h);sfx('level');toast(itemName(it)+' - ascended to '+RANKS[it.rank],RANKHEX[it.rank]);}
-function upgradeCost(it){return R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,it.lvl));}
+function ascendItem(it,h){if(it.rank>=4){toast('Already Sunforged');return;}if(it.rank>=ascendCap()){toast(RANKS[it.rank+1]+' needs '+(it.rank+1-(G.reforges||0))+' more Reforge'+(it.rank-(G.reforges||0)?'s':''));return;}const c=ascendCost(it);if(G.ore<c){toast('Need '+fmtNum(c)+' ore');return;}G.ore-=c;it.rank++;if(h)refreshStats(h);sfx('level',true);toast(itemName(it)+' - ascended to '+RANKS[it.rank],RANKHEX[it.rank]);}
+function upgradeCost(it){return R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,it.lvl)*(built('forge')?0.85:1));}
 const DROP_TABLE=[[80,20,0,0,0],[55,35,10,0,0],[45,40,15,0,0],[35,40,20,5,0],[30,38,24,8,0],[25,36,27,10,2],[20,35,30,12,3],[15,32,32,16,5],[10,28,34,20,8]];
 function rollRank(zoneIdx,shift=0){shift+=Math.min(2,Math.floor((G.reforges||0)/2));const t=DROP_TABLE[Math.min(zoneIdx,DROP_TABLE.length-1)];const cap=t.reduce((m,w,i)=>w>0?i:m,0);let r=rand()*100,rank=0;for(let i=0;i<5;i++){r-=t[i];if(r<=0){rank=i;break;}}return Math.min(cap,rank+shift);}
 function makeItem(zoneIdx,forceRank){const slot=['weapon','cape','charm'][Math.floor(rand()*3)];
@@ -252,7 +282,7 @@ function drawUnit(u){const x=R(u.x+u.dx),y=R(GROUND+(u.yoff||0)+(u.fly?-10:0)-(u
 function attackFps(n){return Math.max(13,Math.min(20,n*1.45));}
 
 // ============================================================ state
-const G={screen:'road',zone:0,prog:[0,0,0,0,0,0,0,0,0],cleared:[false,false,false,false,false,false,false,false,false],gold:0,ore:0,dust:0,roster:[],active:[],pack:[],tree:{},quests:[],mode:'walk',enc:3,enemies:[],projs:[],floats:[],banner:null,scroll:0,t:0,action:null,timer:0,shake:0,parts:[],run:{start:now(),fights:0,bosses:0,gold:0,bestFloor:0},card:null,autoUntil:0,autoCast:false,music:true,title:true,speed:1,speedUntil:0,mult:1,autoSalvage:0,surge:0,musicVol:0.55,sfxVol:1,wins:0,fast:false,sheet:null,gearHero:0,toast:null,selItem:null,campfireDone:false};
+const G={screen:'road',zone:0,prog:[0,0,0,0,0,0,0,0,0],cleared:[false,false,false,false,false,false,false,false,false],gold:0,ore:0,dust:0,roster:[],active:[],pack:[],tree:{},quests:[],mode:'walk',enc:3,enemies:[],projs:[],floats:[],banner:null,scroll:0,t:0,action:null,timer:0,shake:0,parts:[],run:{start:now(),fights:0,bosses:0,gold:0,bestFloor:0},card:null,stats:{kills:0,bosses:0,hit:0,gold:0,ore:0,items:0,legendary:0,hordes:0,offline:0,defeats:0,delveRuns:0,taps:0},autoUntil:0,autoCast:false,music:true,title:true,speed:1,speedUntil:0,mult:1,autoSalvage:0,surge:0,musicVol:0.55,sfxVol:1,wins:0,fast:false,sheet:null,gearHero:0,toast:null,selItem:null,campfireDone:false};
 function mkHero(def){const h={def,id:def.id,name:def.name,cls:def.cls,uid:def.cls,range:CLASSES[def.cls].range,lvl:1,xp:0,x:0,dx:0,yoff:0,flip:false,hop:0,gauge:rand()*50,dead:false,charge:0,abLvl:1,eq:{},status:{},readyT:0};Object.assign(h,heroStats(h));h.hp=h.maxhp;setAnim(h,'walk');return h;}
 function addHero(def,lvl=1){const h=mkHero(def);h.lvl=lvl;Object.assign(h,heroStats(h));h.hp=h.maxhp;G.roster.push(h);if(G.active.length<4){h.x=-30;G.active.push(h);layout();}return h;}
 const US=1.5;const HERO_X=[24,60,96,132],ENEMY_X=[192,224,254],ENEMY_Y=[0,-3,3];
@@ -268,38 +298,53 @@ function banner(t,sub='',dur=2.4,scope='road'){G.banner={text:t,sub,t:0,dur,scop
 function toast(t,col,scope){G.toast={text:t,t:0,col,scope};}
 function living(list){return list.filter(u=>!u.dead);}
 function frontHero(){return living(G.active)[0];}
-function abilityPower(h){return (0.45+0.35*(1-Math.pow(0.82,h.abLvl-1))*2.2)*(1+0.03*treeLv('abil'));}
+function abilityPower(h){return (0.45+0.35*(1-Math.pow(0.82,h.abLvl-1))*2.2)*(1+0.03*treeLv('abil'))*(1+0.2*(h.tier||0))*(built('library')?1.15:1);}
+function f1(x){return (Math.round(x*10)/10).toString();}
 function abilityDesc(h){const r=h.abLvl,p=abilityPower(h);switch(CLASSES[h.cls].ab.id){
-  case 'shieldwall':return 'Draws all attacks for 3 turns, taking '+R(shieldPct(h)*100)+'% less damage.';
-  case 'sanctuary':return 'Heals the party '+R(35*p)+'% and revives the fallen at '+R(30*p)+'%.';
-  case 'shadowstep':return 'Three strikes at '+R(90*p)+'% each; the last always crits.';
-  case 'meteor':return 'Hits every enemy for '+R(180*p)+'% damage.';
-  case 'rain':return 'Hits every enemy for '+R(110*p)+'% and bleeds them '+(3+Math.floor(r/2))+' turns.';
+  case 'shieldwall':return 'Draws all attacks for 3 turns, taking '+f1(shieldPct(h)*100)+'% less damage.';
+  case 'sanctuary':return 'Heals the party '+f1(35*p)+'% and revives the fallen at '+f1(30*p)+'%.';
+  case 'shadowstep':return 'Three strikes at '+f1(90*p)+'% each; the last always crits.';
+  case 'meteor':return 'Hits every enemy for '+f1(180*p)+'% damage.';
+  case 'rain':return 'Hits every enemy for '+f1(110*p)+'% and bleeds them '+(3+Math.floor(r/2))+' turns.';
   case 'rage':return 'Double damage for '+(3+Math.floor(r/3))+' turns; takes 50% more.';}}
 function shieldPct(h){return Math.min(0.65,0.15+0.4*(1-Math.pow(0.85,h.abLvl-1))+0.01*treeLv('abil'));}
 
 // ============================================================ battle
-function spawnEncounter(){
-  const Z=ZONES[G.zone],p=G.prog[G.zone];const bossFight=!!(Z.boss&&p===Z.fights-1&&!G.cleared[G.zone]);
-  const n=bossFight?1:1+Math.floor(rand()*Math.min(3,1+p/3));G.enemies=[];
+function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};
+  const Z=ZONES[G.zone],p=G.prog[G.zone];const bossFight=!!(Z.boss&&p===Z.fights-1&&!G.cleared[G.zone]);const cpS=Z.fights/3,elite=!bossFight&&!G.cleared[G.zone]&&p===2*cpS;
+  const n=(bossFight||elite)?1:1+Math.floor(rand()*Math.min(3,1+p/3));G.enemies=[];
   for(let i=0;i<n;i++){const id=bossFight?Z.boss:Z.pool[Math.floor(rand()*Z.pool.length)];const L=R(Z.lv+p*0.3+(G.cleared[G.zone]?3:0));
     const E=ENEMIES[id];const e={uid:E.uid||id,id,name:E.name+(bossFight?'':['',' Veteran',' Elder'][Math.min(2,Math.floor(p/(Z.fights/3)))]),lvl:L,x:W+40+i*36,slot:bossFight?(E.native?226:200+8*(E.scale||1)):ENEMY_X[i],dx:0,yoff:bossFight?0:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:!!E.boss,scale:E.scale||1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:bossFight?0:Math.min(2,Math.floor(p/(Z.fights/3))),gauge:rand()*40,dead:false,enemy:true,status:{},flash:0};
-    Object.assign(e,enemyStats(id,L));e.hp=e.maxhp;setAnim(e,'walk');G.enemies.push(e);}
-  G.mode='enter';G.bossFight=bossFight;G.active.forEach(h=>setAnim(h,'idle'));if(bossFight)banner(ENEMIES[Z.boss].name,'guards the shard',2.5);
+    Object.assign(e,enemyStats(id,L));e.traits=(E.traits||[]).slice();e.mech=E.mech?JSON.parse(JSON.stringify(E.mech)):null;e.acts=0;if(elite){e.name='Elite '+E.name;e.maxhp=R(e.maxhp*3);e.atk=R(e.atk*1.4);e.scale=Math.max(e.scale,2);e.slot=224;if(!e.traits.includes('charge'))e.traits.push('charge');e.elite=true;}
+    if(bossFight&&e.mech&&e.mech.charge)e.traits.push('charge');e.hp=e.maxhp;setAnim(e,'walk');G.enemies.push(e);}
+  for(const h of G.active){h.unbrokenUsed=false;h.marks=0;if(h.talents&&h.talents.quickdraw)h.charge=Math.max(h.charge,30);}for(const e of G.enemies)e.marks=0;
+  G.mode='enter';G.bossFight=bossFight;G.active.forEach(h=>setAnim(h,'idle'));if(bossFight)banner(ENEMIES[Z.boss].name,'holds '+(3+G.zone)+' prisoners',2.5);else if(elite)banner(G.enemies[0].name,'blocks the road',2.2);
 }
+function bossCheck(e){const m=e.mech;if(!m)return;const r=e.hp/e.maxhp;
+  if(m.summon)for(const sm of m.summon){if(!sm.done&&r<sm.at){sm.done=true;summonAdds(e,sm.id,sm.n);}}
+  if(m.howl&&!m.howled&&r<m.howl){m.howled=true;e.spd=R(e.spd*1.4);float(e.x,GROUND-60,'HOWL!','#ff8a80',true);sfx('cast');}
+  if(m.enrage&&!e.enraged&&r<m.enrage){enrage(e);}}
+function enrage(e){e.enraged=true;e.atk=R(e.atk*1.5);float(e.x,GROUND-60,'ENRAGED','#ff5050',true);sfx('crit');G.shake=0.3;}
+function summonAdds(e,id,n){const L=e.lvl;let k=0;for(let i=0;i<3&&k<n;i++){if(G.enemies.filter(x=>!x.dead).length>=4)break;const E=ENEMIES[id];const a={uid:E.uid||id,id,name:E.name,lvl:Math.max(1,L-2),x:W+40+i*30,slot:ENEMY_X[i]-20,dx:0,yoff:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:false,scale:1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:0,gauge:rand()*30,dead:false,enemy:true,status:{},flash:0,traits:(E.traits||[]).slice(),acts:0};Object.assign(a,enemyStats(id,a.lvl));a.hp=a.maxhp;setAnim(a,'walk');G.enemies.push(a);k++;}float(e.x,GROUND-60,'summons',C.cream,true);sfx('cast');}
+function dmgColor(d,crit){return d>=1e9?'#e1bee7':d>=1e6?'#ff6a6a':d>=1e3?'#ffa040':crit?C.goldL:C.cream;}
 function dealDamage(src,tgt,mult=1,opts={}){
-  let atk=src.atk;if(src.status&&src.status.rage>0)atk*=2;
-  let dmg=atk*(0.85+rand()*0.3)*mult*(src.enemy?1:bless('dmg'))-tgt.def*0.5*(tgt===frontHero()?1.15:1);const c=CLASSES[src.cls];let crit=opts.crit||false;
-  if(!crit&&c&&c.crit&&rand()<c.crit)crit=true;if(crit)dmg*=1.6;
-  if(tgt.status&&tgt.status.shield>0)dmg*=(1-(tgt.status.shieldPct||0.3));if(tgt.status&&tgt.status.rage>0)dmg*=1.5;
-  dmg=Math.max(1,R(dmg));tgt.hp-=dmg;sfx(crit?'crit':'hit');if(G.delve&&!src.enemy){const lr=G.delve.relics.find(r=>r.leech);if(lr){src.hp=Math.min(src.maxhp,src.hp+R(dmg*lr.leech));}}
-  float(tgt.x+tgt.dx+(rand()*10-5),GROUND+(tgt.yoff||0)-30,crit?dmg+'!':String(dmg),src.enemy?'#ff8a80':(crit?C.goldL:C.cream),crit);
-  if(tgt.hp<=0){tgt.hp=0;tgt.dead=true;tgt.status={};setAnim(tgt,'death',false,8);if(tgt.enemy)killReward(tgt);}
+  let atk=src.atk;if(src.status&&src.status.rage>0)atk*=2;if(src.status&&src.status.cry>0)atk*=1.2;if(!src.enemy&&src.talents&&src.talents.deadeye&&tgt.status&&tgt.status.bleed>0&&rand()<0.15)opts={...opts,crit:true};
+  let dmg=atk*(0.85+rand()*0.3)*mult*(src.enemy?1:bless('dmg'))-tgt.def*0.5*(tgt===frontHero()?1.15+0.05*treeLv('front'):1);const c=CLASSES[src.cls];let crit=opts.crit||false;
+  if(!crit&&c&&rand()<(c.crit||0)+0.01*treeLv('crit')+(built('range')?0.05:0))crit=true;if(crit)dmg*=1.6;
+  if(tgt.status&&tgt.status.shield>0)dmg*=(1-(tgt.status.shieldPct||0.3));if(tgt.status&&tgt.status.ward>0)dmg*=0.7;if(tgt.status&&tgt.status.rage>0&&!(tgt.talents&&tgt.talents.defiant&&tgt.hp<tgt.maxhp*0.3))dmg*=1.5;if(tgt.status&&tgt.status.burn>0)dmg*=1.2;
+  if(G.delve&&!src.enemy){const bs=G.delve.relics.find(r=>r.bleed);if(bs){src.hp=Math.max(1,src.hp-R(src.maxhp*bs.bleed));}if(crit){const ft=G.delve.relics.find(r=>r.feather);if(ft)src.charge=Math.min(100,src.charge+ft.feather);}}
+  dmg=Math.max(1,R(dmg));if(!tgt.enemy&&tgt.talents&&tgt.talents.unbroken&&!tgt.unbrokenUsed&&tgt.hp-dmg<=0){dmg=tgt.hp-1;tgt.unbrokenUsed=true;float(tgt.x,GROUND-44,'Unbroken!',C.goldL,true);}tgt.hp-=dmg;sfx(crit?'crit':'hit');if(!src.enemy&&G.fs){G.fs.dmg+=dmg;G.stats.hit=Math.max(G.stats.hit||0,dmg);}if(src.enemy&&G.fs){G.fs.taken=G.fs.taken||{};G.fs.taken[src.name]=(G.fs.taken[src.name]||0)+dmg;G.fs.takenT=G.fs.takenT||{};G.fs.takenT[src.range]=(G.fs.takenT[src.range]||0)+dmg;}
+  if(src.enemy&&!tgt.dead&&tgt.talents&&tgt.talents.riposte&&tgt.status.shield>0&&rand()<0.2){src.hp-=R(tgt.atk*0.8);float(src.x+src.dx,GROUND-40,'riposte '+fmtNum(R(tgt.atk*0.8)),C.goldL);if(src.hp<=0){src.hp=0;src.dead=true;setAnim(src,'death',false,8);killReward(src);}}
+  if(src.enemy&&!tgt.dead){const tr=src.traits||[];if(tr.includes('poison')&&rand()<0.35){tgt.status.poison=3;float(tgt.x,GROUND-46,'poisoned','#7ad07a');}if(tr.includes('stun')&&rand()<0.15&&!tgt.status.stun){tgt.status.stun=1;float(tgt.x,GROUND-46,'stunned','#f4d35e');}if(src.mech&&src.mech.drain&&tgt.charge>0){tgt.charge=Math.max(0,tgt.charge-25);float(tgt.x,GROUND-46,'drained','#b06cff');}}
+  if(!src.enemy&&tgt.enemy&&!tgt.dead){if(src.talents&&src.talents.burn&&(opts.spell)){tgt.status.burn=3;}if(src.talents&&src.talents.mark){tgt.marks=(tgt.marks||0)+1;}if(src.talents&&src.talents.poison&&crit){tgt.status.poison=3;}}
+  if(tgt.enemy&&!tgt.dead)bossCheck(tgt);if(G.delve&&!src.enemy){const lr=G.delve.relics.find(r=>r.leech);if(lr){src.hp=Math.min(src.maxhp,src.hp+R(dmg*lr.leech));}}
+  float(tgt.x+tgt.dx+(rand()*10-5),GROUND+(tgt.yoff||0)-30,crit?fmtNum(dmg)+'!':fmtNum(dmg),src.enemy?'#ff8a80':dmgColor(dmg,crit),crit||dmg>=1e6);
+  if(tgt.hp<=0){tgt.hp=0;tgt.dead=true;tgt.status={};setAnim(tgt,'death',false,8);if(tgt.enemy){killReward(tgt);if(!src.enemy&&src.talents){if(src.talents.frenzy&&src.status.rage>0)src.status.rage+=2;if(src.talents.overflow)src.charge=Math.min(100,src.charge+20);}}}
   else if(!(G.action&&G.action.u===tgt)&&!opts.noHurt)setAnim(tgt,'hurt',false,10);
   return dmg;}
-function killReward(e){G.surge=Math.min(100,(G.surge||0)+2.5);sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*bless('gold'));G.gold+=gold;G.run.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+gold+' gold',C.goldL);
+function killReward(e){G.stats.kills++;if(e.boss)G.stats.bosses++;G.surge=Math.min(100,(G.surge||0)+2.5*(1+0.1*treeLv('b_surge'))*(built('workshop')?1.5:1));sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*bless('gold'));G.gold+=gold;G.run.gold+=gold;G.stats.gold+=gold;if(G.fs)G.fs.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+gold+' gold',C.goldL);
   for(const h of G.active){h.xp+=h.dead?R(xp/2):xp;while(h.xp>=xpNeed(h.lvl)){h.xp-=xpNeed(h.lvl);h.lvl++;refreshStats(h);h.hp=h.maxhp;h.dead=false;levelBurst(h);}}
-  if(rand()<0.35){const o=(1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6));G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+o+' ore',C.muted);}}
+  if(rand()<0.35){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*(1+0.05*treeLv('ore'))*bless('ore'));G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+o+' ore',C.muted);}}
 function heal(src,tgt,amt){amt=R(amt);sfx('heal');tgt.hp=Math.min(tgt.maxhp,tgt.hp+amt);float(tgt.x+tgt.dx,GROUND-30,'+'+amt,'#8ff0a0');}
 function pickTarget(u){const foes=living(u.enemy?G.active:G.enemies);if(!foes.length)return null;
   if(u.enemy){const shield=foes.find(h=>h.status.shield>0);if(shield)return shield;const f=frontHero();return rand()<0.6?f:foes[Math.floor(rand()*foes.length)];}
@@ -307,6 +352,11 @@ function pickTarget(u){const foes=living(u.enemy?G.active:G.enemies);if(!foes.le
 function chooseAction(u){
   const foes=living(u.enemy?G.active:G.enemies),allies=living(u.enemy?G.enemies:G.active);if(!foes.length)return null;
   const n=ATLAS[u.uid].anims.attack.n,fps=attackFps(n),hit=Math.floor(n*0.5);
+  if(u.status.stun>0){u.status.stun--;float(u.x+u.dx,GROUND-40,'stunned',C.goldL);return{u,kind:'skip',anim:'hurt',fps:10,hit:99};}
+  if(u.enemy){u.acts=(u.acts||0)+1;const tr=u.traits||[];
+    if(u.mech&&u.mech.raise&&u.acts%3===0){const corpse=G.enemies.find(x=>x.dead&&!x.boss&&!x.raised);if(corpse){corpse.raised=true;corpse.dead=false;corpse.hp=R(corpse.maxhp*0.4);setAnim(corpse,'idle');float(corpse.x,GROUND-40,'raised','#b06cff');return{u,kind:'skip',anim:'attack',fps,hit:99};}}
+    if(tr.includes('shieldAllies')&&u.acts%3===0&&allies.length>1){for(const a of allies)if(a!==u){a.status.ward=3;}float(u.x+u.dx,GROUND-40,'wards allies','#7fd4ff');return{u,kind:'skip',anim:'attack',fps,hit:99};}
+    if(tr.includes('charge')&&u.acts%3===0){const tgt=pickTarget(u);const kind=u.range==='ranged'||u.range==='aoe'?'chargeR':'chargeM';return{u,kind,tgt,tgts:foes,anim:'attack',fps,hit,phase:'tele',pt:0,tele:2.0,name:u.range==='melee'?'Cleave':'Volley'};}}
   if(!u.enemy&&(u.tapCast||(u.charge>=100&&G.autoCast&&u.readyT>=0.4))){return abilityAction(u,!!u.tapCast);}
   if(u.range==='heal')return{u,kind:'bolt',tgt:pickTarget(u),anim:'attack',fps,hit};
   const tgt=pickTarget(u);
@@ -319,22 +369,27 @@ function abilityAction(u,tapped){const c=CLASSES[u.cls],id=c.ab.id;const pow=abi
   return{u,kind:'ability',ab:id,pow,anim,fps:attackFps(n),hit:Math.floor(n*0.5),tgts:living(G.enemies),tgt:pickTarget(u),hits:0,phase:'dash',pt:0};}
 function startAction(a){G.action=a;a.hitDone=false;a.pt=0;if(a.kind!=='melee'&&!(a.kind==='ability'&&(a.ab==='shadowstep')))setAnim(a.u,a.anim,false,a.fps);}
 function endAction(){const a=G.action,u=a.u;G.action=null;u.dx=0;if(!u.dead)setAnim(u,'idle');
+  if(u.status.poison>0){u.status.poison--;const pd=R(u.maxhp*0.03);u.hp-=pd;float(u.x+u.dx,GROUND-26,'-'+fmtNum(pd),'#7ad07a');if(u.hp<=0){u.hp=0;u.dead=true;u.status={};setAnim(u,'death',false,8);if(u.enemy)killReward(u);}}
+  if(u.status.ward>0)u.status.ward--;if(u.status.burn>0)u.status.burn--;if(u.status.cry>0)u.status.cry--;if(u.echo>0){u.echo--;if(u.echo===0){for(const h of living(G.active))heal(u,h,h.maxhp*0.15);float(u.x,GROUND-44,'Divine Echo',C.goldL);}}
   if(!u.enemy&&a.kind!=='ability'){u.charge=Math.min(100,u.charge+4);}
-  for(const s of ['shield','rage']){if(u.status[s]>0)u.status[s]--;}}
+  for(const s of ['shield','rage']){if(u.status[s]>0)u.status[s]--;}if(!u.enemy&&treeLv('regen')&&!u.dead){const rg=R(u.maxhp*0.01*treeLv('regen'));if(rg>0&&u.hp<u.maxhp){u.hp=Math.min(u.maxhp,u.hp+rg);}}}
 function applyAbility(a){const u=a.u,pow=a.pow;
   switch(a.ab){
-    case 'shieldwall':u.status.shield=4;u.status.shieldPct=shieldPct(u);break;
-    case 'sanctuary':for(const h of G.active){if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3*pow);setAnim(h,'idle');float(h.x,GROUND-30,'Revived','#8ff0a0');}else heal(u,h,h.maxhp*0.35*pow);}break;
-    case 'meteor':G.shake=0.4;for(const t of a.tgts)if(!t.dead)dealDamage(u,t,1.8*pow);break;
+    case 'shieldwall':u.status.shield=4;u.status.shieldPct=shieldPct(u);if(u.talents&&u.talents.ironguard){const i=G.active.indexOf(u),b=G.active[i+1];if(b&&!b.dead){b.status.shield=4;b.status.shieldPct=shieldPct(u)*0.6;}}break;
+    case 'sanctuary':for(const h of G.active){if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3*pow);setAnim(h,'idle');float(h.x,GROUND-30,'Revived','#8ff0a0');if(u.talents&&u.talents.lastrites)h.gauge=100;}else heal(u,h,h.maxhp*0.35*pow);}if(u.talents&&u.talents.echo)u.echo=2;break;
+    case 'meteor':G.shake=0.4;for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.8*pow,{spell:true});if(u.talents&&u.talents.stars)for(let k=0;k<3;k++)if(!t.dead)dealDamage(u,t,0.3*pow,{spell:true,noHurt:true});}break;
     case 'rain':for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.1*pow);t.status.bleed=3+Math.floor(u.abLvl/2);}break;
-    case 'rage':u.status.rage=4+Math.floor(u.abLvl/3);break;
+    case 'rage':u.status.rage=4+Math.floor(u.abLvl/3);if(u.talents&&u.talents.warcry)for(const h of living(G.active))if(h!==u)h.status.cry=3;break;
   }}
 function updateAction(dt){const a=G.action,u=a.u;
-  if(a.kind==='melee'||(a.kind==='ability'&&a.ab==='shadowstep')){
+  if(a.kind==='skip'){if(u.done)endAction();return;}
+  if(a.phase==='tele'){a.pt+=dt;if(a.pt>=a.tele){a.phase=a.kind==='chargeM'?'dash':'fire';a.pt=0;if(a.phase==='fire')setAnim(u,'attack',false,a.fps);}return;}
+  if(a.kind==='chargeR'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;for(const t of (u.range==='aoe'?a.tgts:[a.tgt]))if(t&&!t.dead)dealDamage(u,t,2.2);}if(u.done)endAction();return;}
+  if(a.kind==='melee'||a.kind==='chargeM'||(a.kind==='ability'&&a.ab==='shadowstep')){
     const tgt=a.tgt;if(!tgt||tgt.dead&&a.phase==='dash'){endAction();return;}
     const dir=u.enemy?-1:1,dest=(tgt.x+tgt.dx)-dir*(30+(tgt.scale>1?10*(tgt.scale-1):0))-u.x;
     if(a.phase==='dash'){a.pt+=dt/0.11;u.dx=dest*Math.min(1,a.pt);if(a.pt>=1){a.phase='hit';setAnim(u,'attack',false,a.kind==='ability'?16:a.fps);}}
-    else if(a.phase==='hit'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;if(!tgt.dead){if(a.kind==='ability'){a.hits++;dealDamage(u,tgt,0.9*a.pow,{crit:a.hits===3,noHurt:a.hits<3});}else dealDamage(u,tgt);}}
+    else if(a.phase==='hit'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;if(!tgt.dead){if(a.kind==='ability'){a.hits++;let m2=0.9*a.pow;if(u.talents&&u.talents.executioner&&tgt.hp<tgt.maxhp*0.3)m2*=1.5;dealDamage(u,tgt,m2,{crit:a.hits===3,noHurt:a.hits<3});}else if(a.kind==='chargeM'){dealDamage(u,tgt,2.5);G.shake=0.3;}else{let m3=1;if(!u.enemy&&u.talents&&u.talents.mark)m3*=1+0.05*Math.min(10,tgt.marks||0);dealDamage(u,tgt,m3);}}}
       if(u.done){if(a.kind==='ability'&&a.hits<3&&!tgt.dead){a.hitDone=false;setAnim(u,'attack',false,16);}else{a.phase='back';a.pt=0;a.from=u.dx;}}}
     else{a.pt+=dt/0.11;u.dx=a.from*(1-Math.min(1,a.pt));if(a.pt>=1){u.dx=0;endAction();}}
     return;}
@@ -343,46 +398,50 @@ function updateAction(dt){const a=G.action,u=a.u;
     else if(a.kind==='heal')heal(u,a.tgt,u.atk*2.4);
     else if(a.kind==='aoe'){for(const t of a.tgts)if(!t.dead)G.projs.push(magicProj(u,t,0.7));}
     else if(a.kind==='bolt'){if(a.tgt&&!a.tgt.dead)G.projs.push(magicProj(u,a.tgt,0.8));}
-    else if(a.kind==='ranged'){if(a.tgt){const A=ATLAS[u.uid];G.projs.push({x:u.x+u.dx+(u.enemy?-10:10),y:GROUND+(u.yoff||0)-A.oy*0.9,tgt:a.tgt,src:u,t:0,dur:0.28,flip:u.enemy});}}}
+    else if(a.kind==='ranged'){if(a.tgt){const A=ATLAS[u.uid];G.projs.push({x:u.x+u.dx+(u.enemy?-10:10),y:GROUND+(u.yoff||0)-A.oy*0.9,tgt:a.tgt,src:u,t:0,dur:0.28,flip:u.enemy});if(!u.enemy&&u.talents&&u.talents.pierce&&rand()<0.5){const other=living(G.enemies).find(e=>e!==a.tgt);if(other)G.projs.push({x:u.x+u.dx+10,y:GROUND-A.oy*0.9,tgt:other,src:u,t:0,dur:0.32,flip:false,mult:0.6});}}}
+    if(!u.enemy&&u.talents&&u.talents.mending&&a.kind!=='ability'){const low=living(G.active).sort((p,q)=>p.hp/p.maxhp-q.hp/q.maxhp)[0];if(low&&low.hp<low.maxhp)heal(u,low,low.maxhp*0.05);}}
   if(u.done)endAction();}
 function magicColor(u){if(u.enemy)return'#b06cff';const it=u.eq&&u.eq.weapon;const t=it?WTINT[Math.min(4,it.rank)]:null;if(!t)return u.cls==='cleric'?'#ffe9a8':'#7fd4ff';const[r,g,b]=hsv2rgb(t[0],t[1],1);return`rgb(${r},${g},${b})`;}
 function magicProj(u,t,mult){return{x:u.x+u.dx+(u.enemy?-12:12),y:GROUND+(u.yoff||0)-22,tgt:t,src:u,t:0,dur:0.32,flip:u.enemy,magic:true,mult,col:magicColor(u)};}
-function updateProjs(dt){for(const p of G.projs){p.t+=dt;if(p.magic&&rand()<0.7){const k=p.t/p.dur,txx=p.tgt.x+p.tgt.dx,x=p.x+(txx-p.x)*k,y=p.y+(GROUND+(p.tgt.yoff||0)-16-p.y)*k;G.parts.push({x,y:y+(rand()*4-2),vx:0,vy:-6,life:0.3,col:p.col});}if(p.t>=p.dur){p.hit=true;if(!p.tgt.dead)dealDamage(p.src,p.tgt,p.mult||1);}}G.projs=G.projs.filter(p=>!p.hit);}
+function updateProjs(dt){for(const p of G.projs){p.t+=dt;if(p.magic&&rand()<0.7){const k=p.t/p.dur,txx=p.tgt.x+p.tgt.dx,x=p.x+(txx-p.x)*k,y=p.y+(GROUND+(p.tgt.yoff||0)-16-p.y)*k;G.parts.push({x,y:y+(rand()*4-2),vx:0,vy:-6,life:0.3,col:p.col});}if(p.t>=p.dur){p.hit=true;if(!p.tgt.dead){let m=p.mult||1;if(!p.src.enemy&&p.src.talents&&p.src.talents.mark)m*=1+0.05*Math.min(10,p.tgt.marks||0);dealDamage(p.src,p.tgt,m,{spell:!!p.magic});}}}G.projs=G.projs.filter(p=>!p.hit);}
 function drawProjs(){const P=ATLAS._arrow,img=IMG._arrow;for(const p of G.projs){const k=p.t/p.dur,txx=p.tgt.x+p.tgt.dx;
   if(p.magic){const x=p.x+(txx-p.x)*k,y=p.y+(GROUND+(p.tgt.yoff||0)-16-p.y)*k;ctx.globalAlpha=0.5;px(R(x)-3,R(y)-3,6,6,p.col);ctx.globalAlpha=1;px(R(x)-2,R(y)-2,4,4,p.col);px(R(x)-1,R(y)-1,2,2,'#fff');continue;}
   const tyy=GROUND+(p.tgt.yoff||0)-ATLAS[p.tgt.uid].oy*0.6;const x=p.x+(txx-p.x)*k,y=p.y+(tyy-p.y)*k-Math.sin(k*Math.PI)*8;ctx.save();ctx.translate(R(x),R(y));if(p.flip)ctx.scale(-1,1);ctx.drawImage(img,-P.w/2,-P.h/2);ctx.restore();}}
 function castSurge(){if(G.surge<100)return;if(G.mode!=='battle'){toast('Save it for a fight - it strikes every enemy');return;}G.surge=0;G.shake=0.5;sfx('level');sfx('cast');const atk=G.active.reduce((s2,h)=>s2+h.atk,0);banner('Crystal Surge','Party restored · every enemy struck for '+fmtNum(atk*2.5),3.2);
   for(const h of G.active){h.dead=false;h.hp=h.maxhp;h.status={};if(h.anim==='death')setAnim(h,'idle');}
-  for(const e of living(G.enemies)){const d=R(atk*2.5*(0.9+rand()*0.2));e.hp-=d;e.flash=0.2;float(e.x+e.dx,GROUND+(e.yoff||0)-40,String(d),C.goldL,true);if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}}}
-function tapDamage(){const avg=G.active.reduce((s,h)=>s+h.lvl,0)/Math.max(1,G.active.length);return R((1+avg*0.4)*Math.pow(1.2,treeLv('tap')));}
-function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;sfx('tap');const d=tapDamage();e.hp-=d;e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,String(d),C.cyan);
+  for(const e of living(G.enemies)){const d=R(atk*2.5*(0.9+rand()*0.2));e.hp-=d;e.flash=0.2;float(e.x+e.dx,GROUND+(e.yoff||0)-40,fmtNum(d),C.goldL,true);G.fs.dmg+=d;if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}}}
+function tapDamage(){const avgAtk=G.active.reduce((s2,h)=>s2+h.atk,0)/Math.max(1,G.active.length);return Math.max(1,R(avgAtk*0.3*Math.pow(1.15,treeLv('tap'))*(built('watchtower')?1.1:1)));}
+function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;G.stats.taps++;sfx('tap');let d=tapDamage();if(rand()<0.02*treeLv('tapcrit')){d*=3;sfx('crit');}if(treeLv('tapgold')){const g=R((3+e.lvl*2)*Math.pow(1.05,e.lvl)*0.005*treeLv('tapgold')*bless('gold'));if(g>0){G.gold+=g;}}e.hp-=d;e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,fmtNum(d),C.cyan);G.fs.taps++;G.fs.dmg+=d;
   if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}
-  const mom=treeLv('tapcharge');if(mom)for(const h of living(G.active)){h.charge=Math.min(100,h.charge+mom);}}
+  const mom=treeLv('tapcharge');if(mom)for(const h of living(G.active)){h.charge=Math.min(100,h.charge+mom);}if(treeLv('tapsurge'))G.surge=Math.min(100,(G.surge||0)+0.2*treeLv('tapsurge'));}
 function endBattle(win){if(G.delve){if(win)delveWin();else endDelve(true);return;}const Z=ZONES[G.zone];
-  if(win){G.wins++;G.run.fights++;if(G.bossFight){G.run.bosses++;const bn=ENEMIES[Z.boss].name;G.card={title:bn,sub:'falls',lines:[],t:0};}
-    const dropChance=G.wins<=3?0.5:0.18;if(G.pack.length<15&&(rand()<dropChance||G.bossFight||G.wins===1)){const it=makeItem(G.zone,G.bossFight?'boss':null);if(G.wins===1){it.slot='weapon';it.kind=CLASSES[G.active[0].cls].weapon;it.rank=0;}if(G.autoSalvage&&it.rank<G.autoSalvage&&G.wins>1){const o=(it.rank+1)*4;G.ore+=o;toast('Salvaged '+itemName(it)+' for '+o+' ore',C.muted,'road');}else{G.pack.push(it);float(W/2-40,SCENE_Y+56,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank],'road');if(G.card&&G.bossFight)G.card.lines.push('Loot: '+itemName(it));}}
+  if(win){G.wins++;G.run.fights++;if(canReforge()&&G.run.fights%25===0){G.dust+=1;toast('+1 crystal dust for holding the road','#bbdefb','road');}if(G.bossFight){G.run.bosses++;if(canReforge()){G.dust+=2;}G.castle.bp=G.castle.bp||{};const sk=Object.keys(STRUCTS).find(k=>STRUCTS[k].boss===Z.boss);if(sk&&!G.castle.bp[sk]){G.castle.bp[sk]=true;G.pending='Blueprint found: '+STRUCTS[sk].name+' - build it in Vael';G.vaelNew=true;}const bn=ENEMIES[Z.boss].name,fs=G.fs||{dmg:0,taps:0,gold:0};G.card={title:bn,sub:'falls',lines:['Damage dealt '+fmtNum(fs.dmg)+'  ·  taps '+fs.taps,'Gold '+fmtNum(fs.gold)],t:0};}
+    const dropChance=G.wins<=3?0.5:0.18;if(G.pack.length<15&&(rand()<dropChance||G.bossFight||G.wins===1)){const it=makeItem(G.zone,G.bossFight?'boss':null);if(G.wins===1){it.slot='weapon';it.kind=CLASSES[G.active[0].cls].weapon;it.rank=0;}if(G.autoSalvage&&it.rank<G.autoSalvage&&G.wins>1){const o=(it.rank+1)*4;G.ore+=o;toast('Salvaged '+itemName(it)+' for '+o+' ore',C.muted,'road');}else{G.pack.push(it);G.stats.items++;if(it.rank>=4)G.stats.legendary++;toast('Found: '+itemName(it),RANKHEX[it.rank],'road');if(G.card&&G.bossFight)G.card.lines.push('Loot: '+itemName(it));}}
     const restHeal=0.15+0.02*treeLv('rest');for(const h of G.active){h.status={};if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3);}else h.hp=Math.min(h.maxhp,h.hp+R(h.maxhp*restHeal));}
     if(!G.cleared[G.zone]){G.prog[G.zone]++;G.far=G.far||[];G.far[G.zone]=Math.max(G.far[G.zone]||0,G.prog[G.zone]);
-      if(G.prog[G.zone]>=Z.fights){G.cleared[G.zone]=true;grantShardVillagers();if(G.zone<ZONES.length-1)G.newZone=true;if(G.zone===3)G.reforgeNew=true;banner('Crystal shard recovered!',G.zone<ZONES.length-1?ZONES[G.zone+1].name+' lies ahead':'The road is whole again',3.5);
+      if(G.prog[G.zone]>=Z.fights){G.cleared[G.zone]=true;grantShardVillagers();if(G.zone<ZONES.length-1)G.newZone=true;if(G.zone===3)G.reforgeNew=true;if(G.zone===0&&!G.vaelSeen)G.vaelNew=true;banner('Crystal shard recovered!',G.zone<ZONES.length-1?ZONES[G.zone+1].name+' lies ahead':'The road is whole again',3.5);
         const rdef=HEROES.find(d=>d.id===Z.recruit);if(rdef&&!G.roster.find(h=>h.id===rdef.id)){const h=addHero(rdef,Math.max(1,Z.lv));G.pending=h.name+' the '+CLASSES[h.cls].name+' joins the road';}}}
     if(!G.campfireDone&&G.wins>=2){G.campfireDone=true;const h=addHero(HEROES[1],1);G.pending='Sera the Cleric joins you at the campfire';}
     G.mode='victory';G.timer=1.4;
-  }else{banner('The party falls','Regrouping at camp…',2.6);G.mode='defeat';G.timer=2.8;}}
+  }else{const fs=G.fs||{};const taken=fs.taken||{},tt=fs.takenT||{};const top=Object.entries(taken).sort((a,b)=>b[1]-a[1])[0];const tot=Object.values(tt).reduce((a,b)=>a+b,0)||1;const mix=Object.entries(tt).map(([k,v])=>R(100*v/tot)+'% '+(k==='melee'?'melee':'ranged/magic')).join(', ');
+    const tips=[];if(!G.active.find(h=>h.cls==='cleric')&&G.roster.find(h=>h.cls==='cleric'))tips.push('No healer marched - bring Sera');const el=G.enemies[0]?G.enemies[0].lvl:0,avg=R(G.active.reduce((s2,h)=>s2+h.lvl,0)/Math.max(1,G.active.length));if(el>avg+3)tips.push('Enemies Lv '+el+' vs your Lv '+avg+' - farm an earlier checkpoint');if((tt.melee||0)>tot*0.6)tips.push('Mostly melee damage - upgrade capes, Shield Wall earlier');else if((tt.ranged||0)+(tt.aoe||0)>tot*0.6)tips.push('Mostly ranged damage - kill archers first, more HP charms');if(G.pack.some(it=>it.slot==='weapon'&&!G.active.some(h=>h.eq.weapon&&itemStat(h.eq.weapon)>=itemStat(it))))tips.push('Better gear is waiting in your pack');
+    G.card={title:'Defeated',sub:top?'Worst threat: '+top[0]+' ('+fmtNum(top[1])+' damage)':'The party falls',lines:[mix?'Damage taken: '+mix:''].concat(tips.slice(0,3)).filter(Boolean),t:0};G.stats.defeats=(G.stats.defeats||0)+1;banner('The party falls','Regrouping at camp…',2.6);G.mode='defeat';G.timer=2.8;}}
 function reqReforge(z){return z>=8?3:z>=6?2:z>=4?1:0;}
 function zoneUnlocked(z){return z===0||(G.cleared[z-1]&&(G.reforges||0)>=reqReforge(z));}
-function bless(k){const lv=treeLv('b_'+k),rf=Math.pow(1.15,G.reforges||0);return k==='gold'?(1+0.15*lv)*rf:k==='xp'?1+0.15*lv:k==='dmg'?1+0.08*lv:1;}
-function reforgeGain(){const cleared=G.cleared.filter(Boolean).length,best=Math.max(...G.roster.map(h=>h.lvl));return 4+3*cleared+Math.floor(best/10)+2*(G.reforges||0);}
+function bless(k){const lv=treeLv('b_'+k),rf=Math.pow(1.15,G.reforges||0);return k==='gold'?(1+0.15*lv)*rf:k==='xp'?1+0.15*lv:k==='dmg'?1+0.08*lv:k==='ore'?1+0.15*lv:1;}
+function reforgeGain(){const cleared=G.cleared.filter(Boolean).length,best=Math.max(...G.roster.map(h=>h.lvl));return R((4+3*cleared+Math.floor(best/10)+2*(G.reforges||0))*(1+0.05*treeLv('b_dust')));}
 function canReforge(){return G.cleared[3];}
 function doReforge(){const gain=reforgeGain();G.dust+=gain;G.reforges=(G.reforges||0)+1;const startLv=1+5*treeLv('b_start');
   for(const h of G.roster){h.lvl=startLv;h.xp=0;h.status={};refreshStats(h);h.hp=h.maxhp;h.dead=false;h.charge=0;h.tapCast=false;}
-  G.run={start:now(),fights:0,bosses:0,gold:0,bestFloor:0};G.gold=0;G.ore=0;G.prog=ZONES.map(()=>0);G.far=ZONES.map(()=>0);G.cleared=ZONES.map(()=>false);G.zone=0;G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=4;G.wins=Math.max(G.wins,3);G.newZone=false;
+  let refund=0;const allItems=G.pack.concat(...G.roster.map(h=>Object.values(h.eq||{})));for(const it of allItems){let spent=0;for(let l=0;l<it.lvl;l++)spent+=R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,l));refund+=spent*0.5;it.lvl=0;}
+  G.run={start:now(),fights:0,bosses:0,gold:0,bestFloor:0};G.gold=0;G.ore=R(refund);G.prog=ZONES.map(()=>0);G.far=ZONES.map(()=>0);G.cleared=ZONES.map(()=>false);G.zone=0;G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=4;G.wins=Math.max(G.wins,3);G.newZone=false;
   for(const h of G.active)setAnim(h,'walk');layout();G.screen='road';closeSheet();banner('The Crystal is reforged','+'+gain+' crystal dust · run '+(G.reforges+1),4,'any');saveGame();}
 function marchSpeed(){return 28*(1+0.04*treeLv('march'));}
 
 // ============================================================ quests
 function questSlots(){return 3+treeLv('slots');}
 function heroStatus(h){if(G.active.includes(h))return'marching';if(G.quests.find(q=>q.hero===h))return'quest';if(G.castle&&G.castle.garrison.includes(h.id))return'garrison';return'camp';}
-function questDur(q){return q.dur*(G.fast?1/120:1);}
+function questDur(q){return q.dur*(G.fast?1/120:1)*(1-0.03*treeLv('swift'))*(built('kennels')?0.85:1);}
 function startQuest(h,qdef){G.quests.push({hero:h,q:qdef,end:now()+questDur(qdef)*1000});toast(h.name+' sets out to '+qdef.name.toLowerCase());}
 function collectQuest(q){const mult=(1+0.06*treeLv('quest'))*(CLASSES[q.hero.cls].weapon===({forage:'staff',hunt:'axe',scout:'bow',pilgrim:'sword'})[q.q.id]?1.3:1);const L=q.hero.lvl;let msg='';
   if(q.q.reward==='gold'){const g=R((30+L*8)*mult);G.gold+=g;msg='+'+g+' gold';}
@@ -404,9 +463,9 @@ function multLabel(){return G.mult==='max'?'Max':'×'+G.mult;}
 function cycleMult(){G.mult=G.mult===1?5:G.mult===5?25:G.mult===25?'max':1;}
 
 // ============================================================ main loop
-let last=0;const hits=[];let HIT_DY=0;
-function hit(x,y,w,h,fn){hits.push({x,y:y+HIT_DY,w,h,fn});}
-const SCROLL={tree:0,heroes:0,map:0},CONTENT={tree:0,heroes:0,map:0};
+let last=0;const hits=[];let HIT_DY=0;let HOLD=null;
+function hit(x,y,w,h,fn,hold){hits.push({x,y:y+HIT_DY,w,h,fn,hold:!!hold});}
+const SCROLL={tree:0,heroes:0,map:0},CONTENT={tree:0,heroes:0,map:0},SCROLLTOP={tree:44,heroes:44,map:48};
 function beginScroll(key,top){const sc=SCROLL[key]||0;ctx.save();ctx.beginPath();ctx.rect(0,top,W,TABY-top);ctx.clip();ctx.translate(0,-sc);tx.save();tx.beginPath();tx.rect(0,top*TS,W*TS,(TABY-top)*TS);tx.clip();tx.translate(0,-sc*TS);HIT_DY=-sc;}
 function endScroll(key,bottom){ctx.restore();tx.restore();HIT_DY=0;CONTENT[key]=bottom;}
 function scrollMax(key,top){return Math.max(0,(CONTENT[key]||0)-(TABY-8));}
@@ -415,18 +474,19 @@ function update(dt,ui=true){G.t+=dt;if(G.shake>0)G.shake-=dt;
   const all=G.active.concat(G.enemies);
   for(const u of all){stepAnim(u,dt);if(u.flash>0)u.flash-=dt;if(u.done&&u.anim==='hurt'&&!(G.action&&G.action.u===u))setAnim(u,'idle');}
   for(const f of G.floats){f.life-=dt;f.y-=18*dt;}G.floats=G.floats.filter(f=>f.life>0);for(const p of G.parts){p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=40*dt;}G.parts=G.parts.filter(p=>p.life>0);
-  if(ui){if(G.card){G.card.t+=dt;if(G.card.t>=4.2)G.card=null;}if(G.banner){G.banner.t+=dt;if(G.banner.t>=G.banner.dur){G.banner=null;}}
+  if(ui&&G.tut==null){if(G.card){G.card.t+=dt;if(G.card.t>=4.2)G.card=null;}if(G.banner){G.banner.t+=dt;if(G.banner.t>=G.banner.dur){G.banner=null;}}
   if(G.pending&&!G.banner&&G.tut==null){banner(G.pending,G.pending==='Greenhollow Fields'?'The first shard lies ahead':'',2.6);G.pending=null;}
   if(G.toast){G.toast.t+=dt;if(G.toast.t>2.2)G.toast=null;}}
   if(G.title||G.tut!=null){return;}
   if(G.mode==='delve'){if(G.delve&&G.delve.choose&&ui){G.delve.timer-=dt;if(G.delve.timer<=0)chooseDoor(G.delve.doors[Math.floor(rand()*3)]);}}
+  if(!G.delve){G.simT=(G.simT||0)+dt;G.zoneT=G.zoneT||[];G.zoneT[G.zone]=(G.zoneT[G.zone]||0)+dt;}
   if(G.mode==='walk'){G.scroll+=marchSpeed()*dt;G.enc-=dt;G.active.forEach(h=>setAnim(h,'walk'));if(G.enc<=0)spawnEncounter();}
   else if(G.mode==='enter'){let all2=true;for(const e of G.enemies){if(e.x>e.slot){e.x=Math.max(e.slot,e.x-70*dt);all2=false;}else if(e.anim==='walk'&&!e.fly)setAnim(e,'idle');}if(all2){G.mode='battle';G.enemies.forEach(e=>setAnim(e,'idle'));}}
   else if(G.mode==='battle'){
     if(G.action)updateAction(dt);updateProjs(dt);
     if(!living(G.enemies).length&&!G.action&&!G.projs.length)return endBattle(true);
     if(!living(G.active).length&&!G.action&&!G.projs.length)return endBattle(false);
-    if(!G.action){for(const u of all)if(!u.dead)u.gauge+=u.spd*dt*7;
+    if(!G.action){for(const u of all)if(!u.dead)u.gauge+=u.spd*dt*7*(u.enemy?1:1+0.02*treeLv('spd'));
       let ready=all.filter(u=>!u.dead&&u.gauge>=100).sort((a,b)=>b.gauge-a.gauge)[0];
       const caster=G.active.find(h=>!h.dead&&(h.tapCast||(h.charge>=100&&G.autoCast&&h.readyT>=0.4)));if(caster)ready=caster;
       if(ready){if(ready!==caster)ready.gauge=0;const a=chooseAction(ready);if(a){startAction(a);
@@ -434,7 +494,7 @@ function update(dt,ui=true){G.t+=dt;if(G.shake>0)G.shake-=dt;
   }else if(G.mode==='victory'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.mode='walk';G.enc=2.5+rand()*3;if(G.bossFight)G.bossFight=false;}}
   else if(G.mode==='defeat'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.projs=[];G.action=null;for(const h of G.active){h.dead=false;h.hp=h.maxhp;h.dx=0;h.status={};setAnim(h,'walk');}layout();if(!G.cleared[G.zone]){const cs=ZONES[G.zone].fights/3;G.prog[G.zone]=Math.floor(G.prog[G.zone]/cs)*cs;}G.mode='walk';G.enc=3;}}
   if(G.castle&&(G.t%1)<dt)castleTick();
-  if(ui&&!G.delve&&G.screen==='road'&&G.tut==null){if(G.treasure){G.treasure.t+=dt;if(G.treasure.t>=G.treasure.life)G.treasure=null;}else{G.treasureAt-=dt;if(G.treasureAt<=0){spawnTreasure();G.treasureAt=20+rand()*25;}}}
+  if(ui&&!G.delve&&G.screen==='road'&&G.tut==null){if(G.treasure){G.treasure.t+=dt;if(G.treasure.t>=G.treasure.life)G.treasure=null;}else{G.treasureAt-=dt;if(G.treasureAt<=0&&G.mode==='walk'){spawnTreasure();G.treasureAt=25+rand()*30;}}}
   for(const q of G.quests.slice())if(now()>=q.end&&!q.done){q.done=true;toast(q.hero.name+' is back from the '+q.q.name.toLowerCase());}
 }
 
@@ -445,11 +505,11 @@ function drawTop(){px(0,0,W,15,'#090b14');px(0,15,W,1,C.goldD);
   button(184,1,62,13,true);icon('play',187,2,4);text(218,3.5,left>0?'Boosts '+fmtT(left).split(':').slice(0,2).join(':'):'Boosts','xs',C.goldL,'center');hit(184,0,62,15,()=>openSheet('ad'));
   text(21,2.5,fmtNum(roll('gold',G.gold)),'num',C.goldL);text(83,2.5,fmtNum(roll('ore',G.ore)),'num',C.cream);text(139,2.5,fmtNum(roll('dust',G.dust)),'num','#bbdefb');}
 function drawTabs(){px(0,TABY,W,42,C.out);px(0,TABY,W,1,C.gold);px(0,TABY+1,W,1,C.goldD);
-  const tabs=[['sword','Gear','gear'],['party','Heroes','heroes'],['road','Road','road'],['castle','Vael','vael'],['nodes','Tree','tree']];
+  const tabs=[['party','Heroes','heroes'],['sword','Gear','gear'],['road','Road','road'],['castle','Vael','vael'],['nodes','Tree','tree']];
   tabs.forEach(([ic,label,id],i)=>{const x=i*54,on=G.screen===id||(id==='road'&&G.screen==='map'),lk=tabLocked(id);
-    if(id==='road'){const cx=x+27,cy=TABY+6;ctx.fillStyle=on?C.goldL:C.gold;ctx.beginPath();ctx.arc(cx,cy,17,0,Math.PI*2);ctx.fill();ctx.fillStyle=on?'#3c3214':C.navy;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fill();icon('road',cx-12,cy-12,on?4:4,2);if(!on){ctx.globalAlpha=0.5+0.5*Math.sin(RT*5);px(cx+10,cy-14,4,4,'#ff5050');ctx.globalAlpha=1;}text(cx,TABY+25,label,'sb',on?C.goldL:C.cream,'center');hit(x,TABY-14,54,56,()=>{G.screen='road';G.selItem=null;G.salvage=false;});return;}
+    if(id==='road'){const cx=x+27,cy=TABY+10;ctx.fillStyle=on?C.goldL:C.gold;ctx.beginPath();ctx.arc(cx,cy,13,0,Math.PI*2);ctx.fill();ctx.fillStyle=on?'#3c3214':C.navy;ctx.beginPath();ctx.arc(cx,cy,11,0,Math.PI*2);ctx.fill();icon('road',cx-6,cy-6,4);if(!on){ctx.globalAlpha=0.5+0.5*Math.sin(RT*5);ctx.strokeStyle='#ff5050';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,cy,15,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;}text(cx,TABY+25,label,'sb',on?C.goldL:C.cream,'center');hit(x,TABY-6,54,48,()=>{G.screen='road';G.selItem=null;G.salvage=false;});return;}
     if(on){px(x+2,TABY+3,50,37,C.navy2);px(x+2,TABY+3,50,1,C.goldL);}if(lk){ctx.globalAlpha=0.35;icon(ic,x+21,TABY+8,0);ctx.globalAlpha=1;icon('lock',x+30,TABY+4,0);}else icon(ic,x+21,TABY+8,on?4:0);
-    if(id==='vael'&&!lk&&keysNow()>0&&!on){}text(x+27,TABY+24,label,'sb',lk?C.dimt:(on?C.goldL:C.muted),'center');hit(x,TABY,54,42,()=>{if(lk){toast(lockHint(id));return;}G.screen=id;G.selItem=null;G.salvage=false;});});}
+    if(id==='vael'&&G.vaelNew&&!on){ctx.globalAlpha=0.5+0.5*Math.sin(RT*5);px(x+2,TABY+3,50,1,C.goldL);px(x+2,TABY+39,50,1,C.goldL);px(x+38,TABY+6,4,4,C.goldL);ctx.globalAlpha=1;}text(x+27,TABY+24,label,'sb',lk?C.dimt:(on?C.goldL:C.muted),'center');hit(x,TABY,54,42,()=>{if(lk){toast(lockHint(id));return;}G.screen=id;G.selItem=null;G.salvage=false;if(id==='vael'&&G.vaelNew){G.vaelNew=false;G.vaelSeen=true;G.tut=TUT.length;TUT.push({t:'Vael is yours',s:'Build the Mine and Market, then assign villagers to them. They dig ore and trade for gold while you are away.',screen:'vael',box:[4,182+(BIG?26:16),262,TABY-8-(182+(BIG?26:16))],once:true},{t:'Walls, hordes and the Catacombs',s:'Raise the Walls and post heroes there to hold off the horde. The Catacombs below are a short dungeon run for one hero.',screen:'vael',box:[2,46,W-4,126],once:true});}});});}
 function tabLocked(id){if(G.tut!=null)return false;if(id==='vael')return !G.cleared[0]&&!(G.reforges>0);if(id==='tree')return G.wins<3&&!(G.reforges>0);return false;}
 function lockHint(id){return id==='vael'?'Recover the first shard to claim Vael':'Win three fights to open the Tree';}
 function drawScene(){const Z=ZONES[G.zone];const key=G.delve?(G.delve.floor>=12?'door':'cave'):((G.bossFight&&Z.bossScene)?Z.bossScene:Z.scene);const layers=SCENES[key];
@@ -460,7 +520,10 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.delve?(G.delve.floor>=12?
   }
   for(const h of G.active){if(h.dead)continue;const fighting=G.mode==='battle'||G.mode==='enter';if(!fighting&&h.hp>=h.maxhp)continue;const x=R(h.x+h.dx),y=GROUND-38;bar(x-15,y,30,4,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red,'#1b1b1b');}
   if(G.mode==='battle'||G.mode==='enter'){
-    for(const u of G.active.concat(G.enemies)){if(u.dead)continue;const bs=u.native?(u.boss?4:1.2):(u.scale>1?u.scale:US),x=R(u.x+u.dx),y=(u.enemy?GROUND+(u.yoff||0)-(u.fly?44:R(26*bs+6)):GROUND-38)+5;px(x-10*bs,y,20*bs,1,'#141826');px(x-10*bs,y,R(20*bs*clamp(u.gauge/100,0,1)),1,'#8a93a8');}}
+    for(const u of G.active.concat(G.enemies)){if(u.dead)continue;const bs=u.native?(u.boss?4:1.2):(u.scale>1?u.scale:US),x=R(u.x+u.dx),y=(u.enemy?GROUND+(u.yoff||0)-(u.fly?44:R(26*bs+6)):GROUND-38)+5;px(x-10*bs,y,20*bs,1,'#141826');px(x-10*bs,y,R(20*bs*clamp(u.gauge/100,0,1)),1,'#8a93a8');
+      let ix=x-10*bs;const st=u.status||{};if(st.poison>0){px(ix,y-8,4,4,'#3a8a3a');ix+=6;}if(st.stun>0){px(ix,y-8,4,4,'#f4d35e');ix+=6;}if(st.ward>0){px(ix,y-8,4,4,'#4fa0e0');ix+=6;}if(st.bleed>0){px(ix,y-8,4,4,'#c03030');ix+=6;}if(st.burn>0){px(ix,y-8,4,4,'#ff8a30');ix+=6;}if(u.enraged){px(ix,y-8,4,4,'#ff3030');ix+=6;}
+      if(G.action&&G.action.u===u&&G.action.phase==='tele'){const a=G.action,f=a.pt/a.tele,bw=Math.max(26,20*bs);px(x-bw/2-1,y-16,bw+2,7,'#1a0a0a');px(x-bw/2,y-15,R(bw*f),5,'#ff5050');text(x,y-27,a.name+' '+(a.tele-a.pt).toFixed(1)+'s','xsb','#ff8a80','center');}}
+    for(const u of G.enemies){if(u.enraged&&!u.dead){const x=R(u.x+u.dx);ctx.fillStyle='rgba(255,40,40,0.18)';ctx.beginPath();ctx.ellipse(x,GROUND-14*(u.scale||1),14*(u.scale||1),18*(u.scale||1),0,0,Math.PI*2);ctx.fill();}}}
   if(!G.delve&&G.screen==='road'&&G.tut==null)drawTreasure();
   ctx.restore();
   for(const f of G.floats){ctx.globalAlpha=1;text(R(f.x),R(f.y),f.text,f.big?'h':'sb',f.color,'center',Math.min(1,f.life*2));}
@@ -475,7 +538,8 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.delve?(G.delve.floor>=12?
   // zone plate
   ctx.globalAlpha=0.7;frame(4,SCENE_Y+4,150,36,'rgba(22,26,44,0.75)');ctx.globalAlpha=1;const p=Math.min(G.prog[G.zone],Z.fights),cpN=3,cpS=Z.fights/cpN,far=Math.max(p,(G.far||[])[G.zone]||0);
   if(G.newZone||G.reforgeNew){ctx.globalAlpha=0.5+0.5*Math.sin(RT*5);px(4,SCENE_Y+4,150,1,C.goldL);px(4,SCENE_Y+39,150,1,C.goldL);px(4,SCENE_Y+4,1,36,C.goldL);px(153,SCENE_Y+4,1,36,C.goldL);ctx.globalAlpha=1;}
-  text(9,SCENE_Y+7,Z.name+'  ›','sb',C.goldL);text(9,SCENE_Y+17,'Danger Lv '+Z.lv+(G.cleared[G.zone]?'  ·  Shard recovered':''),'xs',C.muted);hit(4,SCENE_Y+4,150,22,()=>{G.screen='map';G.newZone=false;G.reforgeNew=false;});
+  {const ax=143,ay=SCENE_Y+14,glow=G.newZone||G.reforgeNew;if(glow){ctx.strokeStyle=C.goldL;ctx.lineWidth=1.5;ctx.globalAlpha=0.5+0.5*Math.sin(RT*5);ctx.beginPath();ctx.arc(ax,ay,7,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;}text(ax,ay-5.5,'›','sb',glow?C.goldL:C.muted,'center');if(canReforge()){icon('crystal',ax-22,ay-6,2);}}
+  text(9,SCENE_Y+7,Z.name,'sb',C.goldL);text(9,SCENE_Y+17,'Danger Lv '+Z.lv+(G.cleared[G.zone]?'  ·  Shard recovered':''),'xs',C.muted);hit(4,SCENE_Y+4,150,22,()=>{G.screen='map';G.newZone=false;G.reforgeNew=false;});
   {const lx=12,rx=138,ly=SCENE_Y+31;px(lx,ly,rx-lx,1,'#3a4260');px(lx,ly,R((rx-lx)*far/Z.fights),1,'#5a6488');px(lx,ly,R((rx-lx)*p/Z.fights),1,G.cleared[G.zone]?'#7fd4ff':C.goldL);
     for(let k=0;k<=cpN;k++){const dx=R(lx+(rx-lx)*k/cpN),reached=far>=k*cpS,isBoss=k===cpN;
       if(isBoss){const pu=0.6+0.4*Math.sin(RT*4);ctx.globalAlpha=reached?1:0.6;px(dx-4,ly-4,9,9,'#1a1420');px(dx-3,ly-3,7,7,reached?'#ff5a5a':'#5a3040');px(dx-1,ly-1,3,3,reached?'#ffd0d0':'#7a4050');if(!G.cleared[G.zone]&&p>=Z.fights-1){ctx.globalAlpha=pu;px(dx-6,ly-6,13,1,'#ff5a5a');px(dx-6,ly+6,13,1,'#ff5a5a');px(dx-6,ly-6,1,13,'#ff5a5a');px(dx+6,ly-6,1,13,'#ff5a5a');}ctx.globalAlpha=1;}
@@ -483,7 +547,7 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.delve?(G.delve.floor>=12?
       const target=k<cpN?k*cpS:Z.fights-1;if(reached&&target!==p)hit(dx-9,ly-9,18,18,()=>{G.prog[G.zone]=target;G.enemies=[];G.projs=[];G.action=null;G.bossFight=false;G.mode='walk';G.enc=2;for(const h of G.active){h.dx=0;h.status={};setAnim(h,'walk');}toast(k<cpN?'Back to checkpoint '+k:'Onward to the boss');});}
     const mx=p>=Z.fights-1?rx:R(lx+(rx-lx)*p/Z.fights);px(mx-1,ly-7,3,3,C.cream);if(far>p){const fx=R(lx+(rx-lx)*far/Z.fights);px(fx-1,ly-6,3,1,'#8a93a8');px(fx-1,ly-4,3,1,'#8a93a8');px(fx-1,ly-6,1,3,'#8a93a8');px(fx+1,ly-6,1,3,'#8a93a8');}}}
 }
-function drawCard(){const c=G.card;if(!c||G.screen!=='road')return;const al=clamp(Math.min(c.t*3,(4.2-c.t)*2),0,1);const y0=SCENE_Y+40,h=70+c.lines.length*11;ctx.globalAlpha=al;frame(20,y0,230,h,C.navy,C.goldL);ctx.globalAlpha=1;tx.clearRect(20*TS,y0*TS,230*TS,h*TS);
+function drawCard(){const c=G.card;if(!c||G.screen!=='road'||G.tut!=null)return;const al=clamp(Math.min(c.t*3,(4.2-c.t)*2),0,1);const y0=SCENE_Y+40,h=70+c.lines.length*11;ctx.globalAlpha=al;frame(20,y0,230,h,C.navy,C.goldL);ctx.globalAlpha=1;tx.clearRect(20*TS,y0*TS,230*TS,h*TS);
   text(W/2,y0+8,c.title,'big',C.goldL,'center',al);const tw2=textW(c.title,'big');tx.globalAlpha=al;tx.fillStyle=C.goldL;tx.fillRect((W/2-tw2/2)*TS,(y0+16)*TS,tw2*TS,1.5*TS);tx.globalAlpha=1;text(W/2,y0+26,c.sub,'s',C.cream,'center',al);c.lines.forEach((l,i)=>text(W/2,y0+40+i*11,l,'xs',C.muted,'center',al));text(W/2,y0+h-14,'tap to continue','xs',C.dimt,'center',al);hit(20,y0,230,h,()=>{G.card=null;});}
 function drawBanner(){if(G.tut!=null)return;if(G.banner&&(G.banner.scope==='any'||G.screen==='road')){const b=G.banner,al=clamp(Math.min(b.t*3,(b.dur-b.t)*2),0,1),by=G.screen==='vael'?92:SCENE_Y+120;ctx.globalAlpha=al*0.6;px(0,by,W,34,'#000');ctx.globalAlpha=1;text(W/2,by+6,b.text,'big',C.goldL,'center',al);if(b.sub)text(W/2,by+21,b.sub,'s',C.cream,'center',al);}}
 function drawCards(){px(0,16,W,80,'#0e111e');px(0,94,W,2,C.goldD);
@@ -494,15 +558,15 @@ function drawCards(){px(0,16,W,80,'#0e111e');px(0,94,W,2,C.goldD);
       if(G.roster.length>G.active.length)hit(x,18,62,74,()=>openSheet('swap',{slot:i}));continue;}
     frame(x,18,62,74);const A=ATLAS[h.uid];drawSprite(h,x+31-14,18+30-3,0,'idle',false);
     icon('swap',x+46,22,0);
-    text(x+31,20,h.name,'sb',h.dead?C.muted:C.cream,'center');text(x+6,50,'Lv '+h.lvl+' · '+CLASSES[h.cls].name,'xs',C.muted);bar(x+5,58,52,9,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red);text(x+31,59,fmtNum(Math.max(0,h.hp))+' / '+fmtNum(h.maxhp),'xs',C.cream,'center');px(x+5,72,52,3,C.out);px(x+6,73,R(50*h.xp/xpNeed(h.lvl)),1,C.xp);text(x+56,76,'XP','xs',C.dimt,'right');
+    text(x+31,20,h.name,'sb',h.dead?C.muted:C.cream,'center');text(x+6,50,'Lv '+h.lvl+' · '+heroTitle(h),'xs',C.muted);bar(x+5,58,52,9,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red);text(x+31,59,fmtNum(Math.max(0,h.hp))+' / '+fmtNum(h.maxhp),'xs',C.cream,'center');px(x+5,72,52,3,C.out);px(x+6,73,R(50*h.xp/xpNeed(h.lvl)),1,C.xp);text(x+56,76,'XP','xs',C.dimt,'right');
     hit(x,18,62,74,()=>{G.drag={i,x0:0,y0:0,moved:false};});}
   if(G.drag&&G.drag.moved){const h=G.active[G.drag.i];if(h){ctx.globalAlpha=0.85;frame(R(G.drag.x-31),R(G.drag.y-37),62,74,C.navy2,C.goldL);drawSprite(h,R(G.drag.x-14),R(G.drag.y-10),0,'idle',false);ctx.globalAlpha=1;text(R(G.drag.x),R(G.drag.y-35),h.name,'sb',C.goldL,'center');}}}
 function drawAbilityBar(){frame(4,308,262,ABH);const by=308+Math.round((ABH-BS)/2),isc=BS>=40?3:2,ic=Math.round((BS-12*isc)/2);
   const gap=(262-4*BS)/5;for(let i=0;i<4;i++){const h=G.active[i],x=R(4+gap*(i+1)+BS*i);if(!h){button(x,by,BS,BS,false,true);ctx.globalAlpha=0.35;icon('lock',x+ic,by+ic,0,isc);ctx.globalAlpha=1;continue;}const ready=h.charge>=100&&!h.dead&&!h.tapCast;
     button(x,by,BS,BS,ready);icon(CLASSES[h.cls].ab.icon,x+ic,by+ic,ready?4:2,isc);if(h.tapCast){ctx.globalAlpha=0.6+0.4*Math.sin(RT*10);px(x+1,by+1,BS-2,2,C.goldL);ctx.globalAlpha=1;}const fh=(BS-6)*h.charge/100;tx.fillStyle=ready?'rgba(241,215,120,0.22)':'rgba(79,195,247,0.22)';tx.fillRect((x+3)*TS,(by+3+(BS-6)-fh)*TS,(BS-6)*TS,fh*TS);
     if(ready&&G.mode==='battle'&&!h.tapCast){ctx.globalAlpha=0.5+0.5*Math.sin(RT*6);px(x+1,by+1,BS-2,1,C.goldL);px(x+1,by+BS-2,BS-2,1,C.goldL);ctx.globalAlpha=1;text(x+BS/2,by+BS-8,'TAP','xsb',C.goldL,'center');}
-    hit(x,by,BS,BS,()=>{if(h.tapCast){toast(CLASSES[h.cls].ab.name+' is about to fire');return;}if(!ready){toast(CLASSES[h.cls].ab.name+' - '+R(h.charge)+'% charged');return;}if(G.mode!=='battle'){toast('Abilities fire in battle');return;}h.tapCast=true;h.charge=0;sfx('tap');});}}
-function drawCamp(){const CY=CAMP_Y,CH=TABY-4-CY,RH=Math.floor((CH-24)/3);frame(4,CY,262,CH);text(12,CY+3,'Camp','bb',C.goldL);const C2=G.castle,g=Math.floor(C2.stored.gold),o=Math.floor(C2.stored.ore);const hl=hordeLeft();
+    hit(x,by,BS,BS,()=>{if(h.tapCast){toast(CLASSES[h.cls].ab.name+' is about to fire');return;}if(!ready){toast(CLASSES[h.cls].ab.name+' - '+R(h.charge)+'% charged');return;}if(G.mode!=='battle'){toast('Abilities fire in battle');return;}h.tapCast=true;h.charge=0;sfx('tap',true);});}}
+function drawCamp(){const CY=CAMP_Y,CH=TABY-4-CY,RH=Math.floor((CH-24)/3);frame(4,CY,262,CH);text(12,CY+3,'Camp','bb',C.goldL);if(G.roster.length<3){text(W/2,CY+CH/2-14,'Heroes resting at camp can be sent on quests.','xs',C.muted,'center');text(W/2,CY+CH/2-4,G.roster.length<2?'Your second hero joins at the first campfire.':'Recover the first shard to find a third hero.','xs',C.dimt,'center');text(258,CY+4,'Quests','xs',C.muted,'right');return;}const C2=G.castle,g=Math.floor(C2.stored.gold),o=Math.floor(C2.stored.ore);const hl=hordeLeft();
   const vs=(g+o>0?'Vael +'+g+' gold, '+o+' ore':'Quests '+G.quests.length+' / '+questSlots())+(hl<3600&&(C2.b.walls||C2.vil.total)?' · Horde '+fmtT(hl):'');text(258,CY+4,vs,'xs',g+o>0?C.goldL:C.muted,'right');if(g+o>0)hit(150,CY,116,12,()=>{G.screen='vael';});
   const slots=questSlots();
   for(let i=0;i<Math.min(3,slots);i++){const y=CY+15+i*RH,bh=Math.min(BIG?30:22,RH-4),by=y+Math.floor((RH-bh)/2),cy=y+Math.floor(RH/2);if(i%2===0)px(8,y,254,RH,C.band);const q=G.quests[i];
@@ -520,7 +584,7 @@ function drawGear(){drawPanelScreen();const h=G.roster[G.gearHero]||G.roster[0];
   text(8,26,'Equipment','title',C.goldL);
   const n=G.roster.length,tgap=n>6?2:4,tw=Math.min(32,Math.floor((186-tgap*(n-1))/n));G.roster.forEach((hh,i)=>{const x=W-8-(n-i)*(tw+tgap)+tgap,sel=hh===h;button(x,18,tw,26,sel);ctx.save();ctx.beginPath();ctx.rect(x+3,21,tw-6,20);ctx.clip();drawSprite(hh,x+tw/2,40,0,'idle',false);ctx.restore();hit(x,18,tw,26,()=>{G.gearHero=i;G.selItem=null;});});
   frame(4,48,262,86);px(10,54,70,74,C.out);px(11,55,68,72,'#222844');ctx.save();ctx.beginPath();ctx.rect(11,55,68,72);ctx.clip();drawSprite(h,45,118,0,'idle',false,2);ctx.restore();
-  text(90,54,h.name,'h',C.cream);text(90,66,CLASSES[h.cls].name+' · Lv '+h.lvl+' · '+heroStatus(h),'s',C.muted);
+  text(90,54,h.name,'h',C.cream);text(90,66,heroTitle(h)+' · Lv '+h.lvl+' · '+heroStatus(h),'s',C.muted);
   text(90,80,'HP','xs',C.muted);text(110,80,fmtNum(h.maxhp),'sb',C.cream);text(150,80,'ATK','xs',C.muted);text(172,80,fmtNum(h.atk),'sb',C.cream);
   text(90,91,'DEF','xs',C.muted);text(110,91,fmtNum(h.def),'sb',C.cream);text(150,91,'SPD','xs',C.muted);text(172,91,String(h.spd),'sb',C.cream);
   bar(90,104,166,5,h.xp/xpNeed(h.lvl),C.xp);text(90,111,'XP '+fmtNum(h.xp)+' / '+fmtNum(xpNeed(h.lvl)),'xs',C.muted);text(256,111,'Power '+fmtNum(h.maxhp+h.atk*6+h.def*4),'xs',C.goldL,'right');
@@ -528,8 +592,8 @@ function drawGear(){drawPanelScreen();const h=G.roster[G.gearHero]||G.roster[0];
   text(8,MY+MH/2-4,'Upgrades per tap','xs',C.muted);[1,5,25,'max'].forEach((m,i)=>{const x=64+i*48,on=G.mult===m;button(x,MY,46,MH,on);text(x+23,MY+MH/2-4,m==='max'?'Max':'×'+m,'xsb',on?C.goldL:C.cream,'center');hit(x,MY,46,MH,()=>{G.mult=m;});});
   ['weapon','cape','charm'].forEach((slot,i)=>{const x=4+i*88,it=h.eq[slot];frame(x,SY,86,SLOTH,C.navy,it&&it.rank>0?RANKHEX[it.rank]:C.gold);
     px(x+29,SY+12,28,28,C.out);px(x+30,SY+13,26,26,'#222844');text(x+43,SY+3,slot[0].toUpperCase()+slot.slice(1),'xs',C.muted,'center');
-    if(it){icon(itemIcon(it),x+31,SY+14,it.rank,2);const nm=itemName(it);text(x+43,SY+43,nm,textW(nm,'sb')>78?'xsb':'sb',it.rank>0?RANKHEX[it.rank]:C.cream,'center');text(x+43,SY+53,'★'.repeat(it.rank+1)+'☆'.repeat(4-it.rank)+(it.lvl?'  ↑'+Math.round(roll('it_'+it.id,it.lvl)):''),'xs',C.goldL,'center');text(x+43,SY+61,itemStatLabel(it),'xs',C.green,'center');
-      const cost=upgradeCost(it),can=G.ore>=cost;const ub=BIG?22:16,uy=SY+SLOTH-ub-4;button(x+6,uy,74,ub,can);icon('ore',x+10,uy+ub/2-6,0);text(x+47,uy+ub/2-4,'Upgrade '+fmtNum(cost),'xs',can?C.goldL:C.muted,'center');hit(x+6,uy,74,ub,()=>upgradeItem(it,h));
+    if(it){icon(itemIcon(it),x+31,SY+14,it.rank,2);const nm=itemName(it);text(x+43,SY+43,nm,textW(nm,'sb')>78?'xsb':'sb',it.rank>0?RANKHEX[it.rank]:C.cream,'center');text(x+43,SY+53,'★'.repeat(it.rank+1)+'☆'.repeat(4-it.rank)+(it.lvl?'  ↑'+Math.round(roll('it_'+it.id,it.lvl)):''),'xs',C.goldL,'center');text(x+43,SY+61,itemStatLabel(it).replace(fmtNum(itemStat(it)),fmtNum(roll('is_'+it.id,itemStat(it)))),'xs',C.green,'center');
+      const cost=upgradeCost(it),can=G.ore>=cost;const ub=BIG?22:16,uy=SY+SLOTH-ub-4;button(x+6,uy,74,ub,can);icon('ore',x+10,uy+ub/2-6,0);text(x+47,uy+ub/2-4,'Upgrade '+fmtNum(cost),'xs',can?C.goldL:C.muted,'center');hit(x+6,uy,74,ub,()=>upgradeItem(it,h),true);
       if(it.rank<4){const locked=it.rank>=ascendCap(),ac2=ascendCost(it),acan=!locked&&G.ore>=ac2,ay=uy-ub-3;button(x+6,ay,74,ub,acan,locked);if(locked)icon('lock',x+10,ay+ub/2-6,0);text(x+43+(locked?6:0),ay+ub/2-4,locked?'Reforge to ascend':'Ascend '+fmtNum(ac2),'xs',locked?C.dimt:(acan?RANKHEX[it.rank+1]:C.muted),'center');hit(x+6,ay,74,ub,()=>ascendItem(it,h));}
       hit(x+29,SY+12,28,28,()=>{unequip(h,slot);});}
     else{text(x+43,SY+46,'Empty','s',C.dimt,'center');text(x+43,SY+58,slot==='weapon'?WEAPON_NOUN[CLASSES[h.cls].weapon]+' only':'','xs',C.dimt,'center');}});
@@ -548,28 +612,31 @@ function drawGear(){drawPanelScreen();const h=G.roster[G.gearHero]||G.roster[0];
     hit(x,y,CELL,CELL,()=>{it.isNew=false;if(G.salvage){if(on)G.sel=G.sel.filter(i=>i!==it);else G.sel.push(it);return;}
       if(!usable){toast(itemName(it)+' · only '+wielders(it)+' can wield it');return;}if(G.selItem===it){equipItem(h,it);G.selItem=null;}else{G.selItem=it;}});}}
 function drawHeroes(){drawPanelScreen();text(8,26,'Heroes','title',C.goldL);text(262,30,G.roster.length+' recruited','xs',C.muted,'right');beginScroll('heroes',44);
-  let y=46;const HR=BIG?60:50;for(const h of G.roster){frame(4,y,262,HR);drawSprite(h,26,y+38,0,'idle',false);const st=heroStatus(h);
-    text(46,y+6,h.name,'sb',C.cream);text(46,y+16,CLASSES[h.cls].name+' · Lv '+h.lvl+' · '+(st==='quest'?'on a quest':st),'xs',C.muted);
-    const ab=CLASSES[h.cls].ab;icon(ab.icon,46,y+27,2);text(62,y+28,ab.name+'  rank '+h.abLvl,'xs',C.goldL);text(62,y+37,abilityDesc(h),'xs',C.muted);
-    const cost=R(80*Math.pow(1.9,h.abLvl-1)),can=G.gold>=cost;const HB=BIG?32:20;button(194,y+4,66,HB,can);icon('coin',198,y+4+HB/2-6,4);text(233,y+4+HB/2-4,'Rank up '+fmtNum(cost),'xs',can?C.goldL:C.muted,'center');hit(194,y+4,66,HB,()=>{if(!can){toast('Need '+cost+' gold');return;}G.gold-=cost;h.abLvl++;toast(ab.name+' rank '+h.abLvl);});
+  let y=46;const HR=BIG?108:96;for(const h of G.roster){frame(4,y,262,HR);drawSprite(h,26,y+38,0,'idle',false);const st=heroStatus(h);
+    text(46,y+6,h.name,'sb',C.cream);text(46,y+16,heroTitle(h)+' · Lv '+h.lvl+' · '+(st==='quest'?'on a quest':st),'xs',C.muted);
+    {const q=promoteReq(h),can=(h.tier||0)<3&&h.lvl>=q.lvl&&G.gold>=q.gold&&G.dust>=q.dust,PB2=Math.floor((HR-34)/2),py2=y+HR-26-PB2;if((h.tier||0)<3){button(194,py2,66,PB2,can,h.lvl<q.lvl);text(227,py2+PB2/2-4,h.lvl<q.lvl?'Promote at '+q.lvl:'Promote','xs',can?C.goldL:(h.lvl<q.lvl?C.dimt:C.muted),'center');hit(194,py2,66,PB2,()=>promoteHero(h));}}
+    const ab=CLASSES[h.cls].ab;icon(ab.icon,46,y+27,2);text(62,y+28,ab.name+'  rank '+h.abLvl,'xs',C.goldL);{const d1=abilityDesc(h),parts=wrap2(d1,'xs',128);text(62,y+37,parts[0],'xs',C.muted);if(parts[1])text(62,y+46,parts[1],'xs',C.muted);}if((h.tier||0)<3){const q=promoteReq(h);text(62,y+56,fitText('Promote at Lv '+q.lvl+': '+fmtNum(q.gold)+' gold, '+q.dust+' dust','xs',128),'xs',C.dimt);}
+    const cost=R(80*Math.pow(1.9,h.abLvl-1)),can=G.gold>=cost;const HB=Math.floor((HR-34)/2);button(194,y+4,66,HB,can);icon('coin',198,y+4+HB/2-6,4);text(233,y+4+HB/2-4,'Rank up '+fmtNum(cost),'xs',can?C.goldL:C.muted,'center');hit(194,y+4,66,HB,()=>{if(!can){toast('Need '+cost+' gold');return;}G.gold-=cost;h.abLvl++;toast(ab.name+' rank '+h.abLvl);});
+    {h.talents=h.talents||{};TALENTS[h.cls].forEach((t,i)=>{const own=!!h.talents[t.id],q=talentReq(i),x=12+i*62,ty=y+HR-22,lk=h.lvl<q.lvl;button(x,ty,58,18,own,lk);text(x+29,ty+5,fitText(own?t.name:(lk?'Lv '+q.lvl:t.name),'xs',54),'xs',own?C.goldL:(lk?C.dimt:C.cream),'center');hit(x,ty,58,18,()=>buyTalent(h,i));});text(200,y+HR-18,'Talents','xs',C.dimt);}
     y+=HR+4;}
   if(G.roster.length<HEROES.length)text(W/2,y+6,'More will join along the road','xs',C.dimt,'center');endScroll('heroes',y+20);}
-function drawMap(){drawPanelScreen();icon('back',8,24,4);text(24,26,'The Crystal Road','title',C.goldL);hit(0,16,110,30,()=>{G.screen='road';});const rb=BIG?26:18;const ok0=canReforge();button(130,22,130,rb,ok0);icon('crystal',136,22+rb/2-6,2);text(198,22+rb/2-4,ok0?'Reforge  +'+reforgeGain()+' dust':'Reforge: beat the Warlord','xsb',ok0?C.goldL:C.dimt,'center');if(ok0)hit(130,22,130,rb,()=>openSheet('reforge'));
+function drawMap(){drawPanelScreen();ctx.strokeStyle=C.goldL;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(16,33,9,0,Math.PI*2);ctx.stroke();icon('back',10,27,4);text(32,26,'The Crystal Road','title',C.goldL);hit(0,16,110,34,()=>{G.screen='road';});const rb=BIG?26:18;const ok0=canReforge();button(170,22,92,rb,ok0);icon('crystal',174,22+rb/2-6,2);text(220,22+rb/2-4,ok0?'Reforge +'+fmtNum(reforgeGain()):'Beat the Warlord','xsb',ok0?C.goldL:C.dimt,'center');if(ok0)hit(170,22,92,rb,()=>openSheet('reforge'));
   beginScroll('map',48);
   ZONES.forEach((z,i)=>{const y=52+i*72,ok=zoneUnlocked(i),cur=i===G.zone;frame(4,y,262,66,C.navy,cur?C.goldL:(ok?C.gold:C.goldD));
     ctx.save();ctx.beginPath();ctx.rect(10,y+6,90,54);ctx.clip();const L=SCENES[z.scene][0];ctx.globalAlpha=ok?1:0.35;ctx.drawImage(L.img,-80,y-40);for(const l of SCENES[z.scene].slice(1))ctx.drawImage(l.img,-80,y-40);ctx.globalAlpha=1;ctx.restore();
     text(108,y+8,z.name,'sb',ok?C.cream:C.dimt);text(108,y+19,'Danger Lv '+z.lv,'xs',C.muted);
-    text(108,y+30,ok?(G.cleared[i]?'Shard recovered':'Shard '+G.prog[i]+'/'+z.fights+' · boss: '+ENEMIES[z.boss].name):((G.reforges||0)<reqReforge(i)?'Needs '+reqReforge(i)+' Reforge'+(reqReforge(i)>1?'s':'')+(G.cleared[i-1]?'':' · beat the previous boss'):'Defeat the previous boss'),'xs',ok?C.goldL:C.dimt);
+    text(108,y+30,ok?(G.cleared[i]?'Shard recovered':'Checkpoint '+Math.floor(Math.max(G.prog[i],(G.far||[])[i]||0)/(z.fights/3))+'/3 · boss: '+ENEMIES[z.boss].name):((G.reforges||0)<reqReforge(i)?'Needs '+reqReforge(i)+' Reforge'+(reqReforge(i)>1?'s':'')+(G.cleared[i-1]?'':' · beat the previous boss'):'Defeat the previous boss'),'xs',ok?C.goldL:C.dimt);
     if(ok&&!cur){button(180,y+42,76,16,true);text(218,y+45,'Travel','sb',C.goldL,'center');hit(180,y+42,76,16,()=>{G.zone=i;G.enemies=[];G.projs=[];G.action=null;G.bossFight=false;for(const h of G.active){h.dx=0;h.status={};if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3);}setAnim(h,'walk');}G.mode='walk';G.enc=3;G.screen='road';banner(z.name,'Danger Lv '+z.lv);});}
     else if(cur)text(218,y+46,'You are here','xs',C.goldL,'center');});
   const ey=52+ZONES.length*72;text(W/2,ey,'Reforge resets levels, gold, ore and the road.','xs',C.dimt,'center');text(W/2,ey+10,'Heroes, gear, Vael, the tree and blessings stay.','xs',C.dimt,'center');endScroll('map',ey+30);}
-function drawTree(){drawPanelScreen();text(8,26,'Upgrade Tree','title',C.goldL);text(112,26,'Upgrades per tap','xs',C.muted);[1,5,25,'max'].forEach((m,i)=>{const x=170+i*23,on=G.mult===m;button(x,22,22,16,on);text(x+11,26,m==='max'?'Max':'×'+m,'xsb',on?C.goldL:C.cream,'center');hit(x,22,22,16,()=>{G.mult=m;});});
+function drawTree(){drawPanelScreen();text(8,26,'Upgrade Tree','title',C.goldL);
   const BR=['Party','Tap','Camp','Crystal'];G.treeTab=G.treeTab||'Party';BR.forEach((b2,i)=>{const x=6+i*65,on=G.treeTab===b2;button(x,42,63,BIG?22:16,on);text(x+31,42+(BIG?22:16)/2-4,b2,'sb',on?C.goldL:(b2==='Crystal'?'#bbdefb':C.cream),'center');hit(x,42,63,BIG?22:16,()=>{G.treeTab=b2;SCROLL.tree=0;});});
-  const top=42+(BIG?22:16)+6;beginScroll('tree',top);let y=top+2;if(G.treeTab==='Crystal'){text(8,y,'Blessings are paid in crystal dust and kept through every Reforge.','xs','#bbdefb');y+=14;}for(const n of TREE){if(n.branch!==G.treeTab)continue;
+  {const ty=42+(BIG?22:16)+4;text(8,ty+4,'Upgrades per tap','xs',C.muted);[1,5,25,'max'].forEach((m,i)=>{const x=96+i*42,on=G.mult===m;button(x,ty,40,16,on);text(x+20,ty+4,m==='max'?'Max':'×'+m,'xsb',on?C.goldL:C.cream,'center');hit(x,ty,40,16,()=>{G.mult=m;});});}
+  const top=42+(BIG?22:16)+4+22;SCROLLTOP.tree=top;beginScroll('tree',top);let y=top+2;if(G.treeTab==='Crystal'){text(8,y,'Blessings are paid in crystal dust and kept through every Reforge.','xs','#bbdefb');y+=14;}for(const n of TREE){if(n.branch!==G.treeTab)continue;
     const lv=treeLv(n.id),isD=n.cur==='dust',cost=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,lv)),max=lv>=n.max,can=!max&&(isD?G.dust:G.gold)>=cost,RH=BIG?44:32,TB=BIG?32:20;px(6,y,258,RH,C.band);
     icon('nodes',10,y+RH/2-6,lv?4:0);const dl=Math.round(roll('tr_'+n.id,lv));text(28,y+RH/2-12,n.name+(dl?'  rank '+dl:''),'sb',C.cream);text(28,y+RH/2-1,n.desc,'xs',C.muted);
     button(192,y+(RH-TB)/2,66,TB,can,max);if(!max)icon(isD?'crystal':'coin',197,y+RH/2-6,isD?2:4);text(max?225:231,y+RH/2-4,max?'Maxed':fmtNum(cost),'xsb',max?C.dimt:(can?C.goldL:C.muted),'center');
-    if(!max)hit(192,y+(RH-TB)/2,66,TB,()=>{let k=0,want=G.mult==='max'?1e9:G.mult;while(k<want&&treeLv(n.id)<n.max){const c=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,treeLv(n.id)));if((isD?G.dust:G.gold)<c)break;if(isD)G.dust-=c;else G.gold-=c;G.tree[n.id]=treeLv(n.id)+1;k++;}if(!k){toast('Need '+cost+(isD?' crystal dust':' gold'));return;}for(const h of G.roster)refreshStats(h);sfx('coin');toast(n.name+' rank '+treeLv(n.id));});y+=RH+4;}endScroll('tree',y);}
+    if(!max)hit(192,y+(RH-TB)/2,66,TB,()=>{let k=0,want=G.mult==='max'?1e9:G.mult;while(k<want&&treeLv(n.id)<n.max){const c=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,treeLv(n.id)));if((isD?G.dust:G.gold)<c)break;if(isD)G.dust-=c;else G.gold-=c;G.tree[n.id]=treeLv(n.id)+1;k++;}if(!k){toast('Need '+cost+(isD?' crystal dust':' gold'));return;}for(const h of G.roster)refreshStats(h);sfx('coin',true);toast(n.name+' rank '+treeLv(n.id));},true);y+=RH+4;}endScroll('tree',y);}
 
 // ============================================================ Vael: the castle
 const CASTLE_PIX={
@@ -581,22 +648,25 @@ cart:[".oooooo.","oWWWWWWo","oIIIIIIo",".oooooo.","..o..o..",".ooo.ooo",".ooo.oo
 };
 const CPAL={o:'#1a1420',S:'#968c7c',s:'#beb29c',D:'#1e1a22',W:'#6e4824',w:'#503218',R:'#be3c3c',I:'#8c969e',h:'#f0c8aa',T:'#5a78b4',L:'#3c2c28'};
 function pixGrid(grid,x,y,sc=1,pal=CPAL){for(let r=0;r<grid.length;r++){const row=grid[r];for(let c=0;c<row.length;c++){const ch=row[c];if(ch==='.')continue;px(x+c*sc,y+r*sc,sc,sc,pal[ch]);}}}
+const STRUCTS={well:{name:'Old Well',boss:'slimeking',cost:600,desc:'+2 villager housing per castle level'},kennels:{name:'Kennels',boss:'alphawolf',cost:1500,desc:'Quests finish 15% sooner'},sawmill:{name:'Sawmill',boss:'oldgrowth',cost:4000,desc:'Buildings cost 15% less'},watchtower:{name:'Watchtower',boss:'warlord',cost:2500,desc:'+15 defense and +10% tap damage'},forge:{name:'Forge',boss:'sandtyrant',cost:8000,desc:'Gear upgrades cost 15% less ore'},range:{name:'Archery Range',boss:'hunterking',cost:12000,desc:'+5% crit for every hero'},shrine:{name:'Shrine',boss:'graveknight',cost:20000,desc:'+2 hours offline cap'},library:{name:'Library',boss:'necromancer',cost:40000,desc:'+15% ability power'},workshop:{name:'Workshop',boss:'core',cost:80000,desc:'Crystal Surge charges 50% faster'}};
+function built(k){return !!(G.castle.built&&G.castle.built[k]);}
 const BUILD={mine:{name:'Iron Mine',cost:150,grow:1.7,desc:l=>l?'':'Villagers dig ore over time'},market:{name:'Market',cost:120,grow:1.7,desc:l=>l?'':'Villagers trade for gold'},walls:{name:'Walls',cost:200,grow:1.8,desc:l=>l?'':'Defense, and posts for heroes'}};
 const HOUR=3600*1000;
 G.castle={b:{mine:0,market:0,walls:0},vil:{total:0,mine:0,market:0},hired:0,garrison:[],stored:{gold:0,ore:0},last:now(),hordeAt:now()+8*HOUR,repelled:0,lost:0,walk:[]};
 function tscale(){return G.fast?120:1;}
 function castleLv(){const C2=G.castle;return 1+Math.floor((C2.b.mine+C2.b.market+C2.b.walls)/3);}
 function idleVil(){const v=G.castle.vil;return v.total-v.mine-v.market;}
-function buildCost(k){const l=G.castle.b[k];return R(BUILD[k].cost*Math.pow(BUILD[k].grow,l));}
-function hireCost(){return R(100*Math.pow(1.5,G.castle.hired));}
-function vilCap(){return 4+2*castleLv();}
+function buildCost(k){const l=G.castle.b[k];return R(BUILD[k].cost*Math.pow(BUILD[k].grow,l)*(built('sawmill')?0.85:1));}
+function hireCost(){return R(100*Math.pow(1.5,G.castle.hired)*(1-0.03*treeLv('haggle')));}
+function vilCap(){return 4+(built('well')?4:2)*castleLv();}
 function garrisonSlots(){return Math.min(4,1+G.castle.b.walls);}
 function orePerHour(){return G.castle.b.mine*G.castle.vil.mine*2;}
 function goldPerHour(){return G.castle.b.market*G.castle.vil.market*8;}
 function garrisonXp(h){return R(xpNeed(h.lvl)*(0.04+0.01*G.castle.b.walls));}
 function garrisonHeroes(){return G.castle.garrison.map(id=>G.roster.find(h=>h.id===id)).filter(Boolean);}
-function defense(){const w=G.castle.b.walls*5;const g=garrisonHeroes().reduce((s,h)=>s+3+h.lvl*0.5,0);return{walls:w,garrison:R(g),total:R(w+g)};}
+function defense(){const w=G.castle.b.walls*5+(built('watchtower')?15:0);const g=garrisonHeroes().reduce((s,h)=>s+3+h.lvl*0.5,0);return{walls:w,garrison:R(g),total:R(w+g)};}
 function hordeTier(){const s=hordeStrength();return s<=12?'Rabble':s<=22?'Raiders':s<=38?'Warband':s<=60?'Horde':'Legion';}
+function wrap2(str,style,maxW){if(textW(str,style)<=maxW)return[str];const w=str.split(' ');let a='';for(let i=0;i<w.length;i++){const t=a?a+' '+w[i]:w[i];if(textW(t,style)>maxW){return[a,fitText(w.slice(i).join(' '),style,maxW)];}a=t;}return[a];}
 function fitText(str,style,maxW){if(textW(str,style)<=maxW)return str;let t=str;while(t.length>3&&textW(t+'…',style)>maxW)t=t.slice(0,-1);return t+'…';}
 function hordeStrength(){const C2=G.castle,streak=C2.streak||0;return R(3+castleLv()*2+G.zone*1.5+streak*3);}
 function castleTick(){const C2=G.castle,t=now();let dt=(t-C2.last)/HOUR*tscale();C2.last=t;if(dt<=0)return;dt=Math.min(dt,8);
@@ -605,12 +675,12 @@ function castleTick(){const C2=G.castle,t=now();let dt=(t-C2.last)/HOUR*tscale()
   if(t>=C2.hordeAt)resolveHorde();}
 function hordeLeft(){return Math.max(0,(G.castle.hordeAt-now())/1000/tscale());}
 function resolveHorde(){const C2=G.castle,d=defense().total,s=hordeStrength();
-  if(d>=s){C2.repelled++;C2.streak=(C2.streak||0)+1;const g=s*15,v=1+Math.floor(rand()*2);G.gold+=g;G.dust+=1;C2.vil.total+=v;banner('The horde breaks on the walls','+'+g+' gold, +1 dust, '+v+' villagers rally',3.5,'any');}
+  if(d>=s){C2.repelled++;C2.streak=(C2.streak||0)+1;G.stats.hordes++;const g=s*15,v=1+Math.floor(rand()*2);G.gold+=g;G.dust+=1;C2.vil.total+=v;banner('The horde breaks on the walls','+'+g+' gold, +1 dust, '+v+' villagers rally',3.5,'any');}
   else{C2.lost++;C2.streak=0;const built=Object.keys(C2.b).filter(k=>C2.b[k]>0);let msg='';if(built.length){const k=built[Math.floor(rand()*built.length)];C2.b[k]--;msg=BUILD[k].name+' damaged';if(k!=='walls'&&C2.vil[k]>C2.b[k]*3)C2.vil[k]=Math.min(C2.vil[k],C2.b[k]*3);}
     const lost=Math.min(2,C2.vil.total);C2.vil.total-=lost;C2.vil.mine=Math.min(C2.vil.mine,C2.vil.total);C2.vil.market=Math.min(C2.vil.market,Math.max(0,C2.vil.total-C2.vil.mine));banner('The horde overruns Vael',(msg?msg+' · ':'')+lost+' villagers lost',3.5,'any');}
   C2.hordeAt=now()+8*HOUR/tscale();}
 function collectCastle(){const C2=G.castle,g=Math.floor(C2.stored.gold),o=Math.floor(C2.stored.ore);if(!g&&!o){toast('Nothing to collect yet');return;}G.gold+=g;G.ore+=o;C2.stored.gold-=g;C2.stored.ore-=o;toast('Collected '+g+' gold and '+o+' ore from Vael');}
-function grantShardVillagers(){G.castle.vil.total+=3;if(G.card)G.card.lines.push('3 villagers freed - they head for Vael');}
+function grantShardVillagers(){const n=3+G.zone;G.castle.vil.total+=n;if(G.card)G.card.lines.push(n+' prisoners freed - they head for Vael');}
 function postHero(h){const C2=G.castle;if(C2.garrison.length>=garrisonSlots()){toast('No free posts - raise the walls');return;}C2.garrison.push(h.id);toast(h.name+' takes a post on the walls');}
 function recallHero(h){G.castle.garrison=G.castle.garrison.filter(id=>id!==h.id);toast(h.name+' stands down');}
 const LANTERN=["..o..",".oho.","ohaho",".oao.","..o.."],CRATE=["oooooo","oWwWwo","owWwWo","oWwWwo","oooooo"],FLAG=["o....","oRR..","oRRR.","oRR..","o....","o...."],TOWER=["oo..oo","oSSSSo","oSsSSo","oSSSSo","oSsSSo","oSSSSo","oSSSSo","oooooo"];
@@ -659,88 +729,97 @@ function drawVael(){drawPanelScreen();castleTick();const C2=G.castle,D=defense()
   const cards=[
     {k:'mine',ic:()=>pixGrid(CASTLE_PIX.mine.slice(2).map(r=>r.slice(4,18)),14,y0+12),sub:C2.b.mine?C2.vil.mine+' villagers · +'+orePerHour()+' ore/h · '+Math.floor(C2.stored.ore)+' stored':'Not built · '+BUILD.mine.desc(0),vil:true},
     {k:'market',ic:()=>icon('coin',20,y0+17,4),sub:C2.b.market?C2.vil.market+' villagers · +'+goldPerHour()+' gold/h · '+Math.floor(C2.stored.gold)+' stored':'Not built · '+BUILD.market.desc(0),vil:true,hire:true},
-    {k:'walls',ic:()=>pixGrid(CASTLE_PIX.wall.map(r=>r.slice(0,28)),12,y0+18),sub:C2.b.walls?'Defense +'+D.walls+' · '+garrisonSlots()+' garrison posts':'Not built · '+BUILD.walls.desc(0)},
-    {k:'catacombs',ic:()=>icon('x',20,y0+17,0),sub:'Keys '+keysNow()+'/3 · best floor '+(G.delveBest||0),keys:true},
-    {k:'garrison',ic:()=>icon('shield',20,y0+17,0),sub:garrisonHeroes().length?garrisonHeroes().map(h=>h.name+' +'+garrisonXp(h)+'xp/h').join(', ')+' · Def +'+D.garrison:'No heroes posted'},
-  ];const cb=BIG?26:16,avail=TABY-4-180;const VCH=Math.max(44,Math.min(64,Math.floor((avail-cb-6)/5)-4)),VB=Math.min(34,VCH-12),R1=y0=>y0+4,R2=y0=>y0+14,R3=y0=>y0+VCH-16;
+    {k:'walls',ic:()=>pixGrid(CASTLE_PIX.wall.map(r=>r.slice(0,28)),12,y0+18),sub:C2.b.walls?'Defense +'+D.walls+' · garrison '+garrisonHeroes().length+'/'+garrisonSlots()+(garrisonHeroes().length?' ('+garrisonHeroes().map(h=>h.name).join(', ')+')':''):'Not built · '+BUILD.walls.desc(0),gar:true},
+    {k:'blueprints',ic:()=>icon('map',20,y0+17,4),sub:(()=>{const bp=Object.keys(STRUCTS).filter(k=>(C2.bp||{})[k]).length,bt=Object.keys(STRUCTS).filter(k=>built(k)).length;return bp?bp+' found · '+bt+' built':'Bosses drop plans for new structures';})()},
+    {k:'catacombs',ic:()=>icon('x',20,y0+17,0),sub:'Keys '+keysNow()+'/'+keyMax()+' · best floor '+(G.delveBest||0)+' · one hero goes down',keys:true},
+  ];const cb=BIG?26:16,avail=TABY-6-180;const VCH=Math.max(44,Math.min(64,Math.floor((avail-cb-6)/5)-4)),VB=Math.min(34,VCH-12),R1=y0=>y0+4,R2=y0=>y0+14,R3=y0=>y0+VCH-16;
   {const g=Math.floor(C2.stored.gold),o=Math.floor(C2.stored.ore);button(4,180,262,cb,g+o>0);text(W/2,180+cb/2-4,g+o>0?'Collect '+fmtNum(g)+' gold and '+fmtNum(o)+' ore':'Production stores up to 8 hours','xs',g+o>0?C.goldL:C.dimt,'center');if(g+o>0)hit(4,180,262,cb,collectCastle);}
   let y0=180+cb+4;
   for(const cd of cards){frame(4,y0,262,VCH);px(10,y0+7,32,32,C.out);px(11,y0+8,30,30,'#222844');cd.ic();
-    const lv=(cd.k==='garrison'||cd.k==='catacombs')?null:C2.b[cd.k];text(48,R1(y0),cd.k==='garrison'?'Garrison':cd.k==='catacombs'?'Catacombs':BUILD[cd.k].name,'sb',C.cream);if(lv!=null)text(48+textW(cd.k==='garrison'?'Garrison':BUILD[cd.k].name,'sb')+6,R1(y0)+1,lv?'Lv '+lv:'',"xs",C.goldL);if(cd.k==='garrison')text(100,R1(y0)+1,garrisonHeroes().length+' / '+garrisonSlots(),'xs',C.goldL);
+    const lv=(cd.k==='garrison'||cd.k==='catacombs'||cd.k==='blueprints')?null:C2.b[cd.k];text(48,R1(y0),cd.k==='garrison'?'Garrison':cd.k==='catacombs'?'Catacombs':cd.k==='blueprints'?'Blueprints':BUILD[cd.k].name,'sb',C.cream);if(lv!=null)text(48+textW(cd.k==='garrison'?'Garrison':BUILD[cd.k].name,'sb')+6,R1(y0)+1,lv?'Lv '+lv:'',"xs",C.goldL);if(cd.k==='garrison')text(100,R1(y0)+1,garrisonHeroes().length+' / '+garrisonSlots(),'xs',C.goldL);
     text(48,R2(y0),fitText(cd.sub,'xs',142),'xs',C.muted);
-    if(cd.k==='catacombs'){const kk=keysNow();button(194,y0+6,66,VB,kk>0,!kk);text(227,y0+6+VB/2-4,kk?'Enter':'No keys','xs',kk?C.goldL:C.dimt,'center');if(kk)hit(194,y0+6,66,VB,()=>openSheet('delve'));text(48,R3(y0),kk<3?'next key in '+fmtT((8*HOUR/tscale()-(now()-G.keyAt))/1000):'a short run beneath the castle - leave any time','xs',C.dimt);}
+    if(cd.k==='blueprints'){button(194,y0+6,66,VB,true);text(227,y0+6+VB/2-4,'View','xs',C.goldL,'center');hit(194,y0+6,66,VB,()=>openSheet('blueprints'));text(48,R3(y0),'Each structure aids the road or the castle','xs',C.dimt);}
+    else if(cd.k==='catacombs'){const kk=keysNow();button(194,y0+6,66,VB,kk>0,!kk);text(227,y0+6+VB/2-4,kk?'Enter':'No keys','xs',kk?C.goldL:C.dimt,'center');if(kk)hit(194,y0+6,66,VB,()=>openSheet('delve'));text(48,R3(y0),fitText(kk<keyMax()?'Next key in '+fmtT((keyPeriod()-(now()-G.keyAt))/1000)+' · doors, relics, loot':'Doors, relics, loot - leave any time','xs',140),'xs',C.dimt);}
     else if(cd.k==='garrison'){button(194,y0+6,66,VB,true);text(227,y0+6+VB/2-4,'Assign','xs',C.goldL,'center');hit(194,y0+6,66,VB,()=>openSheet('garrison'));text(48,R3(y0),'posted heroes train '+R(100*(0.04+0.01*C2.b.walls))+'% of a level per hour','xs',C.dimt);}
     else{const cost=buildCost(cd.k),can=G.gold>=cost;button(194,y0+6,66,VB,can);icon('coin',197,y0+6+VB/2-6,4);text(235,y0+6+VB/2-4,(lv?'Upgrade ':'Build ')+fmtNum(cost),'xs',can?C.goldL:C.muted,'center');
-      hit(194,y0+6,66,VB,()=>{if(G.gold<cost){toast('Need '+cost+' gold');return;}G.gold-=cost;C2.b[cd.k]++;toast(BUILD[cd.k].name+(C2.b[cd.k]===1?' built':' raised to Lv '+C2.b[cd.k]));});
+      hit(194,y0+6,66,VB,()=>{if(G.gold<cost){toast('Need '+cost+' gold');return;}G.gold-=cost;C2.b[cd.k]++;toast(BUILD[cd.k].name+(C2.b[cd.k]===1?' built':' raised to Lv '+C2.b[cd.k]));},true);
       if(cd.vil&&lv){const vb=Math.min(20,VCH-34),vy=y0+VCH-3-vb,vw=20;text(48,vy+vb/2-4,'villagers','xs','#7890c8');button(92,vy,vw,vb,false);text(92+vw/2,vy+vb/2-4,'−','xs',C.cream,'center');text(92+vw+9,vy+vb/2-4,String(C2.vil[cd.k]),'xsb',C.cream,'center');button(92+vw+18,vy,vw,vb,true);text(92+vw+18+vw/2,vy+vb/2-4,'+','xs',C.goldL,'center');
-        hit(92,vy,vw,vb,()=>{if(C2.vil[cd.k]>0)C2.vil[cd.k]--;});hit(92+vw+18,vy,vw,vb,()=>{if(idleVil()<=0){toast('No idle villagers - hire at the Market');return;}if(C2.vil[cd.k]>=lv*3){toast('Max '+(lv*3)+' at this level');return;}C2.vil[cd.k]++;});
-        if(cd.hire){const hc=hireCost(),hcan=G.gold>=hc&&C2.vil.total<vilCap();const hx=92+vw*2+20,hw=Math.min(60,190-hx);button(hx,vy,hw,vb,hcan);text(hx+hw/2,vy+vb/2-4,'Hire '+fmtNum(hc),'xs',hcan?C.goldL:C.muted,'center');hit(hx,vy,hw,vb,()=>{if(C2.vil.total>=vilCap()){toast('No room - raise the castle level');return;}if(G.gold<hc){toast('Need '+fmtNum(hc)+' gold');return;}G.gold-=hc;C2.hired++;C2.vil.total++;toast('A villager joins Vael');});}}
-      else if(cd.k==='walls'&&lv)text(48,R3(y0),'next: Defense +'+(5*(lv+1))+' · '+Math.min(4,2+lv)+' posts','xs',C.dimt);
+        hit(92,vy,vw,vb,()=>{if(C2.vil[cd.k]>0)C2.vil[cd.k]--;},true);hit(92+vw+18,vy,vw,vb,()=>{if(idleVil()<=0){toast('No idle villagers - hire at the Market');return;}if(C2.vil[cd.k]>=lv*3){toast('Max '+(lv*3)+' at this level');return;}C2.vil[cd.k]++;},true);
+        if(cd.hire){const hc=hireCost(),hcan=G.gold>=hc&&C2.vil.total<vilCap();const hx=92+vw*2+20,hw=Math.min(60,190-hx);button(hx,vy,hw,vb,hcan);text(hx+hw/2,vy+vb/2-4,'Hire '+fmtNum(hc),'xs',hcan?C.goldL:C.muted,'center');hit(hx,vy,hw,vb,()=>{if(C2.vil.total>=vilCap()){toast('No room - raise the castle level');return;}if(G.gold<hc){toast('Need '+fmtNum(hc)+' gold');return;}G.gold-=hc;C2.hired++;C2.vil.total++;toast('A villager joins Vael');},true);}}
+      else if(cd.k==='walls'&&lv){button(146,y0+VCH-3-Math.min(20,VCH-34),44,Math.min(20,VCH-34),true);text(168,y0+VCH-3-Math.min(20,VCH-34)+Math.min(20,VCH-34)/2-4,'Garrison','xs',C.goldL,'center');hit(146,y0+VCH-3-Math.min(20,VCH-34),44,Math.min(20,VCH-34),()=>openSheet('garrison'));text(48,R3(y0),'posts train '+R(100*(0.04+0.01*C2.b.walls))+'%/h','xs',C.dimt);}
       else if(!lv)text(48,R3(y0),'appears in the courtyard once built','xs',C.dimt);}
     y0+=VCH+4;}
 }
 
 // ============================================================ the Catacombs (delve) and road treasure
-const RELICS=[{id:'fang',name:'Wolf Fang',desc:'+25% attack',atk:1.25},{id:'heart',name:'Troll Heart',desc:'+35% max HP',hp:1.35},{id:'leech',name:'Leech Charm',desc:'heal 12% of damage dealt',leech:0.12},{id:'focus',name:'Focus Stone',desc:'abilities charge twice as fast',charge:2},{id:'plate',name:'Ancient Plate',desc:'+40% defense',def:1.4},{id:'lucky',name:'Lucky Coin',desc:'+50% gold in the delve',gold:1.5}];
-const DOORS=['fight','fight','fight','elite','chest','shrine','trap','merchant'];
+const RELICS=[{id:'blood',name:'Bloodstone',desc:'+30% attack, lose 2% HP per attack',atk:1.3,bleed:0.02},{id:'mirror',name:'Mirror Charm',desc:'Ability fully charged at the start of every floor',mirror:true},{id:'feather',name:"Hunter's Feather",desc:'Critical hits restore 15 ability charge',feather:15},{id:'idol',name:'Golden Idol',desc:'+60% delve gold, enemies +25% HP',gold:1.6,ehp:1.25},{id:'fang',name:'Wolf Fang',desc:'+25% attack',atk:1.25},{id:'heart',name:'Troll Heart',desc:'+35% max HP',hp:1.35},{id:'leech',name:'Leech Charm',desc:'heal 12% of damage dealt',leech:0.12},{id:'focus',name:'Focus Stone',desc:'abilities charge twice as fast',charge:2},{id:'plate',name:'Ancient Plate',desc:'+40% defense',def:1.4},{id:'lucky',name:'Lucky Coin',desc:'+50% gold in the delve',gold:1.5}];
+const DOORS=['fight','fight','fight','elite','chest','shrine','trap','merchant','cursed','swap','rest'];
 G.delve=null;G.delveKeys=3;G.keyAt=now();G.delveBest=0;
-function keysNow(){const t=now();while(G.delveKeys<3&&t-G.keyAt>=8*HOUR/tscale()){G.delveKeys++;G.keyAt+=8*HOUR/tscale();}if(G.delveKeys>=3)G.keyAt=t;return G.delveKeys;}
+function keyMax(){return 3+treeLv('b_keys');}function keyPeriod(){return 8*HOUR/tscale()/(1+0.08*treeLv('keys'));}
+function keysNow(){const t=now();while(G.delveKeys<keyMax()&&t-G.keyAt>=keyPeriod()){G.delveKeys++;G.keyAt+=keyPeriod();}if(G.delveKeys>=keyMax())G.keyAt=t;return G.delveKeys;}
 function delveScale(){const d=G.delve;return{lvl:R(4+d.floor*2.2+(G.reforges||0)*6),mult:Math.pow(1.05,d.floor)};}
 function startDelve(h){if(keysNow()<1){toast('No keys - one returns every 8 hours');return;}G.delveKeys--;if(G.delveKeys<3&&G.keyAt>now()-1)G.keyAt=now();
-  G.delve={hero:h,floor:0,startedAt:now(),bag:{gold:0,ore:0,items:[]},relics:[],saved:{active:G.active.slice(),zone:G.zone,mode:G.mode,prog:G.prog.slice()},hpFrac:h.hp/h.maxhp,busy:false};
+  G.stats.delveRuns++;G.delve={hero:h,floor:0,startedAt:now(),bag:{gold:0,ore:0,items:[]},relics:[],saved:{active:G.active.slice(),zone:G.zone,mode:G.mode,prog:G.prog.slice()},hpFrac:h.hp/h.maxhp,busy:false};
   h.dead=false;h.status={};refreshDelveStats();h.hp=h.maxhp;G.active=[h];layout();h.x=h.tx;G.enemies=[];G.projs=[];G.action=null;G.mode='delve';G.screen='road';closeSheet();sfx('cast');banner('The Catacombs','Floor 1 - choose a door',2.5);nextFloor();}
-function refreshDelveStats(){const d=G.delve,h=d.hero;refreshStats(h);let hp=h.maxhp,atk=h.atk,def=h.def;for(const r of d.relics){if(r.hp)hp*=r.hp;if(r.atk)atk*=r.atk;if(r.def)def*=r.def;}const f=h.hp/h.maxhp;h.maxhp=R(hp);h.atk=R(atk);h.def=R(def);h.hp=R(Math.min(h.maxhp,f*hp));}
-function nextFloor(){const d=G.delve;d.floor++;d.doors=[];const pool=DOORS.slice();for(let i=0;i<3;i++){const k=Math.floor(rand()*pool.length);d.doors.push(pool.splice(k,1)[0]);}if(d.floor%5===0)d.doors[0]='elite';d.choose=true;d.timer=10;G.mode='delve';setAnim(d.hero,'idle');}
+function refreshDelveStats(){const d=G.delve,h=d.hero;refreshStats(h);let hp=h.maxhp*(d.curse||1),atk=h.atk,def=h.def;for(const r of d.relics){if(r.hp)hp*=r.hp;if(r.atk)atk*=r.atk;if(r.def)def*=r.def;}const f=h.hp/h.maxhp;h.maxhp=R(hp);h.atk=R(atk);h.def=R(def);h.hp=R(Math.min(h.maxhp,f*hp));}
+function nextFloor(){const d=G.delve;d.floor++;d.doors=[];const pool=DOORS.slice();for(let i=0;i<3;i++){const k=Math.floor(rand()*pool.length);d.doors.push(pool.splice(k,1)[0]);}if(d.floor%10===0)d.doors[0]='boss';else if(d.floor%5===0)d.doors[0]='elite';if(d.relics.find(r=>r.mirror))d.hero.charge=100;d.choose=true;d.timer=10;G.mode='delve';setAnim(d.hero,'idle');}
 function delveEnemy(kind){const d=G.delve,sc=delveScale();const Z=ZONES[Math.min(ZONES.length-1,Math.floor(d.floor/4))];const pool=Z.pool;const id=kind==='elite'?ZONES[Math.min(ZONES.length-1,Math.floor(d.floor/4))].boss:pool[Math.floor(rand()*pool.length)];
   const E=ENEMIES[id];const e={uid:E.uid||id,id,name:(kind==='elite'?'':['Catacomb ','Deep ','Abyssal '][Math.min(2,Math.floor(d.floor/8))])+E.name,lvl:sc.lvl,x:W+40,slot:kind==='elite'?(E.native?226:200+8*(E.scale||1)):222,dx:0,yoff:0,flip:true,fly:!!E.fly,range:E.range,boss:!!E.boss,scale:kind==='elite'?Math.min(E.scale||1,2.5):1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:Math.min(2,Math.floor(d.floor/8)),gauge:rand()*40,dead:false,enemy:true,status:{},flash:0};
-  Object.assign(e,enemyStats(id,sc.lvl));if(kind==='elite'){e.maxhp=R(e.maxhp*1.6);e.atk=R(e.atk*1.2);}e.hp=e.maxhp;e.scale=kind==='elite'?2:1;setAnim(e,'walk');return e;}
+  Object.assign(e,enemyStats(id,sc.lvl));if(kind==='elite'){e.maxhp=R(e.maxhp*1.6);e.atk=R(e.atk*1.2);}if(kind==='boss'){e.maxhp=R(e.maxhp*3);e.atk=R(e.atk*1.4);e.name='Catacomb Lord';e.traits=['charge'];e.acts=0;}const idol=d.relics.find(r=>r.ehp);if(idol)e.maxhp=R(e.maxhp*idol.ehp);e.hp=e.maxhp;e.scale=kind==='elite'?2:kind==='boss'?2.5:1;setAnim(e,'walk');return e;}
 function chooseDoor(kind){const d=G.delve;if(!d||!d.choose)return;d.choose=false;const h=d.hero,sc=delveScale();
-  if(kind==='fight'||kind==='elite'){G.enemies=[delveEnemy(kind)];if(kind==='fight'&&rand()<0.5)G.enemies.push(Object.assign(delveEnemy('fight'),{x:W+80,slot:250,yoff:3}));G.mode='enter';G.delveFight=kind;setAnim(h,'idle');return;}
+  if(kind==='fight'||kind==='elite'||kind==='boss'){G.enemies=[delveEnemy(kind)];if(kind==='fight'&&rand()<0.5)G.enemies.push(Object.assign(delveEnemy('fight'),{x:W+80,slot:250,yoff:3}));G.mode='enter';G.delveFight=kind;setAnim(h,'idle');return;}
   if(kind==='chest'){if(rand()<0.6){const it=makeItem(Math.min(ZONES.length-1,Math.floor(d.floor/4)),'boss');d.bag.items.push(it);toast('Chest: '+itemName(it),RANKHEX[it.rank]);}else{const o=R((6+d.floor*3)*sc.mult);d.bag.ore+=o;toast('Chest: +'+o+' ore');}}
   else if(kind==='shrine'){if(rand()<0.5||d.relics.length>=3){const a=R(h.maxhp*0.4);h.hp=Math.min(h.maxhp,h.hp+a);toast('Shrine: healed '+a);sfx('heal');}else{const r=RELICS.filter(x=>!d.relics.includes(x))[Math.floor(rand()*RELICS.filter(x=>!d.relics.includes(x)).length)];d.relics.push(r);refreshDelveStats();toast('Relic: '+r.name+' - '+r.desc,C.goldL);sfx('level');}}
   else if(kind==='trap'){if(rand()<0.35){toast('You slip past the trap');}else{const dmg=R(h.maxhp*0.22);h.hp-=dmg;float(h.x,GROUND-40,String(dmg),'#ff8a80',true);sfx('hit');G.shake=0.3;toast('A trap bites for '+dmg);if(h.hp<=0){h.hp=0;endDelve(true);return;}}}
+  else if(kind==='cursed'){const it=makeItem(Math.min(ZONES.length-1,2+Math.floor(d.floor/4)),'boss');it.rank=Math.min(4,it.rank+1);d.bag.items.push(it);d.curse=(d.curse||1)*0.75;refreshDelveStats();toast('Cursed chest: '+itemName(it)+' - max HP -25% this run',RANKHEX[it.rank]);sfx('death');}
+  else if(kind==='swap'){const others=RELICS.filter(x=>!d.relics.includes(x));if(d.relics.length){const out=d.relics[Math.floor(rand()*d.relics.length)];const nr=others[Math.floor(rand()*others.length)];d.relics[d.relics.indexOf(out)]=nr;refreshDelveStats();toast(out.name+' becomes '+nr.name+' - '+nr.desc,C.goldL);}else{const nr=others[Math.floor(rand()*others.length)];d.relics.push(nr);refreshDelveStats();toast('Relic: '+nr.name+' - '+nr.desc,C.goldL);}sfx('level');}
+  else if(kind==='rest'){d.curse=1;refreshDelveStats();const a=R(h.maxhp*0.6);h.hp=Math.min(h.maxhp,h.hp+a);toast('You rest. Healed '+fmtNum(a)+', curses lifted');sfx('heal');}
   else if(kind==='merchant'){const price=R(30*d.floor*sc.mult);if(G.gold>=price){G.gold-=price;h.hp=h.maxhp;toast('The merchant patches you up for '+fmtNum(price)+' gold');}else toast('The merchant wants '+fmtNum(price)+' gold - you have '+fmtNum(G.gold));}
   nextFloor();}
 function delveWin(){const d=G.delve,sc=delveScale();const gold=R((20+d.floor*10)*sc.mult*(d.relics.find(r=>r.gold)?1.5:1)*bless('gold'));d.bag.gold+=gold;float(W/2,SCENE_Y+40,'+'+fmtNum(gold)+' gold',C.goldL,true);
   if(G.delveFight==='elite'){const it=makeItem(Math.min(ZONES.length-1,1+Math.floor(d.floor/4)),'boss');d.bag.items.push(it);toast('The elite drops '+itemName(it),RANKHEX[it.rank]);}
+  if(G.delveFight==='boss'){for(let k=0;k<2;k++){const it=makeItem(Math.min(ZONES.length-1,2+Math.floor(d.floor/4)),'boss');d.bag.items.push(it);}const others=RELICS.filter(x=>!d.relics.includes(x));if(others.length&&d.relics.length<3){const nr=others[Math.floor(rand()*others.length)];d.relics.push(nr);refreshDelveStats();}toast('The Catacomb Lord falls - two items and a relic',C.goldL);}
   G.enemies=[];G.mode='delve';setTimeout(()=>{if(G.delve)nextFloor();},600);}
 function endDelve(died,fled){const d=G.delve;if(!d)return;const h=d.hero;const keep=died?0.6:fled?0.8:1;const gold=R(d.bag.gold*keep),ore=R(d.bag.ore*keep);G.gold+=gold;G.ore+=ore;let kept=0;for(const it of d.bag.items){if(!died||rand()<0.6){if(G.pack.length<15){G.pack.push(it);kept++;}else{G.ore+=(it.rank+1)*4;}}}
   G.delveBest=Math.max(G.delveBest||0,d.floor-(died?1:0));G.run.bestFloor=Math.max(G.run.bestFloor||0,d.floor-(died?1:0));const hrs=(now()-d.startedAt)/HOUR;let roadNote='';if(hrs>0.02){const zsave=G.zone;G.zone=d.saved.zone;const rg=offlineGains(Math.min(8,hrs),0.5);G.zone=zsave;if(rg.fights>0){G.gold+=rg.gold;G.ore+=rg.ore;for(const a of d.saved.active){a.xp+=rg.xp;while(a.xp>=xpNeed(a.lvl)){a.xp-=xpNeed(a.lvl);a.lvl++;refreshStats(a);a.hp=a.maxhp;}}roadNote=' · the party won '+rg.fights+' fights above';}}
   G.active=d.saved.active;G.zone=d.saved.zone;G.prog=d.saved.prog;G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;G.delve=null;h.status={};refreshStats(h);h.hp=Math.max(1,R(h.maxhp*(died?0.3:d.hpFrac)));h.dead=false;for(const a of G.active){a.dx=0;setAnim(a,'walk');}layout();
   banner(died?'Lost in the catacombs':fled?'Fled the catacombs':'Back to the surface',(died?'Kept 60%: ':fled?'Kept 80%: ':'')+'+'+fmtNum(gold)+' gold, +'+ore+' ore, '+kept+' item'+(kept===1?'':'s')+' · floor '+d.floor+roadNote,4.5,'any');G.screen='vael';saveGame();}
 function drawDelveOverlay(){const d=G.delve;if(!d)return;const h=d.hero;
-  ctx.globalAlpha=0.8;frame(4,SCENE_Y+4,150,36,'rgba(22,26,44,0.75)');ctx.globalAlpha=1;text(9,SCENE_Y+7,'Catacombs · Floor '+d.floor,'sb',C.goldL);text(9,SCENE_Y+17,'Best '+(G.delveBest||0)+' · bag '+fmtNum(d.bag.gold)+'g, '+d.bag.ore+' ore, '+d.bag.items.length+' items','xs',C.muted);
+  ctx.globalAlpha=0.8;frame(4,SCENE_Y+4,150,36,'rgba(22,26,44,0.75)');ctx.globalAlpha=1;text(9,SCENE_Y+7,'Catacombs · Floor '+d.floor+(d.curse&&d.curse<1?' · cursed':''),'sb',d.curse&&d.curse<1?'#ff8a80':C.goldL);text(9,SCENE_Y+17,'Best '+(G.delveBest||0)+' · bag '+fmtNum(d.bag.gold)+'g, '+d.bag.ore+' ore, '+d.bag.items.length+' items','xs',C.muted);
   d.relics.forEach((r,i)=>{icon('crystal',12+i*14,SCENE_Y+28,4);});
   button(W-92,SCENE_Y+4,52,18,false);text(W-66,SCENE_Y+8.5,'Leave','xs',C.cream,'center');hit(W-92,SCENE_Y+4,52,18,()=>{endDelve(false,G.mode!=='delve');});
   if(d.choose){dimRect(0,SCENE_Y+44,W,160,0.55);text(W/2,SCENE_Y+52,'Choose a door · '+Math.ceil(d.timer)+'s','sb',C.goldL,'center');
-    const labels={fight:['Fight','a monster guards it'],elite:['Elite','a champion - better loot'],chest:['Chest','gear or ore'],shrine:['Shrine','healing or a relic'],trap:['Trap','risky - might bite'],merchant:['Merchant','full heal for '+fmtNum(R(30*d.floor*delveScale().mult))+' gold']};
-    d.doors.forEach((k,i)=>{const x=10+i*86,y=SCENE_Y+66,gold=k==='elite'||k==='chest';button(x,y,80,54,gold);const ic={fight:'sword',elite:'shield',chest:'coin',shrine:'heal',trap:'x',merchant:'ore'}[k];icon(ic,x+34,y+6,gold?4:2);text(x+40,y+22,labels[k][0],'sb',gold?C.goldL:C.cream,'center');text(x+40,y+34,fitText(labels[k][1],'xs',76),'xs',C.muted,'center');hit(x,y,80,54,()=>chooseDoor(k));});
+    const labels={fight:['Fight','a monster guards it'],elite:['Elite','a champion - better loot'],boss:['Lord','a catacomb lord - relic and gear'],chest:['Chest','gear or ore'],shrine:['Shrine','healing or a relic'],trap:['Trap','risky - might bite'],merchant:['Merchant','full heal for '+fmtNum(R(30*d.floor*delveScale().mult))+' gold'],cursed:['Cursed chest','rare gear, but -25% HP'],swap:['Altar','swap a relic for another'],rest:['Rest','heal 60%, lift curses']};
+    d.doors.forEach((k,i)=>{const x=10+i*86,y=SCENE_Y+66,gold=k==='elite'||k==='chest';button(x,y,80,54,gold);const ic={fight:'sword',elite:'shield',boss:'crystal',chest:'coin',shrine:'heal',trap:'x',merchant:'ore',cursed:'ring',swap:'nodes',rest:'tent'}[k];icon(ic,x+34,y+6,gold?4:2);text(x+40,y+22,labels[k][0],'sb',gold?C.goldL:C.cream,'center');text(x+40,y+34,fitText(labels[k][1],'xs',76),'xs',C.muted,'center');hit(x,y,80,54,()=>chooseDoor(k));});
     text(W/2,SCENE_Y+130,'Relics: '+(d.relics.length?d.relics.map(r=>r.name).join(', '):'none yet'),'xs',C.dimt,'center');}}
 // treasure on the road
 G.treasure=null;G.treasureAt=0;
-function spawnTreasure(){G.treasure={x:40+rand()*180,y:SCENE_Y+110+rand()*60,t:0,life:3.5,kind:rand()<0.06?'gear':rand()<0.3?'ore':'gold'};}
-function drawTreasure(){const t=G.treasure;if(!t)return;const pu=0.5+0.5*Math.sin(RT*8),k=Math.min(1,t.t*3);ctx.globalAlpha=k*(t.life-t.t<0.6?(t.life-t.t)/0.6:1);
-  const g=ctx.createRadialGradient(t.x,t.y,1,t.x,t.y,14);g.addColorStop(0,'rgba(255,240,170,'+(0.7*pu)+')');g.addColorStop(1,'rgba(255,240,170,0)');ctx.fillStyle=g;ctx.fillRect(t.x-14,t.y-14,28,28);
-  const col=t.kind==='gear'?'#e1bee7':t.kind==='ore'?'#dfe6ee':C.goldL;px(R(t.x)-1,R(t.y)-5,3,11,col);px(R(t.x)-5,R(t.y)-1,11,3,col);px(R(t.x)-3,R(t.y)-3,7,7,'#fff');ctx.globalAlpha=1;hit(t.x-16,t.y-16,32,32,grabTreasure);}
-function grabTreasure(){const t=G.treasure;if(!t)return;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');
-  if(t.kind==='gear'&&G.pack.length<15){const it=makeItem(G.zone,'boss');G.pack.push(it);float(t.x,t.y-10,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank]);}
-  else if(t.kind==='ore'){const o=R((3+L*0.5)*(1+Math.floor(L/6)));G.ore+=o;float(t.x,t.y-10,'+'+o+' ore',C.muted,true);}
-  else{const g=R((12+L*6)*Math.pow(1.05,L)*bless('gold'));G.gold+=g;float(t.x,t.y-10,'+'+fmtNum(g)+' gold',C.goldL,true);}}
+const CHEST=["..oooooooooo..",".oWWWWWWWWWWo.","oWwwwwwwwwwwWo","oWWWWWWWWWWWWo","oooooooooooooo","oWWWWWoggoWWWo","oWWWWWogggWWWo","oWWWWWoggoWWWo","oWWWWWWWWWWWWo",".oooooooooooo."];
+function spawnTreasure(){G.treasure={wx:G.scroll+W+20+rand()*40,y:GROUND-2+rand()*6,t:0,life:14,kind:(rand()<0.015&&G.wins>=10)?'gear':rand()<0.3?'ore':'gold'};}
+function treasureX(){return G.treasure.wx-G.scroll;}
+function drawTreasure(){const t=G.treasure;if(!t)return;const x=R(treasureX());if(x<-20){G.treasure=null;return;}const pu=0.5+0.5*Math.sin(RT*6);
+  const g=ctx.createRadialGradient(x+7,t.y-5,1,x+7,t.y-5,16);g.addColorStop(0,'rgba(255,240,170,'+(0.45*pu)+')');g.addColorStop(1,'rgba(255,240,170,0)');ctx.fillStyle=g;ctx.fillRect(x-9,t.y-21,32,32);
+  const pal=Object.assign({},CPAL,{W:t.kind==='gear'?'#8e4ab8':t.kind==='ore'?'#6e7480':'#8a5a2c',w:t.kind==='gear'?'#b07ad8':t.kind==='ore'?'#9aa3ad':'#b07a44',g:'#f1d778'});pixGrid(CHEST,x,t.y-10,1,pal);
+  for(let k=0;k<3;k++){const a=RT*3+k*2.1;px(x+7+R(Math.cos(a)*11),t.y-6+R(Math.sin(a)*7),1,1,'#fff');}hit(x-8,t.y-24,30,32,grabTreasure);}
+function grabTreasure(){const t=G.treasure;if(!t)return;const tx0=treasureX()+7;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');
+  if(t.kind==='gear'&&G.pack.length<15){const it=makeItem(G.zone);G.pack.push(it);float(tx0,t.y-16,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank]);}
+  else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6)));G.ore+=o;float(tx0,t.y-16,'+'+o+' ore',C.muted,true);}
+  else{const g=R((5+L*3)*Math.pow(1.05,L)*bless('gold'));G.gold+=g;float(tx0,t.y-16,'+'+fmtNum(g)+' gold',C.goldL,true);}}
 
 // ============================================================ saving & offline progress
 const SAVE_KEY='crystal_road_save_v1';
 function storeGet(){try{return localStorage.getItem(SAVE_KEY);}catch(e){return null;}}
 function storeSet(v){try{localStorage.setItem(SAVE_KEY,v);return true;}catch(e){return false;}}
 function storeClear(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
-function serialize(){return JSON.stringify({v:1,t:now(),zone:G.zone,prog:G.prog,cleared:G.cleared,gold:G.gold,ore:G.ore,dust:G.dust,wins:G.wins,campfireDone:G.campfireDone,tree:G.tree,autoCast:G.autoCast,music:G.music,sfx:G.sfx!==false,autoUntil:G.autoUntil,reforges:G.reforges||0,surge:G.surge||0,chestAt:G.chestAt||0,warpAt:G.warpAt||0,far:G.far||[],run:G.run,treeTab:G.treeTab,delveKeys:G.delveKeys,keyAt:G.keyAt,delveBest:G.delveBest||0,speedUntil:G.speedUntil||0,autoSalvage:G.autoSalvage||0,musicVol:G.musicVol,sfxVol:G.sfxVol,tutDone:!!G.tutDone,itemSeq,
-  roster:G.roster.map(h=>({id:h.id,lvl:h.lvl,xp:h.xp,hp:h.hp,abLvl:h.abLvl,eq:h.eq})),active:G.active.map(h=>h.id),pack:G.pack,
+function serialize(){return JSON.stringify({v:1,t:now(),zone:G.zone,prog:G.prog,cleared:G.cleared,gold:G.gold,ore:G.ore,dust:G.dust,wins:G.wins,campfireDone:G.campfireDone,tree:G.tree,autoCast:G.autoCast,music:G.music,sfx:G.sfx!==false,autoUntil:G.autoUntil,reforges:G.reforges||0,surge:G.surge||0,chestAt:G.chestAt||0,warpAt:G.warpAt||0,far:G.far||[],run:G.run,stats:G.stats,simT:G.simT||0,zoneT:G.zoneT||[],treeTab:G.treeTab,delveKeys:G.delveKeys,keyAt:G.keyAt,delveBest:G.delveBest||0,speedUntil:G.speedUntil||0,autoSalvage:G.autoSalvage||0,musicVol:G.musicVol,sfxVol:G.sfxVol,tutDone:!!G.tutDone,vaelSeen:!!G.vaelSeen,vaelNew:!!G.vaelNew,itemSeq,
+  roster:G.roster.map(h=>({id:h.id,lvl:h.lvl,xp:h.xp,hp:h.hp,abLvl:h.abLvl,eq:h.eq,tier:h.tier||0,talents:h.talents||{}})),active:G.active.map(h=>h.id),pack:G.pack,
   quests:G.quests.map(q=>({hero:q.hero.id,q:q.q.id,end:q.end})),castle:G.castle,fast:G.fast});}
 function saveGame(){if(G.title||G.noSave||G.delve)return;storeSet(serialize());}
 function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.parse(raw);}catch(e){return false;}if(!d||d.v!==1)return false;
   while(d.prog.length<ZONES.length)d.prog.push(0);while(d.cleared.length<ZONES.length)d.cleared.push(false);
-  Object.assign(G,{zone:d.zone,prog:d.prog,cleared:d.cleared,gold:d.gold,ore:d.ore,dust:d.dust,wins:d.wins,campfireDone:d.campfireDone,tree:d.tree||{},autoCast:!!d.autoCast,music:d.music!==false,sfx:d.sfx!==false,reforges:d.reforges||0,surge:d.surge||0,chestAt:d.chestAt||0,warpAt:d.warpAt||0,far:d.far||[],run:d.run||{start:d.t,fights:0,bosses:0,gold:0,bestFloor:0},treeTab:d.treeTab||'Party',delveKeys:d.delveKeys==null?3:d.delveKeys,keyAt:d.keyAt||now(),delveBest:d.delveBest||0,speedUntil:d.speedUntil||0,autoSalvage:d.autoSalvage||0,musicVol:d.musicVol==null?0.55:d.musicVol,sfxVol:d.sfxVol==null?1:d.sfxVol,tutDone:!!d.tutDone,autoUntil:d.autoUntil||0,fast:!!d.fast});
+  Object.assign(G,{zone:d.zone,prog:d.prog,cleared:d.cleared,gold:d.gold,ore:d.ore,dust:d.dust,wins:d.wins,campfireDone:d.campfireDone,tree:d.tree||{},autoCast:!!d.autoCast,music:d.music!==false,sfx:d.sfx!==false,reforges:d.reforges||0,surge:d.surge||0,chestAt:d.chestAt||0,warpAt:d.warpAt||0,far:d.far||[],run:d.run||{start:d.t,fights:0,bosses:0,gold:0,bestFloor:0},stats:Object.assign({kills:0,bosses:0,hit:0,gold:0,ore:0,items:0,legendary:0,hordes:0,offline:0,defeats:0,delveRuns:0,taps:0},d.stats||{}),simT:d.simT||0,zoneT:d.zoneT||[],treeTab:d.treeTab||'Party',delveKeys:d.delveKeys==null?3:d.delveKeys,keyAt:d.keyAt||now(),delveBest:d.delveBest||0,speedUntil:d.speedUntil||0,autoSalvage:d.autoSalvage||0,musicVol:d.musicVol==null?0.55:d.musicVol,sfxVol:d.sfxVol==null?1:d.sfxVol,tutDone:!!d.tutDone,vaelSeen:!!d.vaelSeen,vaelNew:!!d.vaelNew,autoUntil:d.autoUntil||0,fast:!!d.fast});
   itemSeq=d.itemSeq||itemSeq;G.pack=d.pack||[];
-  G.roster=[];for(const r of d.roster){const def=HEROES.find(x=>x.id===r.id);if(!def)continue;const h=mkHero(def);h.lvl=r.lvl;h.xp=r.xp;h.abLvl=r.abLvl||1;h.eq=r.eq||{};refreshStats(h);h.hp=Math.min(h.maxhp,r.hp>0?r.hp:h.maxhp);G.roster.push(h);}
+  G.roster=[];for(const r of d.roster){const def=HEROES.find(x=>x.id===r.id);if(!def)continue;const h=mkHero(def);h.lvl=r.lvl;h.xp=r.xp;h.abLvl=r.abLvl||1;h.eq=r.eq||{};h.tier=r.tier||0;h.talents=r.talents||{};refreshStats(h);h.hp=Math.min(h.maxhp,r.hp>0?r.hp:h.maxhp);G.roster.push(h);}
   G.active=(d.active||[]).map(id=>G.roster.find(h=>h.id===id)).filter(Boolean);if(!G.active.length&&G.roster.length)G.active=[G.roster[0]];
   G.active.forEach(h=>{h.x=null;});layout();
   G.quests=(d.quests||[]).map(q=>({hero:G.roster.find(h=>h.id===q.hero),q:QUESTS.find(x=>x.id===q.q),end:q.end})).filter(q=>q.hero&&q.q);
@@ -750,9 +829,9 @@ function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.p
 function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45+(G.cleared[G.zone]?3:0));const per=1.8;
   return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6)))};}
 function offlineReport(lastT){const elapsed=Math.max(0,(now()-lastT)/1000);if(elapsed<120)return;
-  const hours=Math.min(8,elapsed/3600),eff=G.autoUntil>lastT?0.65:0.5;const g=offlineGains(hours,eff),fights=g.fights;if(fights<1)return;
+  const hours=Math.min(8+0.5*treeLv('offline')+(built('shrine')?2:0),elapsed/3600),eff=G.autoUntil>lastT?0.65:0.5;const g=offlineGains(hours,eff),fights=g.fights;if(fights<1)return;
   const gold=g.gold,xp=g.xp,ore=g.ore;
-  G.gold+=gold;G.ore+=ore;const ups=[];for(const h of G.active){h.xp+=xp;let n=0;while(h.xp>=xpNeed(h.lvl)){h.xp-=xpNeed(h.lvl);h.lvl++;n++;}if(n){refreshStats(h);h.hp=h.maxhp;ups.push(h.name+' +'+n);}}
+  G.gold+=gold;G.ore+=ore;G.stats.offline+=fights;const ups=[];for(const h of G.active){h.xp+=xp;let n=0;while(h.xp>=xpNeed(h.lvl)){h.xp-=xpNeed(h.lvl);h.lvl++;n++;}if(n){refreshStats(h);h.hp=h.maxhp;ups.push(h.name+' +'+n);}}
   G.offline={hours,fights,gold,ore,ups,doubled:false};openSheet('welcome');}
 function drawWelcome(s,y0){const o=G.offline;text(16,y0+8,'While you were away','h',C.goldL);text(16,y0+22,fmtT(o.hours*3600)+' on the road · '+o.fights+' battles in '+ZONES[G.zone].name,'xs',C.muted);
   icon('coin',20,y0+36,4);text(36,y0+37,'+'+o.gold.toLocaleString()+' gold','sb',C.goldL);icon('ore',20,y0+50,0);text(36,y0+51,'+'+o.ore+' ore','sb',C.cream);
@@ -769,7 +848,7 @@ function openSheet(kind,data={}){G.sheet={kind,...data};}
 function closeSheet(){G.sheet=null;}
 function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.height);dimRect(0,0,W,H,0.75);hit(0,0,W,H,()=>{if(s.kind!=='welcome')closeSheet();});
   const camp=G.roster.filter(h=>!G.active.includes(h)),free=G.roster.filter(h=>heroStatus(h)==='camp');
-  const hh=s.kind==='reforge'?150:s.kind==='delve'?54+30*G.roster.filter(h=>heroStatus(h)!=='quest').length:s.kind==='ad'?196:s.kind==='reforge'?96:s.kind==='speedad'?92:s.kind==='welcome'?122:s.kind==='garrison'?46+30*Math.max(1,G.roster.filter(h=>['camp','garrison'].includes(heroStatus(h))).length):s.kind==='swap'?118+30*Math.max(1,camp.length):s.kind==='send'?(s.hero?40+38*QUESTS.length:40+30*Math.max(1,free.length)):s.kind==='settings'?300:96;
+  const hh=s.kind==='blueprints'?36+30*Object.keys(STRUCTS).length:s.kind==='stats'?190:s.kind==='reforge'?150:s.kind==='delve'?54+30*G.roster.filter(h=>heroStatus(h)!=='quest').length:s.kind==='ad'?196:s.kind==='reforge'?96:s.kind==='speedad'?92:s.kind==='welcome'?122:s.kind==='garrison'?46+30*Math.max(1,G.roster.filter(h=>['camp','garrison'].includes(heroStatus(h))).length):s.kind==='swap'?118+30*Math.max(1,camp.length):s.kind==='send'?(s.hero?40+38*QUESTS.length:40+30*Math.max(1,free.length)):s.kind==='settings'?352:96;
   const y0=Math.max(40,R((H-48-hh)/2));frame(8,y0,254,hh,C.navy,C.goldL);hit(8,y0,254,hh,()=>{});
   if(s.kind!=='welcome'){icon('x',242,y0+8,0);hit(232,y0,30,28,closeSheet);}
   if(s.kind==='swap'){text(16,y0+8,'Party',"h",C.goldL);text(16,y0+20,'Tap a marcher, then a hero at camp to trade places.','xs',C.muted);text(16,y0+29,'Two marchers to reorder. Left slot is the front.','xs',C.muted);
@@ -792,6 +871,9 @@ function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.h
       button(196,y+9,54,16,true);text(223,y+12,'Send','xs',C.goldL,'center');hit(14,y,242,34,()=>{if(G.quests.length>=questSlots()){toast('No free quest slots');return;}startQuest(s.hero,q);closeSheet();});y+=38;}}}
   else if(s.kind==='delve'){text(16,y0+8,'Into the Catacombs','h',C.goldL);text(16,y0+22,'One hero goes down alone. Each floor, pick a door within 10s.','xs',C.muted);text(16,y0+31,'Leave whenever you choose; die and you keep 60% of the bag.','xs',C.muted);let y=y0+44;
     for(const h of G.roster){if(y>H-90)break;if(heroStatus(h)==='quest')continue;px(14,y,242,26,C.band);drawSprite(h,28,y+22,0,'idle',false);text(46,y+4,h.name+' · '+CLASSES[h.cls].name+' Lv '+h.lvl,'s',C.cream);text(46,y+14,heroStatus(h)==='marching'?'Marching - the party waits for them':'At camp','xs',C.muted);button(196,y+5,54,16,true);text(223,y+8,'Descend','xs',C.goldL,'center');hit(14,y,242,26,()=>startDelve(h));y+=30;}}
+  else if(s.kind==='blueprints'){text(16,y0+8,'Blueprints','h',C.goldL);text(16,y0+22,'Every boss drops the plans for one structure. Build them here.','xs',C.muted);let y=y0+34;const bp=G.castle.bp||{};
+    for(const k of Object.keys(STRUCTS)){if(y>H-90)break;const st=STRUCTS[k],have=!!bp[k],isB=built(k);px(14,y,242,26,C.band);if(have){text(20,y+4,st.name+(isB?' - built':''),'sb',isB?C.goldL:C.cream);text(20,y+14,st.desc,'xs',C.muted);if(!isB){const can=G.gold>=st.cost;button(196,y+5,54,16,can);text(223,y+8,'Build '+fmtNum(st.cost),'xs',can?C.goldL:C.muted,'center');hit(196,y+5,54,16,()=>{if(G.gold<st.cost){toast('Need '+fmtNum(st.cost)+' gold');return;}G.gold-=st.cost;G.castle.built=G.castle.built||{};G.castle.built[k]=true;sfx('level',true);toast(st.name+' built: '+st.desc,C.goldL);});}}
+      else{text(20,y+4,'? ? ?','sb',C.dimt);text(20,y+14,'Plans held by '+ENEMIES[st.boss].name,'xs',C.dimt);}y+=30;}}
   else if(s.kind==='garrison'){text(16,y0+8,'Garrison','h',C.goldL);text(16,y0+20,garrisonHeroes().length+' of '+garrisonSlots()+' posts · raise the walls for more','xs',C.muted);let y=y0+34;
     for(const h of G.roster){if(y>H-90)break;const st=heroStatus(h);if(st==='marching'||st==='quest')continue;const posted=st==='garrison';px(14,y,242,26,C.band);drawSprite(h,28,y+22,0,'idle',false);text(46,y+4,h.name+' · '+CLASSES[h.cls].name+' Lv '+h.lvl,'s',C.cream);text(46,y+14,posted?'On the walls':'At camp','xs',posted?C.goldL:C.muted);
       button(196,y+5,54,16,!posted);text(223,y+8,posted?'Recall':'Post','xs',posted?C.cream:C.goldL,'center');hit(14,y,242,26,()=>{if(posted)recallHero(h);else postHero(h);});y+=30;}
@@ -802,15 +884,17 @@ function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.h
   else if(s.kind==='reforge'){const r=G.run,best=Math.max(...G.roster.map(h=>h.lvl)),hrs=(now()-r.start)/HOUR;text(16,y0+8,'Run '+((G.reforges||0)+1)+' - the summary','h',C.goldL);
     const rows=[['Time on the road',hrs>=1?hrs.toFixed(1)+' h':Math.round(hrs*60)+' min'],['Fights won',fmtNum(r.fights)],['Bosses beaten',String(r.bosses)],['Gold earned',fmtNum(r.gold)],['Deepest catacomb floor',String(r.bestFloor||0)],['Highest hero level',String(best)]];
     rows.forEach(([k,v],i)=>{const y=y0+24+i*11;text(20,y,k,'xs',C.muted);text(250,y,v,'xsb',C.cream,'right');});
-    text(16,y0+94,'Reforge for +'+reforgeGain()+' crystal dust. Levels, gold, ore and the road reset;','xs','#bbdefb');text(16,y0+103,'heroes, gear, Vael, the tree and blessings stay.','xs','#bbdefb');
+    text(16,y0+94,'Reforge for +'+reforgeGain()+' dust. Levels, gold, ore, the road and gear upgrades reset','xs','#bbdefb');text(16,y0+103,'(half the ore refunded); heroes, gear rarity, Vael, tree and blessings stay.','xs','#bbdefb');
     button(16,y0+118,110,22,true);text(71,y0+125,'Begin run '+((G.reforges||0)+2),'sb',C.goldL,'center');hit(16,y0+118,110,22,doReforge);button(140,y0+118,110,22,false);text(195,y0+125,'Not yet','xs',C.cream,'center');hit(140,y0+118,110,22,closeSheet);}
+  else if(s.kind==='stats'){const st=G.stats;const rows=[['Enemies defeated',fmtNum(st.kills)],['Bosses defeated',String(st.bosses)],['Highest hit',fmtNum(st.hit)],['Gold earned',fmtNum(st.gold)],['Items found',String(st.items)],['Sunforged found',String(st.legendary)],['Taps',fmtNum(st.taps)],['Hordes repelled',String(st.hordes)],['Offline fights',fmtNum(st.offline)],['Catacomb runs',String(st.delveRuns)],['Deepest floor',String(G.delveBest||0)],['Reforges',String(G.reforges||0)],['Defeats',String(st.defeats||0)],['Road time',fmtT(G.simT||0)]];
+    text(16,y0+8,'Statistics','h',C.goldL);rows.forEach(([k,v],i)=>{const y=y0+24+i*11;text(20,y,k,'xs',C.muted);text(250,y,v,'xsb',C.cream,'right');});}
   else if(s.kind==='welcome'){drawWelcome(s,y0);}
   else if(s.kind==='settings'){text(16,y0+8,'Settings','h',C.goldL);
-    const rows=[['Music  '+R((G.musicVol==null?0.55:G.musicVol)*100)+'%',G.music,()=>{setMusic(!G.music);}],['Sound effects  '+R((G.sfxVol==null?1:G.sfxVol)*100)+'%',G.sfx!==false,()=>{G.sfx=G.sfx===false?true:false;}],['Dev: +1T gold, ore and dust',false,()=>{G.gold+=1e12;G.ore+=1e12;G.dust+=1e12;toast('Treasury topped up');}],['Dev: horde arrives now',false,()=>{G.castle.hordeAt=now();castleTick();}],['Auto-cast abilities (tapping still hits 30% harder)',G.autoCast,()=>{G.autoCast=!G.autoCast;toast(G.autoCast?'Abilities cast on their own':'Tap to cast');}],['Dev road speed: '+(G.fastRoad?G.fastRoad+'×':'off'),!!G.fastRoad,()=>{G.fastRoad=G.fastRoad===16?0:G.fastRoad===8?16:G.fastRoad===4?8:4;toast(G.fastRoad?'Road runs at '+G.fastRoad+'× speed':'Road back to normal speed');}],['Fast quests & castle (testing: 120× speed)',G.fast,()=>{const t=now();for(const q of G.quests){const left=Math.max(0,q.end-t);q.end=t+(G.fast?left*120:left/120);}{const left=Math.max(0,G.castle.hordeAt-t);G.castle.hordeAt=t+(G.fast?left*120:left/120);}G.castle.last=t;G.fast=!G.fast;toast(G.fast?'Quests now run 120× faster':'Quests back to real time');}],['Reset the road (wipes the save)',false,()=>{storeClear();G.noSave=true;location.reload();}]];
+    const rows=[['Music  '+R((G.musicVol==null?0.55:G.musicVol)*100)+'%',G.music,()=>{setMusic(!G.music);}],['Sound effects  '+R((G.sfxVol==null?1:G.sfxVol)*100)+'%',G.sfx!==false,()=>{G.sfx=G.sfx===false?true:false;}],['Dev: +1T gold, ore and dust',false,()=>{G.gold+=1e12;G.ore+=1e12;G.dust+=1e12;toast('Treasury topped up');}],['Dev: horde arrives now',false,()=>{G.castle.hordeAt=now();castleTick();}],['Statistics',false,()=>{openSheet('stats');}],['Dev timer: road '+fmtT(G.simT||0)+' · this zone '+fmtT((G.zoneT||[])[G.zone]||0)+' (game time)',false,()=>{toast(ZONES.map((z,i)=>z.name.split(' ')[0]+' '+fmtT((G.zoneT||[])[i]||0)).join(' · '));}],['Auto-cast abilities (tapping still hits 30% harder)',G.autoCast,()=>{G.autoCast=!G.autoCast;toast(G.autoCast?'Abilities cast on their own':'Tap to cast');}],['Dev road speed: '+(G.fastRoad?G.fastRoad+'×':'off'),!!G.fastRoad,()=>{G.fastRoad=G.fastRoad===64?0:G.fastRoad===32?64:G.fastRoad===16?32:G.fastRoad===8?16:G.fastRoad===4?8:4;toast(G.fastRoad?'Road runs at '+G.fastRoad+'× speed':'Road back to normal speed');}],['Fast quests & castle (testing: 120× speed)',G.fast,()=>{const t=now();for(const q of G.quests){const left=Math.max(0,q.end-t);q.end=t+(G.fast?left*120:left/120);}{const left=Math.max(0,G.castle.hordeAt-t);G.castle.hordeAt=t+(G.fast?left*120:left/120);}G.castle.last=t;G.fast=!G.fast;toast(G.fast?'Quests now run 120× faster':'Quests back to real time');}],['Reset the road (wipes the save)',false,()=>{storeClear();G.noSave=true;location.reload();}]];
     rows.forEach(([label,on,fn],i)=>{const y=y0+30+i*26;px(14,y,242,22,C.band);text(20,y+6,label,'xs',C.cream);
       if(i<2){const set=v=>{if(i===0)setMusicVol(v);else G.sfxVol=clamp(v,0,1);};const get=()=>i===0?(G.musicVol==null?0.55:G.musicVol):(G.sfxVol==null?1:G.sfxVol);button(150,y+3,22,16,false);text(161,y+6,'-','xsb',C.cream,'center');hit(150,y+3,22,16,()=>set(get()-0.1));button(176,y+3,22,16,false);text(187,y+6,'+','xsb',C.cream,'center');hit(176,y+3,22,16,()=>set(get()+0.1));}
       button(210,y+3,40,16,on);text(230,y+6,on?'On':'-','xs',on?C.goldL:C.muted,'center');hit(i<2?200:14,y,i<2?56:242,22,fn);});
-    text(16,y0+240,storeSet('__probe')?'Progress saves automatically on this device.':'This preview cannot save - download the file to keep progress.','xs',C.dimt);}
+    text(16,y0+292,storeSet('__probe')?'Progress saves automatically on this device.':'This preview cannot save - download the file to keep progress.','xs',C.dimt);}
   else if(s.kind==='ad'){text(16,y0+8,'Boosts','h',C.goldL);text(16,y0+22,'Each boost is one short ad. Placeholders for now.','xs',C.muted);
     const offers=[['Offline auto-cast · 4h',G.autoUntil>now()?fmtT((G.autoUntil-now())/1000)+' left':'Abilities cast while you are away',()=>{G.autoUntil=Math.max(now(),G.autoUntil)+4*3600*1000;toast('Auto-cast active');}],
       ['4× road speed · 2h',G.speed===4&&G.speedUntil>now()?fmtT((G.speedUntil-now())/1000)+' left':'The road runs four times faster',()=>{G.speed=4;G.speedUntil=Math.max(now(),G.speedUntil)+2*3600*1000;toast('4× speed for two hours');}],
@@ -823,7 +907,7 @@ function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.h
 let AC=null;function ac(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}return AC;}
 function tone(f0,f1,dur,type='square',vol=0.08,t0=0){const a=ac();if(!a||G.sfx===false)return;vol*=G.sfxVol==null?1:G.sfxVol;const o=a.createOscillator(),g=a.createGain();o.type=type;const t=a.currentTime+t0;o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(Math.max(20,f1),t+dur);g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+dur+0.02);}
 function noise(dur,vol=0.12,t0=0){const a=ac();if(!a||G.sfx===false)return;vol*=G.sfxVol==null?1:G.sfxVol;const n=Math.floor(a.sampleRate*dur),b=a.createBuffer(1,n,a.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);const src=a.createBufferSource();src.buffer=b;const g=a.createGain(),f=a.createBiquadFilter();f.type='lowpass';f.frequency.value=1800;g.gain.value=vol;src.connect(f);f.connect(g);g.connect(a.destination);src.start(a.currentTime+t0);}
-function sfx(k){switch(k){case 'hit':noise(0.06,0.10);tone(180,60,0.08,'square',0.05);break;case 'crit':noise(0.09,0.14);tone(320,80,0.14,'square',0.07);break;case 'tap':tone(700,300,0.05,'square',0.04);break;case 'heal':tone(520,780,0.12,'sine',0.06);tone(780,1040,0.14,'sine',0.05,0.08);break;case 'cast':tone(200,900,0.22,'sawtooth',0.05);break;case 'coin':tone(1200,1600,0.07,'square',0.04);break;case 'level':[523,659,784,1046].forEach((f,i)=>tone(f,f,0.12,'square',0.06,i*0.07));break;case 'death':noise(0.18,0.10);tone(160,40,0.25,'sawtooth',0.05);break;}}
+function sfx(k,ui){if(!ui&&G.screen!=='road'&&!G.title)return;switch(k){case 'hit':noise(0.06,0.10);tone(180,60,0.08,'square',0.05);break;case 'crit':noise(0.09,0.14);tone(320,80,0.14,'square',0.07);break;case 'tap':tone(700,300,0.05,'square',0.04);break;case 'heal':tone(520,780,0.12,'sine',0.06);tone(780,1040,0.14,'sine',0.05,0.08);break;case 'cast':tone(200,900,0.22,'sawtooth',0.05);break;case 'coin':tone(1200,1600,0.07,'square',0.04);break;case 'level':[523,659,784,1046].forEach((f,i)=>tone(f,f,0.12,'square',0.06,i*0.07));break;case 'death':noise(0.18,0.10);tone(160,40,0.25,'sawtooth',0.05);break;}}
 // ============================================================ music
 const music={cur:null,el:null};
 function playMusic(key){if(!ASSETS.music||!ASSETS.music[key])return;if(music.cur===key&&(music.el||music.node))return;music.cur=key;
@@ -838,16 +922,17 @@ function setMusicVol(v){G.musicVol=clamp(v,0,1);if(music.gain)music.gain.gain.va
 function setMusic(on){G.music=on;if(music.gain){music.gain.gain.value=on?(G.musicVol==null?0.55:G.musicVol):0;return;}if(music.buf&&on){startNode();return;}if(!music.el)return;if(on)tryPlay();else music.el.pause();}
 // ============================================================ draw + input
 const TUT=[
-  {t:'Your party marches on its own.',s:'Enemies come to you. Watch the road, or leave it running.',box:[0,SCENE_Y,W,208]},
-  {t:'The road has checkpoints.',s:'Tap the zone name to see the whole road and travel between zones.',box:[4,SCENE_Y+4,150,36]},
-  {t:'Tap an enemy to strike it.',s:'Taps deal damage of their own and grow with the Tree.',box:[150,SCENE_Y+120,116,80]},
-  {t:'Abilities charge during fights.',s:'When a button glows, tap it. Tapped casts hit 30% harder.',box:[4,308,262,ABH]},
-  {t:'Gear drops from fights.',s:'Equip it here; salvage the rest for ore to upgrade with.',screen:'gear',box:[4,16,262,120]},
-  {t:'Vael is your castle.',s:'Build it and it pays you gold and ore while you are away.',screen:'vael',box:[0,44,W,130]},
-  {t:'The Tree turns gold into permanent ranks.',s:'HP, attack, tap damage, camp perks - and blessings after a Reforge.',screen:'tree',box:[4,44,262,120]},
+  {t:'Your party marches on its own',s:'Enemies come to you. Watch the road, or leave it running.',box:[0,SCENE_Y,W,208]},
+  {t:'Tap an enemy to strike it',s:'Taps deal damage of their own and grow with the Tree.',box:[196,GROUND-46,56,56]},
+  {t:'Abilities charge during fights',s:'When a button glows, tap it. Tapped casts hit 30% harder.',box:[4,308,262,ABH]},
+  {t:'The road ahead',s:'Dots are checkpoints. Fall in battle and you return to the last one. The red crystal is the boss.',box:[4,SCENE_Y+4,150,36]},
+  {t:'Beyond this zone lie eight more',s:'Tap the zone name any time to see them all and travel between the ones you have opened.',screen:'map',box:[4,52,262,66]},
+  {t:'Gear drops from fights',s:'Equip it in the three slots; salvage the rest for ore to upgrade with.',screen:'gear',box:[4,138+(BIG?18:14)+4,262,TABY-8-(138+(BIG?18:14)+4)]},
+  {t:'The Tree turns gold into permanent ranks',s:'HP, attack, tap damage, camp perks - and blessings after a Reforge.',screen:'tree',box:[4,42+(BIG?22:16)+26,262,TABY-8-(42+(BIG?22:16)+26)]},
 ];
-function drawTutorial(){if(G.tut==null)return;const st=TUT[G.tut];hits.length=0;dimRect(0,0,W,H,0.6);tx.fillStyle='rgba(6,8,16,0.6)';tx.fillRect(0,0,tc.width,tc.height);drawTabs();hits.length=0;const[bx,by,bw,bh]=st.box;if(st.screen){const ti=['gear','heroes','road','vael','tree'].indexOf(st.screen);if(ti>=0)px(ti*54+2,TABY+3,50,1,C.goldL);}ctx.globalAlpha=0.7+0.3*Math.sin(G.t*4);px(bx-2,by-2,bw+4,2,C.goldL);px(bx-2,by+bh,bw+4,2,C.goldL);px(bx-2,by,2,bh,C.goldL);px(bx+bw,by,2,bh,C.goldL);ctx.globalAlpha=1;
-  const py=by>H/2?40:H/2+20;frame(12,py,246,70,C.navy,C.goldL);tx.clearRect(12*TS,py*TS,246*TS,70*TS);text(20,py+8,st.t,'h',C.goldL);text(20,py+22,fitText(st.s,'xs',230),'xs',C.cream);text(20,py+33,'','xs',C.muted);text(20,py+44,(G.tut+1)+' / '+TUT.length,'xs',C.dimt);hit(0,0,W,H,()=>{});button(170,py+40,80,22,true);text(210,py+47,G.tut<TUT.length-1?'Next':'Begin','sb',C.goldL,'center');hit(170,py+40,80,22,()=>{G.tut++;if(G.tut>=TUT.length){G.tut=null;G.tutDone=true;G.screen='road';saveGame();}else G.screen=TUT[G.tut].screen||'road';});}
+function drawTutorial(){if(G.tut==null)return;const st=TUT[G.tut];hits.length=0;const[bx,by,bw,bh]=st.box;
+  const dimAround=(x,y,w,h)=>{dimRect(0,0,W,y,0.6);dimRect(0,y+h,W,H-y-h,0.6);dimRect(0,y,x,h,0.6);dimRect(x+w,y,W-x-w,h,0.6);tx.fillStyle='rgba(6,8,16,0.6)';tx.fillRect(0,0,tc.width,y*TS);tx.fillRect(0,(y+h)*TS,tc.width,(H-y-h)*TS);tx.fillRect(0,y*TS,x*TS,h*TS);tx.fillRect((x+w)*TS,y*TS,(W-x-w)*TS,h*TS);};dimAround(bx,by,bw,bh);drawTabs();hits.length=0;if(st.screen){const ti=['heroes','gear','road','vael','tree'].indexOf(st.screen);if(ti>=0)px(ti*54+2,TABY+3,50,1,C.goldL);}ctx.globalAlpha=0.7+0.3*Math.sin(RT*4);px(bx-2,by-2,bw+4,2,C.goldL);px(bx-2,by+bh,bw+4,2,C.goldL);px(bx-2,by,2,bh,C.goldL);px(bx+bw,by,2,bh,C.goldL);ctx.globalAlpha=1;
+  const lines=[].concat(wrap2(st.s,'xs',230),st.s2?wrap2(st.s2,'xs',230):[],st.s3?wrap2(st.s3,'xs',230):[]);const extra=(lines.length-1)*10,ch=70+extra;const cands=[by+bh+10,by-ch-10,40,TABY-ch-10];let py=cands.find(y=>y>=20&&y+ch<=TABY-4&&!(y<by+bh&&y+ch>by));if(py==null)py=by>H/2?40:TABY-ch-10;frame(12,py,246,ch,C.navy,C.goldL);tx.clearRect(12*TS,py*TS,246*TS,ch*TS);text(20,py+8,st.t,'h',C.goldL);lines.forEach((l,i)=>text(20,py+22+i*10,l,'xs',C.cream));if(!st.once)text(20,py+44+extra,(G.tut+1)+' / '+TUT.length,'xs',C.dimt);hit(0,0,W,H,()=>{});button(170,py+40+extra,80,22,true);text(210,py+47+extra,st.once?'Got it':(G.tut<TUT.length-1?'Next':'Begin'),'sb',C.goldL,'center');hit(170,py+40+extra,80,22,()=>{const once=TUT[G.tut]&&TUT[G.tut].once;G.tut++;if(G.tut===1&&G.mode==='walk'&&!G.enemies.length){const E=ENEMIES.slime,e={uid:'slime',id:'slime',name:'Slime',lvl:1,x:224,slot:224,dx:0,yoff:0,flip:true,fly:false,range:'melee',boss:false,scale:1,native:false,nscale:1,hue:0,tier:0,gauge:0,dead:false,enemy:true,status:{},flash:0,traits:[],acts:0};Object.assign(e,enemyStats('slime',1));e.hp=e.maxhp;setAnim(e,'idle');G.enemies=[e];G.fs={dmg:0,taps:0,gold:0};G.mode='battle';G.active.forEach(h=>setAnim(h,'idle'));}if(once){if(TUT[G.tut]&&TUT[G.tut].once){return;}while(TUT.length&&TUT[TUT.length-1].once)TUT.pop();G.tut=null;saveGame();return;}if(G.tut>=TUT.length){G.tut=null;G.tutDone=true;G.screen='road';saveGame();}else G.screen=TUT[G.tut].screen||'road';});}
 function draw(){hits.length=0;tx.clearRect(0,0,tc.width,tc.height);px(0,0,W,H,'#0b0d16');
   ({road:drawRoad,gear:drawGear,heroes:drawHeroes,vael:drawVael,map:drawMap,tree:drawTree})[G.screen]();
   drawBanner();drawCard();drawTabs();drawTop();drawSheet();drawTutorial();
@@ -855,23 +940,23 @@ function draw(){hits.length=0;tx.clearRect(0,0,tc.width,tc.height);px(0,0,W,H,'#
     px(0,136,W,4,C.goldD);px(0,348,W,4,C.goldD);G.active.forEach((h,i)=>{const n=G.active.length,x=W/2+(i-(n-1)/2)*-52;drawSprite(h,x,322,Math.floor(RT*8+i)%ATLAS[h.uid].anims.walk.n,'walk',false,2);});
     text(W/2,64,'Crystal Road','big',C.goldL,'center');text(W/2,86,G.wins>0?'Welcome back. The road remembers you.':'The shards are scattered. The road is long.','s',C.cream,'center');
     const a=0.55+0.45*Math.sin(RT*3);text(W/2,388,'Tap to begin','h',C.goldL,'center',a);text(W/2,404,'Music by you · art by Zerie & ansimuz','xs',C.dimt,'center');hit(0,0,W,H,()=>{G.title=false;startMusic();banner(ZONES[G.zone].name,G.wins>0?'Onward':'The first shard lies ahead',3);if(!G.tutDone&&G.wins===0){G.tut=0;G.banner=null;G.pending='Greenhollow Fields';}});}
-  if(G.toast&&!(G.toast.scope==='road'&&G.screen!=='road')){const a=clamp(Math.min(G.toast.t*4,(2.2-G.toast.t)*3),0,1);const w=textW(G.toast.text,'s')+16,ty=G.screen==='road'&&!G.sheet?SCENE_Y+186:H-64;ctx.globalAlpha=a*0.55;px(R(W/2-w/2),ty,R(w),16,'#000');ctx.globalAlpha=1;text(W/2,ty+4,G.toast.text,'s',G.toast.col||C.cream,'center',a);}}
+  if(G.toast&&!(G.toast.scope==='road'&&G.screen!=='road')){const a=clamp(Math.min(G.toast.t*4,(2.2-G.toast.t)*3),0,1);if(G.toast.scope==='road'){const w=textW(G.toast.text,'xs')+12;ctx.globalAlpha=a*0.45;px(4,SCENE_Y+192,R(w),12,'#000');ctx.globalAlpha=1;text(10,SCENE_Y+194,G.toast.text,'xs',G.toast.col||C.cream,'left',a);}else{const w=textW(G.toast.text,'s')+16,ty=G.screen==='road'&&!G.sheet?SCENE_Y+186:H-64;ctx.globalAlpha=a*0.55;px(R(W/2-w/2),ty,R(w),16,'#000');ctx.globalAlpha=1;text(W/2,ty+4,G.toast.text,'s',G.toast.col||C.cream,'center',a);}}}
 function speedNow(){if(G.fastRoad)return G.fastRoad;if(G.speed===4&&G.speedUntil>now())return 4;if(G.speed===4)G.speed=2;return G.speed||1;}
 let RT=0;
-function loop(ts){const dt=Math.min(0.05,(ts-last)/1000||0);last=ts;RT+=dt;rollDt=dt;const n=speedNow();for(let k=0;k<n;k++)update(dt,k===0);draw();requestAnimationFrame(loop);}
+function loop(ts){const dt=Math.min(0.05,(ts-last)/1000||0);last=ts;RT+=dt;rollDt=dt;if(HOLD&&RT>=HOLD.next){const r=HOLD.r;if(HOLD.px>=r.x&&HOLD.px<r.x+r.w&&HOLD.py>=r.y&&HOLD.py<r.y+r.h){HOLD.fn();HOLD.next=RT+0.12;}else HOLD=null;}const n=speedNow();for(let k=0;k<n;k++)update(dt,k===0);draw();requestAnimationFrame(loop);}
 function evPos(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)/r.width*W,(e.clientY-r.top)/r.height*H];}
 cv.addEventListener('pointermove',e=>{if(!G.drag)return;const[x,y]=evPos(e);if(!G.drag.moved&&Math.hypot(x-G.drag.x0,y-G.drag.y0)>5)G.drag.moved=true;G.drag.x=x;G.drag.y=y;});
 function endDrag(e){const d=G.drag;if(!d)return;G.drag=null;const[x,y]=evPos(e);
   if(!d.moved){openSheet('swap',{slot:d.i});return;}
   if(y<16||y>96)return;const j=Math.floor((x-4)/66);if(j<0||j>3||j===d.i)return;
   if(G.active[j]){[G.active[d.i],G.active[j]]=[G.active[j],G.active[d.i]];}else{G.active.splice(j>G.active.length?G.active.length:j,0,G.active.splice(d.i,1)[0]);}layout();toast(G.active[0].name+' takes the front');}
-cv.addEventListener('pointerup',endDrag);cv.addEventListener('pointercancel',()=>{G.drag=null;});
-function dispatch(x,y){for(let i=hits.length-1;i>=0;i--){const h=hits[i];if(x>=h.x&&x<h.x+h.w&&y>=h.y&&y<h.y+h.h){h.fn();if(G.drag&&!G.drag.x0){G.drag.x0=x;G.drag.y0=y;G.drag.x=x;G.drag.y=y;}return true;}}return false;}
+cv.addEventListener('pointerup',endDrag);cv.addEventListener('pointercancel',()=>{G.drag=null;HOLD=null;});window.addEventListener('pointerup',()=>{HOLD=null;});window.addEventListener('pointercancel',()=>{HOLD=null;});window.addEventListener('blur',()=>{HOLD=null;});cv.addEventListener('pointerleave',()=>{HOLD=null;});
+function dispatch(x,y){for(let i=hits.length-1;i>=0;i--){const h=hits[i];if(x>=h.x&&x<h.x+h.w&&y>=h.y&&y<h.y+h.h){h.fn();if(h.hold)HOLD={fn:h.fn,next:RT+0.45,r:h,px:x,py:y};if(G.drag&&!G.drag.x0){G.drag.x0=x;G.drag.y0=y;G.drag.x=x;G.drag.y=y;}return true;}}return false;}
 let scrollTouch=null;
-cv.addEventListener('pointermove',e=>{if(!scrollTouch)return;const[x,y]=evPos(e);if(!scrollTouch.moved&&Math.abs(y-scrollTouch.y0)>5)scrollTouch.moved=true;if(scrollTouch.moved){SCROLL[scrollTouch.key]=clamp(scrollTouch.s0-(y-scrollTouch.y0),0,scrollMax(scrollTouch.key));}});
+cv.addEventListener('pointermove',e=>{if(HOLD){const[hx,hy]=evPos(e);HOLD.px=hx;HOLD.py=hy;}if(!scrollTouch)return;const[x,y]=evPos(e);if(!scrollTouch.moved&&Math.abs(y-scrollTouch.y0)>5)scrollTouch.moved=true;if(scrollTouch.moved){SCROLL[scrollTouch.key]=clamp(scrollTouch.s0-(y-scrollTouch.y0),0,scrollMax(scrollTouch.key));}});
 cv.addEventListener('pointerup',e=>{if(!scrollTouch)return;const st=scrollTouch;scrollTouch=null;if(!st.moved)dispatch(st.x0,st.y0);});
 cv.addEventListener('pointerdown',e=>{if(!G.title)startMusic();if(!G.title&&G.music&&!music.ok){if(music.buf&&!music.node)startNode();else if(music.el&&music.el.paused)tryPlay();}const[x,y]=evPos(e);
-  if(!G.sheet&&(G.screen==='tree'||G.screen==='heroes'||G.screen==='map')&&y>44&&y<TABY){scrollTouch={key:G.screen,x0:x,y0:y,s0:SCROLL[G.screen]||0,moved:false};return;}
+  if(!G.sheet&&(G.screen==='tree'||G.screen==='heroes'||G.screen==='map')&&y>(SCROLLTOP[G.screen]||44)&&y<TABY){scrollTouch={key:G.screen,x0:x,y0:y,s0:SCROLL[G.screen]||0,moved:false};return;}
   if(dispatch(x,y))return;
   if(G.screen==='road'&&!G.sheet&&y>SCENE_Y&&y<SCENE_Y+208){for(const h of G.active){if(Math.abs(x-h.x)<20&&y>GROUND-44&&y<GROUND+6){h.hop=1;toast(h.name+' the '+CLASSES[h.cls].name+', Lv '+h.lvl);return;}}}});
 loadAll().then(()=>{document.getElementById('loading').remove();const resumed=loadGame();if(resumed)G.title=true;playMusic('greenhollow');requestAnimationFrame(loop);});
