@@ -164,7 +164,12 @@ const ZONES=[
   {name:'Ashen Approach',lv:42,fights:36,pool:['armoredskel','greatskel','skelarcher'],boss:'graveknight',scene:'sunset'},
   {name:'Ashen Keep',lv:50,fights:36,pool:['armoredskel','greatskel','eliteorc'],boss:'necromancer',scene:'door'},
   {name:'The Foundry',lv:60,fights:36,pool:['ironhusk','sentinel','scoutdroid','warddroid'],boss:'core',scene:'tech'},
+  {name:'The Endless Road',lv:70,fights:1e9,pool:['slime'],boss:null,scene:'hills',endless:true},
 ];
+function endSeg(p){return Math.floor(p/30)%(ZONES.length-1);}
+function zoneScene(Z,p){return Z.endless?ZONES[endSeg(p)].scene:Z.scene;}
+function endlessLv(Z,p){return Z.lv+Math.floor(p*0.15);}
+function padZones(){while(G.prog.length<ZONES.length)G.prog.push(0);while(G.cleared.length<ZONES.length)G.cleared.push(false);G.far=G.far||[];while(G.far.length<ZONES.length)G.far.push(0);}
 const WEAPON_ADJ=['Iron','Jade','Mithril','Amethyst','Sunforged'],WEAPON_NOUN={sword:'Blade',staff:'Staff',dagger:'Daggers',bow:'Bow',axe:'Axe'};
 const CAPE_NAMES=['Wool Cape','Verdant Cape','Mariner Cape','Royal Cape','Sunforged Cape'],CHARM_NAMES=['Iron Band','Jade Ring','Moon Amulet','Amethyst Ring','Sun Amulet'];
 const QUESTS=[{id:'forage',name:'Forage',dur:30*60,desc:'Gold',reward:'gold'},{id:'hunt',name:'Hunt',dur:2*3600,desc:'Ore, maybe gear',reward:'ore'},{id:'scout',name:'Scout',dur:4*3600,desc:'A gear chest',reward:'gear'},{id:'pilgrim',name:'Pilgrimage',dur:8*3600,desc:'Crystal dust',reward:'dust'}];
@@ -216,11 +221,26 @@ function talentReq(i){return{lvl:[15,45,90][i],gold:R([800,6000,40000][i]*Math.p
 function buyTalent(h,i){h.talents=h.talents||{};const t=TALENTS[h.cls][i],q=talentReq(i);if(h.talents[t.id]){toast(t.name+': '+t.desc);return;}if(h.lvl<q.lvl){toast(t.name+' needs Lv '+q.lvl+': '+t.desc);return;}if(G.gold<q.gold){toast(t.name+' costs '+fmtNum(q.gold)+' gold: '+t.desc);return;}G.gold-=q.gold;h.talents[t.id]=true;sfx('level',true);toast(h.name+' learns '+t.name,C.goldL);}
 const TIERPAL={
   knight:[null,{metal:[201,162,39],accent:210},{metal:[240,236,220],accent:45},{metal:[201,162,39],accent:0}],
-  cleric:[null,{cloth:280,accent:45},{cloth:200,white:true,accent:190},{cloth:200,white:true,accent:45,halo:true}],
-  rogue:[null,{cloth:230,dark:0.7,accent:0},{cloth:275,dark:0.5,accent:280},{cloth:275,dark:0.5,accent:280,ghost:true}],
-  mage:[null,{cloth:230,accent:45},{cloth:350,dark:0.6,accent:0},{cloth:350,dark:0.6,accent:0,orb:true}],
-  ranger:[null,{cloth:120,accent:120},{cloth:210,metal:[200,206,214],accent:210},{cloth:200,white:true,accent:195,trail:true}],
-  berserker:[null,{metal:[150,40,40],accent:0},{metal:[80,20,20],accent:0,size:1.15},{metal:[80,20,20],accent:0,size:1.25,aura:true}]};
+  cleric:[null,{cloth:280,accent:45,parts:'mote'},{cloth:200,white:true,accent:190,parts:'mote',wglow:'#ffe9a0',acc:'laurel'},{cloth:200,white:true,accent:45,halo:true,parts:'mote',wglow:'#ffe9a0',acc:'laurel',size:1.08}],
+  rogue:[null,{cloth:230,dark:0.7,accent:0,parts:'smoke'},{cloth:275,dark:0.5,accent:280,parts:'smoke',wglow:'#c890ff'},{cloth:275,dark:0.5,accent:280,ghost:true,parts:'smoke',wglow:'#c890ff',size:1.08}],
+  mage:[null,{cloth:230,accent:45,parts:'spark'},{cloth:350,dark:0.6,accent:0,parts:'spark',wglow:'#ff80c0'},{cloth:350,dark:0.6,accent:0,parts:'spark',wglow:'#ff80c0',acc:'orbs',size:1.08}],
+  ranger:[null,{cloth:120,accent:120,parts:'leaf'},{cloth:210,metal:[200,206,214],accent:210,parts:'leaf',wglow:'#a0e0ff'},{cloth:200,white:true,accent:195,trail:true,parts:'leaf',wglow:'#a0e0ff',acc:'hawk',size:1.08}],
+  berserker:[null,{metal:[150,40,40],accent:0,parts:'ember'},{metal:[80,20,20],accent:0,size:1.15,parts:'ember',wglow:'#ff6a3c'},{metal:[80,20,20],accent:0,size:1.25,aura:true,parts:'ember',wglow:'#ff6a3c',acc:'horns'}]};
+function headRow(u){const A=ATLAS[u.uid];if(A.headRow!=null)return A.headRow;const im=IMG[u.uid];if(!im||!im.width)return 0;const c=document.createElement('canvas');c.width=A.cw;c.height=A.ch;const x=c.getContext('2d');x.drawImage(im,0,A.anims.idle.row*A.ch,A.cw,A.ch,0,0,A.cw,A.ch);const d=x.getImageData(0,0,A.cw,A.ch).data;let r=0;const c0=Math.max(0,A.ox-4),c1=Math.min(A.cw-1,A.ox+4);outer:for(;r<A.ch;r++){for(let i=c0;i<=c1;i++)if(d[(r*A.cw+i)*4+3]>0)break outer;}A.headRow=Math.min(r,A.ch-1);return A.headRow;}
+function drawTierExtras(u,x,y,sc,fx,before){const A=ATLAS[u.uid],top=y-(A.oy-headRow(u))*sc,hx=x+2,seed=(G.active.indexOf(u)+1)*1.37;
+  if(before)return;
+  if(fx.parts){const P={ember:['#ff8a3c','#ffd070'],leaf:['#7cc850','#c8a850'],spark:['#d080ff','#ffffff'],mote:['#fff0b0','#ffd88a'],smoke:['#8a80a0','#5a5070']}[fx.parts];const n=fx.parts==='smoke'?3:4;
+    for(let k=0;k<n;k++){const ph=((RT*(fx.parts==='smoke'?0.35:0.6)+k*0.29+seed)%1);const sw=Math.sin(RT*3+k*2.1+seed)*5;let px0,py0;
+      if(fx.parts==='leaf'){px0=x-10+k*6+sw;py0=top-4+ph*(y-top+6);}else{px0=x-8+k*5+sw;py0=y-2-ph*(y-top+10);}
+      ctx.globalAlpha=(fx.parts==='leaf'?1-ph*0.6:1-ph)*0.9;px(R(px0),R(py0),fx.parts==='smoke'?3:2,2,P[k%2]);}
+    ctx.globalAlpha=1;}
+  if(fx.wglow&&G.mode==='battle'){const wy=y-12*sc/US;const g=ctx.createRadialGradient(x+10,wy,1,x+10,wy,8);g.addColorStop(0,fx.wglow);g.addColorStop(1,'rgba(0,0,0,0)');ctx.globalAlpha=0.35+0.25*Math.sin(RT*5+seed);ctx.fillStyle=g;ctx.fillRect(x+2,wy-8,16,16);ctx.globalAlpha=1;
+    if(u.anim==='attack'){ctx.strokeStyle=fx.wglow;ctx.lineWidth=1.5;ctx.globalAlpha=0.8;ctx.beginPath();ctx.moveTo(x+6,wy-2);ctx.lineTo(x+26,wy-6);ctx.stroke();ctx.globalAlpha=1;}}
+  if(fx.acc==='horns'){const c1='#e8d8b0';px(hx-8,top+1,2,3,c1);px(hx-9,top-1,2,2,c1);px(hx+5,top+1,2,3,c1);px(hx+6,top-1,2,2,c1);}
+  else if(fx.acc==='laurel'){ctx.fillStyle='#e6c25a';for(let k=0;k<5;k++){const a=Math.PI*(0.15+k*0.175);px(R(hx-1+Math.cos(a)*7),R(top+6-Math.sin(a)*6),2,1);}}
+  else if(fx.acc==='orbs'){for(let k=0;k<3;k++){const a=RT*2+k*2.094;const ox=hx+Math.cos(a)*10,oy=top+4+Math.sin(a)*3;const g=ctx.createRadialGradient(ox,oy,0.5,ox,oy,4);g.addColorStop(0,'rgba(255,170,230,0.95)');g.addColorStop(1,'rgba(255,120,200,0)');ctx.fillStyle=g;ctx.fillRect(ox-4,oy-4,8,8);}}
+  else if(fx.acc==='hawk'){const a=RT*1.6+seed;const bx=R(hx+Math.cos(a)*14),by=R(top-8+Math.sin(a*2)*2);const fl=Math.sin(RT*12)>0?1:0;px(bx-1,by,3,1,'#3a2c20');px(bx-3,by-fl,2,1,'#3a2c20');px(bx+2,by-fl,2,1,'#3a2c20');}
+}
 function heroUid(h){if(h.cls==='knight'){const t=h.tier||0;return t>=3?'lancer':t>=1?'templar':'knight';}return h.cls;}
 function tierFx(h){return (TIERPAL[h.cls]||[])[Math.min(3,h.tier||0)]||{};}
 const TITLES={knight:['Knight','Paladin','Crusader','Warden'],cleric:['Cleric','Bishop','Oracle','Saint'],rogue:['Rogue','Assassin','Shadow','Phantom'],mage:['Mage','Archmage','Sorcerer','Magus'],ranger:['Ranger','Marksman','Sharpshot','Windwalker'],berserker:['Berserker','Warlord','Titan','Juggernaut']};
@@ -244,7 +264,7 @@ function ascendItem(it,h){if(it.rank>=4){toast('Already Sunforged');return;}if(i
 function upgradeCost(it){return R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,it.lvl)*(built('forge')?0.85:1));}
 const DROP_TABLE=[[80,20,0,0,0],[55,35,10,0,0],[45,40,15,0,0],[35,40,20,5,0],[30,38,24,8,0],[25,36,27,10,2],[20,35,30,12,3],[15,32,32,16,5],[10,28,34,20,8]];
 function rollRank(zoneIdx,shift=0){shift+=Math.min(2,Math.floor((G.reforges||0)/2));const t=DROP_TABLE[Math.min(zoneIdx,DROP_TABLE.length-1)];const cap=t.reduce((m,w,i)=>w>0?i:m,0);let r=rand()*100,rank=0;for(let i=0;i<5;i++){r-=t[i];if(r<=0){rank=i;break;}}return Math.min(cap,rank+shift);}
-function makeItem(zoneIdx,forceRank){const slot=['weapon','cape','charm'][Math.floor(rand()*3)];
+function makeItem(zoneIdx,forceRank){zoneIdx=Math.min(zoneIdx,ZONES.length-2);const slot=['weapon','cape','charm'][Math.floor(rand()*3)];
   let rank=forceRank==='boss'?rollRank(zoneIdx,1):forceRank;if(rank==null)rank=rollRank(zoneIdx);
   const kinds=[...new Set(G.roster.map(h=>CLASSES[h.cls].weapon))];
   return{id:itemSeq++,slot,rank,lvl:0,kind:kinds[Math.floor(rand()*kinds.length)],isNew:true};}
@@ -277,8 +297,8 @@ function heroSprite(h){const wr=h.eq&&h.eq.weapon?h.eq.weapon.rank+1:0;let cr=h.
       const id=x.getImageData(q*A.cw,r*A.ch,A.cw,A.ch),d=id.data,cw=A.cw,ch=A.ch;
       if(wr>1&&tint){for(let i=0;i<d.length;i+=4){if(classify(d[i],d[i+1],d[i+2],d[i+3])!==wc)continue;const[hh,ss,vv]=rgb2hsv(d[i],d[i+1],d[i+2]);const[nr,ng,nb]=tint[0]==null?hsv2rgb(hh,ss,Math.min(1,vv*tint[2])):hsv2rgb(tint[0],tint[1],Math.min(1,vv*tint[2]));d[i]=nr;d[i+1]=ng;d[i+2]=nb;}}
       if(cr>0){const cp=CAPES[cr],mounted=h.uid==='lancer';let x0=cw,y0=ch,x1=0,y1=0;for(let yy=0;yy<ch;yy++)for(let xx=0;xx<cw;xx++)if(d[(yy*cw+xx)*4+3]){if(xx<x0)x0=xx;if(yy<y0)y0=yy;if(xx>x1)x1=xx;if(yy>y1)y1=yy;}
-        if(x1>=x0){const feet=A.oy,sh=mounted?feet-25:feet-15,hip=mounted?Math.min(feet-14,sh+R(cp.len*12)):Math.min(feet-1,sh+R(cp.len*14));const cape=new Set();const n=hip-sh;let anchor=-1;if(mounted){const ay=Math.min(ch-1,sh+2);for(let xx=Math.max(0,A.ox-15);xx<cw;xx++)if(d[(ay*cw+xx)*4+3]){anchor=xx;break;}}
-          for(let yy=sh;yy<hip;yy++){if(yy<0||yy>=ch)continue;let left=-1;for(let xx=Math.max(0,mounted&&anchor>0?anchor-1:A.ox-15);xx<cw;xx++)if(d[(yy*cw+xx)*4+3]){left=xx;break;}if(left<0)continue;const w=1+R((cp.w-1)*((yy-sh)/Math.max(1,n-1)));
+        if(x1>=x0){const feet=A.oy,sh=mounted?feet-26:feet-15,hip=mounted?Math.min(feet-15,sh+R(cp.len*12)):Math.min(feet-3,sh+R(cp.len*14));const cape=new Set();const n=hip-sh;const wmax=mounted?cp.w:Math.min(cp.w,Math.max(3,Math.floor((y1-y0)*0.4)));let anchor=-1;if(mounted){const ay=Math.min(ch-1,sh+2);for(let xx=Math.max(0,A.ox-15);xx<cw;xx++)if(d[(ay*cw+xx)*4+3]){anchor=xx;break;}}
+          for(let yy=sh;yy<hip;yy++){if(yy<0||yy>=ch)continue;let left=-1;for(let xx=Math.max(0,A.ox-15);xx<cw;xx++)if(d[(yy*cw+xx)*4+3]){left=xx;break;}if(left<0)continue;const w=1+R((wmax-1)*((yy-sh)/Math.max(1,n-1)));
             for(let k=1;k<=w;k++){const X=left-k;if(X>=0&&!d[(yy*cw+X)*4+3])cape.add(yy*cw+X);}}
           for(const i of cape){const yy=Math.floor(i/cw),xx=i%cw;const edge=!cape.has(i+1)&&xx+1<cw&&d[(i+1)*4+3];const col=edge?cp.dark:cp.col;d[i*4]=col[0];d[i*4+1]=col[1];d[i*4+2]=col[2];d[i*4+3]=255;}
           for(const i of cape){const yy=Math.floor(i/cw),xx=i%cw;for(const[dx,dy]of[[-1,0],[0,1],[0,-1],[1,0]]){const nx=xx+dx,ny=yy+dy;if(nx<0||ny<0||nx>=cw||ny>=ch)continue;const j=ny*cw+nx;if(!d[j*4+3]&&!cape.has(j)){d[j*4]=26;d[j*4+1]=20;d[j*4+2]=32;d[j*4+3]=255;}}}}}
@@ -296,8 +316,8 @@ function drawUnit(u){const x=R(u.x+u.dx),y=R(GROUND+(u.yoff||0)+(u.fly?-10:0)-(u
   const fx=u.enemy?{}:tierFx(u);const sc=u.native?(u.nscale||1):((u.scale&&u.scale>1)?u.scale:US*(fx.size||1));ctx.fillStyle='rgba(0,0,0,0.28)';ctx.beginPath();ctx.ellipse(x,GROUND+(u.yoff||0)+1,9*sc,2.5*sc,0,0,Math.PI*2);ctx.fill();
   if(fx.aura){const g=ctx.createRadialGradient(x,y-12*sc,2,x,y-12*sc,22*sc);g.addColorStop(0,'rgba(255,120,60,0.35)');g.addColorStop(1,'rgba(255,120,60,0)');ctx.fillStyle=g;ctx.fillRect(x-22*sc,y-34*sc,44*sc,44*sc);}
   if(fx.orb){const g=ctx.createRadialGradient(x+8,y-24,1,x+8,y-24,10);g.addColorStop(0,'rgba(255,120,120,0.6)');g.addColorStop(1,'rgba(255,120,120,0)');ctx.fillStyle=g;ctx.fillRect(x-2,y-34,20,20);}
-  if(u.dead&&u.done)ctx.globalAlpha=0.55;if(u.flash>0){ctx.globalAlpha=0.6;}if(fx.ghost)ctx.globalAlpha*= (0.75+0.2*Math.sin(RT*7));
-  drawSprite(u,x,y,u.frame,u.anim,u.flip,sc);ctx.globalAlpha=1;
+  if(!u.enemy&&!u.dead)drawTierExtras(u,x,y,sc,fx,true);if(u.dead&&u.done)ctx.globalAlpha=0.55;if(u.flash>0){ctx.globalAlpha=0.6;}if(fx.ghost)ctx.globalAlpha*= (0.75+0.2*Math.sin(RT*7));
+  drawSprite(u,x,y,u.frame,u.anim,u.flip,sc);ctx.globalAlpha=1;if(!u.enemy&&!u.dead)drawTierExtras(u,x,y,sc,fx,false);
   if(fx.halo){ctx.strokeStyle='rgba(255,240,180,'+(0.6+0.3*Math.sin(RT*3))+')';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(x,y-30*sc/US,7,2.5,0,0,Math.PI*2);ctx.stroke();}
   if(fx.trail&&G.mode==='battle'){for(let k=0;k<3;k++){px(x-14-k*4+R(Math.sin(RT*6+k)*2),y-16+k*3,3,1,'rgba(180,220,255,0.6)');}}
   if(u.status&&u.status.shield>0){ctx.strokeStyle='rgba(241,215,120,0.8)';ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(x,y-12,14,16,0,0,Math.PI*2);ctx.stroke();}
@@ -308,7 +328,7 @@ function attackFps(n){return Math.max(13,Math.min(20,n*1.45));}
 const G={screen:'road',zone:0,prog:[0,0,0,0,0,0,0,0,0],cleared:[false,false,false,false,false,false,false,false,false],gold:0,ore:0,dust:0,roster:[],active:[],pack:[],tree:{},quests:[],mode:'walk',enc:3,enemies:[],projs:[],floats:[],banner:null,scroll:0,t:0,action:null,timer:0,shake:0,parts:[],run:{start:now(),fights:0,bosses:0,gold:0,bestFloor:0},card:null,stats:{kills:0,bosses:0,hit:0,gold:0,ore:0,items:0,legendary:0,hordes:0,offline:0,defeats:0,delveRuns:0,taps:0},autoUntil:0,autoCast:false,music:true,title:true,speed:1,speedUntil:0,mult:1,autoSalvage:0,surge:0,musicVol:0.55,sfxVol:1,wins:0,fast:false,sheet:null,gearHero:0,toast:null,selItem:null,campfireDone:false};
 function mkHero(def){const h={def,id:def.id,name:def.name,cls:def.cls,uid:def.cls,range:CLASSES[def.cls].range,lvl:1,xp:0,x:0,dx:0,yoff:0,flip:false,hop:0,gauge:rand()*50,dead:false,charge:0,abLvl:1,eq:{},status:{},readyT:0};Object.assign(h,heroStats(h));h.hp=h.maxhp;setAnim(h,'walk');return h;}
 function addHero(def,lvl=1){const h=mkHero(def);h.lvl=lvl;Object.assign(h,heroStats(h));h.hp=h.maxhp;G.roster.push(h);if(G.active.length<4){h.x=-30;G.active.push(h);layout();}return h;}
-const US=1.5;const HERO_X=[24,60,96,132],ENEMY_X=[192,224,254],ENEMY_Y=[0,-3,3];
+padZones();const US=1.5;const HERO_X=[24,60,96,132],ENEMY_X=[192,224,254],ENEMY_Y=[0,-3,3];
 const RECRUIT_HINT=['','Sera · at the first campfire','Vex · shard of Greenhollow','Morrow · shard of Stillwater'];
 function layout(){G.active.forEach((h,i)=>{h.tx=HERO_X[3-i];if(h.x==null||isNaN(h.x))h.x=h.tx;});}
 function refreshStats(h){const f=h.hp/h.maxhp;Object.assign(h,heroStats(h));h.hp=R(clamp(f,0,1)*h.maxhp);}
@@ -335,10 +355,10 @@ function shieldPct(h){return Math.min(0.65,0.15+0.4*(1-Math.pow(0.85,h.abLvl-1))
 
 // ============================================================ battle
 function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};
-  const Z=ZONES[G.zone],p=G.prog[G.zone];const bossFight=!!(Z.boss&&p===Z.fights-1&&!G.cleared[G.zone]);const cpS=Z.fights/3,elite=!bossFight&&!G.cleared[G.zone]&&p===2*cpS;
+  const Z=ZONES[G.zone],p=G.prog[G.zone];const bossFight=!!(Z.boss&&p===Z.fights-1&&!G.cleared[G.zone]);const cpS=Z.fights/3,elite=!bossFight&&!G.cleared[G.zone]&&(p===2*cpS||(Z.endless&&p>0&&p%25===0));
   const n=(bossFight||elite)?1:1+Math.floor(rand()*Math.min(3,1+p/3));G.enemies=[];
-  for(let i=0;i<n;i++){const id=bossFight?Z.boss:Z.pool[Math.floor(rand()*Z.pool.length)];const L=R(Z.lv+p*0.3+(G.cleared[G.zone]?3:0));
-    const E=ENEMIES[id];const e={uid:E.uid||id,id,name:E.name+(bossFight?'':['',' Veteran',' Elder'][Math.min(2,Math.floor(p/(Z.fights/3)))]),lvl:L,x:W+40+i*36,slot:bossFight?(E.native?226:200+8*(E.scale||1)):ENEMY_X[i],dx:0,yoff:bossFight?0:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:!!E.boss,scale:E.scale||1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:bossFight?0:Math.min(2,Math.floor(p/(Z.fights/3))),gauge:rand()*40,dead:false,enemy:true,status:{},flash:0};
+  const pool=Z.endless?ZONES[endSeg(p)].pool:Z.pool,etier=Math.min(2,Z.endless?Math.floor(p/50):Math.floor(p/(Z.fights/3)));for(let i=0;i<n;i++){const id=bossFight?Z.boss:pool[Math.floor(rand()*pool.length)];const L=Z.endless?endlessLv(Z,p):R(Z.lv+p*0.3+(G.cleared[G.zone]?3:0));
+    const E=ENEMIES[id];const e={uid:E.uid||id,id,name:E.name+(bossFight?'':['',' Veteran',' Elder'][etier]),lvl:L,x:W+40+i*36,slot:bossFight?(E.native?226:200+8*(E.scale||1)):ENEMY_X[i],dx:0,yoff:bossFight?0:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:!!E.boss,scale:E.scale||1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:bossFight?0:etier,gauge:rand()*40,dead:false,enemy:true,status:{},flash:0};
     Object.assign(e,enemyStats(id,L));e.traits=(E.traits||[]).slice();e.mech=E.mech?JSON.parse(JSON.stringify(E.mech)):null;e.acts=0;if(elite){e.name='Elite '+E.name;e.maxhp=R(e.maxhp*3);e.atk=R(e.atk*1.4);e.scale=Math.max(e.scale,2);e.slot=224;if(!e.traits.includes('charge'))e.traits.push('charge');e.elite=true;}
     if(bossFight&&e.mech&&e.mech.charge)e.traits.push('charge');e.hp=e.maxhp;setAnim(e,'walk');G.enemies.push(e);}
   for(const h of G.active){h.unbrokenUsed=false;h.marks=0;if(h.talents&&h.talents.quickdraw)h.charge=Math.max(h.charge,30);}for(const e of G.enemies)e.marks=0;
@@ -442,7 +462,7 @@ function endBattle(win){if(G.hordeFight){if(!win){endHordeFight(false);return;}i
   if(win){G.wins++;G.losses=0;G.run.fights++;checkUnlocks();if(canReforge()){G.dustFrac=(G.dustFrac||0)+(1+0.25*G.zone+0.5*(G.reforges||0))/150;if(G.dustFrac>=1){const d=Math.floor(G.dustFrac);G.dustFrac-=d;G.dust+=d;}}if(G.bossFight){G.run.bosses++;if(canReforge()){G.dust+=2;}G.castle.bp=G.castle.bp||{};const sk=Object.keys(STRUCTS).find(k=>STRUCTS[k].boss===Z.boss);if(sk&&!G.castle.bp[sk]){G.castle.bp[sk]=true;G.pending='Blueprint found|'+STRUCTS[sk].name+' - build it in Vael';G.vaelNew=true;}const bn=ENEMIES[Z.boss].name,fs=G.fs||{dmg:0,taps:0,gold:0};G.card={title:bn,sub:'falls',lines:['Damage dealt '+fmtNum(fs.dmg)+'  ·  taps '+fs.taps,'Gold '+fmtNum(fs.gold)],t:0};}
     const dropChance=G.wins<=3?0.5:0.18;if(G.pack.length<15&&(rand()<dropChance||G.bossFight||G.wins===1)){const it=makeItem(G.zone,G.bossFight?'boss':null);if(G.wins===1){it.slot='weapon';it.kind=CLASSES[G.active[0].cls].weapon;it.rank=0;}if(G.autoSalvage&&it.rank<G.autoSalvage&&G.wins>1){const o=(it.rank+1)*4;G.ore+=o;toast('Salvaged '+itemName(it)+' for '+o+' ore',C.muted,'road');}else{G.pack.push(it);G.stats.items++;if(it.rank>=4)G.stats.legendary++;toast('Found: '+itemName(it),RANKHEX[it.rank],'road');if(G.card&&G.bossFight)G.card.lines.push('Loot: '+itemName(it));}}
     const restHeal=0.15+0.02*treeLv('rest');for(const h of G.active){h.status={};if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3);}else h.hp=Math.min(h.maxhp,h.hp+R(h.maxhp*restHeal));}
-    if(!G.cleared[G.zone]){G.prog[G.zone]++;G.far=G.far||[];G.far[G.zone]=Math.max(G.far[G.zone]||0,G.prog[G.zone]);{const cs=Z.fights/3,p2=G.prog[G.zone];if(p2%cs===0&&p2<Z.fights){G.cpHint=false;const cn=p2/cs,g2=R((40+80*cn)*(1+G.zone)*bless('gold'));G.gold+=g2;G.card={title:'Checkpoint '+cn+' of 3',sub:'The road behind you is safe',lines:['+'+fmtNum(g2)+' gold',cn===1?'Fall in battle and you return here':cn===2?'A champion blocks the way ahead':'The boss waits at the end of the road'],t:0};}}
+    if(!G.cleared[G.zone]){G.prog[G.zone]++;if(Z.endless&&G.prog[G.zone]%30===0)banner(ZONES[endSeg(G.prog[G.zone])].name,'The road winds on',2.4);G.far=G.far||[];G.far[G.zone]=Math.max(G.far[G.zone]||0,G.prog[G.zone]);{const cs=Z.fights/3,p2=G.prog[G.zone];if(p2%cs===0&&p2<Z.fights){G.cpHint=false;const cn=p2/cs,g2=R((40+80*cn)*(1+G.zone)*bless('gold'));G.gold+=g2;G.card={title:'Checkpoint '+cn+' of 3',sub:'The road behind you is safe',lines:['+'+fmtNum(g2)+' gold',cn===1?'Fall in battle and you return here':cn===2?'A champion blocks the way ahead':'The boss waits at the end of the road'],t:0};}}
       if(G.prog[G.zone]>=Z.fights){G.cleared[G.zone]=true;grantShardVillagers();if(G.zone<ZONES.length-1)G.newZone=true;if(G.zone===3)G.reforgeNew=true;if(G.zone===0&&!G.vaelSeen)G.vaelNew=true;banner('Crystal shard recovered!',G.zone<ZONES.length-1?ZONES[G.zone+1].name+' lies ahead':'The road is whole again',3.5);
         const rdef=HEROES.find(d=>d.id===Z.recruit);if(rdef&&!G.roster.find(h=>h.id===rdef.id)){const h=addHero(rdef,Math.max(1,Z.lv));G.pending=h.name+' the '+CLASSES[h.cls].name+' joins the road';}}}
     if(!G.campfireDone&&G.wins>=2){G.campfireDone=true;const h=addHero(HEROES[1],1);G.pending='Sera the Cleric joins you at the campfire';}
@@ -464,16 +484,32 @@ function doReforge(){const gain=reforgeGain();G.dust+=gain;G.reforges=(G.reforge
 function marchSpeed(){return 28*(1+0.04*treeLv('march'));}
 
 // ============================================================ quests
+const QUEST_CLASS={forage:['cleric','mage'],hunt:['berserker','ranger'],scout:['ranger','rogue'],pilgrim:['knight','cleric']};
+function questBonus(h,q){return (QUEST_CLASS[q.id].includes(h.cls)?1.3:1)*(1+0.1*(h.tier||0));}
+function questEvent(h){const L=h.lvl,ev=[];const gq=()=>R(30+L*8);
+  ev.push(()=>{const g=R(gq()*0.5);G.gold+=g;return 'Found a hidden cache: +'+fmtNum(g)+' gold';});
+  ev.push(()=>{h.xp+=R(xpNeed(h.lvl)*0.25);return 'Learned from the road: +25% of a level';});
+  ev.push(()=>{h.hp=Math.max(1,R(h.maxhp*0.3));h.xp+=R(xpNeed(h.lvl)*0.15);return 'Ambushed on the way back: wounded, +15% of a level';});
+  if(G.castle.vil.total>0)ev.push(()=>{G.castle.vil.total++;return 'Rescued a traveller who settles in Vael: +1 villager';});
+  if(G.delveKeys<keyMax())ev.push(()=>{G.delveKeys++;return 'Brought back a catacomb key';});
+  const cls={knight:()=>{const g=R(gq()*0.8);G.gold+=g;return 'Escorted a caravan: +'+fmtNum(g)+' gold';},
+    cleric:()=>{G.dust+=1;return 'Blessed a wayside shrine: +1 crystal dust';},
+    rogue:()=>{const g=R(gq()*0.7);G.gold+=g;return 'Picked a few pockets: +'+fmtNum(g)+' gold';},
+    mage:()=>{h.xp+=R(xpNeed(h.lvl)*0.4);return 'Deciphered old runes: +40% of a level';},
+    ranger:()=>{if(G.pack.length<15){G.pack.push(makeItem(G.zone));return 'Tracked a rare beast: gear found';}const o=R((8+L)*1.5);G.ore+=o;return 'Tracked a rare beast: +'+fmtNum(o)+' ore';},
+    berserker:()=>{const o=R((8+L)*2);G.ore+=o;h.hp=Math.max(1,R(h.maxhp*0.5));return 'Won a tavern brawl: +'+fmtNum(o)+' ore, a few bruises';}};
+  if(cls[h.cls]){ev.push(cls[h.cls]);ev.push(cls[h.cls]);}
+  return ev[Math.floor(rand()*ev.length)]();}
 function questSlots(){return 3+treeLv('slots');}
 function heroStatus(h){if(G.active.includes(h))return'marching';if(G.quests.find(q=>q.hero===h))return'quest';if(G.castle&&G.castle.garrison.includes(h.id))return'garrison';return'camp';}
 function questDur(q){return q.dur*(G.fast?1/120:1)*(1-0.03*treeLv('swift'))*(built('kennels')?0.85:1);}
 function startQuest(h,qdef){G.quests.push({hero:h,q:qdef,end:now()+questDur(qdef)*1000});toast(h.name+' sets out to '+qdef.name.toLowerCase());}
-function collectQuest(q){const mult=(1+0.06*treeLv('quest'))*(CLASSES[q.hero.cls].weapon===({forage:'staff',hunt:'axe',scout:'bow',pilgrim:'sword'})[q.q.id]?1.3:1);const L=q.hero.lvl;let msg='';
+function collectQuest(q){const mult=(1+0.06*treeLv('quest'))*questBonus(q.hero,q.q);const L=q.hero.lvl;let msg='';
   if(q.q.reward==='gold'){const g=R((30+L*8)*mult);G.gold+=g;msg='+'+g+' gold';}
   else if(q.q.reward==='ore'){const o=R((8+L)*mult);G.ore+=o;msg='+'+o+' ore';if(rand()<0.4&&G.pack.length<15){G.pack.push(makeItem(G.zone));msg+=' and gear';}}
   else if(q.q.reward==='gear'){if(G.pack.length<15){const it=makeItem(G.zone,'boss');G.pack.push(it);msg=itemName(it);}else msg='pack full - gear lost';}
   else{const d=R(2*mult);G.dust+=d;msg='+'+d+' crystal dust';}
-  q.hero.xp+=R(20*L);G.quests=G.quests.filter(x=>x!==q);toast(q.hero.name+' returns: '+msg);}
+  q.hero.xp+=R(20*L);G.quests=G.quests.filter(x=>x!==q);const ev=rand()<0.35?questEvent(q.hero):null;if(ev)G.card={title:q.hero.name+' returns',sub:msg,lines:[ev],t:0};toast(q.hero.name+' returns: '+msg+(ev?' · '+ev:''));}
 function fmtT(s){s=Math.max(0,Math.floor(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),sec=s%60;return h?`${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`:`${m}:${String(sec).padStart(2,'0')}`;}
 
 // ============================================================ gear
@@ -518,7 +554,7 @@ function update(dt,ui=true){G.t+=dt;if(G.shake>0)G.shake-=dt;
       if(ready){if(ready!==caster)ready.gauge=0;const a=chooseAction(ready);if(a){startAction(a);
         for(const e of living(G.enemies))if(e.status.bleed>0&&ready.enemy){e.status.bleed--;e.hp-=R(e.maxhp*0.04);float(e.x,GROUND-26,'bleed','#ff8a80');if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}}}}}
   }else if(G.mode==='victory'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.mode='walk';G.enc=2.5+rand()*3;if(G.bossFight)G.bossFight=false;}}
-  else if(G.mode==='defeat'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.projs=[];G.action=null;for(const h of G.active){h.dead=false;h.hp=h.maxhp;h.dx=0;h.status={};setAnim(h,'walk');}layout();if(!G.cleared[G.zone]){const cs=ZONES[G.zone].fights/3;G.prog[G.zone]=Math.floor(G.prog[G.zone]/cs)*cs;}G.mode='walk';G.enc=3;}}
+  else if(G.mode==='defeat'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.projs=[];G.action=null;for(const h of G.active){h.dead=false;h.hp=h.maxhp;h.dx=0;h.status={};setAnim(h,'walk');}layout();if(!G.cleared[G.zone]){const Z9=ZONES[G.zone];if(Z9.endless)G.prog[G.zone]=Math.max(0,G.prog[G.zone]-10);else{const cs=Z9.fights/3;G.prog[G.zone]=Math.floor(G.prog[G.zone]/cs)*cs;}}G.mode='walk';G.enc=3;}}
   if(G.castle&&(G.t%1)<dt)castleTick();
   if(ui&&!G.delve&&G.screen==='road'&&G.tut==null){if(G.treasure){G.treasure.t+=dt;if(G.treasure.t>=G.treasure.life)G.treasure=null;}else{G.treasureAt-=dt;if(G.treasureAt<=0&&G.mode==='walk'){spawnTreasure();G.treasureAt=25+rand()*30;}}}
   for(const q of G.quests.slice())if(now()>=q.end&&!q.done){q.done=true;toast(q.hero.name+' is back from the '+q.q.name.toLowerCase());}
@@ -548,7 +584,7 @@ function boostReady(){return !(G.autoUntil>now())||!(G.speedUntil>now());}
 function tabLocked(id){if(G.tut!=null)return false;if(id==='vael')return !G.cleared[0]&&!(G.reforges>0);if(id==='tree')return G.wins<3&&!(G.reforges>0);return false;}
 function checkUnlocks(){if(!tabLocked('tree')&&!G.treeSeen&&!G.treeNew){G.treeNew=true;}}
 function lockHint(id){return id==='vael'?'Recover the first shard to claim Vael':'Win three fights to open the Tree';}
-function drawScene(){const Z=ZONES[G.zone];const key=G.hordeFight?'door':G.delve?(G.delve.floor>=12?'door':'cave'):((G.bossFight&&Z.bossScene)?Z.bossScene:Z.scene);const layers=SCENES[key];
+function drawScene(){const Z=ZONES[G.zone];const key=G.hordeFight?'door':G.delve?(G.delve.floor>=12?'door':'cave'):((G.bossFight&&Z.bossScene)?Z.bossScene:zoneScene(Z,G.prog[G.zone]));const layers=SCENES[key];
   const sx=G.shake>0?R((rand()-0.5)*4):0;ctx.save();ctx.beginPath();ctx.rect(0,SCENE_Y,W,208);ctx.clip();ctx.translate(sx,0);
   for(const l of layers){const w=l.img.width||368;let off=-(Math.floor(G.scroll*l.p)%w);for(let x=off;x<W+w;x+=w)ctx.drawImage(l.img,x,SCENE_Y);}
   if(!G.delve&&G.screen==='road'&&G.tut==null)drawTreasure();
@@ -575,13 +611,13 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.hordeFight?'door':G.delve
   ctx.globalAlpha=0.7;frame(4,SCENE_Y+4,166,42,'rgba(22,26,44,0.75)');ctx.globalAlpha=1;const p=Math.min(G.prog[G.zone],Z.fights),cpN=3,cpS=Z.fights/cpN,far=Math.max(p,(G.far||[])[G.zone]||0);
   if(G.newZone||G.reforgeNew){ctx.globalAlpha=0.5+0.5*Math.sin(RT*5);px(4,SCENE_Y+4,166,1,C.goldL);px(4,SCENE_Y+45,166,1,C.goldL);px(4,SCENE_Y+4,1,42,C.goldL);px(169,SCENE_Y+4,1,42,C.goldL);ctx.globalAlpha=1;}
   {const ax=159,ay=SCENE_Y+14,glow=G.newZone||G.reforgeNew;if(glow){ctx.strokeStyle=C.goldL;ctx.lineWidth=1.5;ctx.globalAlpha=0.5+0.5*Math.sin(RT*5);ctx.beginPath();ctx.arc(ax,ay,7,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;}text(ax,ay-5.5,'›','sb',glow?C.goldL:C.muted,'center');if(canReforge()){icon('crystal',ax-22,ay-6,2);}}
-  text(9,SCENE_Y+7,Z.name,'sb',C.goldL);{const hl=hordeLeft(),due=G.castle.hordeDue;text(9,SCENE_Y+17,due?'Horde at the gate - tap Vael to defend':(hl<900&&(G.castle.b.walls||G.castle.vil.total)?'Horde in '+fmtT(hl)+'  ·  Lv '+Z.lv:'Danger Lv '+Z.lv+(G.cleared[G.zone]?'  ·  Shard recovered':'')),'xs',due?'#ff8a80':(hl<900&&(G.castle.b.walls||G.castle.vil.total)?'#ffb080':C.muted));}hit(4,SCENE_Y+4,166,24,()=>{G.screen='map';G.newZone=false;G.reforgeNew=false;});
-  {const lx=14,rx=156,ly=SCENE_Y+35;px(lx,ly,rx-lx,1,'#3a4260');px(lx,ly,R((rx-lx)*far/Z.fights),1,'#5a6488');px(lx,ly,R((rx-lx)*p/Z.fights),1,G.cleared[G.zone]?'#7fd4ff':C.goldL);
+  text(9,SCENE_Y+7,Z.endless?'Endless · '+ZONES[endSeg(G.prog[G.zone])].name:Z.name,'sb',C.goldL);{const hl=hordeLeft(),due=G.castle.hordeDue;text(9,SCENE_Y+17,due?'Horde at the gate - tap Vael to defend':(hl<900&&(G.castle.b.walls||G.castle.vil.total)?'Horde in '+fmtT(hl)+'  ·  Lv '+Z.lv:(Z.endless?'Fight '+(G.prog[G.zone]+1)+' · Lv '+endlessLv(Z,G.prog[G.zone])+' · best '+Math.max(G.prog[G.zone],(G.far||[])[G.zone]||0):'Danger Lv '+Z.lv+(G.cleared[G.zone]?'  ·  Shard recovered':''))),'xs',due?'#ff8a80':(hl<900&&(G.castle.b.walls||G.castle.vil.total)?'#ffb080':C.muted));}hit(4,SCENE_Y+4,166,24,()=>{G.screen='map';G.newZone=false;G.reforgeNew=false;});
+  {const lx=14,rx=156,ly=SCENE_Y+35;if(Z.endless){const p9=G.prog[G.zone],nx=25-(p9%25);text(14,ly-4,'The road goes on  ·  champion in '+nx+(nx===1?' fight':' fights'),'xs',C.muted);}else{px(lx,ly,rx-lx,1,'#3a4260');px(lx,ly,R((rx-lx)*far/Z.fights),1,'#5a6488');px(lx,ly,R((rx-lx)*p/Z.fights),1,G.cleared[G.zone]?'#7fd4ff':C.goldL);
     for(let k=0;k<=cpN;k++){const dx=R(lx+(rx-lx)*k/cpN),reached=far>=k*cpS,isBoss=k===cpN;
       if(isBoss){const pu=0.6+0.4*Math.sin(RT*4);ctx.globalAlpha=reached?1:0.6;px(dx-4,ly-4,9,9,'#1a1420');px(dx-3,ly-3,7,7,reached?'#ff5a5a':'#5a3040');px(dx-1,ly-1,3,3,reached?'#ffd0d0':'#7a4050');if(!G.cleared[G.zone]&&p>=Z.fights-1){ctx.globalAlpha=pu;px(dx-6,ly-6,13,1,'#ff5a5a');px(dx-6,ly+6,13,1,'#ff5a5a');px(dx-6,ly-6,1,13,'#ff5a5a');px(dx+6,ly-6,1,13,'#ff5a5a');}ctx.globalAlpha=1;}
       else px(dx-2,ly-2,5,5,reached?C.goldL:'#3a4260');
       const target=k<cpN?k*cpS:Z.fights-1;if(reached&&target!==p)hit(dx-15,ly-14,30,28,()=>{G.cpHint=false;G.prog[G.zone]=target;G.enemies=[];G.projs=[];G.action=null;G.bossFight=false;G.mode='walk';G.enc=2;for(const h of G.active){h.dx=0;h.status={};setAnim(h,'walk');}toast(k<cpN?'Back to checkpoint '+k:'Onward to the boss');});}
-    const mx=p>=Z.fights-1?rx:R(lx+(rx-lx)*p/Z.fights);px(mx-1,ly-7,3,3,C.cream);if(far>p){const fx=R(lx+(rx-lx)*far/Z.fights);px(fx-1,ly-6,3,1,'#8a93a8');px(fx-1,ly-4,3,1,'#8a93a8');px(fx-1,ly-6,1,3,'#8a93a8');px(fx+1,ly-6,1,3,'#8a93a8');}}}
+    const mx=p>=Z.fights-1?rx:R(lx+(rx-lx)*p/Z.fights);px(mx-1,ly-7,3,3,C.cream);if(far>p){const fx=R(lx+(rx-lx)*far/Z.fights);px(fx-1,ly-6,3,1,'#8a93a8');px(fx-1,ly-4,3,1,'#8a93a8');px(fx-1,ly-6,1,3,'#8a93a8');px(fx+1,ly-6,1,3,'#8a93a8');}}}}
 }
 function drawCard(){const c=G.card;if(!c||G.screen!=='road'||G.tut!=null)return;const al=clamp(Math.min(c.t*3,(4.2-c.t)*2),0,1);const y0=SCENE_Y+40,h=70+c.lines.length*11;ctx.globalAlpha=al;frame(20,y0,230,h,C.navy,C.goldL);ctx.globalAlpha=1;tx.clearRect(20*TS,y0*TS,230*TS,h*TS);
   text(W/2,y0+8,c.title,'big',c.plain?'#ff9696':C.goldL,'center',al);if(!c.plain){const tw2=textW(c.title,'big');tx.globalAlpha=al;tx.fillStyle=C.goldL;tx.fillRect((W/2-tw2/2)*TS,(y0+23)*TS,tw2*TS,1.5*TS);tx.globalAlpha=1;}text(W/2,y0+28,c.sub,'s',C.cream,'center',al);c.lines.forEach((l,i)=>text(W/2,y0+42+i*11,l,'xs',C.muted,'center',al));text(W/2,y0+h-14,'tap to continue','xs',C.dimt,'center',al);hit(20,y0,230,h,()=>{G.card=null;});}
@@ -662,11 +698,11 @@ function drawMap(){drawPanelScreen();ctx.strokeStyle=C.goldL;ctx.lineWidth=1.5;c
   beginScroll('map',48);
   ZONES.forEach((z,i)=>{const y=52+i*72,ok=zoneUnlocked(i),cur=i===G.zone;frame(4,y,262,66,C.navy,cur?C.goldL:(ok?C.gold:C.goldD));
     ctx.save();ctx.beginPath();ctx.rect(10,y+6,90,54);ctx.clip();const L=SCENES[z.scene][0];ctx.globalAlpha=ok?1:0.35;ctx.drawImage(L.img,-80,y-40);for(const l of SCENES[z.scene].slice(1))ctx.drawImage(l.img,-80,y-40);ctx.globalAlpha=1;ctx.restore();
-    text(108,y+8,z.name,'sb',ok?C.cream:C.dimt);text(108,y+19,'Danger Lv '+z.lv,'xs',C.muted);
-    text(108,y+30,ok?(G.cleared[i]?'Shard recovered':'Checkpoint '+Math.floor(Math.max(G.prog[i],(G.far||[])[i]||0)/(z.fights/3))+'/3 · boss: '+ENEMIES[z.boss].name):((G.reforges||0)<reqReforge(i)?'Needs '+reqReforge(i)+' Reforge'+(reqReforge(i)>1?'s':'')+(G.cleared[i-1]?'':' · beat the previous boss'):'Defeat the previous boss'),'xs',ok?C.goldL:C.dimt);
+    text(108,y+8,z.name,'sb',ok?C.cream:C.dimt);text(108,y+19,'Danger Lv '+z.lv+(z.endless?'+':''),'xs',C.muted);
+    text(108,y+30,ok?(z.endless?'Fight '+(G.prog[i]+1)+' · Lv '+endlessLv(z,G.prog[i])+' · best '+Math.max(G.prog[i],(G.far||[])[i]||0):G.cleared[i]?'Shard recovered':'Checkpoint '+Math.floor(Math.max(G.prog[i],(G.far||[])[i]||0)/(z.fights/3))+'/3 · boss: '+ENEMIES[z.boss].name):((G.reforges||0)<reqReforge(i)?'Needs '+reqReforge(i)+' Reforge'+(reqReforge(i)>1?'s':'')+(G.cleared[i-1]?'':' · beat the previous boss'):'Defeat the previous boss'),'xs',ok?C.goldL:C.dimt);
     if(ok&&!cur){button(180,y+42,76,16,true);text(218,y+45,'Travel','sb',C.goldL,'center');hit(180,y+42,76,16,()=>{G.zone=i;G.enemies=[];G.projs=[];G.action=null;G.bossFight=false;for(const h of G.active){h.dx=0;h.status={};if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3);}setAnim(h,'walk');}G.mode='walk';G.enc=3;G.screen='road';banner(z.name,'Danger Lv '+z.lv);});}
     else if(cur)text(218,y+46,'You are here','xs',C.goldL,'center');});
-  const ey=52+ZONES.length*72;text(W/2,ey,'Reforge resets levels, gold, ore and the road.','xs',C.dimt,'center');text(W/2,ey+10,'Heroes, gear, Vael, the tree and blessings stay.','xs',C.dimt,'center');endScroll('map',ey+30);}
+  const ey=52+ZONES.length*72;text(W/2,ey,'Reforge keeps your heroes, talents, gear, Vael,','xs',C.dimt,'center');text(W/2,ey+10,'the tree and blessings, and pays out crystal dust.','xs',C.dimt,'center');endScroll('map',ey+30);}
 function drawTree(){drawPanelScreen();text(8,26,'Upgrade Tree','title',C.goldL);
   const BR=['Party','Tap','Camp','Crystal'];G.treeTab=G.treeTab||'Party';BR.forEach((b2,i)=>{const x=6+i*65,on=G.treeTab===b2;button(x,42,63,BIG?22:16,on);text(x+31,42+(BIG?22:16)/2-4,b2,'sb',on?C.goldL:(b2==='Crystal'?'#bbdefb':C.cream),'center');hit(x,42,63,BIG?22:16,()=>{G.treeTab=b2;SCROLL.tree=0;});});
   {const ty=42+(BIG?22:16)+4;text(8,ty+4,'Upgrades per tap','xs',C.muted);[1,5,25,'max'].forEach((m,i)=>{const x=96+i*42,on=G.mult===m;button(x,ty,40,16,on);text(x+20,ty+4,m==='max'?'Max':'×'+m,'xsb',on?C.goldL:C.cream,'center');hit(x,ty,40,16,()=>{G.mult=m;});});}
@@ -794,7 +830,7 @@ function drawVael(){drawPanelScreen();castleTick();const C2=G.castle,D=defense()
 }
 
 // ============================================================ horde fight at the gate
-function startHordeFight(){if(G.delve){toast('Finish the catacombs first');return;}const C2=G.castle,S=hordeStrength(),Z=ZONES[G.zone];const gar=garrisonHeroes().filter(h=>!G.active.includes(h));
+function startHordeFight(){if(G.delve){toast('Finish the catacombs first');return;}const C2=G.castle,S=hordeStrength(),Z=ZONES[ZONES[G.zone].endless?endSeg(G.prog[G.zone]):G.zone];const gar=garrisonHeroes().filter(h=>!G.active.includes(h));
   G.hordeFight={wave:0,saved:{active:G.active.slice(),zone:G.zone,mode:G.mode,prog:G.prog.slice()},lvl:R(Z.lv+S*0.6),pool:Z.pool,boss:Z.boss};
   G.active=G.active.concat(gar).slice(0,4);for(const h of G.active){h.dead=false;h.status={};if(h.hp<h.maxhp*0.5)h.hp=R(h.maxhp*0.5);}layout();G.active.forEach(h=>{h.x=h.tx;});C2.hordeDue=false;G.enemies=[];G.projs=[];G.action=null;G.screen='road';closeSheet();sfx('cast');banner('The horde is at the gate','Wave 1 of 3',2.5);hordeWave();}
 function hordeWave(){const hf=G.hordeFight;hf.wave++;const n=hf.wave===3?2:Math.min(3,1+hf.wave);G.enemies=[];
@@ -867,7 +903,7 @@ function serialize(){return JSON.stringify({v:1,t:now(),zone:G.zone,prog:G.prog,
 function saveGame(){if(G.title||G.noSave||G.delve||G.hordeFight)return;storeSet(serialize());}
 function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.parse(raw);}catch(e){return false;}if(!d||d.v!==1)return false;
   while(d.prog.length<ZONES.length)d.prog.push(0);while(d.cleared.length<ZONES.length)d.cleared.push(false);
-  Object.assign(G,{zone:d.zone,prog:d.prog,cleared:d.cleared,gold:d.gold,ore:d.ore,dust:d.dust,wins:d.wins,campfireDone:d.campfireDone,tree:d.tree||{},autoCast:!!d.autoCast,music:d.music!==false,sfx:d.sfx!==false,reforges:d.reforges||0,surge:d.surge||0,chestAt:d.chestAt||0,warpAt:d.warpAt||0,far:d.far||[],run:d.run||{start:d.t,fights:0,bosses:0,gold:0,bestFloor:0},stats:Object.assign({kills:0,bosses:0,hit:0,gold:0,ore:0,items:0,legendary:0,hordes:0,offline:0,defeats:0,delveRuns:0,taps:0},d.stats||{}),simT:d.simT||0,zoneT:d.zoneT||[],treeTab:d.treeTab||'Party',delveKeys:d.delveKeys==null?3:d.delveKeys,keyAt:d.keyAt||now(),delveBest:d.delveBest||0,speedUntil:d.speedUntil||0,autoSalvage:d.autoSalvage||0,musicVol:d.musicVol==null?0.55:d.musicVol,sfxVol:d.sfxVol==null?1:d.sfxVol,tutDone:!!d.tutDone,vaelSeen:!!d.vaelSeen,treeSeen:!!d.treeSeen,keysSeen:!!d.keysSeen,dustFrac:d.dustFrac||0,heroesSeen:d.heroesSeen||[],cpHinted:!!d.cpHinted,boostSeen:!!d.boostSeen,vaelNew:!!d.vaelNew,autoUntil:d.autoUntil||0,fast:!!d.fast});
+  Object.assign(G,{zone:d.zone,prog:d.prog,cleared:d.cleared,gold:d.gold,ore:d.ore,dust:d.dust,wins:d.wins,campfireDone:d.campfireDone,tree:d.tree||{},autoCast:!!d.autoCast,music:d.music!==false,sfx:d.sfx!==false,reforges:d.reforges||0,surge:d.surge||0,chestAt:d.chestAt||0,warpAt:d.warpAt||0,far:d.far||[],run:d.run||{start:d.t,fights:0,bosses:0,gold:0,bestFloor:0},stats:Object.assign({kills:0,bosses:0,hit:0,gold:0,ore:0,items:0,legendary:0,hordes:0,offline:0,defeats:0,delveRuns:0,taps:0},d.stats||{}),simT:d.simT||0,zoneT:d.zoneT||[],treeTab:d.treeTab||'Party',delveKeys:d.delveKeys==null?3:d.delveKeys,keyAt:d.keyAt||now(),delveBest:d.delveBest||0,speedUntil:d.speedUntil||0,autoSalvage:d.autoSalvage||0,musicVol:d.musicVol==null?0.55:d.musicVol,sfxVol:d.sfxVol==null?1:d.sfxVol,tutDone:!!d.tutDone,vaelSeen:!!d.vaelSeen,treeSeen:!!d.treeSeen,keysSeen:!!d.keysSeen,dustFrac:d.dustFrac||0,heroesSeen:d.heroesSeen||[],cpHinted:!!d.cpHinted,boostSeen:!!d.boostSeen,vaelNew:!!d.vaelNew,autoUntil:d.autoUntil||0,fast:!!d.fast});padZones();
   itemSeq=d.itemSeq||itemSeq;G.pack=d.pack||[];
   G.roster=[];for(const r of d.roster){const def=HEROES.find(x=>x.id===r.id);if(!def)continue;const h=mkHero(def);h.lvl=r.lvl;h.xp=r.xp;h.abLvl=r.abLvl||1;h.eq=r.eq||{};h.tier=r.tier||0;h.uid=heroUid(h);h.talents=r.talents||{};refreshStats(h);h.hp=Math.min(h.maxhp,r.hp>0?r.hp:h.maxhp);G.roster.push(h);}
   G.active=(d.active||[]).map(id=>G.roster.find(h=>h.id===id)).filter(Boolean);if(!G.active.length&&G.roster.length)G.active=[G.roster[0]];
@@ -876,7 +912,7 @@ function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.p
   if(d.castle){G.castle=d.castle;G.castle.walk=[];}
   G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;G.delve=null;G.hordeFight=null;if(G.castle)G.castle.hordeDue=false;
   offlineReport(d.t);return true;}
-function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45+(G.cleared[G.zone]?3:0));const per=1.8;
+function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=Z.endless?endlessLv(Z,G.prog[G.zone]):R(Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45+(G.cleared[G.zone]?3:0));const per=1.8;
   return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6)))};}
 function offlineReport(lastT){const elapsed=Math.max(0,(now()-lastT)/1000);if(elapsed<120)return;
   const hours=Math.min(8+0.5*treeLv('offline')+(built('shrine')?2:0),elapsed/3600),eff=G.autoUntil>lastT?0.65:0.5;const g=offlineGains(hours,eff),fights=g.fights;if(fights<1)return;
@@ -921,7 +957,7 @@ function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.h
       y+=30;}}
   else if(s.kind==='send'){text(16,y0+8,'Send a hero','h',C.goldL);
     if(!s.hero){text(16,y0+20,'Who goes?','xs',C.muted);let y=y0+34;for(const h of free){px(14,y,242,26,C.band);drawSprite(h,28,y+22,0,'idle',false);text(46,y+4,h.name+' · '+CLASSES[h.cls].name+' Lv '+h.lvl,'s',C.cream);button(196,y+5,54,16,true);text(223,y+8,'Choose','xs',C.goldL,'center');hit(14,y,242,26,()=>{s.hero=h;});y+=30;}}
-    else{text(16,y0+20,s.hero.name+' will go on a…','xs',C.muted);let y=y0+34;for(const q of QUESTS){px(14,y,242,34,C.band);icon('hourglass',20,y+10,0);text(38,y+4,q.name+' · '+fmtT(questDur(q)),'sb',C.cream);text(38,y+16,q.desc+(CLASSES[s.hero.cls].weapon===({forage:'staff',hunt:'axe',scout:'bow',pilgrim:'sword'})[q.id]?'  ·  class bonus':''),'xs',C.muted);
+    else{text(16,y0+20,s.hero.name+' will go on a…','xs',C.muted);let y=y0+34;for(const q of QUESTS){px(14,y,242,34,C.band);icon('hourglass',20,y+10,0);text(38,y+4,q.name+' · '+fmtT(questDur(q)),'sb',C.cream);text(38,y+16,q.desc+(QUEST_CLASS[q.id].includes(s.hero.cls)?'  ·  class bonus':'  ·  favors '+QUEST_CLASS[q.id].map(c=>CLASSES[c].name).join('/')),'xs',C.muted);
       button(196,y+9,54,16,true);text(223,y+12,'Send','xs',C.goldL,'center');hit(14,y,242,34,()=>{if(G.quests.length>=questSlots()){toast('No free quest slots');return;}startQuest(s.hero,q);closeSheet();});y+=38;}}}
   else if(s.kind==='delve'){text(16,y0+8,'Into the Catacombs','h',C.goldL);text(16,y0+22,'One hero goes down alone. Each floor, pick a door within 10s.','xs',C.muted);text(16,y0+31,'Leave whenever you choose; die and you keep 60% of the bag.','xs',C.muted);let y=y0+44;
     for(const h of G.roster){if(y>H-90)break;if(heroStatus(h)==='quest')continue;px(14,y,242,26,C.band);drawSprite(h,28,y+22,0,'idle',false);text(46,y+4,h.name+' · '+CLASSES[h.cls].name+' Lv '+h.lvl,'s',C.cream);text(46,y+14,heroStatus(h)==='marching'?'Marching - the party waits for them':'At camp','xs',C.muted);button(196,y+5,54,16,true);text(223,y+8,'Descend','xs',C.goldL,'center');hit(14,y,242,26,()=>startDelve(h));y+=30;}}
