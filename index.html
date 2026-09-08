@@ -27,7 +27,7 @@ const ASSETS={"atlas": {"knight": {"cw": 44, "ch": 28, "ox": 24, "oy": 25, "anim
 // ============================================================ setup
 const W=270,SCENE_Y=96,GROUND=SCENE_Y+182;
 let H=480,TABY=438,EXTRA=0,BS=32,ABH=44,CAMP_Y=356,BIG=false;
-function applyH(h){H=h;TABY=H-42;EXTRA=H-480;BS=EXTRA>40?40:32;ABH=BS+12;CAMP_Y=308+ABH+4;BIG=EXTRA>40;cv.height=H;}
+function applyH(h){H=h;TABY=H-42;EXTRA=H-480;BS=EXTRA>40?40:32;ABH=BS+12;CAMP_Y=308+ABH+4;BIG=EXTRA>40;if(cv.height!==H){cv.height=H;ctx.imageSmoothingEnabled=false;}}
 const _probe=document.createElement('div');_probe.style.cssText='position:fixed;left:-9999px;top:0;width:0;height:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);';document.body.appendChild(_probe);
 function insets(){const cs=getComputedStyle(_probe);const et=parseFloat(cs.paddingTop)||0,eb=parseFloat(cs.paddingBottom)||0;const portrait=innerHeight>=innerWidth;const sh=portrait?screen.height:screen.width;const gap=Math.max(0,sh-innerHeight);let top=gap>=et-2?0:et,bot=gap>=et+eb-2?0:eb;const sa=navigator.standalone===true&&/iPhone|iPad|iPod/.test(navigator.userAgent);if(sa&&gap<4&&et===0){top=sh>=812?50:20;bot=sh>=812?34:0;}return{top,bot,et,eb,gap,sh};}
 function padsApply(){const p=insets();const w=document.getElementById('wrap');if(!w)return p;const t=p.top+'px',b=p.bot+'px';if(w.style.paddingTop!==t)w.style.paddingTop=t;if(w.style.paddingBottom!==b)w.style.paddingBottom=b;return p;}
