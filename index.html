@@ -37,7 +37,7 @@ const wrapEl=document.getElementById('wrap');function availH(){if(!wrapEl)return
 function fit(){SC=Math.min(innerWidth/W,availH()/H);const dpr=Math.min(3,window.devicePixelRatio||1);TS=Math.max(3,SC*dpr);
   stage.style.width=cv.style.width=tc.style.width=W*SC+'px';stage.style.height=cv.style.height=tc.style.height=H*SC+'px';
   tc.width=Math.round(W*TS);tc.height=Math.round(H*TS);}
-addEventListener('resize',fit);if(window.visualViewport)window.visualViewport.addEventListener('resize',fit);fit();
+addEventListener('resize',fit);if(window.visualViewport)window.visualViewport.addEventListener('resize',fit);fit();if(window.ResizeObserver&&wrapEl)new ResizeObserver(fit).observe(wrapEl);addEventListener('orientationchange',()=>{setTimeout(fit,50);setTimeout(fit,400);});document.addEventListener('visibilitychange',()=>{if(!document.hidden){fit();setTimeout(fit,300);}});[100,400,1000,2500].forEach(t=>setTimeout(fit,t));
 const rand=Math.random,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),R=Math.round;
 function rng(seed){return()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};}
 const now=()=>Date.now();
@@ -225,7 +225,7 @@ const TIERPAL={
   rogue:[null,{cloth:230,dark:0.7,accent:0,parts:'smoke'},{cloth:275,dark:0.5,accent:280,parts:'smoke',wglow:'#c890ff'},{cloth:275,dark:0.5,accent:280,ghost:true,parts:'smoke',wglow:'#c890ff',size:1.08}],
   mage:[null,{cloth:230,accent:45,parts:'spark'},{cloth:350,dark:0.6,accent:0,parts:'spark',wglow:'#ff80c0'},{cloth:350,dark:0.6,accent:0,parts:'spark',wglow:'#ff80c0',acc:'orbs',size:1.08}],
   ranger:[null,{cloth:120,accent:120,parts:'leaf'},{cloth:210,metal:[200,206,214],accent:210,parts:'leaf',wglow:'#a0e0ff'},{cloth:200,white:true,accent:195,trail:true,parts:'leaf',wglow:'#a0e0ff',acc:'hawk',size:1.08}],
-  berserker:[null,{metal:[150,40,40],accent:0,parts:'ember'},{metal:[80,20,20],accent:0,size:1.15,parts:'ember',wglow:'#ff6a3c'},{metal:[80,20,20],accent:0,size:1.25,aura:true,parts:'ember',wglow:'#ff6a3c',acc:'horns'}]};
+  berserker:[null,{metal:[150,40,40],accent:0,parts:'ember'},{metal:[80,20,20],accent:0,size:1.15,parts:'ember',wglow:'#ff6a3c'},{metal:[80,20,20],accent:0,size:1.25,aura:true,parts:'ember',wglow:'#ff6a3c'}]};
 function headRow(u){const A=ATLAS[u.uid];if(A.headRow!=null)return A.headRow;const im=IMG[u.uid];if(!im||!im.width)return 0;const c=document.createElement('canvas');c.width=A.cw;c.height=A.ch;const x=c.getContext('2d');x.drawImage(im,0,A.anims.idle.row*A.ch,A.cw,A.ch,0,0,A.cw,A.ch);const d=x.getImageData(0,0,A.cw,A.ch).data;let r=0;const c0=Math.max(0,A.ox-4),c1=Math.min(A.cw-1,A.ox+4);outer:for(;r<A.ch;r++){for(let i=c0;i<=c1;i++)if(d[(r*A.cw+i)*4+3]>0)break outer;}A.headRow=Math.min(r,A.ch-1);return A.headRow;}
 function drawTierExtras(u,x,y,sc,fx,before){const A=ATLAS[u.uid],top=y-(A.oy-headRow(u))*sc,hx=x+2,seed=(G.active.indexOf(u)+1)*1.37;
   if(before)return;
