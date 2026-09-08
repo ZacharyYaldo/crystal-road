@@ -4,6 +4,7 @@ sh=open(os.path.join(root,'source/shell.html'),encoding='utf-8').read()
 g=open(os.path.join(root,'source/game.js'),encoding='utf-8').read()
 aj=open(os.path.join(root,'build/assets.json'),encoding='utf-8').read()
 build=time.strftime('%Y%m%d-%H%M%S')
+aj=aj.replace('.mp3"','.mp3?v='+build+'"')
 html=sh.replace('__ASSETS__',aj).replace('__GAME__',g).replace('__BUILD__',build)
 for i in range(5):
     try:
