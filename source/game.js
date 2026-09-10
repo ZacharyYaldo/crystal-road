@@ -351,7 +351,7 @@ function revivePct(h){return 0.9*(1-Math.exp(-0.25*abilityPower(h)));}
 function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};
   const Z=ZONES[G.zone],p=G.prog[G.zone];const bossFight=!!(Z.boss&&p===Z.fights-1&&!G.cleared[G.zone])||(Z.endless&&endlessMilestone(p));const BZ=bossZone();const cpS=Z.fights/3,elite=!bossFight&&!G.cleared[G.zone]&&(p===2*cpS||(Z.endless&&p>0&&p%25===0&&!endlessMilestone(p)));
   const n=(bossFight||elite)?1:Math.min(3,1+Math.floor(rand()*Math.min(3,1+p/3))+omenCount('swarm'));G.enemies=[];
-  const pool=Z.endless?ZONES[endSeg(p)].pool:Z.pool,etier=Math.min(2,Z.endless?Math.floor(p/50):Math.floor(p/(Z.fights/3)));for(let i=0;i<n;i++){const id=bossFight?BZ.boss:pool[Math.floor(rand()*pool.length)];const L=Z.endless?endlessLv(Z,p):R(Z.lv+p*0.3+(G.cleared[G.zone]?3:0));
+  const pool=Z.endless?ZONES[endSeg(p)].pool:Z.pool,etier=Math.min(2,Z.endless?Math.floor(p/50):Math.floor(p/(Z.fights/3)));for(let i=0;i<n;i++){const id=bossFight?BZ.boss:pool[Math.floor(rand()*pool.length)];const L=Z.endless?endlessLv(Z,p):roadLv(Z,Z.lv+p*0.3);
     const E=ENEMIES[id];const e={uid:E.uid||id,id,name:E.name+(bossFight?'':['',' Veteran',' Elder'][etier]),lvl:L,x:W+40+i*36,slot:bossFight?(E.native?226:200+8*(E.scale||1)):ENEMY_X[i],dx:0,yoff:bossFight?0:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:!!E.boss,scale:E.scale||1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:bossFight?0:etier,gauge:rand()*40,dead:false,enemy:true,status:{},flash:0};
     Object.assign(e,enemyStats(id,L));if(G.oath==='iron'){e.maxhp=R(e.maxhp*1.5);e.atk=R(e.atk*1.5);}if(Z.endless){e.maxhp=R(e.maxhp*omenMult('ehp'));e.def=R(e.def*omenMult('edef'));}e.traits=(E.traits||[]).slice();e.mech=E.mech?JSON.parse(JSON.stringify(E.mech)):null;e.acts=0;if(elite){e.name='Elite '+E.name;e.maxhp=R(e.maxhp*3);e.atk=R(e.atk*1.4);e.scale=Math.max(e.scale,2);e.slot=224;if(!e.traits.includes('charge'))e.traits.push('charge');e.elite=true;}
     if(bossFight&&e.mech&&e.mech.charge)e.traits.push('charge');if(bossFight&&e.mech&&e.mech.shieldAllies&&!e.traits.includes('shieldAllies'))e.traits.push('shieldAllies');e.hp=e.maxhp;setAnim(e,'walk');G.enemies.push(e);}
@@ -380,7 +380,7 @@ function dealDamage(src,tgt,mult=1,opts={}){
   if(tgt.hp<=0){tgt.hp=0;tgt.dead=true;tgt.status={};setAnim(tgt,'death',false,8);if(tgt.enemy){killReward(tgt);if(!src.enemy&&src.talents){if(src.talents.frenzy&&src.status.rage>0)src.status.rage+=2;if(src.talents.overflow)src.charge=Math.min(100,src.charge+20);}}}
   else if(!(G.action&&G.action.u===tgt)&&!opts.noHurt)setAnim(tgt,'hurt',false,10);
   return dmg;}
-function killReward(e){G.stats.kills++;if(e.boss)G.stats.bosses++;G.surge=Math.min(100,(G.surge||0)+2.5*(1+0.1*treeLv('b_surge'))*(built('workshop')?1.5:1));sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*bless('gold')*refMult()*firstZone());G.gold+=gold;G.run.gold+=gold;G.stats.gold+=gold;if(G.fs)G.fs.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+fmtNum(gold)+' gold',C.goldL);
+function killReward(e){G.stats.kills++;if(e.boss)G.stats.bosses++;G.surge=Math.min(100,(G.surge||0)+2.5*(1+0.1*treeLv('b_surge'))*(built('workshop')?1.5:1));sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*(0.95+rand()*0.1)*bless('gold')*refMult()*firstZone());G.gold+=gold;G.run.gold+=gold;G.stats.gold+=gold;if(G.fs)G.fs.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+fmtNum(gold)+' gold',C.goldL);
   for(const h of G.active){if(h.dead)continue;h.xp+=xp;while(h.xp>=xpNeed(h.lvl)){h.xp-=xpNeed(h.lvl);h.lvl++;refreshStats(h);h.hp=h.maxhp;h.dead=false;levelBurst(h);}}
   if(rand()<0.35){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*oreScale(e.lvl)*(1+0.05*treeLv('ore'))*bless('ore')*refMult()*firstZone());G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+fmtNum(o)+' ore',C.muted);}}
 function heal(src,tgt,amt){amt=R(amt*omenMult('heal'));sfx('heal');tgt.hp=Math.min(tgt.maxhp,tgt.hp+amt);float(tgt.x+tgt.dx,GROUND-30,'+'+fmtNum(amt),'#8ff0a0');}
@@ -485,6 +485,7 @@ function renownLog(){return Math.log2(1+(G.renown||0));}
 function renownStat(){return 1+0.05*renownLog();}
 function renownGold(){return 1+0.02*renownLog();}
 function renownGain(p,kind){return R(5*Math.pow(1.02,p)*(kind==='milestone'?100:kind==='champion'?10:1)*(G.oath==='solitude'?2:1)*omenMult('renown'));}
+function roadLv(Z,base){if(!G.cleared[G.zone])return R(base);const N=ZONES[G.zone+1];return R(N?Math.min(base+3,N.lv-1):base+3);}
 function oreScale(L){return Math.pow(1.035,L||0);}
 function firstZone(k){return G.zone===0?(k==='chest'?1.15:1.1):1;}
 function refMult(){return (1+0.25*(G.reforges||0))*renownGold();}
@@ -779,7 +780,7 @@ const HORDE_MODS={armored:{name:'Armored',desc:'+25% enemy defense'},bloodthirst
 function tierFor(s){return s<=20?'Rabble':s<=45?'Raiders':s<=80?'Warband':s<=140?'Horde':'Legion';}
 function hordeThreat(){const h=G.castle.currentHorde;return h?h.threat:hordeStrength();}
 function hordeTier(){const h=G.castle.currentHorde;return h?h.tier:tierFor(hordeStrength());}
-function currentRoadLevel(){const Z=ZONES[G.zone]||ZONES[0],p=G.prog[G.zone]||0;return Z.endless?endlessLv(Z,p):R(Z.lv+p*0.3+(G.cleared[G.zone]?3:0));}
+function currentRoadLevel(){const Z=ZONES[G.zone]||ZONES[0],p=G.prog[G.zone]||0;return Z.endless?endlessLv(Z,p):roadLv(Z,Z.lv+p*0.3);}
 function hordeCombatLevel(){const n=G.castle.hordeCount||0;return R(currentRoadLevel()+Math.sqrt(n)*2+(G.reforges||0)*2);}
 function genHorde(){const C=G.castle;const threat=hordeStrength(),tier=tierFor(threat);let mod=null;if(threat>80){const ks=Object.keys(HORDE_MODS);mod=ks[Math.floor(rand()*ks.length)];}C.currentHorde={number:(C.hordeCount||0)+1,threat,tier,mod};return C.currentHorde;}
 function hordeWaves(){const C=G.castle,n=C.hordeCount||0,t=hordeTier();let w=[2,2,1];if(n>=3)w=[2,3,2];if(t==='Warband'||t==='Horde'||t==='Legion')w=[3,3,2];const h=C.currentHorde;if(h&&h.mod==='swarming')w=w.map(x=>x+1);return w;}
@@ -961,7 +962,7 @@ function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.p
   if(d.castle){G.castle=d.castle;G.castle.walk=[];}
   G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;G.delve=null;G.hordeFight=null;if(G.castle)G.castle.hordeDue=false;
   offlineReport(d.t);return true;}
-function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=Z.endless?endlessLv(Z,G.prog[G.zone]):R(Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45+(G.cleared[G.zone]?3:0));const per=1.8;
+function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=Z.endless?endlessLv(Z,G.prog[G.zone]):roadLv(Z,Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45);const per=1.8;
   return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')*refMult()),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6))*oreScale(L)*refMult())};}
 function offlineReport(lastT){const elapsed=Math.max(0,(now()-lastT)/1000);if(elapsed<120)return;
   const hours=Math.min(8+0.5*treeLv('offline')+(built('shrine')?2:0),elapsed/3600),eff=G.autoUntil>lastT?0.65:0.5;const g=offlineGains(hours,eff),fights=g.fights;if(fights<1)return;
