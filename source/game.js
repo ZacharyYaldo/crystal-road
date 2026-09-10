@@ -380,9 +380,9 @@ function dealDamage(src,tgt,mult=1,opts={}){
   if(tgt.hp<=0){tgt.hp=0;tgt.dead=true;tgt.status={};setAnim(tgt,'death',false,8);if(tgt.enemy){killReward(tgt);if(!src.enemy&&src.talents){if(src.talents.frenzy&&src.status.rage>0)src.status.rage+=2;if(src.talents.overflow)src.charge=Math.min(100,src.charge+20);}}}
   else if(!(G.action&&G.action.u===tgt)&&!opts.noHurt)setAnim(tgt,'hurt',false,10);
   return dmg;}
-function killReward(e){G.stats.kills++;if(e.boss)G.stats.bosses++;G.surge=Math.min(100,(G.surge||0)+2.5*(1+0.1*treeLv('b_surge'))*(built('workshop')?1.5:1));sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*(0.95+rand()*0.1)*bless('gold')*refMult()*firstZone());G.gold+=gold;G.run.gold+=gold;G.stats.gold+=gold;if(G.fs)G.fs.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+fmtNum(gold)+' gold',C.goldL);
+function killReward(e){G.stats.kills++;if(e.boss)G.stats.bosses++;G.surge=Math.min(100,(G.surge||0)+2.5*(1+0.1*treeLv('b_surge'))*(built('workshop')?1.5:1));sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*(0.95+rand()*0.1)*bless('gold')*refMult()*zoneBonus());G.gold+=gold;G.run.gold+=gold;G.stats.gold+=gold;if(G.fs)G.fs.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+fmtNum(gold)+' gold',C.goldL);
   for(const h of G.active){if(h.dead)continue;h.xp+=xp;while(h.xp>=xpNeed(h.lvl)){h.xp-=xpNeed(h.lvl);h.lvl++;refreshStats(h);h.hp=h.maxhp;h.dead=false;levelBurst(h);}}
-  if(rand()<0.35){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*oreScale(e.lvl)*(1+0.05*treeLv('ore'))*bless('ore')*refMult()*firstZone());G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+fmtNum(o)+' ore',C.muted);}}
+  if(rand()<0.35){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*oreScale(e.lvl)*(1+0.05*treeLv('ore'))*bless('ore')*refMult()*zoneBonus());G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+fmtNum(o)+' ore',C.muted);}}
 function heal(src,tgt,amt){amt=R(amt*omenMult('heal'));sfx('heal');tgt.hp=Math.min(tgt.maxhp,tgt.hp+amt);float(tgt.x+tgt.dx,GROUND-30,'+'+fmtNum(amt),'#8ff0a0');}
 function pickTarget(u){const foes=living(u.enemy?G.active:G.enemies);if(!foes.length)return null;
   if(u.enemy){const shield=foes.find(h=>h.status.shield>0);if(shield)return shield;const f=frontHero();return rand()<0.6?f:foes[Math.floor(rand()*foes.length)];}
@@ -487,7 +487,7 @@ function renownGold(){return 1+0.02*renownLog();}
 function renownGain(p,kind){return R(5*Math.pow(1.02,p)*(kind==='milestone'?100:kind==='champion'?10:1)*(G.oath==='solitude'?2:1)*omenMult('renown'));}
 function roadLv(Z,base){return R(base+(G.cleared[G.zone]?2:0));}
 function oreScale(L){return Math.pow(1.035,L||0);}
-function firstZone(k){return G.zone===0?(k==='chest'?1.15:1.1):1;}
+function zoneBonus(k){return (G.zone===0?(k==='chest'?1.15:1.1):1)*(1+0.02*G.zone);}
 function refMult(){return (1+0.25*(G.reforges||0))*renownGold();}
 const OATHS={iron:{name:'Oath of Iron',desc:'Enemies have +50% HP and attack',dust:1.5},solitude:{name:'Oath of Solitude',desc:'Only one hero may march',dust:1.6,renown:2},poverty:{name:'Oath of Poverty',desc:'Gold from the road is cut by 40%',dust:1.4},silence:{name:'Oath of Silence',desc:'Abilities charge 30% slower',dust:1.3}};
 const OMENS={blood:{name:'Blood Moon',desc:'Enemies deal +30% damage. Renown +40%.',edmg:1.3,renown:1.4},armored:{name:'Armored Road',desc:'Enemies +40% defense. Gear drops a rarity higher.',edef:1.4,gearUp:1},quick:{name:'Quickening',desc:'Everyone acts 30% faster.',speed:1.3},wither:{name:'Withering',desc:'Healing is halved. Gold +35%.',heal:0.5,gold:1.35},swarm:{name:'Swarming',desc:'One more enemy per fight. Gold +40%.',swarm:1,gold:1.4},gilded:{name:'Gilded Road',desc:'Enemies +30% HP. Gold +50%.',ehp:1.3,gold:1.5},thin:{name:'Thin Skin',desc:'Heroes take +25% damage. Renown +30%, ore +50%.',hdmg:1.25,renown:1.3,ore:1.5},veins:{name:'Rich Veins',desc:'Enemies +20% HP. Ore +80%.',ehp:1.2,ore:1.8}};
@@ -939,8 +939,8 @@ function drawTreasure(){const t=G.treasure;if(!t)return;const x=R(treasureX());i
   for(let k=0;k<3;k++){const a=RT*3+k*2.1;px(x+14+R(Math.cos(a)*16),t.y-8+R(Math.sin(a)*10),1,1,'#fff');}hit(x-6,t.y-30,42,44,grabTreasure);}
 function grabTreasure(){const t=G.treasure;if(!t)return;const tx0=treasureX()+14;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');
   if(t.kind==='gear'&&G.pack.length<15){const it=makeItem(G.zone,t.rank);G.pack.push(it);float(tx0,t.y-16,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank]);}
-  else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6))*oreScale(L)*refMult()*firstZone('chest'));G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
-  else{const g=R((5+L*3)*Math.pow(1.05,L)*bless('gold')*refMult()*firstZone('chest'));G.gold+=g;float(tx0,t.y-16,'+'+fmtNum(g)+' gold',C.goldL,true);}}
+  else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6))*oreScale(L)*refMult()*zoneBonus('chest'));G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
+  else{const g=R((5+L*3)*Math.pow(1.05,L)*bless('gold')*refMult()*zoneBonus('chest'));G.gold+=g;float(tx0,t.y-16,'+'+fmtNum(g)+' gold',C.goldL,true);}}
 
 // ============================================================ saving & offline progress
 const SAVE_KEY='crystal_road_save_v1';
@@ -963,7 +963,7 @@ function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.p
   G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;G.delve=null;G.hordeFight=null;if(G.castle)G.castle.hordeDue=false;
   offlineReport(d.t);return true;}
 function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=Z.endless?endlessLv(Z,G.prog[G.zone]):roadLv(Z,Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45);const per=1.8;
-  return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')*refMult()),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6))*oreScale(L)*refMult())};}
+  return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')*refMult()*zoneBonus()),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6))*oreScale(L)*refMult()*zoneBonus())};}
 function offlineReport(lastT){const elapsed=Math.max(0,(now()-lastT)/1000);if(elapsed<120)return;
   const hours=Math.min(8+0.5*treeLv('offline')+(built('shrine')?2:0),elapsed/3600),eff=G.autoUntil>lastT?0.65:0.5;const g=offlineGains(hours,eff),fights=g.fights;if(fights<1)return;
   const gold=g.gold,xp=g.xp,ore=g.ore;
