@@ -329,7 +329,7 @@ addHero(HEROES[0]);
 function float(x,y,t,color=C.cream,big=false,life=1.1){G.floats.push({x,y,text:t,color,life,big});}
 function levelBurst(h){sfx('level');float(h.x,GROUND-42,'Lv '+h.lvl+'!',C.goldL,true,1.8);for(let k=0;k<18;k++){const a=rand()*Math.PI*2,sp=20+rand()*40;G.parts.push({x:h.x+(rand()*8-4),y:GROUND-14,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp-20,life:0.7+rand()*0.6,col:[C.goldL,C.gold,'#fff','#8fd4ff'][k%4]});}}
 function banner(t,sub='',dur=2.4,scope='road'){G.banner={text:t,sub,t:0,dur,scope};}
-function toast(t,col,scope){const dur=2.5;if(HOLD){if(HOLD.toastText===t)return;HOLD.toastText=t;}const cur=G.toast,key=G.toastKey||null;if(cur&&key&&cur.key===key&&cur.t<(cur.dur||2.2)&&cur.scope===scope){const out=(cur.dur||2.2)-cur.t;cur.text=t;cur.col=col;cur.dur=dur;if(out<0.25)cur.t=0.25-out;else if(cur.t>0.3)cur.t=0.3;return;}G.toast={text:t,t:0,col,scope,dur,key,screen:G.screen};}
+function toast(t,col,scope){const dur=Math.min(4.5,2.2+t.length*0.03);if(HOLD){if(HOLD.toastText===t)return;HOLD.toastText=t;}const cur=G.toast,key=G.toastKey||null;if(cur&&key&&cur.key===key&&cur.t<(cur.dur||2.2)&&cur.scope===scope){const out=(cur.dur||2.2)-cur.t;cur.text=t;cur.col=col;cur.dur=dur;if(out<0.25)cur.t=0.25-out;else if(cur.t>0.3)cur.t=0.3;return;}G.toast={text:t,t:0,col,scope,dur,key,screen:G.screen};}
 function living(list){return list.filter(u=>!u.dead);}
 function frontHero(){return living(G.active)[0];}
 function rankCost(h){let c=80*(1+h.lvl*0.05);for(let k=1;k<(h.abLvl||1);k++)c*=1.9*(1+0.05*Math.max(0,k-8));return R(c);}
@@ -570,7 +570,7 @@ function update(dt,ui=true){G.t+=dt;if(G.shake>0)G.shake-=dt;
   if(G.booted&&!G.endlessSeen&&ZONES[G.zone]&&ZONES[G.zone].endless&&G.tut==null&&G.mode==='walk'&&G.screen==='road'&&!G.sheet&&!G.title){G.endlessSeen=true;saveGame();G.tut=TUT.length;TUT.push({t:'The Endless Road',s:'This road never ends. It winds through every land again and again, and the enemies keep growing.',box:[4,SCENE_Y+4,166,42],once:true},{t:'Champions and milestones',s:'A champion every 25 fights. A boss every 100. Fall, and you return to the last champion.',box:[4,SCENE_Y+4,166,42],once:true},{t:'Crystal gear and Renown',s:'Beat a milestone boss once for a piece of Crystal gear, the strongest in the game, and Renown. Every fight here earns Renown, and it makes the whole party stronger forever.',icon:'sword',box:[4,SCENE_Y+4,166,42],once:true});}
   if(G.cpHint&&G.tut==null&&G.mode==='walk'&&G.screen==='road'&&!G.sheet){G.cpHint=false;G.tut=TUT.length;TUT.push({t:'Fall back to a checkpoint',s:'The road ahead is too strong for now. Tap an earlier dot to return to that checkpoint and farm it until the party is stronger.',box:[4,SCENE_Y+4,166,42],once:true});}
   if(G.pending&&!G.banner&&G.tut==null){{const[pt,ps]=G.pending.split('|');banner(pt,ps||(pt==='Greenhollow Fields'?'The first shard lies ahead':''),2.6);}G.pending=null;}
-  if(G.toast){G.toast.t+=dt;if(G.toast.t>(G.toast.dur||2.2))G.toast=null;}}
+  if(G.toast&&G.toast.screen&&G.toast.screen!==G.screen)G.toast=null;if(G.toast){G.toast.t+=dt;if(G.toast.t>(G.toast.dur||2.2))G.toast=null;}}
   if(G.title||G.tut!=null){return;}
   if(G.mode==='delve'&&G.hordeFight){}else if(G.mode==='delve'){if(G.delve&&G.delve.choose&&ui){G.delve.timer-=dt;if(G.delve.timer<=0)chooseDoor(G.delve.doors[Math.floor(rand()*3)]);}}
   if(!G.delve){G.simT=(G.simT||0)+dt;G.zoneT=G.zoneT||[];G.zoneT[G.zone]=(G.zoneT[G.zone]||0)+dt;}
