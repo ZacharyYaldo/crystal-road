@@ -321,6 +321,7 @@ function banner(t,sub='',dur=2.4,scope='road'){G.banner={text:t,sub,t:0,dur,scop
 function toast(t,col,scope){G.toast={text:t,t:0,col,scope};}
 function living(list){return list.filter(u=>!u.dead);}
 function frontHero(){return living(G.active)[0];}
+function rankCost(h){let c=80*(1+h.lvl*0.05);for(let k=1;k<(h.abLvl||1);k++)c*=1.9*(1+0.05*Math.max(0,k-8));return R(c);}
 function abilityPower(h){const r=h.abLvl||1;const base=0.45+0.75*(1-Math.pow(0.9,r-1));const bonus=1+Math.min(0.6,0.02*treeLv('abil'))+Math.min(1.0,0.05*treeLv('b_ab'))+0.15*(h.tier||0)+(built('library')?0.15:0);return base*bonus;}
 function shieldDur(h){return Math.min(6,3+Math.floor((h.abLvl||1)/8));}
 function rageMult(h){return 1.5+0.5*Math.min(1,abilityPower(h));}
@@ -680,7 +681,7 @@ function drawHeroes(){drawPanelScreen();text(8,26,'Heroes','title',C.goldL);text
     text(46,y+6,h.name,'sb',C.cream);text(46,y+16,heroTitle(h)+' · Lv '+h.lvl+' · '+(st==='quest'?'on a quest':st),'xs',C.muted);
     {const q=promoteReq(h),can=(h.tier||0)<3&&h.lvl>=q.lvl&&G.gold>=q.gold&&G.dust>=q.dust,PB2=Math.floor((HR-34)/2),py2=y+HR-26-PB2;if((h.tier||0)<3){button(194,py2,66,PB2,can,h.lvl<q.lvl);text(227,py2+PB2/2-4,h.lvl<q.lvl?'Promote at '+q.lvl:'Promote','xs',can?C.goldL:(h.lvl<q.lvl?C.dimt:C.muted),'center');hit(194,py2,66,PB2,()=>promoteHero(h));}}
     const ab=CLASSES[h.cls].ab;icon(ab.icon,46,y+27,2);text(62,y+28,ab.name,'xsb',C.goldL);text(62+textW(ab.name,'xsb')+6,y+28,'rank '+h.abLvl,'xs',C.muted);{const d1=abilityDesc(h),parts=wrap2(d1,'xs',128);text(62,y+37,parts[0],'xs',C.muted);if(parts[1])text(62,y+46,parts[1],'xs',C.muted);drawAbilityNums(h,62,y+37,parts);}if((h.tier||0)<3){const q=promoteReq(h);text(62,y+56,fitText('Promote at Lv '+q.lvl+': '+fmtNum(q.gold)+' gold, '+q.dust+' dust','xs',128),'xs',C.dimt);}
-    const cost=R(80*Math.pow(1.9,h.abLvl-1)*(1+h.lvl*0.05)),can=G.gold>=cost;const HB=Math.floor((HR-34)/2);button(194,y+4,66,HB,can);icon('coin',198,y+4+HB/2-6,4);text(233,y+4+HB/2-4,'Rank up '+fmtNum(cost),'xs',can?C.goldL:C.muted,'center');hit(194,y+4,66,HB,()=>{if(!can){toast('Need '+cost+' gold');return;}G.gold-=cost;h.abLvl++;toast(ab.name+' rank '+h.abLvl);});
+    const cost=rankCost(h),can=G.gold>=cost;const HB=Math.floor((HR-34)/2);button(194,y+4,66,HB,can);icon('coin',198,y+4+HB/2-6,4);text(233,y+4+HB/2-4,'Rank up '+fmtNum(cost),'xs',can?C.goldL:C.muted,'center');hit(194,y+4,66,HB,()=>{if(!can){toast('Need '+cost+' gold');return;}G.gold-=cost;h.abLvl++;toast(ab.name+' rank '+h.abLvl);});
     {h.talents=h.talents||{};TALENTS[h.cls].forEach((t,i)=>{const own=!!h.talents[t.id],q=talentReq(i),x=12+i*62,ty=y+HR-24,lk=h.lvl<q.lvl,can=!own&&!lk&&G.gold>=q.gold;button(x,ty,58,20,own||can,lk);const lbl=own?t.name:(lk?'Lv '+q.lvl:t.name);text(x+29,ty+(own||lk?6:3),fitText(lbl,'xs',54),'xs',own?C.goldL:(lk?C.dimt:C.cream),'center');if(!own&&!lk)text(x+29,ty+11,(can?'buy ':'')+fmtNum(q.gold),'xs',can?C.goldL:C.dimt,'center');hit(x,ty,58,20,()=>buyTalent(h,i));});}
     y+=HR+4;}
   if(G.roster.length<HEROES.length)text(W/2,y+6,'More will join along the road','xs',C.dimt,'center');endScroll('heroes',y+20);}
