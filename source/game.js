@@ -1024,7 +1024,7 @@ const SUPER={sword:{name:'Crystal Edge',slot:'weapon',kind:'sword',fx:'Shield Wa
 const SUPER_ORDER=['sword','cape','staff','amulet','dagger','cape','bow','ring','axe','staff'];const SUPER_CAP={sword:1,dagger:1,bow:1,axe:1,ring:1,staff:2};
 function milestoneItem(m){if(m<=SUPER_ORDER.length)return SUPER_ORDER[m-1];return (m%2)?'cape':'amulet';}
 function superCount(key){return G.pack.filter(i=>i.super===key).length+G.roster.reduce((n,h)=>n+Object.values(h.eq||{}).filter(i=>i&&i.super===key).length,0);}
-function makeSuper(key){const d=SUPER[key];let lvl=0;for(const it of G.pack)if(it.slot===d.slot)lvl=Math.max(lvl,it.lvl||0);for(const h of G.roster){const it=h.eq&&h.eq[d.slot];if(it)lvl=Math.max(lvl,it.lvl||0);}return{id:'S'+key+'_'+Date.now().toString(36),slot:d.slot,kind:d.kind,rank:5,lvl,super:key};}
+function makeSuper(key){const d=SUPER[key];return{id:'S'+key+'_'+Date.now().toString(36),slot:d.slot,kind:d.kind,rank:5,lvl:0,super:key};}
 function ownsSuper(key){return G.pack.some(i=>i.super===key)||G.roster.some(h=>h.eq&&Object.values(h.eq).some(i=>i&&i.super===key));}
 function sup(h,key){if(!h||!h.eq)return false;const d=SUPER[key];const it=h.eq[d.slot];return !!(it&&it.super===key);}
 function giveItem(it){if(G.pack.length<15){G.pack.push(it);return true;}const junk=G.pack.filter(x=>!x.super).sort((a,b)=>(a.rank-b.rank)||(a.lvl-b.lvl))[0];if(junk){G.pack=G.pack.filter(x=>x!==junk);const o=(junk.rank+1)*4;G.ore+=o;toast('Salvaged '+itemName(junk)+' to make room');G.pack.push(it);return true;}return false;}
