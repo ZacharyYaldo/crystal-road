@@ -505,7 +505,7 @@ function collectQuest(q){const mult=(1+0.06*treeLv('quest'))*questBonus(q.hero,q
 function fmtT(s){s=Math.max(0,Math.floor(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),sec=s%60;return h?`${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`:`${m}:${String(sec).padStart(2,'0')}`;}
 
 // ============================================================ gear
-function equipBest(only){for(const h of (only?[only]:G.roster)){for(const slot of ['weapon','cape','charm']){const cands=G.pack.filter(it=>it.slot===slot&&(slot!=='weapon'||it.kind===CLASSES[h.cls].weapon));const cur=h.eq[slot];const score=it=>itemStat(it)+it.rank*0.01;const best=cands.sort((a,b)=>score(b)-score(a))[0];
+function equipBest(only){for(const h of (only?[only]:G.roster)){for(const slot of ['weapon','cape','charm']){const cands=G.pack.filter(it=>it.slot===slot&&(slot!=='weapon'||it.kind===CLASSES[h.cls].weapon));const cur=h.eq[slot];const score=it=>(it.super?1e30:0)+itemStat(it)+it.rank*0.01;const best=cands.sort((a,b)=>score(b)-score(a))[0];
   if(best&&(!cur||score(best)>score(cur))){G.pack=G.pack.filter(i=>i!==best);if(cur)G.pack.push(cur);h.eq[slot]=best;best.isNew=false;}}refreshStats(h);}toast(only?'Best gear on '+only.name:'Best gear equipped');}
 function equipItem(h,it){if(it.slot==='weapon'&&it.kind!==CLASSES[h.cls].weapon){toast(h.name+" can't wield a "+WEAPON_NOUN[it.kind].toLowerCase());return;}
   const cur=h.eq[it.slot];G.pack=G.pack.filter(i=>i!==it);if(cur)G.pack.push(cur);h.eq[it.slot]=it;it.isNew=false;refreshStats(h);toast(itemName(it)+' equipped');}
