@@ -76,8 +76,9 @@ function frame(x,y,w,h,fill=C.navy,trim=C.gold,ornate=true){
   px(x,y,w,h,C.out);px(x+1,y+1,w-2,h-2,trim);px(x+2,y+2,w-4,h-4,C.out);px(x+3,y+3,w-6,h-6,fill);px(x+3,y+3,w-6,1,C.navy2);
   if(ornate)for(const [cx,cy] of [[x+1,y+1],[x+w-3,y+1],[x+1,y+h-3],[x+w-3,y+h-3]])px(cx,cy,2,2,C.goldL);
 }
-function button(x,y,w,h,gold=false,disabled=false){
-  px(x,y,w,h,C.out);px(x+1,y+1,w-2,h-2,disabled?C.dimt:(gold?C.goldL:C.goldD));px(x+2,y+2,w-4,h-4,disabled?C.navy:(gold?C.btnGold:C.btn));px(x+2,y+2,w-4,1,gold?'#5a4a20':'#3a4470');
+function isPressed(x,y,w,h){const L=G.lastHit;if(L&&RT<L.until&&L.x===x&&L.y===y&&L.w===w&&L.h===h)return true;const r=HOLD&&HOLD.r;return !!(r&&r.x===x&&r.dy===y&&r.w===w&&r.h===h&&HOLD.px>=r.x&&HOLD.px<r.x+r.w&&HOLD.py>=r.y&&HOLD.py<r.y+r.h);}
+function button(x,y,w,h,gold=false,disabled=false){const pr=!disabled&&isPressed(x,y,w,h);if(pr)y+=1;
+  px(x,y,w,h,C.out);px(x+1,y+1,w-2,h-2,disabled?C.dimt:(gold?C.goldL:C.goldD));px(x+2,y+2,w-4,h-4,disabled?C.navy:(gold?C.btnGold:C.btn));px(x+2,y+2,w-4,1,gold?'#5a4a20':'#3a4470');if(pr)px(x+1,y+1,w-2,h-2,'rgba(0,0,0,0.22)');
 }
 function bar(x,y,w,h,frac,col,back=C.out){
   px(x,y,w,h,back);const fw=R((w-2)*clamp(frac,0,1));
@@ -545,14 +546,15 @@ function sellItem(it){const o=salvageBase(it.rank)+it.lvl*2;G.pack=G.pack.filter
 function bulkCost(costAt,lv,funds){const want=G.mult==='max'?1e9:G.mult;let n=0,total=0;while(n<want){const c=costAt(lv+n);if(G.mult==='max'&&total+c>funds)break;total+=c;n++;if(n>=2000)break;}if(G.mult==='max'&&n===0){return{n:1,total:costAt(lv)};}return{n,total};}
 const SALV_BASE=[5,12,24,45,80,120];function salvageBase(r){return R(SALV_BASE[Math.min(r,SALV_BASE.length-1)]*(1+0.25*(G.reforges||0)));}
 function salvageValue(it){let spent=0;for(let l=0;l<(it.lvl||0);l++)spent+=R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,l)*(built('forge')?0.85:1));return R(salvageBase(it.rank)+spent*0.3);}
-function upgradeItem(it,h){let n=0,want=G.mult==='max'?1e9:G.mult;while(n<want){const cost=upgradeCost(it);if(G.ore<cost)break;G.ore-=cost;it.lvl++;n++;}if(!n){toast('Need '+upgradeCost(it)+' ore');return;}if(h)refreshStats(h);G.upPress=RT+0.12;uiSparks(G.tapX||0,G.tapY||0,n>1?14:8);toast(itemName(it)+' +'+it.lvl+(n>1?' ('+n+' ranks)':''));}
+function upgradeItem(it,h){let n=0,want=G.mult==='max'?1e9:G.mult;while(n<want){const cost=upgradeCost(it);if(G.ore<cost)break;G.ore-=cost;it.lvl++;n++;}if(!n){toast('Need '+upgradeCost(it)+' ore');return;}if(h)refreshStats(h);toast(itemName(it)+' +'+it.lvl+(n>1?' ('+n+' ranks)':''));}
 function multLabel(){return G.mult==='max'?'Max':'×'+G.mult;}
 function cycleMult(){G.mult=G.mult===1?5:G.mult===5?25:G.mult===25?'max':1;}
 
 // ============================================================ main loop
 let last=0;const hits=[];let HIT_DY=0;let HOLD=null;
 function uiSparks(x,y,n=8){const P=G.uparts||(G.uparts=[]);for(let k=0;k<n;k++){const a=rand()*Math.PI*2,sp=25+rand()*45;P.push({x:x+(rand()*6-3),y,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp-25,life:0.4+rand()*0.4,col:[C.goldL,C.gold,'#fff','#ffb36b'][k%4]});}}
-function hit(x,y,w,h,fn,hold){hits.push({x,y:y+HIT_DY,w,h,fn,hold:!!hold});}
+function hit(x,y,w,h,fn,hold){hits.push({x,y:y+HIT_DY,dy:y,w,h,fn,hold:!!hold});}
+function spendCall(fn,x,y){const g0=G.gold,o0=G.ore,d0=G.dust;fn();if(G.gold<g0||G.ore<o0||G.dust<d0)uiSparks(x,y,8);}
 const SCROLL={tree:0,heroes:0,map:0},CONTENT={tree:0,heroes:0,map:0},SCROLLTOP={tree:44,heroes:44,map:48};
 function beginScroll(key,top){const sc=SCROLL[key]||0;ctx.save();ctx.beginPath();ctx.rect(0,top,W,TABY-top-TABTOP);ctx.clip();ctx.translate(0,-sc);tx.save();tx.beginPath();tx.rect(0,top*TS,W*TS,(TABY-top-TABTOP)*TS);tx.clip();tx.translate(0,-sc*TS);HIT_DY=-sc;}
 function endScroll(key,bottom){ctx.restore();tx.restore();HIT_DY=0;CONTENT[key]=bottom;}
@@ -701,7 +703,7 @@ function drawGear(){drawPanelScreen();const h=G.roster[G.gearHero]||G.roster[0];
   ['weapon','cape','charm'].forEach((slot,i)=>{const x=4+i*88,it=h.eq[slot];frame(x,SY,86,SLOTH,C.navy,it&&it.rank>0?RANKHEX[it.rank]:C.gold);
     px(x+29,SY+12,28,28,C.out);px(x+30,SY+13,26,26,'#222844');text(x+43,SY+3,slot[0].toUpperCase()+slot.slice(1),'xs',C.muted,'center');
     if(it){drawItemIcon(it,x+31,SY+14,2);const nm=itemName(it);text(x+43,SY+43,nm,textW(nm,'sb')>78?'xsb':'sb',it.rank>0?RANKHEX[it.rank]:C.cream,'center');text(x+43,SY+53,(it.rank>=5?'MYTHIC':'★'.repeat(it.rank+1)+'☆'.repeat(4-it.rank))+(it.lvl?'  ↑'+Math.round(roll('it_'+it.id,it.lvl)):''),'xs',C.goldL,'center');text(x+43,SY+61,itemStatLabel(it).replace(fmtNum(itemStat(it)),fmtNum(roll('is_'+it.id,itemStat(it)))),'xs',C.green,'center');
-      const cost=upgradeCost(it),bk=bulkCost(l=>R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,l)*(built('forge')?0.85:1)),it.lvl,G.ore),can=G.ore>=cost;const ub=BIG?22:16,uy=SY+SLOTH-ub-4;const pr=(HOLD&&HOLD.r&&HOLD.r.x===x+6&&HOLD.r.w===74&&HOLD.px>=HOLD.r.x&&HOLD.px<HOLD.r.x+HOLD.r.w&&HOLD.py>=HOLD.r.y&&HOLD.py<HOLD.r.y+HOLD.r.h)||RT<(G.upPress||0),py=uy+(pr?1:0);button(x+6,py,74,ub,can);if(pr)px(x+8,py+2,70,ub-4,'rgba(0,0,0,0.22)');icon('ore',x+10,py+ub/2-6,0);text(x+49,py+ub/2-4,fitText(G.mult==='max'?fmtNum(bk.total)+' ('+bk.n+')':'Upgrade '+fmtNum(bk.total),'xs',56),'xs',can?C.goldL:C.muted,'center');hit(x+6,uy,74,ub,()=>upgradeItem(it,h),true);
+      const cost=upgradeCost(it),bk=bulkCost(l=>R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,l)*(built('forge')?0.85:1)),it.lvl,G.ore),can=G.ore>=cost;const ub=BIG?22:16,uy=SY+SLOTH-ub-4;button(x+6,uy,74,ub,can);icon('ore',x+10,uy+ub/2-6,0);text(x+49,uy+ub/2-4,fitText(G.mult==='max'?fmtNum(bk.total)+' ('+bk.n+')':'Upgrade '+fmtNum(bk.total),'xs',56),'xs',can?C.goldL:C.muted,'center');hit(x+6,uy,74,ub,()=>upgradeItem(it,h),true);
       if(it.rank<4){const locked=it.rank>=ascendCap(),ac2=ascendCost(it),acan=!locked&&G.ore>=ac2,ay=uy-ub-3;button(x+6,ay,74,ub,acan,locked);if(locked)icon('lock',x+10,ay+ub/2-6,0);text(x+43+(locked?6:0),ay+ub/2-4,locked?'Reforge to ascend':'Ascend '+fmtNum(ac2),'xs',locked?C.dimt:(acan?RANKHEX[it.rank+1]:C.muted),'center');hit(x+6,ay,74,ub,()=>ascendItem(it,h));}
       hit(x+29,SY+12,28,28,()=>{unequip(h,slot);});}
     else{text(x+43,SY+46,'Empty','s',C.dimt,'center');text(x+43,SY+58,slot==='weapon'?WEAPON_NOUN[CLASSES[h.cls].weapon]+' only':'','xs',C.dimt,'center');}});
@@ -1134,7 +1136,7 @@ function draw(){hits.length=0;tx.clearRect(0,0,tc.width,tc.height);px(0,0,W,H,'#
   if(G.toast&&!G.reveal&&!(G.toast.scope==='road'&&G.screen!=='road')){const a=clamp(Math.min(G.toast.t*4,(2.2-G.toast.t)*3),0,1);if(G.toast.scope==='road'){const w=textW(G.toast.text,'xs')+12;ctx.globalAlpha=a*0.45;px(4,SCENE_Y+192,R(w),12,'#000');ctx.globalAlpha=1;text(10,SCENE_Y+194,G.toast.text,'xs',G.toast.col||C.cream,'left',a);}else{const w=textW(G.toast.text,'s')+16,ty=G.screen==='road'&&!G.sheet?SCENE_Y+186:H-64;ctx.globalAlpha=a*0.55;px(R(W/2-w/2),ty,R(w),16,'#000');ctx.globalAlpha=1;text(W/2,ty+4,G.toast.text,'s',G.toast.col||C.cream,'center',a);}}}
 function speedNow(){if(G.fastRoad)return G.fastRoad;if(G.speed===4&&G.speedUntil>now())return 4;if(G.speed===4)G.speed=2;return G.speed||1;}
 let RT=0;
-function loop(ts){const dt=Math.min(0.05,(ts-last)/1000||0);last=ts;RT+=dt;rollDt=dt;if(G.booted&&!G.delve&&!G.hordeFight){const mk=trackFor();if(mk!==music.cur)playMusic(mk);const nk=nextTrackKey();if(nk&&nk!==music.cur&&!music.bufs[nk]&&!music.pending[nk])ensureTrack(nk);}if(HOLD&&RT>=HOLD.next){const r=HOLD.r;if(HOLD.px>=r.x&&HOLD.px<r.x+r.w&&HOLD.py>=r.y&&HOLD.py<r.y+r.h){G.tapX=HOLD.px;G.tapY=HOLD.py-HIT_DY;HOLD.fn();HOLD.next=RT+0.12;}else HOLD=null;}const n=speedNow();for(let k=0;k<n;k++)update(dt,k===0);draw();requestAnimationFrame(loop);}
+function loop(ts){const dt=Math.min(0.05,(ts-last)/1000||0);last=ts;RT+=dt;rollDt=dt;if(G.booted&&!G.delve&&!G.hordeFight){const mk=trackFor();if(mk!==music.cur)playMusic(mk);const nk=nextTrackKey();if(nk&&nk!==music.cur&&!music.bufs[nk]&&!music.pending[nk])ensureTrack(nk);}if(HOLD&&RT>=HOLD.next){const r=HOLD.r;if(HOLD.px>=r.x&&HOLD.px<r.x+r.w&&HOLD.py>=r.y&&HOLD.py<r.y+r.h){spendCall(HOLD.fn,HOLD.px,HOLD.py);HOLD.next=RT+0.12;}else HOLD=null;}const n=speedNow();for(let k=0;k<n;k++)update(dt,k===0);draw();requestAnimationFrame(loop);}
 function evPos(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)/r.width*W,(e.clientY-r.top)/r.height*H];}
 cv.addEventListener('pointermove',e=>{if(!G.drag)return;const[x,y]=evPos(e);if(!G.drag.moved&&Math.hypot(x-G.drag.x0,y-G.drag.y0)>5)G.drag.moved=true;G.drag.x=x;G.drag.y=y;});
 function endDrag(e){const d=G.drag;if(!d)return;G.drag=null;const[x,y]=evPos(e);
@@ -1142,7 +1144,7 @@ function endDrag(e){const d=G.drag;if(!d)return;G.drag=null;const[x,y]=evPos(e);
   if(y<16||y>96)return;const j=Math.floor((x-4)/66);if(j<0||j>3||j===d.i)return;
   if(G.active[j]){[G.active[d.i],G.active[j]]=[G.active[j],G.active[d.i]];}else{G.active.splice(j>G.active.length?G.active.length:j,0,G.active.splice(d.i,1)[0]);}layout();toast(G.active[0].name+' takes the front');}
 cv.addEventListener('pointerup',endDrag);cv.addEventListener('pointercancel',()=>{G.drag=null;HOLD=null;});window.addEventListener('pointerup',()=>{HOLD=null;});window.addEventListener('pointercancel',()=>{HOLD=null;});window.addEventListener('blur',()=>{HOLD=null;});cv.addEventListener('pointerleave',()=>{HOLD=null;});
-function dispatch(x,y){for(let i=hits.length-1;i>=0;i--){const h=hits[i];if(x>=h.x&&x<h.x+h.w&&y>=h.y&&y<h.y+h.h){G.tapX=x;G.tapY=y-HIT_DY;h.fn();if(h.hold)HOLD={fn:h.fn,next:RT+0.45,r:h,px:x,py:y};if(G.drag&&!G.drag.x0){G.drag.x0=x;G.drag.y0=y;G.drag.x=x;G.drag.y=y;}return true;}}return false;}
+function dispatch(x,y){for(let i=hits.length-1;i>=0;i--){const h=hits[i];if(x>=h.x&&x<h.x+h.w&&y>=h.y&&y<h.y+h.h){G.lastHit={x:h.x,y:h.dy,w:h.w,h:h.h,until:RT+0.12};spendCall(h.fn,x,y);if(h.hold)HOLD={fn:h.fn,next:RT+0.45,r:h,px:x,py:y};if(G.drag&&!G.drag.x0){G.drag.x0=x;G.drag.y0=y;G.drag.x=x;G.drag.y=y;}return true;}}return false;}
 let scrollTouch=null;
 cv.addEventListener('pointermove',e=>{if(HOLD){const[hx,hy]=evPos(e);HOLD.px=hx;HOLD.py=hy;}if(!scrollTouch)return;const[x,y]=evPos(e);if(!scrollTouch.moved&&Math.abs(y-scrollTouch.y0)>5)scrollTouch.moved=true;if(scrollTouch.moved){SCROLL[scrollTouch.key]=clamp(scrollTouch.s0-(y-scrollTouch.y0),0,scrollMax(scrollTouch.key));}});
 cv.addEventListener('pointerup',e=>{if(!scrollTouch)return;const st=scrollTouch;scrollTouch=null;if(!st.moved)dispatch(st.x0,st.y0);});
