@@ -581,7 +581,7 @@ function update(dt,ui=true){G.t+=dt;if(G.shake>0)G.shake-=dt;
     if(G.action)updateAction(dt);updateProjs(dt);
     if(!living(G.enemies).length&&!G.action&&!G.projs.length)return endBattle(true);
     if(!living(G.active).length&&!G.action&&!G.projs.length)return endBattle(false);
-    if(!G.action){for(const u of all)if(!u.dead)u.gauge+=u.spd*dt*7*(u.enemy?1:1+0.02*treeLv('spd'))*omenMult('speed');
+    if(!G.action){for(const u of all)if(!u.dead)if(!(G.hordeFight&&G.banner))u.gauge+=u.spd*dt*7*(u.enemy?1:1+0.02*treeLv('spd'))*omenMult('speed');
       let ready=all.filter(u=>!u.dead&&u.gauge>=100).sort((a,b)=>b.gauge-a.gauge)[0];
       const caster=G.active.find(h=>!h.dead&&(h.tapCast||(h.charge>=100&&autoOn()&&h.readyT>=0.4)));if(caster)ready=caster;
       if(ready){if(ready!==caster)ready.gauge=0;const a=chooseAction(ready);if(a){startAction(a);
