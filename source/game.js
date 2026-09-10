@@ -310,7 +310,7 @@ function mkHero(def){const h={def,id:def.id,name:def.name,cls:def.cls,uid:def.cl
 function addHero(def,lvl=1){const h=mkHero(def);h.lvl=lvl;Object.assign(h,heroStats(h));h.hp=h.maxhp;G.roster.push(h);if(G.active.length<4){h.x=-30;G.active.push(h);layout();}return h;}
 padZones();const US=1.5;const HERO_X=[24,60,96,132],ENEMY_X=[192,224,254],ENEMY_Y=[0,-3,3];
 const RECRUIT_HINT=['','Sera · at the first campfire','Vex · shard of Greenhollow','Morrow · shard of Stillwater'];
-function layout(){const n=G.active.length;G.active.forEach((h,i)=>{h.tx=n<=4?HERO_X[3-i]:132-(n-1-i)*24;if(h.x==null||isNaN(h.x))h.x=h.tx;});}
+function layout(){G.active.forEach((h,i)=>{if(i<4){h.tx=HERO_X[3-i];h.yoff=0;}else{h.tx=HERO_X[3-(i-4)]-14;h.yoff=-20;}if(h.x==null||isNaN(h.x))h.x=h.tx;});}
 function refreshStats(h){const f=h.hp/h.maxhp;Object.assign(h,heroStats(h));h.hp=R(clamp(f,0,1)*h.maxhp);}
 addHero(HEROES[0]);
 
@@ -591,9 +591,9 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.hordeFight?'door':G.delve
   const units=G.active.concat(G.enemies).slice().sort((a,b)=>(a.yoff||0)-(b.yoff||0));for(const u of units)drawUnit(u);drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;
   if(G.mode==='battle'||G.mode==='enter'){for(const e of G.enemies){if(e.dead)continue;const x=R(e.x+e.dx),bs=e.native?(e.boss?4:1.2):(e.scale>1?e.scale:US),y=GROUND+(e.yoff||0)-(e.fly?44:R(26*bs+6));bar(x-10*bs,y,20*bs,4,e.hp/e.maxhp,C.red,'#1b1b1b');const hs=14*bs;hit(x-hs,GROUND-hs*2.4,hs*2,hs*2.6,()=>tapEnemy(e));}
   }
-  for(const h of G.active){if(h.dead)continue;const fighting=G.mode==='battle'||G.mode==='enter';if(!fighting&&h.hp>=h.maxhp)continue;const x=R(h.x+h.dx),y=GROUND-48;bar(x-15,y,30,4,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red,'#1b1b1b');}
+  for(const h of G.active){if(h.dead)continue;const fighting=G.mode==='battle'||G.mode==='enter';if(!fighting&&h.hp>=h.maxhp)continue;const x=R(h.x+h.dx),y=GROUND-48+(h.yoff||0);bar(x-15,y,30,4,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red,'#1b1b1b');}
   if(G.mode==='battle'||G.mode==='enter'){
-    for(const u of G.active.concat(G.enemies)){if(u.dead)continue;const bs=u.native?(u.boss?4:1.2):(u.scale>1?u.scale:US),x=R(u.x+u.dx),y=(u.enemy?GROUND+(u.yoff||0)-(u.fly?44:R(26*bs+6)):GROUND-48)+5;px(x-10*bs,y,20*bs,1,'#141826');px(x-10*bs,y,R(20*bs*clamp(u.gauge/100,0,1)),1,'#8a93a8');
+    for(const u of G.active.concat(G.enemies)){if(u.dead)continue;const bs=u.native?(u.boss?4:1.2):(u.scale>1?u.scale:US),x=R(u.x+u.dx),y=(u.enemy?GROUND+(u.yoff||0)-(u.fly?44:R(26*bs+6)):GROUND-48+(u.yoff||0))+5;px(x-10*bs,y,20*bs,1,'#141826');px(x-10*bs,y,R(20*bs*clamp(u.gauge/100,0,1)),1,'#8a93a8');
       let ix=x-10*bs;const st=u.status||{};if(st.poison>0){px(ix,y-8,4,4,'#3a8a3a');ix+=6;}if(st.stun>0){px(ix,y-8,4,4,'#f4d35e');ix+=6;}if(st.ward>0){px(ix,y-8,4,4,'#4fa0e0');ix+=6;}if(st.bleed>0){px(ix,y-8,4,4,'#c03030');ix+=6;}if(st.burn>0){px(ix,y-8,4,4,'#ff8a30');ix+=6;}if(u.enraged){px(ix,y-8,4,4,'#ff3030');ix+=6;}
       if(G.action&&G.action.u===u&&G.action.phase==='tele'&&G.action.tele){const a=G.action,f=clamp(a.pt/a.tele,0,1),bw=Math.max(26,20*bs);px(x-bw/2-1,y-16,bw+2,7,'#1a0a0a');px(x-bw/2,y-15,R(bw*f),5,'#ff5050');text(x,y-27,(a.name||'Charging')+' '+Math.max(0,a.tele-a.pt).toFixed(1)+'s','xsb','#ff8a80','center');}}
     for(const u of G.enemies){if(u.enraged&&!u.dead){const x=R(u.x+u.dx);ctx.fillStyle='rgba(255,40,40,0.18)';ctx.beginPath();ctx.ellipse(x,GROUND-14*(u.scale||1),14*(u.scale||1),18*(u.scale||1),0,0,Math.PI*2);ctx.fill();}}}
