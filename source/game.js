@@ -322,20 +322,22 @@ function toast(t,col,scope){G.toast={text:t,t:0,col,scope};}
 function living(list){return list.filter(u=>!u.dead);}
 function frontHero(){return living(G.active)[0];}
 function rankCost(h){let c=80*(1+h.lvl*0.05);for(let k=1;k<(h.abLvl||1);k++)c*=1.9*(1+0.05*Math.max(0,k-8));return R(c);}
-function abilityPower(h){const r=h.abLvl||1;const base=0.45+0.75*(1-Math.pow(0.9,r-1));const bonus=1+Math.min(0.6,0.02*treeLv('abil'))+Math.min(1.0,0.05*treeLv('b_ab'))+0.15*(h.tier||0)+(built('library')?0.15:0);return base*bonus;}
+function abilityPower(h){const r=h.abLvl||1;const base=0.45+0.38*Math.log(1+(r-1)/4);const bonus=1+Math.min(0.6,0.02*treeLv('abil'))+Math.min(1.0,0.05*treeLv('b_ab'))+0.15*(h.tier||0)+(built('library')?0.15:0);return base*bonus;}
 function shieldDur(h){return Math.min(6,3+Math.floor((h.abLvl||1)/8));}
-function rageMult(h){return 1.5+0.5*Math.min(1,abilityPower(h));}
+function rageMult(h){return 1.5+1.0*(1-Math.exp(-0.5*abilityPower(h)));}
 function rageDur(h){return Math.min(8,4+Math.floor((h.abLvl||1)/3));}
 function f1(x){return (Math.round(x*10)/10).toString();}
 function drawAbilityNums(h,x,y,parts){const nums=(abilityDesc(h).match(/[\d.]+%|\b\d+ turns?/g)||[]);let cy=y;for(const line of parts){let idx=0;for(const n of nums){const at=line.indexOf(n,idx);if(at<0)continue;idx=at+n.length;const px0=x+textW(line.slice(0,at),'xs');text(px0,cy,n,'xsb',C.cream);}cy+=9;}}
 function abilityDesc(h){const r=h.abLvl,p=abilityPower(h);switch(CLASSES[h.cls].ab.id){
-  case 'shieldwall':return 'Draws all attacks for '+shieldDur(h)+' turns, taking '+f1(shieldPct(h)*100)+'% less damage.';
-  case 'sanctuary':return 'Heals the party '+f1(Math.min(80,30*p))+'% and revives the fallen at '+f1(Math.min(60,25*p))+'%.';
+  case 'shieldwall':return 'Draws all attacks for '+shieldDur(h)+' turns, taking '+(shieldPct(h)*100).toFixed(2)+'% less damage.';
+  case 'sanctuary':return 'Heals the party '+(healPct(h)*100).toFixed(2)+'% and revives the fallen at '+(revivePct(h)*100).toFixed(2)+'%.';
   case 'shadowstep':return 'Three strikes at '+f1(90*p)+'% each; the last always crits.';
   case 'meteor':return 'Hits every enemy for '+f1(180*p)+'% damage.';
   case 'rain':return 'Hits every enemy for '+f1(110*p)+'% and bleeds them '+(3+Math.floor(r/2))+' turns.';
-  case 'rage':return 'Attack x'+f1(rageMult(h))+' for '+rageDur(h)+' turns, heals 5% of damage dealt; takes 30% more.';}}
-function shieldPct(h){return Math.min(0.75,0.15+0.5*(1-Math.pow(0.93,(h.abLvl||1)-1))+Math.min(0.1,0.005*treeLv('abil')));}
+  case 'rage':return 'Attack x'+rageMult(h).toFixed(3)+' for '+rageDur(h)+' turns, heals 5% of damage dealt; takes 30% more.';}}
+function shieldPct(h){return 0.85*(1-Math.exp(-0.3*abilityPower(h)));}
+function healPct(h){return 1-Math.exp(-0.3*abilityPower(h));}
+function revivePct(h){return 0.9*(1-Math.exp(-0.25*abilityPower(h)));}
 
 // ============================================================ battle
 function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};
@@ -404,7 +406,7 @@ function endAction(){const a=G.action,u=a.u;G.action=null;u.dx=0;if(!u.dead)setA
 function applyAbility(a){const u=a.u,pow=a.pow;
   switch(a.ab){
     case 'shieldwall':u.status.shield=shieldDur(u)+1;u.status.shieldPct=shieldPct(u);if(u.talents&&u.talents.ironguard){const i=G.active.indexOf(u),b=G.active[i+1];if(b&&!b.dead){b.status.shield=shieldDur(u)+1;b.status.shieldPct=shieldPct(u)*0.6;}}break;
-    case 'sanctuary':for(const h of G.active){if(h.dead){h.dead=false;h.hp=R(h.maxhp*Math.min(0.6,0.25*pow));setAnim(h,'idle');float(h.x,GROUND-30,'Revived','#8ff0a0');if(u.talents&&u.talents.lastrites)h.gauge=100;}else heal(u,h,h.maxhp*Math.min(0.8,0.3*pow));}if(u.talents&&u.talents.echo)u.echo=2;break;
+    case 'sanctuary':for(const h of G.active){if(h.dead){h.dead=false;h.hp=R(h.maxhp*revivePct(u));setAnim(h,'idle');float(h.x,GROUND-30,'Revived','#8ff0a0');if(u.talents&&u.talents.lastrites)h.gauge=100;}else heal(u,h,h.maxhp*healPct(u));}if(u.talents&&u.talents.echo)u.echo=2;break;
     case 'meteor':G.shake=0.4;for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.8*pow,{spell:true});if(u.talents&&u.talents.stars)for(let k=0;k<3;k++)if(!t.dead)dealDamage(u,t,0.3*pow,{spell:true,noHurt:true});}break;
     case 'rain':for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.1*pow);t.status.bleed=(3+Math.floor(u.abLvl/2))*(sup(u,'bow')?2:1);}break;
     case 'rage':u.status.rage=rageDur(u);if(u.talents&&u.talents.warcry)for(const h of living(G.active))if(h!==u)h.status.cry=3;break;
