@@ -918,7 +918,7 @@ function offlineReport(lastT){const elapsed=Math.max(0,(now()-lastT)/1000);if(el
   let best='The party held the road';const bi=items.slice().sort((a,b)=>b.rank-a.rank)[0];const bl=levels.slice().sort((a,b)=>(b.to-b.from)-(a.to-a.from))[0];if(bi&&bi.rank>=2)best='Found a '+itemName(bi);else if(bl&&bl.to-bl.from>=3)best=bl.name+' climbed '+(bl.to-bl.from)+' levels';else if(fights>=100)best=fights+' battles without a loss';
   G.offline={hours,fights,gold,ore,ups,levels,items,best,doubled:false};openSheet('welcome');}
 function drawWelcome(s,y0){const o=G.offline;text(16,y0+8,'While you were away','h',C.goldL);text(16,y0+22,fmtT(o.hours*3600)+' on the road · '+fmtNum(o.fights)+' battles in '+ZONES[G.zone].name,'xs',C.muted);
-  let y=y0+36;icon('coin',20,y,4);text(36,y+1,'+'+fmtNum(o.gold)+' gold'+(o.doubled?'  (doubled)':''),'sb',C.goldL);icon('ore',150,y,0);text(166,y+1,'+'+fmtNum(o.ore)+' ore'+(o.doubled?'  (x2)':''),'sb',C.cream);y+=16;
+  let y=y0+36;icon('coin',20,y,4);text(36,y+1,'+'+fmtNum(o.gold)+' gold'+(o.doubled?'  (x2)':''),'sb',C.goldL);icon('ore',150,y,0);text(166,y+1,'+'+fmtNum(o.ore)+' ore'+(o.doubled?'  (x2)':''),'sb',C.cream);y+=16;
   (o.levels||[]).forEach((l,i)=>{const x=i%2?140:20,yy=y+Math.floor(i/2)*11;text(x,yy,l.name,'xs',C.cream);text(x+50,yy,'Lv '+l.from+(l.to>l.from?' → '+l.to:''),'xs',l.to>l.from?C.goldL:C.muted);});y+=Math.ceil((o.levels||[]).length/2)*11+4;
   if(o.items&&o.items.length){text(20,y,'Found: '+o.items.map(itemName).join(', '),'xs',C.cream);y+=11;}
   text(20,y,'Best moment: '+o.best,'xs','#bbdefb');y+=14;
