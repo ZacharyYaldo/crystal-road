@@ -329,7 +329,7 @@ addHero(HEROES[0]);
 function float(x,y,t,color=C.cream,big=false,life=1.1){G.floats.push({x,y,text:t,color,life,big});}
 function levelBurst(h){sfx('level');float(h.x,GROUND-42,'Lv '+h.lvl+'!',C.goldL,true,1.8);for(let k=0;k<18;k++){const a=rand()*Math.PI*2,sp=20+rand()*40;G.parts.push({x:h.x+(rand()*8-4),y:GROUND-14,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp-20,life:0.7+rand()*0.6,col:[C.goldL,C.gold,'#fff','#8fd4ff'][k%4]});}}
 function banner(t,sub='',dur=2.4,scope='road'){G.banner={text:t,sub,t:0,dur,scope};}
-function toast(t,col,scope){G.toast={text:t,t:0,col,scope,dur:Math.min(4.5,2.2+t.length*0.03)};}
+function toast(t,col,scope){const dur=Math.min(4.5,2.2+t.length*0.03);if(HOLD){if(HOLD.toastText===t)return;HOLD.toastText=t;const cur=G.toast;if(cur&&cur.t<(cur.dur||2.2)&&cur.scope===scope){cur.text=t;cur.col=col;cur.dur=dur;if(cur.t>0.3)cur.t=0.3;return;}}G.toast={text:t,t:0,col,scope,dur};}
 function living(list){return list.filter(u=>!u.dead);}
 function frontHero(){return living(G.active)[0];}
 function rankCost(h){let c=80*(1+h.lvl*0.05);for(let k=1;k<(h.abLvl||1);k++)c*=1.9*(1+0.05*Math.max(0,k-8));return R(c);}
@@ -748,7 +748,7 @@ function drawTree(){drawPanelScreen();text(8,26,'Upgrade Tree','title',C.goldL);
     const lv=treeLv(n.id),isD=n.cur==='dust',cost=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,lv)),max=lv>=n.max,can=!max&&(isD?G.dust:G.gold)>=cost,RH=TRH,TB=Math.min(BIG?32:20,RH-6);px(6,y,258,RH,C.band);
     icon('nodes',10,y+RH/2-6,lv?4:0);const dl=Math.round(roll('tr_'+n.id,lv));const tight=RH<32;text(28,y+RH/2-(tight?9:12),n.name+(dl?'  rank '+dl:''),tight?'sb':'sb',C.cream);text(28,y+RH/2+(tight?0:-1),fitText(n.desc,'xs',150),'xs',C.muted);
     const bk=max?null:bulkCost(l=>R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,l)),lv,isD?G.dust:G.gold);button(192,y+(RH-TB)/2,66,TB,can,max);if(!max)icon(isD?'crystal':'coin',197,y+RH/2-6,isD?2:4);if(max)text(225,y+RH/2-4,'Maxed','xsb',C.dimt,'center');else textA(231,211,256,y+RH/2-4,fmtNum(bk.total)+(G.mult==='max'&&bk.n>1?' ('+bk.n+')':''),G.mult==='max'?'0.00K (00)':'0.00K','xsb',can?C.goldL:C.muted);
-    if(!max)hit(192,y+(RH-TB)/2,66,TB,()=>{let k=0,want=G.mult==='max'?1e9:G.mult;while(k<want&&treeLv(n.id)<n.max){const c=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,treeLv(n.id)));if((isD?G.dust:G.gold)<c)break;if(isD)G.dust-=c;else G.gold-=c;G.tree[n.id]=treeLv(n.id)+1;k++;}if(!k){toast('Need '+cost+(isD?' crystal dust':' gold'));return;}for(const h of G.roster)refreshStats(h);toast(n.name+' rank '+treeLv(n.id));},true);y+=RH+3;}endScroll('tree',y);}
+    if(!max)hit(192,y+(RH-TB)/2,66,TB,()=>{let k=0,want=G.mult==='max'?1e9:G.mult;while(k<want&&treeLv(n.id)<n.max){const c=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,treeLv(n.id)));if((isD?G.dust:G.gold)<c)break;if(isD)G.dust-=c;else G.gold-=c;G.tree[n.id]=treeLv(n.id)+1;k++;}if(!k){toast('Need '+fmtNum(cost)+(isD?' crystal dust':' gold'));return;}for(const h of G.roster)refreshStats(h);toast(n.name+' rank '+treeLv(n.id));},true);y+=RH+3;}endScroll('tree',y);}
 
 // ============================================================ Vael: the castle
 const CASTLE_PIX={
@@ -1147,7 +1147,7 @@ function endDrag(e){const d=G.drag;if(!d)return;G.drag=null;const[x,y]=evPos(e);
   if(y<16||y>96)return;const j=Math.floor((x-4)/66);if(j<0||j>3||j===d.i)return;
   if(G.active[j]){[G.active[d.i],G.active[j]]=[G.active[j],G.active[d.i]];}else{G.active.splice(j>G.active.length?G.active.length:j,0,G.active.splice(d.i,1)[0]);}layout();toast(G.active[0].name+' takes the front');}
 cv.addEventListener('pointerup',endDrag);cv.addEventListener('pointercancel',()=>{G.drag=null;HOLD=null;});window.addEventListener('pointerup',()=>{HOLD=null;});window.addEventListener('pointercancel',()=>{HOLD=null;});window.addEventListener('blur',()=>{HOLD=null;});cv.addEventListener('pointerleave',()=>{HOLD=null;});
-function dispatch(x,y){for(let i=hits.length-1;i>=0;i--){const h=hits[i];if(x>=h.x&&x<h.x+h.w&&y>=h.y&&y<h.y+h.h){G.lastHit={x:h.x,y:h.dy,w:h.w,h:h.h,until:RT+0.12};spendCall(h.fn,x,y,h);if(h.hold)HOLD={fn:h.fn,next:RT+0.45,r:h,px:x,py:y};if(G.drag&&!G.drag.x0){G.drag.x0=x;G.drag.y0=y;G.drag.x=x;G.drag.y=y;}return true;}}return false;}
+function dispatch(x,y){for(let i=hits.length-1;i>=0;i--){const h=hits[i];if(x>=h.x&&x<h.x+h.w&&y>=h.y&&y<h.y+h.h){G.lastHit={x:h.x,y:h.dy,w:h.w,h:h.h,until:RT+0.12};spendCall(h.fn,x,y,h);if(h.hold)HOLD={fn:h.fn,next:RT+0.45,r:h,px:x,py:y,toastText:(G.toast&&G.toast.t===0)?G.toast.text:null};if(G.drag&&!G.drag.x0){G.drag.x0=x;G.drag.y0=y;G.drag.x=x;G.drag.y=y;}return true;}}return false;}
 let scrollTouch=null;
 cv.addEventListener('pointermove',e=>{if(HOLD){const[hx,hy]=evPos(e);HOLD.px=hx;HOLD.py=hy;}if(!scrollTouch)return;const[x,y]=evPos(e);if(!scrollTouch.moved){const rc=scrollTouch.rect;const out=scrollTouch.held?(y<rc.y||y>=rc.y+rc.h):Math.abs(y-scrollTouch.y0)>5;if(out){scrollTouch.moved=true;if(scrollTouch.held){HOLD=null;scrollTouch.y0=y;}}}if(scrollTouch.moved){SCROLL[scrollTouch.key]=clamp(scrollTouch.s0-(y-scrollTouch.y0),0,scrollMax(scrollTouch.key));}});
 cv.addEventListener('pointerup',e=>{if(!scrollTouch)return;const st=scrollTouch;scrollTouch=null;if(!st.moved&&!st.held)dispatch(st.x0,st.y0);});
