@@ -374,7 +374,7 @@ function dealDamage(src,tgt,mult=1,opts={}){
   return dmg;}
 function killReward(e){G.stats.kills++;if(e.boss)G.stats.bosses++;G.surge=Math.min(100,(G.surge||0)+2.5*(1+0.1*treeLv('b_surge'))*(built('workshop')?1.5:1));sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*bless('gold')*refMult());G.gold+=gold;G.run.gold+=gold;G.stats.gold+=gold;if(G.fs)G.fs.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+fmtNum(gold)+' gold',C.goldL);
   for(const h of G.active){if(h.dead)continue;h.xp+=xp;while(h.xp>=xpNeed(h.lvl)){h.xp-=xpNeed(h.lvl);h.lvl++;refreshStats(h);h.hp=h.maxhp;h.dead=false;levelBurst(h);}}
-  if(rand()<0.35){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*(1+0.05*treeLv('ore'))*bless('ore')*refMult());G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+fmtNum(o)+' ore',C.muted);}}
+  if(rand()<0.35){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*oreScale(e.lvl)*(1+0.05*treeLv('ore'))*bless('ore')*refMult());G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+fmtNum(o)+' ore',C.muted);}}
 function heal(src,tgt,amt){amt=R(amt);sfx('heal');tgt.hp=Math.min(tgt.maxhp,tgt.hp+amt);float(tgt.x+tgt.dx,GROUND-30,'+'+fmtNum(amt),'#8ff0a0');}
 function pickTarget(u){const foes=living(u.enemy?G.active:G.enemies);if(!foes.length)return null;
   if(u.enemy){const shield=foes.find(h=>h.status.shield>0);if(shield)return shield;const f=frontHero();return rand()<0.6?f:foes[Math.floor(rand()*foes.length)];}
@@ -465,6 +465,7 @@ function renownLog(){return Math.log2(1+(G.renown||0));}
 function renownStat(){return 1+0.05*renownLog();}
 function renownGold(){return 1+0.02*renownLog();}
 function renownGain(p,kind){return R(5*Math.pow(1.02,p)*(kind==='milestone'?100:kind==='champion'?10:1));}
+function oreScale(L){return Math.pow(1.03,L||0);}
 function refMult(){return (1+0.25*(G.reforges||0))*renownGold();}
 function reforgeGain(){const cleared=G.cleared.filter(Boolean).length,best=Math.max(...G.roster.map(h=>h.lvl));const r=G.run||{};return R((4+3*cleared+Math.floor(best/10)+2*(G.reforges||0)+Math.floor((r.bosses||0)/3)+Math.floor((r.endless||0)/50))*(1+0.05*treeLv('b_dust')));}
 function canReforge(){return G.cleared[3];}
@@ -890,7 +891,7 @@ function drawTreasure(){const t=G.treasure;if(!t)return;const x=R(treasureX());i
   for(let k=0;k<3;k++){const a=RT*3+k*2.1;px(x+14+R(Math.cos(a)*16),t.y-8+R(Math.sin(a)*10),1,1,'#fff');}hit(x-6,t.y-30,42,44,grabTreasure);}
 function grabTreasure(){const t=G.treasure;if(!t)return;const tx0=treasureX()+14;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');
   if(t.kind==='gear'&&G.pack.length<15){const it=makeItem(G.zone,t.rank);G.pack.push(it);float(tx0,t.y-16,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank]);}
-  else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6))*refMult());G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
+  else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6))*oreScale(L)*refMult());G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
   else{const g=R((5+L*3)*Math.pow(1.05,L)*bless('gold')*refMult());G.gold+=g;float(tx0,t.y-16,'+'+fmtNum(g)+' gold',C.goldL,true);}}
 
 // ============================================================ saving & offline progress
@@ -914,7 +915,7 @@ function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.p
   G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;G.delve=null;G.hordeFight=null;if(G.castle)G.castle.hordeDue=false;
   offlineReport(d.t);return true;}
 function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=Z.endless?endlessLv(Z,G.prog[G.zone]):R(Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45+(G.cleared[G.zone]?3:0));const per=1.8;
-  return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')*refMult()),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6))*refMult())};}
+  return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')*refMult()),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6))*oreScale(L)*refMult())};}
 function offlineReport(lastT){const elapsed=Math.max(0,(now()-lastT)/1000);if(elapsed<120)return;
   const hours=Math.min(8+0.5*treeLv('offline')+(built('shrine')?2:0),elapsed/3600),eff=G.autoUntil>lastT?0.65:0.5;const g=offlineGains(hours,eff),fights=g.fights;if(fights<1)return;
   const gold=g.gold,xp=g.xp,ore=g.ore;
