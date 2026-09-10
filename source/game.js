@@ -329,7 +329,7 @@ addHero(HEROES[0]);
 function float(x,y,t,color=C.cream,big=false,life=1.1){G.floats.push({x,y,text:t,color,life,big});}
 function levelBurst(h){sfx('level');float(h.x,GROUND-42,'Lv '+h.lvl+'!',C.goldL,true,1.8);for(let k=0;k<18;k++){const a=rand()*Math.PI*2,sp=20+rand()*40;G.parts.push({x:h.x+(rand()*8-4),y:GROUND-14,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp-20,life:0.7+rand()*0.6,col:[C.goldL,C.gold,'#fff','#8fd4ff'][k%4]});}}
 function banner(t,sub='',dur=2.4,scope='road'){G.banner={text:t,sub,t:0,dur,scope};}
-function toast(t,col,scope){const dur=Math.min(4.5,2.2+t.length*0.03);if(HOLD){if(HOLD.toastText===t)return;HOLD.toastText=t;}const cur=G.toast;if(cur&&cur.t<(cur.dur||2.2)&&cur.scope===scope){const out=(cur.dur||2.2)-cur.t;cur.text=t;cur.col=col;cur.dur=dur;if(out<0.25)cur.t=0.25-out;else if(cur.t>0.3)cur.t=0.3;return;}G.toast={text:t,t:0,col,scope,dur};}
+function toast(t,col,scope){const dur=Math.min(4.5,2.2+t.length*0.03);if(HOLD){if(HOLD.toastText===t)return;HOLD.toastText=t;}const cur=G.toast,key=G.toastKey||null;if(cur&&key&&cur.key===key&&cur.t<(cur.dur||2.2)&&cur.scope===scope){const out=(cur.dur||2.2)-cur.t;cur.text=t;cur.col=col;cur.dur=dur;if(out<0.25)cur.t=0.25-out;else if(cur.t>0.3)cur.t=0.3;return;}G.toast={text:t,t:0,col,scope,dur,key};}
 function living(list){return list.filter(u=>!u.dead);}
 function frontHero(){return living(G.active)[0];}
 function rankCost(h){let c=80*(1+h.lvl*0.05);for(let k=1;k<(h.abLvl||1);k++)c*=1.9*(1+0.05*Math.max(0,k-8));return R(c);}
@@ -556,7 +556,7 @@ function cycleMult(){G.mult=G.mult===1?5:G.mult===5?25:G.mult===25?'max':1;}
 let last=0;const hits=[];let HIT_DY=0;let HOLD=null;
 function uiSparks(x,y,n=8){const P=G.uparts||(G.uparts=[]);for(let k=0;k<n;k++){const a=rand()*Math.PI*2,sp=25+rand()*45;P.push({x:x+(rand()*6-3),y,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp-25,life:0.4+rand()*0.4,col:[C.goldL,C.gold,'#fff','#ffb36b'][k%4]});}}
 function hit(x,y,w,h,fn,hold){hits.push({x,y:y+HIT_DY,dy:y,w,h,fn,hold:!!hold});}
-function spendCall(fn,x,y,r){const g0=G.gold,o0=G.ore,d0=G.dust;fn();if(G.gold<g0||G.ore<o0||G.dust<d0){sfx('coin',true);if(r){const P=G.uparts||(G.uparts=[]),cx=x,cy=y;for(let k=0;k<12;k++){const a=-Math.PI/2+(rand()-0.5)*Math.PI*0.9,sp=60+rand()*70;P.push({x:cx+(rand()*8-4),y:cy+(rand()*4-2),vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:0.5+rand()*0.4,col:[C.goldL,C.gold,'#fff','#ffb36b'][k%4],big:true});}}else uiSparks(x,y,8);}}
+function spendCall(fn,x,y,r){const g0=G.gold,o0=G.ore,d0=G.dust;G.toastKey=r?r.x+','+r.dy+','+r.w+','+r.h:null;try{fn();}finally{G.toastKey=null;}if(G.gold<g0||G.ore<o0||G.dust<d0){sfx('coin',true);if(r){const P=G.uparts||(G.uparts=[]),cx=x,cy=y;for(let k=0;k<12;k++){const a=-Math.PI/2+(rand()-0.5)*Math.PI*0.9,sp=60+rand()*70;P.push({x:cx+(rand()*8-4),y:cy+(rand()*4-2),vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:0.5+rand()*0.4,col:[C.goldL,C.gold,'#fff','#ffb36b'][k%4],big:true});}}else uiSparks(x,y,8);}}
 const SCROLL={tree:0,heroes:0,map:0},CONTENT={tree:0,heroes:0,map:0},SCROLLTOP={tree:44,heroes:44,map:48};
 function beginScroll(key,top){const sc=SCROLL[key]||0;ctx.save();ctx.beginPath();ctx.rect(0,top,W,TABY-top-TABTOP);ctx.clip();ctx.translate(0,-sc);tx.save();tx.beginPath();tx.rect(0,top*TS,W*TS,(TABY-top-TABTOP)*TS);tx.clip();tx.translate(0,-sc*TS);HIT_DY=-sc;}
 function endScroll(key,bottom){ctx.restore();tx.restore();HIT_DY=0;CONTENT[key]=bottom;}
