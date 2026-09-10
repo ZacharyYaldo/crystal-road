@@ -111,7 +111,8 @@ const HEROES=[
   {id:'bram',name:'Bram',cls:'berserker',zone:3},
 ];
 const LORDS=['bonewarden','palewidow','hollowking'];
-function zoneThreats(z){const ids=(z.pool||[]).concat(z.boss?[z.boss]:[]);const T=[];const has=(f)=>ids.some(id=>ENEMIES[id]&&f(ENEMIES[id],id));if(has(E=>(E.def||1)>=1.3))T.push('armor');if(has(E=>E.range==='ranged'||E.range==='aoe'))T.push('ranged');if(has(E=>E.mech&&(E.mech.summon||E.mech.raise)))T.push('summons');if(has(E=>(E.traits||[]).includes('poison')))T.push('poison');if(has(E=>(E.traits||[]).includes('stun')))T.push('stuns');if(has(E=>(E.traits||[]).includes('charge')||(E.mech&&E.mech.charge)))T.push('cleaves');if(ids.filter(id=>ENEMIES[id]&&(ENEMIES[id].hp||1)<=1.0).length>=2)T.push('packs');return T;}
+function zoneThreats(z){return threatsOf((z.pool||[]).concat(z.boss?[z.boss]:[]));}
+function threatsOf(ids){const T=[];const has=(f)=>ids.some(id=>ENEMIES[id]&&f(ENEMIES[id],id));if(has(E=>(E.def||1)>=1.3))T.push('armor');if(has(E=>E.range==='ranged'||E.range==='aoe'))T.push('ranged');if(has(E=>E.mech&&(E.mech.summon||E.mech.raise)))T.push('summons');if(has(E=>(E.traits||[]).includes('poison')))T.push('poison');if(has(E=>(E.traits||[]).includes('stun')))T.push('stuns');if(has(E=>(E.traits||[]).includes('charge')||(E.mech&&E.mech.charge)))T.push('cleaves');if(ids.filter(id=>ENEMIES[id]&&(ENEMIES[id].hp||1)<=1.0).length>=2)T.push('packs');return T;}
 function lordFor(floor){return LORDS[Math.max(0,Math.floor(floor/10)-1)%LORDS.length];}
 const ENEMIES={
   bonewarden:{name:'The Bone Warden',uid:'greatskel',scale:2.2,hp:4.5,atk:1.4,def:1.3,spd:7,range:'melee',boss:true,traits:['charge'],mech:{shieldAllies:true,summon:[{at:0.7,id:'skeleton',n:2},{at:0.35,id:'skelarcher',n:2}]},lore:'raises the dead and wards them'},
@@ -467,10 +468,10 @@ function endBattle(win){if(G.hordeFight){if(!win){endHordeFight(false);return;}i
     if(!G.campfireDone&&G.wins>=2){G.campfireDone=true;const h=addHero(HEROES[1],1);G.pending='Sera the Cleric joins you at the campfire';}
     G.mode='victory';G.timer=1.4;
   }else{const fs=G.fs||{};const taken=fs.taken||{},tt=fs.takenT||{};const top=Object.entries(taken).sort((a,b)=>b[1]-a[1])[0];const tot=Object.values(tt).reduce((a,b)=>a+b,0)||1;const mix=Object.entries(tt).map(([k,v])=>R(100*v/tot)+'% '+(k==='melee'?'melee':'ranged/magic')).join(', ');
-    const tips=[];const Zt=ZONES[G.zone],thr=Zt?zoneThreats(Zt):[];const own=c=>G.roster.find(h=>h.cls===c),marching=c=>G.active.find(h=>h.cls===c);const nm=c=>own(c)?own(c).name:null;
+    const tips=[];const thr=threatsOf(G.enemies.map(e=>e.id));const own=c=>G.roster.find(h=>h.cls===c),marching=c=>G.active.find(h=>h.cls===c);const nm=c=>own(c)?own(c).name:null;
     if(thr.includes('armor')&&own('mage'))tips.push(marching('mage')?'Tap Meteor: it pierces their armor':'Bring '+nm('mage')+' - Meteor pierces armor');
     if(thr.includes('cleaves')&&own('knight'))tips.push(marching('knight')?'Tap Shield Wall during a Cleave to parry it':'Bring '+nm('knight')+' to parry their Cleaves');
-    if(thr.includes('summons')&&own('rogue'))tips.push(marching('rogue')?'Tap Shadowstep as the boss winds up to interrupt it':'Bring '+nm('rogue')+' - burst the summoner early');
+    if(thr.includes('summons')&&own('rogue'))tips.push(marching('rogue')?'Tap Shadowstep as the summoner winds up to interrupt it':'Bring '+nm('rogue')+' - burst the summoner early');
     if(thr.includes('packs')&&own('ranger'))tips.push(marching('ranger')?'Rain of Arrows hits every one of them':'Bring '+nm('ranger')+' - Rain of Arrows clears packs');
     if((thr.includes('poison')||thr.includes('stuns'))&&own('cleric'))tips.push(marching('cleric')?'Tap Sanctuary during a wind-up to cleanse the party':'Bring '+nm('cleric')+' to cleanse poison and stuns');
     if(thr.includes('ranged')&&own('knight')&&!marching('knight'))tips.push('Bring '+nm('knight')+' - Shield Wall draws their fire');
