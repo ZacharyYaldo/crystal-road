@@ -485,7 +485,7 @@ function renownLog(){return Math.log2(1+(G.renown||0));}
 function renownStat(){return 1+0.05*renownLog();}
 function renownGold(){return 1+0.02*renownLog();}
 function renownGain(p,kind){return R(5*Math.pow(1.02,p)*(kind==='milestone'?100:kind==='champion'?10:1)*(G.oath==='solitude'?2:1)*omenMult('renown'));}
-function roadLv(Z,base){if(!G.cleared[G.zone])return R(base);const N=ZONES[G.zone+1];return R(N?Math.min(base+3,N.lv-1):base+3);}
+function roadLv(Z,base){return R(base+(G.cleared[G.zone]?2:0));}
 function oreScale(L){return Math.pow(1.035,L||0);}
 function firstZone(k){return G.zone===0?(k==='chest'?1.15:1.1):1;}
 function refMult(){return (1+0.25*(G.reforges||0))*renownGold();}
