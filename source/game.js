@@ -941,7 +941,7 @@ function drawTreasure(){const t=G.treasure;if(!t)return;const x=R(treasureX());i
   const g=ctx.createRadialGradient(x+14,t.y-8,1,x+14,t.y-8,22);g.addColorStop(0,'rgba(255,240,170,'+(0.45*pu)+')');g.addColorStop(1,'rgba(255,240,170,0)');ctx.fillStyle=g;ctx.fillRect(x-8,t.y-30,44,44);
   const rc=t.kind==='gear'?RANKHEX[t.rank||0]:t.kind==='ore'?'#6e7480':'#8a5a2c';const pal=Object.assign({},CPAL,{W:rc,w:rc,g:'#f1d778'});pixGrid(CHEST,x,t.y-14,2,pal);
   for(let k=0;k<3;k++){const a=RT*3+k*2.1;px(x+14+R(Math.cos(a)*16),t.y-8+R(Math.sin(a)*10),1,1,'#fff');}hit(x-6,t.y-30,42,44,grabTreasure);}
-function grabTreasure(){const t=G.treasure;if(!t)return;const tx0=treasureX()+14;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');
+function grabTreasure(){const t=G.treasure;if(!t)return;const tx0=treasureX()+14;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');uiSparks(tx0,t.y-6,16);
   if(t.kind==='gear'&&G.pack.length<15){const it=makeItem(G.zone,t.rank);G.pack.push(it);float(tx0,t.y-16,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank]);}
   else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6))*oreScale(L)*refMult()*zoneBonus('chest'));G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
   else{const g=R((5+L*3)*Math.pow(1.05,L)*bless('gold')*refMult()*zoneBonus('chest'));G.gold+=g;float(tx0,t.y-16,'+'+fmtNum(g)+' gold',C.goldL,true);}}
