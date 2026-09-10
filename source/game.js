@@ -676,7 +676,7 @@ function drawGear(){drawPanelScreen();const h=G.roster[G.gearHero]||G.roster[0];
   G.sel=(G.sel||[]).filter(it=>G.pack.includes(it));const sel=G.sel;const ore=sel.reduce((a,it)=>a+salvageValue(it),0);
   if(G.salvage){button(146,PY+6,54,PB,sel.length>0,!sel.length);text(173,PY+6+PB/2-4,sel.length?'Salvage '+sel.length:'Select…','xs',sel.length?C.goldL:C.dimt,'center');
     if(sel.length)hit(146,PY+6,54,PB,()=>{if(sel.some(it=>it.super)){toast('Crystal gear cannot be salvaged');G.sel=G.sel.filter(it=>!it.super);return;}for(const it of sel)G.pack=G.pack.filter(i=>i!==it);G.ore+=ore;toast('Salvaged '+sel.length+' for '+fmtNum(ore)+' ore');G.sel=[];G.salvage=false;});
-    text(10,PY+16,sel.length?sel.length+' selected · +'+fmtNum(ore)+' ore':'Tap items to salvage','xs',C.goldL);}
+    text(10,PY+16,sel.length?sel.length+' selected':'Tap items to salvage','xs',C.goldL);if(sel.length)text(10,PY+25,'+'+fmtNum(ore)+' ore','xs',C.cream);}
   else{button(146,PY+6,54,PB,false,!G.pack.length);text(173,PY+6+PB/2-4,'Salvage','xs',G.pack.length?C.cream:C.dimt,'center');if(G.pack.length)hit(146,PY+6,54,PB,()=>{G.salvage=true;G.sel=[];});}
   const gy=PY+6+PB+4,step=CELL+2,gx=Math.floor((262-5*step+2)/2)+4;
   for(let k=0;k<15;k++){const cx=k%5,cy=Math.floor(k/5),x=gx+cx*step,y=gy+cy*step,it=G.pack[k];
