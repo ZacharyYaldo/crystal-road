@@ -1,0 +1,6 @@
+[
+ [
+  "Math.pow(1.05,e.lvl)*(0.9+rand()*0.2)*bless('gold')*refMult()*zoneBonus())",
+  "Math.pow(onEndless()?1.04:1.05,e.lvl)*(0.9+rand()*0.2)*bless('gold')*refMult()*zoneBonus())"
+ ]
+]

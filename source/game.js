@@ -130,7 +130,7 @@ const ENEMIES={
   sandtyrant:{name:'The Sand Tyrant',uid:'orcrider',scale:3,hp:6.5,atk:1.1,def:1.0,spd:10,range:'melee',boss:true,mech:{charge:true,enrage:0.25,summon:[{at:0.5,id:'sandorc',n:2}]}},
   hunterking:{name:'The Hunter King',uid:'skelarcher',scale:3,hp:6.0,atk:1.0,def:0.9,spd:11,range:'ranged',boss:true,mech:{charge:true,summon:[{at:0.6,id:'skelarcher',n:2}]}},
   graveknight:{name:'Grave Knight',uid:'greatskel',scale:3,hp:7.0,atk:2.0,def:1.4,spd:7,range:'melee',boss:true,mech:{charge:true,raise:true,summon:[{at:0.7,id:'skeleton',n:2}]}},
-  core:{name:'The Foundry Core',uid:'drone',scale:1,native:true,hp:9.0,atk:2.2,def:1.4,spd:9,range:'aoe',boss:true,mech:{charge:true,shieldAllies:true,summon:[{at:0.6,id:'scoutdroid',n:2}]}},
+  core:{name:'The Foundry Core',uid:'drone',scale:1,native:true,hp:9.0,atk:1.5,volley:0.9,def:1.4,spd:9,range:'aoe',boss:true,mech:{charge:true,shieldAllies:true,summon:[{at:0.6,id:'scoutdroid',n:2}]}},
   scoutdroid:{name:'Scout Droid',uid:'drone',native:true,nscale:0.3,hue:0,hp:0.9,atk:1.2,def:0.8,spd:13,range:'ranged',fly:true},
   warddroid:{name:'Warden Droid',uid:'drone',native:true,nscale:0.42,hue:120,hp:1.6,atk:1.5,def:1.3,spd:9,range:'aoe',fly:true,traits:['shieldAllies']},
   bogslime:{name:'Bog Slime',uid:'slime',hue:60,hp:1.0,atk:0.8,def:0.4,spd:7,range:'melee',traits:['poison']},frostbat:{name:'Frost Bat',uid:'bat',hue:170,hp:0.7,atk:0.9,def:0.3,spd:14,range:'melee',fly:true,traits:['stun']},
@@ -468,7 +468,7 @@ function applyAbility0(a){const u=a.u,pow=a.pow;
 function updateAction(dt){const a=G.action,u=a.u;
   if(a.kind==='skip'){if(u.done)endAction();return;}
   if(a.phase==='tele'){a.pt+=dt;if(a.pt>=a.tele){a.phase=a.kind==='chargeM'?'dash':'fire';a.pt=0;if(a.phase==='fire')setAnim(u,'attack',false,a.fps);}return;}
-  if(a.kind==='chargeR'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;for(const t of (u.range==='aoe'?a.tgts:[a.tgt]))if(t&&!t.dead){const hp0=t.hp,mh=t.maxhp;G.dmgSrcEnemy='charge';try{dealDamage(u,t,a.parried?0.9:2.2);}finally{G.dmgSrcEnemy=null;}if(G.fs&&u.enemy){(G.fs.chargeDetail=G.fs.chargeDetail||[]).push({hpFrac:+(hp0/mh).toFixed(2),dmg:R(hp0-Math.max(0,t.hp)),maxhp:mh,front:t===frontHero()||t===G.active[0],ranged:true});G.fs.chargeHits=(G.fs.chargeHits||0)+1;if(a.parried)G.fs.chargeParried=(G.fs.chargeParried||0)+1;if(t.dead)G.fs.chargeKills=(G.fs.chargeKills||0)+1;}}}if(u.done)endAction();return;}
+  if(a.kind==='chargeR'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;for(const t of (u.range==='aoe'?a.tgts:[a.tgt]))if(t&&!t.dead){const hp0=t.hp,mh=t.maxhp;G.dmgSrcEnemy='charge';try{dealDamage(u,t,a.parried?0.9:((ENEMIES[u.id]&&ENEMIES[u.id].volley!=null)?ENEMIES[u.id].volley:2.2));}finally{G.dmgSrcEnemy=null;}if(G.fs&&u.enemy){(G.fs.chargeDetail=G.fs.chargeDetail||[]).push({hpFrac:+(hp0/mh).toFixed(2),dmg:R(hp0-Math.max(0,t.hp)),maxhp:mh,front:t===frontHero()||t===G.active[0],ranged:true});G.fs.chargeHits=(G.fs.chargeHits||0)+1;if(a.parried)G.fs.chargeParried=(G.fs.chargeParried||0)+1;if(t.dead)G.fs.chargeKills=(G.fs.chargeKills||0)+1;}}}if(u.done)endAction();return;}
   if(a.kind==='melee'||a.kind==='chargeM'||(a.kind==='ability'&&a.ab==='shadowstep')){
     const tgt=a.tgt;if(!tgt||tgt.dead&&a.phase==='dash'){endAction();return;}
     const dir=u.enemy?-1:1,dest=(tgt.x+tgt.dx)-dir*(30+(tgt.scale>1?10*(tgt.scale-1):0))-u.x;
