@@ -1,39 +1,55 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_28_HOLLOW_KING_ATK_CANDIDATE
-REVIEWED_HANDOFF_PASS: PASS_27_POST_KEEP_PROGRESSION_DIAGNOSTIC
-REVIEWED_HANDOFF_SHA: fce0f266f2713848db5997ec2f8e93696cab8ce6
-BASE_COMMIT: 671c898699da59b4cf440297a29b69440cfb3e48
+REVIEW_FOR_PASS: PASS_29_FOUNDRY_CORE_ATK_CANDIDATE
+REVIEWED_HANDOFF_PASS: PASS_28_HOLLOW_KING_ATK_CANDIDATE
+REVIEWED_HANDOFF_SHA: 5b06bfc027562160fb7f22bfe70de98203b1cfad
+BASE_COMMIT: cbc1f4d255ca7e70cd4e27ee90786b8a29c5a6a2
 CONFIDENCE: HIGH
 
 # Decision
 
-Accept the Pass 27 ranking and causal diagnosis.
+Accept the Pass 28 candidate and lock the Ashen Keep Hollow King base ATK at `1.3`.
 
-The immediate priority is the repeated post-Keep boss damage-per-action wall, beginning with the Hollow King and then recurring at the Foundry Core. This ranks ahead of Endless Road for the next test because it creates the largest repeated player-facing delay across all four profiles and the only unresolved non-interactive failure state:
+The literal two-digit idle Auto-Cast criterion was not met: the candidate reached 5.1% (10/198), up from 1.7% (10/596). That numerical miss does not justify another Hollow King sizing or confirmation loop because the player-facing and causal outcomes are already clear:
 
-- Hollow King stalls were 7-15 hours across profiles;
-- idle required 596 Auto-Cast attempts for 10 clears;
-- the Foundry Core then produced 0 wins in 766 idle Auto-Cast attempts, leaving every idle run in Foundry at 96 hours;
-- boss attacks supplied 94-97% of damage in Hollow King losses;
-- many active losses ended before the first summon, and armored skeleton damage was negligible;
-- ordinary Foundry progression was not the wall.
+- idle median attempts fell from 59 to 18;
+- idle median stall fell from 10.3 to 6.4 hours, a 38% reduction, with all 10 paired idle seeds improving;
+- light, casual, and engaged active win rates remained contested at 33%, 24%, and 16%;
+- there were no first-attempt clears in any of the 40 runs;
+- opening-phase losses fell from 381 to 83 across all profiles;
+- attempts reached the intended summon phases more often and losses lasted longer;
+- all 40 pairs matched exactly through first Ashen Keep entry;
+- no severe downstream collapse appeared.
 
-The evidence rejects summon count, summon damage, and drain as the primary Hollow King mechanism. The boss's own AoE damage gives arriving heroes only 0.4-1.1 ordinary hits to defeat. A direct boss-ATK candidate is justified.
+This is sufficient under the pacing policy. Hollow King ATK tuning is closed. Do not test another Hollow King ATK value.
 
-The Endless Road is a confirmed high-priority systemic issue, not dismissed. Time-normalized gold per kill rose about 16x over 24 hours, party power rose about 8x, and deaths per hour stayed flat. That is accelerating progression without increasing resistance. It does not rank first for this pass because it produces no stall and is not reached by idle, but it must remain open for whole-game triage after the bounded boss candidate. Do not describe the whole game as tuned or ready to ship.
+The next largest player-facing wall is the Foundry Core. Pass 28 moved parties into Foundry earlier, but the Core remained effectively impassable for idle and highly restrictive for active profiles. The same damage-per-action mechanism persists: arriving heroes survive only about 0.5-0.8 ordinary hits, attempts end early with 80-88% boss HP remaining, and Auto-Cast produced only one Core win across roughly 900 attempts. Ordinary Foundry encounters are not the bottleneck.
 
-# Pass 28 Candidate
+The Endless Road acceleration remains a confirmed systemic issue and stays next in whole-game triage. It is not part of Pass 29.
 
-Test only the Ashen Keep Hollow King's base ATK multiplier:
+# Production Lock
 
-- target the Ashen Keep boss entry `ENEMIES.necromancer.atk`;
-- baseline `1.7`;
-- candidate `1.3`;
-- simulator override only;
-- production source and bundle remain at `1.7`;
-- do not alter the separate `ENEMIES.hollowking` lord entry.
+Implement only this accepted production change:
 
-Reuse the completed Pass 27 production batch as the fixed baseline. Do not rerun or duplicate its 40 control runs.
+- `ENEMIES.necromancer.atk` (Ashen Keep Hollow King): `1.7 -> 1.3`;
+- rebuild the production bundle normally;
+- keep the distinct lord-cycle `ENEMIES.hollowking.atk` entry unchanged;
+- do not change any other Hollow King field or mechanic.
+
+Demonstrate that the source and bundle agree and that no unrelated production gameplay value changed.
+
+# Pass 29 Candidate
+
+Test only the Foundry Core base ATK:
+
+- target `ENEMIES.core.atk`;
+- baseline `2.2`;
+- candidate `1.5`;
+- simulator override only for the candidate;
+- production Foundry Core remains `2.2` pending review.
+
+The `1.5` candidate is a single bounded hypothesis. It is a roughly 32% reduction, intentionally somewhat larger than the Hollow King reduction because the Core arrives at a harsher 0.5-0.8 hits-to-defeat, adds a charge, and remains the only unresolved idle progression failure after the Hollow King improvement. Core HP, DEF, speed, charge, shield, summons, rewards, and every other field stay unchanged.
+
+Reuse the completed Pass 28 ATK-1.3 batch as the fixed baseline. Do not rerun its 40 control runs.
 
 Run one candidate batch:
 
@@ -41,7 +57,7 @@ Run one candidate batch:
 - idle, light, casual, and engaged profiles;
 - 96 simulated hours;
 - 40 candidate runs total;
-- production build `20260911-163721`;
+- the newly locked production Hollow King ATK `1.3`;
 - post-Shatter HP/ATK factor `1.10`;
 - post-Shatter DEF factor `1.10`;
 - `--stallRule far --stallHours 3`;
@@ -51,7 +67,7 @@ Run one candidate batch:
 - Ashen Keep level `50`;
 - zero simulation errors.
 
-This is one candidate test, not a new diagnostic and not a production implementation.
+Keep the 96-hour horizon. A 72-hour run would truncate late idle Core arrivals and would not answer whether idle can leave Foundry.
 
 # Validity Gate
 
@@ -59,57 +75,56 @@ Before interpreting balance, demonstrate:
 
 - all 40 candidate runs reach 96 simulated hours within one simulation step;
 - no run exceeds three Shatters or stops merely because it reaches three;
-- each paired candidate matches its Pass 27 baseline exactly through the first Ashen Keep entry;
-- Hollow King HP, DEF, speed, drain, summon thresholds/counts/stats, rewards, and every non-ATK field are unchanged;
-- the only gameplay divergence begins when the Ashen Keep `necromancer` boss uses ATK `1.3` instead of `1.7`;
-- Foundry Core and all earlier bosses retain their locked production values;
-- production source and bundle remain unchanged at Hollow King ATK `1.7`;
-- the override does not affect the distinct lord-cycle `hollowking` entry.
+- the production Hollow King source and bundle are both exactly `1.3`;
+- the separate lord-cycle `hollowking` entry remains unchanged;
+- each paired candidate matches its Pass 28 baseline exactly through the first Foundry Core attempt;
+- Foundry Core HP, DEF, speed, charge, shield, summons, rewards, and all non-ATK fields are unchanged;
+- the only candidate-arm gameplay divergence begins when the Foundry Core uses ATK `1.5` instead of `2.2`;
+- every earlier boss and locked system retains its approved value.
 
 If any gate fails, stop balance interpretation and report the defect. Do not run a replacement batch without review.
 
 # Required Evidence
 
-Report paired candidate-versus-Pass-27-baseline results by profile and run number for:
+Report paired candidate-versus-Pass-28-baseline results by profile and run number for:
 
-- Hollow King entry hour, party level/power, attempts, wins, and stall-to-clear;
+- Core entry hour, party level/power, estimated hits-to-defeat, attempts, wins, and stall-to-clear or horizon;
 - Auto-Cast and active-window attempts/wins separately;
-- loss duration, boss HP remaining, hero deaths, and survivors/party HP on wins;
-- opening, first-summon, and second-summon loss phases;
-- boss, skeleton, and armored-skeleton damage shares;
-- estimated hits-to-defeat at arrival;
-- Keep clear hour and total time in Ashen Keep;
-- Foundry entry hour, ordinary progression, Core attempts/wins, and final zone at 96 hours;
-- Endless entry hour and time in-zone where reached;
+- loss duration, Core HP remaining, hero deaths, and survivors/party HP on wins;
+- opening, charge, first-summon, and later-summon loss phases;
+- Core and summon damage shares;
+- Foundry entry/clear hour, ordinary progression, and total time in Foundry;
+- Endless entry hour and time in zone where reached;
 - current/best zone at 24, 48, 72, and 96 hours;
 - total defeats, training time, party level/power, earned/spent gold and ore, and final state;
-- paired outliers, especially first-attempt Hollow clears or unusually large downstream time gains.
+- paired outliers and any early first-attempt Core clears.
 
-Do not rerun the Pass 27 baseline. Use its committed raw outputs directly.
+Also prove the accepted Hollow King production lock reproduces the Pass 28 candidate behavior before the Core divergence.
 
 # Candidate Rule
 
-Treat `1.3` as promising only if the player-facing results show all of the following together:
+Treat Core ATK `1.5` as promising only if the player-facing results show these outcomes together:
 
-- idle Hollow King Auto-Cast win rate reaches a meaningful two-digit percentage rather than remaining in the low single digits;
-- idle median Hollow King stall falls by at least one third from the 10.3-hour baseline;
-- light, casual, and engaged active Hollow King win rates remain below 90%;
-- active profiles still show repeated losses and meaningful fight duration rather than broadly automatic or first-attempt clears;
-- opening-phase wipes decline and more attempts reach the intended summon phases;
-- earlier Road progression is identical and downstream progression does not reveal a severe collapse.
+- idle is no longer effectively trapped in Foundry: Core attempts fall materially and multiple idle seeds clear within 96 hours;
+- light, casual, and engaged Core fights remain contested, with active win rates below 90% and no broad first-attempt clearing;
+- opening wipes fall materially and more attempts reach the charge/summon mechanics;
+- ordinary Foundry pacing and all earlier Road progression remain intact;
+- downstream progression does not collapse into automatic Core clears or a severe Endless jump.
 
-Reject `1.3` if idle remains effectively blocked, if the active profiles become broadly automatic, or if downstream progression collapses. Do not test another Hollow King ATK value after this candidate.
+Reject `1.5` if idle remains effectively blocked or if active Core clears become broadly automatic. Do not test a second Core ATK value after this candidate.
 
-A secondary rate narrowly missing a threshold is not grounds for another sizing pass. Weigh stall time, attempts, active-versus-idle experience, fight phases, and downstream reach together. After this result, the next review will lock or reject the candidate, or authorize one final fresh-seed validation only if release confidence genuinely requires it.
+A secondary percentage narrowly missing a threshold is not grounds for another sizing pass. Weigh clear reach, stall time, attempts, fight phases, active-versus-idle experience, and downstream progression together. The next review will lock or reject this candidate, with one final fresh-seed validation allowed only if release confidence genuinely requires it.
 
 # Locked Systems
 
 Keep locked:
 
-- production Hollow King ATK `1.7` pending review of the candidate;
-- Hollow King HP, DEF, speed, drain, summons, rewards, and all other mechanics;
-- Foundry Core stats and mechanics;
-- Endless Road level, reward, renown, omen, enemy, pacing, and economy formulas;
+- Hollow King base ATK `1.3` after implementing the production lock;
+- every other Hollow King stat, summon, reward, and mechanic;
+- production Foundry Core ATK `2.2` pending candidate review;
+- every other Foundry Core stat, summon, reward, and mechanic;
+- ordinary Foundry enemies, level, fight count, and rewards;
+- Endless Road level, reward, Renown, Omen, enemy, pacing, and economy formulas;
 - post-Shatter enemy HP/ATK multiplier `1.10`;
 - post-Shatter enemy DEF multiplier `1.10`;
 - Ashen Keep base level `50`, ordinary enemy pool, fight count, and rewards;
@@ -117,16 +132,20 @@ Keep locked:
 - production gear ranks, item stats, ascension costs/caps, drop ranks, ore economy, and upgrade formulas;
 - Auto Training target `1.0`, threshold `4`, and all Auto Training behavior;
 - Warlord ATK x1.2, Sand Tyrant ATK x1.1, Hunter King ATK x1.0, and Grave Knight ATK x2.0;
-- all ordinary enemy base stats, other boss base stats, zone levels, global level curves, progression, economy, tap, Renown, rarity, promotion, travel, recovery, UI, and save-format systems;
+- all other boss stats, ordinary enemy stats, zone levels, global curves, progression, economy, tap, rarity, promotion, travel, recovery, UI, and save-format systems;
 - `AUTO_REACT = false`.
 
 # What Not To Do
 
-- Do not change production gameplay code or rebuild the bundle.
-- Do not rerun the Pass 27 baseline.
-- Do not test a second Hollow King ATK value.
-- Do not change summon count, summon stats, drain, HP, DEF, speed, or boss mechanics.
-- Do not tune the Foundry Core or Endless Road in Pass 28.
+- Do not test another Hollow King value or rerun Pass 28.
+- Do not change production Foundry Core ATK yet.
+- Do not test a second Core ATK value.
+- Do not change Core HP, DEF, speed, charge, shield, summons, rewards, or mechanics.
+- Do not tune Endless Road in Pass 29.
 - Do not change Auto-Cast, Auto Training, Shatter, dust, gear, ascension, or economy behavior.
 - Do not add seeds, profiles, hours, control arms, stress profiles, or a confirmation batch.
 - Do not merge or ship before review.
+
+# Identity Note
+
+The Pass 28 handoff records `HEAD_COMMIT_SHA: 5b06bfc027562160fb7f22bfe70de98203b1cfad`, while the actual atomic commit containing the Pass 28 handoff, report, and report tool is `cbc1f4d255ca7e70cd4e27ee90786b8a29c5a6a2`. The reviewed-handoff metadata preserves the handoff's declared SHA for loop identity, and `BASE_COMMIT` records the actual reviewed PR head. Future handoffs should set `HEAD_COMMIT_SHA` to the commit that contains the implementation/results being handed off, or use a dedicated results commit followed only by a handoff-doc commit.
