@@ -1,150 +1,151 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_8_AUTOTRAIN_THRESHOLD_DIAGNOSTIC
-REVIEWED_HANDOFF_PASS: PASS_7_VALIDATION
-REVIEWED_HANDOFF_SHA: 6dc9968c77913d3c84b87a6b7229b523431d0db4
-BASE_COMMIT: be82af6c1f71c8f20ffca359a396bed952e07cbf
+REVIEW_FOR_PASS: PASS_9_AUTOTRAIN_RETRIGGER_TARGET_DIAGNOSTIC
+REVIEWED_HANDOFF_PASS: PASS_8_AUTOTRAIN_THRESHOLD_DIAGNOSTIC
+REVIEWED_HANDOFF_SHA: b4582d619831f249873b547936e866ba740a156d
+BASE_COMMIT: 97f18874316afb1e42d71ba6f931b70c381721bb
 CONFIDENCE: MEDIUM
 
-# Diagnosis
+# Decision
 
-Pass 7 is accepted. The invalid first batch was correctly discarded, the `now()` crash was observation-only, and the clean rerun completed 100/100 production-road simulations.
+Reject `AT_LOSSES = 5`. Keep production at `AT_LOSSES = 4`.
 
-Variant G meets every predetermined Stillwater target:
-- Idle first-try 50% (acceptable 40-70%)
-- Casual 30% (target 15-40%)
-- Engaged 25% (target 20-45%)
-- Median attempts 1-2
-- P90 attempts 3-5
-- Median stall 0.02-0.49h
+Accept the developer's counterproposal in narrowed form: the next diagnostic will test a +2 party-level training target only for a quick same-zone retrigger. A first trigger remains +1. No cooldown is authorized.
 
-The boss-harness phase evidence and full-road results agree that lowering the Alpha body was causal. Raising Alpha HP to 0.58/0.60 is not justified by these results.
+# Pass 8 Assessment
 
-The new concern is Auto Training frequency: idle through engaged spend median 41-56% of 24h training and trigger 25-31 times. This establishes that training is a dominant progression behavior, but aggregate time share alone does not prove false triggering because training earns normal rewards and was designed to replace inefficient manual farming.
+The 5-loss candidate failed the predetermined success criteria:
 
-# Developer Position
+- Median triggers fell at least 20% only for idle (-25%), not casual (-13%) or engaged (-10%).
+- Retriggers within the measured 20-fight window fell 37% / 25% / 18%; only idle met the 30% target.
+- Casual median zones cleared fell from 6 to 5.
+- Ordinary defeats outside training rose 26% / 14% / 19%.
+- Estimated ordinary rewalk time rose 17% / 10% / 14%.
+- Casual Stillwater first-try fell to 10%, below the locked 15-40% target band, although n=10 makes that estimate noisy.
 
-AGREE on locking Stillwater at Variant G.
+The design risk identified in Pass 8 occurred: reducing training by delaying the trigger converted a meaningful share of the saved time into defeat and rewalking. The 5-loss setting is therefore not a candidate for validation.
 
-PARTIAL on the proposed Auto Training experiment. The developer is right to investigate trigger frequency before Ironvein, but testing both a stricter loss threshold and a post-return cooldown in one pass would not isolate the cause.
+# Counterproposal Evaluation
 
-# Reviewer Assessment
+The developer is right that the evidence weakens the original variance hypothesis.
 
-The trigger is evaluated on a rolling 10-fight window at 4 losses. Parties return with roughly 70-80% median win rates, so ordinary variance can plausibly produce another 4-loss window even when the target zone has become viable. The cleanest first test is the single threshold lever.
+Retriggers still arrive after roughly 9-10 fights and 7-8 minutes in both threshold arms. Raising the threshold changed that timing only marginally while increasing unproductive defeats. The invariant checkpoint pattern and the +1 training target make the intra-zone climb a plausible structural cause.
 
-A cooldown is not authorized in this pass. It could suppress a legitimate fallback after a genuinely bad return and would confound whether the existing loss threshold itself is too permissive.
+The enemy-level gap is supporting evidence, not proof by itself: encounter composition and nonlinear stat scaling also affect difficulty. The proposed target experiment is still the smallest direct way to distinguish “one level is insufficient at a quick retrigger” from “the trigger itself is noisy.”
 
-# Primary Hypothesis
+# Required Instrumentation Correction
 
-The current `AT_LOSSES = 4` threshold repeatedly classifies viable 70-80% win-rate target-zone play as dangerous. Increasing only the threshold to 5 losses in the rolling 10-fight window will materially reduce unnecessary same-zone retriggers without meaningfully degrading early-Road progression.
+The current observation code does not exactly implement the label “within 20 fresh ordinary fights”:
+
+- `returnFights` increments before the boss-fight early return, so boss encounters can be included.
+- On the 20th ordinary fight, the after-return record is cleared before `startTraining()` reads it, so an eligible retrigger on that fight is missed.
+
+For both arms, define a quick retrigger as a trigger caused by an ordinary fight numbered 1 through 20 inclusive after a completed return to the same zone. Capture that state before clearing the after-return window. This correction is observation/state classification only in the control arm.
+
+Because this correction changes the classification used by the candidate mechanic, rerun both arms. Do not compare the corrected candidate solely against the retained Pass 8 control.
 
 # Authorized Experiment
 
-Candidate:
-- `AT_LOSSES: 4 -> 5`
-
 Control:
-- Current production behavior, `AT_LOSSES = 4`
 
-Keep unchanged:
-- `AT_WINDOW = 10`
-- `AT_MIN = 8`
-- one party-level-equivalent training target
-- minimum 3 training fights
-- deeper fallback
-- build-change and self-nerf protections
-- Keep Pushing
-- travel/recovery behavior
-- all XP, gold, drops, and gear behavior
+- `AT_LOSSES = 4`
+- training target = +1 party level for every trigger
 
-Use paired seeds 1-10 with:
-- Idle
-- Casual
-- Engaged
-- 24 simulated hours
+Candidate:
+
+- `AT_LOSSES = 4`
+- first trigger, non-quick retrigger, or different-zone trigger: +1 party level
+- same-zone retrigger within 1-20 completed ordinary fights after a completed return: +2 party levels
+
+Implementation requirements:
+
+- Persist the selected target on the active training record.
+- Completion must compare progress against the persisted target.
+- For save compatibility, an active training record without a target must default to +1.
+- Record the selected target and quick-retrigger reason in telemetry.
+- Keep minimum 3 training fights for both targets.
+- Do not change reward rates; the additional level must be earned through normal training fights.
+- Keep deeper fallback and Keep Pushing behavior unchanged.
+
+# Simulation Plan
+
+QUICK DIAGNOSTIC:
+
+- paired seeds 1-10
+- Idle / Casual / Engaged
+- 24h
+- 30 control + 30 candidate runs
 - production Road logic
-
-If the exact Pass 7 seed 1-10 raw outputs are retained and comparable, use them as the control and run only 30 candidate simulations. Otherwise rerun both arms for 60 total simulations.
-
-Instrumentation-only changes are allowed to measure retrigger timing. Do not change gameplay behavior beyond `AT_LOSSES`.
-
-# Locked Systems
-
-- Stillwater Alpha HP x0.55 and ATK x0.70 — now locked
-- Summoned werewolf HP x0.75 and ATK x0.85
-- 1 wolf at 60%
-- Howl at 30%
-- Greenhollow tuning
-- Tap damage x0.22 and tap charge/focus
-- boss retry cadence 9
-- Auto Training architecture, target amount, rewards, and protections
-- polynomial Renown
-- rarity and promotion progression
-- all downstream boss values, including Ironvein
-- no special active-play multiplier
-- no global XP change
+- identical instrumentation in both arms
+- 0 simulation errors required
 
 # Required Telemetry
 
-For both arms and each profile:
+For each arm and profile report median / P90 and paired relative change for:
+
 - total triggers, completed returns, cancellations
-- training hours and share of 24h
-- triggers by target zone
-- same-zone retriggers within 10 and within 20 fresh target-zone fights after a completed return
-- median fresh fights and minutes from return to next same-zone trigger
-- target-zone win rate over the first 10 and 20 fights after return
-- win rate and loss-window contents at each trigger
-- normal-fight death/recovery/rewalk time outside training
-- Stillwater first-try, median/P90 attempts, stall, and clear time
-- Ironvein first-try, median/P90 attempts, stall, and clear time
-- arrival level at Stillwater and Ironvein
-- zones cleared at 24h
+- +1 and +2 trainings by target zone
+- training hours, share of 24h, fights, and party levels earned
+- same-zone retriggers within 10 and within 20 ordinary fights
+- median ordinary fights and minutes to retrigger
+- ordinary defeats outside training
+- ordinary and boss rewalk fights and estimated rewalk hours
+- first 10 and 20 ordinary-fight win rate after return
+- trigger loss-window contents
+- party/enemy level and pre-rollback loss position at trigger
+- Stillwater and Ironvein first-try, attempts, stall, arrival level, and clear time
+- early-Road clear times, zones cleared at 24h, and party level at 24h
+
+Also report how many triggers occurred exactly on ordinary fight 20 so the corrected boundary can be audited.
 
 # Success Criteria
 
-The 5-loss candidate is promising only if:
-- median total triggers fall by at least 20% in at least two of three profiles, and
-- same-zone retriggers within 20 fresh fights fall materially (target: at least 30% relative), and
-- median zones cleared at 24h do not decline, and
-- median early-Road clear times do not worsen by more than 10% and P90 by more than 15%, and
-- Stillwater remains within the Pass 7 target bands with median attempts <=3 and P90 <=5, and
-- reduced training time is not replaced by a comparable increase in dead/recovery/rewalk time.
+The +2 quick-retrigger candidate is promising only if:
+
+- median retriggers within 20 ordinary fights fall at least 30% in at least two profiles and do not increase in the third;
+- median total triggers fall at least 15% in at least two profiles;
+- ordinary defeats and estimated ordinary rewalk hours do not worsen by more than 10% in any profile;
+- median training hours/share do not increase by more than 10% in any profile;
+- median zones cleared at 24h do not decline;
+- median early-Road clear times do not worsen by more than 10% and P90 by more than 15%;
+- Stillwater remains in its locked Pass 7 bands with median attempts <=3 and P90 <=5; and
+- the candidate does not merely inflate party level while leaving retrigger timing unchanged.
 
 # Failure Criteria
 
-Reject or reconsider the threshold change if:
-- trigger frequency falls less than 10%, or
-- quick retriggers remain essentially unchanged, or
-- Stillwater falls outside its target bands, or
-- Ironvein/overall early-Road progression materially worsens, or
-- reduced training simply becomes increased unproductive death and rewalking.
+Reject or revise the escalation if:
+
+- quick retriggers fall less than 15% in two or more profiles;
+- +2 trainings materially increase total training time without reducing retriggers;
+- dead time, early-Road progression, or Stillwater worsens beyond the limits above;
+- the candidate causes repeated +2 cycles in the same zone; or
+- corrected telemetry is invalid or differs between arms.
 
 # Decision Rules
 
-- If success criteria are met: propose a normal VALIDATION of `AT_LOSSES = 5`; do not add a cooldown yet.
-- If frequency improves but progression regresses: return a counterproposal using the retrigger telemetry; do not silently tune bosses or XP.
-- If quick retriggers remain high despite the stricter threshold: restore 4 losses and propose a separate cooldown diagnostic.
-- If the threshold barely changes frequency: retain 4 losses and move the next investigation to Ironvein idle/light behavior.
+- If all success criteria pass: propose a normal validation of the localized +2 retrigger target.
+- If retriggers improve but training share rises materially: return a counterproposal using target and zone breakdowns; do not silently alter the threshold.
+- If retriggers barely move: retain universal +1 and evaluate a separate cooldown diagnostic next.
+- If the effect is concentrated in Ironvein idle only: retain current global behavior and propose an Ironvein-local diagnosis rather than globalizing the mechanic.
 
-# Design Risk
+# Locked Systems
 
-A stricter trigger may make Auto Road remain too long in genuinely inefficient content, turning productive training time into invisible death/recovery/rewalk time. That tradeoff is more important than lowering the training-share metric by itself.
+- `AT_LOSSES = 4`, `AT_WINDOW = 10`, and `AT_MIN = 8`
+- Stillwater Alpha HP x0.55 and ATK x0.70
+- summoned werewolf HP x0.75 and ATK x0.85
+- one wolf at 60%; Howl at 30%
+- Greenhollow tuning
+- tap damage x0.22 and tap charge/focus
+- boss retry cadence 9
+- Auto Training rewards, deeper fallback, protections, and Keep Pushing
+- polynomial Renown
+- rarity and promotion progression
+- all downstream boss values, including Ironvein
+- no cooldown, special active-play multiplier, global XP change, or unrelated balance/UI change
 
-# Implementation Risk
+# What Not To Do
 
-Low for the isolated constant change. Medium for interpretation if the control is not seed-paired or if same-zone retrigger timing cannot be measured consistently from current logs.
-
-# What NOT To Do
-
-- Do not change Stillwater again.
-- Do not tune Ironvein in this pass.
-- Do not add the 20-fight cooldown in this pass.
-- Do not change training duration, XP, rewards, travel state, or deeper fallback.
-- Do not make unrelated refactors or UI changes.
-
-# SIM RUN GUIDELINES
-
-QUICK DIAGNOSTIC:
-- 10 paired seeds
-- Idle / Casual / Engaged
-- 24h
-- current 4-loss control vs 5-loss candidate
+- Do not ship `AT_LOSSES = 5`.
+- Do not tune Stillwater or Ironvein in this pass.
+- Do not add a cooldown.
+- Do not change XP, gold, drops, gear, travel, recovery, or boss behavior.
+- Do not reuse the uncorrected Pass 8 control as the sole comparator.
