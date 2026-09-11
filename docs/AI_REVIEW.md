@@ -1,75 +1,47 @@
 STATUS: READY
 REVIEW_FOR_PASS: PASS_21_SHATTER_BEHAVIOR_DIAGNOSTIC
-REVIEWED_HANDOFF_PASS: PASS_20_LATE_ROAD_TRAINING_TRIGGER_CANDIDATE
-REVIEWED_HANDOFF_SHA: 6f3bf2070eae2d81b39dd803afe9750db1c7a55e
-BASE_COMMIT: 5deaeb1c84929d1971676eb23146ff7c0fef3b48
+REVIEWED_HANDOFF_PASS: PASS_21_SHATTER_BEHAVIOR_DIAGNOSTIC
+REVIEWED_HANDOFF_SHA: 924850c9de1aa44b8f1d3ac01f84fcf9e9623a1b
+BASE_COMMIT: 333111b3e6ff90dd974003146ae1fe3d61586945
 CONFIDENCE: HIGH
 
-# Decision
+# Counterproposal Decision
 
-Reject the late-Road danger-threshold candidate.
+Accept the developer's counterproposal.
 
-Keep production Auto Training at:
+Supersede the earlier literal rule "three hours without a zone clear." Use the furthest-fight rule for the single authorized Pass 21 diagnostic.
 
-- target = 1.0 average party level;
-- trigger = 4 losses in the rolling 10-fight window.
+The smoke evidence is decisive for rule selection:
 
-Auto Training tuning is now closed. Do not test another target, threshold, window, quick-retrigger rule, profile-specific rule, or confirmation batch.
+- normal late zones routinely take more than three hours to clear;
+- the literal clear-clock rule fires during healthy Emberwaste progression;
+- it spends all three Shatters before the party reaches the intended Keep wall;
+- a new furthest-fight mark distinguishes slow forward progress from an actual stall;
+- under the proposed rule, smoke Shatters occur at boss/training walls and inside Ashen Keep rather than mid-zone.
 
-The rejection is decisive:
+The smoke runs authorize the diagnostic rule only. They are not balance evidence and do not replace the full batch.
 
-- casual improved, but idle paid more than the saved training time in ordinary defeats and rewalking;
-- idle Ashen Approach defeats rose 69 -> 108 and rewalk time rose 1.28 hours while training fell only 1.04 hours;
-- idle Grave Knight clears fell 3/10 -> 1/10 and two paired seeds lost a zone at 48 hours;
-- light was marginal rather than a clear systemic gain;
-- total defeats rose 7% idle, 11% light, and 20% casual;
-- no profile gained median zones cleared at 24, 36, or 48 hours.
+# Simulator Repair Assessment
 
-This is exactly the mixed, wall-shifting outcome the Pass 20 rules required us to reject. No confirmation is needed.
+The following simulator-only changes are accepted:
 
-# Telemetry Assessment
+- default Shatter stall rule = no zone clear and no new furthest-fight mark for three simulated hours;
+- no dependency on the obsolete bot-retreat timer;
+- reset the clear counter, furthest-fight marks, and stall clock after each Shatter;
+- retain game eligibility, projected gain >= 15, and existing Endless behavior;
+- record per-run zone entries/clears and tag boss attempts by Shatter run;
+- record the requested before/after Shatter state.
 
-The Pass 20 Auto Training result is valid:
+The reset repair is necessary. Without it, re-clears after a Shatter do not register as progress and create artificial three-hour Shatter chains.
 
-- 60 runs, zero simulation errors;
-- threshold 4/5 separation audited at every late trigger;
-- the control reproduced Pass 19 run-for-run;
-- all rows through Amberfall were identical;
-- bosses, hordes, catacombs, and other locked systems were unchanged.
+Keep the literal clear-clock implementation available for debugging only. Do not use it for the authorized batch.
 
-Stop balance interpretation at Ashen Keep/Hollow King, however. The current Road telemetry omits Shatter entirely because the simulator's normal-Road Shatter condition is unreachable under the production setup:
+# Pass 21 Authorized Diagnostic
 
-- bot retreat defaults to disabled;
-- the bot defines a Road stall as three hours without progress AND an active bot-retreat timer;
-- therefore the stall condition cannot become true;
-- Shatter remains limited to the Endless branch even though the game exposes it after Ironvein.
+Run exactly one fresh batch with:
 
-This is a simulator-policy bug, not evidence that Shatter, Ashen Keep, or Hollow King needs a balance change. The observed Keep wall is real for the simulated no-Shatter path, but it cannot be used to choose a production balance lever yet.
-
-# Pass 21: One Shatter Behavior Diagnostic
-
-Repair only the simulator's Shatter decision and run one diagnostic batch. Do not change gameplay values.
-
-The repair is a simulator-policy change, not merely observation-only. Implement it only in the bot:
-
-- on the production Road, define stalled as at least three simulated hours without a zone clear;
-- do not require the obsolete bot-retreat timer;
-- retain the game's own eligibility check;
-- retain minimum Shatter gain >= 15;
-- retain the existing Endless behavior;
-- reset the stall clock after a Shatter so the bot cannot chain immediate Shatters;
-- do not add a new retreat, training, boss, or combat rule.
-
-Add telemetry for every Shatter:
-
-- hour and current zone;
-- party level and power;
-- current zone progress and cleared-zone count;
-- projected gain, dust before, and dust after;
-- state immediately before the Shatter and on the first return to each late-Road zone.
-
-Run exactly one fresh batch:
-
+- `--stallRule far`;
+- `--stallHours 3`;
 - seeds 31-40;
 - idle, light, and casual;
 - 72 hours;
@@ -79,40 +51,43 @@ Run exactly one fresh batch:
 - up to three Shatters;
 - zero simulation errors.
 
-There is no candidate balance arm and no separate control rerun. Audit that each run exactly matches its Pass 20 production control up to the first newly triggered Shatter.
+Do not add a balance candidate, alternative stall duration, alternative trigger, extra seeds, or confirmation batch.
+
+Audit each run against its Pass 20 production control up to the exact first Shatter. Before that event, gameplay state and hourly telemetry must be deterministic matches.
 
 # Required Results
 
-Report by profile:
+Report by profile and by Shatter run:
 
-- Shatter count, timing, zone, gain, and dust;
-- reason each Shatter fired and hours since the prior zone clear;
+- Shatter count, timing, zone, progress, projected gain, and dust;
+- reason and exact hours since the last zone clear or furthest-fight advance;
+- the last furthest-fight mark before each Shatter;
+- time required to re-clear Ironvein and return to the zone left;
 - zones cleared at 24h, 36h, 48h, and 72h;
-- Ashen Keep entry/re-entry level and power before and after each Shatter;
-- ordinary Keep defeats, loss rate, hours, and rewalk time before and after the first Shatter;
-- Hollow King reach, attempts, first-try, losses, boss HP remaining, summons reached, clears, and stall;
-- the same late-Road summary for Ashen Approach so we can detect regressions;
+- Ashen Approach and Ashen Keep entry/re-entry level and power;
+- ordinary Keep wins/losses, hours, rewalk time, and loss rate before and after the first Shatter;
+- Hollow King reach, attempts, loss duration, HP remaining, summons reached, clears, and stall;
 - total defeats, training hours, hordes, catacombs, and errors;
-- evidence that no immediate Shatter loop occurred.
+- evidence that no Shatter fired while the party had advanced its furthest mark during the prior three hours;
+- evidence that no immediate or periodic artificial Shatter loop occurred.
 
-# Diagnostic Decision Rules
+# Interpretation Rules
 
-This pass answers one question only:
+This diagnostic asks whether the existing Shatter system makes the Keep/Hollow King meaningfully contestable on the second day.
 
-> Does the existing Shatter system, when the simulator actually uses it, turn Ashen Keep/Hollow King into a meaningfully contestable second-day progression wall?
+A Shatter is not automatically beneficial merely because it fires. Include the replay cost and the party's level/power when it returns.
 
-Treat the answer as good enough when the player-facing pattern is clear; do not chase an exact ideal percentage.
+- If existing Shatters materially improve Keep/Hollow progression, use the result to propose at most one bounded systemic candidate.
+- If existing Shatters leave the wall uncontested, identify whether the main cause is ordinary Keep damage, post-Shatter recovery/progression, or Hollow King combat. Propose one experiment only.
+- If the new rule still fires during genuine forward progress or fails during eligible stalls, stop interpretation and report the simulator defect.
 
-- If Shatters occur and materially improve Keep/Hollow progression without a severe earlier-Road regression, use the result to choose at most one bounded Shatter/Keep candidate next.
-- If Shatters occur but the wall remains essentially uncontested, identify whether the remaining mechanism is ordinary Keep damage, post-Shatter recovery/progression, or Hollow King combat. Propose one systemic experiment; do not change a value yet.
-- If eligible three-hour stalls still do not produce Shatters, stop interpretation and report the simulator defect. Do not compensate with balance changes.
-
-After this diagnostic, do not repeat it. The next pass must either authorize one candidate or close the Shatter wall as good enough and move forward.
+Do not repeat this diagnostic. After it, authorize one candidate or close the Shatter wall as good enough and move forward.
 
 # Locked Systems
 
 Keep locked:
 
+- Auto Training target 1.0, threshold 4, and every other Auto Training rule;
 - Warlord ATK x1.2;
 - Sand Tyrant ATK x1.1;
 - Hunter King ATK x1.0;
@@ -121,16 +96,14 @@ Keep locked:
 - all boss HP, DEF, speed, charge/volley, summon, add, enrage, ward, raise, and other mechanics;
 - ordinary enemies and global enemy curves;
 - AUTO_REACT = false;
-- every Auto Training value and rule;
 - all previously locked progression, economy, tap, Renown, rarity, promotion, travel, recovery, and UI systems.
 
 # What Not To Do
 
-- Do not implement threshold 5.
+- Do not use `--stallRule clear` for the batch.
+- Do not change `--stallHours 3`.
 - Do not reopen Auto Training.
-- Do not change Hollow King.
-- Do not change Shatter values.
+- Do not change Hollow King or Shatter values.
 - Do not run another boss-ATK test.
-- Do not tune Ashen Approach again.
-- Do not add a candidate arm to Pass 21.
+- Do not add a candidate arm.
 - Do not tune toward Stress.
