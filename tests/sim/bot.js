@@ -14,7 +14,9 @@ const PROFILE=args.idle?'idle':(args.profile||'casual');const P=Object.assign({}
 let seed=SEED>>>0;function srand(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;}
 Math.random=srand;
 
-const S=load({startMs:1700000000000});
+const replace=[];if(args.bossHp!=null||args.bossAtk!=null){const z=args.bossZone==null?1:Number(args.bossZone);const cur={0:'0:{hp:0.75,atk:0.80}',1:'1:{hp:0.75,atk:0.82}'}[z];if(!cur)throw new Error('no override for zone '+z);const m=cur.match(/hp:([\d.]+),atk:([\d.]+)/);const hp=args.bossHp!=null?args.bossHp:Number(m[1]),atk=args.bossAtk!=null?args.bossAtk:Number(m[2]);replace.push([cur,z+':{hp:'+hp+',atk:'+atk+'}']);}
+if(args.replace){for(const r of String(args.replace).split('||')){const [f,t]=r.split('=>');replace.push([f,t]);}}
+const S=load({startMs:1700000000000,replace});
 const M={hours:0,events:[],recruits:{},talents:{},promotions:{},zones:{},zoneRec:{},firsts:{},shatters:[],boss:{},drops:{},gold:[],econ:{goldEarned:0,goldSpent:0,oreEarned:0,oreSpent:0},dmgActive:{basic:0,ability:0,tap:0,surge:0},dmgAuto:{basic:0,ability:0,tap:0,surge:0},activeSec:0,delve:{best:0,runs:0,deaths:0},endless:{best:0,milestones:0},stuck:[]};
 function ev(kind,text){M.events.push({h:+M.hours.toFixed(2),kind,text});if(!QUIET)console.log(M.hours.toFixed(2).padStart(7)+'h  '+kind.padEnd(9)+' '+text);}
 
@@ -28,7 +30,7 @@ function main(){
   G.title=false;G.tut=null;G.autoSalvage=0;G.mult='max';
   if(args.endless){const lv=args.lvl||120;for(let i=0;i<Z.length-1;i++){G.cleared[i]=true;G.prog[i]=Z[i].fights;}for(const def of S.HEROES){if(!G.roster.find(h=>h.id===def.id)){const h=S.G.roster;S.addHero&&S.addHero(def,lv);}}for(const h of G.roster){h.lvl=lv;h.abLvl=args.rank||40;h.tier=3;h.tierMax=3;h.talents=h.talents||{};for(const t of S.TALENTS[h.cls])h.talents[t.id]=true;for(const slot of ['weapon','cape','charm']){const it=S.makeItem(Z.length-2,4);it.slot=slot;if(slot==='weapon')it.kind=S.CLASSES[h.cls].weapon;it.lvl=args.gear||60;h.eq[slot]=it;}S.refreshStats(h);h.hp=h.maxhp;}G.tree.hp=args.tree||60;G.tree.atk=args.tree||60;G.tree.def=Math.min(30,args.tree||60);G.tree.abil=30;G.reforges=args.reforged||2;G.endlessSeen=true;G.gold=1e9;G.ore=1e7;G.dust=500;travelTo(Z.length-1);ev('endless','start: party Lv '+avgLv()+', '+G.roster.length+' heroes, rank '+G.roster[0].abLvl+', gear +'+(args.gear||60));}
   let simSec=0,nextAct=0,nextHour=1,lastZone=-1,zoneEnter=0,zoneDefeats=0,bossWas=false,lastLosses=0,lastRoster=G.roster.length,lastCleared=0,lastReforges=G.reforges||0;
-  let retreatUntil=0,farmTarget=0,tapAcc=0,lastProgressH=0,lastGold=G.gold,lastOre=G.ore,surgeReadyAt=0,wasActive=null,dmgMark={};
+  let retreatUntil=0,farmTarget=0,tapAcc=0,lastProgressH=0,lastGold=G.gold,lastOre=G.ore,surgeReadyAt=0,wasActive=null,dmgMark={},bossStart=0,bossHpMax=0,bossZoneName='',prevBossFight=false;
   const t0=Date.now();
   const target=HOURS*3600;
   while(simSec<target){
@@ -39,9 +41,12 @@ function main(){
     if(ACTIVE)play();
     // observations every tick
     {const dg=G.gold-lastGold,dO=G.ore-lastOre;if(dg>0)M.econ.goldEarned+=dg;else M.econ.goldSpent-=dg;if(dO>0)M.econ.oreEarned+=dO;else M.econ.oreSpent-=dO;lastGold=G.gold;lastOre=G.ore;}
-    if(G.bossFight&&!bossWas){bossWas=true;const b=(M.boss[Z[G.zone].name]=M.boss[Z[G.zone].name]||{attempts:0,fails:0,streak:0,maxStreak:0,firstTry:0});b.attempts++;if(!b.firstTry){b.firstTry=simSec;b.lvFirst=avgLv();}}
-    if(!G.bossFight&&bossWas){bossWas=false;}
-    if(G.mode==='defeat'&&G.timer>2.5){if(bossWas){const b=M.boss[Z[G.zone].name];b.fails++;b.streak++;b.maxStreak=Math.max(b.maxStreak,b.streak);bossWas=false;}zoneDefeats++;}
+    const bossRise=G.bossFight&&!prevBossFight;prevBossFight=G.bossFight;
+    if(bossRise&&!bossWas){bossWas=true;const b=(M.boss[Z[G.zone].name]=M.boss[Z[G.zone].name]||{attempts:0,fails:0,streak:0,maxStreak:0,firstTry:0,losses:[],wins:[]});b.attempts++;if(!b.firstTry){b.firstTry=simSec;b.lvFirst=avgLv();}bossStart=simSec;bossHpMax=0;bossZoneName=Z[G.zone].name;}
+    if(bossWas&&G.mode==='battle'&&!bossHpMax){const e=G.enemies.find(x=>x.boss)||G.enemies[0];if(e)bossHpMax=e.maxhp;}
+    if(bossWas&&G.mode==='victory'){bossWas=false;const b=M.boss[bossZoneName];const alive=G.active.filter(h=>!h.dead);b.wins.push({dur:+(simSec-bossStart).toFixed(1),survivors:alive.length,partyHp:+(G.active.reduce((a,h)=>a+Math.max(0,h.hp),0)/Math.max(1,G.active.reduce((a,h)=>a+h.maxhp,0))).toFixed(2)});}
+    else if(!G.bossFight&&bossWas&&G.mode!=='defeat'){bossWas=false;const b=M.boss[bossZoneName];if(b)b.attempts--;/* interrupted, not an attempt */}
+    if(G.mode==='defeat'&&G.timer>2.5){if(bossWas){const b=M.boss[bossZoneName];b.fails++;b.streak++;b.maxStreak=Math.max(b.maxStreak,b.streak);const e=G.enemies.find(x=>x.boss)||G.enemies[0];b.losses.push({dur:+(simSec-bossStart).toFixed(1),hpLeft:e&&bossHpMax?+(e.hp/bossHpMax).toFixed(2):null,wipe:G.active.every(h=>h.dead)});bossWas=false;}zoneDefeats++;}
     if(G.pack.length>lastPack){for(let i=lastPack;i<G.pack.length;i++){const it=G.pack[i];const k=Z[G.zone].name;(M.drops[k]=M.drops[k]||[0,0,0,0,0,0])[Math.min(5,it.rank||0)]++;const rn=['common','uncommon','rare','epic','legendary','mythic'][Math.min(5,it.rank||0)];if(M.firsts['first '+rn]==null)M.firsts['first '+rn]=+M.hours.toFixed(2);}}
     lastPack=G.pack.length;
     if(G.roster.length>lastRoster){for(let i=lastRoster;i<G.roster.length;i++){const h=G.roster[i];M.recruits[h.name]=+M.hours.toFixed(2);ev('recruit',h.name+' the '+S.CLASSES[h.cls].name);}lastRoster=G.roster.length;}
@@ -112,13 +117,14 @@ function main(){
       if(!did)break;}
   }
 
+  function med(a){a=a.filter(v=>v!=null).sort((x,y)=>x-y);return a.length?a[Math.floor((a.length-1)/2)]:null;}
   function report(){
     const dm=(G.stats&&G.stats.dmgBy)||{};const dtot=Object.values(dm).reduce((a,b)=>a+b,0)||1;const dmgShare=Object.fromEntries(['basic','ability','tap','surge'].map(k=>[k,+((dm[k]||0)/dtot).toFixed(3)]));const hrs=Math.max(0.01,M.hours);
     const dmgPerHour=Object.fromEntries(['basic','ability','tap','surge'].map(k=>[k,Math.round((dm[k]||0)/hrs)]));dmgPerHour.total=Math.round(dtot/hrs);const castsPerHour=Math.round(((G.stats&&G.stats.casts)||0)/hrs);
     {const d=Object.assign({basic:0,ability:0,tap:0,surge:0},dm);const bucket=wasActive?M.dmgActive:M.dmgAuto;for(const k in d)bucket[k]+=d[k]-(dmgMark[k]||0);dmgMark=d;}
     const shareOf=o=>{const t=Object.values(o).reduce((a,b)=>a+b,0)||1;return Object.fromEntries(Object.entries(o).map(([k,v])=>[k,+(v/t).toFixed(3)]));};const activeH=Math.max(0.001,M.activeSec/3600);const dmgActiveWindow={share:shareOf(M.dmgActive),perHour:Math.round(Object.values(M.dmgActive).reduce((a,b)=>a+b,0)/activeH),hours:+activeH.toFixed(2)};
-    const out={config:{hours:HOURS,shatters:SHATTERS,seed:SEED,dt:DT,profile:PROFILE,taps:TAPS,activeMin:P.activeMin},dmgShare,dmgPerHour,castsPerHour,dmgActiveWindow,firsts:M.firsts,zoneRec:M.zoneRec,econPerHour:{goldEarned:Math.round(M.econ.goldEarned/hrs),goldSpent:Math.round(M.econ.goldSpent/hrs),oreEarned:Math.round(M.econ.oreEarned/hrs),oreSpent:Math.round(M.econ.oreSpent/hrs),renown:Math.round((G.renown||0)/hrs)},simHours:+M.hours.toFixed(2),final:{zone:Z[G.zone].name,prog:G.prog[G.zone],partyLv:avgLv(),gold:Math.round(G.gold),ore:Math.round(G.ore),dust:G.dust,shatters:G.reforges||0,wins:G.wins,defeats:G.stats.defeats||0,castle:G.castle.b,renown:G.renown||0},
-      recruits:M.recruits,zonesCleared:M.zones,promotions:M.promotions,talents:M.talents,shatters:M.shatters,bossFailRates:Object.fromEntries(Object.entries(M.boss).map(([k,v])=>[k,{attempts:v.attempts,fails:v.fails,rate:v.attempts?+(v.fails/v.attempts).toFixed(2):0,maxStreak:v.maxStreak,stallH:v.stallH==null?null:v.stallH,lvFirst:v.lvFirst,lvClear:v.lvClear==null?null:v.lvClear,attemptsToClear:v.attemptsToClear==null?null:v.attemptsToClear,firstTryClear:v.attemptsToClear==null?null:(v.attemptsToClear===1?1:0)}])),
+    const out={config:{hours:HOURS,shatters:SHATTERS,seed:SEED,dt:DT,profile:PROFILE,taps:TAPS,activeMin:P.activeMin,bossHp:args.bossHp,bossAtk:args.bossAtk},dmgShare,dmgPerHour,castsPerHour,dmgActiveWindow,firsts:M.firsts,zoneRec:M.zoneRec,econPerHour:{goldEarned:Math.round(M.econ.goldEarned/hrs),goldSpent:Math.round(M.econ.goldSpent/hrs),oreEarned:Math.round(M.econ.oreEarned/hrs),oreSpent:Math.round(M.econ.oreSpent/hrs),renown:Math.round((G.renown||0)/hrs)},simHours:+M.hours.toFixed(2),final:{zone:Z[G.zone].name,prog:G.prog[G.zone],partyLv:avgLv(),gold:Math.round(G.gold),ore:Math.round(G.ore),dust:G.dust,shatters:G.reforges||0,wins:G.wins,defeats:G.stats.defeats||0,castle:G.castle.b,renown:G.renown||0},
+      recruits:M.recruits,zonesCleared:M.zones,promotions:M.promotions,talents:M.talents,shatters:M.shatters,bossFailRates:Object.fromEntries(Object.entries(M.boss).map(([k,v])=>[k,{attempts:v.attempts,fails:v.fails,rate:v.attempts?+(v.fails/v.attempts).toFixed(2):0,maxStreak:v.maxStreak,stallH:v.stallH==null?null:v.stallH,lvFirst:v.lvFirst,lvClear:v.lvClear==null?null:v.lvClear,attemptsToClear:v.attemptsToClear==null?null:v.attemptsToClear,firstTryClear:v.attemptsToClear==null?null:(v.attemptsToClear===1?1:0),lossDur:med(v.losses.map(l=>l.dur)),winDur:med(v.wins.map(w=>w.dur)),hpLeft:med(v.losses.map(l=>l.hpLeft)),wipePct:v.losses.length?Math.round(100*v.losses.filter(l=>l.wipe).length/v.losses.length):null,survivors:med(v.wins.map(w=>w.survivors)),partyHp:med(v.wins.map(w=>w.partyHp))}])),
       drops:Object.fromEntries(Object.entries(M.drops).map(([k,v])=>[k,{common:v[0],uncommon:v[1],rare:v[2],epic:v[3],legendary:v[4],mythic:v[5]}])),catacombs:{best:Math.max(M.delve.best,G.delveBest||0),runs:M.delve.runs},endless:{best:Math.max(M.endless.best,(G.far||[])[Z.length-1]||0),milestones:Math.floor(Math.max(M.endless.best,(G.far||[])[Z.length-1]||0)/25)},stuck:M.stuck,hourly:M.gold};
     if(args.json)require('fs').writeFileSync(args.json,JSON.stringify(out,null,1));
     console.log('\n=== SUMMARY ('+out.simHours+'h simulated, seed '+SEED+') ===');

@@ -46,7 +46,7 @@ function load(opts={}){
   const SimDate=new Proxy(RealDate,{construct(t,args){return args.length?new RealDate(...args):new RealDate(simMs);},get(t,k){if(k==='now')return()=>simMs;return Reflect.get(t,k);}});
   win.Date=SimDate;
   const assets=JSON.parse(fs.readFileSync(path.join(ROOT,'build','assets.json'),'utf8'));
-  const src=fs.readFileSync(path.join(ROOT,'source','game.js'),'utf8');
+  let src=fs.readFileSync(path.join(ROOT,'source','game.js'),'utf8');for(const [a,b] of (opts.replace||[])){if(!src.includes(a))throw new Error('replace target not found: '+a);src=src.replace(a,b);}
   const tail='\n;(function(){const S={};'+EXPORTS.map(n=>`try{S.${n}=${n};}catch(e){}`).join('')+'S.getRT=()=>RT;S.setRT=v=>{RT=v;};S.getHOLD=()=>HOLD;globalThis.SIM=S;})();';
   const ctx=vm.createContext(win);
   vm.runInContext('var BUILD_ID="sim";const ASSETS='+JSON.stringify(assets)+';',ctx);

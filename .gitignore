@@ -15,3 +15,4 @@ assets/*.wav
 tests/sim/*.log
 tests/sim/*.json
 tests/sim/batch_out/
+tests/sim/sweep_out/
