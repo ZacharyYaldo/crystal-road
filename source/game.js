@@ -395,11 +395,11 @@ function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};fightStarted();
   G.mode='enter';G.bossFight=bossFight;G.active.forEach(h=>setAnim(h,'idle'));if(bossFight)banner(ENEMIES[BZ.boss].name,Z.endless?'guards milestone '+(p/100):'holds '+(3+G.zone)+' prisoners',2.5);else if(elite)banner(G.enemies[0].name,'blocks the road',2.2);
 }
 function bossCheck(e){const m=e.mech;if(!m)return;const r=e.hp/e.maxhp;
-  if(m.summon)for(const sm of m.summon){if(!sm.done&&r<sm.at){sm.done=true;summonAdds(e,sm.id,sm.n);}}
+  if(m.summon)for(const sm of m.summon){if(!sm.done&&r<sm.at){sm.done=true;summonAdds(e,sm.id,sm.n,sm);}}
   if(m.howl&&!m.howled&&r<m.howl){m.howled=true;e.spd=R(e.spd*1.4);float(e.x,GROUND-60,'HOWL!','#ff8a80',true);sfx('cast');}
   if(m.enrage&&!e.enraged&&r<m.enrage){enrage(e);}}
 function enrage(e){e.enraged=true;e.atk=R(e.atk*1.5);float(e.x,GROUND-60,'ENRAGED','#ff5050',true);sfx('crit');G.shake=0.3;}
-function summonAdds(e,id,n){const L=e.lvl;let k=0;for(let i=0;i<3&&k<n;i++){if(G.enemies.filter(x=>!x.dead).length>=4)break;const E=ENEMIES[id];const a={uid:E.uid||id,id,name:E.name,lvl:Math.max(1,L-2),x:W+40+i*30,slot:ENEMY_X[i]-20,dx:0,yoff:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:false,scale:1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:0,gauge:rand()*30,dead:false,enemy:true,status:{},flash:0,traits:(E.traits||[]).slice(),acts:0};Object.assign(a,enemyStats(id,a.lvl));a.hp=a.maxhp;setAnim(a,'walk');G.enemies.push(a);k++;}float(e.x,GROUND-60,'summons',C.cream,true);sfx('cast');}
+function summonAdds(e,id,n,opt){opt=opt||{};const L=e.lvl;let k=0;for(let i=0;i<3&&k<n;i++){if(G.enemies.filter(x=>!x.dead).length>=4)break;const E=ENEMIES[id];const a={uid:E.uid||id,id,name:E.name,lvl:Math.max(1,L-2),x:W+40+i*30,slot:ENEMY_X[i]-20,dx:0,yoff:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:false,scale:1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:0,gauge:rand()*30,dead:false,enemy:true,status:{},flash:0,traits:(E.traits||[]).slice(),acts:0};Object.assign(a,enemyStats(id,a.lvl));if(opt.hp)a.maxhp=R(a.maxhp*opt.hp);if(opt.atk)a.atk=R(a.atk*opt.atk);a.hp=a.maxhp;setAnim(a,'walk');G.enemies.push(a);k++;}float(e.x,GROUND-60,'summons',C.cream,true);sfx('cast');}
 function dmgColor(d,crit){return d>=1e9?'#e1bee7':d>=1e6?'#ff6a6a':d>=1e3?'#ffa040':crit?C.goldL:C.cream;}
 function dealDamage(src,tgt,mult=1,opts={}){
   let atk=src.atk;if(src.enemy)atk*=omenMult('edmg');if(src.status&&src.status.rage>0)atk*=(src.enemy?2:rageMult(src));if(src.status&&src.status.cry>0)atk*=1.2;if(!src.enemy&&src.talents&&tal(src,'deadeye')&&tgt.status&&tgt.status.bleed>0&&rand()<0.15)opts={...opts,crit:true};
