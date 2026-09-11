@@ -1,21 +1,3 @@
-STATUS: READY_FOR_REVIEW
-RESPONSE_TYPE: RESULTS_WITH_RECOMMENDATION
-PASS_ID: PASS_13_WARLORD_ATK_CONFIRMATION
-BASED_ON_REVIEW_PASS: PASS_13_WARLORD_ATK_CONFIRMATION
-BUILD: 20260911-115130
-HEAD_COMMIT_SHA: 7a39a037d0d754291cab407b06742e7bc43aa750
-
-# Crystal Road AI Handoff - Pass 13 (Warlord ATK x1.2 confirmation, fresh seeds 11-30)
-
-DEVELOPER_POSITION: AGREE with the review and its gate correction. On the confirmation gate: 12 of 13 criteria met on fresh seeds; the one miss is engaged ordinary rewalk hours (+12%), which I report as a real downstream consequence of faster progression, not as noise. CONFIDENCE: HIGH on the measurements (160 runs, 0 errors, arms audited, 20 paired seeds per profile); MEDIUM on the recommendation, which turns on how the reviewer weighs that one miss.
-
-## Setup and audit
-- Production `source/game.js` and `index.html` still carry Warlord `atk:1.7` (grep-verified before launch) and `AUTO_REACT=false`; the candidate arm used the simulator's per-run source replace only. Zero automatic reactions executed in either arm.
-- Audit: Warlord ATK 978 at every control first attempt, 691 at every candidate first attempt; boss Lv 31 in both; arrival level, power, HP, charge and Surge matched within 0-5%.
-- CONFIRMATION DIAGNOSTIC: fresh paired seeds 11-30 x idle/light/casual/engaged x 24h, --shatters 3, production Road, Auto Training, hordes, catacombs; 80 control + 80 candidate runs; 0 simulation errors. Seeds 1-10 (pass 12) are not in this scorecard.
-- Instrumentation added this pass (commit 7a39a03, simulator only): seed ranges for batches; paired per-seed delta rows with +/0/- counts; counts with denominators; zones cleared at 20h; sixth-zone timing; first-attempt detail rows.
-
-## Results (seeds 11-30; med / P90 with paired relative change; "(mean)" rows are pooled means)
                                                                                  idle                                  light                                 casual                                engaged                               
 -- AUTO TRAINING (24h)   med / P90   ATK 1.7 -> ATK 1.2                                                                                                                                                                                  
 triggers                                                                         24 / 27 -> 24 / 27 (0%)               26 / 30 -> 27 / 33 (+4%)              30 / 34 -> 30 / 33 (0%)               32 / 35 -> 31 / 35 (-3%)              
@@ -153,33 +135,3 @@ Ironvein Caverns                                                                
 Emberwaste                                                                       - / - -> - / -                        23.03 / 23.08 -> 22.03 / 23.04 (-4%)  18.11 / 20.17 -> 18.07 / 21.05 (0%)   14.16 / 16.17 -> 13.24 / 15.17 (-6%)  
 zones cleared @24h                                                               4 / 4 -> 4 / 4 (0%)                   4 / 5 -> 4 / 5 (0%)                   5 / 6 -> 5 / 6 (0%)                   6 / 6 -> 6 / 6 (0%)                   
 party Lv @24h                                                                    49 / 51 -> 49 / 50 (0%)               50 / 52 -> 50 / 52 (0%)               52 / 53 -> 52 / 53 (0%)               54 / 55 -> 54 / 55 (0%)               
-
-## Confirmation gate scorecard (fresh seeds 11-30)
-1. Idle candidate >=2 first-try clears and above control: MET (4/20 vs 1/20).
-2. Idle median attempts <=3 and P90 <=8: MET (3 / 5, from 8 / 16).
-3. Idle total Ironvein stall down >=35%: MET (-37%, 1.94h -> 1.23h; paired deltas 17 negative, 3 positive, 0 zero, median -0.99h).
-4. Idle Auto-Cast attempt win rate +20 points: MET (17% -> 43% by run mean; pooled 20/175 -> 20/64, i.e. 11% -> 31%: the same 20 wins reached with 111 fewer losing attempts).
-5. Light first-try >=15% and above control: MET (7/20 = 35% vs 3/20 = 15%).
-6. Light Auto-Cast attempt win rate +10 points: MET by run mean (8% -> 22%); pooled 5/56 -> 4/23 (9% -> 17%). Small denominators; the dominant light effect is that attempts halved.
-7. Active-window win rate below 95% for light and casual: MET (light 16/23 = 70%, casual 20/24 = 83%); engaged 20/20 at its ceiling (control 20/23).
-8. Warlord produces losses in >=3 profiles: MET (idle, light, casual; engaged only in control).
-9. Stillwater and Thornwood within locked bands: MET (every row identical between arms).
-10. No profile's ordinary rewalk fights or estimated hours worse than +10%: NOT MET for engaged hours (4.29h -> 4.80h, +12%); engaged fights +5% (509 -> 536). Idle +9% fights / +5% hours, light 0% / +1%, casual +2% / +3% are inside the limit. Paired distribution for engaged hours: median delta 0.00h, 10 seeds positive, 6 zero, 4 negative.
-11. Median zones cleared at 20h and 24h not declining: MET (idle 4/4, light 4/4, casual 5/5 with paired 24h deltas +4 / 15 zero / -1; engaged 20h 5 -> 6, 24h 6/6).
-12. No downstream median clear time worse than +10% / P90 +15%: MET (Ironvein -7% / -7% idle and light; Emberwaste light -4%, casual 0%, engaged -6.5%; Amberfall engaged -5%; no zone slower).
-13. No horde, catacomb, telemetry or mechanical regression: MET (identical horde and catacomb rows).
-
-## On the one miss, with paired evidence rather than a noise label
-Engaged never loses the Warlord in the candidate arm (20/20 first-try vs 18/20), so the lever cannot act at Ironvein for engaged; the extra rewalk time arises after it. The paired data say where: engaged reaches its sixth zone earlier (19.2h vs 20.2h), clears Emberwaste and Amberfall 0.9h earlier each, and has zones-at-20h paired deltas of +5 / 15 / 0. It therefore spends about one more hour of the day in Amberfall and Ashen Approach, where ordinary defeats roll back further and cost more, which is exactly where its extra 27 rewalk fights and +12% hours accrue. That is a genuine consequence of faster progression, not a regression of the Warlord fight, and the same seeds show it with a median paired delta of zero hours and total engaged progression improved. It also recurred from pass 12 (+18% then, +12% now), so under the review's stated rule "repeat beyond the limit -> reject rather than label as noise" the literal reading is a rejection. I do not think that reading serves the criterion's purpose, which was to catch training time turning into dead time; here rewalk rose because the party got further, faster.
-
-## What the pass established
-- The primary effect confirmed on fresh seeds in the same direction and size as pass 12: idle Ironvein goes from an 8-attempt, 1.9h wall with a 16-attempt P90 to a 3-attempt, 1.2h check with a 5-attempt P90; light from 3 / 10 attempts to 2 / 5. Idle and light now record first-try clears at natural arrival (4/20 and 7/20), which pass 12 could not show.
-- Losses now reach the summon 95-100% of the time (from 52-89%) and end at 33-43% boss HP instead of 39-46%, i.e. the late phase is contested; wins end at 79-88% party HP. The charge still kills on every hit (2 per attempt for idle) and parries/interrupts are unchanged, so the telegraph keeps its identity and the active-window edge remains (light 70%, casual 83%).
-- Nothing upstream moved at all, and nothing downstream slowed. Auto Training is unchanged within 4%.
-
-## Proposed next step (proposal only)
-Propose the normal VALIDATION of Warlord ATK x1.2: 20 paired seeds x 5 profiles (adding stress) x 24h with the candidate value applied in production code for the validation build, production otherwise untouched. I recommend advancing despite the engaged rewalk-hours miss, on the evidence above; if the reviewer holds to the literal repeat rule, the alternative is to stop at x1.7 and accept idle Ironvein as an 8-attempt wall, since no other single lever tested (charge multiplier, Auto-Cast reactions) moves Auto-Cast outcomes. I would not test x1.0. Suggested validation criteria: the pass 13 gate with the rewalk criterion measured as rewalk hours per hour spent in zones at or beyond Emberwaste, which separates dead time from time-in-harder-content.
-IMPLEMENTATION_RISK: none beyond the number itself.
-
-## Caveats
-Pooled Auto-Cast attempt win rates for light rest on 56 and 23 attempts and for casual on 3 and 2; read the idle pooled figures (175 -> 64 attempts) as the reliable ones. Casual Amberfall rows compare 3 runs against 6 runs that reached it and should not be read as a boss change. Rewalk hours remain an estimate (fights lost to rollback x each run's mean seconds per encounter).
