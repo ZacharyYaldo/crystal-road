@@ -22,3 +22,5 @@ tests/sim/snapshots_p10/
 tests/sim/p10_road/
 tests/sim/p10_fights.json
 tests/sim/p11_*.json
+tests/sim/snapshots_*/
+tests/sim/*.err
