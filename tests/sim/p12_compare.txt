@@ -1,21 +1,3 @@
-STATUS: READY_FOR_REVIEW
-RESPONSE_TYPE: RESULTS_WITH_RECOMMENDATION
-PASS_ID: PASS_12_WARLORD_ATK_ROAD_DIAGNOSTIC
-BASED_ON_REVIEW_PASS: PASS_12_WARLORD_ATK_ROAD_DIAGNOSTIC
-BUILD: 20260911-115130
-HEAD_COMMIT_SHA: f1d3f50a45563e00a5709861296653187b9ae95d
-
-# Crystal Road AI Handoff - Pass 12 (Warlord ATK x1.7 vs x1.2, quick road diagnostic)
-
-DEVELOPER_POSITION: AGREE with the review; the experiment ran exactly as authorized. CONFIDENCE: HIGH on the paired measurements (80 runs, 0 errors, arms audited); MEDIUM on the recommendation, because two of the twelve criteria are not met and I argue below that both are measurement artifacts rather than effects of the lever.
-
-## Setup and audit
-- One build. Production `source/game.js` and `index.html` contain Warlord `atk:1.7` (verified by grep before and after the runs) and `AUTO_REACT=false`; the candidate arm applied `atk:1.2` through the simulator's per-run source replace only. The reaction code did not execute in either arm (0 automatic reactions in the telemetry).
-- Audit row "Warlord ATK at first attempt": 978 in every control run, 691 in every candidate run, boss Lv 31 in both. Separation confirmed.
-- Instrumentation added (observation only, commit f1d3f50): per-attempt boss telemetry on the road (window, arrival HP/charge/Surge/power, boss ATK and level, charge telegraphs/hits/kills/parries/interrupts, ordinary boss hits on heroes, boss HP and summon phase on loss, survivors and party HP on win), horde outcome summary, and the comparison rows below.
-- QUICK ROAD DIAGNOSTIC: paired seeds 1-10 x idle/light/casual/engaged x 24h, --shatters 3, production Road, Auto Training, hordes and catacombs; 40 control + 40 candidate runs; 0 simulation errors. Values are median / P90 with the paired relative change of the median; "%" rows marked (mean) are pooled means.
-
-## Results
                                                         idle                                  light                                 casual                                engaged                               
 -- AUTO TRAINING (24h)   med / P90   ATK 1.7 -> ATK 1.2                                                                                                                                                         
 triggers                                                24 / 30 -> 25 / 30 (+4%)              26 / 29 -> 27 / 30 (+4%)              30 / 34 -> 29 / 35 (-3%)              31 / 36 -> 28 / 36 (-10%)             
@@ -126,32 +108,3 @@ Ironvein Caverns                                        16.06 / 18.17 -> 15.04 /
 Emberwaste                                              - / - -> - / -                        21.08 / 23.08 -> 21.08 / 23.07 (0%)   17.13 / 23.11 -> 17.13 / 23.07 (0%)   14.14 / 16.2 -> 14.17 / 16.2 (+0%)    
 zones cleared @24h                                      4 / 4 -> 4 / 4 (0%)                   5 / 5 -> 5 / 5 (0%)                   6 / 6 -> 5 / 6 (-17%)                 6 / 6 -> 6 / 6 (0%)                   
 party Lv @24h                                           50 / 51 -> 50 / 51 (0%)               51 / 52 -> 51 / 52 (0%)               52 / 54 -> 52 / 54 (0%)               54 / 55 -> 54 / 55 (0%)               
-
-## Scorecard against the pass 12 success criteria
-1. Idle median attempts 7 -> 3-4, P90 materially below 18: MET and exceeded (7 -> 2, P90 18 -> 5).
-2. Idle total Ironvein stall down >=35%: MET (-52%, 2.35h -> 1.13h; boss-loss rewalk hours -72%).
-3. Idle first-try above 0% and light above 10%: light MET (10% -> 20%); idle NOT MET (0% -> 0%, 0 of 10 seeds). See interpretation.
-4. Auto-Cast Warlord attempt win rate improves materially for idle and light: MET (idle 12% -> 42% pooled over 100 -> 30 attempts; light 21% -> 38%).
-5. Active-window attempt win rate below 95% for idle/light/casual: MET (idle has no active attempts; light 57%, casual 90%); engaged stays at its 100% ceiling as allowed.
-6. Warlord still produces losses in at least three profiles: MET (idle, light, casual).
-7. No early-Road median clear time worse than +10% / P90 +15%: MET (Stillwater and Thornwood identical to the second decimal; Ironvein -6% / -7% for idle / light).
-8. Stillwater inside its locked bands: MET (every Stillwater row identical between arms, as expected since the arms diverge only at the Warlord).
-9. Median zones cleared at 24h not declining: NOT MET for casual (6 -> 5). Casual's Ironvein clear time is unchanged (11.15 -> 11.12h) and Emberwaste unchanged (17.13h); the sixth zone lands at 22-23h in these seeds and one seed crossed the 24h cutoff. This is the same cutoff artifact seen in passes 8 and 9 with the same seeds.
-10. Ordinary defeat, rewalk and Auto Training metrics not worse than +10%: MET for idle (training hours +10%, at the limit; defeats 0%, rewalk +5%), light and casual; NOT MET for engaged ordinary rewalk (+14% fights, +18% hours estimate). Engaged's Ironvein is identical in both arms (1 attempt, 100% first-try, 10.1h) so the arms cannot differ there; the divergence begins after the Warlord fight, whose different duration shifts the RNG sequence for everything downstream. It is seed drift, not a lever effect, and total engaged defeats are -1%.
-11. No downstream zone accelerating more than 15% without a propagation explanation: MET (no downstream zone clear time moved; Emberwaste/Amberfall first-try changes are RNG drift after the changed fight, with attempts and clear times flat).
-12. No horde, catacomb, telemetry or mechanical regression: MET (identical horde and catacomb rows).
-
-Failure criteria: none apply. The improvement is not confined to active attempts (idle's gain is entirely Auto-Cast); active attempts are not automatic (light 57%, casual 90%); Ironvein is not a universal first-try clear; and the party is not simply meeting a new add wall (losses now reach the summon 75-100% of the time and end with 28-29% boss HP instead of 35-46%, i.e. the fight is contested to its late phase).
-
-## Attribution: Auto-Cast vs active attempts
-Idle: 100% of the improvement is on Auto-Cast attempts (idle never has an active attempt). Light: Auto-Cast attempts 21% -> 38% and attempts per run 3 -> 2; active attempts 63% -> 57% on 13 -> 9 attempts, i.e. no active-side change within noise. Casual: the gain is on the active side (80% -> 90% on 12 attempts) with its rare Auto-Cast attempts unchanged; engaged unchanged. So the lever does what it was sized to do: it changes the Auto-Cast outcome and leaves the active window inside its ceiling.
-
-## Why idle first-try is still 0 of 10, and what it means
-Idle now wins 42% of Auto-Cast attempts pooled but 0 of 10 first attempts, and its median run is exactly two attempts: lose once at the natural arrival (Lv 38), train one level and rewalk, win. In the candidate arm idle's losses reach the summon 100% of the time and end at 29% boss HP with wins at 81% party HP, so the first attempt is a near-miss rather than an execution. The residual is about one party level at first arrival, not a boss mechanic. The next ATK step (x1.0) would buy that level back for idle but, per the pass 11 harness, pushes the active ceiling to 90-100% for every profile and makes casual's active attempts effectively automatic, which the review's own criteria forbid.
-
-## Proposed next step (proposal only)
-Propose a normal VALIDATION of Warlord ATK x1.2 (20 paired seeds x 5 profiles x 24h, production build with the candidate value applied for the validation only). Ten of twelve criteria are met; the two misses are the casual 24h-cutoff artifact and engaged RNG drift downstream of an identical Ironvein, both of which a 20-seed validation will resolve one way or the other. If the reviewer treats "idle first-try above 0%" as a hard requirement, I recommend accepting that idle Ironvein becomes a two-attempt, one-hour check rather than pursuing x1.0; the alternative, testing x1.0 on the road, would trade idle's first attempt for active-window trivialization at the first Lv 20 boss.
-IMPLEMENTATION_RISK: none beyond the number itself; the change is one field in the enemy table and the value is already exercised by the simulator's override path.
-
-## Caveats
-n=10 per cell; first-try rates move in 10-point steps; "zones cleared at 24h" is sensitive to the cutoff. Rewalk hours are fights lost to rollback times each run's mean seconds per encounter. Pooled attempt win rates for casual/engaged Auto-Cast rest on 0-7 attempts and should not be read.
