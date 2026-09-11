@@ -4,10 +4,10 @@
 const {spawn}=require('child_process'),path=require('path'),fs=require('fs'),os=require('os');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
 const SEEDS=args.seeds||10,HOURS=args.hours||24,PROFILES=String(args.profiles||'idle,light,casual,engaged,stress').split(','),WORKERS=args.workers||Math.max(1,os.cpus().length-2),SHATTERS=args.shatters||0;
-const dir=path.join(__dirname,'batch_out');fs.mkdirSync(dir,{recursive:true});
+const dir=path.join(__dirname,'batch_out'+(args.tag?'_'+args.tag:''));fs.mkdirSync(dir,{recursive:true});
 const jobs=[];for(const p of PROFILES)for(let s=1;s<=SEEDS;s++)jobs.push({p,s,file:path.join(dir,p+'_'+s+'.json')});
 let idx=0,done=0;const t0=Date.now();
-function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[path.join(__dirname,'bot.js'),'--hours',String(HOURS),'--seed',String(j.s),'--profile',j.p,'--quiet','--json',j.file,'--snapshots',path.join(__dirname,'snapshots')];if(SHATTERS)a.push('--shatters',String(SHATTERS));const c=spawn(process.execPath,a,{stdio:['ignore','ignore','inherit']});c.on('exit',()=>{done++;process.stdout.write('\r'+done+'/'+jobs.length+' done ('+((Date.now()-t0)/60000).toFixed(1)+' min)   ');if(done===jobs.length)report();else next();});}
+function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[path.join(__dirname,'bot.js'),'--hours',String(HOURS),'--seed',String(j.s),'--profile',j.p,'--quiet','--json',j.file,'--snapshots',path.join(__dirname,'snapshots')];if(SHATTERS)a.push('--shatters',String(SHATTERS));if(args.replace)a.push('--replace',String(args.replace));if(args.untilZone)a.push('--untilZone',String(args.untilZone));if(args.noRetreat)a.push('--noRetreat');const c=spawn(process.execPath,a,{stdio:['ignore','ignore','inherit']});c.on('exit',()=>{done++;process.stdout.write('\r'+done+'/'+jobs.length+' done ('+((Date.now()-t0)/60000).toFixed(1)+' min)   ');if(done===jobs.length)report();else next();});}
 for(let i=0;i<Math.min(WORKERS,jobs.length);i++)next();
 function pct(arr,q){const a=arr.filter(v=>v!=null&&!isNaN(v)).sort((x,y)=>x-y);if(!a.length)return null;const i=(a.length-1)*q;const lo=Math.floor(i),hi=Math.ceil(i);return +(a[lo]+(a[hi]-a[lo])*(i-lo)).toFixed(2);}
 function report(){console.log('\n');const rows=[];const all={};for(const j of jobs){try{(all[j.p]=all[j.p]||[]).push(JSON.parse(fs.readFileSync(j.file,'utf8')));}catch(e){}}
@@ -20,6 +20,11 @@ function report(){console.log('\n');const rows=[];const all={};for(const j of jo
   for(const z of zones)metric('boss fail% '+z,r=>r.bossFailRates[z]?Math.round(r.bossFailRates[z].rate*100):null);
   for(const z of zones)metric('boss max streak '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].maxStreak:null);
   for(const z of zones)metric('boss stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].stallH:null);
+  for(const z of zones)metric('boss COMBAT stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].combatStallH:null);
+  for(const z of zones)metric('boss RETRY stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].retryStallH:null);
+  for(const z of zones)metric('fights between 1st try and clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].fightsBetween:null);
+  for(const z of zones)metric('levels gained before clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].lvGain:null);
+  for(const z of zones)metric('gear changes before clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].upsBetween:null);
   for(const z of zones)metric('party Lv entering '+z,r=>r.zoneRec&&r.zoneRec[z]?r.zoneRec[z].lvAtEntry:null);
   for(const z of zones)metric('boss 1st-try clear% '+z,r=>r.bossFailRates[z]&&r.bossFailRates[z].firstTryClear!=null?r.bossFailRates[z].firstTryClear*100:null);
   for(const z of zones)metric('boss attempts to clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].attemptsToClear:null);

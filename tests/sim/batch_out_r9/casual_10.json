@@ -1,0 +1,463 @@
+{
+ "config": {
+  "hours": 24,
+  "shatters": 0,
+  "seed": 10,
+  "dt": 0.1,
+  "profile": "casual",
+  "taps": 1.5,
+  "activeMin": 10
+ },
+ "dmgShare": {
+  "basic": 0.476,
+  "ability": 0.464,
+  "tap": 0.038,
+  "surge": 0.022
+ },
+ "dmgPerHour": {
+  "basic": 266132,
+  "ability": 259462,
+  "tap": 21472,
+  "surge": 12315,
+  "total": 559381
+ },
+ "castsPerHour": 529,
+ "dmgActiveWindow": {
+  "share": {
+   "basic": 0.26,
+   "ability": 0.501,
+   "tap": 0.152,
+   "surge": 0.087
+  },
+  "perHour": 803191,
+  "hours": 2.14
+ },
+ "firsts": {
+  "first common": 0,
+  "first uncommon": 0.01,
+  "first rare": 1.37,
+  "first talent": 1.56,
+  "first epic": 11.54
+ },
+ "zoneRec": {
+  "Greenhollow Fields": {
+   "enterH": 0,
+   "lvAtEntry": 1,
+   "clearH": 0.4,
+   "lvAtClear": 5,
+   "hours": 0.4
+  },
+  "Stillwater Lagoon": {
+   "enterH": 0.4,
+   "lvAtEntry": 7,
+   "clearH": 2.52,
+   "lvAtClear": 16,
+   "hours": 2.12
+  },
+  "Thornwood": {
+   "enterH": 2.52,
+   "lvAtEntry": 16,
+   "clearH": 6.68,
+   "lvAtClear": 31,
+   "hours": 4.16
+  },
+  "Ironvein Caverns": {
+   "enterH": 6.68,
+   "lvAtEntry": 31,
+   "clearH": 12.14,
+   "lvAtClear": 40,
+   "hours": 5.46
+  }
+ },
+ "econPerHour": {
+  "goldEarned": 31948,
+  "goldSpent": 29129,
+  "oreEarned": 1427,
+  "oreSpent": 1423,
+  "renown": 0
+ },
+ "simHours": 12.14,
+ "final": {
+  "zone": "Ironvein Caverns",
+  "prog": 36,
+  "partyLv": 40,
+  "gold": 34209,
+  "ore": 51,
+  "dust": 2,
+  "shatters": 0,
+  "wins": 1410,
+  "defeats": 107,
+  "castle": {
+   "mine": 6,
+   "market": 6,
+   "walls": 5
+  },
+  "renown": 0
+ },
+ "recruits": {
+  "Sera": 0.01,
+  "Vex": 0.4,
+  "Morrow": 2.52,
+  "Wren": 12.14
+ },
+ "zonesCleared": {
+  "Greenhollow Fields": 0.4,
+  "Stillwater Lagoon": 2.52,
+  "Thornwood": 6.68,
+  "Ironvein Caverns": 12.14
+ },
+ "promotions": {},
+ "talents": {
+  "Sera: Mending": 1.56,
+  "Aldric: Iron Guard": 1.6,
+  "Vex: Quickdraw": 1.66,
+  "Morrow: Arcane Burn": 3.2
+ },
+ "shatters": [],
+ "bossFailRates": {
+  "Greenhollow Fields": {
+   "attempts": 2,
+   "fails": 1,
+   "rate": 0.5,
+   "maxStreak": 1,
+   "stallH": 0.15,
+   "lvFirst": 6,
+   "lvClear": 5,
+   "attemptsToClear": 2,
+   "firstTryClear": 0,
+   "combatStallH": 0.03,
+   "retryStallH": 0.09,
+   "fightsBetween": 9,
+   "lvGain": -1,
+   "upsBetween": 5,
+   "lossDur": 121.3,
+   "winDur": 97.6,
+   "hpLeft": 0.29,
+   "wipePct": 100,
+   "survivors": 3,
+   "partyHp": 0.87
+  },
+  "Stillwater Lagoon": {
+   "attempts": 1,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0.02,
+   "lvFirst": 19,
+   "lvClear": 16,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "fightsBetween": 1,
+   "lvGain": -3,
+   "upsBetween": 0,
+   "lossDur": null,
+   "winDur": 89.3,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 0.6
+  },
+  "Thornwood": {
+   "attempts": 2,
+   "fails": 1,
+   "rate": 0.5,
+   "maxStreak": 1,
+   "stallH": 0.13,
+   "lvFirst": 30,
+   "lvClear": 31,
+   "attemptsToClear": 2,
+   "firstTryClear": 0,
+   "combatStallH": 0.02,
+   "retryStallH": 0.09,
+   "fightsBetween": 9,
+   "lvGain": 1,
+   "upsBetween": 1,
+   "lossDur": 59.9,
+   "winDur": 77.2,
+   "hpLeft": 0.24,
+   "wipePct": 100,
+   "survivors": 4,
+   "partyHp": 0.82
+  },
+  "Ironvein Caverns": {
+   "attempts": 2,
+   "fails": 1,
+   "rate": 0.5,
+   "maxStreak": 1,
+   "stallH": 1.98,
+   "lvFirst": 36,
+   "lvClear": 40,
+   "attemptsToClear": 2,
+   "firstTryClear": 0,
+   "combatStallH": 0.02,
+   "retryStallH": 1.94,
+   "fightsBetween": 220,
+   "lvGain": 4,
+   "upsBetween": 23,
+   "lossDur": 69.6,
+   "winDur": 55.7,
+   "hpLeft": 0.31,
+   "wipePct": 100,
+   "survivors": 4,
+   "partyHp": 1
+  }
+ },
+ "drops": {
+  "Greenhollow Fields": {
+   "common": 36,
+   "uncommon": 12,
+   "rare": 0,
+   "epic": 0,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Stillwater Lagoon": {
+   "common": 54,
+   "uncommon": 26,
+   "rare": 12,
+   "epic": 0,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Thornwood": {
+   "common": 48,
+   "uncommon": 38,
+   "rare": 14,
+   "epic": 0,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Ironvein Caverns": {
+   "common": 4,
+   "uncommon": 9,
+   "rare": 6,
+   "epic": 1,
+   "legendary": 0,
+   "mythic": 0
+  }
+ },
+ "catacombs": {
+  "best": 3,
+  "runs": 3
+ },
+ "endless": {
+  "best": 0,
+  "milestones": 0
+ },
+ "stuck": [
+  {
+   "zone": "Stillwater Lagoon",
+   "h": 0.57,
+   "lv": 6
+  },
+  {
+   "zone": "Stillwater Lagoon",
+   "h": 0.93,
+   "lv": 10
+  },
+  {
+   "zone": "Stillwater Lagoon",
+   "h": 1.37,
+   "lv": 13
+  },
+  {
+   "zone": "Stillwater Lagoon",
+   "h": 1.91,
+   "lv": 16
+  },
+  {
+   "zone": "Thornwood",
+   "h": 2.69,
+   "lv": 17
+  },
+  {
+   "zone": "Thornwood",
+   "h": 3.36,
+   "lv": 20
+  },
+  {
+   "zone": "Thornwood",
+   "h": 4.04,
+   "lv": 22
+  },
+  {
+   "zone": "Thornwood",
+   "h": 4.71,
+   "lv": 25
+  },
+  {
+   "zone": "Thornwood",
+   "h": 5.37,
+   "lv": 27
+  },
+  {
+   "zone": "Thornwood",
+   "h": 6.04,
+   "lv": 29
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 6.91,
+   "lv": 31
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 7.58,
+   "lv": 32
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 8.25,
+   "lv": 33
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 8.91,
+   "lv": 34
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 9.58,
+   "lv": 35
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 10.25,
+   "lv": 36
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 10.91,
+   "lv": 37
+  },
+  {
+   "zone": "Ironvein Caverns",
+   "h": 11.58,
+   "lv": 39
+  }
+ ],
+ "hourly": [
+  {
+   "h": 1,
+   "gold": 944,
+   "ore": 7,
+   "dust": 0,
+   "zone": "Greenhollow Fields",
+   "prog": 24,
+   "lv": 11,
+   "wins": 93
+  },
+  {
+   "h": 2,
+   "gold": 2031,
+   "ore": 9,
+   "dust": 0,
+   "zone": "Greenhollow Fields",
+   "prog": 24,
+   "lv": 17,
+   "wins": 253
+  },
+  {
+   "h": 3,
+   "gold": 2230,
+   "ore": 24,
+   "dust": 0,
+   "zone": "Stillwater Lagoon",
+   "prog": 30,
+   "lv": 18,
+   "wins": 391
+  },
+  {
+   "h": 4,
+   "gold": 5433,
+   "ore": 51,
+   "dust": 0,
+   "zone": "Thornwood",
+   "prog": 18,
+   "lv": 22,
+   "wins": 504
+  },
+  {
+   "h": 5,
+   "gold": 8168,
+   "ore": 62,
+   "dust": 0,
+   "zone": "Stillwater Lagoon",
+   "prog": 30,
+   "lv": 25,
+   "wins": 634
+  },
+  {
+   "h": 6,
+   "gold": 9493,
+   "ore": 57,
+   "dust": 0,
+   "zone": "Thornwood",
+   "prog": 23,
+   "lv": 29,
+   "wins": 772
+  },
+  {
+   "h": 7,
+   "gold": 10815,
+   "ore": 105,
+   "dust": 0,
+   "zone": "Thornwood",
+   "prog": 30,
+   "lv": 31,
+   "wins": 906
+  },
+  {
+   "h": 8,
+   "gold": 11591,
+   "ore": 101,
+   "dust": 0,
+   "zone": "Thornwood",
+   "prog": 30,
+   "lv": 33,
+   "wins": 984
+  },
+  {
+   "h": 9,
+   "gold": 21470,
+   "ore": 170,
+   "dust": 2,
+   "zone": "Thornwood",
+   "prog": 30,
+   "lv": 34,
+   "wins": 1061
+  },
+  {
+   "h": 10,
+   "gold": 19658,
+   "ore": 146,
+   "dust": 2,
+   "zone": "Thornwood",
+   "prog": 30,
+   "lv": 36,
+   "wins": 1164
+  },
+  {
+   "h": 11,
+   "gold": 24958,
+   "ore": 172,
+   "dust": 2,
+   "zone": "Thornwood",
+   "prog": 30,
+   "lv": 37,
+   "wins": 1264
+  },
+  {
+   "h": 12,
+   "gold": 29819,
+   "ore": 207,
+   "dust": 2,
+   "zone": "Thornwood",
+   "prog": 30,
+   "lv": 39,
+   "wins": 1387
+  }
+ ]
+}
