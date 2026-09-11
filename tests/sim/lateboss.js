@@ -5,7 +5,7 @@
 const {load}=require('./headless.js'),fs=require('fs'),path=require('path');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
 const SNAP=path.join(__dirname,String(args.snapDir||'snapshots')),DIRS=String(args.dirs||'batch_out_p15,batch_out_p14x').split(','),P=String(args.profiles||'idle,light,casual,engaged,stress').split(',');
-const BOSSES=[{zone:'Ironvein Caverns',id:'warlord',prefix:'ironvein',charge:'melee x2.5'},{zone:'Emberwaste',id:'sandtyrant',prefix:'emberwaste',charge:'melee x2.5'},{zone:'Amberfall Woods',id:'hunterking',prefix:'amberfall',charge:'volley x2.2'},{zone:'Ashen Approach',id:'graveknight',prefix:'ashen_approach',alt:'ashen',charge:'melee x2.5'},{zone:'Ashen Keep',id:'necromancer',prefix:'ashen_keep',alt:'ashen',charge:'none'}];
+const BOSSES=[{zone:'Ironvein Caverns',id:'warlord',prefix:'ironvein',charge:'melee x2.5'},{zone:'Emberwaste',id:'sandtyrant',prefix:'emberwaste',charge:'melee x2.5'},{zone:'Amberfall Woods',id:'hunterking',prefix:'amberfall',charge:'volley x2.2'},{zone:'Ashen Approach',id:'graveknight',prefix:'ashen_approach',alt:'ashen',charge:'melee x2.5'},{zone:'Ashen Keep',id:'necromancer',prefix:'ashen_keep',alt:'ashen',charge:'none'},{zone:'The Foundry',id:'core',prefix:'the_foundry',charge:'none'}];
 const srt=a=>a.filter(v=>v!=null&&!isNaN(v)).sort((x,y)=>x-y),med=a=>{a=srt(a);return a.length?a[Math.floor((a.length-1)/2)]:null;},f=(v,d=1)=>v==null?'-':String(+(+v).toFixed(d));
 (async()=>{
   const S=load({startMs:1700000000000});await S.ready;const G=S.G,Z=S.ZONES,E=S.ENEMIES;
