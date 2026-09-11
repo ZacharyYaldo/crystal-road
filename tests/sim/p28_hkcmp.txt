@@ -1,21 +1,3 @@
-STATUS: READY_FOR_REVIEW
-RESPONSE_TYPE: RESULTS_WITH_PARTIAL_AND_LOCK_RECOMMENDATION
-PASS_ID: PASS_28_HOLLOW_KING_ATK_CANDIDATE
-BASED_ON_REVIEW_PASS: PASS_28_HOLLOW_KING_ATK_CANDIDATE
-BUILD: 20260911-163721
-HEAD_COMMIT_SHA: 5b06bfc027562160fb7f22bfe70de98203b1cfad
-
-# Crystal Road AI Handoff - Pass 28 (Hollow King base ATK 1.7 vs 1.3, seeds 51-60 x idle/light/casual/engaged x 96h, candidate paired against the pass 27 baseline)
-
-DEVELOPER_POSITION: PARTIAL, leaning lock. Five of the six candidate conditions are met and the sixth is missed on the number but not on the substance: idle's Auto-Cast win rate goes from 1.7% to 5.1% (10 wins in 198 attempts instead of 596), not to a two-digit figure; but idle's median stall falls 38% (10.3h -> 6.4h, 10 of 10 seeds down, attempts 59 -> 18 in every seed), the active profiles win 16-33% of attempts (from 5-28%) with no first-try clears and fights that last longer (losses 31-104s instead of 20-49s, ending at 47-69% boss HP instead of 68-76%), opening-phase wipes fall from 381 to 83 across the four profiles while summon-phase attempts rise, the Road is identical through the first Keep entry in 40 of 40 audits, and downstream the Foundry is entered 1-7h earlier with the Core still a wall (idle 1 win in 736 Auto-Cast attempts, light 0/119). I recommend locking 1.3 and treating idle's remaining single-digit rate as the same damage-per-action mechanism one zone further on, where the Core is now the largest wall. CONFIDENCE: HIGH on the measurements (40 runs, 0 errors, 40 of 40 audits exact, ATK 10686 -> 8172 at every first attempt, lord-cycle entry untouched); HIGH on the direction; MEDIUM on the lock because the idle criterion is a literal miss.
-
-## Setup and validity
-- Candidate: `ENEMIES.necromancer.atk` 1.7 -> 1.3 by simulator replace of the Ashen Keep boss entry only (`batch_p28.log`); the separate lord-cycle `hollowking` entry (atk 1.5) is not touched and its line is unchanged in the source; production source and bundle unchanged at 1.7. Baseline: the committed pass 27 batch, not rerun.
-- Batch: seeds 51-60 x idle/light/casual/engaged x 96h on build 20260911-163721 (post-Shatter HP/ATK 1.10, DEF 1.10, Keep 50), `--stallRule far --stallHours 3`, `--shatters 3` cap, pass 22 dust policy, literal pass 24 ascension policy; 40 runs; 0 errors.
-- Validity: 96.00h reached 40/40; no run over three Shatters and none stopped at three; exact match with the pass 27 run through the first Keep entry in 40/40 (hourly state, every Shatter before it, first Keep entry hour/level/power); boss ATK at first attempt 10686 -> 8172 (run 3) and 9715 -> 7429 (run 2) in every run, HP, DEF, speed, drain and summon fields identical (same boss level, same summon thresholds firing, same loss-phase classification inputs); every earlier boss row identical; the Foundry Core's ATK 26082 in both arms.
-- Report tool `tests/sim/hkcmp.js`.
-
-## Paired results (per seed: audit, Hollow King attempts/wins by window, stall, party level/power, loss and win detail; phases and damage shares; Keep clear and time in Keep; Foundry, Core and Endless; horizons; totals; then per-profile summaries and outliers)
 
 ===== IDLE   baseline batch_out_p27 (ATK 1.7) -> candidate batch_out_p28 (ATK 1.3)
 
@@ -292,23 +274,3 @@ seed 60  hours 96.00  Shatters 3->3  audit through first Keep entry (h34.2): hou
 -- engaged downstream: Foundry entry h med 60.2 -> 54.1 (paired med -5.1, +1 00 -9) | Foundry cleared runs 10->10 | Core wins/att 10/115 -> 10/102 (auto 0/10 -> 0/18) | Endless reached 10->10 (entry h med 74.2 -> 73.1 (paired med -2.1, +2 00 -8), hours med 19.8 -> 22.8 (paired med 1.1, +8 00 -2))
 -- engaged horizons cur/best med 24h 5/6->5/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats med 2245 -> 2234 (paired med -77, +3 00 -7) | training h med 26.6 -> 30.3 (paired med 2.3, +9 00 -1) | Lv@96h med 120 -> 123 (paired med 4, +8 00 -2) | gold earned M med 370.9 -> 463.2 (paired med 72.1, +8 00 -2) | ore earned med 4661952 -> 5389440 (paired med 745440, +8 00 -2)
 -- engaged outliers: none
-
-HOLLOW KING ARRIVAL HITS-TO-DEFEAT (first attempt, front/back hero): baseline idle 1.1/0.8, light 0.9/0.7, casual 0.6/0.5, engaged 0.6/0.4 (boss ATK 10686, or 9715 on run 2); candidate idle 1.4/1.1, light 1.2/0.9, casual 0.8/0.7, engaged 0.7/0.6 (boss ATK 8172 / 7429). Boss ordinary hits per attempt: idle 22 -> 36, light 12 -> 15, casual 11 -> 15, engaged 8 -> 12; summon phase reached in 71% -> 90% (idle), 27% -> 43%, 42% -> 48%, 39% -> 57% of attempts.
-
-## Scorecard against the candidate rule
-1. Idle Hollow King Auto-Cast win rate a meaningful two-digit percentage: NOT MET on the number. 10/596 (1.7%) -> 10/198 (5.1%); attempts to clear 59 -> 18 median (52-67 -> 15-30), every seed down. The fight changed shape for idle: losses last 70s instead of 41s, end at 53% boss HP instead of 69%, 90% of attempts reach the first summon (71% before) and losses now mostly happen after the skeletons (98) or after the armored skeletons (71) rather than in the opening (19, from 171).
-2. Idle median stall down at least one third from 10.3h: MET (6.4h, -38%, paired -4.3h, 10 of 10 down; per seed 8.5 -> 4.5, 7.3 -> 2.4, 10.3 -> 4.6, 10.7 -> 6.7, 15.5 -> 7.8, 10.3 -> 4.5, 13.9 -> 9.7, 10.7 -> 6.4, 10.2 -> 7.1, 10.8 -> 6.8).
-3. Light, casual and engaged active win rates below 90%: MET (33%, 24%, 16%; from 28%, 10%, 5%).
-4. Active profiles still show repeated losses and meaningful fight duration, no first-try clears: MET (attempts to clear 5 / 4 / 6 median; 0 first-try clears in 40 runs; losses 31-35s at 47-69% boss HP; wins 100% party HP as before).
-5. Opening-phase wipes decline and more attempts reach the summon phases: MET (opening losses 171 / 44 / 57 / 109 -> 19 / 24 / 16 / 24; summon reached 71 / 27 / 42 / 39% -> 90 / 43 / 48 / 57% of attempts; boss damage share at loss 94-97% -> 89-94%, skeletons 3-5% -> 5-10%).
-6. Earlier Road identical, no downstream collapse: MET. Audit 40/40. Keep clear 4-7h earlier for idle, casual and engaged (light -1h); Foundry entered 1-7h earlier; Foundry ordinary rows unchanged in kind; Core wins 0/766 -> 1/736 (idle), 8/96 -> 9/159 (light), 9/72 -> 10/92 (casual), 10/115 -> 10/102 (engaged), Auto-Cast 0-1 wins in every profile; Endless reached by one more idle, light and casual run each, 1-4h earlier for casual and engaged with the same per-hour pattern; total defeats within 5%; training +1-2h (more late-Road time); gold and ore earned up 30% for casual and 25% for engaged (more Endless hours), flat for idle and light.
-
-## Reading
-The lever does what the pass 27 attribution predicted: with 24% less boss damage per action the opening exchange stops killing the party outright (hits-to-defeat 1.4 / 1.1 for idle at arrival instead of 1.1 / 0.8), the fight reaches its summon phases, and the active profiles convert that into wins at 16-33% while Auto-Cast converts it at 5%. Idle is no longer blocked (18 attempts and 6.4h instead of 59 and 10.3h) but the Hollow King on Auto-Cast is still a grind, and the same party then meets the Foundry Core at 0.5-0.8 hits-to-defeat and stops there (idle 1 win in 736, every idle run ends the 96h in the Foundry, as in the baseline). Nothing became automatic and nothing collapsed downstream.
-
-## Recommendation (proposal only)
-Lock Hollow King base ATK 1.3 (the idle criterion is the one miss; the stall, attempts, phase and active-window criteria are all met and the direction is uniform across 40 paired seeds). Then, on pacing: the Foundry Core is the same mechanism with the same evidence shape (boss hits end the attempt, 80-88% HP left, 15-26s, Auto-Cast 1 in 900 across profiles) and its arrival snapshots for all four profiles are on disk from passes 27-28, so its value can be sized in the boss harness in minutes before any road batch, and a road test of the Core can share a pass with the Endless economy question rather than take two. I also suggest 72h instead of 96h for Core road tests (every profile reaches the Core by 60-77h) to cut batch time by a quarter. I do not propose a Core value here; the harness sizing would be the first step.
-IMPLEMENTATION_RISK: one field in the enemy table; override path exercised; the lord-cycle entry is separate and unaffected.
-
-## Caveats
-n=10 per profile; every run clears once by construction, so wins are 10 per profile and the informative numbers are attempts, stall, window rates, phases and durations. Endless and gold deltas reflect 1-4 extra hours of late exposure and are reported, not interpreted. Untagged attempts (cut by a Shatter or the horizon) are excluded from win rates.
