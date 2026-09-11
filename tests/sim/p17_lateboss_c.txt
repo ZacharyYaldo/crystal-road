@@ -1,0 +1,32 @@
+
+=== Orc Warlord (Ironvein Caverns, zone 4, enemy Lv 20)  base HP x6 ATK x1.2 DEF x1.2 spd 8 melee  charge melee x2.5  mech {"charge":true,"shieldAllies":true,"summon":[{"at":0.5,"id":"orc","n":2}]}
+profile snaps arrLv heroHP med heroDEF bossATK ordHit front/back hits2kill f/b charge%HP f/b | attemptsauto w/a  active w/a chg hits/kills per att bossHits/att loss bossHP% summon% win surv/HP% first-try source
+idle    10    38    1312/990   177/135 691     589/624           2.2/1.6       124%/168%     | 22      10/22     0/0        2.55/2.32 (tele 2.55)  8.3          39           100     4/79%        40% n10   batch_out_p17c
+light   10    37    1277/930   167/130 691     595/626           2.1/1.5       128%/179%     | 27      5/18      5/9        1.85/1.63 (tele 1.93)  6.6          43           88      4/86%        20% n10   batch_out_p17c
+casual  10    35    1138/850   149/110 691     605/636           1.9/1.3       144%/197%     | 14      0/1       10/13      0.71/0.71 (tele 1.07)  4.7          46           75      4/83%        70% n10   batch_out_p17c
+
+=== The Sand Tyrant (Emberwaste, zone 5, enemy Lv 27)  base HP x6.5 ATK x1.9 DEF x1 spd 10 melee  charge melee x2.5  mech {"charge":true,"enrage":0.25,"summon":[{"at":0.5,"id":"sandorc","n":2}]}
+profile snaps arrLv heroHP med heroDEF bossATK ordHit front/back hits2kill f/b charge%HP f/b | attemptsauto w/a  active w/a chg hits/kills per att bossHits/att loss bossHP% summon% win surv/HP% first-try source
+idle    6     49    2126/1429  300/218 1861    1689/1752         1.3/0.8       211%/318%     | 216     10/216    0/0        2.7/2.7 (tele 2.7)     6.4          44           84      4/69%        0% n10    batch_out_p17c
+light   6     47    2126/1469  258/205 1861    1713/1759         1.2/0.8       212%/310%     | 32      1/20      9/12       1.78/1.66 (tele 1.94)  4.9          55           32      4/87%        10% n10   batch_out_p17c
+casual  10    42    1709/1073  217/148 1861    1736/1787         1/0.6         265%/427%     | 26      0/5       10/21      0.92/0.85 (tele 1.77)  4.3          32           75      4/82%        40% n10   batch_out_p17c
+
+=== The Hunter King (Amberfall Woods, zone 6, enemy Lv 34)  base HP x6 ATK x2 DEF x0.9 spd 11 ranged  charge volley x2.2  mech {"charge":true,"summon":[{"at":0.6,"id":"skelarcher","n":2}]}
+profile snaps arrLv heroHP med heroDEF bossATK ordHit front/back hits2kill f/b charge%HP f/b | attemptsauto w/a  active w/a chg hits/kills per att bossHits/att loss bossHP% summon% win surv/HP% first-try source
+idle    4     58    3102/2417  461/365 3235    2970/3053         1/0.8         221%/287%     | 371     10/371    0/0        2.36/2.34 (tele 2.36)  5.4          54           78      4/73%        0% n10    batch_out_p17c
+light   2     59    3122/2378  393/356 3235    3009/3057         1/0.8         221%/292%     | 35      1/21      9/14       1.31/1.26 (tele 1.54)  4.1          63           40      4/98%        50% n10   batch_out_p17c
+casual  1     54    2470/1891  333/280 3235    3044/3095         0.8/0.6       280%/369%     | 21      0/4       10/17      1/0.9 (tele 1.81)      3.9          56           55      4/92%        40% n10   batch_out_p17c
+
+=== Grave Knight (Ashen Approach, zone 7, enemy Lv 42)  base HP x7 ATK x2 DEF x1.4 spd 7 melee  charge melee x2.5  mech {"charge":true,"raise":true,"summon":[{"at":0.7,"id":"skeleton","n":2}]}
+profile snaps arrLv heroHP med heroDEF bossATK ordHit front/back hits2kill f/b charge%HP f/b | attemptsauto w/a  active w/a chg hits/kills per att bossHits/att loss bossHP% summon% win surv/HP% first-try source
+idle    2     70    4527/3698  708/517 5586    5179/5328         0.9/0.7       299%/371%     | 29      3/29      0/0        1.24/1.24 (tele 1.24)  4.9          66           73      4/87%        0% n7     batch_out_p17c
+light   2     70    4558/3714  602/530 5586    5240/5321         0.9/0.7       299%/369%     | 18      0/8       9/10       0.89/0.83 (tele 1.06)  4.4          65           89      4/97%        56% n9    batch_out_p17c
+casual  1     66    3859/2959  564/448 5586    5262/5362         0.7/0.6       353%/464%     | 16      1/3       9/13       0.56/0.56 (tele 0.69)  3.1          75           33      4/100%       60% n10   batch_out_p17c
+
+=== The Hollow King (Ashen Keep, zone 8, enemy Lv 50)  base HP x7 ATK x1.7 DEF x1 spd 8 aoe  charge none  mech {"drain":true,"summon":[{"at":0.7,"id":"skeleton","n":2},{"at":0.35,"id":"armoredskel","n":2}]}
+profile snaps arrLv heroHP med heroDEF bossATK ordHit front/back hits2kill f/b charge%HP f/b | attemptsauto w/a  active w/a chg hits/kills per att bossHits/att loss bossHP% summon% win surv/HP% first-try source
+idle    no data
+light   no data
+casual  0     -     -          -       8029    -                 -             -             | 5       0/0       0/5        0/0 (tele 0)           5            90           0       -            0% n3     batch_out_p17c
+
+ordHit = boss ATK - hero DEF*0.5 (front x1.15; tree front bonus ignored), before the 0.85-1.15 roll and crits; hits2kill = hero max HP / ordHit; charge%HP = charge damage as % of hero max HP (melee x2.5, volley x2.2). Telemetry columns pool every attempt in the source dir; first-try is per run.
