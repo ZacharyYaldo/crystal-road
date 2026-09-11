@@ -277,7 +277,7 @@ function keepPushing(){const T=G.train;if(!T||!T.active)return;const ret=T.ret;G
 let AUTO_EQ=false;
 function buildChanged(){if(AUTO_EQ)return;G.danger=null;if(G.train&&G.train.active){const ret=G.train.ret;finishTraining(false);goZone(ret);toast('Training cancelled - the party changed');}else if(G.train&&!G.train.active)G.train=null;}
 function bossRetry(z){const r=BOSS_RETRY[z]!=null?BOSS_RETRY[z]:BOSS_RETRY.default;return Array.isArray(r)?r[Math.min(r.length-1,Math.max(0,(G.bossStreak||1)-1))]:r;}
-function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.25,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
+function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.10,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
 // items
 let itemSeq=1;
 function itemStat(it){const rf=1+0.1*(G.reforges||0),base=it.slot==='weapon'?6:it.slot==='cape'?3:12;return R(base*Math.pow(2.2,it.rank)*Math.pow(1.10,it.lvl)*rf);}
