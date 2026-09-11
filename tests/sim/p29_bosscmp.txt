@@ -1,0 +1,232 @@
+
+===== IDLE   baseline batch_out_p28 -> candidate batch_out_p29   boss: The Foundry Core in The Foundry
+
+seed 51  hours 96.00  Shatters 3->3  audit through zone entry (h73): hourly 73/73, Ashen Keep rows through that run identical (1/19 stall 4.5h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 91->83 wins 0->0 [auto 0/91->0/83, active 0/0->0/0] stall -->-h | entry @73.38h Lv65 pw155K | at boss Lv 90->90 | loss dur 26->28s HP left 71->67% deaths 4->4 | charge hits/kills per att 3.16/2.77 -> 4.25/3.66 | win surv null->null HP 0->0%
+  phases opening/charge/summon 3/83/5 -> 0/64/19 | damage share boss 100% -> 99% adds 0% -> 1% | zone ordinary enc 1445 L126 far 34 -> enc 1290 L121 far 35 | time in zone 14.4->12.8h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1499->1486 | training 29.9->31.4h | Lv@96h 94->94 pw 344K->336K | gold 63.5->62.8M ore 1368K->1323K | final 3 The Foundry f29 Lv94 -> 3 The Foundry f35 Lv94
+
+seed 52  hours 96.00  Shatters 3->3  audit through zone entry (h72): hourly 72/72, Ashen Keep rows through that run identical (1/15 stall 2.4h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 87->75 wins 0->0 [auto 0/87->0/75, active 0/0->0/0] stall -->-h | entry @72.06h Lv64 pw146K | at boss Lv 91->90 | loss dur 27->37s HP left 71->64% deaths 4->4 | charge hits/kills per att 3.10/2.60 -> 4.27/3.32 | win surv null->null HP 0->0%
+  phases opening/charge/summon 0/82/5 -> 0/53/22 | damage share boss 100% -> 99% adds 0% -> 1% | zone ordinary enc 1495 L141 far 35 -> enc 1595 L180 far 35 | time in zone 14.9->16.0h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1292->1319 | training 28.9->27.8h | Lv@96h 95->94 pw 337K->337K | gold 72.1->70.5M ore 1514K->1499K | final 3 The Foundry f31 Lv95 -> 3 The Foundry f27 Lv94
+
+seed 53  hours 96.00  Shatters 3->3  audit through zone entry (h81): hourly 80/80, Ashen Keep rows through that run identical (1/15 stall 4.6h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 13->7 wins 0->0 [auto 0/13->0/7, active 0/0->0/0] stall -->-h | entry @80.74h Lv68 pw150K | at boss Lv 86->86 | loss dur 19->26s HP left 90->85% deaths 4->4 | charge hits/kills per att 1.15/1.15 -> 4.00/4.00 | win surv null->null HP 0->0%
+  phases opening/charge/summon 4/9/0 -> 0/7/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 615 L108 far 28 -> enc 616 L117 far 35 | time in zone 6.6->6.6h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1684->1687 | training 25.4->25.4h | Lv@96h 87->87 pw 262K->261K | gold 42.5->42.2M ore 962K->958K | final 3 The Foundry f25 Lv87 -> 3 The Foundry f24 Lv87
+
+seed 54  hours 96.00  Shatters 3->3  audit through zone entry (h73): hourly 72/72, Ashen Keep rows through that run identical (1/30 stall 6.7h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 95->108 wins 0->0 [auto 0/95->0/108, active 0/0->0/0] stall -->-h | entry @72.5h Lv67 pw159K | at boss Lv 90->89 | loss dur 26->32s HP left 72->68% deaths 4->4 | charge hits/kills per att 2.98/2.51 -> 4.06/3.40 | win surv null->null HP 0->0%
+  phases opening/charge/summon 0/94/1 -> 1/78/29 | damage share boss 100% -> 99% adds 0% -> 1% | zone ordinary enc 1552 L121 far 35 -> enc 1713 L117 far 35 | time in zone 15.6->17.3h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 4/6->4/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1331->1340 | training 27.4->25.6h | Lv@96h 95->94 pw 342K->327K | gold 62.7->62.4M ore 1361K->1298K | final 3 The Foundry f26 Lv95 -> 3 The Foundry f35 Lv94
+
+seed 55  hours 96.00  Shatters 3->3  audit through zone entry (h81): hourly 80/80, Ashen Keep rows through that run identical (1/23 stall 7.8h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 26->30 wins 0->0 [auto 0/26->0/30, active 0/0->0/0] stall -->-h | entry @80.65h Lv54 pw156K | at boss Lv 81->82 | loss dur 22->28s HP left 88->84% deaths 4->4 | charge hits/kills per att 1.92/1.92 -> 4.00/3.67 | win surv null->null HP 0->0%
+  phases opening/charge/summon 3/23/0 -> 0/30/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 1028 L140 far 32 -> enc 983 L130 far 32 | time in zone 10.8->10.3h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1298->1292 | training 28.5->29.0h | Lv@96h 85->85 pw 276K->273K | gold 48.2->47.9M ore 1138K->1102K | final 3 The Foundry f28 Lv85 -> 3 The Foundry f29 Lv85
+
+seed 56  hours 96.00  Shatters 3->3  audit through zone entry (h79): hourly 78/78, Ashen Keep rows through that run identical (1/17 stall 4.5h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 15->12 wins 0->0 [auto 0/15->0/12, active 0/0->0/0] stall -->-h | entry @78.75h Lv63 pw151K | at boss Lv 85->84 | loss dur 21->26s HP left 88->85% deaths 4->4 | charge hits/kills per att 1.40/1.40 -> 3.58/3.42 | win surv null->null HP 0->0%
+  phases opening/charge/summon 2/13/0 -> 0/12/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 816 L138 far 29 -> enc 870 L149 far 29 | time in zone 8.6->9.2h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1367->1375 | training 32.7->32.0h | Lv@96h 86->86 pw 265K->262K | gold 44.5->44.2M ore 1128K->1104K | final 3 The Foundry f27 Lv86 -> 3 Ashen Keep f36 Lv86
+
+seed 57  hours 96.00  Shatters 3->3  audit through zone entry (h71): hourly 70/70, Ashen Keep rows through that run identical (1/17 stall 9.7h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 96->93 wins 0->1 [auto 0/96->1/93, active 0/0->0/0] stall -->13.4h | entry @71h Lv55 pw141K | at boss Lv 89->88 | loss dur 28->32s HP left 76->77% deaths 4->4 | charge hits/kills per att 3.45/3.09 -> 4.22/3.45 | win surv null->4 HP 0->38%
+  phases opening/charge/summon 2/94/0 -> 0/75/17 | damage share boss 100% -> 99% adds 0% -> 1% | zone ordinary enc 1725 L169 far 34 -> enc 1609 L160 far 35 | time in zone 17.8->16.6h | cleared -->@95.48 | Endless - -> @95.48 (0.5h, wave 68)
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 8/8->8/8, 96h 8/8->9/9 | defeats 1257->1245 | training 27.2->27.9h | Lv@96h 94->94 pw 337K->492K | gold 64.3->65.1M ore 1351K->1347K | final 3 The Foundry f27 Lv94 -> 3 The Endless Road f68 Lv94
+
+seed 58  hours 96.00  Shatters 3->3  audit through zone entry (h71): hourly 71/71, Ashen Keep rows through that run identical (1/18 stall 6.4h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 62->69 wins 0->0 [auto 0/62->0/69, active 0/0->0/0] stall -->-h | entry @71.23h Lv67 pw151K | at boss Lv 92->91 | loss dur 27->31s HP left 72->69% deaths 4->4 | charge hits/kills per att 2.77/2.15 -> 4.10/3.35 | win surv null->null HP 0->0%
+  phases opening/charge/summon 1/61/0 -> 0/59/10 | damage share boss 100% -> 99% adds 0% -> 1% | zone ordinary enc 1479 L159 far 35 -> enc 1508 L154 far 33 | time in zone 14.9->15.2h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 8/8->8/8, 96h 8/8->8/8 | defeats 1310->1312 | training 31.2->30.9h | Lv@96h 95->95 pw 315K->312K | gold 63.3->62.9M ore 1317K->1302K | final 3 The Foundry f28 Lv95 -> 3 The Foundry f30 Lv95
+
+seed 59  hours 96.00  Shatters 3->3  audit through zone entry (h73): hourly 72/72, Ashen Keep rows through that run identical (1/18 stall 7.1h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 89->80 wins 0->0 [auto 0/89->0/80, active 0/0->0/0] stall -->-h | entry @72.66h Lv65 pw156K | at boss Lv 89->88 | loss dur 26->31s HP left 76->79% deaths 4->4 | charge hits/kills per att 3.12/2.74 -> 4.21/3.51 | win surv null->null HP 0->0%
+  phases opening/charge/summon 1/87/1 -> 0/75/5 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 1571 L130 far 34 -> enc 1542 L134 far 35 | time in zone 15.7->15.5h | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1239->1234 | training 30.6->30.8h | Lv@96h 94->94 pw 338K->333K | gold 60.5->59.7M ore 1491K->1446K | final 3 The Foundry f30 Lv94 -> 3 The Foundry f31 Lv94
+
+seed 60  hours 96.00  Shatters 3->3  audit through zone entry (h65): hourly 65/65, Ashen Keep rows through that run identical (1/26 stall 6.8h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 162->146 wins 1->1 [auto 1/162->1/146, active 0/0->0/0] stall 19.3->18.0h | entry @65.12h Lv71 pw158K | at boss Lv 97->96 | loss dur 29->38s HP left 61->60% deaths 4->4 | charge hits/kills per att 3.34/2.50 -> 4.52/3.24 | win surv 4->4 HP 100->96%
+  phases opening/charge/summon 1/103/57 -> 0/73/72 | damage share boss 99% -> 97% adds 1% -> 3% | zone ordinary enc 2037 L142 far 35 -> enc 2047 L143 far 35 | time in zone 19.7->20.1h | cleared @94.75->@93.48 | Endless @94.75 (1.2h, wave 120) -> @93.48 (2.5h, wave 143)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1324->1314 | training 26.2->24.5h | Lv@96h 104->104 pw 717K->764K | gold 96.6->101.0M ore 1938K->1969K | final 3 The Endless Road f111 Lv104 -> 3 The Endless Road f129 Lv104
+
+-- idle validity: 96h 10/10, Shatter cap 10/10, Ashen Keep rows identical 10/10, audit through zone entry OK 10/10
+-- idle The Foundry Core: reached 10->10 runs, cleared 1->2 | attempts med 87 -> 75 (paired med -6, +3 00 -7) | Auto-Cast wins/att 1/736 -> 2/703 (0.3%) | active wins/att 0/0 -> 0/0 (0%) | stall h (cleared runs) med 19.3 -> 13.4 (paired med -1.3, +0 00 -1) | first-try 0->0 | loss dur med 26 -> 31 (paired med 5, +10 00 -0) | HP left% med 72 -> 69 (paired med -4, +2 00 -8)
+   phases opening/charge/summon 17/649/69 -> 1/526/174 | boss damage share 100% -> 99% | charge hits/kills per attempt 2.64/2.28 -> 4.12/3.50 | zone entry h med 72.5 -> 72.5 (paired med 0.0, +0 010 -0) | zone clear h med 94.8 -> 93.5 (paired med -1.3, +0 00 -1) | time in zone h med 14.9 -> 15.2 (paired med 0.0, +6 00 -4) | ordinary loss% med 9 -> 10 (paired med 0, +7 00 -3)
+-- idle downstream: Endless reached 1->2 (entry h med 94.8 -> 93.5 (paired med -1.3, +0 00 -1), hours med 0.0 -> 0.0 (paired med 0.0, +2 08 -0), best wave med 120 -> 68 (paired med 23, +1 00 -0)) | horizons cur/best med 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats med 1310 -> 1314 (paired med -5, +5 00 -5) | training h med 28.5 -> 27.9 (paired med -0.3, +4 00 -6) | Lv@96h med 94 -> 94 (paired med 0, +0 08 -2) | gold M med 62.7 -> 62.4 (paired med -0.4, +2 00 -8) | ore med 1350624 -> 1301952 (paired med -23424, +1 00 -9)
+-- idle outliers: seed 57: Endless newly reached @95.48; 
+
+===== LIGHT   baseline batch_out_p28 -> candidate batch_out_p29   boss: The Foundry Core in The Foundry
+
+seed 51  hours 96.00  Shatters 3->3  audit through zone entry (h75): hourly 75/75, Ashen Keep rows through that run identical (1/4 stall 5.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 8->2 wins 1->1 [auto 0/5->0/1, active 1/3->1/1] stall 9.0->2.0h | entry @75.06h Lv60 pw123K | at boss Lv 83->78 | loss dur 10->21s HP left 95->92% deaths 4->4 | charge hits/kills per att 0.88/0.75 -> 1.00/1.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 5/2/0 -> 0/1/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 604 L149 far 28 -> enc 303 L102 far 25 | time in zone 5.8->2.9h | cleared @95.06->@88.08 | Endless @95.06 (0.9h, wave 66) -> @88.08 (7.9h, wave 112)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 7/7->7/7, 96h 9/9->9/9 | defeats 1938->1946 | training 34.7->30.7h | Lv@96h 90->96 pw 411K->586K | gold 51.5->82.7M ore 1113K->1495K | final 3 The Endless Road f58 Lv90 -> 3 The Endless Road f106 Lv96
+
+seed 52  hours 96.00  Shatters 3->3  audit through zone entry (h70): hourly 70/70, Ashen Keep rows through that run identical (1/3 stall 4.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 25->3 wins 1->1 [auto 0/19->0/1, active 1/6->1/2] stall 8.9->3.0h | entry @70.07h Lv52 pw114K | at boss Lv 87->83 | loss dur 22->25s HP left 86->60% deaths 4->4 | charge hits/kills per att 1.88/1.84 -> 2.33/2.33 | win surv 4->4 HP 94->100%
+  phases opening/charge/summon 1/23/0 -> 0/2/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 861 L189 far 35 -> enc 488 L166 far 31 | time in zone 8.5->4.9h | cleared @94.02->@88.04 | Endless @94.02 (2.0h, wave 84) -> @88.04 (8.0h, wave 137)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1795->1792 | training 38.4->36.1h | Lv@96h 94->98 pw 502K->693K | gold 65.4->93.9M ore 1279K->1657K | final 3 The Endless Road f82 Lv94 -> 3 The Endless Road f134 Lv98
+
+seed 53  hours 96.00  Shatters 3->3  audit through zone entry (h78): hourly 78/78, Ashen Keep rows through that run identical (1/6 stall 9.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 5->3 wins 0->1 [auto 0/4->0/2, active 0/1->1/1] stall -->0.4h | entry @78.09h Lv58 pw114K | at boss Lv 83->83 | loss dur 19->25s HP left 93->87% deaths 4->4 | charge hits/kills per att 0.80/0.80 -> 2.00/1.67 | win surv null->4 HP 0->100%
+  phases opening/charge/summon 1/4/0 -> 0/2/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 537 L134 far 27 -> enc 487 L128 far 26 | time in zone 5.7->5.2h | cleared -->@95.08 | Endless - -> @95.08 (0.9h, wave 50)
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->9/9 | defeats 1950->1947 | training 34.0->34.0h | Lv@96h 84->85 pw 228K->344K | gold 38.2->41.0M ore 910K->958K | final 3 Ashen Keep f36 Lv84 -> 3 The Endless Road f29 Lv85
+
+seed 54  hours 96.00  Shatters 3->3  audit through zone entry (h62): hourly 62/62, Ashen Keep rows through that run identical (1/3 stall 11.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 24->22 wins 1->1 [auto 0/18->0/17, active 1/6->1/5] stall 8.9->9.0h | entry @62.08h Lv48 pw109K | at boss Lv 84->85 | loss dur 22->26s HP left 89->84% deaths 4->4 | charge hits/kills per att 1.38/1.38 -> 3.45/3.41 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 4/17/2 -> 0/20/1 | damage share boss 99% -> 99% adds 1% -> 1% | zone ordinary enc 986 L206 far 34 -> enc 996 L200 far 30 | time in zone 9.8->9.9h | cleared @84.02->@84.07 | Endless @84.02 (12.0h, wave 171) -> @84.08 (11.9h, wave 180)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1569->1568 | training 34.0->33.9h | Lv@96h 106->107 pw 973K->982K | gold 154.4->158.2M ore 2462K->2535K | final 3 The Endless Road f160 Lv106 -> 3 The Endless Road f151 Lv107
+
+seed 55  hours 96.00  Shatters 3->3  audit through zone entry (h71): hourly 71/71, Ashen Keep rows through that run identical (1/7 stall 5.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 8->6 wins 1->1 [auto 0/6->0/4, active 1/2->1/2] stall 5.9->4.0h | entry @71.06h Lv63 pw133K | at boss Lv 87->83 | loss dur 23->27s HP left 87->85% deaths 4->4 | charge hits/kills per att 1.88/1.88 -> 2.67/2.67 | win surv 4->4 HP 84->100%
+  phases opening/charge/summon 1/4/2 -> 0/4/1 | damage share boss 98% -> 96% adds 2% -> 4% | zone ordinary enc 618 L135 far 35 -> enc 573 L130 far 31 | time in zone 6.1->5.7h | cleared @90.02->@88.04 | Endless @90.02 (6.0h, wave 138) -> @88.04 (8.0h, wave 131)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1972->1976 | training 30.9->29.3h | Lv@96h 99->100 pw 714K->799K | gold 92.1->104.1M ore 1674K->1899K | final 3 The Endless Road f102 Lv99 -> 3 The Endless Road f131 Lv100
+
+seed 56  hours 96.00  Shatters 3->3  audit through zone entry (h70): hourly 70/70, Ashen Keep rows through that run identical (1/5 stall 3.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 15->2 wins 1->1 [auto 0/13->0/1, active 1/2->1/1] stall 5.5->0.6h | entry @70.08h Lv50 pw127K | at boss Lv 80->77 | loss dur 21->25s HP left 90->87% deaths 4->4 | charge hits/kills per att 1.40/1.33 -> 2.00/2.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 1/13/0 -> 0/1/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 783 L160 far 35 -> enc 442 L124 far 26 | time in zone 8.2->4.6h | cleared @89.04->@84.07 | Endless @89.04 (7.0h, wave 138) -> @84.07 (11.9h, wave 161)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1681->1665 | training 30.5->29.1h | Lv@96h 98->102 pw 758K->910K | gold 107.6->141.1M ore 1949K->2462K | final 3 The Endless Road f112 Lv98 -> 3 The Endless Road f140 Lv102
+
+seed 57  hours 96.00  Shatters 3->3  audit through zone entry (h67): hourly 67/67, Ashen Keep rows through that run identical (1/7 stall 7.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 9->4 wins 1->1 [auto 0/4->0/2, active 1/5->1/2] stall 7.0->3.0h | entry @67.09h Lv69 pw117K | at boss Lv 89->88 | loss dur 22->28s HP left 75->76% deaths 4->4 | charge hits/kills per att 0.78/0.56 -> 1.25/1.25 | win surv 4->4 HP 68->100%
+  phases opening/charge/summon 2/5/1 -> 0/2/1 | damage share boss 98% -> 92% adds 2% -> 8% | zone ordinary enc 649 L163 far 27 -> enc 379 L119 far 30 | time in zone 6.4->3.7h | cleared @90.06->@86.04 | Endless @90.07 (5.9h, wave 124) -> @86.04 (10.0h, wave 139)
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1623->1594 | training 37.6->36.2h | Lv@96h 101->103 pw 647K->719K | gold 93.6->115.5M ore 1750K->2008K | final 3 The Endless Road f107 Lv101 -> 3 The Endless Road f109 Lv103
+
+seed 58  hours 96.00  Shatters 3->3  audit through zone entry (h66): hourly 66/66, Ashen Keep rows through that run identical (1/6 stall 11.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 19->2 wins 1->1 [auto 0/13->0/0, active 1/6->1/2] stall 7.9->1.0h | entry @66.06h Lv53 pw123K | at boss Lv 87->77 | loss dur 17->22s HP left 90->88% deaths 4->4 | charge hits/kills per att 1.11/1.11 -> 1.00/1.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 8/9/1 -> 0/1/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 829 L168 far 32 -> enc 384 L109 far 30 | time in zone 7.3->3.4h | cleared @85.02->@78.05 | Endless @85.02 (11.0h, wave 179) -> @78.05 (18.0h, wave 226)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1872->1825 | training 33.5->30.4h | Lv@96h 109->116 pw 1084K->1455K | gold 198.4->307.6M ore 3305K->4653K | final 3 The Endless Road f158 Lv109 -> 3 The Endless Road f215 Lv116
+
+seed 59  hours 96.00  Shatters 3->3  audit through zone entry (h68): hourly 68/68, Ashen Keep rows through that run identical (1/3 stall 9.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 25->1 wins 1->1 [auto 0/20->0/0, active 1/5->1/1] stall 6.0->0.0h FIRST-TRY | entry @68.08h Lv52 pw123K | at boss Lv 85->79 | loss dur 21->-s HP left 88->0% deaths 4->null | charge hits/kills per att 1.44/1.40 -> 0.00/0.00 | win surv 4->4 HP 100->96%
+  phases opening/charge/summon 5/19/0 -> 0/0/0 | damage share boss 100% -> 0% adds 0% -> 0% | zone ordinary enc 882 L179 far 33 -> enc 400 L134 far 24 | time in zone 8.3->3.8h | cleared @88.03->@82.07 | Endless @88.03 (8.0h, wave 149) -> @82.07 (13.9h, wave 193)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2045->2008 | training 31.5->30.1h | Lv@96h 102->108 pw 830K->1091K | gold 120.7->176.5M ore 2083K->2879K | final 3 The Endless Road f141 Lv102 -> 3 The Endless Road f182 Lv108
+
+seed 60  hours 96.00  Shatters 3->3  audit through zone entry (h65): hourly 65/65, Ashen Keep rows through that run identical (1/8 stall 5.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 21->1 wins 1->1 [auto 0/17->0/0, active 1/4->1/1] stall 8.0->0.0h FIRST-TRY | entry @65.07h Lv58 pw134K | at boss Lv 82->73 | loss dur 21->-s HP left 88->0% deaths 4->null | charge hits/kills per att 1.62/1.62 -> 4.00/2.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 4/15/1 -> 0/0/0 | damage share boss 99% -> 0% adds 1% -> 0% | zone ordinary enc 815 L127 far 33 -> enc 322 L71 far 28 | time in zone 8.1->3.2h | cleared @81.07->@73.07 | Endless @81.08 (14.9h, wave 209) -> @73.07 (22.9h, wave 239)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1532->1514 | training 26.1->22.9h | Lv@96h 111->117 pw 1296K->1691K | gold 207.9->305.4M ore 3583K->4973K | final 3 The Endless Road f198 Lv111 -> 3 The Endless Road f228 Lv117
+
+-- light validity: 96h 10/10, Shatter cap 10/10, Ashen Keep rows identical 10/10, audit through zone entry OK 10/10
+-- light The Foundry Core: reached 10->10 runs, cleared 9->10 | attempts med 15 -> 2 (paired med -13, +0 00 -10) | Auto-Cast wins/att 0/119 -> 0/28 (0.0%) | active wins/att 9/40 -> 10/18 (56%) | stall h (cleared runs) med 7.9 -> 1.0 (paired med -6.0, +1 00 -8) | first-try 0->2 | loss dur med 21 -> 25 (paired med 4, +8 00 -0) | HP left% med 88 -> 84 (paired med -5, +1 00 -9)
+   phases opening/charge/summon 32/111/7 -> 0/33/3 | boss damage share 99% -> 98% | charge hits/kills per attempt 1.31/1.27 -> 1.97/1.73 | zone entry h med 68.1 -> 68.1 (paired med 0.0, +0 010 -0) | zone clear h med 89.0 -> 84.1 (paired med -6.0, +1 00 -8) | time in zone h med 7.3 -> 3.8 (paired med -3.6, +1 00 -9) | ordinary loss% med 21 -> 28 (paired med 6, +9 00 -1)
+-- light downstream: Endless reached 9->10 (entry h med 89.0 -> 84.1 (paired med -6.0, +1 00 -8), hours med 6.0 -> 10.0 (paired med 5.0, +9 00 -1), best wave med 138 -> 139 (paired med 30, +8 00 -1)) | horizons cur/best med 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats med 1795 -> 1792 (paired med -16, +2 00 -8) | training h med 33.5 -> 30.4 (paired med -1.6, +0 01 -9) | Lv@96h med 99 -> 102 (paired med 4, +10 00 -0) | gold M med 93.6 -> 115.5 (paired med 28.5, +10 00 -0) | ore med 1749600 -> 2008128 (paired med 377568, +10 00 -0)
+-- light outliers: seed 51: gold x1.6 || seed 53: Endless newly reached @95.08;  || seed 58: gold x1.6 || seed 59: first-try clear;  || seed 60: first-try clear; 
+
+===== CASUAL   baseline batch_out_p28 -> candidate batch_out_p29   boss: The Foundry Core in The Foundry
+
+seed 51  hours 96.00  Shatters 3->3  audit through zone entry (h61): hourly 61/61, Ashen Keep rows through that run identical (1/4 stall 4.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 2->1 wins 1->1 [auto 0/0->0/0, active 1/2->1/1] stall 0.1->0.0h FIRST-TRY | entry @61.14h Lv54 pw85K | at boss Lv 89->89 | loss dur 34->-s HP left 45->0% deaths 4->null | charge hits/kills per att 0.00/0.00 -> 0.00/0.00 | win surv 4->4 HP 97->100%
+  phases opening/charge/summon 0/0/1 -> 0/0/0 | damage share boss 78% -> 0% adds 22% -> 0% | zone ordinary enc 666 L182 far 24 -> enc 657 L182 far 24 | time in zone 6.4->6.4h | cleared @87.15->@87.08 | Endless @87.15 (8.9h, wave 153) -> @87.08 (8.9h, wave 139)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2093->2091 | training 39.9->39.9h | Lv@96h 103->103 pw 733K->745K | gold 122.2->127.2M ore 2041K->2073K | final 3 The Endless Road f119 Lv103 -> 3 The Endless Road f133 Lv103
+
+seed 52  hours 96.00  Shatters 3->3  audit through zone entry (h66): hourly 66/66, Ashen Keep rows through that run identical (1/3 stall 4.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 8->9 wins 1->1 [auto 0/4->0/6, active 1/4->1/3] stall 12.9->11.9h | entry @66.14h Lv47 pw87K | at boss Lv 85->83 | loss dur 24->27s HP left 87->88% deaths 4->4 | charge hits/kills per att 1.13/1.13 -> 2.67/2.67 | win surv 4->4 HP 100->95%
+  phases opening/charge/summon 1/6/0 -> 0/8/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 701 L202 far 32 -> enc 622 L199 far 25 | time in zone 7.2->6.4h | cleared @92.04->@91.09 | Endless @92.04 (4.0h, wave 109) -> @91.09 (4.9h, wave 131)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2260->2273 | training 39.9->39.7h | Lv@96h 94->95 pw 510K->535K | gold 73.0->77.5M ore 1263K->1314K | final 3 The Endless Road f100 Lv94 -> 3 The Endless Road f104 Lv95
+
+seed 53  hours 96.00  Shatters 3->3  audit through zone entry (h57): hourly 57/57, Ashen Keep rows through that run identical (1/2 stall 1.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 15->4 wins 1->1 [auto 0/9->0/1, active 1/6->1/3] stall 8.9->2.9h | entry @57.11h Lv47 pw92K | at boss Lv 81->72 | loss dur 19->51s HP left 88->52% deaths 4->4 | charge hits/kills per att 0.87/0.87 -> 1.50/1.50 | win surv 4->4 HP 80->100%
+  phases opening/charge/summon 6/8/0 -> 0/1/2 | damage share boss 100% -> 91% adds 0% -> 9% | zone ordinary enc 611 L176 far 26 -> enc 337 L132 far 24 | time in zone 5.7->3.2h | cleared @76.06->@70.1 | Endless @76.06 (19.9h, wave 255) -> @70.1 (25.9h, wave 300)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 1892->1870 | training 30.5->27.1h | Lv@96h 121->126 pw 1825K->2238K | gold 423.9->574.3M ore 5639K->7357K | final 3 The Endless Road f233 Lv121 -> 3 The Endless Road f289 Lv126
+
+seed 54  hours 96.00  Shatters 3->3  audit through zone entry (h58): hourly 58/58, Ashen Keep rows through that run identical (1/6 stall 6.9h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 6->1 wins 1->1 [auto 0/3->0/0, active 1/3->1/1] stall 9.0->0.0h FIRST-TRY | entry @58.11h Lv49 pw85K | at boss Lv 75->72 | loss dur 21->-s HP left 90->0% deaths 4->null | charge hits/kills per att 1.33/1.33 -> 4.00/2.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 2/2/1 -> 0/0/0 | damage share boss 99% -> 0% adds 1% -> 0% | zone ordinary enc 607 L175 far 24 -> enc 324 L109 far 24 | time in zone 6.2->3.4h | cleared @79.15->@70.16 | Endless @79.15 (16.8h, wave 216) -> @70.16 (25.8h, wave 251)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 1886->1874 | training 34.4->28.3h | Lv@96h 113->120 pw 1238K->1650K | gold 239.1->362.7M ore 3840K->5402K | final 3 The Endless Road f200 Lv113 -> 3 The Endless Road f228 Lv120
+
+seed 55  hours 96.00  Shatters 3->3  audit through zone entry (h61): hourly 61/61, Ashen Keep rows through that run identical (1/6 stall 13.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 11->3 wins 1->1 [auto 0/5->0/0, active 1/6->1/3] stall 7.9->4.0h | entry @61.15h Lv49 pw91K | at boss Lv 83->79 | loss dur 16->53s HP left 90->20% deaths 4->4 | charge hits/kills per att 0.64/0.64 -> 0.00/0.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 5/4/1 -> 0/0/2 | damage share boss 99% -> 70% adds 1% -> 30% | zone ordinary enc 593 L159 far 35 -> enc 435 L145 far 3 | time in zone 5.7->4.2h | cleared @83.02->@79.13 | Endless @83.02 (13.0h, wave 189) -> @79.13 (16.9h, wave 216)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2077->2079 | training 36.5->34.1h | Lv@96h 109->112 pw 1081K->1246K | gold 182.6->235.7M ore 3139K->3816K | final 3 The Endless Road f176 Lv109 -> 3 The Endless Road f180 Lv112
+
+seed 56  hours 96.00  Shatters 3->3  audit through zone entry (h61): hourly 61/61, Ashen Keep rows through that run identical (1/2 stall 8.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 7->3 wins 1->1 [auto 0/1->0/1, active 1/6->1/2] stall 9.0->4.0h | entry @61.14h Lv43 pw88K | at boss Lv 77->76 | loss dur 13->21s HP left 85->3% deaths 4->4 | charge hits/kills per att 0.29/0.29 -> 0.67/0.67 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 4/2/0 -> 0/1/1 | damage share boss 100% -> 88% adds 0% -> 12% | zone ordinary enc 575 L173 far 24 -> enc 447 L145 far 24 | time in zone 5.3->4.1h | cleared @82.13->@77.14 | Endless @82.13 (13.9h, wave 170) -> @77.14 (18.9h, wave 205)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2158->2162 | training 38.8->35.0h | Lv@96h 108->113 pw 964K->1187K | gold 182.2->247.3M ore 2694K->3548K | final 3 The Endless Road f157 Lv108 -> 3 The Endless Road f175 Lv113
+
+seed 57  hours 96.00  Shatters 3->3  audit through zone entry (h64): hourly 64/64, Ashen Keep rows through that run identical (1/6 stall 9.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 5->3 wins 1->1 [auto 0/2->0/1, active 1/3->1/2] stall 5.9->2.0h | entry @64.15h Lv44 pw87K | at boss Lv 81->76 | loss dur 15->25s HP left 85->45% deaths 4->4 | charge hits/kills per att 0.60/0.60 -> 2.33/1.33 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 2/2/0 -> 0/1/1 | damage share boss 100% -> 86% adds 0% -> 14% | zone ordinary enc 478 L208 far 25 -> enc 338 L181 far 12 | time in zone 4.7->3.3h | cleared @85.08->@81.14 | Endless @85.08 (10.9h, wave 165) -> @81.14 (14.9h, wave 166)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2407->2432 | training 36.0->33.5h | Lv@96h 103->105 pw 845K->927K | gold 134.2->160.9M ore 2100K->2333K | final 3 The Endless Road f110 Lv103 -> 3 The Endless Road f151 Lv105
+
+seed 58  hours 96.00  Shatters 3->3  audit through zone entry (h58): hourly 58/58, Ashen Keep rows through that run identical (1/5 stall 20.0h atk 6754), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 22->1 wins 1->1 [auto 0/13->0/0, active 1/9->1/1] stall 9.9->0.0h FIRST-TRY | entry @58.11h Lv46 pw91K | at boss Lv 85->76 | loss dur 20->-s HP left 86->0% deaths 4->null | charge hits/kills per att 0.55/0.55 -> 0.00/0.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 9/11/1 -> 0/0/0 | damage share boss 99% -> 0% adds 1% -> 0% | zone ordinary enc 719 L211 far 24 -> enc 324 L150 far 24 | time in zone 6.3->2.9h | cleared @81.06->@71.14 | Endless @81.07 (14.9h, wave 228) -> @71.14 (24.9h, wave 256)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 2505->2503 | training 34.1->27.6h | Lv@96h 117->124 pw 1407K->1888K | gold 284.7->438.4M ore 3937K->5767K | final 3 The Endless Road f206 Lv117 -> 3 The Endless Road f229 Lv124
+
+seed 59  hours 96.00  Shatters 3->3  audit through zone entry (h59): hourly 59/59, Ashen Keep rows through that run identical (1/3 stall 2.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 7->2 wins 1->1 [auto 0/3->0/0, active 1/4->1/2] stall 7.0->2.0h | entry @59.14h Lv48 pw84K | at boss Lv 84->77 | loss dur 24->71s HP left 79->24% deaths 4->4 | charge hits/kills per att 1.57/1.57 -> 4.00/2.50 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 0/6/0 -> 0/0/1 | damage share boss 100% -> 92% adds 0% -> 8% | zone ordinary enc 680 L176 far 26 -> enc 505 L153 far 1 | time in zone 6.7->5.0h | cleared @82.08->@77.14 | Endless @82.08 (13.9h, wave 187) -> @77.14 (18.9h, wave 211)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1995->1997 | training 35.7->32.5h | Lv@96h 108->112 pw 967K->1094K | gold 182.1->228.7M ore 2633K->3069K | final 3 The Endless Road f153 Lv108 -> 3 The Endless Road f180 Lv112
+
+seed 60  hours 96.00  Shatters 3->3  audit through zone entry (h55): hourly 55/55, Ashen Keep rows through that run identical (1/4 stall 3.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 9->1 wins 1->1 [auto 0/1->0/0, active 1/8->1/1] stall 5.0->0.0h FIRST-TRY | entry @55.11h Lv51 pw101K | at boss Lv 81->76 | loss dur 13->-s HP left 80->0% deaths 4->null | charge hits/kills per att 0.00/0.00 -> 0.00/0.00 | win surv 4->4 HP 100->89%
+  phases opening/charge/summon 8/0/0 -> 0/0/0 | damage share boss 100% -> 0% adds 0% -> 0% | zone ordinary enc 523 L158 far 27 -> enc 366 L132 far 13 | time in zone 4.5->3.2h | cleared @72.14->@67.11 | Endless @72.14 (23.9h, wave 269) -> @67.12 (28.9h, wave 268)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 1952->1953 | training 32.9->29.2h | Lv@96h 125->128 pw 2087K->2423K | gold 457.5->556.9M ore 6685K->7953K | final 3 The Endless Road f230 Lv125 -> 3 The Endless Road f230 Lv128
+
+-- casual validity: 96h 10/10, Shatter cap 10/10, Ashen Keep rows identical 10/10, audit through zone entry OK 10/10
+-- casual The Foundry Core: reached 10->10 runs, cleared 10->10 | attempts med 7 -> 2 (paired med -5, +1 00 -9) | Auto-Cast wins/att 0/41 -> 0/9 (0.0%) | active wins/att 10/51 -> 10/19 (53%) | stall h (cleared runs) med 7.9 -> 2.0 (paired med -5.0, +0 00 -10) | first-try 0->4 | loss dur med 19 -> 27 (paired med 10, +6 00 -0) | HP left% med 85 -> 3 (paired med -70, +1 00 -9)
+   phases opening/charge/summon 37/41/4 -> 0/11/7 | boss damage share 97% -> 88% | charge hits/kills per attempt 0.70/0.70 -> 1.52/1.07 | zone entry h med 59.1 -> 59.1 (paired med 0.0, +0 010 -0) | zone clear h med 82.1 -> 77.1 (paired med -5.0, +0 00 -10) | time in zone h med 5.7 -> 3.4 (paired med -1.5, +0 00 -10) | ordinary loss% med 29 -> 33 (paired med 5, +10 00 -0)
+-- casual downstream: Endless reached 10->10 (entry h med 82.1 -> 77.1 (paired med -5.0, +0 00 -10), hours med 13.9 -> 18.9 (paired med 4.9, +10 00 -0), best wave med 187 -> 211 (paired med 24, +8 00 -2)) | horizons cur/best med 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats med 2077 -> 2079 (paired med 1, +6 00 -4) | training h med 35.7 -> 32.5 (paired med -3.4, +0 01 -9) | Lv@96h med 108 -> 112 (paired med 3, +9 01 -0) | gold M med 182.2 -> 235.7 (paired med 53.1, +10 00 -0) | ore med 2693568 -> 3547872 (paired med 676992, +10 00 -0)
+-- casual outliers: seed 51: first-try clear;  || seed 54: first-try clear; gold x1.5 || seed 58: first-try clear; gold x1.5 || seed 60: first-try clear; 
+
+===== ENGAGED   baseline batch_out_p28 -> candidate batch_out_p29   boss: The Foundry Core in The Foundry
+
+seed 51  hours 96.00  Shatters 2->2  audit through zone entry (h64): hourly 64/64, Ashen Keep rows through that run identical (1/10 stall 18.9h atk 6754), zone entry same, boss ATK 23711->16166 -> OK
+  The Foundry Core: attempts 5->3 wins 1->1 [auto 0/0->0/0, active 1/5->1/3] stall 13.9->4.0h | entry @64.15h Lv50 pw75K | at boss Lv 79->77 | loss dur 16->16s HP left 57->47% deaths 4->4 | charge hits/kills per att 0.20/0.20 -> 0.00/0.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 2/0/2 -> 1/0/1 | damage share boss 95% -> 91% adds 5% -> 9% | zone ordinary enc 531 L170 far 25 -> enc 373 L125 far 24 | time in zone 5.1->3.6h | cleared @90.14->@80.23 | Endless @90.14 (5.9h, wave 134) -> @80.23 (15.8h, wave 159)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 1/7->1/7, 96h 2/7->2/7 | defeats 2669->2661 | training 44.4->36.0h | Lv@96h 99->106 pw 513K->723K | gold 80.0->134.3M ore 1566K->2375K | final 2 The Endless Road f107 Lv99 -> 2 The Endless Road f121 Lv106
+
+seed 52  hours 96.00  Shatters 3->3  audit through zone entry (h55): hourly 55/55, Ashen Keep rows through that run identical (1/6 stall 3.0h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 7->8 wins 1->1 [auto 0/1->0/4, active 1/6->1/4] stall 3.9->7.8h | entry @55.13h Lv45 pw80K | at boss Lv 76->76 | loss dur 20->30s HP left 80->87% deaths 4->4 | charge hits/kills per att 1.43/1.43 -> 2.63/2.25 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 2/4/0 -> 0/4/3 | damage share boss 100% -> 92% adds 0% -> 8% | zone ordinary enc 376 L160 far 24 -> enc 539 L187 far 26 | time in zone 3.8->5.4h | cleared @71.21->@75.06 | Endless @71.21 (24.8h, wave 269) -> @75.06 (20.9h, wave 264)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 9/9->8/8, 96h 9/9->9/9 | defeats 2275->2290 | training 28.2->30.5h | Lv@96h 123->119 pw 1822K->1635K | gold 463.2->380.1M ore 5389K->4649K | final 3 The Endless Road f241 Lv123 -> 3 The Endless Road f231 Lv119
+
+seed 53  hours 96.00  Shatters 3->3  audit through zone entry (h54): hourly 54/54, Ashen Keep rows through that run identical (1/4 stall 8.9h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 7->5 wins 1->1 [auto 0/1->0/0, active 1/6->1/5] stall 8.9->4.0h | entry @54.12h Lv46 pw78K | at boss Lv 80->74 | loss dur 15->57s HP left 83->31% deaths 4->4 | charge hits/kills per att 0.29/0.29 -> 1.20/1.20 | win surv 4->4 HP 100->56%
+  phases opening/charge/summon 4/2/0 -> 0/1/3 | damage share boss 100% -> 84% adds 0% -> 16% | zone ordinary enc 522 L174 far 24 -> enc 390 L146 far 24 | time in zone 4.7->3.5h | cleared @73.07->@68.2 | Endless @73.07 (22.9h, wave 275) -> @68.2 (27.8h, wave 337)
+  zones cur/best 24h 5/6->5/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 2434->2419 | training 30.6->26.9h | Lv@96h 126->132 pw 1939K->2446K | gold 508.0->733.1M ore 6063K->8102K | final 3 The Endless Road f234 Lv126 -> 3 The Endless Road f276 Lv132
+
+seed 54  hours 96.00  Shatters 3->3  audit through zone entry (h44): hourly 44/44, Ashen Keep rows through that run identical (1/5 stall 7.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 20->4 wins 1->1 [auto 0/7->0/0, active 1/13->1/4] stall 10.0->3.1h | entry @44.23h Lv45 pw83K | at boss Lv 81->72 | loss dur 17->57s HP left 87->37% deaths 4->4 | charge hits/kills per att 0.45/0.45 -> 1.00/1.00 | win surv 4->4 HP 100->74%
+  phases opening/charge/summon 9/9/1 -> 0/1/2 | damage share boss 99% -> 79% adds 1% -> 21% | zone ordinary enc 746 L196 far 25 -> enc 371 L155 far 24 | time in zone 6.5->3.2h | cleared @64.06->@57.15 | Endless @64.06 (31.9h, wave 374) -> @57.15 (38.8h, wave 391)
+  zones cur/best 24h 5/6->5/6, 48h 8/8->8/8, 72h 9/9->9/9, 96h 9/9->9/9 | defeats 1748->1749 | training 30.3->26.7h | Lv@96h 146->151 pw 4225K->4991K | gold 1506.2->1902.8M ore 16873K->20990K | final 3 The Endless Road f327 Lv146 -> 3 The Endless Road f329 Lv151
+
+seed 55  hours 96.00  Shatters 3->3  audit through zone entry (h53): hourly 53/53, Ashen Keep rows through that run identical (1/8 stall 8.1h atk 8172), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 14->2 wins 1->1 [auto 0/6->0/0, active 1/8->1/2] stall 9.9->1.1h | entry @53.23h Lv55 pw79K | at boss Lv 88->78 | loss dur 22->30s HP left 83->71% deaths 4->4 | charge hits/kills per att 0.86/0.86 -> 3.50/3.00 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 4/8/1 -> 0/1/0 | damage share boss 100% -> 100% adds 0% -> 0% | zone ordinary enc 643 L177 far 29 -> enc 316 L130 far 12 | time in zone 6.1->3.0h | cleared @77.05->@68.21 | Endless @77.05 (19.0h, wave 250) -> @68.21 (27.8h, wave 267)
+  zones cur/best 24h 4/6->4/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 2059->2075 | training 35.6->29.9h | Lv@96h 121->127 pw 1510K->1840K | gold 390.0->554.9M ore 4893K->6234K | final 3 The Endless Road f225 Lv121 -> 3 The Endless Road f203 Lv127
+
+seed 56  hours 96.00  Shatters 3->3  audit through zone entry (h52): hourly 52/52, Ashen Keep rows through that run identical (1/5 stall 8.1h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 4->2 wins 1->1 [auto 0/0->0/0, active 1/4->1/2] stall 3.0->1.9h | entry @52.21h Lv46 pw94K | at boss Lv 73->69 | loss dur 23->55s HP left 75->36% deaths 4->4 | charge hits/kills per att 0.00/0.00 -> 1.00/1.00 | win surv 4->4 HP 100->62%
+  phases opening/charge/summon 2/0/1 -> 0/0/1 | damage share boss 96% -> 82% adds 4% -> 18% | zone ordinary enc 318 L119 far 0 -> enc 283 L116 far 0 | time in zone 2.9->2.6h | cleared @63.19->@62.12 | Endless @63.19 (32.8h, wave 377) -> @62.12 (33.9h, wave 376)
+  zones cur/best 24h 6/6->6/6, 48h 6/7->6/7, 72h 9/9->9/9, 96h 9/9->9/9 | defeats 2234->2240 | training 22.2->21.5h | Lv@96h 145->145 pw 4591K->4597K | gold 1498.1->1494.2M ore 14433K->14403K | final 3 The Endless Road f327 Lv145 -> 3 The Endless Road f331 Lv145
+
+seed 57  hours 96.00  Shatters 3->3  audit through zone entry (h49): hourly 49/49, Ashen Keep rows through that run identical (1/7 stall 9.0h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 10->2 wins 1->1 [auto 0/0->0/0, active 1/10->1/2] stall 5.2->0.1h | entry @49.11h Lv46 pw84K | at boss Lv 75->71 | loss dur 15->36s HP left 83->62% deaths 4->4 | charge hits/kills per att 0.00/0.00 -> 1.00/1.00 | win surv 4->4 HP 100->90%
+  phases opening/charge/summon 8/0/1 -> 0/1/0 | damage share boss 98% -> 100% adds 2% -> 0% | zone ordinary enc 427 L174 far 24 -> enc 273 L142 far 24 | time in zone 3.8->2.4h | cleared @64.23->@59.19 | Endless @64.23 (31.8h, wave 375) -> @59.19 (36.8h, wave 377)
+  zones cur/best 24h 5/6->5/6, 48h 7/7->7/7, 72h 9/9->9/9, 96h 9/9->9/9 | defeats 2107->2096 | training 26.8->23.2h | Lv@96h 144->146 pw 3950K->4225K | gold 1336.7->1511.9M ore 13415K->14736K | final 3 The Endless Road f312 Lv144 -> 3 The Endless Road f325 Lv146
+
+seed 58  hours 96.00  Shatters 3->3  audit through zone entry (h56): hourly 56/56, Ashen Keep rows through that run identical (1/10 stall 13.9h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 11->3 wins 1->1 [auto 0/3->0/0, active 1/8->1/3] stall 10.8->4.0h | entry @56.12h Lv52 pw85K | at boss Lv 82->73 | loss dur 17->31s HP left 84->41% deaths 4->4 | charge hits/kills per att 0.64/0.64 -> 1.00/1.00 | win surv 4->4 HP 100->30%
+  phases opening/charge/summon 6/3/1 -> 0/1/1 | damage share boss 99% -> 95% adds 1% -> 5% | zone ordinary enc 553 L166 far 26 -> enc 310 L118 far 24 | time in zone 5.3->2.9h | cleared @76.06->@69.22 | Endless @76.06 (19.9h, wave 253) -> @69.22 (26.8h, wave 300)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 2502->2483 | training 31.7->27.2h | Lv@96h 122->128 pw 1730K->2075K | gold 419.9->572.9M ore 5123K->6513K | final 3 The Endless Road f221 Lv122 -> 3 The Endless Road f297 Lv128
+
+seed 59  hours 96.00  Shatters 3->3  audit through zone entry (h56): hourly 56/56, Ashen Keep rows through that run identical (1/6 stall 9.9h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 13->4 wins 1->1 [auto 0/0->0/0, active 1/13->1/4] stall 9.1->5.1h | entry @56.11h Lv47 pw82K | at boss Lv 80->75 | loss dur 15->27s HP left 81->72% deaths 4->4 | charge hits/kills per att 0.15/0.15 -> 0.75/0.75 | win surv 4->4 HP 100->79%
+  phases opening/charge/summon 10/2/0 -> 0/2/1 | damage share boss 100% -> 94% adds 0% -> 6% | zone ordinary enc 523 L176 far 24 -> enc 395 L158 far 25 | time in zone 4.8->3.6h | cleared @75.19->@71.19 | Endless @75.19 (20.8h, wave 252) -> @71.2 (24.8h, wave 269)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 2581->2598 | training 28.8->25.9h | Lv@96h 123->126 pw 1714K->1933K | gold 443.0->513.2M ore 5351K->6192K | final 3 The Endless Road f229 Lv123 -> 3 The Endless Road f229 Lv126
+
+seed 60  hours 96.00  Shatters 3->3  audit through zone entry (h56): hourly 56/56, Ashen Keep rows through that run identical (1/5 stall 5.1h atk 7429), zone entry same, boss ATK 26082->17783 -> OK
+  The Foundry Core: attempts 11->3 wins 1->1 [auto 0/0->0/0, active 1/11->1/3] stall 9.1->5.0h | entry @56.21h Lv40 pw80K | at boss Lv 73->72 | loss dur 15->22s HP left 84->14% deaths 4->4 | charge hits/kills per att 0.00/0.00 -> 1.67/1.67 | win surv 4->4 HP 100->100%
+  phases opening/charge/summon 10/0/0 -> 0/1/1 | damage share boss 100% -> 96% adds 0% -> 4% | zone ordinary enc 503 L170 far 24 -> enc 362 L151 far 24 | time in zone 4.7->3.3h | cleared @73.23->@69.17 | Endless @73.24 (22.8h, wave 321) -> @69.17 (26.8h, wave 336)
+  zones cur/best 24h 6/6->6/6, 48h 5/7->5/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 2202->2177 | training 33.5->30.7h | Lv@96h 125->128 pw 1876K->2145K | gold 588.1->719.2M ore 6379K->7757K | final 3 The Endless Road f250 Lv125 -> 3 The Endless Road f279 Lv128
+
+-- engaged validity: 96h 10/10, Shatter cap 10/10, Ashen Keep rows identical 10/10, audit through zone entry OK 10/10
+-- engaged The Foundry Core: reached 10->10 runs, cleared 10->10 | attempts med 10 -> 3 (paired med -8, +1 00 -9) | Auto-Cast wins/att 0/18 -> 0/4 (0.0%) | active wins/att 10/84 -> 10/32 (31%) | stall h (cleared runs) med 9.1 -> 4.0 (paired med -5.0, +1 00 -9) | first-try 0->0 | loss dur med 16 -> 30 (paired med 11, +9 01 -0) | HP left% med 83 -> 41 (paired med -39, +1 00 -9)
+   phases opening/charge/summon 57/28/7 -> 1/12/13 | boss damage share 99% -> 91% | charge hits/kills per attempt 0.40/0.40 -> 1.37/1.29 | zone entry h med 54.1 -> 54.1 (paired med 0.0, +0 010 -0) | zone clear h med 73.1 -> 68.2 (paired med -5.0, +1 00 -9) | time in zone h med 4.7 -> 3.2 (paired med -1.4, +1 00 -9) | ordinary loss% med 33 -> 40 (paired med 6, +9 00 -1)
+-- engaged downstream: Endless reached 10->10 (entry h med 73.1 -> 68.2 (paired med -5.0, +1 00 -9), hours med 22.8 -> 26.8 (paired med 4.9, +9 00 -1), best wave med 269 -> 300 (paired med 17, +8 00 -2)) | horizons cur/best med 24h 5/6->5/6, 48h 7/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats med 2234 -> 2240 (paired med -8, +5 00 -5) | training h med 30.3 -> 26.9 (paired med -3.7, +1 00 -9) | Lv@96h med 123 -> 128 (paired med 3, +8 01 -1) | gold M med 463.2 -> 572.9 (paired med 131.2, +8 00 -2) | ore med 5389440 -> 6513408 (paired med 1321248, +8 00 -2)
+-- engaged outliers: seed 51: gold x1.7
