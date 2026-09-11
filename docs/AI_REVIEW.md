@@ -1,151 +1,151 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_9_AUTOTRAIN_RETRIGGER_TARGET_DIAGNOSTIC
-REVIEWED_HANDOFF_PASS: PASS_8_AUTOTRAIN_THRESHOLD_DIAGNOSTIC
-REVIEWED_HANDOFF_SHA: b4582d619831f249873b547936e866ba740a156d
-BASE_COMMIT: 97f18874316afb1e42d71ba6f931b70c381721bb
+REVIEW_FOR_PASS: PASS_10_IRONVEIN_FAILURE_MODE_DIAGNOSTIC
+REVIEWED_HANDOFF_PASS: PASS_9_AUTOTRAIN_RETRIGGER_TARGET_DIAGNOSTIC
+REVIEWED_HANDOFF_SHA: b30bb6e967f1bf779fbbeaa6089d39c5b6ed9dc3
+BASE_COMMIT: 572ecd1fbb6035e31c57e2dcabb986985198c578
 CONFIDENCE: MEDIUM
 
 # Decision
 
-Reject `AT_LOSSES = 5`. Keep production at `AT_LOSSES = 4`.
+Reject the conditional +2 training target as a shippable mechanic. Keep production Auto Training at a universal +1 party level with `AT_LOSSES = 4`.
 
-Accept the developer's counterproposal in narrowed form: the next diagnostic will test a +2 party-level training target only for a quick same-zone retrigger. A first trigger remains +1. No cooldown is authorized.
+Accept the developer's recommendation to stop tuning global Auto Training for now. Pass 9 shows that training frequency is largely structural and that more training can convert ordinary defeat/rewalk time into productive progression, but it does not establish that repeated +2 escalation is safe.
 
-# Pass 8 Assessment
+Authorize one no-balance-change Ironvein failure-mode diagnostic. Do not change Warlord, adds, Auto Training, or any other gameplay value in Pass 10.
 
-The 5-loss candidate failed the predetermined success criteria:
+# Pass 9 Assessment
 
-- Median triggers fell at least 20% only for idle (-25%), not casual (-13%) or engaged (-10%).
-- Retriggers within the measured 20-fight window fell 37% / 25% / 18%; only idle met the 30% target.
-- Casual median zones cleared fell from 6 to 5.
-- Ordinary defeats outside training rose 26% / 14% / 19%.
-- Estimated ordinary rewalk time rose 17% / 10% / 14%.
-- Casual Stillwater first-try fell to 10%, below the locked 15-40% target band, although n=10 makes that estimate noisy.
+The implementation and corrected instrumentation are adequate for this diagnostic:
 
-The design risk identified in Pass 8 occurred: reducing training by delaying the trigger converted a meaningful share of the saved time into defeat and rewalking. The 5-loss setting is therefore not a candidate for validation.
+- Boss fights no longer increment the ordinary-fight retrigger counter.
+- A retrigger on ordinary fight 20 is classified before the observation window clears.
+- The selected target is persisted on active training state and missing targets default to +1.
+- Production remains at +1; the +2 behavior is isolated to the candidate simulator source replacement.
 
-# Counterproposal Evaluation
+The +2 candidate demonstrated a real causal effect, but missed the predeclared bar:
 
-The developer is right that the evidence weakens the original variance hypothesis.
+- Retriggers within 20 ordinary fights fell 37% / 38% / 18%, satisfying that criterion in two profiles.
+- Total triggers fell 8% / 13% / 16%, satisfying the 15% criterion in only one profile.
+- Training time/share rose 13% / 2% / 8%; idle exceeded the 10% limit.
+- Training levels earned rose 15% / 8% / 9%.
+- Repeated or back-to-back +2 cycles occurred, with medians of 1 / 2 / 2 and P90 of roughly 4-5. That is an explicit failure condition.
+- Ordinary defeats fell 8% / 11% / 10%, and estimated ordinary rewalk hours fell 10% / 14% / 14%.
+- Median zones cleared did not improve and casual declined from 6 to 5.
 
-Retriggers still arrive after roughly 9-10 fights and 7-8 minutes in both threshold arms. Raising the threshold changed that timing only marginally while increasing unproductive defeats. The invariant checkpoint pattern and the +1 training target make the intra-zone climb a plausible structural cause.
+The mechanic therefore diagnoses insufficient recovery from some quick retriggers, but it is not a clean global solution. It buys fewer retriggers by assigning more training and can recursively select +2 again. Do not validate or ship it.
 
-The enemy-level gap is supporting evidence, not proof by itself: encounter composition and nonlinear stat scaling also affect difficulty. The proposed target experiment is still the smallest direct way to distinguish “one level is insufficient at a quick retrigger” from “the trigger itself is noisy.”
+# Interpretation
 
-# Required Instrumentation Correction
+The developer's broader conclusion is accepted with one qualification.
 
-The current observation code does not exactly implement the label “within 20 fresh ordinary fights”:
+A 40-55% training share is not automatically dead time. Under the current reward model, training is progression: it awards normal combat rewards, raises party level, and reduces subsequent ordinary defeats and rewalk. Trigger count or training share alone should not be minimized when player-facing progress is stable or better.
 
-- `returnFights` increments before the boss-fight early return, so boss encounters can be included.
-- On the 20th ordinary fight, the after-return record is cleared before `startTraining()` reads it, so an eligible retrigger on that fight is missed.
+That does not prove every training cycle is desirable. Repeated +2 cycles show that escalation can absorb more of the session without resolving the underlying encounter structure. Keep universal +1 and evaluate future Auto Training changes only against player-facing harm, not an arbitrary frequency target.
 
-For both arms, define a quick retrigger as a trigger caused by an ordinary fight numbered 1 through 20 inclusive after a completed return to the same zone. Capture that state before clearing the after-return window. This correction is observation/state classification only in the control arm.
+Pass 9 also does not justify an immediate Ironvein balance change. The profile-level first-try and stall results are directionally inconsistent, and the current telemetry does not identify whether Warlord failures are near-kills, early damage checks, or summon-phase collapses. Diagnose that mechanism before choosing a lever.
 
-Because this correction changes the classification used by the candidate mechanic, rerun both arms. Do not compare the corrected candidate solely against the retained Pass 8 control.
+# Authorized Pass 10
 
-# Authorized Experiment
+`PASS_10_IRONVEIN_FAILURE_MODE_DIAGNOSTIC`
 
-Control:
+Purpose: identify the dominant Warlord failure mode at comparable first-arrival states. This is an observation pass, not a balance candidate.
+
+Use current production behavior:
 
 - `AT_LOSSES = 4`
-- training target = +1 party level for every trigger
+- universal +1 training target
+- corrected Pass 9 retrigger instrumentation
+- all current production boss and Road values
 
-Candidate:
+Profiles:
 
-- `AT_LOSSES = 4`
-- first trigger, non-quick retrigger, or different-zone trigger: +1 party level
-- same-zone retrigger within 1-20 completed ordinary fights after a completed return: +2 party levels
+- Idle
+- Light
+- Casual
+- Engaged
 
-Implementation requirements:
+The Light profile is required because prior evidence suggests Ironvein may be most problematic there, and its omission would leave the player-facing gap unresolved.
 
-- Persist the selected target on the active training record.
-- Completion must compare progress against the persisted target.
-- For save compatibility, an active training record without a target must default to +1.
-- Record the selected target and quick-retrigger reason in telemetry.
-- Keep minimum 3 training fights for both targets.
-- Do not change reward rates; the additional level must be earned through normal training fights.
-- Keep deeper fallback and Keep Pushing behavior unchanged.
+# Diagnostic Method
 
-# Simulation Plan
+Prefer an exact first-arrival snapshot harness for Ironvein. Preserve, at minimum:
 
-QUICK DIAGNOSTIC:
+- party level and power
+- equipment and derived combat stats
+- current and maximum party HP
+- charge/focus state
+- Surge state
+- profile and active/automatic-play state
+- relevant progression and combat flags
 
-- paired seeds 1-10
-- Idle / Casual / Engaged
-- 24h
-- 30 control + 30 candidate runs
-- production Road logic
-- identical instrumentation in both arms
-- 0 simulation errors required
+Replay the production Warlord encounter from each snapshot across independent combat RNG seeds. Target 10 representative arrival snapshots per profile x 10 combat seeds each (100 boss fights per profile, 400 total), or an equivalent construction with the same coverage.
+
+Use retained current-production +1 arrival snapshots only if they contain the required state and are exactly comparable. Otherwise run the minimum full-Road production simulations needed to generate them. Do not restart or duplicate unrelated validation work.
+
+The harness must be checked against full-Road first-try results. If its clear rate or failure shape is materially unrepresentative, stop balance interpretation and correct the harness.
 
 # Required Telemetry
 
-For each arm and profile report median / P90 and paired relative change for:
+For every replay record:
 
-- total triggers, completed returns, cancellations
-- +1 and +2 trainings by target zone
-- training hours, share of 24h, fights, and party levels earned
-- same-zone retriggers within 10 and within 20 ordinary fights
-- median ordinary fights and minutes to retrigger
-- ordinary defeats outside training
-- ordinary and boss rewalk fights and estimated rewalk hours
-- first 10 and 20 ordinary-fight win rate after return
-- trigger loss-window contents
-- party/enemy level and pre-rollback loss position at trigger
-- Stillwater and Ironvein first-try, attempts, stall, arrival level, and clear time
-- early-Road clear times, zones cleared at 24h, and party level at 24h
+- arrival party level, power, equipment, HP fraction, minimum member HP, charge/focus, Surge, and active/automatic state
+- win/loss and encounter duration
+- boss HP remaining on loss
+- party survivors and remaining HP on win
+- wipe timing
+- phase reached
+- whether the 50% summon occurred
+- whether the summon action was interrupted
+- adds alive at wipe or victory
+- damage received from Warlord versus adds
+- charge attack hits and kills
+- shield contribution, if reliably measurable
 
-Also report how many triggers occurred exactly on ordinary fight 20 so the corrected boundary can be audited.
+Report by profile and overall:
 
-# Success Criteria
+- clear rate with uncertainty
+- median / P90 duration
+- boss-HP-remaining distribution on losses
+- early-wipe, pre-summon, summon-phase, and post-summon failure shares
+- outcome stratified by arrival power and active/automatic state
+- full-Road versus snapshot-harness first-try comparison
 
-The +2 quick-retrigger candidate is promising only if:
-
-- median retriggers within 20 ordinary fights fall at least 30% in at least two profiles and do not increase in the third;
-- median total triggers fall at least 15% in at least two profiles;
-- ordinary defeats and estimated ordinary rewalk hours do not worsen by more than 10% in any profile;
-- median training hours/share do not increase by more than 10% in any profile;
-- median zones cleared at 24h do not decline;
-- median early-Road clear times do not worsen by more than 10% and P90 by more than 15%;
-- Stillwater remains in its locked Pass 7 bands with median attempts <=3 and P90 <=5; and
-- the candidate does not merely inflate party level while leaving retrigger timing unchanged.
-
-# Failure Criteria
-
-Reject or revise the escalation if:
-
-- quick retriggers fall less than 15% in two or more profiles;
-- +2 trainings materially increase total training time without reducing retriggers;
-- dead time, early-Road progression, or Stillwater worsens beyond the limits above;
-- the candidate causes repeated +2 cycles in the same zone; or
-- corrected telemetry is invalid or differs between arms.
+Telemetry validity is a gate. If phase, summon, damage-source, or arrival-state fields are unreliable, report the defect and do not recommend a balance lever.
 
 # Decision Rules
 
-- If all success criteria pass: propose a normal validation of the localized +2 retrigger target.
-- If retriggers improve but training share rises materially: return a counterproposal using target and zone breakdowns; do not silently alter the threshold.
-- If retriggers barely move: retain universal +1 and evaluate a separate cooldown diagnostic next.
-- If the effect is concentrated in Ironvein idle only: retain current global behavior and propose an Ironvein-local diagnosis rather than globalizing the mechanic.
+Pass 10 selects no balance value. The next handoff may propose exactly one bounded lever using these rules:
+
+- If losses cluster near the kill with low boss HP remaining and the party survives deep into the fight: propose an HP-only candidate.
+- If early wipes or Warlord charge damage dominate while substantial boss HP remains: propose an ATK-only candidate.
+- If failure begins specifically at the 50% summon/add phase: propose a summon-only candidate.
+- If arrival power or active-state differences explain most outcomes and the boss performs acceptably at comparable states: make no boss change and investigate arrival/training state instead.
+- If evidence is mixed or the harness is unrepresentative: request more diagnosis; do not combine levers.
+
+Debate the evidence in the next handoff and recommend one experiment. Do not implement that experiment until reviewed.
 
 # Locked Systems
 
 - `AT_LOSSES = 4`, `AT_WINDOW = 10`, and `AT_MIN = 8`
+- universal +1 Auto Training target; no conditional +2
+- no Auto Training cooldown
+- Auto Training rewards, minimum fights, deeper fallback, protections, and Keep Pushing
 - Stillwater Alpha HP x0.55 and ATK x0.70
 - summoned werewolf HP x0.75 and ATK x0.85
 - one wolf at 60%; Howl at 30%
 - Greenhollow tuning
 - tap damage x0.22 and tap charge/focus
 - boss retry cadence 9
-- Auto Training rewards, deeper fallback, protections, and Keep Pushing
 - polynomial Renown
 - rarity and promotion progression
-- all downstream boss values, including Ironvein
-- no cooldown, special active-play multiplier, global XP change, or unrelated balance/UI change
+- all downstream boss values, including Warlord and its summoned adds
+- no special active-play multiplier, global XP change, or unrelated balance/UI change
 
 # What Not To Do
 
-- Do not ship `AT_LOSSES = 5`.
-- Do not tune Stillwater or Ironvein in this pass.
-- Do not add a cooldown.
-- Do not change XP, gold, drops, gear, travel, recovery, or boss behavior.
-- Do not reuse the uncorrected Pass 8 control as the sole comparator.
+- Do not ship or validate the conditional +2 training target.
+- Do not alter Warlord HP, ATK, defense, speed, charge, shield, summon threshold, add count, or add stats.
+- Do not change Auto Training frequency, threshold, target, cooldown, or rewards.
+- Do not tune Stillwater or any other boss.
+- Do not combine boss levers.
+- Do not implement balance code in this pass.
