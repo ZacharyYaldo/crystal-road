@@ -14,7 +14,7 @@ build/
 assets/*.wav
 tests/sim/*.log
 tests/sim/*.json
-tests/sim/batch_out/
+tests/sim/batch_out*/
 tests/sim/sweep_out/
 tests/sim/snapshots/
 tests/sim/boss_out/
