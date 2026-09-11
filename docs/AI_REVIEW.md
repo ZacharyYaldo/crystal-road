@@ -1,116 +1,132 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_27_POST_KEEP_PROGRESSION_DIAGNOSTIC
-REVIEWED_HANDOFF_PASS: PASS_26_SHATTER_ENEMY_SCALING_VALIDATION
-REVIEWED_HANDOFF_SHA: 614b659040e369c0d3c4142c085831dbe4e6f37c
-BASE_COMMIT: 91c4dc438effdd6e6c7f779584178313aee0fd5b
+REVIEW_FOR_PASS: PASS_28_HOLLOW_KING_ATK_CANDIDATE
+REVIEWED_HANDOFF_PASS: PASS_27_POST_KEEP_PROGRESSION_DIAGNOSTIC
+REVIEWED_HANDOFF_SHA: fce0f266f2713848db5997ec2f8e93696cab8ce6
+BASE_COMMIT: 671c898699da59b4cf440297a29b69440cfb3e48
 CONFIDENCE: HIGH
 
 # Decision
 
-Lock the production post-Shatter enemy HP/ATK multiplier at `1.10`. Keep the post-Shatter DEF multiplier at `1.10`.
+Accept the Pass 27 ranking and causal diagnosis.
 
-Pass 26 is valid and reproduces the player-facing Pass 25 result on fresh seeds:
+The immediate priority is the repeated post-Keep boss damage-per-action wall, beginning with the Hollow King and then recurring at the Foundry Core. This ranks ahead of Endless Road for the next test because it creates the largest repeated player-facing delay across all four profiles and the only unresolved non-interactive failure state:
 
-- all 80 runs completed the authorized horizon with zero errors;
-- all 40 paired audits matched exactly through the first Shatter, and run 0 was identical;
-- ordinary Ashen Keep loss rates fell by 8-12 points across all four profiles;
-- fight 36 reach improved from 1/10, 0/10, 8/10, and 10/10 to 7/10, 9/10, 10/10, and 10/10 for idle, light, casual, and engaged;
-- Keep clears improved from 0/10, 0/10, 0/10, and 2/10 to 1/10, 4/10, 8/10, and 10/10;
-- active Hollow King fights became credible contests rather than immediate wipes;
-- idle advanced materially through the Keep even though Hollow King remained a severe Auto-Cast wall;
-- earlier replay bosses retained meaningful resistance for idle and light;
-- Foundry still required 12-15 hours and 95 Core attempts for 10 wins, so the downstream zone was not trivialized;
-- no broad early-Road regression appeared.
+- Hollow King stalls were 7-15 hours across profiles;
+- idle required 596 Auto-Cast attempts for 10 clears;
+- the Foundry Core then produced 0 wins in 766 idle Auto-Cast attempts, leaving every idle run in Foundry at 96 hours;
+- boss attacks supplied 94-97% of damage in Hollow King losses;
+- many active losses ended before the first summon, and armored skeleton damage was negligible;
+- ordinary Foundry progression was not the wall.
 
-The global scaling lever is now closed. Do not test another factor, add another confirmation arm, or use the local Hollow King result to weaken global scaling further.
+The evidence rejects summon count, summon damage, and drain as the primary Hollow King mechanism. The boss's own AoE damage gives arriving heroes only 0.4-1.1 ordinary hits to defeat. A direct boss-ATK candidate is justified.
 
-Ashen Keep is good enough for the active profiles and this map-level scaling cycle is complete. This is not whole-game completion. The next work moves to the newly exposed post-Keep progression landscape: Hollow King for idle play, the Foundry/Core transition, and the Endless Road economy.
+The Endless Road is a confirmed high-priority systemic issue, not dismissed. Time-normalized gold per kill rose about 16x over 24 hours, party power rose about 8x, and deaths per hour stayed flat. That is accelerating progression without increasing resistance. It does not rank first for this pass because it produces no stall and is not reached by idle, but it must remain open for whole-game triage after the bounded boss candidate. Do not describe the whole game as tuned or ready to ship.
 
-# Evidence Weighed
+# Pass 28 Candidate
 
-The candidate produced the intended cross-map improvement without erasing all friction. Hollow King candidate results were 1/178 Auto-Cast for idle, 1/36 Auto-Cast plus 3/29 active for light, 8/103 active for casual, and 10/144 active for engaged. Casual's run-2 Grave Knight row at 7/7 active is soft, but it is a seven-attempt local row, while Auto-Cast replay bosses remain resistant and the player-facing Road outcomes are healthy. Record it as a watch item; do not reopen Grave Knight tuning.
+Test only the Ashen Keep Hollow King's base ATK multiplier:
 
-Engaged players entered Endless Road in 9/10 runs at 65-71 hours and showed large late gold, ore, and level gains. The evidence does not show that `1.10` caused an economy defect: the factor exposed a new zone, while Foundry itself remained a 12-15-hour contest. Endless exposure lasted only 1-7 hours, so its sustained economy is not yet measured. This is the next largest unknown and should be diagnosed rather than inferred from cumulative 72-hour totals.
+- target the Ashen Keep boss entry `ENEMIES.necromancer.atk`;
+- baseline `1.7`;
+- candidate `1.3`;
+- simulator override only;
+- production source and bundle remain at `1.7`;
+- do not alter the separate `ENEMIES.hollowking` lord entry.
 
-One reporting correction does not invalidate the batch: the detailed rows include a few minimum re-clear intervals of five zones, despite the summary saying every interval was six or more. Together with 6-15-hour gaps and mostly six or seven zones re-cleared, the raw evidence still rules out rapid Shatter churn. Use the raw rows in future summaries.
+Reuse the completed Pass 27 production batch as the fixed baseline. Do not rerun or duplicate its 40 control runs.
 
-# Pass 27: Post-Keep Progression Diagnostic
+Run one candidate batch:
 
-Run one production-only, broad telemetry diagnostic. Make no gameplay or balance change.
-
-Configuration:
-
-- production build `20260911-163721` with HP/ATK factor `1.10` and DEF factor `1.10`;
 - seeds 51-60;
 - idle, light, casual, and engaged profiles;
 - 96 simulated hours;
-- 40 runs total;
+- 40 candidate runs total;
+- production build `20260911-163721`;
+- post-Shatter HP/ATK factor `1.10`;
+- post-Shatter DEF factor `1.10`;
 - `--stallRule far --stallHours 3`;
 - `--shatters 3` as a cap, with no early stop;
 - Pass 22 dust policy;
 - literal Pass 24 ascension policy;
 - Ashen Keep level `50`;
-- no control arm, no balance override, and zero simulation errors.
+- zero simulation errors.
 
-This is a new whole-road diagnostic, not another validation of `1.10`. Do not compare or retest `1.25`.
+This is one candidate test, not a new diagnostic and not a production implementation.
 
-Instrumentation-only simulator/report changes are allowed if needed to attribute resources and time to a zone. Production source and bundle must remain unchanged.
+# Validity Gate
 
-# Diagnostic Questions
+Before interpreting balance, demonstrate:
 
-Use the 96-hour horizon to answer one question: after the locked scaling change, which mechanism is now the largest repeated player-facing progression bottleneck across profiles?
+- all 40 candidate runs reach 96 simulated hours within one simulation step;
+- no run exceeds three Shatters or stops merely because it reaches three;
+- each paired candidate matches its Pass 27 baseline exactly through the first Ashen Keep entry;
+- Hollow King HP, DEF, speed, drain, summon thresholds/counts/stats, rewards, and every non-ATK field are unchanged;
+- the only gameplay divergence begins when the Ashen Keep `necromancer` boss uses ATK `1.3` instead of `1.7`;
+- Foundry Core and all earlier bosses retain their locked production values;
+- production source and bundle remain unchanged at Hollow King ATK `1.7`;
+- the override does not affect the distinct lord-cycle `hollowking` entry.
 
-Rank these with evidence:
+If any gate fails, stop balance interpretation and report the defect. Do not run a replacement batch without review.
 
-1. Hollow King Auto-Cast survival for idle and light;
-2. Foundry ordinary progression and Foundry Core;
-3. Endless Road difficulty, pacing, and economy.
+# Required Evidence
 
-For Hollow King, report attempts and wins by run and activity window, loss duration, boss HP remaining, summon thresholds reached, party deaths, and the damage source or phase that ends the attempt. Separate opening boss hits from first-wave skeletons and second-wave armored skeletons. Do not propose an Auto-Cast reaction rule; that systemic avenue is already closed.
+Report paired candidate-versus-Pass-27-baseline results by profile and run number for:
 
-For Foundry, report entry and clear time, ordinary encounters/losses, furthest fight, Core attempts/wins, loss duration, Core HP remaining, summon reaches, party level/power on entry and clear, and hours stalled there. Distinguish lack of exposure from inability to progress.
+- Hollow King entry hour, party level/power, attempts, wins, and stall-to-clear;
+- Auto-Cast and active-window attempts/wins separately;
+- loss duration, boss HP remaining, hero deaths, and survivors/party HP on wins;
+- opening, first-summon, and second-summon loss phases;
+- boss, skeleton, and armored-skeleton damage shares;
+- estimated hits-to-defeat at arrival;
+- Keep clear hour and total time in Ashen Keep;
+- Foundry entry hour, ordinary progression, Core attempts/wins, and final zone at 96 hours;
+- Endless entry hour and time in-zone where reached;
+- current/best zone at 24, 48, 72, and 96 hours;
+- total defeats, training time, party level/power, earned/spent gold and ore, and final state;
+- paired outliers, especially first-attempt Hollow clears or unusually large downstream time gains.
 
-For Endless Road, report by hour since entry rather than only by absolute simulation hour:
+Do not rerun the Pass 27 baseline. Use its committed raw outputs directly.
 
-- wave reached and wins per hour;
-- enemy level and player party level/power;
-- gold, ore, and XP earned per hour;
-- gold and ore spent per hour and the systems receiving those spends;
-- item ranks and upgrade progression;
-- deaths, recovery/training time, and any stable stall or acceleration pattern;
-- cumulative resources carried into Endless versus resources earned inside it.
+# Candidate Rule
 
-Audit the production formulas that determine Endless enemy level, rewards, encounter cadence, and segment rotation. State whether the observed economy comes from intended Endless rewards, faster encounter throughput, inherited resources, upgrade feedback, or a telemetry/accounting artifact.
+Treat `1.3` as promising only if the player-facing results show all of the following together:
 
-# Decision Rule for the Next Review
+- idle Hollow King Auto-Cast win rate reaches a meaningful two-digit percentage rather than remaining in the low single digits;
+- idle median Hollow King stall falls by at least one third from the 10.3-hour baseline;
+- light, casual, and engaged active Hollow King win rates remain below 90%;
+- active profiles still show repeated losses and meaningful fight duration rather than broadly automatic or first-attempt clears;
+- opening-phase wipes decline and more attempts reach the intended summon phases;
+- earlier Road progression is identical and downstream progression does not reveal a severe collapse.
 
-Do not tune anything in Pass 27. Return one ranked bottleneck with a causal mechanism and at most one bounded candidate proposal.
+Reject `1.3` if idle remains effectively blocked, if the active profiles become broadly automatic, or if downstream progression collapses. Do not test another Hollow King ATK value after this candidate.
 
-Prefer the bottleneck that creates the largest repeated delay or non-interactive failure state across the measured profiles. Do not rank a system first merely because it has the largest cumulative currency number. If Endless gains remain high after normalizing by time in-zone and they create accelerating power without meaningful resistance, rank Endless first. If gains are exposure-driven and progression stabilizes, treat them as expected and rank the repeated Hollow King or Foundry stall instead.
-
-One diagnostic pass is enough. Do not add more seeds, a second horizon, a control arm, a candidate arm, or a confirmation batch before review.
+A secondary rate narrowly missing a threshold is not grounds for another sizing pass. Weigh stall time, attempts, active-versus-idle experience, fight phases, and downstream reach together. After this result, the next review will lock or reject the candidate, or authorize one final fresh-seed validation only if release confidence genuinely requires it.
 
 # Locked Systems
 
 Keep locked:
 
+- production Hollow King ATK `1.7` pending review of the candidate;
+- Hollow King HP, DEF, speed, drain, summons, rewards, and all other mechanics;
+- Foundry Core stats and mechanics;
+- Endless Road level, reward, renown, omen, enemy, pacing, and economy formulas;
 - post-Shatter enemy HP/ATK multiplier `1.10`;
 - post-Shatter enemy DEF multiplier `1.10`;
-- Ashen Keep base level `50`, enemy pool, fight count, and reward formulas;
-- Hollow King HP, ATK, DEF, speed, summons, drain, and mechanics;
-- Foundry/Core and Endless Road stats, levels, rewards, pacing, and mechanics;
+- Ashen Keep base level `50`, ordinary enemy pool, fight count, and rewards;
 - every Shatter availability, gain, blessing cost/effect, dust priority, and far-mark stall rule;
 - production gear ranks, item stats, ascension costs/caps, drop ranks, ore economy, and upgrade formulas;
 - Auto Training target `1.0`, threshold `4`, and all Auto Training behavior;
 - Warlord ATK x1.2, Sand Tyrant ATK x1.1, Hunter King ATK x1.0, and Grave Knight ATK x2.0;
-- all ordinary enemy base stats, boss base stats, zone levels, global level curves, progression, economy, tap, Renown, rarity, promotion, travel, recovery, UI, and save-format systems;
+- all ordinary enemy base stats, other boss base stats, zone levels, global level curves, progression, economy, tap, Renown, rarity, promotion, travel, recovery, UI, and save-format systems;
 - `AUTO_REACT = false`.
 
 # What Not To Do
 
-- Do not reopen or validate the post-Shatter scaling factor.
-- Do not tune Hollow King, Foundry Core, Endless Road, Grave Knight, or any other boss in this pass.
+- Do not change production gameplay code or rebuild the bundle.
+- Do not rerun the Pass 27 baseline.
+- Do not test a second Hollow King ATK value.
+- Do not change summon count, summon stats, drain, HP, DEF, speed, or boss mechanics.
+- Do not tune the Foundry Core or Endless Road in Pass 28.
 - Do not change Auto-Cast, Auto Training, Shatter, dust, gear, ascension, or economy behavior.
-- Do not use cumulative 72/96-hour currency alone as evidence of a runaway economy.
-- Do not describe Ashen Keep completion as whole-game completion.
-- Do not merge or ship before the next review.
+- Do not add seeds, profiles, hours, control arms, stress profiles, or a confirmation batch.
+- Do not merge or ship before review.
