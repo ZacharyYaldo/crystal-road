@@ -1,31 +1,3 @@
-STATUS: READY_FOR_REVIEW
-RESPONSE_TYPE: RESULTS_WITH_RECOMMENDATION
-PASS_ID: PASS_9_AUTOTRAIN_RETRIGGER_TARGET_DIAGNOSTIC
-BASED_ON_REVIEW_PASS: PASS_9_AUTOTRAIN_RETRIGGER_TARGET_DIAGNOSTIC
-BUILD: 20260911-111712
-HEAD_COMMIT_SHA: b30bb6e967f1bf779fbbeaa6089d39c5b6ed9dc3
-
-# Crystal Road AI Handoff - Pass 9 (+2 training target on quick same-zone retrigger)
-
-DEVELOPER_POSITION: AGREE with the pass 9 review as specified; PARTIAL on the candidate itself after measurement (see scorecard).
-CONFIDENCE: HIGH on the measurements (paired seeds, identical corrected instrumentation in both arms, 0 errors, 30+30 runs). MEDIUM on the recommendation.
-
-## Exact changes (commit b30bb6e)
-Observation/state corrections in both arms, as required by the review:
-- `returnFights` now counts only ordinary fights after a completed return to the same zone (boss encounters excluded; it is incremented after the boss early-return).
-- The retrigger state is captured before the 20-fight after-return window can clear it, so a trigger on ordinary fight 20 is classified. Audit row "retriggers exactly on ordinary fight 20": median 0 in every cell, P90 0-4, both arms.
-- Pre-rollback loss position recorded at each trigger (`lossProg`); `enemyLv` now uses it.
-Candidate mechanic, behind a constant so both arms share one build:
-- `AT_RETRIGGER_TARGET` (production value 1 = control). Candidate arm runs with 2 via the simulator's per-run source replace. A quick retrigger = a trigger from an ordinary fight numbered 1-20 after a completed return to the same zone (`AT_QUICK_FIGHTS`). The selected target is persisted on the active training record (`G.train.target`), completion compares against it, records without a target default to +1, min 3 training fights kept, target and quick flag written to telemetry.
-Production behavior is unchanged: the shipped constant is 1.
-
-## Locked systems preserved
-AT_LOSSES 4, window 10, min 8 | Stillwater Alpha 0.55/0.70, wolf 0.75/0.85, one wolf at 60%, Howl 30% | Greenhollow | tap 0.22 | cadence 9 | training rewards, deeper fallback, protections, Keep pushing | Renown, rarity, promotions | all downstream bosses | no cooldown, no XP change.
-
-## Simulation
-QUICK DIAGNOSTIC: paired seeds 1-10 x idle/casual/engaged x 24h, --shatters 3, production Road logic, control (target 1) and candidate (target 2) both rerun on the corrected build. 30 + 30 runs, 0 errors. Values are median / P90 with the paired relative change of the median. First-try clear is the mean over seeds.
-
-## Results
                                                                         idle                                  casual                                engaged                               
 -- AUTO TRAINING (24h)   med / P90   +1 always -> +2 on quick retrigger                                                                                                                   
 triggers                                                                24 / 30 -> 22 / 25 (-8%)              30 / 34 -> 26 / 29 (-13%)             31 / 36 -> 26 / 31 (-16%)             
@@ -89,29 +61,3 @@ Ironvein Caverns                                                        16.06 / 
 Emberwaste                                                              - / - -> - / -                        17.13 / 23.11 -> 17.15 / 22.12 (+0%)  14.14 / 16.2 -> 14.16 / 17.19 (+0%)   
 zones cleared @24h                                                      4 / 4 -> 4 / 4 (0%)                   6 / 6 -> 5 / 6 (-17%)                 6 / 6 -> 6 / 6 (0%)                   
 party Lv @24h                                                           50 / 51 -> 50 / 51 (0%)               52 / 54 -> 53 / 54 (+2%)              54 / 55 -> 55 / 56 (+2%)              
-
-## Scorecard against the pass 9 success criteria
-1. Retriggers within 20 ordinary fights down >=30% in >=2 profiles, not up in the third: MET (idle -37%, casual -38%, engaged -18%).
-2. Total triggers down >=15% in >=2 profiles: NOT MET (idle -8%, casual -13%, engaged -16%).
-3. Ordinary defeats and rewalk hours not worse than +10%: MET, and improved (defeats -8/-11/-10%, rewalk hours -10/-14/-14%, total defeats -10 to -15%).
-4. Training hours/share not up more than 10%: NOT MET for idle (+13%); casual +2%, engaged +8%.
-5. Zones cleared at 24h not declining: casual median 6 -> 5 (same seeds as pass 8 control; the sixth zone lands at 22-23h, so this is one seed crossing the cutoff, n=10).
-6. Early-Road clear times within +10% / +15%: MET (all cells 0 to +4%; casual Ironvein -9%).
-7. Stillwater in its bands: attempts MET (median 2-3, P90 3-5). First-try casual 10% is below the 15-40 band; the control arm on the same seeds is 20%, and Stillwater is upstream of nearly every +2 training, so this is n=10 noise rather than a mechanic effect. Idle 40%, engaged 30% in band.
-8. Not merely inflating level: PARTIALLY. Retrigger counts fall, but the time to the retriggers that remain is unchanged (9-10 ordinary fights, 7 minutes), and levels earned in training rise 8-15%.
-Failure condition "repeated +2 cycles in the same zone": PRESENT. Back-to-back +2 runs have median 1 (idle) to 2 (casual, engaged) and P90 4-5.
-
-## Independent interpretation
-- The hypothesis test came out the way the level-climb explanation predicted and the variance explanation did not: a bigger training target cut quick retriggers by about a third for idle and casual and reduced deaths and rewalking, while the trigger threshold (pass 8) did the opposite. Retriggers are structural.
-- But the fix is incomplete because the gap is not a constant two levels. Parties trigger while already 4-7 levels above the enemy level of the fight they lost, and the last third of a zone climbs three more. Where the gap is small (Thornwood) +2 ends the cycle; where it is large (Ironvein and Emberwaste for idle, 30-40 minute trainings) the party returns, hits the same stretch, and takes another +2, which is the back-to-back runs and the +13% training time for idle. The mechanic is doing more productive training, not wasted training, but it does not reduce total training and it lengthens idle's day of training.
-- Net progression effect is neutral to slightly positive: no early-Road clear time worsened beyond noise, casual Ironvein cleared 9% sooner with first-try up from 40% to 70%, idle's Ironvein stall fell 34%. Nothing broke.
-- Neither arm changes the underlying picture from pass 7: for the realistic profiles, roughly half of the day is Auto Training, and that time earns 21-28 party levels, i.e. it is the Road's leveling engine. The remaining question is whether that is acceptable design, which is not something a fixed +1 or +2 target can settle.
-
-## Proposed next step (proposal only, nothing applied)
-Do not validate +2 as it stands: it misses two of the secondary criteria and produces repeated +2 cycles. I see two defensible paths and recommend the first:
-1. Keep universal +1 in production (already the case), accept the current training frequency as structural and productive, and move the next pass to Ironvein for idle and light (0% and 10% first-try, 7 attempts, 1.6-2.4h stall, arrival Lv 38 after about 6 trainings), which is now the only early-Road wall left. No cooldown diagnostic: the pass 8 and pass 9 results together say anything that delays a needed training converts it into rewalking.
-2. If training frequency itself is the concern, the principled version of pass 9 is a gap-scaled target: train until the party level reaches the enemy level at the loss position plus a margin (the trigger context now records both; the empirical comfortable margin is about 7 levels), capped at +3 per training. One lever, same persistence and safeguards, no new systems. Expected: retriggers fall further without back-to-back cycles; training time per zone unchanged or lower because trainings stop repeating. Risk: a cap and a margin are two numbers to tune, and it changes idle's arrival levels everywhere, so Ironvein would have to wait again.
-Implementation risk of (1): none. Of (2): low, same code path as pass 9.
-
-## Caveats
-n=10 per cell; single-profile first-try percentages move in 10-point steps and "zones cleared at 24h" is sensitive to the 24h cutoff. Rewalk hours are fights lost to rollback times each run's mean seconds per encounter. Both arms use the corrected instrumentation; the pass 8 control was not reused.
