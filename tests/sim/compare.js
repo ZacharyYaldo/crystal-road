@@ -75,6 +75,11 @@ row('LOSS boss HP left (run median)',r=>{const x=att(r).filter(a=>a.win===false&
 row('LOSS reached summon % (pooled)',r=>{const x=att(r).filter(a=>a.win===false&&a.summoned!=null);return x.length?x.filter(a=>a.summoned).length/x.length:null;},0,'mean');
 row('WIN survivors (run median)',r=>{const x=att(r).filter(a=>a.win===true&&a.survivors!=null).map(a=>a.survivors);return x.length?medOf(x):null;},0);
 row('WIN party HP % (run median)',r=>{const x=att(r).filter(a=>a.win===true&&a.partyHp!=null).map(a=>a.partyHp);return x.length?100*medOf(x):null;},0);
+row('Ironvein max loss streak',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].maxStreak,0);
+row('Ironvein combat stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].combatStallH,2);
+row('Ironvein retry stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].retryStallH,2);
+section('REWALK BY ZONE (ordinary defeats outside training): fights | hours in zone (non-training) | rewalk fights per exposure hour');
+for(const z of zones.slice(1,7)){row(z+': ordinary rewalk fights',r=>r.byZone&&r.byZone[z]?r.byZone[z].rewalk:null,0);row(z+': ordinary defeats',r=>r.byZone&&r.byZone[z]?r.byZone[z].defeats:null,0);row(z+': hours in zone (non-training)',r=>r.zoneTime&&r.zoneTime[z]?r.zoneTime[z].sec/3600:null,2);row(z+': rewalk fights per exposure hour',r=>{const b=r.byZone&&r.byZone[z],t=r.zoneTime&&r.zoneTime[z];return b&&t&&t.sec>600?b.rewalk/(t.sec/3600):null;},1);row(z+': rewalk hours per exposure hour',r=>{const b=r.byZone&&r.byZone[z],t=r.zoneTime&&r.zoneTime[z];return b&&t&&t.sec>600&&r.deadTime?(b.rewalk*r.deadTime.secPerEncounter/3600)/(t.sec/3600):null;},2);}
 section('OTHER BOSSES first-try % (mean) / attempts med');
 for(const z of ['Stillwater Lagoon','Thornwood','Emberwaste','Amberfall Woods','Ashen Approach']){row(z+' first-try %',r=>r.bossFailRates[z]?r.bossFailRates[z].firstTryClear:null,0,'mean');row(z+' attempts',r=>r.bossFailRates[z]&&r.bossFailRates[z].attemptsToClear,0);row(z+' stall h',r=>r.bossFailRates[z]&&r.bossFailRates[z].stallH,2);}
 section('HORDES / CATACOMBS / DAMAGE');
