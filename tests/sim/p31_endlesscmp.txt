@@ -1,0 +1,322 @@
+
+===== IDLE   baseline batch_out_p30 (Endless gold 1.05^L) -> candidate batch_out_p31 (1.04^L)
+
+seed 51  hours 96.00  Shatters 3->3  Core 1/11 atk 17783 volley 59% clear @88.35 reproduced  audit through Endless entry: hourly 88/88, entry same -> OK
+  Endless: entry @88.35h run3 Lv86 pw256K gold 4M tree 294 | hours 7.7->7.7 best wave 141->131 milestones 5->5 | gold earned 99->69M spent 89->65M end balance 9->4M | Lv@96h 99->99 pw 750K->737K | ore 1772K->1793K gearUps 1100->1101 renown 38K->40K tree 320->305 item 1.33/56.5->1.33/56.5
+    0-6h: gold/kill 56K->27K | gold/h 6.5->3.2M spent/h 6.4->3.1M | kills/h 103->101 deaths/h 6.8->6.7 | power 653K->648K Lv 96->96 best wave 121->122 | purchases 39.0->19.2M ore/h 103K->104K renown 21K->24K
+    6-12h: gold/kill 100K->44K | gold/h 8.6->3.8M spent/h 6.0->3.7M | kills/h 84->84 deaths/h 6.0->5.0 | power 750K->737K Lv 99->99 best wave 141->131 | purchases 12.3->7.7M ore/h 115K->121K renown 38K->40K
+  zones cur/best/powerK 24h 4/4/21->4/4/21, 48h 6/6/70->6/6/70, 72h 7/7/147->7/7/147, 96h 9/9/750->9/9/737 | defeats 1457->1454
+
+seed 52  hours 96.00  Shatters 3->3  Core 1/17 atk 17783 volley 50% clear @89.77 reproduced  audit through Endless entry: hourly 89/89, entry same -> OK
+  Endless: entry @89.77h run3 Lv87 pw270K gold 4M tree 298 | hours 6.2->6.2 best wave 134->134 milestones 5->5 | gold earned 102->75M spent 95->70M end balance 7->5M | Lv@96h 98->98 pw 715K->690K | ore 1903K->1916K gearUps 1098->1098 renown 30K->25K tree 323->312 item 0.83/60->0.83/60
+    0-6h: gold/kill 71K->35K | gold/h 7.1->3.4M spent/h 6.6->3.1M | kills/h 93->95 deaths/h 5.2->6.7 | power 659K->631K Lv 97->96 best wave 127->122 | purchases 40.1->19.0M ore/h 112K->113K renown 23K->18K
+    6-12h: gold/kill 110K->51K | gold/h 9.3->4.2M spent/h 9.3->5.1M | kills/h 85->84 deaths/h 8.0->4.0 | power 715K->690K Lv 98->98 best wave 134->134 | purchases 9.4->5.2M ore/h 149K->154K renown 30K->25K
+  zones cur/best/powerK 24h 4/4/22->4/4/22, 48h 6/6/59->6/6/59, 72h 7/7/145->7/7/145, 96h 9/9/715->9/9/690 | defeats 1264->1269
+
+seed 53  hours 96.00  Shatters 3->3  Core 0/8 atk 17783 volley 51% clear @- reproduced  audit through Endless entry: hourly 96/96, entry same -> OK
+  Endless not reached
+  zones cur/best/powerK 24h 4/4/24->4/4/24, 48h 6/6/70->6/6/70, 72h 7/7/116->7/7/116, 96h 8/8/261->8/8/261 | defeats 1684->1684
+
+seed 54  hours 96.00  Shatters 3->3  Core 1/20 atk 17783 volley 51% clear @87.01 reproduced  audit through Endless entry: hourly 87/87, entry same -> OK
+  Endless: entry @87.01h run3 Lv85 pw256K gold 4M tree 293 | hours 9.0->9.0 best wave 138->134 milestones 5->5 | gold earned 99->67M spent 93->62M end balance 6->5M | Lv@96h 100->99 pw 750K->709K | ore 1773K->1702K gearUps 1090->1084 renown 35K->42K tree 321->304 item 1.33/56.5->1.33/56
+    0-6h: gold/kill 54K->26K | gold/h 5.9->2.8M spent/h 5.7->2.9M | kills/h 99->95 deaths/h 6.0->7.0 | power 607K->585K Lv 95->95 best wave 120->121 | purchases 34.7->17.6M ore/h 83K->76K renown 15K->19K
+    6-12h: gold/kill 105K->42K | gold/h 7.8->3.3M spent/h 7.5->2.7M | kills/h 77->79 deaths/h 5.3->6.3 | power 750K->709K Lv 100->99 best wave 138->134 | purchases 22.8->8.6M ore/h 119K->109K renown 35K->42K
+  zones cur/best/powerK 24h 4/4/23->4/4/23, 48h 4/6/58->4/6/58, 72h 7/7/155->7/7/155, 96h 9/9/750->9/9/709 | defeats 1292->1301
+
+seed 55  hours 96.00  Shatters 3->3  Core 1/13 atk 17783 volley 53% clear @93.7 reproduced  audit through Endless entry: hourly 93/93, entry same -> OK
+  Endless: entry @93.7h run3 Lv81 pw251K gold 2M tree 293 | hours 2.3->2.3 best wave 75->67 milestones 3->2 | gold earned 56->49M spent 52->47M end balance 4->2M | Lv@96h 87->87 pw 460K->462K | ore 1244K->1247K gearUps 1048->1048 renown 2K->2K tree 303->298 item 1.08/55.3->1.08/55.3
+    0-6h: gold/kill 55K->27K | gold/h 5.1->2.8M spent/h 4.5->2.8M | kills/h 102->102 deaths/h 6.7->7.3 | power 460K->462K Lv 87->87 best wave 75->67 | purchases 13.9->8.8M ore/h 89K->90K renown 2K->2K
+  zones cur/best/powerK 24h 4/4/22->4/4/22, 48h 6/6/55->6/6/55, 72h 7/7/112->7/7/112, 96h 9/9/460->9/9/462 | defeats 1286->1288
+
+seed 56  hours 96.00  Shatters 3->3  Core 1/13 atk 17783 volley 56% clear @95.81 reproduced  audit through Endless entry: hourly 95/95, entry same -> OK
+  Endless: entry @95.81h run3 Lv86 pw265K gold 3M tree 294 | hours 0.2->0.2 best wave 32->32 milestones 1->1 | gold earned 45->44M spent 41->41M end balance 3->3M | Lv@96h 86->86 pw 350K->350K | ore 1131K->1131K gearUps 1053->1053 renown 0K->0K tree 295->295 item 0.83/56->0.83/56
+    0-6h: gold/kill 24K->20K | gold/h 2.2->1.8M spent/h 1.7->1.7M | kills/h 93->93 deaths/h 6.0->6.0 | power 350K->350K Lv 86->86 best wave 32->32 | purchases 1.7->1.7M ore/h 49K->49K renown 0K->0K
+  zones cur/best/powerK 24h 4/4/21->4/4/21, 48h 6/6/52->6/6/52, 72h 7/7/117->7/7/117, 96h 9/9/350->9/9/350 | defeats 1356->1356
+
+seed 57  hours 96.00  Shatters 3->3  Core 1/13 atk 17783 volley 53% clear @87.06 reproduced  audit through Endless entry: hourly 87/87, entry same -> OK
+  Endless: entry @87.06h run3 Lv83 pw253K gold 2M tree 293 | hours 8.9->8.9 best wave 144->140 milestones 5->5 | gold earned 105->70M spent 96->64M end balance 9->6M | Lv@96h 99->99 pw 775K->738K | ore 1906K->1844K gearUps 1082->1077 renown 35K->34K tree 321->306 item 1.42/56.5->1.42/56.3
+    0-6h: gold/kill 55K->27K | gold/h 6.3->3.0M spent/h 5.9->2.6M | kills/h 100->100 deaths/h 5.7->5.8 | power 641K->594K Lv 94->94 best wave 121->122 | purchases 36.3->16.2M ore/h 104K->90K renown 17K->14K
+    6-12h: gold/kill 103K->45K | gold/h 8.5->3.5M spent/h 7.0->3.0M | kills/h 81->77 deaths/h 8.7->6.3 | power 775K->738K Lv 99->99 best wave 144->140 | purchases 21.3->9.4M ore/h 119K->126K renown 35K->34K
+  zones cur/best/powerK 24h 4/4/22->4/4/22, 48h 6/6/65->6/6/65, 72h 8/8/148->8/8/148, 96h 9/9/775->9/9/738 | defeats 1202->1196
+
+seed 58  hours 96.00  Shatters 3->3  Core 1/13 atk 17783 volley 53% clear @87.72 reproduced  audit through Endless entry: hourly 87/87, entry same -> OK
+  Endless: entry @87.72h run3 Lv87 pw250K gold 3M tree 294 | hours 8.3->8.3 best wave 140->127 milestones 5->5 | gold earned 96->69M spent 87->65M end balance 9->4M | Lv@96h 99->99 pw 689K->692K | ore 1763K->1778K gearUps 1120->1121 renown 33K->43K tree 318->306 item 1.08/57.8->1.08/57.8
+    0-6h: gold/kill 54K->25K | gold/h 5.3->2.7M spent/h 5.1->2.6M | kills/h 94->91 deaths/h 7.5->7.5 | power 562K->562K Lv 95->95 best wave 116->110 | purchases 31.3->15.8M ore/h 81K->81K renown 9K->16K
+    6-12h: gold/kill 97K->42K | gold/h 7.0->3.2M spent/h 5.3->3.0M | kills/h 74->75 deaths/h 5.7->5.3 | power 689K->692K Lv 99->99 best wave 140->127 | purchases 16.2->9.2M ore/h 108K->114K renown 33K->43K
+  zones cur/best/powerK 24h 4/4/23->4/4/23, 48h 6/6/65->6/6/65, 72h 8/8/154->8/8/154, 96h 9/9/689->9/9/692 | defeats 1272->1271
+
+seed 59  hours 96.00  Shatters 3->3  Core 1/8 atk 17783 volley 49% clear @87.84 reproduced  audit through Endless entry: hourly 87/87, entry same -> OK
+  Endless: entry @87.84h run3 Lv85 pw260K gold 3M tree 294 | hours 8.2->8.2 best wave 138->139 milestones 5->5 | gold earned 94->66M spent 87->61M end balance 7->4M | Lv@96h 99->99 pw 748K->730K | ore 2009K->1914K gearUps 1105->1098 renown 32K->43K tree 317->301 item 1/59.3->1/59
+    0-6h: gold/kill 53K->25K | gold/h 5.5->2.7M spent/h 5.1->2.7M | kills/h 98->97 deaths/h 4.7->6.0 | power 614K->611K Lv 94->94 best wave 122->117 | purchases 31.1->17.0M ore/h 104K->96K renown 12K->22K
+    6-12h: gold/kill 100K->43K | gold/h 7.4->3.3M spent/h 6.8->2.9M | kills/h 74->75 deaths/h 6.3->6.3 | power 748K->730K Lv 99->99 best wave 138->139 | purchases 20.8->9.1M ore/h 123K->108K renown 32K->43K
+  zones cur/best/powerK 24h 4/4/22->4/4/22, 48h 6/6/56->6/6/56, 72h 7/7/150->7/7/150, 96h 9/9/748->9/9/730 | defeats 1176->1184
+
+seed 60  hours 96.00  Shatters 3->3  Core 1/10 atk 17783 volley 53% clear @79.69 reproduced  audit through Endless entry: hourly 79/79, entry same -> OK
+  Endless: entry @79.69h run3 Lv88 pw264K gold 3M tree 294 | hours 16.3->16.3 best wave 198->190 milestones 7->7 | gold earned 202->109M spent 188->101M end balance 13->9M | Lv@96h 112->112 pw 1210K->1176K | ore 3186K->3227K gearUps 1188->1190 renown 84K->87K tree 341->323 item 1.42/60.5->1.42/60.5
+    0-6h: gold/kill 57K->26K | gold/h 6.1->2.9M spent/h 5.6->2.9M | kills/h 98->101 deaths/h 6.2->7.0 | power 640K->601K Lv 97->97 best wave 124->116 | purchases 34.2->17.9M ore/h 99K->90K renown 24K->15K
+    6-12h: gold/kill 103K->47K | gold/h 9.3->3.9M spent/h 9.2->3.4M | kills/h 87->84 deaths/h 7.7->6.8 | power 912K->890K Lv 105->105 best wave 150->164 | purchases 55.6->21.1M ore/h 126K->136K renown 58K->57K
+    12-18h: gold/kill 154K->59K | gold/h 13.5->5.4M spent/h 12.3->5.0M | kills/h 92->89 deaths/h 5.2->7.2 | power 1210K->1176K Lv 112->112 best wave 198->190 | purchases 62.5->25.9M ore/h 182K->189K renown 84K->87K
+  zones cur/best/powerK 24h 4/4/26->4/4/26, 48h 7/7/89->7/7/89, 72h 8/8/202->8/8/202, 96h 9/9/1210->9/9/1176 | defeats 1250->1260
+
+-- idle validity: 96h 10/10, Shatter cap 10/10, Core reproduced 10/10, audit through Endless entry OK 10/10
+-- idle Endless (runs reaching in both arms 9/10): hours med 8.2 -> 8.2 (paired med 0.0, +0 09 -0) | best wave med 138 -> 134 (paired med -4, +1 02 -6) | milestones med 5 -> 5 (paired med 0, +0 08 -1) | gold earned M med 98.6 -> 69.0 (paired med -28.7, +0 00 -9) | spent M med 89.5 -> 64.2 (paired med -25.3, +0 01 -8) | end balance M med 7.4 -> 4.4 (paired med -2.8, +0 00 -9) | Lv@96h med 99 -> 99 (paired med 0, +0 08 -1) | power@96h K med 748 -> 709 (paired med -18, +2 01 -6) | ore med 1773312 -> 1792704 (paired med 3456, +5 01 -3) | renown K med 33 -> 40 (paired med 2, +6 01 -2) | tree levels med 320 -> 305 (paired med -15, +0 01 -8) | defeats med 1272 -> 1271 (paired med 0, +5 02 -3)
+   window 0-6h (n=9): gold/kill K med 55 -> 26 (paired med -28, +0 00 -9) | gold/h M med 5.9 -> 2.8 (paired med -3.1, +0 00 -9) | kills/h med 98 -> 97 (paired med 0, +3 02 -4) | deaths/h med 6.0 -> 6.7 (paired med 0.7, +6 02 -1) | power K med 614 -> 594 (paired med -5, +2 01 -6) | Lv med 95 -> 95 (paired med 0, +0 08 -1) | best wave med 121 -> 117 (paired med -5, +3 01 -5) | purchases M med 34.2 -> 17.0 (paired med -16.3, +0 01 -8)
+   window 6-12h (n=7): gold/kill K med 103 -> 44 (paired med -58, +0 00 -7) | gold/h M med 8.5 -> 3.5 (paired med -4.8, +0 00 -7) | kills/h med 81 -> 79 (paired med -1, +3 00 -4) | deaths/h med 6.3 -> 6.3 (paired med -0.8, +1 01 -5) | power K med 750 -> 730 (paired med -22, +1 00 -6) | Lv med 99 -> 99 (paired med 0, +0 06 -1) | best wave med 140 -> 134 (paired med -4, +2 01 -4) | purchases M med 20.8 -> 9.1 (paired med -11.7, +0 00 -7)
+   window 12-18h (n=1): gold/kill K med 154 -> 59 (paired med -95, +0 00 -1) | gold/h M med 13.5 -> 5.4 (paired med -8.1, +0 00 -1) | kills/h med 92 -> 89 (paired med -2, +0 00 -1) | deaths/h med 5.2 -> 7.2 (paired med 2.0, +1 00 -0) | power K med 1210 -> 1176 (paired med -33, +0 00 -1) | Lv med 112 -> 112 (paired med 0, +0 01 -0) | best wave med 198 -> 190 (paired med -8, +0 00 -1) | purchases M med 62.5 -> 25.9 (paired med -36.6, +0 00 -1)
+   growth 0-6h -> 12-18h (n=1): gold/kill x2.68 -> x2.24 | gold/h x2.22 -> x1.85 | power x1.89 -> x1.96
+-- idle horizons cur/best/powerK med 24h 4/4/22->4/4/22, 48h 6/6/59->6/6/59, 72h 7/7/147->7/7/147, 96h 9/9/715->9/9/692
+-- idle outliers: none
+
+===== LIGHT   baseline batch_out_p30 (Endless gold 1.05^L) -> candidate batch_out_p31 (1.04^L)
+
+seed 51  hours 96.00  Shatters 3->3  Core 1/2 atk 17783 volley 20% clear @88.08 reproduced  audit through Endless entry: hourly 88/88, entry same -> OK
+  Endless: entry @88.08h run3 Lv80 pw208K gold 2M tree 286 | hours 7.9->7.9 best wave 112->93 milestones 4->3 | gold earned 83->57M spent 78->53M end balance 5->4M | Lv@96h 96->96 pw 586K->550K | ore 1495K->1495K gearUps 1044->1044 renown 24K->9K tree 315->298 item 0.83/58->0.83/58
+    0-6h: gold/kill 49K->24K | gold/h 5.7->2.9M spent/h 5.1->2.7M | kills/h 113->114 deaths/h 8.5->7.5 | power 501K->492K Lv 92->93 best wave 76->72 | purchases 31.2->16.5M ore/h 88K->96K renown 7K->6K
+    6-12h: gold/kill 66K->29K | gold/h 7.5->3.3M spent/h 7.9->2.9M | kills/h 87->110 deaths/h 7.0->8.0 | power 586K->550K Lv 96->96 best wave 112->93 | purchases 16.1->6.1M ore/h 111K->89K renown 24K->9K
+  zones cur/best/powerK 24h 5/5/24->5/5/24, 48h 6/7/62->6/7/62, 72h 7/7/112->7/7/112, 96h 9/9/586->9/9/550 | defeats 1946->1942
+
+seed 52  hours 96.00  Shatters 3->3  Core 1/4 atk 17783 volley 55% clear @89.07 reproduced  audit through Endless entry: hourly 89/89, entry same -> OK
+  Endless: entry @89.07h run3 Lv84 pw245K gold 3M tree 294 | hours 6.9->6.9 best wave 132->123 milestones 5->4 | gold earned 89->64M spent 84->60M end balance 6->5M | Lv@96h 97->97 pw 667K->664K | ore 1622K->1614K gearUps 1091->1091 renown 28K->37K tree 316->301 item 1.25/56.2->1.25/56.2
+    0-6h: gold/kill 59K->27K | gold/h 6.6->3.2M spent/h 6.1->2.9M | kills/h 98->96 deaths/h 5.8->6.7 | power 618K->610K Lv 95->95 best wave 132->121 | purchases 37.5->18.0M ore/h 99K->95K renown 22K->28K
+    6-12h: gold/kill 106K->44K | gold/h 8.4->3.9M spent/h 7.8->3.3M | kills/h 79->88 deaths/h 5.0->5.0 | power 667K->664K Lv 97->97 best wave 132->123 | purchases 7.9->3.5M ore/h 132K->145K renown 28K->37K
+  zones cur/best/powerK 24h 4/4/21->4/4/21, 48h 7/7/71->7/7/71, 72h 8/8/123->8/8/123, 96h 9/9/667->9/9/664 | defeats 1776->1781
+
+seed 53  hours 96.00  Shatters 3->3  Core 0/2 atk 17783 volley 69% clear @- reproduced  audit through Endless entry: hourly 96/96, entry same -> OK
+  Endless not reached
+  zones cur/best/powerK 24h 4/4/22->4/4/22, 48h 6/6/63->6/6/63, 72h 7/7/98->7/7/98, 96h 8/8/227->8/8/227 | defeats 1947->1947
+
+seed 54  hours 96.00  Shatters 3->3  Core 1/5 atk 17783 volley 50% clear @82.05 reproduced  audit through Endless entry: hourly 82/82, entry same -> OK
+  Endless: entry @82.06h run3 Lv84 pw242K gold 3M tree 292 | hours 13.9->13.9 best wave 183->170 milestones 7->6 | gold earned 171->98M spent 156->93M end balance 15->5M | Lv@96h 108->108 pw 1060K->1017K | ore 2801K->2676K gearUps 1176->1170 renown 67K->77K tree 334->322 item 1.5/58.9->1.5/58.4
+    0-6h: gold/kill 58K->27K | gold/h 6.6->3.3M spent/h 6.4->3.1M | kills/h 100->94 deaths/h 6.3->7.2 | power 619K->621K Lv 96->95 best wave 121->121 | purchases 38.9->19.2M ore/h 98K->97K renown 19K->30K
+    6-12h: gold/kill 106K->49K | gold/h 10.1->4.4M spent/h 9.3->4.0M | kills/h 88->87 deaths/h 7.0->7.5 | power 920K->907K Lv 105->104 best wave 168->160 | purchases 56.5->24.9M ore/h 151K->144K renown 54K->66K
+    12-18h: gold/kill 158K->58K | gold/h 14.9->6.0M spent/h 12.1->6.5M | kills/h 93->95 deaths/h 6.5->6.0 | power 1060K->1017K Lv 108->108 best wave 183->170 | purchases 24.6->13.4M ore/h 221K->182K renown 67K->77K
+  zones cur/best/powerK 24h 4/4/24->4/4/24, 48h 7/7/76->7/7/76, 72h 8/8/166->8/8/166, 96h 9/9/1060->9/9/1017 | defeats 1544->1551
+
+seed 55  hours 96.00  Shatters 3->3  Core 1/7 atk 17783 volley 48% clear @88.03 reproduced  audit through Endless entry: hourly 88/88, entry same -> OK
+  Endless: entry @88.03h run3 Lv87 pw263K gold 3M tree 294 | hours 8.0->8.0 best wave 133->134 milestones 5->5 | gold earned 103->71M spent 97->65M end balance 6->6M | Lv@96h 101->100 pw 761K->759K | ore 1836K->1849K gearUps 1083->1084 renown 31K->40K tree 321->306 item 1.42/56.2->1.42/56.3
+    0-6h: gold/kill 58K->27K | gold/h 6.9->3.3M spent/h 6.3->3.0M | kills/h 107->101 deaths/h 6.5->7.0 | power 650K->659K Lv 97->97 best wave 120->122 | purchases 38.5->18.5M ore/h 102K->100K renown 16K->24K
+    6-12h: gold/kill 96K->46K | gold/h 9.1->4.0M spent/h 8.9->3.2M | kills/h 87->86 deaths/h 6.0->6.5 | power 761K->759K Lv 101->100 best wave 133->134 | purchases 18.0->6.6M ore/h 136K->146K renown 31K->40K
+  zones cur/best/powerK 24h 4/4/23->4/4/23, 48h 7/7/72->7/7/72, 72h 8/8/135->8/8/135, 96h 9/9/761->9/9/759 | defeats 1961->1965
+
+seed 56  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley 46% clear @86.04 reproduced  audit through Endless entry: hourly 86/86, entry same -> OK
+  Endless: entry @86.04h run3 Lv81 pw243K gold 3M tree 296 | hours 10.0->10.0 best wave 154->139 milestones 6->5 | gold earned 127->82M spent 118->78M end balance 9->4M | Lv@96h 100->99 pw 827K->799K | ore 2235K->2072K gearUps 1131->1121 renown 41K->45K tree 325->315 item 1.17/59.1->1.17/58.7
+    0-6h: gold/kill 64K->32K | gold/h 7.3->3.8M spent/h 6.6->3.5M | kills/h 98->98 deaths/h 6.3->6.0 | power 630K->623K Lv 93->93 best wave 125->122 | purchases 40.2->21.7M ore/h 113K->110K renown 18K->21K
+    6-12h: gold/kill 125K->54K | gold/h 10.4->4.3M spent/h 9.8->4.4M | kills/h 84->79 deaths/h 6.8->8.3 | power 827K->799K Lv 100->99 best wave 154->139 | purchases 39.9->18.3M ore/h 163K->126K renown 41K->45K
+  zones cur/best/powerK 24h 5/5/24->5/5/24, 48h 7/7/68->7/7/68, 72h 8/8/135->8/8/135, 96h 9/9/827->9/9/799 | defeats 1663->1667
+
+seed 57  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley 40% clear @86.06 reproduced  audit through Endless entry: hourly 86/86, entry same -> OK
+  Endless: entry @86.06h run3 Lv89 pw229K gold 3M tree 293 | hours 9.9->9.9 best wave 155->124 milestones 6->4 | gold earned 116->77M spent 108->71M end balance 8->5M | Lv@96h 103->103 pw 732K->700K | ore 2052K->2001K gearUps 1095->1091 renown 52K->47K tree 322->309 item 0.58/62.2->0.58/61.8
+    0-6h: gold/kill 60K->27K | gold/h 6.4->3.0M spent/h 6.1->2.8M | kills/h 104->104 deaths/h 6.7->6.7 | power 546K->524K Lv 98->98 best wave 124->103 | purchases 37.4->17.5M ore/h 96K->95K renown 14K->11K
+    6-12h: gold/kill 104K->47K | gold/h 8.6->3.8M spent/h 7.6->3.3M | kills/h 81->79 deaths/h 8.0->5.0 | power 732K->700K Lv 103->103 best wave 155->124 | purchases 31.0->13.7M ore/h 138K->125K renown 52K->47K
+  zones cur/best/powerK 24h 4/4/22->4/4/22, 48h 6/6/72->6/6/72, 72h 8/8/143->8/8/143, 96h 9/9/732->9/9/700 | defeats 1610->1598
+
+seed 58  hours 96.00  Shatters 3->3  Core 1/2 atk 17783 volley 50% clear @79.04 reproduced  audit through Endless entry: hourly 79/79, entry same -> OK
+  Endless: entry @79.04h run3 Lv80 pw225K gold 3M tree 294 | hours 17.0->17.0 best wave 216->208 milestones 8->8 | gold earned 299->146M spent 274->135M end balance 25->11M | Lv@96h 115->114 pw 1441K->1264K | ore 4593K->4119K gearUps 1230->1215 renown 170K->100K tree 355->331 item 0.75/67.3->0.75/66.4
+    0-6h: gold/kill 64K->31K | gold/h 8.4->4.0M spent/h 7.5->3.9M | kills/h 116->121 deaths/h 8.0->9.2 | power 631K->591K Lv 94->94 best wave 119->105 | purchases 46.0->24.1M ore/h 137K->124K renown 23K->14K
+    6-12h: gold/kill 132K->56K | gold/h 15.0->5.9M spent/h 14.1->5.2M | kills/h 104->101 deaths/h 9.5->8.2 | power 1032K->928K Lv 106->105 best wave 188->157 | purchases 86.0->32.2M ore/h 235K->187K renown 77K->58K
+    12-18h: gold/kill 275K->77K | gold/h 23.7->9.1M spent/h 21.4->8.5M | kills/h 94->111 deaths/h 6.8->7.8 | power 1441K->1264K Lv 115->114 best wave 216->208 | purchases 108.3->44.0M ore/h 295K->273K renown 170K->100K
+  zones cur/best/powerK 24h 4/4/25->4/4/25, 48h 7/7/70->7/7/70, 72h 8/8/168->8/8/168, 96h 9/9/1441->9/9/1264 | defeats 1843->1847
+
+seed 59  hours 96.00  Shatters 3->3  Core 1/1 atk 17783 volley - clear @82.07 reproduced  audit through Endless entry: hourly 82/82, entry same -> OK
+  Endless: entry @82.07h run3 Lv80 pw228K gold 3M tree 288 | hours 13.9->13.9 best wave 193->171 milestones 7->6 | gold earned 176->95M spent 161->86M end balance 15->8M | Lv@96h 108->107 pw 1091K->986K | ore 2879K->2596K gearUps 1147->1133 renown 70K->69K tree 337->319 item 1.25/60.5->1.25/59.7
+    0-6h: gold/kill 54K->27K | gold/h 6.8->3.3M spent/h 6.4->3.2M | kills/h 114->116 deaths/h 7.7->7.5 | power 635K->592K Lv 93->93 best wave 118->106 | purchases 39.0->19.7M ore/h 114K->111K renown 22K->13K
+    6-12h: gold/kill 110K->49K | gold/h 11.2->4.6M spent/h 10.2->4.2M | kills/h 97->94 deaths/h 7.0->7.2 | power 977K->883K Lv 104->104 best wave 170->151 | purchases 62.5->25.8M ore/h 169K->135K renown 57K->55K
+    12-18h: gold/kill 150K->57K | gold/h 16.3->5.8M spent/h 14.5->4.9M | kills/h 99->99 deaths/h 6.0->9.0 | power 1091K->986K Lv 108->107 best wave 193->171 | purchases 29.5->10.1M ore/h 209K->177K renown 70K->69K
+  zones cur/best/powerK 24h 5/5/30->5/5/30, 48h 7/7/72->7/7/72, 72h 8/8/151->8/8/151, 96h 9/9/1091->9/9/986 | defeats 2008->2014
+
+seed 60  hours 96.00  Shatters 3->3  Core 1/1 atk 17783 volley 75% clear @73.07 reproduced  audit through Endless entry: hourly 73/73, entry same -> OK
+  Endless: entry @73.07h run3 Lv73 pw196K gold 1M tree 278 | hours 22.9->22.9 best wave 239->231 milestones 9->9 | gold earned 305->140M spent 280->130M end balance 25->10M | Lv@96h 117->116 pw 1691K->1557K | ore 4973K->4551K gearUps 1238->1226 renown 203K->169K tree 353->330 item 1.42/63.7->1.42/63.1
+    0-6h: gold/kill 53K->24K | gold/h 5.8->2.7M spent/h 5.1->2.4M | kills/h 109->111 deaths/h 6.7->7.8 | power 528K->503K Lv 89->89 best wave 75->76 | purchases 31.5->15.2M ore/h 103K->93K renown 6K->6K
+    6-12h: gold/kill 116K->45K | gold/h 9.6->3.9M spent/h 8.7->3.7M | kills/h 90->86 deaths/h 6.8->7.3 | power 882K->779K Lv 100->99 best wave 155->157 | purchases 52.9->22.7M ore/h 174K->127K renown 38K->52K
+    12-18h: gold/kill 170K->57K | gold/h 15.7->5.8M spent/h 14.6->5.3M | kills/h 85->94 deaths/h 6.8->6.5 | power 1320K->1173K Lv 111->109 best wave 215->192 | purchases 88.9->33.1M ore/h 225K->216K renown 97K->86K
+    18-24h: gold/kill 261K->104K | gold/h 18.8->8.0M spent/h 17.2->7.5M | kills/h 72->79 deaths/h 7.8->6.2 | power 1691K->1557K Lv 117->116 best wave 239->231 | purchases 87.2->39.0M ore/h 265K->259K renown 203K->169K
+  zones cur/best/powerK 24h 5/5/27->5/5/27, 48h 6/7/75->6/7/75, 72h 8/8/187->8/8/187, 96h 9/9/1691->9/9/1557 | defeats 1514->1514
+
+-- light validity: 96h 10/10, Shatter cap 10/10, Core reproduced 10/10, audit through Endless entry OK 10/10
+-- light Endless (runs reaching in both arms 9/10): hours med 10.0 -> 10.0 (paired med 0.0, +0 09 -0) | best wave med 155 -> 139 (paired med -13, +1 00 -8) | milestones med 6 -> 5 (paired med -1, +0 03 -6) | gold earned M med 127.0 -> 82.0 (paired med -45.0, +0 00 -9) | spent M med 117.5 -> 77.5 (paired med -40.0, +0 00 -9) | end balance M med 9.5 -> 5.5 (paired med -5.1, +0 00 -9) | Lv@96h med 103 -> 103 (paired med -1, +0 04 -5) | power@96h K med 827 -> 799 (paired med -35, +0 00 -9) | ore med 2235456 -> 2072160 (paired med -124800, +1 01 -7) | renown K med 52 -> 47 (paired med -1, +4 00 -5) | tree levels med 325 -> 315 (paired med -15, +0 00 -9) | defeats med 1776 -> 1781 (paired med 4, +6 02 -2)
+   window 0-6h (n=9): gold/kill K med 58 -> 27 (paired med -31, +0 00 -9) | gold/h M med 6.6 -> 3.3 (paired med -3.4, +0 00 -9) | kills/h med 107 -> 104 (paired med -0, +4 00 -5) | deaths/h med 6.7 -> 7.2 (paired med 0.5, +5 01 -3) | power K med 619 -> 592 (paired med -9, +2 00 -7) | Lv med 94 -> 94 (paired med 0, +1 07 -1) | best wave med 120 -> 106 (paired med -4, +2 01 -6) | purchases M med 38.5 -> 18.5 (paired med -19.5, +0 00 -9)
+   window 6-12h (n=9): gold/kill K med 106 -> 47 (paired med -61, +0 00 -9) | gold/h M med 9.6 -> 4.0 (paired med -5.6, +0 00 -9) | kills/h med 87 -> 87 (paired med -2, +2 00 -7) | deaths/h med 7.0 -> 7.3 (paired med 0.5, +6 01 -2) | power K med 827 -> 779 (paired med -32, +0 00 -9) | Lv med 101 -> 100 (paired med -1, +0 04 -5) | best wave med 155 -> 139 (paired med -15, +2 00 -7) | purchases M med 39.9 -> 18.3 (paired med -21.7, +0 00 -9)
+   window 12-18h (n=4): gold/kill K med 158 -> 57 (paired med -113, +0 00 -4) | gold/h M med 15.7 -> 5.8 (paired med -10.6, +0 00 -4) | kills/h med 93 -> 95 (paired med 2, +3 01 -0) | deaths/h med 6.5 -> 6.5 (paired med -0.3, +2 00 -2) | power K med 1091 -> 1017 (paired med -147, +0 00 -4) | Lv med 108 -> 108 (paired med -1, +0 01 -3) | best wave med 193 -> 171 (paired med -22, +0 00 -4) | purchases M med 29.5 -> 13.4 (paired med -55.8, +0 00 -4)
+   window 18-24h (n=1): gold/kill K med 261 -> 104 (paired med -156, +0 00 -1) | gold/h M med 18.8 -> 8.0 (paired med -10.8, +0 00 -1) | kills/h med 72 -> 79 (paired med 7, +1 00 -0) | deaths/h med 7.8 -> 6.2 (paired med -1.6, +0 00 -1) | power K med 1691 -> 1557 (paired med -134, +0 00 -1) | Lv med 117 -> 116 (paired med -1, +0 00 -1) | best wave med 239 -> 231 (paired med -8, +0 00 -1) | purchases M med 87.2 -> 39.0 (paired med -48.2, +0 00 -1)
+   growth 0-6h -> 12-18h (n=4): gold/kill x2.77 -> x2.15 | gold/h x2.39 -> x1.84 | power x1.72 -> x1.67
+   growth 0-6h -> 18-24h (n=1): gold/kill x4.88 -> x4.30 | gold/h x3.26 -> x2.93 | power x3.20 -> x3.09
+-- light horizons cur/best/powerK med 24h 4/4/24->4/4/24, 48h 7/7/71->7/7/71, 72h 8/8/135->8/8/135, 96h 9/9/761->9/9/759
+-- light outliers: none
+
+===== CASUAL   baseline batch_out_p30 (Endless gold 1.05^L) -> candidate batch_out_p31 (1.04^L)
+
+seed 51  hours 96.00  Shatters 3->3  Core 1/1 atk 17783 volley - clear @87.08 reproduced  audit through Endless entry: hourly 87/87, entry same -> OK
+  Endless: entry @87.08h run3 Lv89 pw234K gold 2M tree 296 | hours 8.9->8.9 best wave 139->155 milestones 5->6 | gold earned 127->87M spent 117->80M end balance 10->7M | Lv@96h 103->103 pw 745K->680K | ore 2073K->1955K gearUps 1100->1092 renown 64K->42K tree 323->313 item 0.67/61.8->0.67/61.1
+    0-6h: gold/kill 80K->34K | gold/h 7.9->3.9M spent/h 6.9->3.4M | kills/h 96->104 deaths/h 6.8->6.3 | power 618K->574K Lv 99->99 best wave 131->120 | purchases 41.9->20.9M ore/h 109K->100K renown 39K->19K
+    6-12h: gold/kill 114K->52K | gold/h 10.3->4.6M spent/h 9.8->4.2M | kills/h 91->82 deaths/h 8.0->7.3 | power 745K->680K Lv 103->103 best wave 139->155 | purchases 29.8->13.0M ore/h 150K->126K renown 64K->42K
+  zones cur/best/powerK 24h 5/5/23->5/5/23, 48h 7/7/70->7/7/70, 72h 8/8/134->8/8/134, 96h 9/9/745->9/9/680 | defeats 2091->2086
+
+seed 52  hours 96.00  Shatters 3->3  Core 1/7 atk 17783 volley 52% clear @90.04 reproduced  audit through Endless entry: hourly 90/90, entry same -> OK
+  Endless: entry @90.04h run3 Lv85 pw222K gold 3M tree 293 | hours 6.0->6.0 best wave 131->111 milestones 5->4 | gold earned 83->63M spent 78->59M end balance 5->5M | Lv@96h 95->95 pw 562K->538K | ore 1368K->1339K gearUps 1053->1050 renown 31K->21K tree 315->302 item 1.08/55.9->1.08/55.8
+    0-6h: gold/kill 65K->32K | gold/h 6.5->3.2M spent/h 6.3->3.1M | kills/h 90->96 deaths/h 7.8->7.5 | power 562K->538K Lv 95->95 best wave 131->111 | purchases 38.5->18.9M ore/h 88K->84K renown 31K->21K
+  zones cur/best/powerK 24h 5/5/23->5/5/23, 48h 6/7/52->6/7/52, 72h 8/8/114->8/8/114, 96h 9/9/562->9/9/538 | defeats 2279->2277
+
+seed 53  hours 96.00  Shatters 3->3  Core 1/4 atk 17783 volley 64% clear @70.11 reproduced  audit through Endless entry: hourly 70/70, entry same -> OK
+  Endless: entry @70.11h run3 Lv75 pw188K gold 1M tree 286 | hours 25.9->25.9 best wave 264->250 milestones 10->10 | gold earned 522->239M spent 490->223M end balance 32->16M | Lv@96h 124->123 pw 2127K->1930K | ore 6746K->6290K gearUps 1292->1283 renown 277K->243K tree 373->350 item 1.17/67.7->1.17/67
+    0-6h: gold/kill 67K->34K | gold/h 7.4->3.7M spent/h 6.6->3.5M | kills/h 115->114 deaths/h 7.5->7.7 | power 531K->507K Lv 91->90 best wave 92->91 | purchases 40.2->21.8M ore/h 117K->109K renown 7K->7K
+    6-12h: gold/kill 128K->69K | gold/h 12.7->6.1M spent/h 12.3->5.3M | kills/h 93->86 deaths/h 6.8->8.5 | power 883K->863K Lv 103->102 best wave 168->168 | purchases 74.5->33.0M ore/h 170K->171K renown 49K->53K
+    12-18h: gold/kill 200K->77K | gold/h 22.2->8.6M spent/h 19.9->7.9M | kills/h 95->101 deaths/h 6.7->6.8 | power 1358K->1243K Lv 113->112 best wave 215->200 | purchases 120.8->49.1M ore/h 263K->240K renown 142K->92K
+    18-24h: gold/kill 349K->144K | gold/h 27.6->12.0M spent/h 25.8->11.1M | kills/h 77->84 deaths/h 9.5->7.0 | power 1887K->1753K Lv 121->120 best wave 256->245 | purchases 156.7->68.4M ore/h 327K->299K renown 253K->209K
+  zones cur/best/powerK 24h 6/6/25->6/6/25, 48h 7/7/68->7/7/68, 72h 9/9/346->9/9/352, 96h 9/9/2127->9/9/1930 | defeats 1887->1884
+
+seed 54  hours 96.00  Shatters 3->3  Core 1/1 atk 17783 volley 74% clear @70.16 reproduced  audit through Endless entry: hourly 70/70, entry same -> OK
+  Endless: entry @70.16h run3 Lv72 pw154K gold 2M tree 274 | hours 25.8->25.8 best wave 251->238 milestones 10->9 | gold earned 363->171M spent 333->158M end balance 30->14M | Lv@96h 120->119 pw 1650K->1498K | ore 5402K->5065K gearUps 1254->1245 renown 248K->213K tree 356->336 item 1/66.9->1/66.4
+    0-6h: gold/kill 55K->26K | gold/h 5.4->2.8M spent/h 5.0->2.6M | kills/h 103->105 deaths/h 6.7->7.0 | power 426K->424K Lv 88->87 best wave 85->78 | purchases 30.8->16.0M ore/h 96K->97K renown 5K->5K
+    6-12h: gold/kill 115K->51K | gold/h 9.3->4.2M spent/h 8.5->4.0M | kills/h 84->86 deaths/h 6.8->6.2 | power 718K->698K Lv 99->99 best wave 154->144 | purchases 52.0->24.9M ore/h 138K->138K renown 47K->42K
+    12-18h: gold/kill 150K->67K | gold/h 13.9->6.0M spent/h 12.2->5.1M | kills/h 89->87 deaths/h 7.3->7.8 | power 1039K->1020K Lv 109->108 best wave 189->187 | purchases 74.4->31.6M ore/h 203K->203K renown 82K->76K
+    18-24h: gold/kill 265K->108K | gold/h 20.7->8.9M spent/h 20.9->9.1M | kills/h 78->81 deaths/h 6.5->5.3 | power 1503K->1386K Lv 118->117 best wave 234->231 | purchases 127.1->56.3M ore/h 283K->253K renown 222K->176K
+  zones cur/best/powerK 24h 5/5/25->5/5/25, 48h 6/7/69->6/7/69, 72h 9/9/280->9/9/277, 96h 9/9/1650->9/9/1498 | defeats 1874->1868
+
+seed 55  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley - clear @79.13 reproduced  audit through Endless entry: hourly 79/79, entry same -> OK
+  Endless: entry @79.13h run3 Lv81 pw214K gold 3M tree 288 | hours 16.9->16.9 best wave 216->200 milestones 8->8 | gold earned 236->122M spent 222->112M end balance 14->10M | Lv@96h 112->111 pw 1246K->1170K | ore 3816K->3671K gearUps 1203->1198 renown 103K->87K tree 348->323 item 1/64.3->1/64
+    0-6h: gold/kill 61K->32K | gold/h 6.7->3.5M spent/h 6.3->3.5M | kills/h 107->103 deaths/h 7.5->7.7 | power 568K->558K Lv 94->93 best wave 114->115 | purchases 38.5->21.6M ore/h 118K->118K renown 16K->18K
+    6-12h: gold/kill 120K->58K | gold/h 11.5->5.0M spent/h 10.5->4.4M | kills/h 89->86 deaths/h 7.3->9.5 | power 908K->851K Lv 104->103 best wave 168->163 | purchases 64.2->27.4M ore/h 176K->164K renown 54K->59K
+    12-18h: gold/kill 201K->66K | gold/h 18.1->7.0M spent/h 17.6->6.3M | kills/h 90->99 deaths/h 6.6->6.2 | power 1246K->1170K Lv 112->111 best wave 216->200 | purchases 89.4->32.8M ore/h 252K->236K renown 103K->87K
+  zones cur/best/powerK 24h 6/6/25->6/6/25, 48h 7/7/63->7/7/63, 72h 8/8/164->8/8/164, 96h 9/9/1246->9/9/1170 | defeats 2079->2091
+
+seed 56  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley 40% clear @77.14 reproduced  audit through Endless entry: hourly 77/77, entry same -> OK
+  Endless: entry @77.14h run3 Lv77 pw185K gold 2M tree 285 | hours 18.9->18.9 best wave 205->204 milestones 8->8 | gold earned 247->128M spent 223->120M end balance 24->8M | Lv@96h 113->112 pw 1187K->1069K | ore 3548K->3266K gearUps 1224->1213 renown 115K->98K tree 348->323 item 0.92/64.3->0.92/63.5
+    0-6h: gold/kill 52K->29K | gold/h 6.2->3.1M spent/h 5.8->3.0M | kills/h 115->114 deaths/h 8.5->7.7 | power 496K->468K Lv 91->91 best wave 88->81 | purchases 35.5->18.3M ore/h 108K->97K renown 7K->7K
+    6-12h: gold/kill 109K->58K | gold/h 10.3->4.7M spent/h 9.4->4.2M | kills/h 88->85 deaths/h 7.8->7.7 | power 777K->735K Lv 102->101 best wave 157->163 | purchases 57.2->25.9M ore/h 128K->126K renown 57K->48K
+    12-18h: gold/kill 149K->65K | gold/h 15.7->6.3M spent/h 14.7->6.3M | kills/h 102->97 deaths/h 8.2->9.0 | power 1111K->1030K Lv 112->110 best wave 196->190 | purchases 89.2->38.8M ore/h 207K->181K renown 98K->85K
+    18-24h: gold/kill 263K->120K | gold/h 21.8->10.8M spent/h 14.5->9.8M | kills/h 83->90 deaths/h 10.0->11.0 | power 1187K->1069K Lv 113->112 best wave 205->204 | purchases 14.8->10.0M ore/h 243K->198K renown 115K->98K
+  zones cur/best/powerK 24h 5/5/24->5/5/24, 48h 7/7/61->7/7/61, 72h 8/8/150->8/8/150, 96h 9/9/1187->9/9/1069 | defeats 2162->2162
+
+seed 57  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley 56% clear @81.16 reproduced  audit through Endless entry: hourly 81/81, entry same -> OK
+  Endless: entry @81.16h run3 Lv77 pw188K gold 2M tree 284 | hours 14.8->14.8 best wave 170->161 milestones 6->6 | gold earned 167->93M spent 153->84M end balance 14->8M | Lv@96h 106->105 pw 952K->865K | ore 2502K->2225K gearUps 1144->1128 renown 67K->62K tree 334->317 item 1.25/59.5->1.25/58.6
+    0-6h: gold/kill 58K->28K | gold/h 5.9->3.0M spent/h 5.3->2.9M | kills/h 108->108 deaths/h 8.2->8.3 | power 480K->463K Lv 91->90 best wave 94->89 | purchases 32.2->17.6M ore/h 87K->84K renown 7K->7K
+    6-12h: gold/kill 112K->54K | gold/h 9.9->4.4M spent/h 9.0->3.9M | kills/h 90->87 deaths/h 7.3->7.2 | power 789K->742K Lv 102->101 best wave 160->150 | purchases 55.1->24.2M ore/h 143K->119K renown 49K->43K
+    12-18h: gold/kill 152K->64K | gold/h 13.9->5.6M spent/h 12.6->4.7M | kills/h 93->89 deaths/h 8.3->9.7 | power 952K->865K Lv 106->105 best wave 170->161 | purchases 38.4->14.5M ore/h 175K->138K renown 67K->62K
+  zones cur/best/powerK 24h 6/6/26->6/6/26, 48h 7/7/56->7/7/56, 72h 8/8/127->8/8/127, 96h 9/9/952->9/9/865 | defeats 2417->2421
+
+seed 58  hours 96.00  Shatters 3->3  Core 1/1 atk 17783 volley - clear @71.14 reproduced  audit through Endless entry: hourly 71/71, entry same -> OK
+  Endless: entry @71.14h run3 Lv76 pw182K gold 2M tree 281 | hours 24.9->24.9 best wave 256->236 milestones 10->9 | gold earned 438->209M spent 404->196M end balance 35->13M | Lv@96h 124->123 pw 1888K->1790K | ore 5767K->5426K gearUps 1230->1222 renown 297K->269K tree 364->345 item 1.08/66.9->1.08/66.5
+    0-6h: gold/kill 59K->29K | gold/h 6.9->3.5M spent/h 6.4->3.4M | kills/h 124->124 deaths/h 8.7->8.7 | power 505K->517K Lv 91->91 best wave 93->99 | purchases 39.0->20.8M ore/h 103K->113K renown 8K->8K
+    6-12h: gold/kill 107K->50K | gold/h 11.4->5.4M spent/h 10.7->5.1M | kills/h 104->103 deaths/h 8.2->8.0 | power 868K->839K Lv 103->103 best wave 156->158 | purchases 65.1->31.4M ore/h 156K->138K renown 58K->61K
+    12-18h: gold/kill 165K->72K | gold/h 19.3->7.8M spent/h 17.4->7.2M | kills/h 106->106 deaths/h 7.5->8.8 | power 1324K->1187K Lv 114->113 best wave 220->195 | purchases 105.8->44.6M ore/h 248K->212K renown 135K->104K
+    18-24h: gold/kill 289K->115K | gold/h 25.9->11.1M spent/h 23.6->9.4M | kills/h 92->93 deaths/h 8.0->6.5 | power 1832K->1685K Lv 123->122 best wave 238->236 | purchases 143.6->58.3M ore/h 299K->290K renown 281K->251K
+  zones cur/best/powerK 24h 6/6/32->6/6/32, 48h 7/7/68->7/7/68, 72h 9/9/289->9/9/290, 96h 9/9/1888->9/9/1790 | defeats 2503->2496
+
+seed 59  hours 96.00  Shatters 3->3  Core 1/1 atk 17783 volley 78% clear @75.13 reproduced  audit through Endless entry: hourly 75/75, entry same -> OK
+  Endless: entry @75.13h run3 Lv77 pw171K gold 1M tree 281 | hours 20.9->20.9 best wave 206->193 milestones 8->7 | gold earned 254->124M spent 234->115M end balance 19->9M | Lv@96h 114->112 pw 1222K->1069K | ore 3568K->3137K gearUps 1187->1169 renown 104K->90K tree 349->322 item 1.08/63.3->1.08/62.3
+    0-6h: gold/kill 52K->27K | gold/h 5.6->2.9M spent/h 5.2->2.7M | kills/h 105->105 deaths/h 7.3->8.2 | power 453K->443K Lv 90->90 best wave 89->82 | purchases 31.8->16.7M ore/h 87K->85K renown 6K->7K
+    6-12h: gold/kill 106K->52K | gold/h 8.5->3.9M spent/h 8.0->3.6M | kills/h 85->80 deaths/h 6.7->8.3 | power 720K->665K Lv 100->99 best wave 139->149 | purchases 48.8->22.2M ore/h 121K->103K renown 47K->41K
+    12-18h: gold/kill 154K->67K | gold/h 13.8->5.5M spent/h 13.1->4.7M | kills/h 90->82 deaths/h 7.2->9.0 | power 1041K->924K Lv 109->108 best wave 196->165 | purchases 79.9->28.9M ore/h 185K->147K renown 81K->75K
+    18-24h: gold/kill 202K->76K | gold/h 19.0->7.1M spent/h 16.2->7.2M | kills/h 91->96 deaths/h 5.3->5.0 | power 1222K->1069K Lv 114->112 best wave 206->193 | purchases 49.2->22.2M ore/h 210K->184K renown 104K->90K
+  zones cur/best/powerK 24h 6/6/25->6/6/25, 48h 7/7/60->7/7/60, 72h 8/8/151->8/8/151, 96h 9/9/1222->9/9/1069 | defeats 1990->2015
+
+seed 60  hours 96.00  Shatters 3->3  Core 1/1 atk 17783 volley - clear @67.11 reproduced  audit through Endless entry: hourly 67/67, entry same -> OK
+  Endless: entry @67.12h run3 Lv77 pw197K gold 2M tree 280 | hours 28.9->28.9 best wave 268->256 milestones 10->10 | gold earned 557->241M spent 503->223M end balance 54->18M | Lv@96h 128->126 pw 2423K->2123K | ore 7953K->6988K gearUps 1303->1285 renown 358K->325K tree 374->350 item 1.17/68.8->1.17/67.8
+    0-6h: gold/kill 56K->29K | gold/h 7.0->3.6M spent/h 6.3->3.5M | kills/h 119->119 deaths/h 9.0->9.8 | power 563K->553K Lv 92->91 best wave 92->95 | purchases 38.7->21.5M ore/h 127K->129K renown 8K->8K
+    6-12h: gold/kill 110K->55K | gold/h 10.8->5.2M spent/h 10.1->4.7M | kills/h 101->96 deaths/h 8.2->8.5 | power 945K->893K Lv 103->102 best wave 144->158 | purchases 61.6->29.0M ore/h 177K->161K renown 52K->55K
+    12-18h: gold/kill 157K->68K | gold/h 18.5->7.4M spent/h 16.4->7.2M | kills/h 102->101 deaths/h 8.5->9.8 | power 1406K->1267K Lv 113->112 best wave 211->200 | purchases 100.2->44.6M ore/h 277K->220K renown 135K->101K
+    18-24h: gold/kill 271K->114K | gold/h 25.5->10.3M spent/h 25.7->8.9M | kills/h 88->98 deaths/h 8.3->6.3 | power 1928K->1760K Lv 122->121 best wave 239->238 | purchases 156.2->54.9M ore/h 309K->282K renown 293K->223K
+  zones cur/best/powerK 24h 6/6/26->6/6/26, 48h 7/7/88->7/7/88, 72h 9/9/519->9/9/518, 96h 9/9/2423->9/9/2123 | defeats 1953->1972
+
+-- casual validity: 96h 10/10, Shatter cap 10/10, Core reproduced 10/10, audit through Endless entry OK 10/10
+-- casual Endless (runs reaching in both arms 10/10): hours med 18.9 -> 18.9 (paired med 0.0, +0 010 -0) | best wave med 206 -> 200 (paired med -13, +1 00 -9) | milestones med 8 -> 8 (paired med 0, +1 05 -4) | gold earned M med 247.3 -> 124.4 (paired med -129.3, +0 00 -10) | spent M med 223.5 -> 115.1 (paired med -119.4, +0 00 -10) | end balance M med 19.3 -> 9.3 (paired med -15.8, +0 00 -10) | Lv@96h med 113 -> 112 (paired med -1, +0 02 -8) | power@96h K med 1222 -> 1069 (paired med -118, +0 00 -10) | ore med 3568320 -> 3266304 (paired med -337536, +0 00 -10) | renown K med 104 -> 90 (paired med -23, +0 00 -10) | tree levels med 348 -> 323 (paired med -23, +0 00 -10) | defeats med 2079 -> 2086 (paired med -2, +4 01 -5)
+   window 0-6h (n=10): gold/kill K med 58 -> 29 (paired med -30, +0 00 -10) | gold/h M med 6.5 -> 3.2 (paired med -3.3, +0 00 -10) | kills/h med 107 -> 105 (paired med -0, +4 00 -6) | deaths/h med 7.5 -> 7.7 (paired med 0.2, +6 01 -3) | power K med 505 -> 507 (paired med -17, +1 00 -9) | Lv med 91 -> 91 (paired med -1, +0 05 -5) | best wave med 92 -> 91 (paired med -7, +3 00 -7) | purchases M med 38.5 -> 18.9 (paired med -17.2, +0 00 -10)
+   window 6-12h (n=9): gold/kill K med 112 -> 54 (paired med -58, +0 00 -9) | gold/h M med 10.3 -> 4.7 (paired med -5.6, +0 00 -9) | kills/h med 90 -> 86 (paired med -4, +1 00 -8) | deaths/h med 7.3 -> 8.0 (paired med -0.2, +4 00 -5) | power K med 789 -> 742 (paired med -47, +0 00 -9) | Lv med 103 -> 102 (paired med -1, +0 03 -6) | best wave med 156 -> 158 (paired med 2, +5 01 -3) | purchases M med 57.2 -> 25.9 (paired med -31.3, +0 00 -9)
+   window 12-18h (n=8): gold/kill K med 154 -> 67 (paired med -89, +0 00 -8) | gold/h M med 15.7 -> 6.3 (paired med -11.1, +0 00 -8) | kills/h med 93 -> 97 (paired med -2, +2 00 -6) | deaths/h med 7.3 -> 8.8 (paired med 0.8, +7 00 -1) | power K med 1111 -> 1030 (paired med -115, +0 00 -8) | Lv med 112 -> 110 (paired med -1, +0 00 -8) | best wave med 196 -> 190 (paired med -15, +0 00 -8) | purchases M med 89.2 -> 32.8 (paired med -55.6, +0 00 -8)
+   window 18-24h (n=6): gold/kill K med 265 -> 114 (paired med -157, +0 00 -6) | gold/h M med 21.8 -> 10.3 (paired med -14.8, +0 00 -6) | kills/h med 83 -> 90 (paired med 5, +6 00 -0) | deaths/h med 8.0 -> 6.3 (paired med -1.5, +1 00 -5) | power K med 1503 -> 1386 (paired med -147, +0 00 -6) | Lv med 118 -> 117 (paired med -1, +0 00 -6) | best wave med 234 -> 231 (paired med -3, +0 00 -6) | purchases M med 127.1 -> 54.9 (paired med -85.2, +0 00 -6)
+   growth 0-6h -> 12-18h (n=8): gold/kill x2.83 -> x2.31 | gold/h x2.57 -> x2.02 | power x2.30 -> x2.20
+   growth 0-6h -> 18-24h (n=6): gold/kill x4.88 -> x4.00 | gold/h x3.64 -> x3.20 | power x3.42 -> x3.18
+-- casual horizons cur/best/powerK med 24h 6/6/25->6/6/25, 48h 7/7/63->7/7/63, 72h 8/8/151->8/8/151, 96h 9/9/1222->9/9/1069
+-- casual outliers: none
+
+===== ENGAGED   baseline batch_out_p30 (Endless gold 1.05^L) -> candidate batch_out_p31 (1.04^L)
+
+seed 51  hours 96.00  Shatters 2->2  Core 1/3 atk 16166 volley - clear @80.23 reproduced  audit through Endless entry: hourly 80/80, entry same -> OK
+  Endless: entry @80.23h run2 Lv79 pw149K gold 2M tree 279 | hours 15.8->15.8 best wave 159->156 milestones 6->6 | gold earned 134->87M spent 127->80M end balance 8->7M | Lv@96h 106->106 pw 723K->709K | ore 2375K->2385K gearUps 1131->1131 renown 87K->71K tree 323->313 item 0.92/61.2->0.92/61.2
+    0-6h: gold/kill 40K->24K | gold/h 4.4->2.6M spent/h 4.4->2.4M | kills/h 113->108 deaths/h 7.5->7.7 | power 372K->368K Lv 91->91 best wave 90->92 | purchases 26.8->14.7M ore/h 85K->88K renown 5K->5K
+    6-12h: gold/kill 68K->37K | gold/h 6.9->3.7M spent/h 6.3->3.3M | kills/h 91->101 deaths/h 8.8->7.5 | power 587K->552K Lv 100->101 best wave 142->138 | purchases 38.5->20.3M ore/h 118K->107K renown 57K->39K
+    12-18h: gold/kill 98K->49K | gold/h 9.0->4.7M spent/h 8.7->4.5M | kills/h 91->91 deaths/h 6.3->6.3 | power 723K->709K Lv 106->106 best wave 159->156 | purchases 35.3->18.8M ore/h 138K->151K renown 87K->71K
+  zones cur/best/powerK 24h 6/6/25->6/6/25, 48h 7/7/53->7/7/53, 72h 1/7/106->1/7/106, 96h 2/7/723->2/7/709 | defeats 2661->2654
+
+seed 52  hours 96.00  Shatters 3->3  Core 1/2 atk 17783 volley 74% clear @68.24 reproduced  audit through Endless entry: hourly 68/68, entry same -> OK
+  Endless: entry @68.24h run3 Lv74 pw156K gold 2M tree 280 | hours 27.8->27.8 best wave 322->264 milestones 12->10 | gold earned 562->256M spent 503->235M end balance 59->20M | Lv@96h 127->123 pw 2079K->1776K | ore 6377K->5289K gearUps 1254->1228 renown 317K->281K tree 373->351 item 1.33/66.1->1.33/64.7
+    0-6h: gold/kill 50K->29K | gold/h 6.0->3.3M spent/h 5.3->3.1M | kills/h 111->106 deaths/h 7.7->7.3 | power 426K->422K Lv 89->88 best wave 100->96 | purchases 32.4->19.0M ore/h 82K->85K renown 6K->6K
+    6-12h: gold/kill 104K->69K | gold/h 10.5->5.6M spent/h 9.7->5.0M | kills/h 95->84 deaths/h 7.3->7.2 | power 728K->705K Lv 101->99 best wave 160->158 | purchases 59.1->30.6M ore/h 142K->121K renown 42K->55K
+    12-18h: gold/kill 175K->77K | gold/h 18.0->7.9M spent/h 17.1->7.4M | kills/h 93->99 deaths/h 8.3->7.8 | power 1142K->1041K Lv 111->110 best wave 213->199 | purchases 103.8->45.4M ore/h 201K->180K renown 120K->90K
+    18-24h: gold/kill 329K->121K | gold/h 25.2->11.7M spent/h 23.1->11.2M | kills/h 80->87 deaths/h 6.5->6.0 | power 1636K->1497K Lv 120->119 best wave 262->233 | purchases 140.5->68.6M ore/h 266K->239K renown 260K->221K
+  zones cur/best/powerK 24h 5/5/26->5/5/26, 48h 7/7/60->7/7/60, 72h 9/9/352->9/9/351, 96h 9/9/2079->9/9/1776 | defeats 2270->2274
+
+seed 53  hours 96.00  Shatters 3->3  Core 1/2 atk 17783 volley 100% clear @67.12 reproduced  audit through Endless entry: hourly 67/67, entry same -> OK
+  Endless: entry @67.12h run3 Lv76 pw168K gold 3M tree 282 | hours 28.9->28.9 best wave 333->300 milestones 13->12 | gold earned 750->309M spent 692->290M end balance 58->18M | Lv@96h 133->129 pw 2505K->2093K | ore 8323K->6880K gearUps 1314->1288 renown 376K->337K tree 384->356 item 1.08/69.7->1.08/68.3
+    0-6h: gold/kill 56K->31K | gold/h 6.9->3.7M spent/h 6.5->3.6M | kills/h 115->120 deaths/h 9.0->8.3 | power 482K->468K Lv 90->91 best wave 103->97 | purchases 39.8->22.4M ore/h 95K->102K renown 13K->7K
+    6-12h: gold/kill 130K->62K | gold/h 13.0->6.1M spent/h 11.7->5.4M | kills/h 100->95 deaths/h 7.7->8.2 | power 834K->782K Lv 103->102 best wave 174->156 | purchases 71.0->33.4M ore/h 167K->134K renown 69K->64K
+    12-18h: gold/kill 198K->81K | gold/h 21.6->9.6M spent/h 20.9->9.5M | kills/h 108->108 deaths/h 8.5->9.2 | power 1277K->1144K Lv 114->113 best wave 220->205 | purchases 126.9->58.2M ore/h 253K->220K renown 130K->114K
+    18-24h: gold/kill 300K->118K | gold/h 28.9->12.7M spent/h 25.9->11.6M | kills/h 93->98 deaths/h 7.5->6.8 | power 1768K->1647K Lv 123->122 best wave 256->248 | purchases 157.2->71.5M ore/h 293K->297K renown 267K->253K
+  zones cur/best/powerK 24h 5/6/25->5/6/25, 48h 7/7/61->7/7/61, 72h 9/9/437->9/9/435, 96h 9/9/2505->9/9/2093 | defeats 2415->2424
+
+seed 54  hours 96.00  Shatters 3->3  Core 1/4 atk 17783 volley 96% clear @56.09 reproduced  audit through Endless entry: hourly 56/56, entry same -> OK
+  Endless: entry @56.1h run3 Lv75 pw169K gold 2M tree 281 | hours 39.9->39.9 best wave 395->380 milestones 15->15 | gold earned 2022->809M spent 1887->729M end balance 135->80M | Lv@96h 152->149 pw 5372K->4500K | ore 22283K->18452K gearUps 1444->1418 renown 923K->866K tree 415->388 item 1.08/77.3->1.08/75.7
+    0-6h: gold/kill 58K->32K | gold/h 7.5->4.3M spent/h 7.0->4.1M | kills/h 116->115 deaths/h 7.8->8.0 | power 524K->534K Lv 91->91 best wave 105->119 | purchases 42.8->25.2M ore/h 112K->123K renown 18K->24K
+    6-12h: gold/kill 136K->69K | gold/h 13.7->6.6M spent/h 12.5->5.7M | kills/h 94->96 deaths/h 9.5->7.7 | power 884K->862K Lv 103->104 best wave 182->175 | purchases 76.3->35.3M ore/h 192K->172K renown 66K->65K
+    12-18h: gold/kill 231K->107K | gold/h 24.5->10.8M spent/h 22.1->10.2M | kills/h 99->98 deaths/h 6.5->7.3 | power 1396K->1327K Lv 115->114 best wave 243->227 | purchases 134.2->62.7M ore/h 298K->288K renown 176K->157K
+    18-24h: gold/kill 357K->157K | gold/h 42.7->14.1M spent/h 38.6->12.6M | kills/h 99->86 deaths/h 6.5->8.3 | power 2168K->1841K Lv 127->123 best wave 320->265 | purchases 234.4->77.6M ore/h 492K->314K renown 305K->276K
+  zones cur/best/powerK 24h 5/6/26->5/6/26, 48h 8/8/105->8/8/105, 72h 9/9/1217->9/9/1143, 96h 9/9/5372->9/9/4500 | defeats 1746->1738
+
+seed 55  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley 59% clear @69.22 reproduced  audit through Endless entry: hourly 69/69, entry same -> OK
+  Endless: entry @69.22h run3 Lv81 pw174K gold 3M tree 288 | hours 26.8->26.8 best wave 300->249 milestones 12->9 | gold earned 543->264M spent 496->239M end balance 48->24M | Lv@96h 127->125 pw 1865K->1697K | ore 6425K->5884K gearUps 1283->1271 renown 269K->268K tree 372->352 item 0.92/68.7->0.92/67.9
+    0-6h: gold/kill 60K->34K | gold/h 7.3->3.9M spent/h 7.0->4.0M | kills/h 111->112 deaths/h 7.0->6.5 | power 481K->458K Lv 94->93 best wave 107->110 | purchases 42.4->24.5M ore/h 105K->101K renown 13K->10K
+    6-12h: gold/kill 130K->56K | gold/h 12.2->5.8M spent/h 11.7->4.9M | kills/h 93->96 deaths/h 7.2->6.7 | power 785K->742K Lv 105->104 best wave 182->160 | purchases 70.9->30.3M ore/h 159K->139K renown 59K->59K
+    12-18h: gold/kill 163K->80K | gold/h 19.7->8.7M spent/h 18.1->8.2M | kills/h 101->100 deaths/h 6.5->8.0 | power 1148K->1074K Lv 114->113 best wave 218->200 | purchases 110.2->50.5M ore/h 224K->218K renown 115K->99K
+    18-24h: gold/kill 294K->149K | gold/h 26.0->12.5M spent/h 25.2->11.0M | kills/h 88->82 deaths/h 5.3->6.2 | power 1586K->1505K Lv 123->122 best wave 250->236 | purchases 152.7->67.4M ore/h 283K->273K renown 229K->207K
+  zones cur/best/powerK 24h 4/6/18->4/6/18, 48h 7/7/68->7/7/68, 72h 9/9/346->9/9/337, 96h 9/9/1865->9/9/1697 | defeats 2040->2051
+
+seed 56  hours 96.00  Shatters 3->3  Core 1/2 atk 17783 volley 100% clear @62.12 reproduced  audit through Endless entry: hourly 62/62, entry same -> OK
+  Endless: entry @62.12h run3 Lv72 pw177K gold 2M tree 279 | hours 33.9->33.9 best wave 376->371 milestones 15->14 | gold earned 1494->646M spent 1363->585M end balance 131->61M | Lv@96h 145->144 pw 4597K->4082K | ore 14403K->12953K gearUps 1405->1390 renown 757K->722K tree 401->378 item 2/68.3->2/67.4
+    0-6h: gold/kill 63K->34K | gold/h 7.5->4.0M spent/h 7.2->3.9M | kills/h 113->112 deaths/h 8.0->8.0 | power 581K->567K Lv 90->90 best wave 110->112 | purchases 43.6->24.1M ore/h 103K->106K renown 28K->25K
+    6-12h: gold/kill 130K->65K | gold/h 13.9->7.1M spent/h 12.6->6.1M | kills/h 99->104 deaths/h 8.5->8.7 | power 955K->988K Lv 103->103 best wave 177->184 | purchases 76.4->37.9M ore/h 157K->177K renown 72K->72K
+    12-18h: gold/kill 249K->117K | gold/h 25.1->11.7M spent/h 23.8->11.4M | kills/h 99->96 deaths/h 7.0->6.8 | power 1612K->1530K Lv 115->115 best wave 242->243 | purchases 144.7->70.2M ore/h 294K->254K renown 194K->183K
+    18-24h: gold/kill 444K->172K | gold/h 53.2->21.9M spent/h 47.9->20.3M | kills/h 106->102 deaths/h 6.2->6.0 | power 2641K->2362K Lv 129->127 best wave 336->330 | purchases 290.7->124.3M ore/h 544K->446K renown 307K->314K
+  zones cur/best/powerK 24h 6/6/31->6/6/31, 48h 6/7/75->6/7/75, 72h 9/9/837->9/9/827, 96h 9/9/4597->9/9/4082 | defeats 2240->2237
+
+seed 57  hours 96.00  Shatters 3->3  Core 1/2 atk 17783 volley 59% clear @60.09 reproduced  audit through Endless entry: hourly 60/60, entry same -> OK
+  Endless: entry @60.09h run3 Lv73 pw166K gold 2M tree 278 | hours 35.9->35.9 best wave 377->361 milestones 15->14 | gold earned 1527->640M spent 1376->582M end balance 151->58M | Lv@96h 147->145 pw 4565K->4069K | ore 15457K->13644K gearUps 1410->1393 renown 756K->794K tree 403->379 item 1.5/71.9->1.5/71
+    0-6h: gold/kill 56K->32K | gold/h 7.6->4.3M spent/h 7.0->4.1M | kills/h 115->119 deaths/h 9.0->8.0 | power 550K->523K Lv 90->90 best wave 111->102 | purchases 42.8->25.5M ore/h 106K->108K renown 28K->12K
+    6-12h: gold/kill 132K->61K | gold/h 13.8->6.5M spent/h 12.8->5.7M | kills/h 103->96 deaths/h 6.3->8.2 | power 943K->867K Lv 104->103 best wave 175->175 | purchases 78.1->34.9M ore/h 182K->147K renown 73K->60K
+    12-18h: gold/kill 259K->85K | gold/h 25.0->10.3M spent/h 23.7->9.6M | kills/h 95->104 deaths/h 6.8->5.8 | power 1509K->1268K Lv 115->114 best wave 240->224 | purchases 143.7->58.8M ore/h 277K->223K renown 190K->112K
+    18-24h: gold/kill 351K->144K | gold/h 33.9->14.8M spent/h 29.6->13.6M | kills/h 98->97 deaths/h 6.3->5.8 | power 2138K->1925K Lv 125->124 best wave 268->296 | purchases 179.7->83.5M ore/h 370K->353K renown 284K->234K
+  zones cur/best/powerK 24h 5/6/23->5/6/23, 48h 7/7/80->7/7/80, 72h 9/9/943->9/9/867, 96h 9/9/4565->9/9/4069 | defeats 2080->2098
+
+seed 58  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley 69% clear @69.22 reproduced  audit through Endless entry: hourly 69/69, entry same -> OK
+  Endless: entry @69.22h run3 Lv78 pw176K gold 3M tree 283 | hours 26.8->26.8 best wave 300->266 milestones 12->10 | gold earned 573->270M spent 518->244M end balance 55->26M | Lv@96h 128->125 pw 2075K->1888K | ore 6513K->5854K gearUps 1290->1275 renown 297K->295K tree 375->353 item 1.25/66.8->1.25/66.1
+    0-6h: gold/kill 57K->32K | gold/h 6.6->3.7M spent/h 6.3->3.6M | kills/h 113->112 deaths/h 7.8->8.2 | power 462K->465K Lv 91->91 best wave 98->100 | purchases 38.4->22.3M ore/h 89K->101K renown 7K->8K
+    6-12h: gold/kill 130K->68K | gold/h 12.5->6.7M spent/h 11.6->6.0M | kills/h 93->96 deaths/h 7.3->6.3 | power 800K->784K Lv 103->103 best wave 169->170 | purchases 70.7->36.6M ore/h 158K->143K renown 59K->54K
+    12-18h: gold/kill 174K->78K | gold/h 20.7->8.7M spent/h 19.1->8.6M | kills/h 104->109 deaths/h 7.5->7.5 | power 1236K->1146K Lv 114->113 best wave 220->200 | purchases 115.9->53.1M ore/h 232K->213K renown 120K->94K
+    18-24h: gold/kill 323K->157K | gold/h 28.5->13.0M spent/h 27.7->11.8M | kills/h 90->84 deaths/h 5.8->7.7 | power 1765K->1624K Lv 123->121 best wave 250->247 | purchases 168.2->72.3M ore/h 302K->269K renown 256K->252K
+  zones cur/best/powerK 24h 6/6/29->6/6/29, 48h 7/7/67->7/7/67, 72h 9/9/350->9/9/361, 96h 9/9/2075->9/9/1888 | defeats 2483->2498
+
+seed 59  hours 96.00  Shatters 3->3  Core 1/4 atk 17783 volley 69% clear @71.19 reproduced  audit through Endless entry: hourly 71/71, entry same -> OK
+  Endless: entry @71.2h run3 Lv80 pw186K gold 2M tree 289 | hours 24.8->24.8 best wave 263->268 milestones 10->10 | gold earned 501->262M spent 458->239M end balance 44->23M | Lv@96h 125->124 pw 1861K->1797K | ore 5954K->5778K gearUps 1294->1290 renown 282K->291K tree 368->352 item 0.92/68.3->0.92/68
+    0-6h: gold/kill 58K->32K | gold/h 7.4->4.0M spent/h 6.9->3.6M | kills/h 128->120 deaths/h 7.3->8.5 | power 495K->515K Lv 94->93 best wave 97->113 | purchases 42.3->22.1M ore/h 103K->103K renown 7K->19K
+    6-12h: gold/kill 119K->62K | gold/h 12.9->6.8M spent/h 11.6->5.9M | kills/h 102->99 deaths/h 7.8->8.3 | power 819K->844K Lv 105->104 best wave 175->174 | purchases 70.3->36.3M ore/h 160K->166K renown 58K->74K
+    12-18h: gold/kill 206K->99K | gold/h 21.7->10.7M spent/h 19.7->10.3M | kills/h 102->101 deaths/h 7.3->7.2 | power 1251K->1268K Lv 116->115 best wave 220->230 | purchases 119.8->63.3M ore/h 247K->249K renown 117K->146K
+    18-24h: gold/kill 339K->148K | gold/h 29.4->13.5M spent/h 27.4->11.8M | kills/h 85->88 deaths/h 8.8->8.5 | power 1736K->1700K Lv 124->123 best wave 263->258 | purchases 166.5->72.4M ore/h 309K->284K renown 267K->274K
+  zones cur/best/powerK 24h 6/6/29->6/6/29, 48h 7/7/62->7/7/62, 72h 9/9/284->9/9/287, 96h 9/9/1861->9/9/1797 | defeats 2583->2593
+
+seed 60  hours 96.00  Shatters 3->3  Core 1/3 atk 17783 volley 82% clear @69.17 reproduced  audit through Endless entry: hourly 69/69, entry same -> OK
+  Endless: entry @69.17h run3 Lv74 pw164K gold 3M tree 289 | hours 26.8->26.8 best wave 300->300 milestones 12->12 | gold earned 641->311M spent 582->285M end balance 59->26M | Lv@96h 126->125 pw 1993K->1888K | ore 7014K->6767K gearUps 1295->1290 renown 261K->275K tree 379->358 item 0.92/69.3->0.92/69
+    0-6h: gold/kill 68K->36K | gold/h 7.6->4.3M spent/h 7.4->4.0M | kills/h 114->116 deaths/h 8.8->7.3 | power 455K->471K Lv 89->89 best wave 96->102 | purchases 45.2->24.6M ore/h 106K->115K renown 7K->8K
+    6-12h: gold/kill 140K->77K | gold/h 13.7->7.0M spent/h 12.5->6.4M | kills/h 94->84 deaths/h 8.0->8.5 | power 796K->766K Lv 101->101 best wave 165->175 | purchases 76.0->39.4M ore/h 165K->145K renown 62K->59K
+    12-18h: gold/kill 224K->90K | gold/h 23.4->10.4M spent/h 22.2->9.7M | kills/h 100->102 deaths/h 7.0->7.0 | power 1188K->1106K Lv 113->111 best wave 223->213 | purchases 134.9->59.4M ore/h 256K->222K renown 122K->105K
+    18-24h: gold/kill 382K->164K | gold/h 32.7->14.3M spent/h 28.5->13.6M | kills/h 85->88 deaths/h 6.8->6.8 | power 1712K->1623K Lv 122->120 best wave 280->245 | purchases 173.3->83.6M ore/h 341K->333K renown 224K->225K
+  zones cur/best/powerK 24h 6/6/24->6/6/24, 48h 5/7/52->5/7/52, 72h 9/9/330->9/9/335, 96h 9/9/1993->9/9/1888 | defeats 2184->2180
+
+-- engaged validity: 96h 10/10, Shatter cap 10/10, Core reproduced 10/10, audit through Endless entry OK 10/10
+-- engaged Endless (runs reaching in both arms 10/10): hours med 26.8 -> 26.8 (paired med 0.0, +0 010 -0) | best wave med 300 -> 268 (paired med -16, +1 01 -8) | milestones med 12 -> 10 (paired med -1, +0 04 -6) | gold earned M med 572.9 -> 270.5 (paired med -329.4, +0 00 -10) | spent M med 517.9 -> 244.3 (paired med -296.4, +0 00 -10) | end balance M med 57.6 -> 24.2 (paired med -38.4, +0 00 -10) | Lv@96h med 127 -> 125 (paired med -2, +0 01 -9) | power@96h K med 2075 -> 1888 (paired med -303, +0 00 -10) | ore med 6513408 -> 5884032 (paired med -1087680, +1 00 -9) | renown K med 297 -> 291 (paired med -16, +3 00 -7) | tree levels med 375 -> 353 (paired med -22, +0 00 -10) | defeats med 2240 -> 2237 (paired med 4, +6 00 -4)
+   window 0-6h (n=10): gold/kill K med 57 -> 32 (paired med -26, +0 00 -10) | gold/h M med 7.3 -> 3.9 (paired med -3.3, +0 00 -10) | kills/h med 113 -> 112 (paired med -1, +4 00 -6) | deaths/h med 7.8 -> 8.0 (paired med -0.3, +4 01 -5) | power K med 481 -> 468 (paired med -4, +4 00 -6) | Lv med 90 -> 91 (paired med 0, +1 06 -3) | best wave med 100 -> 102 (paired med 2, +7 00 -3) | purchases M med 42.3 -> 22.4 (paired med -17.6, +0 00 -10)
+   window 6-12h (n=10): gold/kill K med 130 -> 62 (paired med -65, +0 00 -10) | gold/h M med 12.9 -> 6.5 (paired med -6.7, +0 00 -10) | kills/h med 94 -> 96 (paired med -3, +5 00 -5) | deaths/h med 7.7 -> 7.7 (paired med -0.2, +5 00 -5) | power K med 800 -> 782 (paired med -30, +2 00 -8) | Lv med 103 -> 103 (paired med -1, +2 03 -5) | best wave med 174 -> 170 (paired med -2, +3 01 -6) | purchases M med 70.9 -> 34.9 (paired med -37.6, +0 00 -10)
+   window 12-18h (n=10): gold/kill K med 198 -> 81 (paired med -117, +0 00 -10) | gold/h M med 21.6 -> 9.6 (paired med -12.0, +0 00 -10) | kills/h med 99 -> 100 (paired med 0, +6 00 -4) | deaths/h med 7.0 -> 7.2 (paired med 0.0, +3 03 -4) | power K med 1236 -> 1144 (paired med -82, +1 00 -9) | Lv med 114 -> 113 (paired med -1, +0 02 -8) | best wave med 220 -> 205 (paired med -15, +2 00 -8) | purchases M med 119.8 -> 58.2 (paired med -68.7, +0 00 -10)
+   window 18-24h (n=9): gold/kill K med 339 -> 149 (paired med -200, +0 00 -9) | gold/h M med 29.4 -> 13.5 (paired med -16.2, +0 00 -9) | kills/h med 90 -> 88 (paired med -0, +4 00 -5) | deaths/h med 6.5 -> 6.8 (paired med -0.2, +3 01 -5) | power K med 1765 -> 1647 (paired med -139, +0 00 -9) | Lv med 123 -> 122 (paired med -1, +0 00 -9) | best wave med 263 -> 248 (paired med -8, +1 00 -8) | purchases M med 168.2 -> 72.4 (paired med -94.1, +0 00 -9)
+   growth 0-6h -> 12-18h (n=10): gold/kill x3.48 -> x2.60 | gold/h x3.07 -> x2.40 | power x2.65 -> x2.44
+   growth 0-6h -> 18-24h (n=9): gold/kill x5.84 -> x4.54 | gold/h x4.30 -> x3.42 | power x3.82 -> x3.49
+-- engaged horizons cur/best/powerK med 24h 5/6/25->5/6/25, 48h 7/7/62->7/7/62, 72h 9/9/350->9/9/351, 96h 9/9/2075->9/9/1888
+-- engaged outliers: none
