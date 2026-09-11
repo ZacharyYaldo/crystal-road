@@ -17,7 +17,7 @@ for(const p of P){
   console.log('total triggers                '+cell(RA.map(r=>r.autoTrain.triggers),RB.map(r=>r.autoTrain.triggers),0)+'   completed returns '+cell(RA.map(r=>r.autoTrain.returns),RB.map(r=>r.autoTrain.returns),0)+'   cancels '+cell(RA.map(r=>r.autoTrain.cancels),RB.map(r=>r.autoTrain.cancels),0));
   for(const z of zones){
     const L=rs=>rs.map(r=>(r.autoTrain.log||[]).filter(l=>l.ret===z));
-    const LA=L(RA),LB=L(RB);if(!LA.some(x=>x.length)&&!LB.some(x=>x.length))continue;
+    const LA=L(RA),LB=L(RB);if(!LA.some(x=>x.length)&&!LB.some(x=>x.length)&&!RA.some(r=>r.zoneRec&&r.zoneRec[z])&&!RB.some(r=>r.zoneRec&&r.zoneRec[z]))continue;
     const hrs=Ls=>Ls.map(l=>l.reduce((a,x)=>a+(x.secs||0),0)/3600),eps=Ls=>Ls.map(l=>l.length),comp=Ls=>Ls.map(l=>l.filter(x=>x.afterReturn!=null||x.winAfter!=null).length),quick=Ls=>Ls.map(l=>l.filter(x=>x.quick).length),retr=Ls=>Ls.map(l=>l.filter(x=>x.retrigger).length),first=Ls=>Ls.map(l=>l.filter(x=>!x.retrigger).length);
     const fights=Ls=>Ls.map(l=>l.reduce((a,x)=>a+(x.fights||0),0));const firstH=Ls=>Ls.map(l=>l.filter(x=>!x.retrigger).reduce((a,x)=>a+(x.secs||0),0)/3600),retrH=Ls=>Ls.map(l=>l.filter(x=>x.retrigger).reduce((a,x)=>a+(x.secs||0),0)/3600);
     const pooled=Ls=>[].concat(...Ls);const pa=pooled(LA),pb=pooled(LB);
@@ -30,6 +30,7 @@ for(const p of P){
     console.log('  first-return vs retrigger     count '+cell(first(LA),first(LB),0)+' vs '+cell(retr(LA),retr(LB),0)+'   hours '+cell(firstH(LA),firstH(LB),2)+' vs '+cell(retrH(LA),retrH(LB),2));
     console.log('  per episode (pooled med/P90)  minutes '+cell(epMin(pa),epMin(pb),0)+'   fights '+cell(epFights(pa),epFights(pb),0)+'   level progress '+cell(epProg(pa),epProg(pb),2)+'   target med '+f(med(epTarget(pa)),2)+' -> '+f(med(epTarget(pb)),2));
     console.log('  return -> next trigger        fights '+cell(rtF(pa),rtF(pb),0)+'   minutes '+cell(rtM(pa),rtM(pb),0)+'   (n '+rtF(pa).length+' -> '+rtF(pb).length+')');
+    const wl=l=>l.map(x=>typeof x.window==='string'?(x.window.match(/0/g)||[]).length:null);console.log('  losses in window at trigger   mean '+f(mean(wl(pa)),2)+' -> '+f(mean(wl(pb)),2)+'   (window length med '+f(med(pa.map(x=>typeof x.window==='string'?x.window.length:null)),0)+' -> '+f(med(pb.map(x=>typeof x.window==='string'?x.window.length:null)),0)+'; audit: min losses '+f(Math.min(...wl(pa).filter(v=>v!=null)),0)+' -> '+f(Math.min(...wl(pb).filter(v=>v!=null)),0)+')');
     console.log('  win rate after return (mean)  first 10: '+f(100*mean(w10(pa)),0)+'% -> '+f(100*mean(w10(pb)),0)+'%   first 20: '+f(100*mean(w20(pa)),0)+'% -> '+f(100*mean(w20(pb)),0)+'%   window at trigger: '+f(100*mean(pa.map(x=>x.winBefore)),0)+'% -> '+f(100*mean(pb.map(x=>x.winBefore)),0)+'%');
     const od=rs=>rs.map(r=>r.byZone&&r.byZone[z]?r.byZone[z].defeats:null),rw=rs=>rs.map(r=>r.byZone&&r.byZone[z]&&r.deadTime?r.byZone[z].rewalk*r.deadTime.secPerEncounter/3600:null),hz=rs=>rs.map(r=>r.zoneTime&&r.zoneTime[z]?r.zoneTime[z].sec/3600:null);
     console.log('  zone: ordinary defeats        '+cell(od(RA),od(RB),0)+'   rewalk hours '+cell(rw(RA),rw(RB),2)+'   non-training hours in zone '+cell(hz(RA),hz(RB),2));
