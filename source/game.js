@@ -249,7 +249,8 @@ const BOSS_RETRY={default:9,7:9};
 // ===== Auto Road training fallback =====
 // When the last 10 ordinary fights in an uncleared zone hold 4 losses, retreat to the previous cleared zone and train there
 // until the party has earned about one party level (min 3 fights), then return. Manual build changes reset the window.
-const AT_WINDOW=10,AT_MIN=8,AT_LOSSES=4,AT_MIN_FIGHTS=3,AT_NERF=0.8;
+const AT_WINDOW=10,AT_MIN=8,AT_LOSSES=4,AT_MIN_FIGHTS=3,AT_NERF=0.8,AT_RESET_ON_BOSS_LOSS=true;
+function partyState(){const a=G.active;return{hp:+(a.reduce((q,h)=>q+Math.max(0,h.hp),0)/Math.max(1,a.reduce((q,h)=>q+h.maxhp,0))).toFixed(2),minHp:+Math.min(1,...a.map(h=>h.hp/h.maxhp)).toFixed(2),charge:R(a.reduce((q,h)=>q+(h.charge||0),0)/Math.max(1,a.length)),surge:R(G.surge||0),lv:+partyLvAvg().toFixed(1),dead:a.filter(h=>h.dead).length};}
 function partyLvAvg(){return G.active.length?G.active.reduce((a,h)=>a+h.lvl,0)/G.active.length:1;}
 function partyProg(){return G.active.length?G.active.reduce((a,h)=>a+h.lvl+h.xp/xpNeed(h.lvl),0)/G.active.length:1;}
 function partyPower(){return G.active.reduce((a,h)=>a+h.maxhp+h.atk*6+h.def*4,0);}
@@ -257,18 +258,18 @@ function atStats(){const S=G.stats;S.autoTrain=S.autoTrain||{triggers:0,timeSec:
 function goZone(i){G.zone=i;G.enemies=[];G.projs=[];G.action=null;G.bossFight=false;for(const h of G.active){h.dx=0;h.status={};if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3);}setAnim(h,'walk');}layout();G.mode='walk';G.enc=3;}
 function atAllowed(z){return !G.autoTrainOff&&z>0&&z!==7&&!ZONES[z].endless&&!G.cleared[z]&&G.cleared[z-1]&&!(G.keepPushing&&G.keepPushing[z]);}
 function fightStarted(){if(G.delve||G.hordeFight||G.bossFight)return;G.fightPower=partyPower();if(!(G.train&&G.train.active)){G.powerHist=(G.powerHist||[]).concat([G.fightPower]).slice(-AT_WINDOW);}}
-function noteFight(win,wasBoss){const Z=ZONES[G.zone];if(!Z||Z.endless||G.delve||G.hordeFight)return;const T=G.train;
+function noteFight(win,wasBoss){const Z=ZONES[G.zone];if(!Z||Z.endless||G.delve||G.hordeFight)return;const T=G.train;if(T&&!T.active&&T.returnFights!=null)T.returnFights++;
   if(T&&T.active){if(G.zone!==T.zone)return;T.fights++;const prog=partyProg()-T.startProg;if(prog>=1&&T.fights>=AT_MIN_FIGHTS){finishTraining(true);return;}T.r=(T.r||[]).concat([win?1:0]).slice(-AT_WINDOW);if(!win&&T.r.length>=AT_MIN&&T.r.filter(x=>!x).length>=AT_LOSSES&&T.zone>0){T.zone--;T.r=[];if(T.rec)T.rec.zone=ZONES[T.zone].name;goZone(T.zone);banner(ZONES[T.zone+1].name+' is too dangerous too','Training in '+ZONES[T.zone].name,3);}return;}
-  if(wasBoss)return;if(!atAllowed(G.zone)&&!(G.keepPushing&&G.keepPushing[G.zone]))return;
+  if(wasBoss){if(!win&&AT_RESET_ON_BOSS_LOSS)G.danger=null;return;}if(!atAllowed(G.zone)&&!(G.keepPushing&&G.keepPushing[G.zone]))return;
   const ref=Math.max(0,...(G.powerHist||[]));if(ref&&G.fightPower<ref*AT_NERF)return; // obviously self-nerfed party: this fight does not count
   const D=(G.danger&&G.danger.zone===G.zone)?G.danger:(G.danger={zone:G.zone,r:[]});D.r.push(win?1:0);if(D.r.length>AT_WINDOW)D.r.shift();
   if(G.train&&G.train.after!=null&&G.train.after.zone===G.zone){const a=G.train.after;a.r.push(win?1:0);if(a.r.length>=AT_WINDOW){a.rec.winAfter=+(a.r.filter(x=>x).length/a.r.length).toFixed(2);G.train=null;}}
   if(!win&&atAllowed(G.zone)&&D.r.length>=AT_MIN&&D.r.filter(x=>!x).length>=AT_LOSSES)startTraining();}
-function startTraining(){const ret=G.zone,zone=ret-1,S=atStats();const D=G.danger||{r:[]};const rec={ret:ZONES[ret].name,zone:ZONES[zone].name,lvBefore:+partyLvAvg().toFixed(1),winBefore:+(D.r.filter(x=>x).length/Math.max(1,D.r.length)).toFixed(2),t0:now(),lvAfter:null,secs:null,fights:null,xp:null,winAfter:null};
+function startTraining(){const ret=G.zone,zone=ret-1,S=atStats();const D=G.danger||{r:[]};const rec={ret:ZONES[ret].name,zone:ZONES[zone].name,before:partyState(),lvBefore:+partyLvAvg().toFixed(1),winBefore:+(D.r.filter(x=>x).length/Math.max(1,D.r.length)).toFixed(2),t0:now(),lvAfter:null,secs:null,fights:null,xp:null,winAfter:null};
   G.train={active:true,zone,ret,startProg:partyProg(),fights:0,t0:now(),gold0:G.stats.gold||0,items0:G.stats.items||0,rec};G.danger=null;S.triggers++;S.log.push(rec);if(S.log.length>60)S.log.shift();
   goZone(zone);banner(ZONES[ret].name+' is too dangerous','Training in '+ZONES[zone].name+' - tap the plate to keep pushing',3.4);}
-function finishTraining(done){const T=G.train;if(!T||!T.active)return;const S=atStats(),secs=(now()-T.t0)/1000,rec=T.rec;const xp=partyProg()-T.startProg;S.timeSec+=secs;S.fights+=T.fights;S.xp+=xp;S.gold+=(G.stats.gold||0)-T.gold0;S.drops+=(G.stats.items||0)-T.items0;if(rec){rec.secs=R(secs);rec.fights=T.fights;rec.xp=+xp.toFixed(2);rec.lvAfter=+partyLvAvg().toFixed(1);}
-  const ret=T.ret;G.danger=null;if(done){S.returns++;G.train={active:false,after:{zone:ret,r:[],rec:rec||{}}};goZone(ret);banner('Back to '+ZONES[ret].name,'The party returns a level stronger',2.6);}else{S.cancels++;G.train=null;}}
+function finishTraining(done){const T=G.train;if(!T||!T.active)return;const S=atStats(),secs=(now()-T.t0)/1000,rec=T.rec;const xp=partyProg()-T.startProg;S.timeSec+=secs;S.fights+=T.fights;S.xp+=xp;S.gold+=(G.stats.gold||0)-T.gold0;S.drops+=(G.stats.items||0)-T.items0;if(rec){rec.secs=R(secs);rec.fights=T.fights;rec.xp=+xp.toFixed(2);rec.lvAfter=+partyLvAvg().toFixed(1);rec.atEnd=partyState();}
+  const ret=T.ret;G.danger=null;if(done){S.returns++;G.train={active:false,after:{zone:ret,r:[],rec:rec||{}},returnedAt:now(),returnFights:0};goZone(ret);if(rec)rec.afterReturn=partyState();banner('Back to '+ZONES[ret].name,'The party returns a level stronger',2.6);}else{S.cancels++;G.train=null;}}
 function keepPushing(){const T=G.train;if(!T||!T.active)return;const ret=T.ret;G.keepPushing=G.keepPushing||{};G.keepPushing[ret]=true;atStats().keepPushing++;finishTraining(false);goZone(ret);toast('Pushing on - no more retreats from '+ZONES[ret].name);}
 let AUTO_EQ=false;
 function buildChanged(){if(AUTO_EQ)return;G.danger=null;if(G.train&&G.train.active){const ret=G.train.ret;finishTraining(false);goZone(ret);toast('Training cancelled - the party changed');}else if(G.train&&!G.train.active)G.train=null;}
