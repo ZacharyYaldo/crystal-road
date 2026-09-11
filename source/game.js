@@ -249,6 +249,7 @@ const BOSS_RETRY={default:9,7:9};
 // ===== Auto Road training fallback =====
 // When the last 10 ordinary fights in an uncleared zone hold 4 losses, retreat to the previous cleared zone and train there
 // until the party has earned about one party level (min 3 fights), then return. Manual build changes reset the window.
+const AUTO_REACT=false; // Auto-Cast answers a telegraphed charge with one ready counter (pass 11 candidate; production off)
 const AT_WINDOW=10,AT_MIN=8,AT_LOSSES=4,AT_MIN_FIGHTS=3,AT_NERF=0.8,AT_RESET_ON_BOSS_LOSS=true,AT_RETRIGGER_TARGET=1,AT_QUICK_FIGHTS=20;
 function partyState(){const a=G.active;return{hp:+(a.reduce((q,h)=>q+Math.max(0,h.hp),0)/Math.max(1,a.reduce((q,h)=>q+h.maxhp,0))).toFixed(2),minHp:+Math.min(1,...a.map(h=>h.hp/h.maxhp)).toFixed(2),charge:R(a.reduce((q,h)=>q+(h.charge||0),0)/Math.max(1,a.length)),surge:R(G.surge||0),lv:+partyLvAvg().toFixed(1),dead:a.filter(h=>h.dead).length};}
 function partyLvAvg(){return G.active.length?G.active.reduce((a,h)=>a+h.lvl,0)/G.active.length:1;}
@@ -445,10 +446,10 @@ function abilityAction(u,tapped){const c=CLASSES[u.cls],id=c.ab.id;const pow=abi
   return{u,kind:'ability',ab:id,pow,anim,fps:attackFps(n),hit:Math.floor(n*0.5),tgts:living(G.enemies),tgt:pickTarget(u),hits:0,phase:'dash',pt:0};}
 function reactTo(h){const a=G.action;if(!a||a.phase!=='tele'||!a.u||!a.u.enemy)return false;const ab=CLASSES[h.cls].ab.id;
   if(ab==='shieldwall'){h.charge=0;h.status.shield=shieldDur(h)+1;h.status.shieldPct=shieldPct(h);a.tgt=h;a.parried=true;float(h.x,GROUND-48,'Parried!',C.goldL,true);sfx('cast');return true;}
-  if(ab==='shadowstep'||ab==='meteor'){h.charge=0;const e=a.u;if(G.fs&&a.kind==='chargeM')G.fs.chargeInterrupted=(G.fs.chargeInterrupted||0)+1;e.status.stun=1;e.gauge=0;G.action=null;float(e.x+e.dx,GROUND-50,'Interrupted!',C.goldL,true);sfx('crit');G.shake=0.2;setAnim(e,'hurt',false,10);return true;}
+  if(ab==='shadowstep'||ab==='meteor'){h.charge=0;const e=a.u;if(G.fs&&(a.kind==='chargeM'||a.kind==='chargeR'))G.fs.chargeInterrupted=(G.fs.chargeInterrupted||0)+1;e.status.stun=1;e.gauge=0;G.action=null;float(e.x+e.dx,GROUND-50,'Interrupted!',C.goldL,true);sfx('crit');G.shake=0.2;setAnim(e,'hurt',false,10);return true;}
   if(ab==='sanctuary'){h.charge=0;let n=0;for(const x of living(G.active)){for(const k of ['poison','bleed','burn','stun'])if(x.status[k]>0){x.status[k]=0;n++;}}float(h.x,GROUND-48,n?'Cleansed!':'Nothing to cleanse',C.goldL,true);sfx('heal');return true;}
   return false;}
-function startAction(a){G.action=a;a.hitDone=false;a.pt=0;if(a.kind!=='melee'&&!(a.kind==='ability'&&(a.ab==='shadowstep')))setAnim(a.u,a.anim,false,a.fps);}
+function startAction(a){G.action=a;if(G.fs&&a.phase==='tele'&&a.u&&a.u.enemy&&(a.kind==='chargeM'||a.kind==='chargeR'))G.fs.chargeTelegraphs=(G.fs.chargeTelegraphs||0)+1;a.hitDone=false;a.pt=0;if(a.kind!=='melee'&&!(a.kind==='ability'&&(a.ab==='shadowstep')))setAnim(a.u,a.anim,false,a.fps);}
 function endAction(){const a=G.action,u=a.u;G.action=null;u.dx=0;if(!u.dead)setAnim(u,'idle');
   if(u.status.poison>0){u.status.poison--;const pd=R(u.maxhp*0.03);u.hp-=pd;float(u.x+u.dx,GROUND-26,'-'+fmtNum(pd),'#7ad07a');if(u.hp<=0){u.hp=0;u.dead=true;u.status={};setAnim(u,'death',false,8);if(u.enemy)killReward(u);}}
   if(u.status.ward>0)u.status.ward--;if(u.status.burn>0)u.status.burn--;if(u.status.cry>0)u.status.cry--;if(u.echo>0){u.echo--;if(u.echo===0){for(const h of living(G.active))heal(u,h,h.maxhp*0.15);float(u.x,GROUND-44,'Divine Echo',C.goldL);}}
@@ -621,6 +622,9 @@ function update(dt,ui=true){G.t+=dt;if(G.shake>0)G.shake-=dt;
     if(G.action)updateAction(dt);updateProjs(dt);
     if(!living(G.enemies).length&&!G.action&&!G.projs.length)return endBattle(true);
     if(!living(G.active).length&&!G.action&&!G.projs.length)return endBattle(false);
+     if(AUTO_REACT&&autoOn()&&G.action&&G.action.phase==='tele'&&G.action.u&&G.action.u.enemy&&(G.action.kind==='chargeM'||G.action.kind==='chargeR')){const a=G.action;const fsr=G.fs?(G.fs.autoReact=G.fs.autoReact||{attempts:0,ok:0,prevented:0,byClass:{},byKind:{}}):null;const elig=G.active.filter(h=>!h.dead&&h.charge>=100&&!h.tapCast&&['shieldwall','shadowstep','meteor'].includes(CLASSES[h.cls].ab.id));
+       if(a.autoHandled){if(elig.length&&!a.preventedCounted){a.preventedCounted=true;if(fsr)fsr.prevented++;}}
+       else if(elig.length){const h=elig[0];a.autoHandled=true;if(fsr){fsr.attempts++;fsr.byClass[h.cls]=(fsr.byClass[h.cls]||0)+1;fsr.byKind[a.kind]=(fsr.byKind[a.kind]||0)+1;}const ok=reactTo(h);if(ok&&fsr)fsr.ok++;}}
     if(!G.action){for(const u of all)if(!u.dead)if(!(G.hordeFight&&G.banner))u.gauge+=u.spd*dt*7*(u.enemy?1:1+0.02*treeLv('spd'))*omenMult('speed');
       let ready=all.filter(u=>!u.dead&&u.gauge>=100).sort((a,b)=>b.gauge-a.gauge)[0];
       const caster=G.active.find(h=>!h.dead&&(h.tapCast||(h.charge>=100&&autoOn()&&h.readyT>=0.4)));if(caster)ready=caster;
