@@ -1,0 +1,4 @@
+idle     runs 10 | first attempt in active window: 0% | first-try clear 0% | all attempts: active - auto 10% (n102) | first-attempt HP 89% charge 55 surge 100
+light    runs 10 | first attempt in active window: 40% | first-try clear 10% | all attempts: active 54% (n13) auto 12% (n26) | first-attempt HP 85% charge 56 surge 81
+casual   runs 10 | first attempt in active window: 70% | first-try clear 40% | all attempts: active 75% (n12) auto 14% (n7) | first-attempt HP 93% charge 42 surge 54
+engaged  runs 10 | first attempt in active window: 100% | first-try clear 100% | all attempts: active 100% (n10) auto - | first-attempt HP 94% charge 52 surge 38

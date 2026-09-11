@@ -18,3 +18,6 @@ tests/sim/batch_out*/
 tests/sim/sweep_out/
 tests/sim/snapshots/
 tests/sim/boss_out/
+tests/sim/snapshots_p10/
+tests/sim/p10_road/
+tests/sim/p10_fights.json
