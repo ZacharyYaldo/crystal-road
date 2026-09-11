@@ -19,6 +19,7 @@ Math.random=srand;
 
 const replace=[];if(args.bossHp!=null||args.bossAtk!=null){const z=args.bossZone==null?1:Number(args.bossZone);const cur={0:'0:{hp:0.75,atk:0.80}',1:'1:{hp:0.75,atk:0.82}'}[z];if(!cur)throw new Error('no override for zone '+z);const m=cur.match(/hp:([\d.]+),atk:([\d.]+)/);const hp=args.bossHp!=null?args.bossHp:Number(m[1]),atk=args.bossAtk!=null?args.bossAtk:Number(m[2]);replace.push([cur,z+':{hp:'+hp+',atk:'+atk+'}']);}
 if(args.replace){for(const r of String(args.replace).split('||')){const [f,t]=r.split('=>');replace.push([f,t]);}}
+if(args.replaceFile){for(const [f,t] of JSON.parse(require('fs').readFileSync(String(args.replaceFile),'utf8')))replace.push([f,t]);}  // JSON array of [from,to] pairs; use when the source contains '||' or '=>'
 const S=load({startMs:1700000000000,replace});
 const M={hours:0,events:[],recruits:{},talents:{},promotions:{},zones:{},zoneRec:{},firsts:{},shatters:[],boss:{},drops:{},gold:[],econ:{goldEarned:0,goldSpent:0,oreEarned:0,oreSpent:0},gearUps:0,dmgActive:{basic:0,ability:0,tap:0,surge:0},dmgAuto:{basic:0,ability:0,tap:0,surge:0},activeSec:0,delve:{best:0,runs:0,deaths:0},endless:{best:0,milestones:0},stuck:[]};
 function ev(kind,text){M.events.push({h:+M.hours.toFixed(2),kind,text});if(!QUIET)console.log(M.hours.toFixed(2).padStart(7)+'h  '+kind.padEnd(9)+' '+text);}
