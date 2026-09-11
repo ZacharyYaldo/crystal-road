@@ -27,7 +27,7 @@ for(const p of P){
     const h0=a.shatters[0]?a.shatters[0].h:1e9;const ra=(a.hourly||[]).filter(g=>g.h<h0),rb=(b.hourly||[]).filter(g=>g.h<h0);let same=0;for(let i=0;i<Math.min(ra.length,rb.length);i++)if(JSON.stringify(ra[i])===JSON.stringify(rb[i]))same++;
     const s0=a.shatters[0],s1=b.shatters[0];const shSame=!!s0&&!!s1&&s0.h===s1.h&&s0.zone===s1.zone&&s0.gain===s1.gain&&s0.lv===s1.lv&&s0.power===s1.power&&s0.dustBefore===s1.dustBefore;
     const buysSame=JSON.stringify((a.dustBuys||[]).filter(x=>x.h<h0))===JSON.stringify((b.dustBuys||[]).filter(x=>x.h<h0));
-    const r0=z=>{const x=(a.bossFailRates||{})[z],y=(b.bossFailRates||{})[z];const fa=x?x.attemptLog.filter(t=>(t.run||0)===0).map(t=>[t.n,t.win,t.bossAtk,t.dur]):[],fb=y?y.attemptLog.filter(t=>(t.run||0)===0).map(t=>[t.n,t.win,t.bossAtk,t.dur]):[];return JSON.stringify(fa)===JSON.stringify(fb);};
+    const r0=z=>{const x=(a.bossFailRates||{})[z],y=(b.bossFailRates||{})[z];const fa=x?x.attemptLog.filter(t=>t.run===0).map(t=>[t.n,t.win,t.bossAtk,t.dur]):[],fb=y?y.attemptLog.filter(t=>t.run===0).map(t=>[t.n,t.win,t.bossAtk,t.dur]):[];return JSON.stringify(fa)===JSON.stringify(fb);};
     const run0Same=['Stillwater Lagoon','Thornwood','Ironvein Caverns','Emberwaste','Amberfall Woods',APP,KEEP].every(r0);
     const ok=same===ra.length&&ra.length===rb.length&&shSame&&buysSame&&run0Same;if(ok)V.audit++;
     console.log('\nseed '+s+'  hours '+f(mb.simH,2)+'  Shatters '+ma.nsh+' -> '+mb.nsh+'  audit through first Shatter: hourly '+same+'/'+ra.length+', first Shatter '+(shSame?'same':'DIFFERS')+', dust buys '+(buysSame?'same':'DIFFER')+', run-0 boss attempts '+(run0Same?'same':'DIFFER')+' -> '+(ok?'OK':'MISMATCH'));
