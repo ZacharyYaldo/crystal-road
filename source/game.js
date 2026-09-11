@@ -138,7 +138,7 @@ const ENEMIES={
   ironhusk:{name:'Iron Husk',uid:'skeleton',hue:200,hp:1.3,atk:1.2,def:1.5,spd:9,range:'melee'},sentinel:{name:'Sentinel',uid:'armoredskel',hue:120,hp:1.8,atk:1.4,def:1.9,spd:8,range:'melee',traits:['shieldAllies']},
   sandorc:{name:'Sand Orc',uid:'orc',hue:40,hp:1.2,atk:1.2,def:0.8,spd:9,range:'melee'},
   slimeking:{name:'The Slime King',uid:'slime',scale:4,mech:{summon:[{at:0.5,id:'slime',n:2}]},hp:5.0,atk:1.3,def:0.5,spd:6,range:'melee',boss:true},
-  alphawolf:{name:'The Alpha',uid:'werewolf',scale:3,mech:{summon:[{at:0.6,id:'werewolf',n:1}],howl:0.3},hp:5.5,atk:1.6,def:0.7,spd:10,range:'melee',boss:true},
+  alphawolf:{name:'The Alpha',uid:'werewolf',scale:3,mech:{summon:[{at:0.6,id:'werewolf',n:1,hp:0.75,atk:0.85}],howl:0.3},hp:5.5,atk:1.6,def:0.7,spd:10,range:'melee',boss:true},
   warlord:{name:'Orc Warlord',uid:'eliteorc',scale:3,mech:{charge:true,shieldAllies:true,summon:[{at:0.5,id:'orc',n:2}]},hp:6.0,atk:1.7,def:1.2,spd:8,range:'melee',boss:true},
 };
 const ZONES=[
@@ -243,7 +243,7 @@ function heroStats(h){const c=CLASSES[h.cls],L=h.lvl-1,tm=Math.pow(1.3,h.tier||0
   const rn=renownStat();hp*=(1+0.04*treeLv('hp'))*(1+0.1*treeLv('b_hp'))*rn;atk*=(1+0.04*treeLv('atk'))*rn;def*=(1+0.04*treeLv('def'))*rn;return{maxhp:R(hp),atk:R(atk),def:R(def),spd:c.spd};}
 const ZONE_POWER=[0.62,0.86,0.97];
 // per-zone boss multipliers on top of normal scaling; zones not listed are 1.0
-const BOSS_TUNE={0:{hp:0.75,atk:0.80},1:{hp:0.75,atk:0.82}};
+const BOSS_TUNE={0:{hp:0.75,atk:0.80},1:{hp:0.55,atk:0.70}};
 // encounters before a boss can be retried after a loss; a list escalates with consecutive losses
 const BOSS_RETRY={default:9,7:9};
 // ===== Auto Road training fallback =====
