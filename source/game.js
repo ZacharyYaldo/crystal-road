@@ -431,7 +431,7 @@ function chooseAction(u){
   const n=ATLAS[u.uid].anims.attack.n,fps=attackFps(n),hit=Math.floor(n*0.5);
   if(u.status.stun>0){u.status.stun--;float(u.x+u.dx,GROUND-40,'stunned',C.goldL);return{u,kind:'skip',anim:'hurt',fps:10,hit:99};}
   if(u.enemy){u.acts=(u.acts||0)+1;const tr=u.traits||[];
-    if(u.mech&&u.mech.raise&&u.acts%3===0){const corpse=G.enemies.find(x=>x.dead&&!x.boss&&!x.raised);if(corpse){corpse.raised=true;corpse.dead=false;corpse.hp=R(corpse.maxhp*0.4);setAnim(corpse,'idle');float(corpse.x,GROUND-40,'raised','#b06cff');return{u,kind:'skip',anim:'attack',fps,hit:99};}}
+    if(u.mech&&u.mech.raise&&u.acts%3===0){const corpse=G.enemies.find(x=>x.dead&&!x.boss&&!x.raised);if(corpse){corpse.raised=true;corpse.dead=false;if(G.fs)G.fs.raised=(G.fs.raised||0)+1;corpse.hp=R(corpse.maxhp*0.4);setAnim(corpse,'idle');float(corpse.x,GROUND-40,'raised','#b06cff');return{u,kind:'skip',anim:'attack',fps,hit:99};}}
     if(tr.includes('shieldAllies')&&u.acts%3===0&&allies.length>1){for(const a of allies)if(a!==u){a.status.ward=3;}float(u.x+u.dx,GROUND-40,'wards allies','#7fd4ff');return{u,kind:'skip',anim:'attack',fps,hit:99};}
     if(tr.includes('charge')&&u.acts%3===0){const tgt=pickTarget(u);const kind=u.range==='ranged'||u.range==='aoe'?'chargeR':'chargeM';return{u,kind,tgt,tgts:foes,anim:'attack',fps,hit,phase:'tele',pt:0,tele:2.0,name:u.range==='melee'?'Cleave':'Volley'};}}
   if(!u.enemy&&(u.tapCast||(u.charge>=100&&autoOn()&&u.readyT>=0.4))){return abilityAction(u,!!u.tapCast);}
