@@ -20,7 +20,11 @@ function report(){console.log('\n');const rows=[];const all={};for(const j of jo
   for(const z of zones)metric('boss fail% '+z,r=>r.bossFailRates[z]?Math.round(r.bossFailRates[z].rate*100):null);
   for(const z of zones)metric('boss max streak '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].maxStreak:null);
   for(const z of zones)metric('boss stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].stallH:null);
+  for(const z of zones)metric('boss Lv at first try '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].lvFirst:null);
+  for(const z of zones)metric('boss Lv at clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].lvClear:null);
   for(const k of ['basic','ability','tap','surge'])metric('dmg share '+k+' %',r=>Math.round((r.dmgShare[k]||0)*100));
+  for(const k of ['basic','ability','tap','surge','total'])metric('dmg/h '+k,r=>r.dmgPerHour?r.dmgPerHour[k]:null);
+  metric('ability casts/h',r=>r.castsPerHour);
   metric('gold earned/h',r=>r.econPerHour.goldEarned);metric('ore earned/h',r=>r.econPerHour.oreEarned);
   metric('defeats @end',r=>r.final.defeats);
   const w=Math.max(...rows.map(r=>r.metric.length))+1;const cell=v=>v&&v[1]!=null?(v[0]+' / '+v[1]+' / '+v[2]).padEnd(22):'-'.padEnd(22);

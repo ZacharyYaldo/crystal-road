@@ -37,13 +37,13 @@ function main(){
     if(ACTIVE)play();
     // observations every tick
     {const dg=G.gold-lastGold,dO=G.ore-lastOre;if(dg>0)M.econ.goldEarned+=dg;else M.econ.goldSpent-=dg;if(dO>0)M.econ.oreEarned+=dO;else M.econ.oreSpent-=dO;lastGold=G.gold;lastOre=G.ore;}
-    if(G.bossFight&&!bossWas){bossWas=true;const b=(M.boss[Z[G.zone].name]=M.boss[Z[G.zone].name]||{attempts:0,fails:0,streak:0,maxStreak:0,firstTry:0});b.attempts++;if(!b.firstTry)b.firstTry=simSec;}
+    if(G.bossFight&&!bossWas){bossWas=true;const b=(M.boss[Z[G.zone].name]=M.boss[Z[G.zone].name]||{attempts:0,fails:0,streak:0,maxStreak:0,firstTry:0});b.attempts++;if(!b.firstTry){b.firstTry=simSec;b.lvFirst=avgLv();}}
     if(!G.bossFight&&bossWas){bossWas=false;}
     if(G.mode==='defeat'&&G.timer>2.5){if(bossWas){const b=M.boss[Z[G.zone].name];b.fails++;b.streak++;b.maxStreak=Math.max(b.maxStreak,b.streak);bossWas=false;}zoneDefeats++;}
     if(G.pack.length>lastPack){for(let i=lastPack;i<G.pack.length;i++){const it=G.pack[i];const k=Z[G.zone].name;(M.drops[k]=M.drops[k]||[0,0,0,0,0,0])[Math.min(5,it.rank||0)]++;const rn=['common','uncommon','rare','epic','legendary','mythic'][Math.min(5,it.rank||0)];if(M.firsts['first '+rn]==null)M.firsts['first '+rn]=+M.hours.toFixed(2);}}
     lastPack=G.pack.length;
     if(G.roster.length>lastRoster){for(let i=lastRoster;i<G.roster.length;i++){const h=G.roster[i];M.recruits[h.name]=+M.hours.toFixed(2);ev('recruit',h.name+' the '+S.CLASSES[h.cls].name);}lastRoster=G.roster.length;}
-    const cl=G.cleared.filter(Boolean).length;if(cl>lastCleared){lastCleared=cl;const zi=G.cleared.lastIndexOf(true);M.zones[Z[zi].name]=M.zones[Z[zi].name]||+M.hours.toFixed(2);lastProgressH=M.hours;const zr=M.zoneRec[Z[zi].name];if(zr&&!zr.clearH){zr.clearH=+M.hours.toFixed(2);zr.lvAtClear=avgLv();zr.hours=+(zr.clearH-zr.enterH).toFixed(2);const b=M.boss[Z[zi].name];if(b){b.streak=0;b.stallH=+((simSec-b.firstTry)/3600).toFixed(2);}}ev('cleared',Z[zi].name+' (party Lv '+avgLv()+')');}
+    const cl=G.cleared.filter(Boolean).length;if(cl>lastCleared){lastCleared=cl;const zi=G.cleared.lastIndexOf(true);M.zones[Z[zi].name]=M.zones[Z[zi].name]||+M.hours.toFixed(2);lastProgressH=M.hours;const zr=M.zoneRec[Z[zi].name];if(zr&&!zr.clearH){zr.clearH=+M.hours.toFixed(2);zr.lvAtClear=avgLv();zr.hours=+(zr.clearH-zr.enterH).toFixed(2);const b=M.boss[Z[zi].name];if(b){b.streak=0;b.stallH=+((simSec-b.firstTry)/3600).toFixed(2);b.lvClear=avgLv();}}ev('cleared',Z[zi].name+' (party Lv '+avgLv()+')');}
     if(G.zone!==lastZone){lastZone=G.zone;zoneEnter=simSec;zoneDefeats=0;const zn=Z[G.zone].name;if(!M.zoneRec[zn])M.zoneRec[zn]={enterH:+M.hours.toFixed(2),lvAtEntry:avgLv()};}
     if(G.delve){M.delve.best=Math.max(M.delve.best,G.delve.floor||0);}
     if(Z[G.zone].endless){const b=G.prog[G.zone]||0;if(b>M.endless.best){const m0=Math.floor(M.endless.best/25),m1=Math.floor(b/25);M.endless.best=b;if(m1>m0&&(m1%10===0||m1<=3))ev('milestone','#'+m1+' at fight '+b+' (party Lv '+avgLv()+', omens '+(G.omens||[]).length+', renown '+S.fmtNum(G.renown||0)+')');}}
@@ -110,8 +110,9 @@ function main(){
 
   function report(){
     const dm=(G.stats&&G.stats.dmgBy)||{};const dtot=Object.values(dm).reduce((a,b)=>a+b,0)||1;const dmgShare=Object.fromEntries(['basic','ability','tap','surge'].map(k=>[k,+((dm[k]||0)/dtot).toFixed(3)]));const hrs=Math.max(0.01,M.hours);
-    const out={config:{hours:HOURS,shatters:SHATTERS,seed:SEED,dt:DT,profile:PROFILE,taps:TAPS},dmgShare,firsts:M.firsts,zoneRec:M.zoneRec,econPerHour:{goldEarned:Math.round(M.econ.goldEarned/hrs),goldSpent:Math.round(M.econ.goldSpent/hrs),oreEarned:Math.round(M.econ.oreEarned/hrs),oreSpent:Math.round(M.econ.oreSpent/hrs),renown:Math.round((G.renown||0)/hrs)},simHours:+M.hours.toFixed(2),final:{zone:Z[G.zone].name,prog:G.prog[G.zone],partyLv:avgLv(),gold:Math.round(G.gold),ore:Math.round(G.ore),dust:G.dust,shatters:G.reforges||0,wins:G.wins,defeats:G.stats.defeats||0,castle:G.castle.b,renown:G.renown||0},
-      recruits:M.recruits,zonesCleared:M.zones,promotions:M.promotions,talents:M.talents,shatters:M.shatters,bossFailRates:Object.fromEntries(Object.entries(M.boss).map(([k,v])=>[k,{attempts:v.attempts,fails:v.fails,rate:v.attempts?+(v.fails/v.attempts).toFixed(2):0,maxStreak:v.maxStreak,stallH:v.stallH==null?null:v.stallH}])),
+    const dmgPerHour=Object.fromEntries(['basic','ability','tap','surge'].map(k=>[k,Math.round((dm[k]||0)/hrs)]));dmgPerHour.total=Math.round(dtot/hrs);const castsPerHour=Math.round(((G.stats&&G.stats.casts)||0)/hrs);
+    const out={config:{hours:HOURS,shatters:SHATTERS,seed:SEED,dt:DT,profile:PROFILE,taps:TAPS},dmgShare,dmgPerHour,castsPerHour,firsts:M.firsts,zoneRec:M.zoneRec,econPerHour:{goldEarned:Math.round(M.econ.goldEarned/hrs),goldSpent:Math.round(M.econ.goldSpent/hrs),oreEarned:Math.round(M.econ.oreEarned/hrs),oreSpent:Math.round(M.econ.oreSpent/hrs),renown:Math.round((G.renown||0)/hrs)},simHours:+M.hours.toFixed(2),final:{zone:Z[G.zone].name,prog:G.prog[G.zone],partyLv:avgLv(),gold:Math.round(G.gold),ore:Math.round(G.ore),dust:G.dust,shatters:G.reforges||0,wins:G.wins,defeats:G.stats.defeats||0,castle:G.castle.b,renown:G.renown||0},
+      recruits:M.recruits,zonesCleared:M.zones,promotions:M.promotions,talents:M.talents,shatters:M.shatters,bossFailRates:Object.fromEntries(Object.entries(M.boss).map(([k,v])=>[k,{attempts:v.attempts,fails:v.fails,rate:v.attempts?+(v.fails/v.attempts).toFixed(2):0,maxStreak:v.maxStreak,stallH:v.stallH==null?null:v.stallH,lvFirst:v.lvFirst,lvClear:v.lvClear==null?null:v.lvClear}])),
       drops:Object.fromEntries(Object.entries(M.drops).map(([k,v])=>[k,{common:v[0],uncommon:v[1],rare:v[2],epic:v[3],legendary:v[4],mythic:v[5]}])),catacombs:{best:Math.max(M.delve.best,G.delveBest||0),runs:M.delve.runs},endless:{best:Math.max(M.endless.best,(G.far||[])[Z.length-1]||0),milestones:Math.floor(Math.max(M.endless.best,(G.far||[])[Z.length-1]||0)/25)},stuck:M.stuck,hourly:M.gold};
     if(args.json)require('fs').writeFileSync(args.json,JSON.stringify(out,null,1));
     console.log('\n=== SUMMARY ('+out.simHours+'h simulated, seed '+SEED+') ===');
@@ -122,7 +123,7 @@ function main(){
     console.log('talents (h): '+JSON.stringify(out.talents));
     console.log('shatters: '+JSON.stringify(out.shatters));
     console.log('boss fail rates: '+JSON.stringify(out.bossFailRates));
-    console.log('damage share: '+JSON.stringify(out.dmgShare)+'  econ/h: '+JSON.stringify(out.econPerHour));
+    console.log('damage share: '+JSON.stringify(out.dmgShare)+'  dmg/h: '+JSON.stringify(out.dmgPerHour)+'  casts/h: '+out.castsPerHour+'  econ/h: '+JSON.stringify(out.econPerHour));
     console.log('firsts: '+JSON.stringify(out.firsts));
     console.log('drops by zone: '+JSON.stringify(out.drops));
     console.log('catacombs: '+JSON.stringify(out.catacombs)+'  endless: '+JSON.stringify(out.endless));

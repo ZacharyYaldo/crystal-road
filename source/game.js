@@ -241,7 +241,7 @@ function promoteHero(h){const t=h.tier||0;if(t>=3){toast(h.name+' is already a '
 function heroStats(h){const c=CLASSES[h.cls],L=h.lvl-1,tm=Math.pow(1.3,h.tier||0);let hp=(c.hp+c.ghp*L)*tm,atk=(c.atk+c.gatk*L)*tm,def=(c.def+c.gdef*L)*tm;
   const eq=h.eq||{};if(eq.weapon)atk+=itemStat(eq.weapon);if(eq.cape)def+=itemStat(eq.cape);if(eq.charm)hp+=itemStat(eq.charm);
   const rn=renownStat();hp*=(1+0.04*treeLv('hp'))*(1+0.1*treeLv('b_hp'))*rn;atk*=(1+0.04*treeLv('atk'))*rn;def*=(1+0.04*treeLv('def'))*rn;return{maxhp:R(hp),atk:R(atk),def:R(def),spd:c.spd};}
-const ZONE_POWER=[0.68,0.86,0.97];
+const ZONE_POWER=[0.62,0.86,0.97];
 function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.25,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
 // items
 let itemSeq=1;
@@ -421,7 +421,7 @@ function endAction(){const a=G.action,u=a.u;G.action=null;u.dx=0;if(!u.dead)setA
   if(!u.enemy&&a.kind!=='ability'){u.charge=Math.min(100,u.charge+(G.oath==='silence'?2.8:4));}
   for(const s of ['shield','rage']){if(u.status[s]>0)u.status[s]--;}if(!u.enemy&&treeLv('regen')&&!u.dead){G.roundTick=(G.roundTick||0)+1;if(G.roundTick>=living(G.active).length){G.roundTick=0;for(const a2 of living(G.active)){const rg=R(a2.maxhp*0.01*treeLv('regen'));if(rg>0&&a2.hp<a2.maxhp)a2.hp=Math.min(a2.maxhp,a2.hp+rg);}}}}
 function dmgBy(k,d){const S=G.stats;if(!S)return;S.dmgBy=S.dmgBy||{basic:0,ability:0,tap:0,surge:0};S.dmgBy[k]=(S.dmgBy[k]||0)+d;}
-function applyAbility(a){G.dmgSrc='ability';try{applyAbility0(a);}finally{G.dmgSrc=null;}}
+function applyAbility(a){G.dmgSrc='ability';if(G.stats)G.stats.casts=(G.stats.casts||0)+1;try{applyAbility0(a);}finally{G.dmgSrc=null;}}
 function applyAbility0(a){const u=a.u,pow=a.pow;
   switch(a.ab){
     case 'shieldwall':u.status.shield=shieldDur(u)+1;u.status.shieldPct=shieldPct(u);if(u.talents&&tal(u,'ironguard')){const i=G.active.indexOf(u),b=G.active[i+1];if(b&&!b.dead){b.status.shield=shieldDur(u)+1;b.status.shieldPct=shieldPct(u)*0.6;}}break;
@@ -460,7 +460,8 @@ function castSurge(){if(G.surge<100)return;if(G.mode!=='battle'){toast('Save it 
   for(const h of G.active){h.dead=false;h.hp=h.maxhp;h.status={};if(h.anim==='death')setAnim(h,'idle');}
   for(const e of living(G.enemies)){const d=R(atk*2.5*(0.9+rand()*0.2));e.hp-=d;dmgBy('surge',d);e.flash=0.2;float(e.x+e.dx,GROUND+(e.yoff||0)-40,fmtNum(d),C.goldL,true);G.fs.dmg+=d;if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}}}
 function tapDamage(){const avgAtk=G.active.reduce((s2,h)=>s2+h.atk,0)/Math.max(1,G.active.length);return Math.max(1,R(avgAtk*0.3*Math.pow(1.15,treeLv('tap'))*(built('watchtower')?1.1:1)));}
-function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;G.stats.taps++;G.focus={e,until:RT+6};sfx('tap');let d=tapDamage();if(rand()<0.02*treeLv('tapcrit')){d*=3;sfx('crit');}if(treeLv('tapgold')){const g=R((3+e.lvl*2)*Math.pow(1.05,e.lvl)*0.005*treeLv('tapgold')*bless('gold'));if(g>0){G.gold+=g;}}e.hp-=d;dmgBy('tap',d);e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,fmtNum(d),C.cyan);G.fs.taps++;G.fs.dmg+=d;
+const TAP_DAMAGE_MULT=0.22;function tapRateMult(n){return n<=1?1:n===2?0.7:n===3?0.45:0.25;}
+function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;G.stats.taps++;G.focus={e,until:RT+6};sfx('tap');{const sec=Math.floor(RT);if(G.tapSecAt!==sec){G.tapSecAt=sec;G.tapSecN=0;}G.tapSecN++;}let d=Math.max(1,R(tapDamage()*TAP_DAMAGE_MULT*tapRateMult(G.tapSecN)));if(rand()<0.02*treeLv('tapcrit')){d*=3;sfx('crit');}if(treeLv('tapgold')){const g=R((3+e.lvl*2)*Math.pow(1.05,e.lvl)*0.005*treeLv('tapgold')*bless('gold'));if(g>0){G.gold+=g;}}e.hp-=d;dmgBy('tap',d);e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,fmtNum(d),C.cyan);G.fs.taps++;G.fs.dmg+=d;
   if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}
   const mom=treeLv('tapcharge');if(mom)for(const h of living(G.active)){h.charge=Math.min(100,h.charge+mom);}if(treeLv('tapsurge'))G.surge=Math.min(100,(G.surge||0)+0.2*treeLv('tapsurge'));}
 function endBattle(win){if(G.hordeFight){if(!win){endHordeFight(false);return;}if(G.hordeFight.wave>=3){endHordeFight(true);return;}G.enemies=[];G.mode='delve';for(const h of G.active)if(!h.dead){const g2=R(h.maxhp*0.3);h.hp=Math.min(h.maxhp,h.hp+g2);float(h.x+h.dx,GROUND-30,'+'+fmtNum(g2),'#8ff0a0');}G.hordeFight.nextWaveAt=RT+0.7;return;}if(G.delve){if(win)delveWin();else endDelve(true);return;}const Z=ZONES[G.zone];
