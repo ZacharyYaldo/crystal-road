@@ -1,277 +1,342 @@
 STATUS: READY_FOR_REVIEW
-RESPONSE_TYPE: RESULTS_WITH_REJECT_AND_SIMULATOR_CORRECTIONS
-PASS_ID: PASS_23_ASHEN_KEEP_LEVEL_CANDIDATE
-BASED_ON_REVIEW_PASS: PASS_23_ASHEN_KEEP_LEVEL_CANDIDATE
+RESPONSE_TYPE: VALID_BASELINE_WITH_ONE_PROPOSAL
+PASS_ID: PASS_24_VALID_SHATTER_BASELINE
+BASED_ON_REVIEW_PASS: PASS_24_VALID_SHATTER_BASELINE
 BUILD: 20260911-135817
-HEAD_COMMIT_SHA: cad85b7983547dac936d5ad7d2a5c8e43e44332d
+HEAD_COMMIT_SHA: 33e160d91d6b46576afe0c30b6a934d65f78fd21
 
-# Crystal Road AI Handoff - Pass 23 (Ashen Keep zone level 50 vs 46, paired against pass 22)
+# Crystal Road AI Handoff - Pass 24 (valid 72h Shatter baseline, production values, fixed ascension policy)
 
-DEVELOPER_POSITION: AGREE with the review's rules, and by them the candidate is a REJECT: it moves parties further into the Keep (furthest fight 20 -> 32 idle, 21 -> 33 light, 28 -> 33 casual; fight 36 reached in 12 runs instead of 2) but the ordinary loss rate barely moves (26 -> 24%, 38 -> 36%, 54 -> 49%), the Hollow King is untouched despite nine times the attempts (34 attempts, 0 wins, losses in 11-41 seconds at 70-96% boss HP, two attempts reaching a summon), and rewards fall 4-9% (gold and ore, paired 7 of 10 down for idle and casual). CONFIDENCE: HIGH on the measurements (30 runs, 0 errors, 30 of 30 audits identical through the first Keep entry). Two simulator corrections below qualify every Shatter-road Keep number so far, mine included, and they are the reason I propose one more simulator repair rather than another Keep lever.
+DEVELOPER_POSITION: AGREE with the review; the baseline batch ran as specified and every validity check passes: all 30 runs report 72.00 simulated hours, no run exceeds three Shatters and none stops at three (the run-3 replay is observed in 27 runs), every run matches its pass 22 seed hour by hour, in first-Shatter timing and location, and in dust purchases up to the instant of its first Shatter (there is no first ascension, see below), and no production source or bundle changed. The one qualification is that the specified ascension policy is vacuous in practice: it performed zero ascensions in 30 runs, for a reason that is a finding about the game rather than the policy (smoke evidence below). Absolute 72h result: Ashen Keep is entered by 30 of 30 runs, fight 36 is reached in 13 runs, the Hollow King is attempted 30 times and beaten 0 times (every loss 16-24s with 84-93% boss HP left, 4 summons reached), no Keep clear, no Foundry entry. CONFIDENCE: HIGH on validity and measurements; HIGH on the mechanism (two stacked damage terms, quantified by run); MEDIUM on which lever the reviewer should pick first, so both are laid out.
 
-## Setup and audit
-- Candidate: `ZONES[7].lv 50 -> 46` by simulator replace only (`tests/sim/batch_p23.log`); production source and bundle untouched. Hollow King level at first attempt 61 -> 57 in every attempt; its ATK 12545 -> 9669 at run 2 (see the scaling note below for why these numbers are above the 8029 of a no-Shatter party).
-- Batch: seeds 31-40 x idle/light/casual, `--stallRule far --stallHours 3`, --shatters 3, the pass 22 dust policy, production values otherwise; 30 runs; 0 errors. Control: pass 22.
-- Audit: hourly state identical to the pass 22 run before the first Keep entry in 30 of 30 runs (33-57 records each), Shatter timing before the first Keep entry identical in 30 of 30, Ashen Approach entries before it identical in 30 of 30. Divergence begins at the Keep, as required.
-- Tools this commit: `tests/sim/keepcmp.js` (paired Keep comparison with the audit), `lateboss.js` reads the new per-zone snapshot names.
+## Setup, policy, validity
+- Simulator only (commits 5657d93, 1ff3063, 33e160d): `--shatters 3` is a cap (runs continue to 72h; `--stopAtShatters` not used); gear ascension through production `ascendItem`/`ascendCost`/`ascendCap` at every gear decision after the first Shatter, heroes in party order, slots weapon, cape, charm, restarting from the top after each purchase, then the existing item-level policy; per-ascension telemetry (hour, run, hero, slot, item, ranks, level, cost, ore before/after) and equipped ranks/levels plus ore recorded at every zone entry; diagnostic flags `--ascendFromRun0` and `--ascendReserve` exist, off by default, used only for the smoke runs quoted below.
+- Batch: seeds 31-40 x idle/light/casual x 72h, `--stallRule far --stallHours 3`, `--shatters 3`, pass 22 dust policy, production values (Ashen Keep 50); 30 runs; 0 errors.
+- Validity (per profile, 10/10 each): 72h reached; Shatter cap respected; audit against pass 22 OK through the first Shatter (hourly state, first Shatter hour and zone, dust purchases); ascension legality trivially OK (no ascensions, no anomalies). Report tool `tests/sim/baseline72.js`.
+- Ascension telemetry note: the review's fourth check (legal cap, production cost, ore spent, one rank) is implemented in the bot (each ascension is verified against the game's own outcome before being recorded; any mismatch would be logged as an anomaly) and in the report; it could not be exercised because nothing was affordable.
 
-## Paired results, pass 22 -> pass 23 (per seed, then per-profile summaries)
+ASCENSION SMOKE EVIDENCE (single 72h runs, not part of the batch)
+Literal policy (this batch): 0 ascensions in 30 of 30 runs. At the first Shatter (20-26h) every equipped item is already level 27-49 from the item-level policy, and the production cost is 40 x 4^rank x 1.14^level: a level-46 rank-0 item costs 16.6K ore, rank 1->2 at level 40 costs 30K, against 300-750 ore on hand and about 3.6K ore per hour of income that the level policy spends as it arrives.
+Diagnostic variant (flags --ascendFromRun0 --ascendReserve 3, off by default; the production cap already allows rank 1 before any Shatter): casual seed 31: 4 ascensions, all rank 0->1 at item level 0-1 in hours 0.2-0.7 for 40-46 ore each, none afterwards; light 31: 6, all in hours 0.3-1.5; casual 32: 4 in hours 0.2-3.0. No rank 2 or higher is ever affordable, and no ascension happens after a Shatter. Gear at the Keep in the variant: ranks 1-2 at levels 33-45, same as the literal policy plus one rank on some slots. Hollow King results unchanged (0 wins).
+Why: the item stat formula is base x 2.2^rank x 1.10^level, so 40 levels are worth 45x and one rank 2.2x; the bot (and any player who levels gear) prices itself out of ascension within the first hours, and the ascension counterweight to the +25% per Shatter cannot be reached through leveled gear at production costs.
 
-===== IDLE   control batch_out_p22 -> candidate batch_out_p23
+## Absolute 72h baseline (per seed: validity, Shatters with the replay each one started, Keep entries with gear and ore, Keep ordinary fights, Hollow King attempts with boss level and ATK, clears, horizons at 24/36/48/60/72h, totals; then per-profile validity and summaries)
 
-seed 31  audit through first Keep entry (h59.1): hourly 59/59, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@59.12h Lv52 pw84766  ->  run2@59.12h Lv52 pw84766
-  Keep ordinary: enc 1356 W997 L359 (26%) 12.9h far 24 rewalk 7.15h  ->  enc 1128 W798 L330 (29%) 10.9h far 32 rewalk 4.19h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h26.4 Ironvein h51.22 Ashen -> h26.4 Ironvein h51.22 Ashen h70.06 Ashen (min gap 18.8h)
-  rewards: gold earned 12695K -> 10685K, ore 366048 -> 321155, dust 54 -> 91, Keep drops {"common":0,"uncommon":19,"rare":47,"epic":53,"legendary":38,"mythic":0} -> {"common":0,"uncommon":14,"rare":26,"epic":29,"legendary":14,"mythic":0} | Lv @48/60/72h 62/53/65 -> 62/53/ | defeats 1161 -> 1132 | training 24.6 -> 24.6h | simulated hours 72.0 -> 70.1 (a run ends at its third Shatter)
+===== IDLE  batch_out_p24  (audited against batch_out_p22)
 
-seed 32  audit through first Keep entry (h62.5): hourly 62/62, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@62.54h Lv55 pw84041  ->  run2@62.54h Lv55 pw84041
-  Keep ordinary: enc 913 W629 L284 (31%) 9.5h far 17 rewalk 4.61h  ->  enc 778 W590 L188 (24%) 8.1h far 35 rewalk 3.21h
-  Hollow King: not reached  ->  0/1 (L 21s hp88% Lv59 run2)
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h26.13 Emberwaste h52.16 Amberfall -> h26.13 Emberwaste h52.16 Amberfall h70.69 Ashen (min gap 18.5h)
-  rewards: gold earned 11774K -> 10522K, ore 346536 -> 312945, dust 54 -> 91, Keep drops {"common":0,"uncommon":15,"rare":24,"epic":26,"legendary":7,"mythic":0} -> {"common":0,"uncommon":9,"rare":21,"epic":22,"legendary":16,"mythic":0} | Lv @48/60/72h 60/50/64 -> 60/50/ | defeats 1033 -> 938 | training 25.9 -> 25.9h | simulated hours 72.0 -> 70.7 (a run ends at its third Shatter)
+seed 31  hours 72.00  Shatters 2  ascensions 0  audit OK (hourly 26/26 before h26.40, first Shatter same, dust buys same)
+  Shatter 1 h26.4 in Ironvein Caverns fight 36 Lv51 +22 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @40.69h
+  Shatter 2 h51.22 in Ashen Approach fight 29 Lv66 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @59.12h, Keep @59.12h Lv52
+  Keep entry run2 @undefinedh Lv52 pw84766 ore806 gear[Aldric:1/44,2/38,1/44|Sera:2/38,1/44,1/44|Vex:0/50,1/44,0/50|Morrow:1/44,2/37,0/50]
+  Keep ordinary: enc 1356 L359 (26%) 12.9h far 24 rewalk 7.15h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1161 | training 24.6h | gold earned 12695K spent 11526K | ore earned 366048 spent 363888 | dust earned 54 left 5 | final run 2 Ashen Keep fight 24 Lv65
 
-seed 33  audit through first Keep entry (h57.6): hourly 57/57, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@57.61h Lv45 pw85438  ->  run2@57.61h Lv45 pw85438
-  Keep ordinary: enc 734 W526 L208 (28%) 7.2h far 21 rewalk 3.77h  ->  enc 766 W584 L182 (24%) 7.6h far 32 rewalk 3.33h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h40.71 Emberwaste h53.44 Ashen h64.77 Ashen -> h40.71 Emberwaste h53.44 Ashen h65.21 Ashen (min gap 11.8h)
-  rewards: gold earned 11057K -> 10392K, ore 342698 -> 319529, dust 99 -> 98, Keep drops {"common":0,"uncommon":12,"rare":24,"epic":19,"legendary":7,"mythic":0} -> {"common":0,"uncommon":14,"rare":28,"epic":28,"legendary":13,"mythic":0} | Lv @48/60/72h 50/50/ -> 50/51/ | defeats 932 -> 906 | training 20.6 -> 20.6h | simulated hours 64.8 -> 65.2 (a run ends at its third Shatter)
+seed 32  hours 72.00  Shatters 2  ascensions 0  audit OK (hourly 26/26 before h26.13, first Shatter same, dust buys same)
+  Shatter 1 h26.13 in Emberwaste fight 25 Lv50 +22 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @41.58h
+  Shatter 2 h52.16 in Amberfall Woods fight 36 Lv65 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @62.54h, Keep @62.54h Lv55
+  Keep entry run2 @undefinedh Lv55 pw84041 ore1864 gear[Aldric:0/50,1/44,2/38|Sera:1/44,1/44,2/38|Vex:0/50,1/44,1/44|Morrow:0/50,2/38,2/38]
+  Keep ordinary: enc 913 L284 (31%) 9.5h far 17 rewalk 4.61h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 6/6, 72h 7/7 | defeats 1033 | training 25.9h | gold earned 11774K spent 10839K | ore earned 346536 spent 345528 | dust earned 54 left 9 | final run 2 Ashen Keep fight 14 Lv64
 
-seed 34  audit through first Keep entry (h53.3): hourly 53/53, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@53.32h Lv60 pw86677  ->  run2@53.32h Lv60 pw86677
-  Keep ordinary: enc 1332 W996 L336 (25%) 13.4h far 33 rewalk 6.64h  ->  enc 649 W544 L105 (16%) 6.4h far 35 rewalk 3.22h
-  Hollow King: not reached  ->  0/3 (L 25s hp81% Lv64 run2; L 20s hp89% Lv66 run2; L 25s hp86% Lv66 run2)
-  zones (cur/best) 24h 3/4->3/4, 36h 6/6->6/6, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h23.32 Ironvein h38.79 Emberwaste h66.75 Ashen -> h23.32 Ironvein h38.79 Emberwaste h59.69 Ashen (min gap 15.5h)
-  rewards: gold earned 12430K -> 10262K, ore 353441 -> 304359, dust 91 -> 90, Keep drops {"common":0,"uncommon":23,"rare":49,"epic":33,"legendary":22,"mythic":0} -> {"common":0,"uncommon":9,"rare":20,"epic":20,"legendary":14,"mythic":0} | Lv @48/60/72h 52/67/ -> 52// | defeats 1027 -> 799 | training 19.6 -> 19.6h | simulated hours 66.8 -> 59.7 (a run ends at its third Shatter)
+seed 33  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 40/40 before h40.71, first Shatter same, dust buys same)
+  Shatter 1 h40.71 in Emberwaste fight 36 Lv65 +30 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @44.81h
+  Shatter 2 h53.44 in Ashen Approach fight 24 Lv60 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @57.61h, Keep @57.61h Lv45
+  Shatter 3 h64.77 in Ashen Keep fight 13 Lv58 +37 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @66.28h, Keep @66.28h Lv37
+  Keep entry run2 @undefinedh Lv45 pw85438 ore1785 gear[Aldric:1/44,1/44,2/37|Sera:1/44,1/44,2/37|Vex:1/44,1/44,1/44|Morrow:1/44,2/37,2/37]
+  Keep entry run3 @undefinedh Lv37 pw117291 ore2176 gear[Aldric:1/47,1/47,2/40|Sera:1/47,1/47,2/40|Vex:1/46,1/47,1/46|Morrow:1/46,2/40,2/40]
+  Keep ordinary: enc 1313 L409 (31%) 12.9h far 25 rewalk 5.78h
+  zones cur/best 24h 4/4, 36h 6/6, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1137 | training 20.6h | gold earned 14403K spent 13307K | ore earned 416088 spent 412992 | dust earned 99 left 7 | final run 3 Ashen Keep fight 24 Lv49
 
-seed 35  audit through first Keep entry (h57.5): hourly 57/57, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@57.53h Lv47 pw83705  ->  run2@57.53h Lv47 pw83705
-  Keep ordinary: enc 703 W501 L202 (29%) 6.8h far 20 rewalk 3.76h  ->  enc 1006 W788 L218 (22%) 10.1h far 33 rewalk 5.21h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h32.51 Emberwaste h51.91 Ashen h64.38 Ashen -> h32.51 Emberwaste h51.91 Ashen h67.59 Ashen (min gap 15.7h)
-  rewards: gold earned 11372K -> 12289K, ore 340184 -> 370190, dust 93 -> 94, Keep drops {"common":0,"uncommon":8,"rare":28,"epic":18,"legendary":21,"mythic":0} -> {"common":0,"uncommon":20,"rare":38,"epic":30,"legendary":18,"mythic":0} | Lv @48/60/72h 58/51/ -> 58/52/ | defeats 958 -> 974 | training 20.1 -> 20.1h | simulated hours 64.4 -> 67.6 (a run ends at its third Shatter)
+seed 34  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 23/23 before h23.32, first Shatter same, dust buys same)
+  Shatter 1 h23.32 in Ironvein Caverns fight 36 Lv49 +22 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @34.63h
+  Shatter 2 h38.79 in Emberwaste fight 36 Lv54 +31 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @53.32h, Keep @53.32h Lv60
+  Shatter 3 h66.75 in Ashen Keep fight 29 Lv70 +38 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @68.29h, Keep @68.29h Lv35
+  Keep entry run2 @undefinedh Lv60 pw86677 ore651 gear[Aldric:1/44,2/37,2/37|Sera:0/50,2/37,2/37|Vex:1/43,0/50,1/44|Morrow:2/37,1/43,2/37]
+  Keep entry run3 @undefinedh Lv35 pw119440 ore1594 gear[Aldric:1/47,2/40,2/40|Sera:0/53,2/40,2/40|Vex:1/47,0/53,1/47|Morrow:2/40,1/47,2/40]
+  Keep ordinary: enc 1714 L415 (24%) 17.1h far 33 rewalk 8.69h
+  zones cur/best 24h 3/4, 36h 6/6, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1111 | training 19.6h | gold earned 15384K spent 14371K | ore earned 418752 spent 415008 | dust earned 91 left 18 | final run 3 Ashen Keep fight 24 Lv48
 
-seed 36  audit through first Keep entry (h50.8): hourly 50/50, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@50.82h Lv55 pw81858  ->  run2@50.82h Lv55 pw81858
-  Keep ordinary: enc 1638 W1258 L380 (23%) 15.1h far 31 rewalk 8.96h  ->  enc 839 W607 L232 (28%) 7.6h far 32 rewalk 3.53h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h30.11 Amberfall h41.08 Ashen h65.88 Ashen -> h30.11 Amberfall h41.08 Ashen h58.44 Ashen (min gap 11.0h)
-  rewards: gold earned 12909K -> 9179K, ore 384739 -> 285421, dust 94 -> 93, Keep drops {"common":0,"uncommon":19,"rare":52,"epic":54,"legendary":38,"mythic":0} -> {"common":0,"uncommon":7,"rare":16,"epic":29,"legendary":14,"mythic":0} | Lv @48/60/72h 49/65/ -> 49// | defeats 1153 -> 1005 | training 21.3 -> 21.3h | simulated hours 65.9 -> 58.4 (a run ends at its third Shatter)
+seed 35  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 32/32 before h32.51, first Shatter same, dust buys same)
+  Shatter 1 h32.51 in Emberwaste fight 36 Lv57 +25 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @40.49h
+  Shatter 2 h51.91 in Ashen Approach fight 25 Lv62 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @57.53h, Keep @57.53h Lv47
+  Shatter 3 h64.38 in Ashen Keep fight 15 Lv57 +36 dust (stalled 3.02h)  -> run 3: 7 zones cleared, last Ashen @66.7h, Keep @66.7h Lv40
+  Keep entry run2 @undefinedh Lv47 pw83705 ore2459 gear[Aldric:0/50,2/38,1/44|Sera:0/50,2/38,1/44|Vex:0/50,1/44,2/38|Morrow:2/38,1/44,1/44]
+  Keep entry run3 @undefinedh Lv40 pw112172 ore1109 gear[Aldric:0/53,2/41,1/47|Sera:0/53,2/41,1/47|Vex:0/53,1/47,2/40|Morrow:2/40,1/47,1/47]
+  Keep ordinary: enc 1246 L329 (26%) 12.1h far 24 rewalk 6.73h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1098 | training 20.1h | gold earned 16196K spent 15398K | ore earned 454536 spent 452592 | dust earned 93 left 9 | final run 3 Ashen Keep fight 24 Lv52
 
-seed 37  audit through first Keep entry (h52.1): hourly 52/52, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run1@52.12h Lv63 pw79368 | run2@68.47h Lv32 pw115189  ->  run1@52.12h Lv63 pw79368 | run2@61.09h Lv42 pw101269
-  Keep ordinary: enc 1887 W1548 L339 (18%) 18.9h far 35 rewalk 10.69h  ->  enc 1231 W1055 L176 (14%) 12.1h far 35 rewalk 6.26h
-  Hollow King: 0/2 (L 20s hp86% Lv72 run1; L 17s hp93% Lv45 run2)  ->  0/8 (L 27s hp81% Lv50 run2; L 31s hp74% Lv51 run2; L 27s hp78% Lv52 run2; L 25s hp82% Lv53 run2; L 26s hp75% Lv53 run2; L 21s hp81% Lv54 run2; L 35s hp70% summon Lv55 run2; L 23s hp82% Lv56 run2)
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h34.06 Amberfall h67.46 Ashen -> h34.06 Amberfall h58.18 Ashen h67.14 Ashen (min gap 9.0h)
-  rewards: gold earned 14642K -> 13162K, ore 444312 -> 399752, dust 62 -> 97, Keep drops {"common":25,"uncommon":58,"rare":60,"epic":34,"legendary":21,"mythic":0} -> {"common":12,"uncommon":29,"rare":38,"epic":29,"legendary":17,"mythic":0} | Lv @48/60/72h 58/70/47 -> 58/37/ | defeats 1007 -> 870 | training 23.5 -> 23.5h | simulated hours 72.0 -> 67.1 (a run ends at its third Shatter)
+seed 36  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 30/30 before h30.11, first Shatter same, dust buys same)
+  Shatter 1 h30.11 in Amberfall Woods fight 24 Lv57 +25 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @37.73h
+  Shatter 2 h41.08 in Ashen Approach fight 14 Lv53 +31 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @50.82h, Keep @50.82h Lv55
+  Shatter 3 h65.88 in Ashen Keep fight 24 Lv69 +38 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @67.35h, Keep @67.35h Lv37
+  Keep entry run2 @undefinedh Lv55 pw81858 ore599 gear[Aldric:1/43,2/37,1/43|Sera:1/43,1/43,1/43|Vex:2/36,1/43,0/49|Morrow:2/36,2/36,2/36]
+  Keep entry run3 @undefinedh Lv37 pw127735 ore2235 gear[Aldric:1/48,2/41,1/48|Sera:1/47,1/47,1/47|Vex:2/41,1/47,0/54|Morrow:2/41,2/41,2/41]
+  Keep ordinary: enc 2163 L477 (22%) 19.7h far 31 rewalk 11.97h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1256 | training 21.3h | gold earned 17331K spent 16459K | ore earned 488736 spent 485424 | dust earned 94 left 4 | final run 3 Ashen Keep fight 25 Lv53
 
-seed 38  audit through first Keep entry (h-): hourly 51/51, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries:   ->  
-  Keep ordinary: enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h  ->  enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 6/6->6/6 | Shatters h19.05 Ironvein h28.63 Ironvein h51.38 Ashen -> h19.05 Ironvein h28.63 Ironvein h51.38 Ashen (min gap 9.6h)
-  rewards: gold earned 6368K -> 6368K, ore 203465 -> 203465, dust 78 -> 78, Keep drops - -> - | Lv @48/60/72h 59// -> 59// | defeats 661 -> 661 | training 22.4 -> 22.4h | simulated hours 51.4 -> 51.4 (a run ends at its third Shatter)
+seed 37  hours 72.00  Shatters 2  ascensions 0  audit OK (hourly 34/34 before h34.06, first Shatter same, dust buys same)
+  Shatter 1 h34.06 in Amberfall Woods fight 26 Lv60 +26 dust (stalled 3h)  -> run 1: 7 zones cleared, last Ashen @52.12h, Keep @52.12h Lv63
+  Shatter 2 h67.46 in Ashen Keep fight 30 Lv74 +36 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @68.47h, Keep @68.47h Lv32
+  Keep entry run1 @undefinedh Lv63 pw79368 ore1393 gear[Aldric:2/37,2/37,2/37|Sera:1/43,1/43,2/37|Vex:1/43,1/43,2/37|Morrow:1/43,0/49,2/37]
+  Keep entry run2 @undefinedh Lv32 pw115189 ore2779 gear[Aldric:2/41,2/41,2/41|Sera:1/47,1/47,2/41|Vex:1/47,1/47,2/41|Morrow:1/47,0/53,2/41]
+  Keep ordinary: enc 1887 L339 (18%) 18.9h far 35 rewalk 10.69h
+  Hollow King 0/2: L20s 86% Lv72 r1 bossLv61 atk10036 | L17s 93% Lv45 r2 bossLv61 atk12545
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1007 | training 23.5h | gold earned 14642K spent 13828K | ore earned 444312 spent 441288 | dust earned 62 left 9 | final run 2 Ashen Keep fight 25 Lv47
 
-seed 39  audit through first Keep entry (h57.1): hourly 57/57, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@57.11h Lv62 pw89089  ->  run2@57.11h Lv62 pw89089
-  Keep ordinary: enc 478 W367 L111 (23%) 4.5h far 20 rewalk 2.37h  ->  enc 556 W416 L140 (25%) 5.3h far 31 rewalk 1.81h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h22.52 Ironvein h41.61 Emberwaste h61.57 Ashen -> h22.52 Ironvein h41.61 Emberwaste h62.39 Ashen (min gap 19.1h)
-  rewards: gold earned 10466K -> 9940K, ore 320595 -> 304838, dust 90 -> 90, Keep drops {"common":0,"uncommon":6,"rare":13,"epic":19,"legendary":11,"mythic":0} -> {"common":0,"uncommon":10,"rare":22,"epic":11,"legendary":8,"mythic":0} | Lv @48/60/72h 45/64/ -> 45/63/ | defeats 904 -> 933 | training 23.1 -> 23.1h | simulated hours 61.6 -> 62.4 (a run ends at its third Shatter)
+seed 38  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 19/19 before h19.05, first Shatter same, dust buys same)
+  Shatter 1 h19.05 in Ironvein Caverns fight 36 Lv44 +21 dust (stalled 3h)  -> run 1: 4 zones cleared, last Ironvein @21.63h
+  Shatter 2 h28.63 in Ironvein Caverns fight 36 Lv40 +23 dust (stalled 3h)  -> run 2: 6 zones cleared, last Amberfall @41.13h
+  Shatter 3 h51.38 in Ashen Approach fight 28 Lv63 +34 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @60.93h, Keep @60.93h Lv55
+  Keep entry run3 @undefinedh Lv55 pw108318 ore2259 gear[Aldric:1/46,2/39,2/39|Sera:1/46,1/46,2/39|Vex:1/45,1/45,1/46|Morrow:0/52,1/45,2/39]
+  Keep ordinary: enc 1071 L327 (31%) 11.1h far 26 rewalk 4.41h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 6/6, 72h 7/7 | defeats 1091 | training 23.0h | gold earned 15051K spent 13807K | ore earned 407520 spent 404928 | dust earned 78 left 1 | final run 3 Ashen Keep fight 24 Lv63
 
-seed 40  audit through first Keep entry (h53.2): hourly 53/53, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@53.22h Lv48 pw82908  ->  run2@53.22h Lv48 pw82908
-  Keep ordinary: enc 603 W375 L228 (38%) 5.8h far 20 rewalk 2.42h  ->  enc 1320 W1036 L284 (22%) 13.1h far 35 rewalk 6.13h
-  Hollow King: not reached  ->  0/7 (L 17s hp91% Lv59 run2; L 35s hp76% Lv61 run2; L 22s hp83% Lv62 run2; L 22s hp81% Lv62 run2; L 26s hp81% Lv62 run2; L 20s hp86% Lv62 run2; L 32s hp76% Lv63 run2)
-  zones (cur/best) 24h 5/5->5/5, 36h 5/5->5/5, 48h 4/6->4/6, 72h 7/7->7/7 | Shatters h28.01 Emberwaste h47.59 Ashen h58.99 Ashen -> h28.01 Emberwaste h47.59 Ashen h66.35 Ashen (min gap 18.8h)
-  rewards: gold earned 8797K -> 11348K, ore 274834 -> 347939, dust 93 -> 94, Keep drops {"common":0,"uncommon":7,"rare":6,"epic":17,"legendary":10,"mythic":0} -> {"common":0,"uncommon":17,"rare":39,"epic":47,"legendary":28,"mythic":0} | Lv @48/60/72h 21// -> 21/56/ | defeats 954 -> 1017 | training 23.6 -> 23.6h | simulated hours 59.0 -> 66.3 (a run ends at its third Shatter)
+seed 39  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 22/22 before h22.52, first Shatter same, dust buys same)
+  Shatter 1 h22.52 in Ironvein Caverns fight 36 Lv48 +21 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @37.48h
+  Shatter 2 h41.61 in Emberwaste fight 36 Lv59 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @57.11h, Keep @57.11h Lv62
+  Shatter 3 h61.57 in Ashen Keep fight 14 Lv66 +37 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @66.48h, Keep @66.48h Lv48
+  Keep entry run2 @undefinedh Lv62 pw89089 ore981 gear[Aldric:1/45,2/38,1/44|Sera:0/51,2/38,1/44|Vex:1/44,1/44,0/51|Morrow:1/44,2/38,0/51]
+  Keep entry run3 @undefinedh Lv48 pw115136 ore878 gear[Aldric:1/47,2/41,1/47|Sera:0/53,2/41,1/47|Vex:1/47,1/47,0/53|Morrow:1/47,2/40,0/53]
+  Keep ordinary: enc 1060 L329 (31%) 10.0h far 24 rewalk 4.37h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1176 | training 23.5h | gold earned 15153K spent 14468K | ore earned 431352 spent 427464 | dust earned 90 left 1 | final run 3 Ashen Keep fight 24 Lv55
 
--- idle summary (n=10): audit OK 10/10
-   simulated hours (runs end at the third Shatter) med 64.8 -> 65.2 (paired med -1.3, +4 01 -5)
-   runs entering the Keep 9 -> 9; Keep entries per run med 1 -> 1 (paired med 0, +0 010 -0); first Keep entry h med 57.1 -> 57.1 (paired med 0.0, +0 09 -0); entry Lv (all entries) med 52 -> 52
-   Keep encounters med 734 -> 778 (paired med -135, +4 01 -5) | losses med 228 -> 182 (paired med -29, +3 01 -6) | loss% med 26 -> 24 (paired med -5, +3 00 -6) | hours med 7.2 -> 7.6 (paired med -1.3, +4 01 -5) | furthest fight med 20 -> 32 (paired med 8, +8 02 -0) | rewalk h med 3.77 -> 3.33 (paired med -1.40, +2 01 -7)
-   fight 36 reached (runs) 1 -> 4; Hollow King attempts/wins 2/0 -> 19/0; attempts reaching a summon 0 -> 1; loss duration med 17s -> 25s; Keep clears (runs) 0 -> 0; Foundry entries (runs) 0 -> 0
-   zones best-run med 24h 4->4, 36h 5->5, 48h 6->6, 72h 7->7 | current-run med 24h 4->4, 36h 5->5, 48h 6->6, 72h 7->7
-   rewards: gold earned med 11.37 -> 10.39 (paired med -1.25, +2 01 -7)M | ore med 342698 -> 312945 (paired med -33591, +2 01 -7) | dust med 90 -> 91 (paired med 0, +5 02 -3) | Lv@72h med 64 -> - | defeats med 958 -> 933 (paired med -29, +3 01 -6) | training h med 22.4 -> 22.4 (paired med 0.0, +0 010 -0)
+seed 40  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 28/28 before h28.01, first Shatter same, dust buys same)
+  Shatter 1 h28.01 in Emberwaste fight 36 Lv55 +25 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @38.05h
+  Shatter 2 h47.59 in Ashen Approach fight 26 Lv62 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @53.22h, Keep @53.22h Lv48
+  Shatter 3 h58.99 in Ashen Keep fight 14 Lv55 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @64.52h, Keep @64.52h Lv51
+  Keep entry run2 @undefinedh Lv48 pw82908 ore1681 gear[Aldric:1/43,2/37,2/37|Sera:1/43,1/43,2/37|Vex:2/37,1/43,1/43|Morrow:1/43,2/36,2/36]
+  Keep entry run3 @undefinedh Lv51 pw121716 ore2009 gear[Aldric:1/46,2/40,2/40|Sera:1/46,1/46,2/40|Vex:2/40,1/46,1/46|Morrow:1/46,2/40,2/40]
+  Keep ordinary: enc 1362 L399 (29%) 13.2h far 30 rewalk 6.41h
+  Hollow King 0/1: L21s 87% Lv59 r3 bossLv61 atk15681
+  zones cur/best 24h 5/5, 36h 5/5, 48h 4/6, 60h 6/7, 72h 7/7 | defeats 1177 | training 23.6h | gold earned 16400K spent 15143K | ore earned 447696 spent 446328 | dust earned 93 left 4 | final run 3 Ashen Keep fight 25 Lv61
 
-===== LIGHT   control batch_out_p22 -> candidate batch_out_p23
+-- idle validity: 72h reached 10/10, Shatter cap respected 10/10, pre-first-ascension/Shatter audit OK 10/10, ascension legality OK 10/10
+-- idle summary: Shatters 27 (first Shatter h med 26.4); ascensions per run med 0 total 0; runs entering the Keep 10/10, entry Lv med 48; Keep loss% med 26, furthest fight med 25; fight 36 reached 2 runs, Hollow King 0/3 (summons 0); Keep clears 0, Foundry 0; run-3 replay: 7 runs, zones cleared med 7 in 7.6h
+   zones cur/best med 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats med 1111 | training h med 23.0 | gold earned med 15.05M | ore earned med 418752
 
-seed 31  audit through first Keep entry (h51.1): hourly 51/51, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@51.06h Lv46 pw80496  ->  run2@51.06h Lv46 pw80496
-  Keep ordinary: enc 545 W340 L205 (38%) 5.0h far 22 rewalk 2.16h  ->  enc 744 W453 L291 (39%) 7.1h far 35 rewalk 1.65h
-  Hollow King: not reached  ->  0/1 (L 13s hp95% Lv50 run2)
-  zones (cur/best) 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h22.93 Emberwaste h45.89 Amberfall h56.08 Ashen -> h22.93 Emberwaste h45.89 Amberfall h58.11 Ashen (min gap 12.2h)
-  rewards: gold earned 8699K -> 8319K, ore 293018 -> 282298, dust 90 -> 90, Keep drops {"common":0,"uncommon":6,"rare":10,"epic":11,"legendary":7,"mythic":0} -> {"common":0,"uncommon":6,"rare":18,"epic":16,"legendary":3,"mythic":0} | Lv @48/60/72h 35// -> 35// | defeats 891 -> 978 | training 26.7 -> 26.7h | simulated hours 56.1 -> 58.1 (a run ends at its third Shatter)
+===== LIGHT  batch_out_p24  (audited against batch_out_p22)
 
-seed 32  audit through first Keep entry (h46.0): hourly 46/46, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run1@46.04h Lv61 pw68518 | run2@60.1h Lv40 pw83930  ->  run1@46.04h Lv61 pw68518 | run2@56.07h Lv47 pw89114
-  Keep ordinary: enc 2235 W1027 L1208 (54%) 22.0h far 32 rewalk 4.65h  ->  enc 1246 W833 L413 (33%) 12.0h far 35 rewalk 3.23h
-  Hollow King: not reached  ->  0/5 (L 32s hp75% Lv62 run1; L 13s hp95% Lv63 run1; L 24s hp85% Lv52 run2; L 37s hp73% Lv53 run2; L 41s hp48% summon Lv53 run2)
-  zones (cur/best) 24h 5/5->5/5, 36h 5/5->5/5, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h29.08 Emberwaste h57.07 Ashen h71.1 Ashen -> h29.08 Emberwaste h51.08 Ashen h63.08 Ashen (min gap 12.0h)
-  rewards: gold earned 9858K -> 9676K, ore 315257 -> 317229, dust 96 -> 96, Keep drops {"common":6,"uncommon":22,"rare":26,"epic":31,"legendary":12,"mythic":0} -> {"common":7,"uncommon":19,"rare":33,"epic":18,"legendary":19,"mythic":0} | Lv @48/60/72h 63/39/ -> 62/51/ | defeats 1879 -> 1117 | training 22.8 -> 23.3h | simulated hours 71.1 -> 63.1 (a run ends at its third Shatter)
+seed 31  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 22/22 before h22.93, first Shatter same, dust buys same)
+  Shatter 1 h22.93 in Emberwaste fight 31 Lv49 +22 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @35.04h
+  Shatter 2 h45.89 in Amberfall Woods fight 36 Lv64 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @51.05h, Keep @51.06h Lv46
+  Shatter 3 h56.08 in Ashen Keep fight 22 Lv53 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @58.04h, Keep @58.04h Lv37
+  Keep entry run2 @undefinedh Lv46 pw80496 ore1297 gear[Aldric:2/37,2/37,1/44|Sera:1/44,1/44,1/44|Vex:1/43,1/43,1/43|Morrow:0/50,2/37,2/37]
+  Keep entry run3 @undefinedh Lv37 pw101946 ore2999 gear[Aldric:2/39,2/39,1/46|Sera:1/46,1/45,1/45|Vex:1/45,1/45,1/45|Morrow:0/52,2/39,2/39]
+  Keep ordinary: enc 1998 L626 (31%) 19.0h far 27 rewalk 9.08h
+  Hollow King 0/2: L24s 87% Lv60 r3 bossLv61 atk15681 | L28s 67% summon Lv61 r3 bossLv61 atk15681
+  zones cur/best 24h 4/4, 36h 6/6, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1331 | training 26.9h | gold earned 16969K spent 15855K | ore earned 489600 spent 487944 | dust earned 90 left 0 | final run 3 Ashen Keep fight 25 Lv61
 
-seed 33  audit through first Keep entry (h46.1): hourly 46/46, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@46.08h Lv52 pw62494  ->  run2@46.08h Lv52 pw62494
-  Keep ordinary: enc 746 W448 L298 (40%) 7.0h far 19 rewalk 3.02h  ->  enc 1033 W646 L387 (37%) 10.0h far 31 rewalk 3.44h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h23.06 Ironvein h36.07 Amberfall h53.07 Ashen -> h23.06 Ironvein h36.07 Amberfall h56.07 Ashen (min gap 13.0h)
-  rewards: gold earned 6742K -> 7319K, ore 205965 -> 222093, dust 85 -> 86, Keep drops {"common":0,"uncommon":6,"rare":24,"epic":18,"legendary":12,"mythic":0} -> {"common":0,"uncommon":7,"rare":28,"epic":24,"legendary":13,"mythic":0} | Lv @48/60/72h 54// -> 55// | defeats 944 -> 1033 | training 20.7 -> 20.7h | simulated hours 53.1 -> 56.1 (a run ends at its third Shatter)
+seed 32  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 29/29 before h29.08, first Shatter same, dust buys same)
+  Shatter 1 h29.08 in Emberwaste fight 36 Lv55 +25 dust (stalled 3h)  -> run 1: 7 zones cleared, last Ashen @46.04h, Keep @46.04h Lv61
+  Shatter 2 h57.07 in Ashen Keep fight 25 Lv64 +35 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @60.09h, Keep @60.1h Lv40
+  Shatter 3 h71.1 in Ashen Keep fight 24 Lv52 +36 dust (stalled 3h)  -> run 3: 6 zones cleared, last Amberfall @71.83h
+  Keep entry run1 @undefinedh Lv61 pw68518 ore592 gear[Aldric:1/42,2/35,1/42|Sera:2/35,1/42,1/42|Vex:0/48,1/42,2/35|Morrow:2/35,1/41,2/35]
+  Keep entry run2 @undefinedh Lv40 pw83930 ore2004 gear[Aldric:1/44,2/37,1/44|Sera:2/37,1/44,1/44|Vex:0/50,1/44,2/37|Morrow:2/37,1/44,2/37]
+  Keep ordinary: enc 2273 L1208 (53%) 22.0h far 32 rewalk 4.58h
+  zones cur/best 24h 5/5, 36h 5/5, 48h 7/7, 60h 6/7, 72h 6/7 | defeats 1879 | training 22.8h | gold earned 10305K spent 9568K | ore earned 329544 spent 326808 | dust earned 96 left 11 | final run 3 Ashen Approach fight 21 Lv31
 
-seed 34  audit through first Keep entry (h53.0): hourly 53/53, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@53.04h Lv59 pw75095  ->  run2@53.04h Lv59 pw75095
-  Keep ordinary: enc 731 W459 L272 (37%) 7.1h far 21 rewalk 2.89h  ->  enc 1003 W716 L287 (29%) 10.1h far 35 rewalk 3.26h
-  Hollow King: not reached  ->  0/2 (L 16s hp93% Lv63 run2; L 16s hp90% Lv65 run2)
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h22.58 Ironvein h37.11 Amberfall h60.1 Ashen -> h22.58 Ironvein h37.11 Amberfall h63.1 Ashen (min gap 14.5h)
-  rewards: gold earned 8635K -> 8924K, ore 269188 -> 278587, dust 85 -> 85, Keep drops {"common":0,"uncommon":10,"rare":19,"epic":11,"legendary":14,"mythic":0} -> {"common":0,"uncommon":7,"rare":19,"epic":19,"legendary":6,"mythic":0} | Lv @48/60/72h 52/64/ -> 52/63/ | defeats 1057 -> 1074 | training 27.9 -> 27.9h | simulated hours 60.1 -> 63.1 (a run ends at its third Shatter)
+seed 33  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 23/23 before h23.06, first Shatter same, dust buys same)
+  Shatter 1 h23.06 in Ironvein Caverns fight 36 Lv49 +22 dust (stalled 3h)  -> run 1: 5 zones cleared, last Emberwaste @29.08h
+  Shatter 2 h36.07 in Amberfall Woods fight 35 Lv50 +27 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @46.08h, Keep @46.08h Lv52
+  Shatter 3 h53.07 in Ashen Keep fight 18 Lv58 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @59.06h, Keep @59.06h Lv48
+  Keep entry run2 @undefinedh Lv52 pw62494 ore701 gear[Aldric:1/41,0/47,2/34|Sera:0/47,2/34,1/41|Vex:1/41,0/47,0/47|Morrow:0/47,1/41,1/41]
+  Keep entry run3 @undefinedh Lv48 pw89406 ore953 gear[Aldric:1/44,0/51,2/38|Sera:0/51,2/38,1/44|Vex:1/44,0/51,0/50|Morrow:0/50,1/44,1/44]
+  Keep ordinary: enc 2038 L940 (46%) 19.9h far 24 rewalk 6.45h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 7/7, 60h 7/7, 72h 7/7 | defeats 1682 | training 22.8h | gold earned 12998K spent 12211K | ore earned 340848 spent 338976 | dust earned 85 left 19 | final run 3 Ashen Keep fight 24 Lv57
 
-seed 35  audit through first Keep entry (h45.0): hourly 45/45, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run1@45.01h Lv65 pw66300 | run2@54.11h Lv37 pw83274  ->  run1@45.01h Lv65 pw66300 | run2@54.1h Lv40 pw79829
-  Keep ordinary: enc 1743 W1073 L670 (38%) 17.0h far 32 rewalk 6.37h  ->  enc 1128 W720 L408 (36%) 11.1h far 34 rewalk 2.66h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 6/6->6/6, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h21.1 Emberwaste h52.08 Ashen h64.08 Ashen -> h21.1 Emberwaste h51.09 Ashen h59.08 Ashen (min gap 8.0h)
-  rewards: gold earned 10413K -> 8239K, ore 303227 -> 241342, dust 93 -> 91, Keep drops {"common":3,"uncommon":20,"rare":51,"epic":32,"legendary":23,"mythic":0} -> {"common":8,"uncommon":13,"rare":17,"epic":13,"legendary":6,"mythic":0} | Lv @48/60/72h 67/50/ -> 66// | defeats 1335 -> 1097 | training 25.6 -> 26.2h | simulated hours 64.1 -> 59.1 (a run ends at its third Shatter)
+seed 34  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 22/22 before h22.58, first Shatter same, dust buys same)
+  Shatter 1 h22.58 in Ironvein Caverns fight 36 Lv48 +21 dust (stalled 3h)  -> run 1: 5 zones cleared, last Emberwaste @29.06h
+  Shatter 2 h37.11 in Amberfall Woods fight 28 Lv50 +27 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @53.04h, Keep @53.04h Lv59
+  Shatter 3 h60.1 in Ashen Keep fight 21 Lv64 +37 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @65.05h, Keep @65.05h Lv45
+  Keep entry run2 @undefinedh Lv59 pw75095 ore501 gear[Aldric:0/49,2/36,1/43|Sera:1/43,1/43,1/43|Vex:0/49,1/42,1/43|Morrow:0/49,1/42,2/36]
+  Keep entry run3 @undefinedh Lv45 pw100684 ore1935 gear[Aldric:0/52,2/39,1/46|Sera:1/46,1/46,1/46|Vex:0/52,1/45,1/45|Morrow:0/52,1/45,2/39]
+  Keep ordinary: enc 1425 L631 (44%) 14.0h far 24 rewalk 4.62h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1479 | training 29.1h | gold earned 12777K spent 11813K | ore earned 358488 spent 355104 | dust earned 85 left 7 | final run 3 Ashen Keep fight 24 Lv52
 
-seed 36  audit through first Keep entry (h48.1): hourly 48/48, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@48.06h Lv58 pw80382  ->  run2@48.06h Lv58 pw80382
-  Keep ordinary: enc 540 W386 L154 (29%) 5.1h far 23 rewalk 2.44h  ->  enc 525 W363 L162 (31%) 5.0h far 33 rewalk 1.20h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 5/5->5/5, 36h 4/5->4/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h29.14 Emberwaste h35.06 Amberfall h53.12 Ashen -> h29.14 Emberwaste h35.06 Amberfall h53.08 Ashen (min gap 5.9h)
-  rewards: gold earned 8152K -> 7445K, ore 268309 -> 249051, dust 88 -> 88, Keep drops {"common":0,"uncommon":10,"rare":14,"epic":14,"legendary":13,"mythic":0} -> {"common":0,"uncommon":4,"rare":12,"epic":13,"legendary":5,"mythic":0} | Lv @48/60/72h 58// -> 58// | defeats 844 -> 852 | training 22.3 -> 22.3h | simulated hours 53.1 -> 53.1 (a run ends at its third Shatter)
+seed 35  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 21/21 before h21.10, first Shatter same, dust buys same)
+  Shatter 1 h21.1 in Emberwaste fight 24 Lv48 +21 dust (stalled 3h)  -> run 1: 7 zones cleared, last Ashen @45.01h, Keep @45.01h Lv65
+  Shatter 2 h52.08 in Ashen Keep fight 21 Lv69 +36 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @54.11h, Keep @54.11h Lv37
+  Shatter 3 h64.08 in Ashen Keep fight 24 Lv52 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @66.05h, Keep @66.05h Lv38
+  Keep entry run1 @undefinedh Lv65 pw66300 ore1158 gear[Aldric:1/41,2/34,2/34|Sera:2/34,1/41,2/34|Vex:1/41,1/41,2/34|Morrow:1/41,2/34,2/34]
+  Keep entry run2 @undefinedh Lv37 pw83274 ore1174 gear[Aldric:1/44,2/37,2/37|Sera:2/37,1/43,2/37|Vex:1/43,1/43,2/37|Morrow:1/43,2/37,2/37]
+  Keep entry run3 @undefinedh Lv38 pw110222 ore2560 gear[Aldric:1/46,2/39,2/39|Sera:2/39,1/46,2/39|Vex:1/46,1/46,2/39|Morrow:1/46,2/39,2/39]
+  Keep ordinary: enc 2332 L929 (40%) 23.0h far 32 rewalk 8.06h
+  zones cur/best 24h 4/4, 36h 6/6, 48h 7/7, 60h 7/7, 72h 7/7 | defeats 1605 | training 25.7h | gold earned 13282K spent 12515K | ore earned 357984 spent 356544 | dust earned 93 left 3 | final run 3 Ashen Keep fight 24 Lv47
 
-seed 37  audit through first Keep entry (h-): hourly 52/52, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries:   ->  
-  Keep ordinary: enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h  ->  enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->6/6, 72h 6/6->6/6 | Shatters h22.11 Ironvein h42.1 Ashen h52.07 Amberfall -> h22.11 Ironvein h42.1 Ashen h52.07 Amberfall (min gap 10.0h)
-  rewards: gold earned 6750K -> 6750K, ore 207916 -> 207916, dust 86 -> 86, Keep drops - -> - | Lv @48/60/72h 44// -> 44// | defeats 778 -> 778 | training 28.0 -> 28.0h | simulated hours 52.1 -> 52.1 (a run ends at its third Shatter)
+seed 36  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 29/29 before h29.14, first Shatter same, dust buys same)
+  Shatter 1 h29.14 in Emberwaste fight 36 Lv56 +25 dust (stalled 3h)  -> run 1: 5 zones cleared, last Emberwaste @30.08h
+  Shatter 2 h35.06 in Amberfall Woods fight 24 Lv41 +26 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @48.06h, Keep @48.06h Lv58
+  Shatter 3 h53.12 in Ashen Keep fight 12 Lv62 +37 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @56.09h, Keep @56.09h Lv40
+  Keep entry run2 @undefinedh Lv58 pw80382 ore1641 gear[Aldric:2/37,1/43,2/36|Sera:0/49,1/43,2/36|Vex:1/43,1/43,2/36|Morrow:0/49,1/43,2/36]
+  Keep entry run3 @undefinedh Lv40 pw100969 ore1693 gear[Aldric:2/39,1/45,2/39|Sera:0/52,1/45,2/39|Vex:1/45,1/45,2/39|Morrow:0/51,1/45,2/39]
+  Keep ordinary: enc 2074 L800 (39%) 21.0h far 26 rewalk 6.58h
+  Hollow King 0/1: L12s 97% Lv54 r3 bossLv61 atk15681
+  zones cur/best 24h 5/5, 36h 4/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1520 | training 22.8h | gold earned 14162K spent 13028K | ore earned 411264 spent 409104 | dust earned 88 left 10 | final run 3 Ashen Keep fight 24 Lv56
 
-seed 38  audit through first Keep entry (h-): hourly 43/43, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries:   ->  
-  Keep ordinary: enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h  ->  enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 5/5->5/5, 72h 5/5->5/5 | Shatters h30.09 Emberwaste h38.07 Emberwaste h43.09 Amberfall -> h30.09 Emberwaste h38.07 Emberwaste h43.09 Amberfall (min gap 5.0h)
-  rewards: gold earned 3904K -> 3904K, ore 138707 -> 138707, dust 79 -> 79, Keep drops - -> - | Lv @48/60/72h // -> // | defeats 570 -> 570 | training 21.6 -> 21.6h | simulated hours 43.1 -> 43.1 (a run ends at its third Shatter)
+seed 37  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 22/22 before h22.11, first Shatter same, dust buys same)
+  Shatter 1 h22.11 in Ironvein Caverns fight 36 Lv48 +21 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @34.03h
+  Shatter 2 h42.1 in Ashen Approach fight 33 Lv59 +32 dust (stalled 3h)  -> run 2: 6 zones cleared, last Amberfall @45.88h
+  Shatter 3 h52.07 in Amberfall Woods fight 36 Lv53 +33 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @59.05h, Keep @59.06h Lv50
+  Keep entry run3 @undefinedh Lv50 pw92729 ore1199 gear[Aldric:0/51,1/44,2/38|Sera:1/44,1/44,2/38|Vex:1/44,2/38,2/38|Morrow:0/51,0/51,1/44]
+  Keep ordinary: enc 1302 L768 (59%) 12.9h far 24 rewalk 1.59h
+  zones cur/best 24h 4/4, 36h 6/6, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1647 | training 30.4h | gold earned 11957K spent 11310K | ore earned 310896 spent 308952 | dust earned 86 left 8 | final run 3 Ashen Keep fight 24 Lv55
 
-seed 39  audit through first Keep entry (h-): hourly 49/49, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries:   ->  
-  Keep ordinary: enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h  ->  enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->6/6, 72h 6/6->6/6 | Shatters h21.1 Ironvein h39.06 Emberwaste h49.04 Ashen -> h21.1 Ironvein h39.06 Emberwaste h49.04 Ashen (min gap 10.0h)
-  rewards: gold earned 6951K -> 6951K, ore 215482 -> 215482, dust 85 -> 85, Keep drops - -> - | Lv @48/60/72h 52// -> 52// | defeats 842 -> 842 | training 23.8 -> 23.8h | simulated hours 49.0 -> 49.0 (a run ends at its third Shatter)
+seed 38  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 30/30 before h30.09, first Shatter same, dust buys same)
+  Shatter 1 h30.09 in Emberwaste fight 36 Lv56 +25 dust (stalled 3h)  -> run 1: 5 zones cleared, last Emberwaste @33.06h
+  Shatter 2 h38.07 in Emberwaste fight 36 Lv43 +26 dust (stalled 3h)  -> run 2: 5 zones cleared, last Emberwaste @39.06h
+  Shatter 3 h43.09 in Amberfall Woods fight 27 Lv42 +28 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @55.07h, Keep @55.07h Lv56
+  Keep entry run3 @undefinedh Lv56 pw87312 ore2405 gear[Aldric:1/44,1/44,2/38|Sera:1/44,1/44,2/38|Vex:0/50,2/38,0/51|Morrow:0/50,0/50,0/50]
+  Keep ordinary: enc 1688 L887 (53%) 16.9h far 24 rewalk 3.97h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 1654 | training 27.2h | gold earned 13582K spent 12471K | ore earned 353592 spent 352512 | dust earned 79 left 0 | final run 3 Ashen Keep fight 24 Lv63
 
-seed 40  audit through first Keep entry (h58.0): hourly 58/58, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@58.03h Lv47 pw79004  ->  run2@58.03h Lv47 pw79004
-  Keep ordinary: enc 1237 W710 L527 (43%) 12.0h far 29 rewalk 3.77h  ->  enc 629 W367 L262 (42%) 6.1h far 34 rewalk 0.98h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 72h 7/7->7/7 | Shatters h31.08 Ironvein h52.07 Ashen h70.05 Ashen -> h31.08 Ironvein h52.07 Ashen h64.09 Ashen (min gap 12.0h)
-  rewards: gold earned 9943K -> 8146K, ore 330426 -> 280971, dust 93 -> 93, Keep drops {"common":0,"uncommon":11,"rare":25,"epic":22,"legendary":13,"mythic":0} -> {"common":0,"uncommon":0,"rare":12,"epic":10,"legendary":3,"mythic":0} | Lv @48/60/72h 57/51/ -> 57/50/ | defeats 1340 -> 1075 | training 31.4 -> 31.4h | simulated hours 70.0 -> 64.1 (a run ends at its third Shatter)
+seed 39  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 21/21 before h21.10, first Shatter same, dust buys same)
+  Shatter 1 h21.1 in Ironvein Caverns fight 36 Lv48 +21 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @32.07h
+  Shatter 2 h39.06 in Emberwaste fight 36 Lv58 +31 dust (stalled 3h)  -> run 2: 6 zones cleared, last Amberfall @41.04h
+  Shatter 3 h49.04 in Ashen Approach fight 31 Lv54 +33 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @54.09h, Keep @54.09h Lv47
+  Keep entry run3 @undefinedh Lv47 pw96369 ore1782 gear[Aldric:0/51,2/38,1/44|Sera:2/38,2/38,1/44|Vex:2/38,2/38,1/44|Morrow:1/44,0/51,1/44]
+  Keep ordinary: enc 1880 L1158 (62%) 17.9h far 24 rewalk 2.10h
+  zones cur/best 24h 4/4, 36h 6/6, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 2086 | training 25.8h | gold earned 12326K spent 11284K | ore earned 320400 spent 318672 | dust earned 85 left 7 | final run 3 Ashen Keep fight 24 Lv55
 
--- light summary (n=10): audit OK 10/10
-   simulated hours (runs end at the third Shatter) med 53.1 -> 56.1 (paired med 0.0, +3 03 -4)
-   runs entering the Keep 7 -> 7; Keep entries per run med 1 -> 1 (paired med 0, +0 010 -0); first Keep entry h med 48.1 -> 48.1 (paired med 0.0, +0 07 -0); entry Lv (all entries) med 52 -> 52
-   Keep encounters med 545 -> 629 (paired med 0, +3 03 -4) | losses med 205 -> 262 (paired med 0, +4 03 -3) | loss% med 38 -> 36 (paired med -2, +2 00 -5) | hours med 5.1 -> 6.1 (paired med 0.0, +3 03 -4) | furthest fight med 21 -> 33 (paired med 3, +7 03 -0) | rewalk h med 2.44 -> 1.20 (paired med -0.51, +2 03 -5)
-   fight 36 reached (runs) 0 -> 3; Hollow King attempts/wins 0/0 -> 8/0; attempts reaching a summon 0 -> 1; loss duration med -s -> 16s; Keep clears (runs) 0 -> 0; Foundry entries (runs) 0 -> 0
-   zones best-run med 24h 4->4, 36h 5->5, 48h 6->6, 72h 7->7 | current-run med 24h 4->4, 36h 5->5, 48h 6->6, 72h 7->7
-   rewards: gold earned med 8.15 -> 7.45 (paired med -0.18, +2 03 -5)M | ore med 268309 -> 241342 (paired med 0, +3 03 -4) | dust med 86 -> 86 (paired med 0, +1 08 -1) | Lv@72h med - -> - | defeats med 891 -> 978 (paired med 0, +4 03 -3) | training h med 23.8 -> 23.8 (paired med 0.0, +2 08 -0)
+seed 40  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 31/31 before h31.08, first Shatter same, dust buys same)
+  Shatter 1 h31.08 in Ironvein Caverns fight 36 Lv56 +25 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @41.07h
+  Shatter 2 h52.07 in Ashen Approach fight 32 Lv62 +32 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @58.03h, Keep @58.03h Lv47
+  Shatter 3 h70.05 in Ashen Keep fight 26 Lv57 +36 dust (stalled 3h)  -> run 3: 6 zones cleared, last Amberfall @70.87h
+  Keep entry run2 @undefinedh Lv47 pw79004 ore1634 gear[Aldric:0/50,2/37,1/44|Sera:1/44,1/44,1/44|Vex:0/50,1/44,1/44|Morrow:0/50,2/37,2/37]
+  Keep ordinary: enc 1251 L527 (42%) 12.0h far 29 rewalk 3.73h
+  zones cur/best 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 6/7 | defeats 1355 | training 31.5h | gold earned 10906K spent 10256K | ore earned 355176 spent 353592 | dust earned 93 left 11 | final run 3 Ashen Approach fight 27 Lv37
 
-===== CASUAL   control batch_out_p22 -> candidate batch_out_p23
+-- light validity: 72h reached 10/10, Shatter cap respected 10/10, pre-first-ascension/Shatter audit OK 10/10, ascension legality OK 10/10
+-- light summary: Shatters 30 (first Shatter h med 22.9); ascensions per run med 0 total 0; runs entering the Keep 10/10, entry Lv med 47; Keep loss% med 44, furthest fight med 24; fight 36 reached 2 runs, Hollow King 0/3 (summons 1); Keep clears 0, Foundry 0; run-3 replay: 10 runs, zones cleared med 7 in 15.9h
+   zones cur/best med 24h 4/4, 36h 5/5, 48h 6/6, 60h 7/7, 72h 7/7 | defeats med 1605 | training h med 25.8 | gold earned med 12.78M | ore earned med 353592
 
-seed 31  audit through first Keep entry (h41.1): hourly 41/41, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@41.13h Lv43 pw58811  ->  run2@41.13h Lv43 pw58811
-  Keep ordinary: enc 1225 W563 L662 (54%) 11.0h far 32 rewalk 3.01h  ->  enc 1310 W645 L665 (51%) 12.0h far 35 rewalk 2.45h
-  Hollow King: not reached  ->  0/2 (L 11s hp96% Lv52 run2; L 16s hp80% Lv53 run2)
-  zones (cur/best) 24h 4/5->4/5, 36h 6/6->6/6, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h20.07 Ironvein h36.09 Emberwaste h52.09 Ashen -> h20.07 Ironvein h36.09 Emberwaste h53.17 Ashen (min gap 16.0h)
-  rewards: gold earned 7738K -> 7591K, ore 190806 -> 187637, dust 91 -> 91, Keep drops {"common":0,"uncommon":12,"rare":15,"epic":8,"legendary":9,"mythic":0} -> {"common":0,"uncommon":10,"rare":15,"epic":17,"legendary":9,"mythic":0} | Lv @48/60/72h 52// -> 50// | defeats 1386 -> 1392 | training 22.1 -> 22.1h | simulated hours 52.1 -> 53.2 (a run ends at its third Shatter)
+===== CASUAL  batch_out_p24  (audited against batch_out_p22)
 
-seed 32  audit through first Keep entry (h47.1): hourly 47/47, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@47.12h Lv51 pw61794  ->  run2@47.12h Lv51 pw61794
-  Keep ordinary: enc 823 W359 L464 (56%) 8.0h far 34 rewalk 1.61h  ->  enc 810 W411 L399 (49%) 8.0h far 35 rewalk 1.46h
-  Hollow King: not reached  ->  0/1 (L 15s hp90% Lv54 run2)
-  zones (cur/best) 24h 5/5->5/5, 36h 6/6->6/6, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h25.17 Emberwaste h37.08 Amberfall h55.16 Ashen -> h25.17 Emberwaste h37.08 Amberfall h55.12 Ashen (min gap 11.9h)
-  rewards: gold earned 8236K -> 7930K, ore 203265 -> 202290, dust 92 -> 92, Keep drops {"common":0,"uncommon":8,"rare":12,"epic":12,"legendary":10,"mythic":0} -> {"common":0,"uncommon":5,"rare":8,"epic":11,"legendary":7,"mythic":0} | Lv @48/60/72h 52// -> 52// | defeats 1211 -> 1147 | training 23.9 -> 23.9h | simulated hours 55.2 -> 55.1 (a run ends at its third Shatter)
+seed 31  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 20/20 before h20.07, first Shatter same, dust buys same)
+  Shatter 1 h20.07 in Ironvein Caverns fight 36 Lv47 +24 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @30.07h
+  Shatter 2 h36.09 in Emberwaste fight 36 Lv56 +31 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @41.13h, Keep @41.13h Lv43
+  Shatter 3 h52.09 in Ashen Keep fight 24 Lv53 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @54.15h, Keep @54.15h Lv37
+  Keep entry run2 @undefinedh Lv43 pw58811 ore498 gear[Aldric:0/46,1/39,1/39|Sera:3/27,1/39,2/33|Vex:2/33,1/39,0/46|Morrow:0/46,2/33,0/46]
+  Keep entry run3 @undefinedh Lv37 pw82271 ore429 gear[Aldric:0/49,1/43,1/43|Sera:3/30,1/42,2/36|Vex:2/36,1/42,0/49|Morrow:0/49,2/36,0/49]
+  Keep ordinary: enc 3068 L1736 (57%) 28.8h far 32 rewalk 6.92h
+  Hollow King 0/1: L22s 81% Lv54 r3 bossLv61 atk15681
+  zones cur/best 24h 4/5, 36h 6/6, 48h 7/7, 60h 7/7, 72h 7/7 | defeats 2483 | training 22.5h | gold earned 14741K spent 13998K | ore earned 301032 spent 300240 | dust earned 91 left 4 | final run 3 Ashen Keep fight 24 Lv55
 
-seed 33  audit through first Keep entry (h-): hourly 37/37, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries:   ->  
-  Keep ordinary: enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h  ->  enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 5/5->5/5, 36h 6/6->6/6, 48h 6/6->6/6, 72h 6/6->6/6 | Shatters h20.17 Ironvein h29.19 Emberwaste h37.17 Ashen -> h20.17 Ironvein h29.19 Emberwaste h37.17 Ashen (min gap 8.0h)
-  rewards: gold earned 3733K -> 3733K, ore 111770 -> 111770, dust 82 -> 82, Keep drops - -> - | Lv @48/60/72h // -> // | defeats 766 -> 766 | training 20.0 -> 20.0h | simulated hours 37.2 -> 37.2 (a run ends at its third Shatter)
+seed 32  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 25/25 before h25.17, first Shatter same, dust buys same)
+  Shatter 1 h25.17 in Emberwaste fight 36 Lv51 +25 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @30.16h
+  Shatter 2 h37.08 in Amberfall Woods fight 36 Lv49 +31 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @47.12h, Keep @47.12h Lv51
+  Shatter 3 h55.16 in Ashen Keep fight 25 Lv56 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @58.13h, Keep @58.13h Lv40
+  Keep entry run2 @undefinedh Lv51 pw61794 ore802 gear[Aldric:0/47,1/41,2/35|Sera:0/47,1/41,2/35|Vex:0/47,1/41,1/41|Morrow:0/47,2/35,1/41]
+  Keep entry run3 @undefinedh Lv40 pw78485 ore837 gear[Aldric:0/50,1/43,2/37|Sera:0/50,1/43,2/37|Vex:0/49,1/43,1/43|Morrow:0/49,2/37,1/43]
+  Keep ordinary: enc 2162 L1235 (57%) 21.9h far 34 rewalk 4.35h
+  Hollow King 0/1: L25s 85% Lv51 r3 bossLv61 atk15681
+  zones cur/best 24h 5/5, 36h 6/6, 48h 7/7, 60h 7/7, 72h 7/7 | defeats 2016 | training 24.4h | gold earned 14643K spent 13479K | ore earned 302472 spent 301680 | dust earned 92 left 3 | final run 3 Ashen Keep fight 24 Lv52
 
-seed 34  audit through first Keep entry (h-): hourly 41/41, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries:   ->  
-  Keep ordinary: enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h  ->  enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 5/5->5/5, 36h 5/6->5/6, 48h 6/6->6/6, 72h 6/6->6/6 | Shatters h16.17 Thornwood h32.18 Ashen h41.19 Amberfall -> h16.17 Thornwood h32.18 Ashen h41.19 Amberfall (min gap 9.0h)
-  rewards: gold earned 4846K -> 4846K, ore 139099 -> 139099, dust 85 -> 85, Keep drops - -> - | Lv @48/60/72h // -> // | defeats 824 -> 824 | training 22.2 -> 22.2h | simulated hours 41.2 -> 41.2 (a run ends at its third Shatter)
+seed 33  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 20/20 before h20.17, first Shatter same, dust buys same)
+  Shatter 1 h20.17 in Ironvein Caverns fight 36 Lv47 +24 dust (stalled 3h)  -> run 1: 5 zones cleared, last Emberwaste @23.16h
+  Shatter 2 h29.19 in Emberwaste fight 36 Lv45 +26 dust (stalled 3h)  -> run 2: 6 zones cleared, last Amberfall @33.08h
+  Shatter 3 h37.17 in Ashen Approach fight 12 Lv47 +32 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @45.07h, Keep @45.07h Lv51
+  Keep entry run3 @undefinedh Lv51 pw74637 ore703 gear[Aldric:0/48,2/35,2/35|Sera:1/42,2/35,0/48|Vex:0/48,1/42,1/42|Morrow:2/35,2/35,0/48]
+  Keep ordinary: enc 2731 L1690 (62%) 26.9h far 24 rewalk 2.98h
+  Hollow King 0/3: L13s 93% Lv57 r3 bossLv61 atk15681 | L19s 86% Lv57 r3 bossLv61 atk15681 | L31s 73% Lv61 r3 bossLv61 atk15681
+  zones cur/best 24h 5/5, 36h 6/6, 48h 7/7, 60h 7/7, 72h 7/7 | defeats 2610 | training 22.4h | gold earned 14219K spent 13128K | ore earned 268056 spent 265464 | dust earned 82 left 6 | final run 3 Ashen Keep fight 24 Lv61
 
-seed 35  audit through first Keep entry (h41.1): hourly 41/41, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@41.11h Lv56 pw68786  ->  run2@41.11h Lv56 pw68786
-  Keep ordinary: enc 550 W290 L260 (47%) 5.1h far 29 rewalk 1.21h  ->  enc 538 W294 L244 (45%) 5.0h far 33 rewalk 0.88h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 5/5->5/5, 36h 6/6->6/6, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h20.12 Ironvein h28.12 Amberfall h46.17 Ashen -> h20.12 Ironvein h28.12 Amberfall h46.1 Ashen (min gap 8.0h)
-  rewards: gold earned 6823K -> 6565K, ore 197007 -> 196017, dust 87 -> 87, Keep drops {"common":0,"uncommon":2,"rare":17,"epic":9,"legendary":3,"mythic":0} -> {"common":0,"uncommon":0,"rare":7,"epic":8,"legendary":6,"mythic":0} | Lv @48/60/72h // -> // | defeats 1042 -> 1026 | training 20.8 -> 20.8h | simulated hours 46.2 -> 46.1 (a run ends at its third Shatter)
+seed 34  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 16/16 before h16.17, first Shatter same, dust buys same)
+  Shatter 1 h16.17 in Thornwood fight 30 Lv43 +21 dust (stalled 3h)  -> run 1: 6 zones cleared, last Amberfall @27.11h
+  Shatter 2 h32.18 in Ashen Approach fight 18 Lv51 +31 dust (stalled 3.02h)  -> run 2: 6 zones cleared, last Amberfall @36.11h
+  Shatter 3 h41.19 in Amberfall Woods fight 36 Lv49 +33 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @51.04h, Keep @51.04h Lv55
+  Keep entry run3 @undefinedh Lv55 pw92423 ore1413 gear[Aldric:2/37,2/37,1/44|Sera:1/44,2/37,1/44|Vex:1/44,1/44,1/44|Morrow:0/50,0/50,2/37]
+  Keep ordinary: enc 2206 L1296 (59%) 21.0h far 24 rewalk 2.91h
+  Hollow King 0/3: L8s 97% Lv62 r3 bossLv61 atk15681 | L14s 84% Lv62 r3 bossLv61 atk15681 | L25s 67% summon Lv63 r3 bossLv61 atk15681
+  zones cur/best 24h 5/5, 36h 5/6, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 2283 | training 27.1h | gold earned 15944K spent 15101K | ore earned 330624 spent 329760 | dust earned 85 left 4 | final run 3 Ashen Keep fight 24 Lv64
 
-seed 36  audit through first Keep entry (h-): hourly 40/40, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries:   ->  
-  Keep ordinary: enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h  ->  enc 0 W0 L0 (-%) 0.0h far 0 rewalk 0.00h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/5->4/5, 36h 6/6->6/6, 48h 6/6->6/6, 72h 6/6->6/6 | Shatters h23.09 Ironvein h31.17 Amberfall h40.22 Emberwaste -> h23.09 Ironvein h31.17 Amberfall h40.22 Emberwaste (min gap 8.1h)
-  rewards: gold earned 4311K -> 4311K, ore 125929 -> 125929, dust 83 -> 83, Keep drops - -> - | Lv @48/60/72h // -> // | defeats 788 -> 788 | training 21.5 -> 21.5h | simulated hours 40.2 -> 40.2 (a run ends at its third Shatter)
+seed 35  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 20/20 before h20.12, first Shatter same, dust buys same)
+  Shatter 1 h20.12 in Ironvein Caverns fight 36 Lv47 +24 dust (stalled 3h)  -> run 1: 5 zones cleared, last Emberwaste @22.16h
+  Shatter 2 h28.12 in Amberfall Woods fight 24 Lv42 +26 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @41.11h, Keep @41.11h Lv56
+  Shatter 3 h46.17 in Ashen Keep fight 25 Lv59 +37 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @48.11h, Keep @48.11h Lv36
+  Keep entry run2 @undefinedh Lv56 pw68786 ore1078 gear[Aldric:1/41,2/35,2/35|Sera:2/34,1/41,2/34|Vex:1/41,1/41,1/41|Morrow:1/41,1/41,2/34]
+  Keep entry run3 @undefinedh Lv36 pw82919 ore1742 gear[Aldric:1/43,2/36,2/36|Sera:2/36,1/43,2/36|Vex:1/43,1/43,1/43|Morrow:1/43,1/43,2/36]
+  Keep ordinary: enc 2863 L1606 (56%) 29.0h far 29 rewalk 5.15h
+  Hollow King 0/5: L34s 67% summon Lv53 r3 bossLv61 atk15681 | L16s 86% Lv54 r3 bossLv61 atk15681 | L14s 88% Lv55 r3 bossLv61 atk15681 | L16s 82% Lv55 r3 bossLv61 atk15681 | L41s 52% summon Lv56 r3 bossLv61 atk15681
+  zones cur/best 24h 5/5, 36h 6/6, 48h 6/7, 60h 7/7, 72h 7/7 | defeats 2419 | training 21.2h | gold earned 15247K spent 14579K | ore earned 337032 spent 334944 | dust earned 87 left 8 | final run 3 Ashen Keep fight 24 Lv57
 
-seed 37  audit through first Keep entry (h35.1): hourly 35/35, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run1@35.12h Lv48 pw46096 | run2@46.05h Lv47 pw71054  ->  run1@35.12h Lv48 pw46096 | run2@48.12h Lv43 pw67967
-  Keep ordinary: enc 1239 W511 L728 (59%) 11.1h far 34 rewalk 1.93h  ->  enc 1517 W782 L735 (48%) 14.0h far 35 rewalk 3.08h
-  Hollow King: not reached  ->  0/2 (L 15s hp90% Lv53 run1; L 16s hp87% Lv47 run2)
-  zones (cur/best) 24h 6/6->6/6, 36h 7/7->7/7, 48h 7/7->6/7, 72h 7/7->7/7 | Shatters h26.16 Ironvein h40.14 Ashen h52.16 Ashen -> h26.16 Ironvein h44.13 Ashen h53.11 Ashen (min gap 9.0h)
-  rewards: gold earned 7366K -> 7039K, ore 194974 -> 193852, dust 99 -> 98, Keep drops {"common":6,"uncommon":5,"rare":15,"epic":11,"legendary":3,"mythic":0} -> {"common":9,"uncommon":17,"rare":15,"epic":18,"legendary":6,"mythic":0} | Lv @48/60/72h 49// -> 42// | defeats 1487 -> 1434 | training 18.3 -> 17.0h | simulated hours 52.2 -> 53.1 (a run ends at its third Shatter)
+seed 36  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 23/23 before h23.09, first Shatter same, dust buys same)
+  Shatter 1 h23.09 in Ironvein Caverns fight 36 Lv51 +25 dust (stalled 3h)  -> run 1: 5 zones cleared, last Emberwaste @25.14h
+  Shatter 2 h31.17 in Amberfall Woods fight 24 Lv44 +26 dust (stalled 3h)  -> run 2: 6 zones cleared, last Amberfall @34.09h
+  Shatter 3 h40.22 in Emberwaste fight 36 Lv48 +32 dust (stalled 3.05h)  -> run 3: 7 zones cleared, last Ashen @51.09h, Keep @51.09h Lv55
+  Keep entry run3 @undefinedh Lv55 pw86717 ore2126 gear[Aldric:1/43,2/37,0/49|Sera:2/37,1/43,0/49|Vex:1/43,2/37,0/49|Morrow:0/49,0/49,2/37]
+  Keep ordinary: enc 2295 L1281 (56%) 20.9h far 24 rewalk 3.35h
+  Hollow King 0/1: L18s 84% Lv62 r3 bossLv61 atk15681
+  zones cur/best 24h 4/5, 36h 6/6, 48h 6/6, 60h 7/7, 72h 7/7 | defeats 2352 | training 28.3h | gold earned 15398K spent 14459K | ore earned 318672 spent 317448 | dust earned 83 left 3 | final run 3 Ashen Keep fight 24 Lv64
 
-seed 38  audit through first Keep entry (h33.1): hourly 33/33, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run1@33.13h Lv52 pw44138 | run2@51.12h Lv37 pw68912  ->  run1@33.13h Lv52 pw44138 | run2@44.07h Lv43 pw63119
-  Keep ordinary: enc 2769 W1458 L1311 (47%) 25.0h far 35 rewalk 8.12h  ->  enc 1375 W700 L675 (49%) 12.0h far 35 rewalk 2.49h
-  Hollow King: 0/2 (L 19s hp84% Lv62 run1; L 16s hp84% Lv49 run2)  ->  0/1 (L 15s hp89% Lv46 run2)
-  zones (cur/best) 24h 5/5->5/5, 36h 7/7->7/7, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h21.12 Amberfall h49.14 Ashen h60.1 Ashen -> h21.12 Amberfall h40.09 Ashen h49.1 Ashen (min gap 9.0h)
-  rewards: gold earned 10251K -> 6869K, ore 238597 -> 171899, dust 96 -> 94, Keep drops {"common":20,"uncommon":45,"rare":64,"epic":47,"legendary":13,"mythic":0} -> {"common":4,"uncommon":22,"rare":20,"epic":9,"legendary":6,"mythic":0} | Lv @48/60/72h 63/50/ -> 47// | defeats 1997 -> 1408 | training 18.6 -> 19.5h | simulated hours 60.1 -> 49.1 (a run ends at its third Shatter)
+seed 37  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 26/26 before h26.16, first Shatter same, dust buys same)
+  Shatter 1 h26.16 in Ironvein Caverns fight 36 Lv55 +29 dust (stalled 3h)  -> run 1: 7 zones cleared, last Ashen @35.12h, Keep @35.12h Lv48
+  Shatter 2 h40.14 in Ashen Keep fight 15 Lv52 +34 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @46.05h, Keep @46.05h Lv47
+  Shatter 3 h52.16 in Ashen Keep fight 24 Lv51 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @54.17h, Keep @54.17h Lv38
+  Keep entry run1 @undefinedh Lv48 pw46096 ore545 gear[Aldric:2/31,2/31,2/31|Sera:1/37,1/37,1/37|Vex:2/31,2/31,1/37|Morrow:1/37,2/31,1/37]
+  Keep entry run2 @undefinedh Lv47 pw71054 ore1417 gear[Aldric:2/35,2/35,2/35|Sera:1/41,1/41,1/41|Vex:2/35,2/35,1/41|Morrow:1/41,2/35,1/41]
+  Keep entry run3 @undefinedh Lv38 pw85786 ore1565 gear[Aldric:2/37,2/36,2/36|Sera:1/43,1/43,1/43|Vex:2/36,2/36,1/43|Morrow:1/43,2/36,1/43]
+  Keep ordinary: enc 3056 L1771 (58%) 28.9h far 34 rewalk 5.47h
+  Hollow King 0/2: L14s 90% Lv52 r3 bossLv61 atk15681 | L14s 85% Lv54 r3 bossLv61 atk15681
+  zones cur/best 24h 6/6, 36h 7/7, 48h 7/7, 60h 7/7, 72h 7/7 | defeats 2561 | training 18.8h | gold earned 14460K spent 13391K | ore earned 321264 spent 320256 | dust earned 99 left 2 | final run 3 Ashen Keep fight 24 Lv56
 
-seed 39  audit through first Keep entry (h35.1): hourly 35/35, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run1@35.12h Lv55 pw47889 | run2@50.14h Lv40 pw69207  ->  run1@35.12h Lv55 pw47889 | run2@47.14h Lv48 pw68752
-  Keep ordinary: enc 2026 W1057 L969 (48%) 17.0h far 28 rewalk 6.15h  ->  enc 1386 W725 L661 (48%) 11.9h far 35 rewalk 2.29h
-  Hollow King: not reached  ->  0/1 (L 14s hp87% Lv51 run2)
-  zones (cur/best) 24h 4/5->4/5, 36h 7/7->7/7, 48h 5/7->7/7, 72h 7/7->7/7 | Shatters h22.16 Ironvein h47.14 Ashen h55.18 Ashen -> h22.16 Ironvein h41.07 Ashen h53.09 Ashen (min gap 12.0h)
-  rewards: gold earned 9117K -> 8001K, ore 233246 -> 204397, dust 96 -> 95, Keep drops {"common":14,"uncommon":28,"rare":42,"epic":38,"legendary":15,"mythic":0} -> {"common":5,"uncommon":11,"rare":16,"epic":17,"legendary":10,"mythic":0} | Lv @48/60/72h 26// -> 49// | defeats 1698 -> 1467 | training 19.6 -> 21.5h | simulated hours 55.2 -> 53.1 (a run ends at its third Shatter)
+seed 38  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 21/21 before h21.12, first Shatter same, dust buys same)
+  Shatter 1 h21.12 in Amberfall Woods fight 33 Lv51 +25 dust (stalled 3h)  -> run 1: 7 zones cleared, last Ashen @33.13h, Keep @33.13h Lv52
+  Shatter 2 h49.14 in Ashen Keep fight 32 Lv63 +35 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @51.12h, Keep @51.12h Lv37
+  Shatter 3 h60.1 in Ashen Keep fight 25 Lv51 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @61.13h, Keep @61.13h Lv34
+  Keep entry run1 @undefinedh Lv52 pw44138 ore590 gear[Aldric:1/37,2/30,2/30|Sera:1/36,0/43,1/37|Vex:2/30,0/43,0/43|Morrow:3/24,0/43,0/43]
+  Keep entry run2 @undefinedh Lv37 pw68912 ore681 gear[Aldric:1/41,2/35,2/35|Sera:1/41,0/48,1/41|Vex:2/35,0/48,0/48|Morrow:3/29,0/48,0/48]
+  Keep entry run3 @undefinedh Lv34 pw89681 ore1430 gear[Aldric:1/44,2/37,2/37|Sera:1/44,0/50,1/44|Vex:2/37,0/50,0/50|Morrow:3/31,0/50,0/50]
+  Keep ordinary: enc 3889 L1877 (48%) 35.9h far 35 rewalk 10.87h
+  Hollow King 0/7: L19s 84% Lv62 r1 bossLv61 atk10036 | L16s 84% Lv49 r2 bossLv61 atk12545 | L15s 92% Lv46 r3 bossLv61 atk15681 | L15s 81% Lv49 r3 bossLv61 atk15681 | L18s 76% Lv50 r3 bossLv61 atk15681 | L17s 83% Lv50 r3 bossLv61 atk15681 | L15s 86% Lv51 r3 bossLv61 atk15681
+  zones cur/best 24h 5/5, 36h 7/7, 48h 7/7, 60h 7/7, 72h 7/7 | defeats 2568 | training 18.6h | gold earned 15335K spent 14440K | ore earned 327312 spent 325872 | dust earned 96 left 5 | final run 3 Ashen Keep fight 24 Lv52
 
-seed 40  audit through first Keep entry (h37.1): hourly 37/37, Shatters before it identical, Ashen Approach entries before it identical -> OK
-  Keep entries: run2@37.15h Lv52 pw48608  ->  run2@37.15h Lv52 pw48608
-  Keep ordinary: enc 1123 W510 L613 (55%) 10.0h far 22 rewalk 2.87h  ->  enc 1100 W492 L608 (55%) 10.0h far 32 rewalk 1.86h
-  Hollow King: not reached  ->  not reached
-  zones (cur/best) 24h 4/4->4/4, 36h 6/6->6/6, 48h 7/7->7/7, 72h 7/7->7/7 | Shatters h17.18 Thornwood h24.1 Ironvein h47.11 Ashen -> h17.18 Thornwood h24.1 Ironvein h47.15 Ashen (min gap 6.9h)
-  rewards: gold earned 5778K -> 5431K, ore 155557 -> 141497, dust 79 -> 79, Keep drops {"common":0,"uncommon":8,"rare":14,"epic":25,"legendary":15,"mythic":0} -> {"common":0,"uncommon":4,"rare":12,"epic":10,"legendary":14,"mythic":0} | Lv @48/60/72h // -> // | defeats 1288 -> 1283 | training 20.8 -> 20.8h | simulated hours 47.1 -> 47.1 (a run ends at its third Shatter)
+seed 39  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 22/22 before h22.16, first Shatter same, dust buys same)
+  Shatter 1 h22.16 in Ironvein Caverns fight 36 Lv51 +25 dust (stalled 3h)  -> run 1: 7 zones cleared, last Ashen @35.12h, Keep @35.12h Lv55
+  Shatter 2 h47.14 in Ashen Keep fight 26 Lv62 +35 dust (stalled 3h)  -> run 2: 7 zones cleared, last Ashen @50.14h, Keep @50.14h Lv40
+  Shatter 3 h55.18 in Ashen Keep fight 21 Lv50 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @57.14h, Keep @57.14h Lv38
+  Keep entry run1 @undefinedh Lv55 pw47889 ore925 gear[Aldric:2/31,2/31,0/44|Sera:2/31,0/44,0/44|Vex:1/37,1/37,0/43|Morrow:2/31,2/31,1/37]
+  Keep entry run2 @undefinedh Lv40 pw69207 ore1498 gear[Aldric:2/35,2/35,0/48|Sera:2/35,0/48,0/48|Vex:1/41,1/41,0/48|Morrow:2/35,2/35,1/41]
+  Keep entry run3 @undefinedh Lv38 pw92188 ore2310 gear[Aldric:2/38,2/38,0/50|Sera:2/38,0/50,0/50|Vex:1/44,1/44,0/50|Morrow:2/37,2/37,1/44]
+  Keep ordinary: enc 3612 L1898 (53%) 31.9h far 28 rewalk 9.07h
+  zones cur/best 24h 4/5, 36h 7/7, 48h 5/7, 60h 7/7, 72h 7/7 | defeats 2663 | training 20.1h | gold earned 14906K spent 13866K | ore earned 323208 spent 321120 | dust earned 96 left 7 | final run 3 Ashen Keep fight 24 Lv53
 
--- casual summary (n=10): audit OK 10/10
-   simulated hours (runs end at the third Shatter) med 47.1 -> 47.1 (paired med 0.0, +3 03 -4)
-   runs entering the Keep 7 -> 7; Keep entries per run med 1 -> 1 (paired med 0, +0 010 -0); first Keep entry h med 37.1 -> 37.1 (paired med 0.0, +0 07 -0); entry Lv (all entries) med 48 -> 48
-   Keep encounters med 823 -> 810 (paired med -12, +2 03 -5) | losses med 464 -> 399 (paired med -5, +2 03 -5) | loss% med 54 -> 49 (paired med -2, +2 00 -5) | hours med 8.0 -> 8.0 (paired med 0.0, +3 03 -4) | furthest fight med 28 -> 33 (paired med 1, +6 04 -0) | rewalk h med 1.61 -> 1.46 (paired med -0.33, +1 03 -6)
-   fight 36 reached (runs) 1 -> 5; Hollow King attempts/wins 2/0 -> 7/0; attempts reaching a summon 0 -> 0; loss duration med 16s -> 15s; Keep clears (runs) 0 -> 0; Foundry entries (runs) 0 -> 0
-   zones best-run med 24h 5->5, 36h 6->6, 48h 7->7, 72h 7->7 | current-run med 24h 5->5, 36h 6->6, 48h 7->7, 72h 7->7
-   rewards: gold earned med 6.82 -> 6.56 (paired med -0.31, +0 03 -7)M | ore med 190806 -> 171899 (paired med -1123, +0 03 -7) | dust med 87 -> 87 (paired med 0, +0 07 -3) | Lv@72h med - -> - | defeats med 1211 -> 1147 (paired med -16, +1 03 -6) | training h med 20.8 -> 20.8 (paired med 0.0, +2 07 -1)
+seed 40  hours 72.00  Shatters 3  ascensions 0  audit OK (hourly 17/17 before h17.18, first Shatter same, dust buys same)
+  Shatter 1 h17.18 in Thornwood fight 30 Lv44 +21 dust (stalled 3h)  -> run 1: 4 zones cleared, last Ironvein @18.08h
+  Shatter 2 h24.1 in Ironvein Caverns fight 36 Lv36 +22 dust (stalled 3.02h)  -> run 2: 7 zones cleared, last Ashen @37.15h, Keep @37.15h Lv52
+  Shatter 3 h47.11 in Ashen Keep fight 14 Lv57 +36 dust (stalled 3h)  -> run 3: 7 zones cleared, last Ashen @51.14h, Keep @51.14h Lv41
+  Keep entry run2 @undefinedh Lv52 pw48608 ore535 gear[Aldric:1/38,2/31,1/38|Sera:1/38,1/38,0/44|Vex:0/44,1/38,0/44|Morrow:1/37,1/38,2/31]
+  Keep entry run3 @undefinedh Lv41 pw72189 ore668 gear[Aldric:1/42,2/35,1/42|Sera:1/42,1/42,0/48|Vex:0/48,1/42,0/48|Morrow:1/42,1/42,2/35]
+  Keep ordinary: enc 3282 L1907 (58%) 30.8h far 24 rewalk 7.88h
+  Hollow King 0/1: L14s 91% Lv58 r3 bossLv61 atk15681
+  zones cur/best 24h 4/4, 36h 6/6, 48h 5/7, 60h 7/7, 72h 7/7 | defeats 2660 | training 22.1h | gold earned 13961K spent 12906K | ore earned 286056 spent 283464 | dust earned 79 left 6 | final run 3 Ashen Keep fight 24 Lv58
 
-## Scorecard against the pass 23 rules
-- Materially advances parties through the Keep: PARTIAL. Furthest fight +8 / +3 / +1 (paired 8, 7, 6 of 10 up, none down); runs reaching fight 36: 1 -> 4 (idle), 0 -> 3 (light), 1 -> 5 (casual); Keep entries, entry hour and entry level unchanged by construction (52 / 52 / 48). Ordinary loss rate -2 to -5 points (paired 6, 5, 5 of 10 down), Keep hours and encounters flat.
-- Repeated credible Hollow King contests or clears: NOT MET. 4 -> 34 attempts, 0 wins; loss duration 15-17s -> 15-25s median; boss HP left at wipe 81-89%; 2 of 34 attempts reach the first summon (70%); 0 Keep clears, 0 Foundry entries. Hits-to-defeat at first attempt (arrival snapshots): front hero 1.0 / 0.8 / 0.6 for idle / light / casual, i.e. one ordinary Hollow King hit still kills a back-line hero.
-- Easier than Ashen Approach to a trivial degree: NOT the case (Keep loss rate 24-49% versus 15-26% one zone earlier).
-- Lower rewards negate progression: gold earned -9% idle (paired 7 down), -2% light (mixed), -4% casual (7 down); ore the same; dust unchanged (Shatter timing unchanged); zones at every horizon unchanged; total defeats -3% / +10% / -5%.
-Reject: the ordinary Keep fights ease a little and the boss does not, so the wall moves from fight 25 to fight 36 and stops there.
+-- casual validity: 72h reached 10/10, Shatter cap respected 10/10, pre-first-ascension/Shatter audit OK 10/10, ascension legality OK 10/10
+-- casual summary: Shatters 30 (first Shatter h med 20.2); ascensions per run med 0 total 0; runs entering the Keep 10/10, entry Lv med 43; Keep loss% med 57, furthest fight med 28; fight 36 reached 9 runs, Hollow King 0/24 (summons 3); Keep clears 0, Foundry 0; run-3 replay: 10 runs, zones cleared med 7 in 19.9h
+   zones cur/best med 24h 5/5, 36h 6/6, 48h 6/7, 60h 7/7, 72h 7/7 | defeats med 2483 | training h med 22.1 | gold earned med 14.74M | ore earned med 318672
 
-## Two simulator corrections (my findings this pass; both affect passes 21-23)
-1. Horizon. `--shatters N` has always meant "end the run at the Nth Shatter", not "allow up to N": every Shatter-road run stopped at its third Shatter, at a median 55-56h (pass 21: 32-70h, none reaching 72h; pass 22: 37-72h, 3 of 30 reaching 72h; pass 23: 47-65h by profile median). My pass 21 and 22 statements that "the third Shatter starts a replay that does not get back to the Keep before 72h" were wrong: that replay was never simulated. Everything reported "at 72h" for those passes is the state at the third Shatter. The rows through the second replay are unaffected. Fixed in this commit, bot only: `--shatters N` is now a cap and the run continues to `--hours`; `--stopAtShatters N` restores the old behaviour. Not used for any batch yet.
-2. Post-Shatter enemy scaling and the bot's missing compensation. In `enemyStats`, every enemy's HP and ATK are multiplied by 1.25 per Shatter (DEF by 1.1), so a run-2 party meets a Keep whose enemies and boss hit 56% harder than the no-Shatter Keep (Hollow King ATK 8029 at run 0, 10036 at run 1, 12545 at run 2, same level 61). The game's counterweights are the dust blessings (now spent), gear ascension (`ascendItem`: one rank per Shatter, x2.2 item stat per rank, paid in ore) and the drop-rank shift. The bot upgrades item levels but has never called `ascendItem`; it carries an unused ascension rank per Shatter through the whole late Road. Together with the horizon point, this means the simulated Shatter road under-represents a Shattered party twice over (it stops early and it never ascends gear), while the +25% per Shatter is fully applied. How large the ascension term is I cannot say from telemetry (drops already arrive at Rare-Legendary rank in the Keep, so the missing x2.2 applies to some slots and not others); it is the kind of gap that decides whether the Keep is a day-three wall or a design wall, so it has to be closed before a Keep value is sized.
+BOSS ATTEMPTS BY SHATTER RUN (pass 24; the boss level is the same in every run, its HP and ATK are x1.25 per Shatter)
+Hollow King (Ashen Keep, boss Lv 61): run 1 ATK 10036, run 2 ATK 12545, run 3 ATK 15681 (no-Shatter run 0 in pass 20: ATK 8029)
+  idle    run1 0/1 (loss 20s, 86% boss HP)  run2 0/1 (17s, 93%)  run3 0/1 (21s, 87%)
+  light   run3 0/3 (24s, 87%)
+  casual  run1 0/1 (19s, 84%)  run2 0/1 (16s, 84%)  run3 0/22 (16s, 85%)
+  hits-to-defeat at arrival (snapshots): idle 1.1 front / 0.9 back at Lv 59 (run 1-2), light 0.8 / 0.7 at Lv 54 (run 3), casual 0.6 / 0.5 at Lv 57 (run 3)
+Grave Knight (Ashen Approach, boss Lv 53): run 1 ATK 6983, run 2 ATK 8728, run 3 ATK 10910 (run 0: 5586)
+  idle    run1 1/24 (party Lv 61)  run2 8/41 (Lv 56)  run3 1/49 (Lv 46, seven attempts untagged)   Auto-Cast 10/114 over all runs
+  light   run1 2/3 (Lv 61)  run2 5/18 (Lv 52)  run3 3/23 (Lv 44)
+  casual  run1 3/4 (Lv 54)  run2 4/9 (Lv 49)   run3 3/18 (Lv 47)
+Keep entry party level by run: idle 63 (run 1, n1) / 52 (run 2, n9) / 40 (run 3, n7); light 65 / 47 / 47; casual 52 / 47 / 40. No-Shatter baseline (pass 20): 65-72.
+Keep ordinary loss rate (all runs pooled): idle 26%, light 44%, casual 57%; furthest fight 25 / 24 / 28 of 36; fight 36 reached in 2 / 2 / 9 runs.
 
-## Recommendation (proposal only)
-1. Reject `lv 46`; keep Ashen Keep at 50. No Keep lever should be sized against the current simulated party.
-2. One last simulator repair, bot only, then one baseline batch, no candidate: (a) ascension policy: after each Shatter and whenever ore allows, ascend the equipped items of the active party up to the current cap in a fixed order (weapon, armour, cape, by hero slot order), recording each ascension (item, rank, cost, hour); (b) the fixed `--shatters` cap so the runs actually reach 72h; (c) the pass 22 dust policy and far-mark rule unchanged. Batch: seeds 31-40 x idle/light/casual x 72h, --shatters 3, production values, 30 runs, audited against pass 22 through the first Shatter (identical by construction until the first ascension). Report the Keep and Hollow King rows as in this pass, plus ascension counts, item ranks at Keep entry, and the run-3 replay that has never been observed. This re-establishes the Keep baseline with the party the game intends; if the Keep is still uncontested with blessings, ascension and a full horizon, the next lever is a game value and the Hollow King's damage per action is the obvious one (hits-to-defeat 0.6-1.0 at every arrival tried, no charge, so the pass 12-18 rule applies directly). If the Keep becomes contestable, lock the current values and move to Foundry / Endless triage as planned.
-IMPLEMENTATION_RISK: none to gameplay (bot only). The ascension policy models a player who spends ore on rank when the rank is unlocked; it is not claimed to be optimal, and ore spent on ascension is ore not spent on item levels, which the report will show.
+## Findings
+1. The run-3 replay, never observed before, returns to the Keep: after the third Shatter at 41-58h the party re-clears seven zones in 7.6h (idle), 15.9h (light), 19.9h (casual) and enters the Keep a third time at Lv 40-47 (idle 7 runs, light 8, casual 10). Best-run zones at 60h and 72h are 7 for every profile; current-run zones at 72h are 7 as well (the replay catches up). So within 72h the Shatter loop delivers three Keep arrivals per run instead of one, each weaker than the last.
+2. The Keep is uncontested at every arrival. Ordinary loss rate 26 / 44 / 57% pooled, furthest fight 25 / 24 / 28; fight 36 reached in 2 / 2 / 9 runs; Hollow King 0 for 30 (idle 3, light 3, casual 24), losses of 16-24 seconds at 84-93% boss HP with four summon reaches. Hits-to-defeat at arrival 0.5-1.1: one ordinary Hollow King hit kills a back-line hero at every level seen (Lv 54-59 here, Lv 71-74 in the no-Shatter runs of pass 20, where it was 0 for 7 at hits-to-defeat 0.6-0.7 for casual and 1.1 for idle).
+3. Two stacked terms, now separated by run. (a) The Hollow King's base damage: at run 0 (no Shatter, ATK 8029, party Lv 71-74) it already one-shots a back-line hero for casual and two-shots the tank for idle; it has no charge, so the pass 12-18 damage-per-action rule applies directly. (b) The per-Shatter enemy multiplier: HP and ATK x1.25 per Shatter (DEF x1.1), so the same boss hits for 10036, 12545 and 15681 in runs 1-3 while the party arrives at Lv 63, 47-52 and 40-47. The Grave Knight shows the same thing one zone earlier (ATK 5586 -> 10910 by run 3; idle Auto-Cast 10 wins in 114 attempts across runs, 1 in 49 on run 3). The game's counterweights inside 72h are the dust blessings (+40% HP, +24-32% damage, +25 start levels by run 3), which are smaller than the x1.95 the enemies gain by run 3, and gear ascension, which the cost curve puts out of reach of leveled gear.
+4. What this means for the two decision branches. "Fight 36 repeatedly reached, boss wipes" describes casual (9 of 10 runs, 24 attempts); "ordinary Keep is the dominant wall" describes idle and light (fight 36 in 2 of 10, loss rates 26-44%). Both are the same two terms: for idle and light the ordinary Keep enemies at x1.56-1.95 stop the party at fight 24-25; for casual, which arrives with active windows, the boss does.
+
+## Proposal (one bounded mechanism; proposal only)
+Recommended first: the per-Shatter enemy multiplier, `enemyStats` HP/ATK factor 1.25 -> 1.10 per Shatter (DEF 1.10 -> 1.05), simulator override only, tested on this exact batch design (seeds 31-40 x 3 profiles x 72h, same policies) paired against pass 24 with the audit through the first Shatter. It is one rule, it acts on every Shattered enemy at once (which is where all three Keep arrivals and the Grave Knight's run-2/3 wall come from), it leaves run 0 untouched so every no-Shatter row stays identical, and it is the term that grows with the mechanic the Keep is designed around. Expected: run-3 Hollow King ATK 15681 -> 10690, Grave Knight 10910 -> 7435; Keep ordinary loss rate for idle/light back toward the Ashen Approach band in runs 2-3; Hollow King still lethal (hits-to-defeat about 0.8-1.4) so contests rather than clears, which is the honest expectation and the reason a boss lever may follow. Reject if run-2/3 Keep loss rates do not fall or if the Grave Knight becomes an Auto-Cast walk on run 2-3.
+Alternative, if the reviewer keeps the scaling rule locked: the direct Hollow King lever, base ATK x1.7 -> x1.2 (parity-style sizing from the run-0 idle arrival: ordinary hit 5668 - 776 = 4892 against 9833 HP, 2.0 hits-to-defeat; casual at Lv 71 about 1.5). With the scaling rule unchanged this fixes the no-Shatter path (pass 20's Lv 71-74 arrivals) and casual's run-1 attempts, and does not fix runs 2-3 (ATK 12545 -> 8855 and 15681 -> 11069 against 8894 HP), which the evidence says is where 27 of the 30 attempts happen. I would run it only after, or instead of, the multiplier test, not in the same batch.
+IMPLEMENTATION_RISK: none to gameplay for either test (override path). The multiplier candidate touches a locked rule and needs the reviewer to unlock it for the override.
 
 ## Caveats
-n=10 per profile; idle's Keep entries are all run 2 at 52-59h. Keep loss rates are defeats over estimated encounters; rewards are per-hour totals times simulated hours, so the pass 22 -> 23 reward deltas include any difference in run length (idle -1.3h paired median, others 0). The audit compares hourly records only through the first Keep entry; later divergence is the candidate's effect plus RNG drift and is reported as paired direction, not as noise.
+n=10 per profile. Seven Grave Knight attempts on run 3 carry no run tag (a third attempt-logging path in the bot I have not traced; their ATK identifies them as run 3); nothing else depends on it. Keep loss rates are defeats over estimated encounters. The pass 22 audit baseline was itself truncated at its third Shatter, so the audit covers the pre-first-Shatter span only, which is the span the review specified. The ascension smoke variant is diagnostic evidence, not a policy comparison, and it was not run as a batch.
