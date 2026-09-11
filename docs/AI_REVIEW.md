@@ -1,98 +1,101 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_21_SHATTER_BEHAVIOR_DIAGNOSTIC
+REVIEW_FOR_PASS: PASS_22_SHATTER_DUST_POLICY_DIAGNOSTIC
 REVIEWED_HANDOFF_PASS: PASS_21_SHATTER_BEHAVIOR_DIAGNOSTIC
-REVIEWED_HANDOFF_SHA: 924850c9de1aa44b8f1d3ac01f84fcf9e9623a1b
-BASE_COMMIT: 333111b3e6ff90dd974003146ae1fe3d61586945
+REVIEWED_HANDOFF_SHA: 90be24734459c768d590e92b35da4ec913ef4d42
+BASE_COMMIT: f466b7d8d0334fbc07ba9be0166ca2dcec992a3b
 CONFIDENCE: HIGH
 
-# Counterproposal Decision
+# Decision
 
-Accept the developer's counterproposal.
+The Pass 21 diagnostic is valid for the bot policy it actually ran:
 
-Supersede the earlier literal rule "three hours without a zone clear." Use the furthest-fight rule for the single authorized Pass 21 diagnostic.
+- all 30 runs passed their pre-Shatter deterministic audit;
+- 90 Shatters fired at real stalls without an artificial loop;
+- zero runs cleared Ashen Keep by 72 hours;
+- Hollow King went 0/6;
+- Shattered parties returned to late zones 10-25 levels below their no-Shatter arrivals.
 
-The smoke evidence is decisive for rule selection:
+Do not interpret that as a final verdict on the game's Shatter system. The bot ended with 37-51 dust unspent and did not buy the combat/start blessings Shatter is intended to fund. That materially affects replay speed, arrival level, and survivability.
 
-- normal late zones routinely take more than three hours to clear;
-- the literal clear-clock rule fires during healthy Emberwaste progression;
-- it spends all three Shatters before the party reaches the intended Keep wall;
-- a new furthest-fight mark distinguishes slow forward progress from an actual stall;
-- under the proposed rule, smoke Shatters occur at boss/training walls and inside Ashen Keep rather than mid-zone.
+This is a simulator-policy defect that qualifies for the pacing policy's invalid-telemetry exception. Authorize one corrected rerun. It is the final Shatter diagnostic.
 
-The smoke runs authorize the diagnostic rule only. They are not balance evidence and do not replace the full batch.
+# Pass 22: Corrected Shatter Dust Policy
 
-# Simulator Repair Assessment
+Change only the simulator bot's post-Shatter dust spending.
 
-The following simulator-only changes are accepted:
+Immediately after every Shatter and before the next combat, spend dust through this deterministic priority:
 
-- default Shatter stall rule = no zone clear and no new furthest-fight mark for three simulated hours;
-- no dependency on the obsolete bot-retreat timer;
-- reset the clear counter, furthest-fight marks, and stall clock after each Shatter;
-- retain game eligibility, projected gain >= 15, and existing Endless behavior;
-- record per-run zone entries/clears and tag boss attempts by Shatter run;
-- record the requested before/after Shatter state.
+1. `b_start` — Remembered Strength;
+2. `b_hp` — Crystal Vigor;
+3. `b_dmg` — Sharpened Fate.
 
-The reset repair is necessary. Without it, re-clears after a Shatter do not register as progress and create artificial three-hour Shatter chains.
+Use repeated priority passes:
 
-Keep the literal clear-clock implementation available for debugging only. Do not use it for the authorized batch.
+- buy the highest-priority affordable next rank;
+- restart at `b_start` after each purchase;
+- if `b_start` is unaffordable, try `b_hp`, then `b_dmg`;
+- stop only when none of the three next ranks is affordable;
+- leave dust unspent only when it is below every available next cost.
 
-# Pass 21 Authorized Diagnostic
+Do not buy another dust blessing, change a blessing cost/effect, or optimize a different priority. Record every purchase, cost, resulting rank, dust remaining, and resulting starting level/party power.
 
-Run exactly one fresh batch with:
+This models a simple progression-focused player policy; it is not asserted to be uniquely optimal.
 
-- `--stallRule far`;
-- `--stallHours 3`;
+# Authorized Batch
+
+Run one corrected batch only:
+
 - seeds 31-40;
 - idle, light, and casual;
 - 72 hours;
 - 30 total runs;
+- `--stallRule far`;
+- `--stallHours 3`;
+- up to three Shatters;
 - production gameplay values;
 - normal Auto Training, hordes, and catacombs;
-- up to three Shatters;
 - zero simulation errors.
 
-Do not add a balance candidate, alternative stall duration, alternative trigger, extra seeds, or confirmation batch.
+Use the existing Pass 21 results as the comparison arm. Do not rerun the under-spending policy.
 
-Audit each run against its Pass 20 production control up to the exact first Shatter. Before that event, gameplay state and hourly telemetry must be deterministic matches.
+Audit that every corrected run exactly matches its Pass 21 run through the first Shatter and differs only after the first authorized dust purchases.
 
-# Required Results
+# Required Comparison
 
-Report by profile and by Shatter run:
+Report paired deltas against Pass 21 by profile and seed:
 
-- Shatter count, timing, zone, progress, projected gain, and dust;
-- reason and exact hours since the last zone clear or furthest-fight advance;
-- the last furthest-fight mark before each Shatter;
-- time required to re-clear Ironvein and return to the zone left;
-- zones cleared at 24h, 36h, 48h, and 72h;
+- dust earned, spent, and remaining after each Shatter;
+- `b_start`, `b_hp`, and `b_dmg` ranks bought per run;
+- starting level and party power after each Shatter;
+- time to re-clear Ironvein and return to the zone left;
 - Ashen Approach and Ashen Keep entry/re-entry level and power;
-- ordinary Keep wins/losses, hours, rewalk time, and loss rate before and after the first Shatter;
-- Hollow King reach, attempts, loss duration, HP remaining, summons reached, clears, and stall;
+- current-run and best-run zones cleared at 24h, 36h, 48h, and 72h;
+- Keep ordinary wins/losses, hours, loss rate, and rewalk time;
+- Hollow King reach, attempts, losses, HP remaining, summons reached, clears, and stall;
 - total defeats, training hours, hordes, catacombs, and errors;
-- evidence that no Shatter fired while the party had advanced its furthest mark during the prior three hours;
-- evidence that no immediate or periodic artificial Shatter loop occurred.
+- Shatter timing and no-loop evidence.
 
-# Interpretation Rules
+# Good-Enough Decision Rules
 
-This diagnostic asks whether the existing Shatter system makes the Keep/Hollow King meaningfully contestable on the second day.
+After Pass 22, no further Shatter-policy diagnostic is allowed.
 
-A Shatter is not automatically beneficial merely because it fires. Include the replay cost and the party's level/power when it returns.
+- If competent dust spending makes Ashen Keep/Hollow King meaningfully contestable or produces clear whole-Road progression gains, treat the current Shatter system as good enough, lock it, and move forward.
+- If it improves replay strength but still leaves the wall essentially uncontested, identify one dominant production lever and propose one bounded candidate test.
+- If results are mixed, prefer the primary player-facing outcomes and paired causal pattern; do not request another policy, priority, duration, or confirmation batch.
 
-- If existing Shatters materially improve Keep/Hollow progression, use the result to propose at most one bounded systemic candidate.
-- If existing Shatters leave the wall uncontested, identify whether the main cause is ordinary Keep damage, post-Shatter recovery/progression, or Hollow King combat. Propose one experiment only.
-- If the new rule still fires during genuine forward progress or fails during eligible stalls, stop interpretation and report the simulator defect.
-
-Do not repeat this diagnostic. After it, authorize one candidate or close the Shatter wall as good enough and move forward.
+Do not demand a perfect Keep clear rate. The goal is a credible progression path, not an exact simulator optimum.
 
 # Locked Systems
 
 Keep locked:
 
+- every Shatter gameplay value, blessing cost, and blessing effect;
+- Hollow King;
 - Auto Training target 1.0, threshold 4, and every other Auto Training rule;
 - Warlord ATK x1.2;
 - Sand Tyrant ATK x1.1;
 - Hunter King ATK x1.0;
 - Grave Knight ATK x2.0;
-- Hollow King and all Shatter gameplay values;
 - all boss HP, DEF, speed, charge/volley, summon, add, enrage, ward, raise, and other mechanics;
 - ordinary enemies and global enemy curves;
 - AUTO_REACT = false;
@@ -100,10 +103,10 @@ Keep locked:
 
 # What Not To Do
 
-- Do not use `--stallRule clear` for the batch.
-- Do not change `--stallHours 3`.
-- Do not reopen Auto Training.
-- Do not change Hollow King or Shatter values.
-- Do not run another boss-ATK test.
-- Do not add a candidate arm.
+- Do not modify gameplay code.
+- Do not change Shatter timing or stall detection.
+- Do not test multiple dust priorities.
+- Do not rerun Pass 21's under-spending arm.
+- Do not add a balance candidate.
+- Do not reopen Auto Training or boss-ATK tuning.
 - Do not tune toward Stress.
