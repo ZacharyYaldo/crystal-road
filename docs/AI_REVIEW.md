@@ -1,150 +1,157 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_11_AUTOCAST_CHARGE_REACTION_DIAGNOSTIC
-REVIEWED_HANDOFF_PASS: PASS_10_IRONVEIN_FAILURE_MODE_DIAGNOSTIC
-REVIEWED_HANDOFF_SHA: c43d92429713451cfbc9188053a7b404fa31c6e0
-BASE_COMMIT: 0c8f5e6875e52d6d2ebcbd7c0e7dcbf2645e14b6
-CONFIDENCE: HIGH
+REVIEW_FOR_PASS: PASS_12_WARLORD_ATK_ROAD_DIAGNOSTIC
+REVIEWED_HANDOFF_PASS: PASS_11_AUTOCAST_CHARGE_REACTION_DIAGNOSTIC
+REVIEWED_HANDOFF_SHA: a40ebf70d9b997ec57ca04d0b480f6723b94454d
+BASE_COMMIT: 1b6032d604f1e85fdf130edaeb3d0366ead26069
+CONFIDENCE: MEDIUM
 
 # Decision
 
-Accept the Pass 10 diagnosis: Ironvein's dominant wall is not Warlord HP, summons, or arrival power. It is the discontinuity between active play, which can answer the telegraphed charge, and Auto-Cast, which casts abilities but never uses a ready defensive response.
+Accept the counterproposal.
 
-Do not tune Warlord. Authorize one bounded Auto-Cast charge-reaction diagnostic. This is a candidate behavior experiment, not approval to ship.
+Reject the exact Auto-Cast reaction candidate. It failed its predeclared Phase A gate and must remain disabled.
 
-# Pass 10 Assessment
+Authorize one Warlord-local road diagnostic with base ATK changed from x1.7 to x1.2 in the candidate arm only. Keep HP, defense, speed, charge multiplier, ward, summon, and every other gameplay value unchanged.
 
-The observation-only counters and snapshot harness are sufficient for causal diagnosis:
+The x1.2 value is an experiment, not approval to ship.
 
-- The harness used 10 real first-arrival snapshots per profile, 10 combat seeds per snapshot, and both active and Auto-Cast modes: 800 fights total.
-- Auto-Cast clear rates were 3% / 5% / 0% / 1% for idle / light / casual / engaged.
-- Active clear rates from the same arrival states were 40% / 84% / 82% / 98%.
-- Auto-Cast suffered 1.9-2.2 charge hits and 1.95-2.18 charge kills per fight. Parries and interrupts were zero.
-- Active light/casual/engaged suffered only 0.1-0.3 charge hits per fight. Most active losses reached the summon or near-kill phase.
-- Auto losses commonly occurred before the summon with 44-62% boss HP remaining. Boss damage supplied 88-100% of damage received.
-- Arrival power and HP do not explain the mode gap. Idle arrived with the highest median power and still performed worst; mode moved outcomes far more than within-profile power terciles.
+# Pass 11 Assessment
 
-The full-Road mode samples are small, but their ordering and failure shape agree with the harness. Treat the harness as representative enough to test the mechanism, not precise enough to set release balance.
+The candidate was implemented consistently with the review:
 
-The active harness is somewhat mechanically aggressive because it checks every ready hero during the telegraph. That does not invalidate the diagnosis, but the candidate must explicitly prevent multiple automatic reactions to one charge.
+- Both melee and ranged charge telegraphs were eligible.
+- At most one ready Knight, Rogue, or Mage responded.
+- Sanctuary and non-counter abilities were excluded.
+- No charge was granted or reserved.
+- Six possible additional responses were prevented; no double response or same-tick double cast occurred.
+- Production remains `AUTO_REACT = false`.
 
-# Proposal Evaluation
+The result clearly fails the gate:
 
-The developer's proposed direction is better than reducing the Warlord's charge multiplier.
+- Charge kills fell only 26% / 20% / 29% / 24%, not the required 60% in three profiles.
+- Idle Auto-Cast clear rate rose only 3% -> 8%.
+- Light remained 5% -> 5%.
+- Reactions were available for only about 0.67 of roughly 2.0 telegraphs per fight because ordinary Auto-Cast had already spent most ready abilities.
+- Losses shifted later, but not enough to produce reliable clears.
 
-A Warlord-only ATK or charge nerf would lower difficulty for active players who already have effective counterplay and would leave the same Auto-Cast blind spot on later charge enemies. Auto-Cast is advertised as casting abilities on its own, so using an already-ready ability to answer a visible telegraph is coherent with the feature.
+Do not proceed to a Road test of automatic reactions. Do not validate or ship `AUTO_REACT`.
 
-Two corrections are required:
+# Counterargument Evaluation
 
-- The proposal names only `chargeM` while describing a system-wide charge response. The experiment must handle both `chargeM` and `chargeR`.
-- Sanctuary does not stop a charge. It must not consume charge as an automatic “reaction” merely because `reactTo()` returns true during the telegraph.
+The new evidence corrects the Pass 10 interpretation.
 
-# Authorized Candidate
+Active play is not winning mainly because it reacts to more telegraphs. Light, casual, and engaged active play shortens the fight through taps, Surge, additional charge generation, more ability casts, and the manual-cast bonus, so the party faces fewer Warlord actions. Idle-active still sees about two telegraphs and wins more often through the remaining active-mode benefits.
 
-Control: current production Auto-Cast.
+At natural arrivals, Warlord base damage is itself an execution-level check:
 
-Candidate: while Auto-Cast is enabled, if the current enemy action is in `phase === 'tele'` and is `chargeM` or `chargeR`, Auto-Cast may immediately spend one already-ready counter ability.
+- Warlord ATK is about 978 against heroes with approximately 930-1,258 maximum HP and 118-156 defense.
+- Ordinary Warlord hits remove a large share of a hero's health.
+- Charge hits kill almost once per hit.
+- Reducing the charge multiplier from x2.5 to x2.0, x1.75, or x1.5 did not materially change outcomes because all remained lethal.
 
-Exact rule:
+Therefore a charge-multiplier test is not justified. If the design intent is to preserve the one-shot telegraph while allowing an automatic party enough time to contest the boss, base ATK is the correct single lever because it changes the ordinary hits between charges.
 
-1. At most one automatic response per enemy telegraph.
-2. Consider living heroes in current party order.
-3. The first ready eligible hero responds:
-   - Knight: Shield Wall parry
-   - Rogue: Shadowstep interrupt
-   - Mage: Meteor interrupt
-4. Cleric Sanctuary, Ranger Rain of Arrows, and Berserker Rage are not charge counters and must continue through ordinary Auto-Cast behavior.
-5. A reaction uses the same 100 charge and the same parry/interrupt behavior as the corresponding manual reaction.
-6. Do not grant charge, reserve abilities in anticipation of a charge, add a reaction probability, or add a timing parameter.
-7. If a reaction fires, that hero must not also normal-cast in the same tick. Mark the telegraph as handled so another hero cannot react to it.
-8. Manual input and the existing 30% manual-cast damage bonus remain unchanged.
-9. Instrument automatic reaction attempts, responder class, charge kind, success, and any prevented double response.
+The harness sizing supports x1.2 as the hardest tested value that materially moves idle/light Auto-Cast. It also makes active Warlord fights easier, so the Road test must gate against trivialization. The harness sweeps are proposal-sizing evidence only and do not replace the authorized Road diagnostic.
 
-This entire deterministic rule is the single lever. Do not optimize responder priority in this pass.
+# Authorized Experiment
 
-# Phase A: Boss-Harness Gate
+Control:
 
-Run paired control and candidate from the same 40 Pass 10 Ironvein snapshots:
+- Warlord base ATK x1.7
+- `AUTO_REACT = false`
 
-- Idle / Light / Casual / Engaged
-- Auto-Cast mode only
-- 10 combat seeds per snapshot
-- 400 control + 400 candidate fights
-- identical observation telemetry
-- 0 simulation errors
+Candidate:
 
-Retain the Pass 10 active-mode results only as a reference ceiling; the candidate must not touch active/manual behavior.
+- Warlord base ATK x1.2
+- `AUTO_REACT = false`
 
-Report by profile, control -> candidate:
+Implementation requirements:
 
-- clear rate and 95% interval
-- charge telegraphs, reactions, hits, kills, parries, and interrupts per fight
-- reaction responder-class distribution
-- boss HP remaining on loss
-- pre-summon / summon-phase / near-kill loss shares
-- duration, survivors, and party HP on wins
-- boss-versus-add damage share
-- normal ability casts displaced by reactions
-- double-response or same-tick double-cast count
+- Use one source build with the candidate isolated behind the simulator's existing boss-ATK override or an equivalent test-only constant.
+- Production source must remain at Warlord ATK x1.7 during this diagnostic.
+- Do not retain any accidental candidate value in `index.html` or `source/game.js`.
+- The Pass 11 reaction code may remain disabled for measurement continuity, but it must not execute in either arm.
+- Use identical telemetry in both arms.
+- Record actual Warlord ATK at fight start so the separation can be audited.
 
-Phase A passes only if all are true:
+# Simulation Plan
 
-- charge kills per fight fall at least 60% in at least three profiles and do not materially increase in the fourth;
-- Auto-Cast clear rate improves by at least 20 percentage points in idle and light;
-- losses materially shift away from pre-summon wipes toward summon-phase or near-kill outcomes;
-- no profile's Auto-Cast clear rate exceeds its Pass 10 active reference by more than 5 percentage points;
-- zero double responses, same-tick double casts, invalid reactions, or telemetry errors; and
-- the result is not driven by free charge, extra ability casts, changed arrival state, or any boss-value change.
+QUICK ROAD DIAGNOSTIC:
 
-If Phase A fails, stop. Return the evidence and one counterproposal; do not run the Road candidate and do not tune Warlord.
-
-# Phase B: Conditional Road Diagnostic
-
-Run this only if Phase A passes.
-
-Use one source build with the candidate behind an explicit simulator/test constant. Production remains control until a later validation is approved.
-
-Paired seeds 1-10:
-
+- paired seeds 1-10
 - Idle / Light / Casual / Engaged
 - 24 hours
-- 4 profiles x 10 seeds x 2 arms = 80 runs
-- current production Road, Auto Training, boss, horde, and catacomb logic
+- 40 control + 40 candidate runs
+- current production Road and Auto Training behavior
 - 0 simulation errors
+
+Do not test x1.0, x1.4, a second ATK value, or any combined lever in this pass.
+
+# Required Results
 
 Report median / P90 and paired change for:
 
-- Ironvein first-try rate, attempts, stall, clear time, and mode at each attempt
-- charge hits, kills, parries, interrupts, and automatic reactions by zone and boss
+- Ironvein first-try clear rate
+- attempts to clear and maximum loss streak
+- combat stall, retry stall, and total boss stall
+- Ironvein and total zone-clear time
+- party level, power, HP, charge, Surge, and active/Auto-Cast window at first attempt
+- active-window and Auto-Cast Warlord attempt win rates
+- normal hits, charge telegraphs, charge hits, charge kills, parries, and interrupts per Warlord attempt
+- boss HP remaining and phase on losses
+- survivors and party HP on wins
 - all early-Road boss first-try rates, attempts, stalls, and clear times
 - zones cleared and party level at 24h
-- ordinary and boss defeats, rewalk fights, and rewalk hours
+- ordinary and boss defeats
+- ordinary and boss rewalk fights/hours
 - Auto Training triggers, returns, hours/share, and levels earned
-- active-window versus Auto-Cast combat outcomes
-- horde wins/losses and catacomb depth/runs
-- ability casts and damage share
+- horde outcomes and catacomb depth/runs
+- ability casts and active/Auto-Cast damage share
 
-Road success requires:
+Also report how much of the candidate's Ironvein improvement comes from Auto-Cast attempts versus active-window attempts.
 
-- Ironvein idle and light first-try/attempt/stall outcomes improve directionally without making Warlord Auto-Cast stronger than active play at comparable states;
-- no early-Road median clear time worsens by more than 10% or P90 by more than 15%;
-- Stillwater remains inside its locked Pass 7 bands;
-- no median zones-cleared decline at 24h;
-- ordinary defeat, rewalk, and Auto Training metrics do not worsen by more than 10%;
-- active/manual outcomes remain unchanged within seed noise;
-- no boss or zone accelerates by more than 15% without a clear charge-causality explanation; and
-- horde and catacomb results show no new trivialization, lockout, or mechanical error.
+# Success Criteria
+
+The x1.2 candidate is promising only if all are true:
+
+- idle median attempts fall from 7 toward 3-4 and P90 falls materially from 18;
+- idle total Ironvein stall falls at least 35%;
+- idle first-try rises above 0% and light first-try rises above 10% on these paired seeds;
+- Auto-Cast Warlord attempt win rate improves materially for idle and light;
+- active-window Warlord attempt win rate remains below 95% for idle, light, and casual, with engaged allowed to remain at its existing ceiling;
+- Warlord still produces losses in at least three profiles and does not become a universal first-try clear;
+- no early-Road median clear time worsens more than 10% or P90 more than 15%;
+- Stillwater remains in its locked Pass 7 bands;
+- median zones cleared at 24h do not decline;
+- ordinary defeat, rewalk, and Auto Training metrics do not worsen more than 10%;
+- no downstream boss or zone accelerates more than 15% without a clear propagation explanation; and
+- no horde, catacomb, telemetry, or mechanical regression appears.
+
+# Failure Criteria
+
+Reject or revise x1.2 if:
+
+- idle/light Auto-Cast results remain effectively unchanged;
+- the improvement is confined to active attempts;
+- active Warlord attempts become effectively automatic;
+- Ironvein becomes a universal first-try clear;
+- the party simply reaches a new summon/add wall with no meaningful stall improvement;
+- progression or downstream content accelerates beyond the limits above; or
+- telemetry cannot distinguish active from Auto-Cast attempts.
 
 # Decision Rules
 
-- If both phases pass: propose a normal validation of the same exact reaction rule. Do not ship it yet.
-- If reactions work but Auto-Cast approaches or exceeds active performance: reject the exact rule and present one bounded counterproposal that preserves an active-play advantage.
-- If reactions suppress charge kills but Ironvein remains a wall: return the failure shape; do not silently add an HP, ATK, or summon change.
-- If later charge encounters become trivial or progression accelerates beyond the limit: reject global release and identify where the effect concentrates.
-- If the candidate has little effect: retain current Auto-Cast and propose one Warlord-local lever based on the Pass 10 evidence.
+- If all success criteria pass: propose a normal validation of Warlord ATK x1.2.
+- If x1.2 helps Auto-Cast but trivializes active Warlord: return one bounded counterproposal; do not silently test another number.
+- If x1.2 is still too weak: retain x1.7 and explain whether arrival level or the global post-Lv25 damage curve is the remaining cause.
+- If the effect appears across later enemies or bosses: propose a separate global damage-curve diagnostic. Do not change the curve in this pass.
+- If the candidate fails: do not fall back to Auto-Cast reactions without new evidence.
 
 # Locked Systems
 
-- Warlord HP x6.0, ATK x1.7, DEF x1.2, speed 8, charge x2.5, ward behavior, summon threshold, and two-orc summon
+- Warlord HP x6.0, DEF x1.2, speed 8, charge x2.5, ward behavior, summon threshold, and two-orc summon
+- production Warlord ATK x1.7 until validation is explicitly approved
+- `AUTO_REACT = false`
 - all other boss and ordinary-enemy values
 - `AT_LOSSES = 4`, `AT_WINDOW = 10`, and `AT_MIN = 8`
 - universal +1 Auto Training target; no conditional +2 and no cooldown
@@ -161,9 +168,10 @@ Road success requires:
 
 # What Not To Do
 
-- Do not change Warlord or any boss stat.
-- Do not implement multiple reactions, reaction probabilities, delays, ability reservation, or responder optimization.
-- Do not let Sanctuary consume charge as a charge response.
-- Do not apply manual-cast damage bonuses to automatic reactions.
+- Do not ship Auto-Cast reactions.
+- Do not change the charge multiplier.
+- Do not change Warlord HP, defense, speed, ward, summon, or adds.
+- Do not test multiple ATK values.
+- Do not change the global enemy ATK curve.
 - Do not alter Auto Training.
-- Do not treat a passing quick diagnostic as release approval.
+- Do not treat the prior harness sweep or this quick Road diagnostic as release validation.
