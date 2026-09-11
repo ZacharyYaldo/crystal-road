@@ -1,0 +1,288 @@
+
+===== IDLE   batch_out_p21 -> batch_out_p22
+
+seed 31  pre-first-Shatter identical 26/26  Shatters 3 -> 2 (first h26.4 -> h26.4)  dust earned 83 -> 54, left at end 43 -> 5  ranks bought: start 4 hp 3 dmg 3 (12 purchases)
+  Shatter 1: h26.4 Ironvein Caverns Lv51 +22              -> h26.4 Ironvein Caverns Lv51 +22 dust 1->23->0 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 17978   Ironvein re-clear +0.79h -> +0.61h
+  Shatter 2: h38.01 Emberwaste Lv51 +27                   -> h51.22 Ashen Approach Lv66 +32 dust 6->38->4 buys [start3@14 start4@20] next start Lv 21 power after 55611   Ironvein re-clear +0.47h -> +0.40h
+  Shatter 3: h52.53 Ashen Approach Lv64 +34               -> -   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv44  ->  run1 Lv53 run2 Lv31   |   Keep entry:   ->  run2 Lv52
+  Keep: defeats 0 -> 359, hours 0.0 -> 12.9, loss ~-% -> 26%, rewalk 0.00 -> 7.15h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 6/6 -> 6/6, 72h 6/6 -> 7/7 | defeats 798 -> 1161 | training 21.3 -> 24.6h | hordes 3/3/3 -> 3/3/5
+
+seed 32  pre-first-Shatter identical 26/26  Shatters 3 -> 2 (first h26.1 -> h26.1)  dust earned 92 -> 54, left at end 46 -> 9  ranks bought: start 4 hp 3 dmg 3 (12 purchases)
+  Shatter 1: h26.13 Emberwaste Lv50 +22                   -> h26.13 Emberwaste Lv50 +22 dust 2->24->1 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 17016   Ironvein re-clear +0.66h -> +0.85h
+  Shatter 2: h43.52 Emberwaste Lv59 +32                   -> h52.16 Amberfall Woods Lv65 +32 dust 5->37->3 buys [start3@14 start4@20] next start Lv 21 power after 51964   Ironvein re-clear +0.46h -> +0.42h
+  Shatter 3: h61.42 Ashen Keep Lv69 +38                   -> -   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv53 run2 Lv42  ->  run1 Lv53 run2 Lv30   |   Keep entry: run2 Lv64  ->  run2 Lv55
+  Keep: defeats 117 -> 284, hours 4.6 -> 9.5, loss ~25% -> 31%, rewalk 2.36 -> 4.61h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 6/6 -> 6/6, 72h 7/7 -> 7/7 | defeats 829 -> 1033 | training 21.7 -> 25.9h | hordes 5/5/2 -> 4/4/4
+
+seed 33  pre-first-Shatter identical 40/40  Shatters 3 -> 3 (first h40.7 -> h40.7)  dust earned 104 -> 99, left at end 44 -> 10  ranks bought: start 5 hp 4 dmg 4 (12 purchases)
+  Shatter 1: h40.71 Emberwaste Lv65 +30                   -> h40.71 Emberwaste Lv65 +30 dust 7->37->2 buys [start1@6 start2@9 start3@14 hp2@6] next start Lv 16 power after 35602   Ironvein re-clear +0.45h -> +0.46h
+  Shatter 2: h58.3 Ashen Keep Lv66 +35                    -> h53.44 Ashen Approach Lv60 +32 dust 5->37->3 buys [start4@20 hp4@14] next start Lv 21 power after 67891   Ironvein re-clear +0.36h -> +0.36h
+  Shatter 3: h67.42 Ashen Keep Lv61 +39                   -> h64.77 Ashen Keep Lv58 +37 dust 3->40->10 buys [start5@30] next start Lv 26 power after 104242   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run0 Lv61 run1 Lv39 run2 Lv29  ->  run0 Lv61 run1 Lv40 run2 Lv28   |   Keep entry: run1 Lv58 run2 Lv46  ->  run2 Lv45
+  Keep: defeats 320 -> 208, hours 13.0 -> 7.2, loss ~24% -> 28%, rewalk 8.09 -> 3.77h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 6/6 -> 6/6, 48h 6/6 -> 6/6, 72h 7/7 -> 7/7 | defeats 1007 -> 932 | training 20.8 -> 20.6h | hordes 4/4/4 -> 4/4/4
+
+seed 34  pre-first-Shatter identical 23/23  Shatters 3 -> 3 (first h23.3 -> h23.3)  dust earned 79 -> 91, left at end 34 -> 1  ranks bought: start 4 hp 5 dmg 4 (13 purchases)
+  Shatter 1: h23.32 Ironvein Caverns Lv49 +22             -> h23.32 Ironvein Caverns Lv49 +22 dust 4->26->1 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 17922   Ironvein re-clear +0.69h -> +0.74h
+  Shatter 2: h30.13 Emberwaste Lv42 +23                   -> h38.79 Emberwaste Lv54 +31 dust 0->31->8 buys [start3@14 hp3@9] next start Lv 16 power after 39281   Ironvein re-clear +0.53h -> +0.47h
+  Shatter 3: h47.27 Ashen Approach Lv65 +34               -> h66.75 Ashen Keep Lv70 +38 dust 3->41->1 buys [start4@20 hp5@20] next start Lv 21 power after 109434   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv48  ->  run1 Lv48 run2 Lv42   |   Keep entry:   ->  run2 Lv60
+  Keep: defeats 0 -> 336, hours 0.0 -> 13.4, loss ~-% -> 25%, rewalk 0.00 -> 6.64h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 3/4 -> 3/4, 36h 5/5 -> 6/6, 48h 6/6 -> 6/6, 72h 6/6 -> 7/7 | defeats 629 -> 1027 | training 16.0 -> 19.6h | hordes 1/1/4 -> 3/3/5
+
+seed 35  pre-first-Shatter identical 32/32  Shatters 3 -> 3 (first h32.5 -> h32.5)  dust earned 90 -> 93, left at end 42 -> 8  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h32.51 Emberwaste Lv57 +25                   -> h32.51 Emberwaste Lv57 +25 dust 3->28->3 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 24701   Ironvein re-clear +0.52h -> +0.53h
+  Shatter 2: h52.95 Ashen Approach Lv67 +32               -> h51.91 Ashen Approach Lv62 +32 dust 6->38->4 buys [start3@14 start4@20] next start Lv 21 power after 60892   Ironvein re-clear +0.38h -> +0.39h
+  Shatter 3: h60.17 Ashen Approach Lv56 +33               -> h64.38 Ashen Keep Lv57 +36 dust 2->38->8 buys [start5@30] next start Lv 26 power after 97472   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv49 run2 Lv29  ->  run1 Lv46 run2 Lv28   |   Keep entry:   ->  run2 Lv47
+  Keep: defeats 0 -> 202, hours 0.0 -> 6.8, loss ~-% -> 29%, rewalk 0.00 -> 3.76h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 6/6 -> 6/6, 72h 6/6 -> 7/7 | defeats 850 -> 958 | training 22.7 -> 20.1h | hordes 5/5/2 -> 5/5/3
+
+seed 36  pre-first-Shatter identical 30/30  Shatters 3 -> 3 (first h30.1 -> h30.1)  dust earned 90 -> 94, left at end 45 -> 3  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h30.11 Amberfall Woods Lv57 +25              -> h30.11 Amberfall Woods Lv57 +25 dust 5->30->1 buys [start1@6 start2@9 start3@14] next start Lv 16 power after 26532   Ironvein re-clear +0.47h -> +0.49h
+  Shatter 2: h44.43 Ashen Approach Lv62 +32               -> h41.08 Ashen Approach Lv53 +31 dust 0->31->2 buys [start4@20 hp3@9] next start Lv 21 power after 46902   Ironvein re-clear +0.38h -> +0.41h
+  Shatter 3: h51.13 Ashen Approach Lv55 +33               -> h65.88 Ashen Keep Lv69 +38 dust 9->47->3 buys [start5@30 dmg4@14] next start Lv 26 power after 117372   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv46 run2 Lv32  ->  run1 Lv46 run2 Lv36   |   Keep entry:   ->  run2 Lv55
+  Keep: defeats 0 -> 380, hours 0.0 -> 15.1, loss ~-% -> 23%, rewalk 0.00 -> 8.96h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 6/6 -> 6/6, 72h 6/6 -> 7/7 | defeats 762 -> 1153 | training 20.8 -> 21.3h | hordes 2/2/4 -> 3/3/5
+
+seed 37  pre-first-Shatter identical 34/34  Shatters 3 -> 2 (first h34.1 -> h34.1)  dust earned 85 -> 62, left at end 45 -> 9  ranks bought: start 4 hp 4 dmg 3 (12 purchases)
+  Shatter 1: h34.06 Amberfall Woods Lv60 +26              -> h34.06 Amberfall Woods Lv60 +26 dust 5->31->2 buys [start1@6 start2@9 start3@14] next start Lv 16 power after 30898   Ironvein re-clear +0.45h -> +0.47h
+  Shatter 2: h39.08 Amberfall Woods Lv43 +26              -> h67.46 Ashen Keep Lv74 +36 dust 7->43->9 buys [start4@20 hp4@14] next start Lv 21 power after 107311   Ironvein re-clear +0.42h -> +0.34h
+  Shatter 3: h46.22 Ashen Approach Lv52 +33               -> -   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv42  ->  run1 Lv45 run2 Lv28   |   Keep entry:   ->  run1 Lv63 run2 Lv32
+  Keep: defeats 0 -> 339, hours 0.0 -> 18.9, loss ~-% -> 18%, rewalk 0.00 -> 10.69h | Hollow King 0/0 -> 0/2 (loss HP left med 86%, summons 0)
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 6/6 -> 6/6, 72h 6/6 -> 7/7 | defeats 605 -> 1007 | training 19.0 -> 23.5h | hordes 4/4/1 -> 5/5/3
+
+seed 38  pre-first-Shatter identical 19/19  Shatters 3 -> 3 (first h19.1 -> h19.1)  dust earned 91 -> 78, left at end 44 -> 7  ranks bought: start 4 hp 4 dmg 3 (11 purchases)
+  Shatter 1: h19.05 Ironvein Caverns Lv44 +21             -> h19.05 Ironvein Caverns Lv44 +21 dust 4->25->0 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 13182   Ironvein re-clear +1.60h -> +2.58h
+  Shatter 2: h40.01 Emberwaste Lv61 +32                   -> h28.63 Ironvein Caverns Lv40 +23 dust 4->27->4 buys [start3@14 hp3@9] next start Lv 16 power after 25293   Ironvein re-clear +0.46h -> +0.62h
+  Shatter 3: h64.13 Ashen Keep Lv71 +38                   -> h51.38 Ashen Approach Lv63 +34 dust 7->41->7 buys [start4@20 hp4@14] next start Lv 21 power after 69193   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv55 run2 Lv39  ->  run2 Lv50   |   Keep entry: run2 Lv61  ->  
+  Keep: defeats 332 -> 0, hours 12.5 -> 0.0, loss ~27% -> -%, rewalk 5.47 -> 0.00h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 6/6 -> 5/5, 48h 6/6 -> 6/6, 72h 7/7 -> 6/6 | defeats 1016 -> 661 | training 19.8 -> 22.4h | hordes 3/3/4 -> 0/0/6
+
+seed 39  pre-first-Shatter identical 22/22  Shatters 3 -> 3 (first h22.5 -> h22.5)  dust earned 91 -> 90, left at end 45 -> 12  ranks bought: start 5 hp 4 dmg 3 (12 purchases)
+  Shatter 1: h22.52 Ironvein Caverns Lv48 +21             -> h22.52 Ironvein Caverns Lv48 +21 dust 2->23->0 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 15255   Ironvein re-clear +0.60h -> +0.74h
+  Shatter 2: h39.44 Ashen Approach Lv59 +32               -> h41.61 Emberwaste Lv59 +32 dust 7->39->5 buys [start3@14 start4@20] next start Lv 21 power after 40741   Ironvein re-clear +0.43h -> +0.43h
+  Shatter 3: h62.23 Ashen Keep Lv71 +38                   -> h61.57 Ashen Keep Lv66 +37 dust 5->42->12 buys [start5@30] next start Lv 26 power after 92570   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv54 run2 Lv45  ->  run1 Lv53 run2 Lv45   |   Keep entry: run2 Lv63  ->  run2 Lv62
+  Keep: defeats 362 -> 111, hours 10.3 -> 4.5, loss ~33% -> 23%, rewalk 4.25 -> 2.37h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 6/6 -> 5/5, 48h 6/6 -> 6/6, 72h 7/7 -> 7/7 | defeats 1090 -> 904 | training 21.5 -> 23.1h | hordes 3/3/4 -> 3/3/4
+
+seed 40  pre-first-Shatter identical 28/28  Shatters 3 -> 3 (first h28.0 -> h28.0)  dust earned 93 -> 93, left at end 39 -> 4  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h28.01 Emberwaste Lv55 +25                   -> h28.01 Emberwaste Lv55 +25 dust 4->29->0 buys [start1@6 start2@9 start3@14] next start Lv 16 power after 23040   Ironvein re-clear +0.52h -> +0.53h
+  Shatter 2: h41.49 Amberfall Woods Lv58 +31              -> h47.59 Ashen Approach Lv62 +32 dust 6->38->0 buys [start4@20 hp3@9 dmg3@9] next start Lv 21 power after 58570   Ironvein re-clear +0.43h -> +0.39h
+  Shatter 3: h56.52 Ashen Keep Lv65 +37                   -> h58.99 Ashen Keep Lv55 +36 dust 12->48->4 buys [start5@30 dmg4@14] next start Lv 26 power after 91401   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv48 run2 Lv32  ->  run1 Lv48 run2 Lv30   |   Keep entry: run2 Lv58  ->  run2 Lv48
+  Keep: defeats 215 -> 228, hours 6.8 -> 5.8, loss ~30% -> 38%, rewalk 3.15 -> 2.42h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 5/5, 36h 6/6 -> 5/5, 48h 6/6 -> 4/6, 72h 7/7 -> 7/7 | defeats 906 -> 954 | training 21.5 -> 23.6h | hordes 3/3/4 -> 3/3/4
+
+-- idle summary (n=10):
+   first Shatter h            med 26.4 -> 26.4 (paired med 0.0, +0 010 -0)
+   dust earned / left         med 90.0 -> 90.0 (paired med -5.0, +3 01 -6)  |  med 44.0 -> 7.0 (paired med -36.0, +0 00 -10)
+   ranks at end (b) med       start 4 hp 4 dmg 3  next-run start Lv after Shatter 1/2/3: 11/21/26
+   Ironvein re-clear after Shatter 1/2  med 0.5 -> 0.5 (paired med 0.0, +9 00 -1)  |  med 0.4 -> 0.4 (paired med -0.0, +3 02 -5)
+   Ashen Approach entry Lv run1   med 49.0 -> 48.0 (paired med 0.0, +1 03 -2)   (reached 7 -> 9 runs; entry h 36.6 -> 40.5)
+   Ashen Approach entry Lv run2   med 39.0 -> 30.0 (paired med -2.0, +2 01 -7)   (reached 10 -> 10 runs; entry h 43.3 -> 48.7)
+   Keep entry Lv run1             -   (reached 1 -> 1 runs; entry h 51.2 -> 52.1)
+   Keep entry Lv run2             med 61.0 -> 52.0 (paired med -9.0, +0 00 -4)   (reached 5 -> 9 runs; entry h 51.9 -> 57.5)
+   Keep defeats / hours / loss%   med 0.0 -> 228.0 (paired med 167.0, +7 00 -3) | med 0.0 -> 7.2 (paired med 4.8, +6 00 -4) | med 27.1 -> 26.5 (paired med 4.6, +3 00 -1)
+   Hollow King attempts / wins   0 / 0 -> 2 / 0   Keep cleared runs 0 -> 0
+   zones best-run med @24h 4 -> 4, 36h 5 -> 5, 48h 6 -> 6, 72h 6 -> 7   current-run med @24h 4 -> 4, 36h 5 -> 5, 48h 6 -> 6, 72h 6 -> 7
+   total defeats / training h    med 829.0 -> 958.0 (paired med 108.0, +7 00 -3) | med 20.8 -> 22.4 (paired med 2.1, +8 00 -2)
+
+===== LIGHT   batch_out_p21 -> batch_out_p22
+
+seed 31  pre-first-Shatter identical 22/22  Shatters 3 -> 3 (first h22.9 -> h22.9)  dust earned 90 -> 90, left at end 39 -> 10  ranks bought: start 5 hp 4 dmg 3 (12 purchases)
+  Shatter 1: h22.93 Emberwaste Lv49 +22                   -> h22.93 Emberwaste Lv49 +22 dust 0->22->3 buys [start1@6 start2@9 hp1@4] next start Lv 11 power after 17428   Ironvein re-clear +0.59h -> +0.66h
+  Shatter 2: h38.09 Emberwaste Lv58 +31                   -> h45.89 Amberfall Woods Lv64 +32 dust 7->39->5 buys [start3@14 start4@20] next start Lv 21 power after 59274   Ironvein re-clear +0.44h -> +0.39h
+  Shatter 3: h60.1 Ashen Keep Lv65 +37                    -> h56.08 Ashen Keep Lv53 +36 dust 4->40->10 buys [start5@30] next start Lv 26 power after 92130   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv51 run2 Lv33  ->  run1 Lv50 run2 Lv29   |   Keep entry: run2 Lv59  ->  run2 Lv46
+  Keep: defeats 606 -> 205, hours 12.0 -> 5.0, loss ~48% -> 38%, rewalk 2.71 -> 2.16h | Hollow King 0/2 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 6/6 -> 6/6, 48h 6/6 -> 6/6, 72h 7/7 -> 7/7 | defeats 1308 -> 891 | training 22.2 -> 26.7h | hordes 2/2/5 -> 4/4/2
+
+seed 32  pre-first-Shatter identical 29/29  Shatters 3 -> 3 (first h29.1 -> h29.1)  dust earned 99 -> 96, left at end 41 -> 4  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h29.08 Emberwaste Lv55 +25                   -> h29.08 Emberwaste Lv55 +25 dust 0->25->0 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 26046   Ironvein re-clear +0.51h -> +0.54h
+  Shatter 2: h43.1 Ashen Keep Lv58 +35                    -> h57.07 Ashen Keep Lv64 +35 dust 6->41->7 buys [start3@14 start4@20] next start Lv 21 power after 67867   Ironvein re-clear +0.40h -> +0.38h
+  Shatter 3: h58.05 Ashen Keep Lv62 +39                   -> h71.1 Ashen Keep Lv52 +36 dust 12->48->4 buys [start5@30 dmg4@14] next start Lv 26 power after 99204   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv47 run2 Lv29  ->  run1 Lv44 run2 Lv28   |   Keep entry: run1 Lv55 run2 Lv55  ->  run1 Lv61 run2 Lv40
+  Keep: defeats 476 -> 1208, hours 11.1 -> 22.0, loss ~40% -> 54%, rewalk 4.41 -> 4.65h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 5/5, 36h 5/5 -> 5/5, 48h 6/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1178 -> 1879 | training 21.6 -> 22.8h | hordes 4/4/3 -> 4/4/4
+
+seed 33  pre-first-Shatter identical 23/23  Shatters 3 -> 3 (first h23.1 -> h23.1)  dust earned 91 -> 85, left at end 44 -> 5  ranks bought: start 4 hp 5 dmg 3 (12 purchases)
+  Shatter 1: h23.06 Ironvein Caverns Lv49 +22             -> h23.06 Ironvein Caverns Lv49 +22 dust 2->24->1 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 15503   Ironvein re-clear +0.75h -> +0.76h
+  Shatter 2: h39.85 Emberwaste Lv59 +32                   -> h36.07 Amberfall Woods Lv50 +27 dust 0->27->4 buys [start3@14 hp3@9] next start Lv 16 power after 35603   Ironvein re-clear +0.45h -> +0.48h
+  Shatter 3: h58.06 Ashen Keep Lv65 +37                   -> h53.07 Ashen Keep Lv58 +36 dust 9->45->5 buys [start4@20 hp5@20] next start Lv 21 power after 65138   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv52 run2 Lv35  ->  run2 Lv44   |   Keep entry: run2 Lv61  ->  run2 Lv52
+  Keep: defeats 361 -> 298, hours 7.0 -> 7.0, loss ~49% -> 40%, rewalk 1.51 -> 3.02h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 6/6 -> 5/5, 48h 6/6 -> 7/7, 72h 7/7 -> 7/7 | defeats 1091 -> 944 | training 22.3 -> 20.7h | hordes 4/4/3 -> 3/3/3
+
+seed 34  pre-first-Shatter identical 22/22  Shatters 3 -> 3 (first h22.6 -> h22.6)  dust earned 80 -> 85, left at end 39 -> 0  ranks bought: start 4 hp 5 dmg 3 (12 purchases)
+  Shatter 1: h22.58 Ironvein Caverns Lv48 +21             -> h22.58 Ironvein Caverns Lv48 +21 dust 4->25->0 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 14948   Ironvein re-clear +1.29h -> +0.95h
+  Shatter 2: h32.08 Emberwaste Lv45 +26                   -> h37.11 Amberfall Woods Lv50 +27 dust 1->28->5 buys [start3@14 hp3@9] next start Lv 16 power after 35451   Ironvein re-clear +0.58h -> +0.50h
+  Shatter 3: h43.08 Emberwaste Lv55 +33                   -> h60.1 Ashen Keep Lv64 +37 dust 3->40->0 buys [start4@20 hp5@20] next start Lv 21 power after 78346   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv48  ->  run2 Lv40   |   Keep entry:   ->  run2 Lv59
+  Keep: defeats 0 -> 272, hours 0.0 -> 7.1, loss ~-% -> 37%, rewalk 0.00 -> 2.89h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 6/6 -> 6/6, 72h 6/6 -> 7/7 | defeats 642 -> 1057 | training 19.6 -> 27.9h | hordes 3/3/2 -> 2/2/5
+
+seed 35  pre-first-Shatter identical 21/21  Shatters 3 -> 3 (first h21.1 -> h21.1)  dust earned 85 -> 93, left at end 46 -> 5  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h21.1 Emberwaste Lv48 +21                    -> h21.1 Emberwaste Lv48 +21 dust 3->24->1 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 16831   Ironvein re-clear +0.95h -> +0.79h
+  Shatter 2: h31.08 Amberfall Woods Lv49 +27              -> h52.08 Ashen Keep Lv69 +36 dust 7->43->9 buys [start3@14 start4@20] next start Lv 21 power after 70171   Ironvein re-clear +0.48h -> +0.37h
+  Shatter 3: h52.1 Ashen Keep Lv66 +37                    -> h64.08 Ashen Keep Lv52 +36 dust 13->49->5 buys [start5@30 dmg4@14] next start Lv 26 power after 100205   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv45  ->  run1 Lv48 run2 Lv27   |   Keep entry: run2 Lv62  ->  run1 Lv65 run2 Lv37
+  Keep: defeats 404 -> 670, hours 8.0 -> 17.0, loss ~47% -> 38%, rewalk 1.79 -> 6.37h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 6/6, 48h 7/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1040 -> 1335 | training 20.5 -> 25.6h | hordes 4/4/2 -> 3/3/4
+
+seed 36  pre-first-Shatter identical 29/29  Shatters 3 -> 3 (first h29.1 -> h29.1)  dust earned 94 -> 88, left at end 38 -> 5  ranks bought: start 4 hp 4 dmg 4 (12 purchases)
+  Shatter 1: h29.14 Emberwaste Lv56 +25                   -> h29.14 Emberwaste Lv56 +25 dust 1->26->1 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 25999   Ironvein re-clear +0.53h -> +0.56h
+  Shatter 2: h44.1 Ashen Approach Lv61 +32                -> h35.06 Amberfall Woods Lv41 +26 dust 1->27->4 buys [start3@14 hp3@9] next start Lv 16 power after 40360   Ironvein re-clear +0.42h -> +0.45h
+  Shatter 3: h55.11 Ashen Keep Lv60 +37                   -> h53.12 Ashen Keep Lv62 +37 dust 2->39->5 buys [start4@20 dmg4@14] next start Lv 21 power after 84083   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv46 run2 Lv28  ->  run2 Lv35   |   Keep entry: run2 Lv51  ->  run2 Lv58
+  Keep: defeats 169 -> 154, hours 5.0 -> 5.1, loss ~31% -> 29%, rewalk 2.49 -> 2.44h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 5/5, 36h 5/5 -> 4/5, 48h 6/6 -> 6/6, 72h 7/7 -> 7/7 | defeats 893 -> 844 | training 22.7 -> 22.3h | hordes 3/3/3 -> 3/3/3
+
+seed 37  pre-first-Shatter identical 22/22  Shatters 3 -> 3 (first h22.1 -> h22.1)  dust earned 90 -> 86, left at end 41 -> 12  ranks bought: start 5 hp 3 dmg 3 (11 purchases)
+  Shatter 1: h22.11 Ironvein Caverns Lv48 +21             -> h22.11 Ironvein Caverns Lv48 +21 dust 2->23->0 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 15255   Ironvein re-clear +0.93h -> +0.84h
+  Shatter 2: h44.07 Emberwaste Lv64 +32                   -> h42.1 Ashen Approach Lv59 +32 dust 8->40->6 buys [start3@14 start4@20] next start Lv 21 power after 40192   Ironvein re-clear +0.40h -> +0.44h
+  Shatter 3: h61.07 Ashen Keep Lv59 +37                   -> h52.07 Amberfall Woods Lv53 +33 dust 9->42->12 buys [start5@30] next start Lv 26 power after 66979   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv53 run2 Lv28  ->  run1 Lv48 run2 Lv38   |   Keep entry: run2 Lv47  ->  
+  Keep: defeats 624 -> 0, hours 12.0 -> 0.0, loss ~50% -> -%, rewalk 3.08 -> 0.00h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 6/6 -> 6/6, 48h 6/6 -> 6/6, 72h 7/7 -> 6/6 | defeats 1327 -> 778 | training 25.1 -> 28.0h | hordes 2/2/5 -> 3/3/3
+
+seed 38  pre-first-Shatter identical 30/30  Shatters 3 -> 3 (first h30.1 -> h30.1)  dust earned 96 -> 79, left at end 47 -> 1  ranks bought: start 5 hp 2 dmg 2 (9 purchases)
+  Shatter 1: h30.09 Emberwaste Lv56 +25                   -> h30.09 Emberwaste Lv56 +25 dust 4->29->0 buys [start1@6 start2@9 start3@14] next start Lv 16 power after 23114   Ironvein re-clear +0.53h -> +0.55h
+  Shatter 2: h56.07 Ashen Keep Lv67 +35                   -> h38.07 Emberwaste Lv43 +26 dust 3->29->3 buys [start4@20 hp2@6] next start Lv 21 power after 38200   Ironvein re-clear +0.41h -> +0.48h
+  Shatter 3: h70.08 Ashen Keep Lv57 +36                   -> h43.09 Amberfall Woods Lv42 +28 dust 3->31->1 buys [start5@30] next start Lv 26 power after 52901   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv45 run2 Lv28  ->     |   Keep entry: run1 Lv63 run2 Lv46  ->  
+  Keep: defeats 971 -> 0, hours 19.0 -> 0.0, loss ~52% -> -%, rewalk 4.74 -> 0.00h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 7/7 -> 5/5, 72h 7/7 -> 5/5 | defeats 1638 -> 570 | training 26.9 -> 21.6h | hordes 4/4/4 -> 3/3/2
+
+seed 39  pre-first-Shatter identical 21/21  Shatters 3 -> 3 (first h21.1 -> h21.1)  dust earned 89 -> 85, left at end 40 -> 11  ranks bought: start 5 hp 3 dmg 3 (11 purchases)
+  Shatter 1: h21.1 Ironvein Caverns Lv48 +21              -> h21.1 Ironvein Caverns Lv48 +21 dust 2->23->0 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 16630   Ironvein re-clear +0.71h -> +0.59h
+  Shatter 2: h36.09 Amberfall Woods Lv58 +31              -> h39.06 Emberwaste Lv58 +31 dust 7->38->4 buys [start3@14 start4@20] next start Lv 21 power after 43270   Ironvein re-clear +0.42h -> +0.43h
+  Shatter 3: h54.06 Ashen Keep Lv63 +37                   -> h49.04 Ashen Approach Lv54 +33 dust 8->41->11 buys [start5@30] next start Lv 26 power after 72940   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv53 run2 Lv33  ->  run1 Lv48 run2 Lv32   |   Keep entry: run2 Lv57  ->  
+  Keep: defeats 460 -> 0, hours 9.0 -> 0.0, loss ~47% -> -%, rewalk 2.72 -> 0.00h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 6/6 -> 6/6, 48h 7/7 -> 6/6, 72h 7/7 -> 6/6 | defeats 1210 -> 842 | training 20.6 -> 23.8h | hordes 3/3/3 -> 3/3/3
+
+seed 40  pre-first-Shatter identical 31/31  Shatters 3 -> 3 (first h31.1 -> h31.1)  dust earned 93 -> 93, left at end 39 -> 3  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h31.08 Ironvein Caverns Lv56 +25             -> h31.08 Ironvein Caverns Lv56 +25 dust 4->29->0 buys [start1@6 start2@9 start3@14] next start Lv 16 power after 21986   Ironvein re-clear +0.54h -> +0.57h
+  Shatter 2: h43.88 Amberfall Woods Lv55 +31              -> h52.07 Ashen Approach Lv62 +32 dust 5->37->8 buys [start4@20 hp3@9] next start Lv 21 power after 57090   Ironvein re-clear +0.43h -> +0.41h
+  Shatter 3: h62.08 Ashen Keep Lv66 +37                   -> h70.05 Ashen Keep Lv57 +36 dust 11->47->3 buys [start5@30 dmg4@14] next start Lv 26 power after 92535   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv46 run2 Lv39  ->  run1 Lv47 run2 Lv28   |   Keep entry: run2 Lv59  ->  run2 Lv47
+  Keep: defeats 277 -> 527, hours 7.0 -> 12.0, loss ~37% -> 43%, rewalk 3.22 -> 3.77h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 4/4, 36h 5/5 -> 5/5, 48h 6/6 -> 6/6, 72h 7/7 -> 7/7 | defeats 1083 -> 1340 | training 26.4 -> 31.4h | hordes 2/2/5 -> 2/2/6
+
+-- light summary (n=10):
+   first Shatter h            med 22.9 -> 22.9 (paired med 0.0, +0 010 -0)
+   dust earned / left         med 90.0 -> 86.0 (paired med -4.0, +2 02 -6)  |  med 40.0 -> 5.0 (paired med -37.0, +0 00 -10)
+   ranks at end (b) med       start 5 hp 4 dmg 3  next-run start Lv after Shatter 1/2/3: 11/21/26
+   Ironvein re-clear after Shatter 1/2  med 0.6 -> 0.6 (paired med 0.0, +6 00 -4)  |  med 0.4 -> 0.4 (paired med -0.0, +5 00 -5)
+   Ashen Approach entry Lv run1   med 47.0 -> 48.0 (paired med -3.0, +1 00 -4)   (reached 8 -> 6 runs; entry h 35.1 -> 34.0)
+   Ashen Approach entry Lv run2   med 33.0 -> 32.0 (paired med -1.0, +3 00 -6)   (reached 10 -> 9 runs; entry h 42.1 -> 45.9)
+   Keep entry Lv run1             med 55.0 -> 61.0 (paired med 6.0, +1 00 -0)   (reached 2 -> 2 runs; entry h 40.0 -> 45.0)
+   Keep entry Lv run2             med 57.0 -> 47.0 (paired med -13.0, +1 00 -5)   (reached 9 -> 7 runs; entry h 50.0 -> 53.0)
+   Keep defeats / hours / loss%   med 404.0 -> 205.0 (paired med -63.0, +4 00 -6) | med 8.0 -> 5.1 (paired med -0.1, +5 00 -5) | med 47.2 -> 38.4 (paired med -8.7, +2 00 -4)
+   Hollow King attempts / wins   2 / 0 -> 0 / 0   Keep cleared runs 0 -> 0
+   zones best-run med @24h 4 -> 4, 36h 5 -> 5, 48h 6 -> 6, 72h 7 -> 7   current-run med @24h 4 -> 4, 36h 5 -> 5, 48h 6 -> 6, 72h 7 -> 7
+   total defeats / training h    med 1091.0 -> 891.0 (paired med -147.0, +4 00 -6) | med 22.2 -> 23.8 (paired med 2.9, +7 00 -3)
+
+===== CASUAL   batch_out_p21 -> batch_out_p22
+
+seed 31  pre-first-Shatter identical 20/20  Shatters 3 -> 3 (first h20.1 -> h20.1)  dust earned 92 -> 91, left at end 41 -> 1  ranks bought: start 4 hp 5 dmg 4 (13 purchases)
+  Shatter 1: h20.07 Ironvein Caverns Lv47 +24             -> h20.07 Ironvein Caverns Lv47 +24 dust 4->28->3 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 15561   Ironvein re-clear +0.95h -> +0.99h
+  Shatter 2: h34.17 Amberfall Woods Lv57 +31              -> h36.09 Emberwaste Lv56 +31 dust 1->32->4 buys [start3@14 hp4@14] next start Lv 16 power after 40128   Ironvein re-clear +0.42h -> +0.44h
+  Shatter 3: h47.14 Ashen Keep Lv59 +37                   -> h52.09 Ashen Keep Lv53 +36 dust 5->41->1 buys [start4@20 hp5@20] next start Lv 21 power after 68788   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv44 run2 Lv35  ->  run1 Lv47 run2 Lv27   |   Keep entry: run2 Lv53  ->  run2 Lv43
+  Keep: defeats 347 -> 662, hours 6.0 -> 11.0, loss ~50% -> 54%, rewalk 1.30 -> 3.01h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 4/5, 36h 5/6 -> 6/6, 48h 7/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1140 -> 1386 | training 21.9 -> 22.1h | hordes 5/5/0 -> 4/4/2
+
+seed 32  pre-first-Shatter identical 25/25  Shatters 3 -> 3 (first h25.2 -> h25.2)  dust earned 92 -> 92, left at end 48 -> 11  ranks bought: start 5 hp 3 dmg 3 (11 purchases)
+  Shatter 1: h25.17 Emberwaste Lv51 +25                   -> h25.17 Emberwaste Lv51 +25 dust 0->25->0 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 17744   Ironvein re-clear +0.68h -> +0.69h
+  Shatter 2: h40.07 Ashen Approach Lv56 +31               -> h37.08 Amberfall Woods Lv49 +31 dust 4->35->1 buys [start3@14 start4@20] next start Lv 21 power after 32483   Ironvein re-clear +0.48h -> +0.51h
+  Shatter 3: h55.11 Ashen Keep Lv56 +36                   -> h55.16 Ashen Keep Lv56 +36 dust 5->41->11 buys [start5@30] next start Lv 26 power after 62823   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv39 run2 Lv29  ->  run1 Lv36 run2 Lv40   |   Keep entry: run2 Lv43  ->  run2 Lv51
+  Keep: defeats 610 -> 464, hours 11.0 -> 8.0, loss ~53% -> 56%, rewalk 2.86 -> 1.61h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 5/5, 36h 6/6 -> 6/6, 48h 7/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1331 -> 1211 | training 23.7 -> 23.9h | hordes 4/4/2 -> 3/3/3
+
+seed 33  pre-first-Shatter identical 20/20  Shatters 3 -> 3 (first h20.2 -> h20.2)  dust earned 86 -> 82, left at end 49 -> 5  ranks bought: start 4 hp 4 dmg 3 (11 purchases)
+  Shatter 1: h20.17 Ironvein Caverns Lv47 +24             -> h20.17 Ironvein Caverns Lv47 +24 dust 0->24->1 buys [start1@6 start2@9 hp1@4 dmg1@4] next start Lv 11 power after 14450   Ironvein re-clear +0.85h -> +0.91h
+  Shatter 2: h28.16 Amberfall Woods Lv46 +26              -> h29.19 Emberwaste Lv45 +26 dust 1->27->4 buys [start3@14 hp3@9] next start Lv 16 power after 29346   Ironvein re-clear +0.53h -> +0.50h
+  Shatter 3: h41.14 Ashen Keep Lv54 +36                   -> h37.17 Ashen Approach Lv47 +32 dust 7->39->5 buys [start4@20 hp4@14] next start Lv 21 power after 43910   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv33  ->  run2 Lv37   |   Keep entry: run2 Lv49  ->  
+  Keep: defeats 446 -> 0, hours 6.0 -> 0.0, loss ~65% -> -%, rewalk 1.25 -> 0.00h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 5/5, 36h 7/7 -> 6/6, 48h 7/7 -> 6/6, 72h 7/7 -> 6/6 | defeats 1130 -> 766 | training 17.2 -> 20.0h | hordes 3/3/2 -> 3/3/1
+
+seed 34  pre-first-Shatter identical 16/16  Shatters 3 -> 3 (first h16.2 -> h16.2)  dust earned 77 -> 85, left at end 39 -> 4  ranks bought: start 5 hp 3 dmg 3 (11 purchases)
+  Shatter 1: h16.17 Thornwood Lv43 +21                    -> h16.17 Thornwood Lv43 +21 dust 4->25->0 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 12001   Ironvein re-clear +0.88h -> +0.98h
+  Shatter 2: h23.08 Emberwaste Lv39 +23                   -> h32.18 Ashen Approach Lv51 +31 dust 5->36->2 buys [start3@14 start4@20] next start Lv 21 power after 30595   Ironvein re-clear +0.64h -> +0.53h
+  Shatter 3: h32.18 Emberwaste Lv50 +33                   -> h41.19 Amberfall Woods Lv49 +33 dust 1->34->4 buys [start5@30] next start Lv 26 power after 52473   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv41  ->  run1 Lv44 run2 Lv37   |   Keep entry:   ->  
+  Keep: defeats 0 -> 0, hours 0.0 -> 0.0, loss ~-% -> -%, rewalk 0.00 -> 0.00h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/4 -> 5/5, 36h 6/6 -> 5/6, 48h 6/6 -> 6/6, 72h 6/6 -> 6/6 | defeats 575 -> 824 | training 15.4 -> 22.2h | hordes 4/4/0 -> 5/5/0
+
+seed 35  pre-first-Shatter identical 20/20  Shatters 3 -> 3 (first h20.1 -> h20.1)  dust earned 95 -> 87, left at end 51 -> 5  ranks bought: start 4 hp 4 dmg 4 (12 purchases)
+  Shatter 1: h20.12 Ironvein Caverns Lv47 +24             -> h20.12 Ironvein Caverns Lv47 +24 dust 2->26->1 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 16316   Ironvein re-clear +0.61h -> +0.76h
+  Shatter 2: h41.16 Ashen Keep Lv60 +35                   -> h28.12 Amberfall Woods Lv42 +26 dust 0->26->3 buys [start3@14 hp3@9] next start Lv 16 power after 31174   Ironvein re-clear +0.42h -> +0.52h
+  Shatter 3: h55.13 Ashen Keep Lv56 +36                   -> h46.17 Ashen Keep Lv59 +37 dust 2->39->5 buys [start4@20 dmg4@14] next start Lv 21 power after 70777   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv39 run2 Lv29  ->  run2 Lv38   |   Keep entry: run1 Lv55 run2 Lv45  ->  run2 Lv56
+  Keep: defeats 1008 -> 260, hours 17.1 -> 5.1, loss ~56% -> 47%, rewalk 4.22 -> 1.21h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 5/5, 36h 7/7 -> 6/6, 48h 7/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1721 -> 1042 | training 17.8 -> 20.8h | hordes 3/3/3 -> 3/3/2
+
+seed 36  pre-first-Shatter identical 23/23  Shatters 3 -> 3 (first h23.1 -> h23.1)  dust earned 84 -> 83, left at end 46 -> 2  ranks bought: start 4 hp 4 dmg 4 (12 purchases)
+  Shatter 1: h23.09 Ironvein Caverns Lv51 +25             -> h23.09 Ironvein Caverns Lv51 +25 dust 3->28->3 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 17285   Ironvein re-clear +0.58h -> +0.64h
+  Shatter 2: h32.12 Emberwaste Lv48 +26                   -> h31.17 Amberfall Woods Lv44 +26 dust 3->29->6 buys [start3@14 hp3@9] next start Lv 16 power after 30267   Ironvein re-clear +0.47h -> +0.53h
+  Shatter 3: h41.15 Ashen Approach Lv55 +33               -> h40.22 Emberwaste Lv48 +32 dust 4->36->2 buys [start4@20 dmg4@14] next start Lv 21 power after 47791   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run2 Lv34  ->  run2 Lv34   |   Keep entry:   ->  
+  Keep: defeats 0 -> 0, hours 0.0 -> 0.0, loss ~-% -> -%, rewalk 0.00 -> 0.00h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 4/5 -> 4/5, 36h 6/6 -> 6/6, 48h 6/6 -> 6/6, 72h 6/6 -> 6/6 | defeats 779 -> 788 | training 21.5 -> 21.5h | hordes 4/4/1 -> 5/5/0
+
+seed 37  pre-first-Shatter identical 26/26  Shatters 3 -> 3 (first h26.2 -> h26.2)  dust earned 96 -> 99, left at end 46 -> 0  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h26.16 Ironvein Caverns Lv55 +29             -> h26.16 Ironvein Caverns Lv55 +29 dust 2->31->2 buys [start1@6 start2@9 start3@14] next start Lv 16 power after 21748   Ironvein re-clear +0.52h -> +0.55h
+  Shatter 2: h37.13 Amberfall Woods Lv56 +31              -> h40.14 Ashen Keep Lv52 +34 dust 5->39->1 buys [start4@20 hp3@9 dmg3@9] next start Lv 21 power after 46380   Ironvein re-clear +0.42h -> +0.42h
+  Shatter 3: h53.13 Ashen Keep Lv57 +36                   -> h52.16 Ashen Keep Lv51 +36 dust 8->44->0 buys [start5@30 dmg4@14] next start Lv 26 power after 73371   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run0 Lv49 run1 Lv41 run2 Lv28  ->  run0 Lv49 run1 Lv39 run2 Lv28   |   Keep entry: run2 Lv41  ->  run1 Lv48 run2 Lv47
+  Keep: defeats 802 -> 728, hours 13.0 -> 11.1, loss ~56% -> 59%, rewalk 2.65 -> 1.93h | Hollow King 0/1 -> 0/0
+  zones (cur/best) 24h 6/6 -> 6/6, 36h 6/6 -> 7/7, 48h 7/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1571 -> 1487 | training 19.0 -> 18.3h | hordes 3/3/3 -> 4/4/2
+
+seed 38  pre-first-Shatter identical 21/21  Shatters 3 -> 3 (first h21.1 -> h21.1)  dust earned 93 -> 96, left at end 40 -> 7  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h21.12 Amberfall Woods Lv51 +25              -> h21.12 Amberfall Woods Lv51 +25 dust 4->29->0 buys [start1@6 start2@9 start3@14] next start Lv 16 power after 18294   Ironvein re-clear +0.55h -> +0.56h
+  Shatter 2: h31.12 Emberwaste Lv53 +31                   -> h49.14 Ashen Keep Lv63 +35 dust 5->40->6 buys [start4@20 hp4@14] next start Lv 21 power after 57369   Ironvein re-clear +0.41h -> +0.39h
+  Shatter 3: h48.08 Ashen Keep Lv62 +37                   -> h60.1 Ashen Keep Lv51 +36 dust 1->37->7 buys [start5@30] next start Lv 26 power after 81761   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv41 run2 Lv30  ->  run1 Lv40 run2 Lv29   |   Keep entry: run2 Lv52  ->  run1 Lv52 run2 Lv37
+  Keep: defeats 677 -> 1311, hours 11.0 -> 25.0, loss ~53% -> 47%, rewalk 2.06 -> 8.12h | Hollow King 0/2 -> 0/2 (loss HP left med 84%, summons 0)
+  zones (cur/best) 24h 5/5 -> 5/5, 36h 6/6 -> 7/7, 48h 7/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1366 -> 1997 | training 18.6 -> 18.6h | hordes 4/4/1 -> 4/4/3
+
+seed 39  pre-first-Shatter identical 22/22  Shatters 3 -> 3 (first h22.2 -> h22.2)  dust earned 93 -> 96, left at end 37 -> 7  ranks bought: start 5 hp 4 dmg 4 (13 purchases)
+  Shatter 1: h22.16 Ironvein Caverns Lv51 +25             -> h22.16 Ironvein Caverns Lv51 +25 dust 0->25->0 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 19448   Ironvein re-clear +0.54h -> +0.54h
+  Shatter 2: h31.17 Emberwaste Lv50 +31                   -> h47.14 Ashen Keep Lv62 +35 dust 9->44->10 buys [start3@14 start4@20] next start Lv 21 power after 54356   Ironvein re-clear +0.44h -> +0.38h
+  Shatter 3: h53.1 Ashen Keep Lv65 +37                    -> h55.18 Ashen Keep Lv50 +36 dust 1->37->7 buys [start5@30] next start Lv 26 power after 80585   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv40 run2 Lv43  ->  run1 Lv42 run2 Lv27   |   Keep entry: run2 Lv50  ->  run1 Lv55 run2 Lv40
+  Keep: defeats 1016 -> 969, hours 15.9 -> 17.0, loss ~53% -> 48%, rewalk 4.46 -> 6.15h | Hollow King 0/1 -> 0/0
+  zones (cur/best) 24h 5/5 -> 4/5, 36h 6/6 -> 7/7, 48h 7/7 -> 5/7, 72h 7/7 -> 7/7 | defeats 1794 -> 1698 | training 18.8 -> 19.6h | hordes 4/4/2 -> 4/4/2
+
+seed 40  pre-first-Shatter identical 17/17  Shatters 3 -> 3 (first h17.2 -> h17.2)  dust earned 88 -> 79, left at end 48 -> 10  ranks bought: start 4 hp 4 dmg 3 (11 purchases)
+  Shatter 1: h17.18 Thornwood Lv44 +21                    -> h17.18 Thornwood Lv44 +21 dust 4->25->0 buys [start1@6 start2@9 hp1@4 hp2@6] next start Lv 11 power after 12374   Ironvein re-clear +0.90h -> +0.90h
+  Shatter 2: h34.17 Emberwaste Lv57 +31                   -> h24.1 Ironvein Caverns Lv36 +22 dust 4->26->3 buys [start3@14 hp3@9] next start Lv 16 power after 20962   Ironvein re-clear +0.45h -> +0.80h
+  Shatter 3: h53.15 Ashen Keep Lv58 +36                   -> h47.11 Ashen Keep Lv57 +36 dust 8->44->10 buys [start4@20 hp4@14] next start Lv 21 power after 54187   Ironvein re-clear +-h -> +-h
+  Ashen Approach entry: run1 Lv46 run2 Lv33  ->  run2 Lv45   |   Keep entry: run2 Lv47  ->  run2 Lv52
+  Keep: defeats 830 -> 613, hours 13.0 -> 10.0, loss ~57% -> 55%, rewalk 2.87 -> 2.87h | Hollow King 0/0 -> 0/0
+  zones (cur/best) 24h 5/5 -> 4/4, 36h 5/6 -> 6/6, 48h 7/7 -> 7/7, 72h 7/7 -> 7/7 | defeats 1648 -> 1288 | training 23.3 -> 20.8h | hordes 4/4/2 -> 4/4/1
+
+-- casual summary (n=10):
+   first Shatter h            med 20.2 -> 20.2 (paired med 0.0, +0 010 -0)
+   dust earned / left         med 92.0 -> 87.0 (paired med -1.0, +4 01 -5)  |  med 46.0 -> 5.0 (paired med -40.0, +0 00 -10)
+   ranks at end (b) med       start 4 hp 4 dmg 4  next-run start Lv after Shatter 1/2/3: 11/16/21
+   Ironvein re-clear after Shatter 1/2  med 0.6 -> 0.7 (paired med 0.0, +8 02 -0)  |  med 0.4 -> 0.5 (paired med 0.0, +5 01 -4)
+   Ashen Approach entry Lv run1   med 41.0 -> 40.0 (paired med -1.0, +2 00 -3)   (reached 7 -> 6 runs; entry h 27.1 -> 28.1)
+   Ashen Approach entry Lv run2   med 33.0 -> 34.0 (paired med 0.0, +4 02 -4)   (reached 10 -> 10 runs; entry h 35.1 -> 36.1)
+   Keep entry Lv run1             -   (reached 1 -> 3 runs; entry h 34.1 -> 35.1)
+   Keep entry Lv run2             med 47.0 -> 47.0 (paired med 5.0, +4 00 -3)   (reached 8 -> 7 runs; entry h 40.1 -> 46.0)
+   Keep defeats / hours / loss%   med 610.0 -> 464.0 (paired med -74.0, +2 02 -6) | med 11.0 -> 8.0 (paired med -1.9, +3 02 -5) | med 53.1 -> 54.1 (paired med -2.2, +3 00 -4)
+   Hollow King attempts / wins   4 / 0 -> 2 / 0   Keep cleared runs 0 -> 0
+   zones best-run med @24h 5 -> 5, 36h 6 -> 6, 48h 7 -> 7, 72h 7 -> 7   current-run med @24h 5 -> 5, 36h 6 -> 6, 48h 7 -> 7, 72h 7 -> 7
+   total defeats / training h    med 1331.0 -> 1211.0 (paired med -96.0, +4 00 -6) | med 18.8 -> 20.8 (paired med 0.2, +6 00 -4)
