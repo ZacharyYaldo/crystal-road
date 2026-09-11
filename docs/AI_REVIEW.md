@@ -1,119 +1,156 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_16_SAND_TYRANT_ATK_CANDIDATE
-REVIEWED_HANDOFF_PASS: PASS_15_WHOLE_ROAD_BOTTLENECK_TRIAGE
-REVIEWED_HANDOFF_SHA: a78e43a5a5eb246ea6ed4b2fb2d3a357e20dce44
-BASE_COMMIT: 4d8e48951b42309b362d1d45e96776bcd9df7b18
+REVIEW_FOR_PASS: PASS_17_LATE_BOSS_ATK_NORMALIZATION_CANDIDATE
+REVIEWED_HANDOFF_PASS: PASS_16_SAND_TYRANT_ATK_CANDIDATE
+REVIEWED_HANDOFF_SHA: 036e34d66b7bfc4939f1728943c6f33cb54ddfaa
+BASE_COMMIT: e7906f36a3f8c871158c7faaa45b6291369f64bd
 CONFIDENCE: HIGH
 
 # Decision
 
-Accept Emberwaste / Sand Tyrant as the next material bottleneck.
+Do not lock Sand Tyrant ATK x1.35.
 
-The ranking is convincing enough to act:
+Accept the developer's counterproposal in principle: the evidence now supports one scoped late-boss ATK-normalization experiment instead of another Sand-only pass followed by a separate Hunter King cycle.
 
-- idle spends about 13 hours from Emberwaste entry to clear;
-- idle has 0% first-try clears, 22 median attempts, P90 29, a 21-loss streak, and 4.49h of boss stall;
-- idle Auto-Cast wins only 10 of 216 attempts;
-- light clears mainly when an active window happens to overlap the fight;
-- this wall appears around 15-28h, substantially earlier than the late-Road training-cost problem;
-- Ironvein now sits mid-table after its lock, so additional Ironvein work is not justified.
+Pass 16 established:
 
-Accept the causal diagnosis: Sand Tyrant damage per action is too high at natural arrival. Parties reach the summon and active play can win, so HP, summons, enrage, and progression strength are not the first levers to change.
+- x1.35 is causal and improves idle attempts in all 10 paired seeds;
+- idle attempts fall 22 -> 7 and maximum streak 21 -> 6;
+- idle Auto-Cast efficiency rises 4.6% -> 14%;
+- idle stall improves only 28%, short of the good-enough target;
+- light does not improve and its distribution becomes less stable;
+- candidate losses simply move into the summon phase while charge kills remain extremely high;
+- upstream systems remain unchanged;
+- production still correctly remains at x1.9.
 
-# Pacing Correction
+This is useful diagnostic evidence, but x1.35 is not a finished balance point. Do not ship it as an interim value and do not run another x1.35 batch.
 
-Do not run the proposed four-arm sizing harness.
+# System-Level Finding
 
-The triage plus the prior Warlord evidence already serve as the diagnostic. Testing x1.9, x1.5, x1.35, and x1.2 before the Road test would add another optimization loop without a clear player-facing need.
+The later bosses show the same worsening damage-per-action curve:
 
-Test one candidate directly:
+- locked Warlord: about 2.3 front-hero ordinary hits to defeat and charge around 121% of front-hero HP;
+- Sand Tyrant x1.9: about 1.3 hits and 208% charge damage;
+- Hunter King x2.0: about 1.0 hit and 221% volley damage at idle arrival;
+- Grave Knight x2.0: about 0.6 hit and roughly 415% charge damage in the limited casual data.
 
-- control Sand Tyrant base ATK: x1.9;
-- candidate Sand Tyrant base ATK: x1.35.
+The problem is not merely one bad Sand Tyrant constant. Boss ATK scaling is outpacing natural hero durability after Ironvein. Treat the next test as one design lever: normalize post-Ironvein boss damage to the locked Warlord's contested-fight shape.
 
-Use an isolated simulator override for the candidate. Do not change the production enemy table yet.
+Grave Knight remains excluded because it is tied to the Shatter wall and lacks adequate realistic-profile evidence.
 
-# Pass 16 Candidate Test
+# Authorized Candidate
+
+Use simulator-only overrides:
+
+- Sand Tyrant base ATK: x1.9 -> x1.1;
+- Hunter King base ATK: x2.0 -> x1.0;
+- Grave Knight: unchanged.
+
+These are one scoped rule-based candidate, not two independently tuned values. They target approximately 2.3 front-hero ordinary hits to defeat at natural realistic arrival.
+
+Keep the production enemy table unchanged until review.
+
+# Pass 17 Test
 
 Run:
 
 - paired seeds 31-40;
-- idle, light, and casual profiles;
-- 36 hours;
+- idle, light, and casual;
+- 48 hours so Emberwaste and Amberfall are both meaningfully observed;
 - 30 control + 30 candidate runs;
 - production Road, normal Auto Training, hordes, and catacombs;
 - zero simulation errors.
 
-This is the adequately sized candidate test. Do not add a separate boss-harness sizing phase, x1.5 arm, or x1.2 arm.
+Do not add other ATK arms, values, or a separate sizing harness. Do not run Stress as a tuning target.
 
-Report counts, medians/P90, and paired direction for:
+Use the corrected ranged-volley telemetry. Validate it with the smallest focused replay needed; do not create a separate full batch for instrumentation.
 
-- Emberwaste reach and clear counts;
+# Required Results
+
+For Sand Tyrant and Hunter King, report:
+
+- reach and clear counts;
 - first-try clears;
 - attempts and maximum loss streak;
-- boss combat, retry, and total stall;
+- combat, retry, and total stall;
 - Auto-Cast and active-window wins/attempts;
-- ordinary hits, charge telegraphs/hits/kills, summon reached, loss phase/HP, and win survivors/HP;
-- arrival level, power, party HP, charge, and Surge;
-- clear times and zones cleared through the 36h horizon;
-- ordinary and boss rewalk burden;
-- Auto Training hours/triggers;
-- upstream locked bosses;
-- downstream zones with adequate reach;
+- ordinary hits;
+- charge/volley telegraphs, hits, kills, parries, and interrupts;
+- summon reached and loss boss-HP distribution;
+- winning survivors and party HP;
+- arrival level, power, hero HP/DEF, charge, and Surge;
+- actual boss ATK and calculated hits-to-defeat at first attempt.
+
+For the Road, report:
+
+- per-zone median/P90 clear times;
+- zones cleared at 24h, 36h, and 48h;
+- ordinary and boss rewalk burden by zone;
+- Auto Training hours and triggers by source zone;
+- total defeats;
+- upstream locked-boss outcomes;
+- downstream results only where reach counts are adequate;
 - hordes, catacombs, and simulation errors.
 
-# Good-Enough Success Criteria
+Use paired direction/counts where distributions are bimodal. Keep reach denominators visible.
 
-Treat x1.35 as promising if the primary player-facing result is clear:
+# Good-Enough Decision Criteria
 
-- idle median attempts fall to 2-5 and P90 is no more than 10;
-- idle total Emberwaste stall improves at least 40%;
-- idle gets a meaningful Auto-Cast clear rate instead of a low-single-digit execution wall;
-- light median attempts are no more than 3 and P90 no more than 6;
-- light and casual active-window win rates remain below 95%;
-- the boss still produces losses in idle, light, and casual;
-- the charge remains lethal when it lands;
-- Stillwater, Thornwood, and Ironvein are unchanged;
+The combined candidate is promising if:
+
+Sand Tyrant:
+
+- idle median attempts are 1-4 and P90 <=8;
+- idle stall improves at least 40%;
+- idle Auto-Cast no longer has a low-single-digit win rate;
+- light median attempts are <=3 and P90 <=6;
+- idle, light, and casual still record losses;
+- active-window win rates for light and casual stay below 95%.
+
+Hunter King:
+
+- idle and light no longer show execution-wall attempt counts when adequately reached;
+- Auto-Cast viability materially improves from its current low-single-digit rate;
+- light and casual active-window win rates stay below 95%;
+- the fight still produces losses in realistic profiles;
+- ranged volley remains meaningfully lethal but no longer dominates every attempt.
+
+Whole Road:
+
+- Stillwater, Thornwood, Ironvein, and their locked bosses remain identical;
 - no adequately sampled downstream median clear time worsens more than 10% or P90 more than 15%;
-- no material Auto Training, horde, catacomb, or mechanical regression appears.
+- no profile regresses in median zones cleared at 24h, 36h, or 48h;
+- total defeats do not worsen more than 10%;
+- no material Auto Training, horde, catacomb, telemetry, or mechanical regression appears.
 
-Do not reject a clear improvement because one secondary percentage narrowly misses an arbitrary threshold. Document uncertainty. Likewise, do not search for a more “perfect” ATK value if x1.35 produces a contested, meaningful fight without regression.
+Do not require every secondary percentage to hit a theoretically perfect band. The player-facing question is whether both bosses become contested progression checks instead of repeated execution walls while active play retains an advantage.
 
-After Pass 16, the reviewer will either lock x1.35, reject it, or request one final validation only if the evidence is genuinely ambiguous or release-critical.
+# Decision After Pass 17
 
-# Avoid Repeating This Boss By Boss
+Pass 17 is the one adequately sized candidate test for this scoped rule.
 
-Alongside the Pass 16 report, use existing Pass 15 snapshots and telemetry to include a compact, observation-only comparison for:
+If the primary effect is clear and regressions are absent, propose locking both values directly. Do not add separate Sand Tyrant and Hunter King confirmation passes.
 
-- Sand Tyrant;
-- Hunter King;
-- Grave Knight.
-
-For each, report base ATK, actual ATK at first attempt, party HP at natural arrival, ordinary hits to defeat a typical hero, charge/volley lethality, active versus Auto-Cast outcomes, and whether losses show the same damage-per-action wall.
-
-This comparison does not authorize changes to Hunter King or Grave Knight. Its purpose is to decide whether the next action should be one scoped late-boss normalization experiment instead of separate multi-pass polishing cycles for every map.
-
-You may correct the ranged-volley hit/kill telemetry as an observation-only instrumentation fix. Do not rerun a full batch solely for that fix; validate it with the smallest focused replay available.
+Request one final validation only if the combined change produces genuinely ambiguous results or if release confidence specifically requires it. Otherwise lock or reject and move to the next whole-Road bottleneck.
 
 # Locked Systems
 
 Keep locked:
 
-- Warlord base ATK x1.2 and all other Warlord values/mechanics;
+- Warlord ATK x1.2 and all other Warlord mechanics;
 - Sand Tyrant HP x6.5, DEF x1.0, speed 10, charge x2.5, enrage at 25%, summon at 50%, and two sandorcs;
-- all other boss and ordinary-enemy values;
+- Hunter King HP x6.0, DEF x0.9, speed 11, volley x2.2, summon at 60%, and two skeleton archers;
+- Grave Knight and every other boss;
+- ordinary enemies and global enemy curves;
 - AUTO_REACT = false;
-- AT_LOSSES = 4, AT_WINDOW = 10, AT_MIN = 8;
-- universal +1 Auto Training target and all exploit protections;
-- Stillwater, Thornwood, and Greenhollow tuning;
-- tap, Renown, rarity, promotion, XP, gold, gear, travel, recovery, and unrelated UI systems.
+- all Auto Training constants and protections;
+- all previously locked progression, economy, tap, Renown, rarity, promotion, travel, recovery, and UI systems.
 
 # What Not To Do
 
-- Do not change production Sand Tyrant ATK before review.
-- Do not test multiple Sand Tyrant ATK values.
-- Do not alter charge, HP, summons, adds, enrage, or Auto Training.
-- Do not tune Hunter King or Grave Knight in this pass.
-- Do not run another Ironvein pass.
+- Do not put x1.35 into production.
+- Do not change production Sand Tyrant or Hunter King values before review.
+- Do not tune the two bosses independently in this pass.
+- Do not change HP, charge/volley, summons, adds, enrage, speed, or DEF.
+- Do not change Grave Knight or the Shatter wall.
+- Do not add another sizing or confirmation phase.
 - Do not tune toward Stress.
-- Do not start a global enemy-ATK curve change.
