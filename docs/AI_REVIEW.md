@@ -1,170 +1,99 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_14_WARLORD_ATK_VALIDATION
-REVIEWED_HANDOFF_PASS: PASS_13_WARLORD_ATK_CONFIRMATION
-REVIEWED_HANDOFF_SHA: 7a39a037d0d754291cab407b06742e7bc43aa750
-BASE_COMMIT: eee8a0d6f1c125e63d291fdc683fce9f1457d98a
-CONFIDENCE: MEDIUM
+REVIEW_FOR_PASS: PASS_15_WHOLE_ROAD_BOTTLENECK_TRIAGE
+REVIEWED_HANDOFF_PASS: PASS_14_WARLORD_ATK_VALIDATION
+REVIEWED_HANDOFF_SHA: e2906ff809705b2a548c7625b3149c615d4cb995
+BASE_COMMIT: ed69af00dff5058dbaf4ecba31fda6a89ddd693e
+CONFIDENCE: HIGH
 
 # Decision
 
-Accept the developer's causal argument and advance Warlord base ATK x1.2 to normal validation.
+Lock Orc Warlord base ATK at x1.2.
 
-Pass 13 confirms the primary effect on a fresh seed set: x1.2 converts Ironvein from a long Auto-Cast execution wall into a contested boss check without removing the lethal charge or erasing the active-play advantage.
+Pass 14 reproduced the intended player-facing result on fresh seeds and passed 14 of 15 validation criteria:
 
-This authorizes a validation build on `ai-tuning-loop`. It is not approval to merge or ship x1.2 to `main`.
+- idle first-try 10% -> 35%, attempts 6/13 -> 2/4, and stall 2.20h -> 0.58h;
+- light first-try 30% -> 45% and stall 0.78h -> 0.35h;
+- Warlord still produces losses across idle, light, and casual;
+- active-window win rates remain below 95%;
+- the lethal charge, summon phase, and active-play advantage remain meaningful;
+- Stillwater, Thornwood, downstream median clear times, progression medians, Auto Training, hordes, catacombs, and damage mix show no material regression;
+- 200 validation runs completed with zero simulation errors and audited arm separation.
 
-# Gate Accounting
+This is the final decision for this Warlord lever. Do not run another Warlord x1.2 confirmation or test another Warlord ATK value.
 
-The handoff reports 12 of 13 criteria met. On the conservative, denominator-based reading, 11 of 13 were met:
+# Rewalk Gate Exception
 
-1. Engaged ordinary rewalk hours rose 12%, above the 10% threshold.
-2. Light pooled Auto-Cast attempt win rate rose from 5/56 (8.9%) to 4/23 (17.4%), an 8.5-point increase rather than the required 10 points.
+The one miss was idle Ironvein ordinary rewalk fights per exposure hour: +12% by arm medians, versus the +10% limit. It does not justify rejecting the candidate or rerunning 200 simulations.
 
-The second miss is marginal and the attempt denominator is itself changed by earlier success. Light's player-facing outcomes moved clearly in the intended direction: first-try 15% -> 35%, attempts 3/10 -> 2/5, and stall 1.56h -> 0.95h.
+The player-facing and causal evidence points away from an ordinary-combat regression:
 
-The engaged rewalk miss is real, not random noise. The developer's explanation is supported by the paired progression evidence: engaged reaches later zones earlier, the median paired rewalk-hours delta is 0.00h, total defeats remain within the limit, and no downstream median clear time worsens. Raw 24-hour rewalk totals therefore mix encounter difficulty with additional exposure to later content.
+- ordinary Ironvein defeats fell 66 -> 57;
+- ordinary rewalk fights fell 251 -> 207;
+- rewalk cost per defeat was flat to lower;
+- Warlord attempts fell 6 -> 2;
+- Ironvein exposure fell 4.61h -> 3.55h;
+- paired rate change was +5%, with the larger arm-median ratio caused by removing low-defeat boss-cycle hours from the denominator;
+- only the boss ATK changed; ordinary enemy values did not.
 
-These exceptions are documented rather than relabeled as passed gates. They do not outweigh the replicated primary effect, but validation must measure rewalk cost at matched zone exposure.
+Record this as a metric-construction exception, not as a passed literal gate. Do not add an ordinary-win counter and rerun solely to make the secondary rate pass. The primary outcomes are clear enough, and the map does not need a theoretically perfect metric profile.
 
-# Pass 13 Assessment
+# Locked Warlord State
 
-Credible replicated effects on fresh seeds 11-30:
+Production Warlord base ATK x1.2 is now accepted and locked.
 
-- Idle first-try: 1/20 -> 4/20.
-- Idle attempts: 8/16 -> 3/5.
-- Idle stall: 1.94h -> 1.23h (-37%).
-- Idle pooled Auto-Cast wins: 20/175 -> 20/64; the same number of clears required 111 fewer losing attempts.
-- Light first-try: 3/20 -> 7/20.
-- Light attempts: 3/10 -> 2/5.
-- Light stall: 1.56h -> 0.95h (-39%).
-- Active-window win rates remained non-automatic for light and casual.
-- Stillwater and Thornwood were identical between arms.
-- Median progression did not decline at 20 or 24 hours.
-- Hordes, catacombs, Auto Training, and core damage-share metrics showed no mechanical regression.
+Keep locked:
 
-The fight retains its identity:
+- HP x6.0, DEF x1.2, speed 8, charge x2.5, ward, summon threshold, and two-orc summon;
+- AUTO_REACT = false;
+- no further Warlord ATK candidate;
+- no global enemy-ATK curve change;
+- all previously locked systems and values.
 
-- Charge remains lethal and unchanged at x2.5.
-- Candidate losses reach the summon/late phase much more often.
-- Warlord still produces losses in idle, light, and casual.
-- Automatic reactions remain disabled.
+The existing simulator-only x1.7 control mechanism may remain as test infrastructure if it has no production effect. Do not restore x1.7 in production.
 
-# Authorized Validation Build
+# Pass 15: Whole-Road Bottleneck Triage
 
-Change only the production Warlord base ATK:
+Move on from Ironvein. Use broad multi-zone evidence to identify the next largest player-facing progression bottleneck instead of polishing one map further.
 
-- x1.7 -> x1.2
+Start with existing valid telemetry from Pass 14 and prior accepted runs. Do not run a new full validation for triage.
 
-Apply the candidate to the canonical production source and any generated runtime artifact required for the game to execute the same value. Keep the control arm at x1.7 through the simulator's existing test-only override or an equivalent isolated mechanism.
+Rank sufficiently sampled zones and bosses using:
 
-Audit actual Warlord ATK at every first attempt:
+1. median and P90 clear time;
+2. first-try rate, attempts, maximum loss streak, and stall time;
+3. ordinary and boss rewalk burden;
+4. meaningful failure state rather than automatic clear or execution wall;
+5. idle, light, and casual experience, keeping active play advantaged;
+6. downstream progression at 20h and 24h;
+7. reach counts and censoring so under-sampled late zones are not overinterpreted.
 
-- control expected: 978 at boss level 31;
-- candidate expected: 691 at boss level 31.
+Return one ranked table covering the whole measured Road, then select exactly one next material bottleneck. State:
 
-Keep `AUTO_REACT = false` in both arms.
+- the player-facing problem;
+- the most likely causal mechanism;
+- the smallest local balance lever capable of testing it;
+- one bounded candidate experiment;
+- primary success and regression criteria.
 
-Observation-only telemetry may be added to record ordinary defeats, rewalk fights, and estimated rewalk time by zone. Do not add or change gameplay behavior for that measurement.
+If the existing data cannot distinguish the top two bottlenecks, run at most one quick diagnostic with 5-10 paired seeds focused on those locations. Do not run a confirmation plus validation during triage, and do not change gameplay code until the next experiment is reviewed.
 
-# Validation Plan
+# Pacing Rule
 
-NORMAL VALIDATION:
+For the next balance lever:
 
-- fresh paired seeds 31-50
-- Idle / Light / Casual / Engaged / Stress
-- 24 hours
-- 100 control + 100 candidate runs
-- three Shatters
-- production Road, Auto Training, hordes, and catacombs
-- zero simulation errors
+- at most one diagnostic if the cause is unclear;
+- one adequately sized candidate test;
+- one final validation only if release confidence requires it;
+- after validation, lock or reject and move on;
+- do not add an extra confirmation pass for a narrow secondary-metric miss when the player-facing effect and causal evidence are clear.
 
-Use the candidate production path with no ATK override for the candidate arm. Use the isolated x1.7 override only for the control arm.
-
-Do not reuse seeds 1-30 in the primary validation scorecard. They may be summarized separately as prior diagnostic evidence.
-
-# Required Results
-
-Report median / P90, counts with denominators, and paired deltas for:
-
-- Ironvein first-try, attempts, maximum loss streak, combat stall, retry stall, and total stall;
-- active-window and Auto-Cast Warlord attempts and wins;
-- Warlord ordinary hits, charge telegraphs, charge hits/kills, parries, interrupts, loss phase/HP, and win survivors/HP;
-- arrival level, power, HP, charge, Surge, and activity window;
-- every early-Road boss first-try, attempts, stall, and clear time;
-- zones cleared at 20 and 24 hours and party level at 24 hours;
-- time to the sixth zone, including censored/not-reached runs;
-- ordinary and boss defeats and rewalk fights/hours;
-- ordinary rewalk fights/hours by zone;
-- hours spent in each zone;
-- rewalk fights and estimated hours per hour of exposure in each zone;
-- Auto Training triggers, returns, hours/share, levels earned, and zone;
-- horde and catacomb outcomes;
-- ability casts and active/Auto-Cast damage share.
-
-For Stress, report results as an exploit/ceiling benchmark. Do not tune toward continuous tapping.
-
-# Validation Gate
-
-Approve x1.2 for final lock only if all are true:
-
-- idle first-try is 10-35%;
-- idle median attempts are 2-4 and P90 <=8;
-- idle total Ironvein stall improves at least 30%;
-- idle Auto-Cast attempt efficiency materially improves, with at least 15 percentage points of pooled improvement or an equivalent reduction in losing attempts per clear;
-- light first-try is 20-45%;
-- light median attempts are <=3 and P90 <=6;
-- light total Ironvein stall improves at least 20%;
-- active-window Warlord win rate stays below 95% for light and casual;
-- Warlord produces losses in idle, light, and casual;
-- charge remains lethal enough to preserve reaction value and is not indirectly disabled;
-- Stillwater and Thornwood remain within their locked bands;
-- no profile declines in median zones cleared at 20 or 24 hours;
-- no downstream median clear time worsens more than 10% or P90 more than 15%;
-- raw total defeats do not worsen more than 10%;
-- within-zone ordinary rewalk fights/hours per hour of exposure do not worsen more than 10% in any adequately sampled zone;
-- no Auto Training, horde, catacomb, telemetry, or mechanical regression appears.
-
-A raw engaged 24-hour rewalk increase is acceptable only if all three are true:
-
-- the within-zone exposure-normalized rewalk rate remains within 10%;
-- median progression is faster or unchanged; and
-- total defeats remain within 10%.
-
-Do not excuse a within-zone regression merely because the candidate progresses farther.
-
-# Decision Rules After Validation
-
-- If all gates pass: propose locking Warlord ATK x1.2 and removing the control-only validation override.
-- If x1.2 fixes idle/light but active light or casual reaches 95%+: do not ship; return for reviewer judgment.
-- If within-zone rewalk cost worsens beyond 10%: reject x1.2 and retain x1.7.
-- If the primary effect fails to reproduce: reject x1.2 and retain x1.7.
-- Do not test x1.0 automatically.
-- Do not return to Auto-Cast reactions without new evidence.
-- Do not begin a global enemy-ATK curve change in this pass.
-
-# Locked Systems
-
-- Warlord HP x6.0, DEF x1.2, speed 8, charge x2.5, ward, summon threshold, and two-orc summon
-- `AUTO_REACT = false`
-- all other boss and ordinary-enemy values
-- `AT_LOSSES = 4`, `AT_WINDOW = 10`, and `AT_MIN = 8`
-- universal +1 Auto Training target; no conditional +2 and no cooldown
-- Auto Training rewards, fallback, protections, and Keep Pushing
-- Stillwater Alpha HP x0.55 and ATK x0.70
-- summoned werewolf HP x0.75 and ATK x0.85
-- one wolf at 60%; Howl at 30%
-- Greenhollow tuning
-- tap damage x0.22 and tap charge/focus
-- boss retry cadence 9
-- polynomial Renown
-- rarity and promotion progression
-- no global XP, gold, drop, gear, travel, recovery, or unrelated UI change
+Distinguish completion of a pass, completion of a map, and completion of whole-game tuning.
 
 # What Not To Do
 
-- Do not merge or ship x1.2 before review of Pass 14.
-- Do not change charge damage, Warlord HP/DEF/speed, ward, summons, or adds.
-- Do not revive Auto-Cast reactions.
-- Do not alter Auto Training.
-- Do not test another Warlord ATK value.
-- Do not change the global enemy ATK curve.
+- Do not rerun Pass 14.
+- Do not continue tuning Ironvein or Warlord.
+- Do not change Auto Training, charge reactions, Warlord mechanics, or global curves.
+- Do not tune toward the Stress profile.
+- Do not interpret sparsely reached late-zone samples as conclusive.
+- Do not implement multiple balance levers in parallel.
