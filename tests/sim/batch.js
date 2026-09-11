@@ -22,6 +22,16 @@ function report(){console.log('\n');const rows=[];const all={};for(const j of jo
   for(const z of zones)metric('boss stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].stallH:null);
   for(const z of zones)metric('boss COMBAT stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].combatStallH:null);
   for(const z of zones)metric('boss RETRY stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].retryStallH:null);
+  const at=r=>r.autoTrain||{triggers:0,returns:0,keepPushing:0,log:[]};const medOf=(arr)=>{arr=arr.filter(v=>v!=null).sort((a,b)=>a-b);return arr.length?arr[Math.floor((arr.length-1)/2)]:null;};
+  metric('AUTO-TRAIN triggers total',r=>at(r).triggers);metric('AUTO-TRAIN returns',r=>at(r).returns);metric('AUTO-TRAIN keep-pushing uses',r=>at(r).keepPushing);
+  for(const z of zones)metric('AUTO-TRAIN triggers for '+z,r=>at(r).log.filter(l=>l.ret===z).length);
+  for(const z of zones)metric('AUTO-TRAIN med minutes '+z,r=>medOf(at(r).log.filter(l=>l.ret===z&&l.secs!=null).map(l=>+(l.secs/60).toFixed(1))));
+  for(const z of zones)metric('AUTO-TRAIN med fights '+z,r=>medOf(at(r).log.filter(l=>l.ret===z&&l.fights!=null).map(l=>l.fights)));
+  for(const z of zones)metric('AUTO-TRAIN med levels earned '+z,r=>medOf(at(r).log.filter(l=>l.ret===z&&l.xp!=null).map(l=>l.xp)));
+  for(const z of zones)metric('AUTO-TRAIN Lv before '+z,r=>medOf(at(r).log.filter(l=>l.ret===z).map(l=>l.lvBefore)));
+  for(const z of zones)metric('AUTO-TRAIN Lv after '+z,r=>medOf(at(r).log.filter(l=>l.ret===z&&l.lvAfter!=null).map(l=>l.lvAfter)));
+  for(const z of zones)metric('AUTO-TRAIN win% before '+z,r=>medOf(at(r).log.filter(l=>l.ret===z).map(l=>Math.round(l.winBefore*100))));
+  for(const z of zones)metric('AUTO-TRAIN win% after '+z,r=>medOf(at(r).log.filter(l=>l.ret===z&&l.winAfter!=null).map(l=>Math.round(l.winAfter*100))));
   for(const z of zones)metric('boss IN-ZONE retry h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].inZoneRetryH:null);
   for(const z of zones)metric('boss TRAINING h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].trainH:null);
   for(const z of zones)metric('levels gained training '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].trainLv:null);

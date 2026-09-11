@@ -4,7 +4,7 @@
 window.T=(function(){
 const R2=v=>Math.round(v*100)/100;
 function snapshot(){return serialize();}
-function restore(s){storeSet(s);loadGame();G.toast=null;G.sheet=null;G.reveal=null;G.card=null;HOLD=null;G.hordeFight=null;G.delve=null;G.enemies=[];G.projs=[];G.action=null;G.banner=null;if(G.mode!=='walk'){G.mode='walk';G.enc=2;}for(const h of G.active){h.dead=false;h.status={};}}
+function restore(s){storeSet(s);loadGame();G.toast=null;G.sheet=null;G.reveal=null;G.card=null;HOLD=null;G.hordeFight=null;G.delve=null;G.train=null;G.danger=null;G.enemies=[];G.projs=[];G.action=null;G.banner=null;if(G.mode!=='walk'){G.mode='walk';G.enc=2;}for(const h of G.active){h.dead=false;h.status={};}}
 function stepWorld(secs,ui=true){const n=Math.round(secs/0.05);for(let i=0;i<n;i++){RT+=0.05;update(0.05,ui);}}
 function resources(){return{gold:G.gold,ore:G.ore,dust:G.dust};}
 function nonNeg(){const r=resources();return r.gold>=0&&r.ore>=0&&r.dust>=0;}
