@@ -1,21 +1,3 @@
-STATUS: READY_FOR_REVIEW
-RESPONSE_TYPE: RESULTS_WITH_REJECT_AND_SIMULATOR_CORRECTIONS
-PASS_ID: PASS_23_ASHEN_KEEP_LEVEL_CANDIDATE
-BASED_ON_REVIEW_PASS: PASS_23_ASHEN_KEEP_LEVEL_CANDIDATE
-BUILD: 20260911-135817
-HEAD_COMMIT_SHA: cad85b7983547dac936d5ad7d2a5c8e43e44332d
-
-# Crystal Road AI Handoff - Pass 23 (Ashen Keep zone level 50 vs 46, paired against pass 22)
-
-DEVELOPER_POSITION: AGREE with the review's rules, and by them the candidate is a REJECT: it moves parties further into the Keep (furthest fight 20 -> 32 idle, 21 -> 33 light, 28 -> 33 casual; fight 36 reached in 12 runs instead of 2) but the ordinary loss rate barely moves (26 -> 24%, 38 -> 36%, 54 -> 49%), the Hollow King is untouched despite nine times the attempts (34 attempts, 0 wins, losses in 11-41 seconds at 70-96% boss HP, two attempts reaching a summon), and rewards fall 4-9% (gold and ore, paired 7 of 10 down for idle and casual). CONFIDENCE: HIGH on the measurements (30 runs, 0 errors, 30 of 30 audits identical through the first Keep entry). Two simulator corrections below qualify every Shatter-road Keep number so far, mine included, and they are the reason I propose one more simulator repair rather than another Keep lever.
-
-## Setup and audit
-- Candidate: `ZONES[7].lv 50 -> 46` by simulator replace only (`tests/sim/batch_p23.log`); production source and bundle untouched. Hollow King level at first attempt 61 -> 57 in every attempt; its ATK 12545 -> 9669 at run 2 (see the scaling note below for why these numbers are above the 8029 of a no-Shatter party).
-- Batch: seeds 31-40 x idle/light/casual, `--stallRule far --stallHours 3`, --shatters 3, the pass 22 dust policy, production values otherwise; 30 runs; 0 errors. Control: pass 22.
-- Audit: hourly state identical to the pass 22 run before the first Keep entry in 30 of 30 runs (33-57 records each), Shatter timing before the first Keep entry identical in 30 of 30, Ashen Approach entries before it identical in 30 of 30. Divergence begins at the Keep, as required.
-- Tools this commit: `tests/sim/keepcmp.js` (paired Keep comparison with the audit), `lateboss.js` reads the new per-zone snapshot names.
-
-## Paired results, pass 22 -> pass 23 (per seed, then per-profile summaries)
 
 ===== IDLE   control batch_out_p22 -> candidate batch_out_p23
 
@@ -256,22 +238,3 @@ seed 40  audit through first Keep entry (h37.1): hourly 37/37, Shatters before i
    fight 36 reached (runs) 1 -> 5; Hollow King attempts/wins 2/0 -> 7/0; attempts reaching a summon 0 -> 0; loss duration med 16s -> 15s; Keep clears (runs) 0 -> 0; Foundry entries (runs) 0 -> 0
    zones best-run med 24h 5->5, 36h 6->6, 48h 7->7, 72h 7->7 | current-run med 24h 5->5, 36h 6->6, 48h 7->7, 72h 7->7
    rewards: gold earned med 6.82 -> 6.56 (paired med -0.31, +0 03 -7)M | ore med 190806 -> 171899 (paired med -1123, +0 03 -7) | dust med 87 -> 87 (paired med 0, +0 07 -3) | Lv@72h med - -> - | defeats med 1211 -> 1147 (paired med -16, +1 03 -6) | training h med 20.8 -> 20.8 (paired med 0.0, +2 07 -1)
-
-## Scorecard against the pass 23 rules
-- Materially advances parties through the Keep: PARTIAL. Furthest fight +8 / +3 / +1 (paired 8, 7, 6 of 10 up, none down); runs reaching fight 36: 1 -> 4 (idle), 0 -> 3 (light), 1 -> 5 (casual); Keep entries, entry hour and entry level unchanged by construction (52 / 52 / 48). Ordinary loss rate -2 to -5 points (paired 6, 5, 5 of 10 down), Keep hours and encounters flat.
-- Repeated credible Hollow King contests or clears: NOT MET. 4 -> 34 attempts, 0 wins; loss duration 15-17s -> 15-25s median; boss HP left at wipe 81-89%; 2 of 34 attempts reach the first summon (70%); 0 Keep clears, 0 Foundry entries. Hits-to-defeat at first attempt (arrival snapshots): front hero 1.0 / 0.8 / 0.6 for idle / light / casual, i.e. one ordinary Hollow King hit still kills a back-line hero.
-- Easier than Ashen Approach to a trivial degree: NOT the case (Keep loss rate 24-49% versus 15-26% one zone earlier).
-- Lower rewards negate progression: gold earned -9% idle (paired 7 down), -2% light (mixed), -4% casual (7 down); ore the same; dust unchanged (Shatter timing unchanged); zones at every horizon unchanged; total defeats -3% / +10% / -5%.
-Reject: the ordinary Keep fights ease a little and the boss does not, so the wall moves from fight 25 to fight 36 and stops there.
-
-## Two simulator corrections (my findings this pass; both affect passes 21-23)
-1. Horizon. `--shatters N` has always meant "end the run at the Nth Shatter", not "allow up to N": every Shatter-road run stopped at its third Shatter, at a median 55-56h (pass 21: 32-70h, none reaching 72h; pass 22: 37-72h, 3 of 30 reaching 72h; pass 23: 47-65h by profile median). My pass 21 and 22 statements that "the third Shatter starts a replay that does not get back to the Keep before 72h" were wrong: that replay was never simulated. Everything reported "at 72h" for those passes is the state at the third Shatter. The rows through the second replay are unaffected. Fixed in this commit, bot only: `--shatters N` is now a cap and the run continues to `--hours`; `--stopAtShatters N` restores the old behaviour. Not used for any batch yet.
-2. Post-Shatter enemy scaling and the bot's missing compensation. In `enemyStats`, every enemy's HP and ATK are multiplied by 1.25 per Shatter (DEF by 1.1), so a run-2 party meets a Keep whose enemies and boss hit 56% harder than the no-Shatter Keep (Hollow King ATK 8029 at run 0, 10036 at run 1, 12545 at run 2, same level 61). The game's counterweights are the dust blessings (now spent), gear ascension (`ascendItem`: one rank per Shatter, x2.2 item stat per rank, paid in ore) and the drop-rank shift. The bot upgrades item levels but has never called `ascendItem`; it carries an unused ascension rank per Shatter through the whole late Road. Together with the horizon point, this means the simulated Shatter road under-represents a Shattered party twice over (it stops early and it never ascends gear), while the +25% per Shatter is fully applied. How large the ascension term is I cannot say from telemetry (drops already arrive at Rare-Legendary rank in the Keep, so the missing x2.2 applies to some slots and not others); it is the kind of gap that decides whether the Keep is a day-three wall or a design wall, so it has to be closed before a Keep value is sized.
-
-## Recommendation (proposal only)
-1. Reject `lv 46`; keep Ashen Keep at 50. No Keep lever should be sized against the current simulated party.
-2. One last simulator repair, bot only, then one baseline batch, no candidate: (a) ascension policy: after each Shatter and whenever ore allows, ascend the equipped items of the active party up to the current cap in a fixed order (weapon, armour, cape, by hero slot order), recording each ascension (item, rank, cost, hour); (b) the fixed `--shatters` cap so the runs actually reach 72h; (c) the pass 22 dust policy and far-mark rule unchanged. Batch: seeds 31-40 x idle/light/casual x 72h, --shatters 3, production values, 30 runs, audited against pass 22 through the first Shatter (identical by construction until the first ascension). Report the Keep and Hollow King rows as in this pass, plus ascension counts, item ranks at Keep entry, and the run-3 replay that has never been observed. This re-establishes the Keep baseline with the party the game intends; if the Keep is still uncontested with blessings, ascension and a full horizon, the next lever is a game value and the Hollow King's damage per action is the obvious one (hits-to-defeat 0.6-1.0 at every arrival tried, no charge, so the pass 12-18 rule applies directly). If the Keep becomes contestable, lock the current values and move to Foundry / Endless triage as planned.
-IMPLEMENTATION_RISK: none to gameplay (bot only). The ascension policy models a player who spends ore on rank when the rank is unlocked; it is not claimed to be optimal, and ore spent on ascension is ore not spent on item levels, which the report will show.
-
-## Caveats
-n=10 per profile; idle's Keep entries are all run 2 at 52-59h. Keep loss rates are defeats over estimated encounters; rewards are per-hour totals times simulated hours, so the pass 22 -> 23 reward deltas include any difference in run length (idle -1.3h paired median, others 0). The audit compares hourly records only through the first Keep entry; later divergence is the candidate's effect plus RNG drift and is reported as paired direction, not as noise.

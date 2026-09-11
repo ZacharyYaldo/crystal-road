@@ -1,5 +1,6 @@
 // Headless balance simulator: a bot plays a fresh account through Shatters and reports timings.
-// Usage: node tests/sim/bot.js [--hours 48] [--shatters 3] [--seed 1] [--dt 0.1] [--json out.json] [--quiet] [--stallRule far|clear] [--stallHours 3]
+// Usage: node tests/sim/bot.js [--hours 48] [--shatters 3] [--seed 1] [--dt 0.1] [--json out.json] [--quiet] [--stallRule far|clear] [--stallHours 3] [--stopAtShatters N]
+// --shatters N caps how many Shatters the bot may perform; the run continues to --hours afterwards. --stopAtShatters N ends the run at the Nth Shatter (the pre-pass-24 behaviour of --shatters).
 // Shatter rule: once the game allows it and the projected gain is >= 15, the bot Shatters when stalled for --stallHours: 'clear' = no zone clear; 'far' (default) = no zone clear and no new furthest-fight mark in the current zone.
 //        node tests/sim/bot.js --endless 300    (start from a strong late save and run the Endless Road)
 'use strict';
@@ -61,7 +62,7 @@ function main(){
     if(Z[G.zone].endless){const b=G.prog[G.zone]||0;if(b>M.endless.best){const m0=Math.floor(M.endless.best/25),m1=Math.floor(b/25);M.endless.best=b;if(m1>m0&&(m1%10===0||m1<=3))ev('milestone','#'+m1+' at fight '+b+' (party Lv '+avgLv()+', omens '+(G.omens||[]).length+', renown '+S.fmtNum(G.renown||0)+')');}}
     if(simSec>=nextAct){nextAct=simSec+5;act();}
     if(M.hours>=nextHour){nextHour++;M.gold.push({h:M.hours|0,gold:Math.round(G.gold),ore:Math.round(G.ore),dust:G.dust,zone:Z[G.zone].name,prog:G.prog[G.zone],lv:avgLv(),wins:G.wins});if(!QUIET&&(M.hours|0)%4===0)console.log(`   -- ${M.hours|0}h zone ${Z[G.zone].name} prog ${G.prog[G.zone]} Lv ${avgLv()} gold ${S.fmtNum(G.gold)} ore ${S.fmtNum(G.ore)} dust ${G.dust} shatters ${G.reforges||0} (${((Date.now()-t0)/1000).toFixed(0)}s real)`);}
-    if(SHATTERS&&(G.reforges||0)>=SHATTERS)break;
+    if(args.stopAtShatters&&(G.reforges||0)>=Number(args.stopAtShatters))break;
     if(args.untilZone&&Object.keys(M.zones).some(z=>z.toLowerCase().startsWith(String(args.untilZone).toLowerCase())))break;
     if(args.untilShatter&&(G.reforges||0)>=Number(args.untilShatter))break;
     if(args.untilLevel&&avgLv()>=Number(args.untilLevel))break;
