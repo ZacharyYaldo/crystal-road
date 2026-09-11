@@ -1,99 +1,119 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_15_WHOLE_ROAD_BOTTLENECK_TRIAGE
-REVIEWED_HANDOFF_PASS: PASS_14_WARLORD_ATK_VALIDATION
-REVIEWED_HANDOFF_SHA: e2906ff809705b2a548c7625b3149c615d4cb995
-BASE_COMMIT: ed69af00dff5058dbaf4ecba31fda6a89ddd693e
+REVIEW_FOR_PASS: PASS_16_SAND_TYRANT_ATK_CANDIDATE
+REVIEWED_HANDOFF_PASS: PASS_15_WHOLE_ROAD_BOTTLENECK_TRIAGE
+REVIEWED_HANDOFF_SHA: a78e43a5a5eb246ea6ed4b2fb2d3a357e20dce44
+BASE_COMMIT: 4d8e48951b42309b362d1d45e96776bcd9df7b18
 CONFIDENCE: HIGH
 
 # Decision
 
-Lock Orc Warlord base ATK at x1.2.
+Accept Emberwaste / Sand Tyrant as the next material bottleneck.
 
-Pass 14 reproduced the intended player-facing result on fresh seeds and passed 14 of 15 validation criteria:
+The ranking is convincing enough to act:
 
-- idle first-try 10% -> 35%, attempts 6/13 -> 2/4, and stall 2.20h -> 0.58h;
-- light first-try 30% -> 45% and stall 0.78h -> 0.35h;
-- Warlord still produces losses across idle, light, and casual;
-- active-window win rates remain below 95%;
-- the lethal charge, summon phase, and active-play advantage remain meaningful;
-- Stillwater, Thornwood, downstream median clear times, progression medians, Auto Training, hordes, catacombs, and damage mix show no material regression;
-- 200 validation runs completed with zero simulation errors and audited arm separation.
+- idle spends about 13 hours from Emberwaste entry to clear;
+- idle has 0% first-try clears, 22 median attempts, P90 29, a 21-loss streak, and 4.49h of boss stall;
+- idle Auto-Cast wins only 10 of 216 attempts;
+- light clears mainly when an active window happens to overlap the fight;
+- this wall appears around 15-28h, substantially earlier than the late-Road training-cost problem;
+- Ironvein now sits mid-table after its lock, so additional Ironvein work is not justified.
 
-This is the final decision for this Warlord lever. Do not run another Warlord x1.2 confirmation or test another Warlord ATK value.
+Accept the causal diagnosis: Sand Tyrant damage per action is too high at natural arrival. Parties reach the summon and active play can win, so HP, summons, enrage, and progression strength are not the first levers to change.
 
-# Rewalk Gate Exception
+# Pacing Correction
 
-The one miss was idle Ironvein ordinary rewalk fights per exposure hour: +12% by arm medians, versus the +10% limit. It does not justify rejecting the candidate or rerunning 200 simulations.
+Do not run the proposed four-arm sizing harness.
 
-The player-facing and causal evidence points away from an ordinary-combat regression:
+The triage plus the prior Warlord evidence already serve as the diagnostic. Testing x1.9, x1.5, x1.35, and x1.2 before the Road test would add another optimization loop without a clear player-facing need.
 
-- ordinary Ironvein defeats fell 66 -> 57;
-- ordinary rewalk fights fell 251 -> 207;
-- rewalk cost per defeat was flat to lower;
-- Warlord attempts fell 6 -> 2;
-- Ironvein exposure fell 4.61h -> 3.55h;
-- paired rate change was +5%, with the larger arm-median ratio caused by removing low-defeat boss-cycle hours from the denominator;
-- only the boss ATK changed; ordinary enemy values did not.
+Test one candidate directly:
 
-Record this as a metric-construction exception, not as a passed literal gate. Do not add an ordinary-win counter and rerun solely to make the secondary rate pass. The primary outcomes are clear enough, and the map does not need a theoretically perfect metric profile.
+- control Sand Tyrant base ATK: x1.9;
+- candidate Sand Tyrant base ATK: x1.35.
 
-# Locked Warlord State
+Use an isolated simulator override for the candidate. Do not change the production enemy table yet.
 
-Production Warlord base ATK x1.2 is now accepted and locked.
+# Pass 16 Candidate Test
+
+Run:
+
+- paired seeds 31-40;
+- idle, light, and casual profiles;
+- 36 hours;
+- 30 control + 30 candidate runs;
+- production Road, normal Auto Training, hordes, and catacombs;
+- zero simulation errors.
+
+This is the adequately sized candidate test. Do not add a separate boss-harness sizing phase, x1.5 arm, or x1.2 arm.
+
+Report counts, medians/P90, and paired direction for:
+
+- Emberwaste reach and clear counts;
+- first-try clears;
+- attempts and maximum loss streak;
+- boss combat, retry, and total stall;
+- Auto-Cast and active-window wins/attempts;
+- ordinary hits, charge telegraphs/hits/kills, summon reached, loss phase/HP, and win survivors/HP;
+- arrival level, power, party HP, charge, and Surge;
+- clear times and zones cleared through the 36h horizon;
+- ordinary and boss rewalk burden;
+- Auto Training hours/triggers;
+- upstream locked bosses;
+- downstream zones with adequate reach;
+- hordes, catacombs, and simulation errors.
+
+# Good-Enough Success Criteria
+
+Treat x1.35 as promising if the primary player-facing result is clear:
+
+- idle median attempts fall to 2-5 and P90 is no more than 10;
+- idle total Emberwaste stall improves at least 40%;
+- idle gets a meaningful Auto-Cast clear rate instead of a low-single-digit execution wall;
+- light median attempts are no more than 3 and P90 no more than 6;
+- light and casual active-window win rates remain below 95%;
+- the boss still produces losses in idle, light, and casual;
+- the charge remains lethal when it lands;
+- Stillwater, Thornwood, and Ironvein are unchanged;
+- no adequately sampled downstream median clear time worsens more than 10% or P90 more than 15%;
+- no material Auto Training, horde, catacomb, or mechanical regression appears.
+
+Do not reject a clear improvement because one secondary percentage narrowly misses an arbitrary threshold. Document uncertainty. Likewise, do not search for a more “perfect” ATK value if x1.35 produces a contested, meaningful fight without regression.
+
+After Pass 16, the reviewer will either lock x1.35, reject it, or request one final validation only if the evidence is genuinely ambiguous or release-critical.
+
+# Avoid Repeating This Boss By Boss
+
+Alongside the Pass 16 report, use existing Pass 15 snapshots and telemetry to include a compact, observation-only comparison for:
+
+- Sand Tyrant;
+- Hunter King;
+- Grave Knight.
+
+For each, report base ATK, actual ATK at first attempt, party HP at natural arrival, ordinary hits to defeat a typical hero, charge/volley lethality, active versus Auto-Cast outcomes, and whether losses show the same damage-per-action wall.
+
+This comparison does not authorize changes to Hunter King or Grave Knight. Its purpose is to decide whether the next action should be one scoped late-boss normalization experiment instead of separate multi-pass polishing cycles for every map.
+
+You may correct the ranged-volley hit/kill telemetry as an observation-only instrumentation fix. Do not rerun a full batch solely for that fix; validate it with the smallest focused replay available.
+
+# Locked Systems
 
 Keep locked:
 
-- HP x6.0, DEF x1.2, speed 8, charge x2.5, ward, summon threshold, and two-orc summon;
+- Warlord base ATK x1.2 and all other Warlord values/mechanics;
+- Sand Tyrant HP x6.5, DEF x1.0, speed 10, charge x2.5, enrage at 25%, summon at 50%, and two sandorcs;
+- all other boss and ordinary-enemy values;
 - AUTO_REACT = false;
-- no further Warlord ATK candidate;
-- no global enemy-ATK curve change;
-- all previously locked systems and values.
-
-The existing simulator-only x1.7 control mechanism may remain as test infrastructure if it has no production effect. Do not restore x1.7 in production.
-
-# Pass 15: Whole-Road Bottleneck Triage
-
-Move on from Ironvein. Use broad multi-zone evidence to identify the next largest player-facing progression bottleneck instead of polishing one map further.
-
-Start with existing valid telemetry from Pass 14 and prior accepted runs. Do not run a new full validation for triage.
-
-Rank sufficiently sampled zones and bosses using:
-
-1. median and P90 clear time;
-2. first-try rate, attempts, maximum loss streak, and stall time;
-3. ordinary and boss rewalk burden;
-4. meaningful failure state rather than automatic clear or execution wall;
-5. idle, light, and casual experience, keeping active play advantaged;
-6. downstream progression at 20h and 24h;
-7. reach counts and censoring so under-sampled late zones are not overinterpreted.
-
-Return one ranked table covering the whole measured Road, then select exactly one next material bottleneck. State:
-
-- the player-facing problem;
-- the most likely causal mechanism;
-- the smallest local balance lever capable of testing it;
-- one bounded candidate experiment;
-- primary success and regression criteria.
-
-If the existing data cannot distinguish the top two bottlenecks, run at most one quick diagnostic with 5-10 paired seeds focused on those locations. Do not run a confirmation plus validation during triage, and do not change gameplay code until the next experiment is reviewed.
-
-# Pacing Rule
-
-For the next balance lever:
-
-- at most one diagnostic if the cause is unclear;
-- one adequately sized candidate test;
-- one final validation only if release confidence requires it;
-- after validation, lock or reject and move on;
-- do not add an extra confirmation pass for a narrow secondary-metric miss when the player-facing effect and causal evidence are clear.
-
-Distinguish completion of a pass, completion of a map, and completion of whole-game tuning.
+- AT_LOSSES = 4, AT_WINDOW = 10, AT_MIN = 8;
+- universal +1 Auto Training target and all exploit protections;
+- Stillwater, Thornwood, and Greenhollow tuning;
+- tap, Renown, rarity, promotion, XP, gold, gear, travel, recovery, and unrelated UI systems.
 
 # What Not To Do
 
-- Do not rerun Pass 14.
-- Do not continue tuning Ironvein or Warlord.
-- Do not change Auto Training, charge reactions, Warlord mechanics, or global curves.
-- Do not tune toward the Stress profile.
-- Do not interpret sparsely reached late-zone samples as conclusive.
-- Do not implement multiple balance levers in parallel.
+- Do not change production Sand Tyrant ATK before review.
+- Do not test multiple Sand Tyrant ATK values.
+- Do not alter charge, HP, summons, adds, enrage, or Auto Training.
+- Do not tune Hunter King or Grave Knight in this pass.
+- Do not run another Ironvein pass.
+- Do not tune toward Stress.
+- Do not start a global enemy-ATK curve change.
