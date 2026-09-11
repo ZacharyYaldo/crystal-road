@@ -7,7 +7,7 @@ const SEEDS=args.seeds||10,HOURS=args.hours||24,PROFILES=String(args.profiles||'
 const dir=path.join(__dirname,'batch_out'+(args.tag?'_'+args.tag:''));fs.mkdirSync(dir,{recursive:true});
 const jobs=[];for(const p of PROFILES)for(let s=1;s<=SEEDS;s++)jobs.push({p,s,file:path.join(dir,p+'_'+s+'.json')});
 let idx=0,done=0;const t0=Date.now();
-function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[path.join(__dirname,'bot.js'),'--hours',String(HOURS),'--seed',String(j.s),'--profile',j.p,'--quiet','--json',j.file,'--snapshots',path.join(__dirname,'snapshots')];if(SHATTERS)a.push('--shatters',String(SHATTERS));if(args.replace)a.push('--replace',String(args.replace));if(args.untilZone)a.push('--untilZone',String(args.untilZone));if(args.noRetreat)a.push('--noRetreat');const c=spawn(process.execPath,a,{stdio:['ignore','ignore','inherit']});c.on('exit',()=>{done++;process.stdout.write('\r'+done+'/'+jobs.length+' done ('+((Date.now()-t0)/60000).toFixed(1)+' min)   ');if(done===jobs.length)report();else next();});}
+function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[path.join(__dirname,'bot.js'),'--hours',String(HOURS),'--seed',String(j.s),'--profile',j.p,'--quiet','--json',j.file,'--snapshots',path.join(__dirname,'snapshots')];if(SHATTERS)a.push('--shatters',String(SHATTERS));if(args.replace)a.push('--replace',String(args.replace));if(args.untilZone)a.push('--untilZone',String(args.untilZone));if(args.noRetreat)a.push('--noRetreat');if(args.retreatAfter!=null)a.push('--retreatAfter',String(args.retreatAfter));if(args.trainUntil)a.push('--trainUntil',String(args.trainUntil));if(args.retreatOn)a.push('--retreatOn',String(args.retreatOn));const c=spawn(process.execPath,a,{stdio:['ignore','ignore','inherit']});c.on('exit',()=>{done++;process.stdout.write('\r'+done+'/'+jobs.length+' done ('+((Date.now()-t0)/60000).toFixed(1)+' min)   ');if(done===jobs.length)report();else next();});}
 for(let i=0;i<Math.min(WORKERS,jobs.length);i++)next();
 function pct(arr,q){const a=arr.filter(v=>v!=null&&!isNaN(v)).sort((x,y)=>x-y);if(!a.length)return null;const i=(a.length-1)*q;const lo=Math.floor(i),hi=Math.ceil(i);return +(a[lo]+(a[hi]-a[lo])*(i-lo)).toFixed(2);}
 function report(){console.log('\n');const rows=[];const all={};for(const j of jobs){try{(all[j.p]=all[j.p]||[]).push(JSON.parse(fs.readFileSync(j.file,'utf8')));}catch(e){}}
@@ -22,6 +22,10 @@ function report(){console.log('\n');const rows=[];const all={};for(const j of jo
   for(const z of zones)metric('boss stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].stallH:null);
   for(const z of zones)metric('boss COMBAT stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].combatStallH:null);
   for(const z of zones)metric('boss RETRY stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].retryStallH:null);
+  for(const z of zones)metric('boss IN-ZONE retry h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].inZoneRetryH:null);
+  for(const z of zones)metric('boss TRAINING h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].trainH:null);
+  for(const z of zones)metric('levels gained training '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].trainLv:null);
+  for(const z of zones)metric('fights while training '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].trainFights:null);
   for(const z of zones)metric('fights between 1st try and clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].fightsBetween:null);
   for(const z of zones)metric('levels gained before clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].lvGain:null);
   for(const z of zones)metric('gear changes before clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].upsBetween:null);
