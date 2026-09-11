@@ -1,0 +1,37 @@
+BOSS DIAGNOSTIC ironvein  snapshots x 10 combat seeds x 2 modes
+                                              idle auto    light auto   casual auto  engaged auto ALL          
+fights                                        100          100          100          100          400          
+clear % (mean +- 95% CI)                      42+-10       37+-9        8+-5         6+-5         23+-4        
+duration s med / P90                          119 / 136    113 / 142    105 / 140    99 / 143     110 / 139    
+LOSS boss HP left med / P90                   30% / 42%    44% / 68%    44% / 48%    44% / 51%    43% / 49%    
+LOSS share: wiped before 50% (pre-summon)     0%           25%          4%           11%          10%          
+LOSS share: after summon, boss 20-50%         72%          56%          88%          83%          77%          
+LOSS share: near kill, boss <20% or dead      28%          19%          8%           6%           13%          
+LOSS share: boss dead, adds finished party    0%           0%           0%           0%           0%           
+LOSS early wipe <40 s                         0%           2%           0%           0%           0%           
+LOSS adds alive at wipe med                   0            0            1            1            1            
+WIN survivors med / party HP% med             4 / 83%      4 / 84%      4 / 55%      4 / 50%      4 / 82%      
+summon occurred %                             100%         84%          96%          90%          93%          
+summon at s med (when it occurred)            57           60           67           68           62           
+dmg taken from boss vs adds (med %)           83% boss     82% boss     78% boss     75% boss     81% boss     
+charge hits / kills per fight (mean)          3 / 2.39     2.7 / 2.25   2.7 / 2.39   2.6 / 2.27   2.8 / 2.33   
+charge parried / interrupted per fight        0 / 0        0 / 0        0 / 0        0 / 0        0 / 0        
+ward (shieldAllies) dmg absorbed med          484          783          869          752          741          
+charge telegraphs per fight (mean)            3            2.72         2.67         2.62         2.75         
+AUTO reactions attempted / ok per fight       0 / 0        0 / 0        0 / 0        0 / 0        0 / 0        
+AUTO reactions prevented (double) total       0            0            0            0            0            
+AUTO responder class (K/R/M) totals           0/0/0        0/0/0        0/0/0        0/0/0        0/0/0        
+AUTO reaction kind (chargeM/chargeR) totals   0/0          0/0          0/0          0/0          0/0          
+normal ability casts per fight (mean)         20.56        18.2         17.14        17.24        18.29        
+arrival Lv med                                38           36.8         34.3         37           37           
+arrival power med                             14495        13761        12194        12545        13335        
+arrival HP% med                               85           79           91           93           91           
+arrival charge med                            56           51           42           51           50           
+
+OUTCOME BY ARRIVAL POWER TERCILE (within profile, both modes)
+idle      low: 33% win, power<14349, n=30             mid: 57% win, power<14622, n=30             high: 38% win, power<max, n=40              
+light     low: 0% win, power<12813, n=30              mid: 23% win, power<14579, n=30             high: 75% win, power<max, n=40              
+casual    low: 0% win, power<11992, n=30              mid: 3% win, power<13335, n=30              high: 18% win, power<max, n=40              
+engaged   low: 0% win, power<12444, n=32              mid: 6% win, power<12672, n=31              high: 11% win, power<max, n=37              
+
+OUTCOME BY ARRIVAL HP (both modes): idle hp<80%: 25% (n20) hp>=80%: 46% (n80) | light hp<80%: 18% (n50) hp>=80%: 56% (n50) | casual hp<80%: - hp>=80%: 8% (n100) | engaged hp<80%: - hp>=80%: 6% (n100)
