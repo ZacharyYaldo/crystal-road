@@ -1,0 +1,294 @@
+
+===== IDLE  n=10 paired runs   (batch_out_p20c -> batch_out_p20x)   values are med / P90 per run unless noted
+total training hours          23.3 / 26.6 -> 22.0 / 24.6   paired med -1.04 (+2 00 -8)
+total triggers                38 / 42 -> 36 / 41   completed returns 31 / 36 -> 29 / 34   cancels 6 / 9 -> 6 / 9
+
+-- return zone: Stillwater Lagoon
+  episodes / run                2 / 5 -> 2 / 5   completed returns 2 / 4 -> 2 / 4   quick retriggers 0 / 2 -> 0 / 2   cancels(approx) 1 / 2 -> 1 / 2
+  training hours / run          0.30 / 0.67 -> 0.30 / 0.67   paired med 0.00 (+0 010 -0)   fights / run 59 / 131 -> 59 / 131
+  first-return vs retrigger     count 2 / 4 -> 2 / 4 vs 0 / 2 -> 0 / 2   hours 0.30 / 0.41 -> 0.30 / 0.41 vs 0.00 / 0.30 -> 0.00 / 0.30
+  per episode (pooled med/P90)  minutes 7 / 12 -> 7 / 12   fights 18 / 41 -> 18 / 41   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 14 / 18 -> 14 / 18   minutes 11 / 11 -> 11 / 11   (n 5 -> 5)
+  losses in window at trigger   mean 4.18 -> 4.18   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 82% -> 82%   first 20: 83% -> 83%   window at trigger: 57% -> 57%
+  zone: ordinary defeats        40 / 46 -> 40 / 46   rewalk hours 1.26 / 1.76 -> 1.29 / 1.78   non-training hours in zone 2.14 / 2.91 -> 2.14 / 2.91
+  Lv entering / Lv at boss      6 / 7 -> 6 / 7  /  16 / 18 -> 16 / 18   power at boss 3049 / 3821 -> 3049 / 3821
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 4/10 -> 4/10   attempts 2 / 5 -> 2 / 5   streak 1 / 4 -> 1 / 4   stall h 0.11 / 1.06 -> 0.11 / 1.06
+  zone clear h                  2.79 / 3.43 -> 2.79 / 3.43   paired med 0.00 (+0 010 -0)
+
+-- return zone: Thornwood
+  episodes / run                6 / 10 -> 6 / 10   completed returns 6 / 9 -> 6 / 9   quick retriggers 3 / 5 -> 3 / 5   cancels(approx) 0 / 1 -> 0 / 1
+  training hours / run          1.64 / 2.85 -> 1.64 / 2.85   paired med 0.00 (+0 010 -0)   fights / run 239 / 377 -> 239 / 377
+  first-return vs retrigger     count 3 / 5 -> 3 / 5 vs 3 / 5 -> 3 / 5   hours 0.86 / 1.35 -> 0.86 / 1.35 vs 0.83 / 1.59 -> 0.83 / 1.59
+  per episode (pooled med/P90)  minutes 16 / 19 -> 16 / 19   fights 39 / 51 -> 39 / 51   level progress 1.00 / 1.20 -> 1.00 / 1.20   target med 1.00 -> 1.00
+  return -> next trigger        fights 10 / 19 -> 10 / 19   minutes 8 / 13 -> 8 / 13   (n 32 -> 32)
+  losses in window at trigger   mean 4.15 -> 4.15   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 79% -> 79%   first 20: 81% -> 81%   window at trigger: 57% -> 57%
+  zone: ordinary defeats        68 / 89 -> 68 / 89   rewalk hours 2.11 / 2.95 -> 2.18 / 3.00   non-training hours in zone 3.27 / 4.40 -> 3.27 / 4.40
+  Lv entering / Lv at boss      15 / 16 -> 15 / 16  /  28 / 30 -> 28 / 30   power at boss 8665 / 9157 -> 8665 / 9157
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 5/10 -> 5/10   attempts 1 / 3 -> 1 / 3   streak 0 / 2 -> 0 / 2   stall h 0.02 / 1.66 -> 0.02 / 1.66
+  zone clear h                  7.89 / 8.61 -> 7.89 / 8.61   paired med 0.00 (+0 010 -0)
+
+-- return zone: Ironvein Caverns
+  episodes / run                5 / 7 -> 5 / 7   completed returns 5 / 7 -> 5 / 7   quick retriggers 1 / 5 -> 1 / 5   cancels(approx) 0 / 0 -> 0 / 0
+  training hours / run          2.64 / 3.75 -> 2.64 / 3.75   paired med 0.00 (+0 010 -0)   fights / run 318 / 528 -> 318 / 528
+  first-return vs retrigger     count 3 / 4 -> 3 / 4 vs 1 / 5 -> 1 / 5   hours 1.67 / 2.15 -> 1.67 / 2.15 vs 0.69 / 2.87 -> 0.69 / 2.87
+  per episode (pooled med/P90)  minutes 35 / 39 -> 35 / 39   fights 68 / 81 -> 68 / 81   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 11 / 20 -> 11 / 20   minutes 10 / 15 -> 10 / 15   (n 17 -> 17)
+  losses in window at trigger   mean 4.08 -> 4.08   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 82% -> 82%   first 20: 82% -> 82%   window at trigger: 59% -> 59%
+  zone: ordinary defeats        57 / 74 -> 57 / 74   rewalk hours 2.31 / 3.13 -> 2.33 / 3.18   non-training hours in zone 3.83 / 5.20 -> 3.83 / 5.20
+  Lv entering / Lv at boss      29 / 30 -> 29 / 30  /  38 / 40 -> 38 / 40   power at boss 14026 / 15509 -> 14026 / 15509
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 4/10 -> 4/10   attempts 2 / 4 -> 2 / 4   streak 1 / 3 -> 1 / 3   stall h 0.58 / 2.90 -> 0.58 / 2.90
+  zone clear h                  14.77 / 15.73 -> 14.77 / 15.73   paired med 0.00 (+0 010 -0)
+
+-- return zone: Emberwaste
+  episodes / run                9 / 11 -> 9 / 11   completed returns 5 / 6 -> 5 / 6   quick retriggers 2 / 4 -> 2 / 4   cancels(approx) 5 / 5 -> 5 / 5
+  training hours / run          5.09 / 6.87 -> 5.09 / 6.87   paired med 0.00 (+0 010 -0)   fights / run 528 / 712 -> 528 / 712
+  first-return vs retrigger     count 7 / 8 -> 7 / 8 vs 2 / 4 -> 2 / 4   hours 4.02 / 5.09 -> 4.02 / 5.09 vs 1.10 / 3.30 -> 1.10 / 3.30
+  per episode (pooled med/P90)  minutes 43 / 51 -> 43 / 51   fights 73 / 93 -> 73 / 93   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 11 / 17 -> 11 / 17   minutes 7 / 11 -> 7 / 11   (n 22 -> 22)
+  losses in window at trigger   mean 4.10 -> 4.10   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 77% -> 77%   first 20: 82% -> 82%   window at trigger: 58% -> 58%
+  zone: ordinary defeats        83 / 112 -> 83 / 112   rewalk hours 2.61 / 4.84 -> 2.67 / 4.85   non-training hours in zone 4.73 / 7.05 -> 4.73 / 7.05
+  Lv entering / Lv at boss      39 / 40 -> 39 / 40  /  49 / 51 -> 49 / 51   power at boss 23545 / 24912 -> 23545 / 24912
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 2/10 -> 2/10   attempts 3 / 6 -> 3 / 6   streak 2 / 5 -> 2 / 5   stall h 1.50 / 3.30 -> 1.50 / 3.30
+  zone clear h                  24.69 / 26.99 -> 24.69 / 26.99   paired med 0.00 (+0 010 -0)
+
+-- return zone: Amberfall Woods
+  episodes / run                7 / 9 -> 7 / 9   completed returns 6 / 9 -> 6 / 9   quick retriggers 3 / 5 -> 3 / 5   cancels(approx) 1 / 2 -> 1 / 2
+  training hours / run          6.21 / 8.31 -> 6.21 / 8.31   paired med 0.00 (+0 010 -0)   fights / run 694 / 937 -> 694 / 937
+  first-return vs retrigger     count 4 / 6 -> 4 / 6 vs 3 / 5 -> 3 / 5   hours 3.25 / 5.24 -> 3.25 / 5.24 vs 2.24 / 4.82 -> 2.24 / 4.82
+  per episode (pooled med/P90)  minutes 55 / 61 -> 55 / 61   fights 101 / 122 -> 101 / 122   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 9 / 15 -> 9 / 15   minutes 7 / 10 -> 7 / 10   (n 32 -> 32)
+  losses in window at trigger   mean 4.26 -> 4.26   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 80% -> 80%   first 20: 84% -> 84%   window at trigger: 55% -> 55%
+  zone: ordinary defeats        65 / 94 -> 65 / 94   rewalk hours 2.16 / 3.51 -> 2.19 / 3.59   non-training hours in zone 3.59 / 5.70 -> 3.59 / 5.70
+  Lv entering / Lv at boss      51 / 52 -> 51 / 52  /  58 / 61 -> 58 / 61   power at boss 36184 / 39820 -> 36184 / 39820
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 1/10 -> 1/10   attempts 3 / 8 -> 3 / 8   streak 2 / 7 -> 2 / 7   stall h 1.80 / 3.30 -> 1.80 / 3.30
+  zone clear h                  34.77 / 37.17 -> 34.77 / 37.17   paired med 0.00 (+0 010 -0)
+
+-- return zone: Ashen Approach
+  episodes / run                8 / 9 -> 6 / 8   completed returns 7 / 9 -> 6 / 7   quick retriggers 3 / 4 -> 2 / 2   cancels(approx) 0 / 1 -> 0 / 1
+  training hours / run          7.28 / 8.79 -> 6.22 / 6.96   paired med -1.04 (+2 00 -8)   fights / run 814 / 1079 -> 666 / 831
+  first-return vs retrigger     count 5 / 6 -> 5 / 7 vs 3 / 4 -> 2 / 2   hours 3.99 / 5.83 -> 4.79 / 5.97 vs 3.17 / 3.90 -> 1.85 / 2.16
+  per episode (pooled med/P90)  minutes 59 / 63 -> 60 / 65   fights 116 / 128 -> 110 / 123   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 10 / 17 -> 14 / 19   minutes 9 / 14 -> 10 / 16   (n 32 -> 15)
+  losses in window at trigger   mean 4.24 -> 5.03   (window length med 10 -> 10; audit: min losses 4 -> 5)
+  win rate after return (mean)  first 10: 79% -> 76%   first 20: 82% -> 76%   window at trigger: 56% -> 49%
+  zone: ordinary defeats        69 / 106 -> 108 / 163   rewalk hours 2.45 / 4.08 -> 3.73 / 5.26   non-training hours in zone 4.44 / 7.62 -> 6.43 / 9.38
+  Lv entering / Lv at boss      60 / 62 -> 60 / 62  /  69 / 71 -> 71 / 72   power at boss 53837 / 55923 -> 56708 / 56853
+  boss: reach/attempt/clear     10/7/3 -> 10/5/1   first-try 0/3 -> 0/1   attempts 3 / 4 -> 3 / 3   streak 3 / 7 -> 4 / 9   stall h 3.11 / 4.50 -> 1.81 / 1.81
+  zone clear h                  46.20 / 46.60 -> 47.51 / 47.51   paired med 3.10 (+1 00 -0)
+
+-- return zone: Ashen Keep
+  episodes / run                0 / 0 -> 0 / 0   completed returns 0 / 0 -> 0 / 0   quick retriggers 0 / 0 -> 0 / 0   cancels(approx) 0 / 0 -> 0 / 0
+  training hours / run          0.00 / 0.00 -> 0.00 / 0.00   paired med 0.00 (+0 010 -0)   fights / run 0 / 0 -> 0 / 0
+  first-return vs retrigger     count 0 / 0 -> 0 / 0 vs 0 / 0 -> 0 / 0   hours 0.00 / 0.00 -> 0.00 / 0.00 vs 0.00 / 0.00 -> 0.00 / 0.00
+  per episode (pooled med/P90)  minutes - / - -> - / -   fights - / - -> - / -   level progress - / - -> - / -   target med - -> -
+  return -> next trigger        fights - / - -> - / -   minutes - / - -> - / -   (n 0 -> 0)
+  losses in window at trigger   mean - -> -   (window length med - -> -; audit: min losses Infinity -> Infinity)
+  win rate after return (mean)  first 10: 0% -> 0%   first 20: 0% -> 0%   window at trigger: 0% -> 0%
+  zone: ordinary defeats        44 / 70 -> 6 / 6   rewalk hours 1.00 / 2.69 -> 0.38 / 0.38   non-training hours in zone 1.79 / 3.59 -> 0.49 / 0.49
+  Lv entering / Lv at boss      72 / 73 -> 72 / 72  /  - / - -> - / -   power at boss - / - -> - / -
+  boss: reach/attempt/clear     3/0/0 -> 1/0/0   first-try 0/0 -> 0/0   attempts - / - -> - / -   streak - / - -> - / -   stall h - / - -> - / -
+  zone clear h                  - / - -> - / -   paired med - (+0 00 -0)
+
+  zones cleared @24/36/48h      24h 4 / 5 -> 4 / 5 [paired med 0.00 (+0 010 -0)]   36h 6 / 6 -> 6 / 6 [paired med 0.00 (+0 010 -0)]   48h 6 / 7 -> 6 / 7 [paired med 0.00 (+0 08 -2)]
+  total defeats                 559 / 660 -> 598 / 671   paired med 28.00 (+10 00 -0)   hordes fought/repelled/lost 4 / 5 -> 3 / 5 / 4 / 5 -> 3 / 5 / 1 / 3 -> 1 / 2
+
+===== LIGHT  n=10 paired runs   (batch_out_p20c -> batch_out_p20x)   values are med / P90 per run unless noted
+total training hours          26.2 / 28.9 -> 25.2 / 29.6   paired med -0.91 (+3 00 -7)
+total triggers                42 / 47 -> 43 / 46   completed returns 35 / 38 -> 34 / 37   cancels 8 / 9 -> 8 / 9
+
+-- return zone: Stillwater Lagoon
+  episodes / run                3 / 5 -> 3 / 5   completed returns 2 / 3 -> 2 / 3   quick retriggers 0 / 1 -> 0 / 1   cancels(approx) 1 / 2 -> 1 / 2
+  training hours / run          0.34 / 0.52 -> 0.34 / 0.52   paired med 0.00 (+0 010 -0)   fights / run 66 / 97 -> 66 / 97
+  first-return vs retrigger     count 3 / 5 -> 3 / 5 vs 0 / 1 -> 0 / 1   hours 0.32 / 0.50 -> 0.32 / 0.50 vs 0.00 / 0.15 -> 0.00 / 0.15
+  per episode (pooled med/P90)  minutes 7 / 11 -> 7 / 11   fights 19 / 42 -> 19 / 42   level progress 1.00 / 1.30 -> 1.00 / 1.30   target med 1.00 -> 1.00
+  return -> next trigger        fights 8 / 11 -> 8 / 11   minutes 7 / 7 -> 7 / 7   (n 2 -> 2)
+  losses in window at trigger   mean 4.21 -> 4.21   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 83% -> 83%   first 20: 83% -> 83%   window at trigger: 56% -> 56%
+  zone: ordinary defeats        40 / 46 -> 40 / 46   rewalk hours 1.26 / 1.68 -> 1.28 / 1.70   non-training hours in zone 2.27 / 2.41 -> 2.27 / 2.41
+  Lv entering / Lv at boss      6 / 7 -> 6 / 7  /  15 / 17 -> 15 / 17   power at boss 3067 / 3370 -> 3067 / 3370
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 2/10 -> 2/10   attempts 2 / 4 -> 2 / 4   streak 1 / 3 -> 1 / 3   stall h 0.52 / 0.86 -> 0.52 / 0.86
+  zone clear h                  2.83 / 3.09 -> 2.83 / 3.09   paired med 0.00 (+0 010 -0)
+
+-- return zone: Thornwood
+  episodes / run                7 / 9 -> 7 / 9   completed returns 7 / 8 -> 7 / 8   quick retriggers 4 / 5 -> 4 / 5   cancels(approx) 1 / 1 -> 1 / 1
+  training hours / run          1.83 / 2.39 -> 1.83 / 2.39   paired med 0.00 (+0 010 -0)   fights / run 260 / 334 -> 260 / 334
+  first-return vs retrigger     count 4 / 5 -> 4 / 5 vs 4 / 5 -> 4 / 5   hours 0.84 / 1.39 -> 0.84 / 1.39 vs 1.12 / 1.40 -> 1.12 / 1.40
+  per episode (pooled med/P90)  minutes 16 / 19 -> 16 / 19   fights 36 / 51 -> 36 / 51   level progress 1.00 / 1.20 -> 1.00 / 1.20   target med 1.00 -> 1.00
+  return -> next trigger        fights 10 / 19 -> 10 / 19   minutes 7 / 13 -> 7 / 13   (n 33 -> 33)
+  losses in window at trigger   mean 4.19 -> 4.19   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 78% -> 78%   first 20: 82% -> 82%   window at trigger: 56% -> 56%
+  zone: ordinary defeats        64 / 84 -> 64 / 84   rewalk hours 1.57 / 2.53 -> 1.58 / 2.56   non-training hours in zone 2.81 / 3.86 -> 2.81 / 3.86
+  Lv entering / Lv at boss      15 / 15 -> 15 / 15  /  27 / 30 -> 27 / 30   power at boss 7942 / 9198 -> 7942 / 9198
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 6/10 -> 6/10   attempts 1 / 5 -> 1 / 5   streak 0 / 4 -> 0 / 4   stall h 0.03 / 1.40 -> 0.03 / 1.40
+  zone clear h                  7.89 / 9.07 -> 7.89 / 9.07   paired med 0.00 (+0 010 -0)
+
+-- return zone: Ironvein Caverns
+  episodes / run                6 / 7 -> 6 / 7   completed returns 6 / 7 -> 6 / 7   quick retriggers 2 / 4 -> 2 / 4   cancels(approx) 0 / 0 -> 0 / 0
+  training hours / run          3.31 / 3.92 -> 3.31 / 3.92   paired med 0.00 (+0 010 -0)   fights / run 439 / 504 -> 439 / 504
+  first-return vs retrigger     count 3 / 5 -> 3 / 5 vs 2 / 4 -> 2 / 4   hours 1.68 / 2.54 -> 1.68 / 2.54 vs 1.24 / 2.42 -> 1.24 / 2.42
+  per episode (pooled med/P90)  minutes 34 / 39 -> 34 / 39   fights 72 / 80 -> 72 / 80   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 10 / 17 -> 10 / 17   minutes 9 / 14 -> 9 / 14   (n 25 -> 25)
+  losses in window at trigger   mean 4.10 -> 4.10   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 81% -> 81%   first 20: 83% -> 83%   window at trigger: 58% -> 58%
+  zone: ordinary defeats        50 / 72 -> 50 / 72   rewalk hours 1.33 / 2.29 -> 1.34 / 2.28   non-training hours in zone 2.76 / 4.43 -> 2.76 / 4.43
+  Lv entering / Lv at boss      29 / 30 -> 29 / 30  /  37 / 39 -> 37 / 39   power at boss 13736 / 14647 -> 13736 / 14647
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 2/10 -> 2/10   attempts 2 / 5 -> 2 / 5   streak 1 / 4 -> 1 / 4   stall h 0.61 / 3.18 -> 0.61 / 3.18
+  zone clear h                  14.09 / 16.77 -> 14.09 / 16.77   paired med 0.00 (+0 010 -0)
+
+-- return zone: Emberwaste
+  episodes / run                10 / 13 -> 10 / 13   completed returns 5 / 7 -> 5 / 7   quick retriggers 2 / 5 -> 2 / 5   cancels(approx) 4 / 6 -> 4 / 6
+  training hours / run          5.74 / 7.80 -> 5.74 / 7.80   paired med 0.00 (+0 010 -0)   fights / run 603 / 792 -> 603 / 792
+  first-return vs retrigger     count 8 / 9 -> 8 / 9 vs 2 / 5 -> 2 / 5   hours 4.33 / 5.78 -> 4.33 / 5.78 vs 1.58 / 3.75 -> 1.58 / 3.75
+  per episode (pooled med/P90)  minutes 44 / 50 -> 44 / 50   fights 75 / 93 -> 75 / 93   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 12 / 16 -> 12 / 16   minutes 9 / 11 -> 9 / 11   (n 24 -> 24)
+  losses in window at trigger   mean 4.33 -> 4.33   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 85% -> 85%   first 20: 84% -> 84%   window at trigger: 55% -> 55%
+  zone: ordinary defeats        81 / 93 -> 81 / 93   rewalk hours 2.08 / 2.69 -> 2.07 / 2.72   non-training hours in zone 4.20 / 4.74 -> 4.20 / 4.74
+  Lv entering / Lv at boss      38 / 41 -> 38 / 41  /  46 / 51 -> 46 / 51   power at boss 20094 / 24742 -> 20094 / 24742
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 3/10 -> 3/10   attempts 2 / 8 -> 2 / 8   streak 1 / 7 -> 1 / 7   stall h 1.99 / 5.92 -> 1.99 / 5.92
+  zone clear h                  24.10 / 26.08 -> 24.10 / 26.08   paired med 0.00 (+0 010 -0)
+
+-- return zone: Amberfall Woods
+  episodes / run                8 / 9 -> 8 / 9   completed returns 7 / 8 -> 7 / 8   quick retriggers 4 / 5 -> 4 / 5   cancels(approx) 1 / 2 -> 1 / 2
+  training hours / run          6.65 / 7.42 -> 6.65 / 7.42   paired med 0.00 (+0 010 -0)   fights / run 783 / 843 -> 783 / 843
+  first-return vs retrigger     count 3 / 5 -> 3 / 5 vs 4 / 5 -> 4 / 5   hours 2.72 / 4.60 -> 2.72 / 4.60 vs 3.60 / 4.75 -> 3.60 / 4.75
+  per episode (pooled med/P90)  minutes 52 / 57 -> 52 / 57   fights 100 / 119 -> 100 / 119   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 10 / 19 -> 10 / 19   minutes 8 / 12 -> 8 / 12   (n 41 -> 41)
+  losses in window at trigger   mean 4.30 -> 4.30   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 78% -> 78%   first 20: 85% -> 85%   window at trigger: 55% -> 55%
+  zone: ordinary defeats        51 / 64 -> 51 / 64   rewalk hours 1.31 / 1.48 -> 1.31 / 1.50   non-training hours in zone 2.30 / 2.68 -> 2.30 / 2.68
+  Lv entering / Lv at boss      50 / 51 -> 50 / 51  /  58 / 60 -> 58 / 60   power at boss 34921 / 40876 -> 34921 / 40876
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 6/10 -> 6/10   attempts 1 / 4 -> 1 / 4   streak 0 / 3 -> 0 / 3   stall h 0.01 / 6.93 -> 0.01 / 6.93
+  zone clear h                  32.07 / 36.09 -> 32.07 / 36.09   paired med 0.00 (+0 010 -0)
+
+-- return zone: Ashen Approach
+  episodes / run                9 / 11 -> 8 / 12   completed returns 9 / 11 -> 8 / 11   quick retriggers 5 / 8 -> 5 / 7   cancels(approx) 0 / 2 -> 0 / 1
+  training hours / run          8.06 / 10.62 -> 7.75 / 11.17   paired med -0.91 (+3 00 -7)   fights / run 986 / 1222 -> 922 / 1310
+  first-return vs retrigger     count 5 / 6 -> 3 / 6 vs 5 / 8 -> 5 / 7   hours 3.94 / 5.49 -> 2.92 / 5.01 vs 5.04 / 7.68 -> 4.46 / 7.35
+  per episode (pooled med/P90)  minutes 58 / 64 -> 57 / 63   fights 112 / 124 -> 113 / 128   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 11 / 17 -> 11 / 18   minutes 9 / 13 -> 10 / 14   (n 50 -> 50)
+  losses in window at trigger   mean 4.14 -> 5.28   (window length med 10 -> 10; audit: min losses 4 -> 5)
+  win rate after return (mean)  first 10: 76% -> 73%   first 20: 82% -> 76%   window at trigger: 57% -> 44%
+  zone: ordinary defeats        62 / 76 -> 72 / 110   rewalk hours 1.42 / 2.21 -> 1.24 / 2.16   non-training hours in zone 3.02 / 4.12 -> 2.91 / 4.80
+  Lv entering / Lv at boss      60 / 61 -> 60 / 61  /  70 / 72 -> 69 / 72   power at boss 54264 / 57454 -> 52609 / 57512
+  boss: reach/attempt/clear     10/9/8 -> 10/9/8   first-try 7/8 -> 7/8   attempts 1 / 2 -> 1 / 2   streak 0 / 1 -> 0 / 1   stall h 0.02 / 0.99 -> 0.02 / 4.00
+  zone clear h                  44.07 / 46.08 -> 43.09 / 47.07   paired med -0.96 (+2 00 -5)
+
+-- return zone: Ashen Keep
+  episodes / run                0 / 0 -> 0 / 0   completed returns 0 / 0 -> 0 / 0   quick retriggers 0 / 0 -> 0 / 0   cancels(approx) 0 / 0 -> 0 / 0
+  training hours / run          0.00 / 0.00 -> 0.00 / 0.00   paired med 0.00 (+0 010 -0)   fights / run 0 / 0 -> 0 / 0
+  first-return vs retrigger     count 0 / 0 -> 0 / 0 vs 0 / 0 -> 0 / 0   hours 0.00 / 0.00 -> 0.00 / 0.00 vs 0.00 / 0.00 -> 0.00 / 0.00
+  per episode (pooled med/P90)  minutes - / - -> - / -   fights - / - -> - / -   level progress - / - -> - / -   target med - -> -
+  return -> next trigger        fights - / - -> - / -   minutes - / - -> - / -   (n 0 -> 0)
+  losses in window at trigger   mean - -> -   (window length med - -> -; audit: min losses Infinity -> Infinity)
+  win rate after return (mean)  first 10: 0% -> 0%   first 20: 0% -> 0%   window at trigger: 0% -> 0%
+  zone: ordinary defeats        151 / 241 -> 188 / 317   rewalk hours 1.61 / 2.41 -> 1.85 / 2.67   non-training hours in zone 3.93 / 5.95 -> 4.90 / 6.90
+  Lv entering / Lv at boss      70 / 72 -> 69 / 72  /  - / - -> - / -   power at boss - / - -> - / -
+  boss: reach/attempt/clear     8/0/0 -> 8/0/0   first-try 0/0 -> 0/0   attempts - / - -> - / -   streak - / - -> - / -   stall h - / - -> - / -
+  zone clear h                  - / - -> - / -   paired med - (+0 00 -0)
+
+  zones cleared @24/36/48h      24h 4 / 5 -> 4 / 5 [paired med 0.00 (+0 010 -0)]   36h 6 / 6 -> 6 / 6 [paired med 0.00 (+0 010 -0)]   48h 7 / 7 -> 7 / 7 [paired med 0.00 (+1 08 -1)]
+  total defeats                 634 / 734 -> 702 / 807   paired med 31.00 (+6 00 -4)   hordes fought/repelled/lost 4 / 5 -> 5 / 5 / 4 / 5 -> 5 / 5 / 0 / 2 -> 0 / 2
+
+===== CASUAL  n=10 paired runs   (batch_out_p20c -> batch_out_p20x)   values are med / P90 per run unless noted
+total training hours          27.4 / 32.0 -> 26.5 / 30.1   paired med -2.55 (+2 00 -8)
+total triggers                47 / 58 -> 44 / 55   completed returns 39 / 47 -> 38 / 44   cancels 8 / 12 -> 7 / 12
+
+-- return zone: Stillwater Lagoon
+  episodes / run                4 / 7 -> 4 / 7   completed returns 2 / 4 -> 2 / 4   quick retriggers 0 / 3 -> 0 / 3   cancels(approx) 1 / 3 -> 1 / 3
+  training hours / run          0.36 / 0.74 -> 0.36 / 0.74   paired med 0.00 (+0 010 -0)   fights / run 77 / 149 -> 77 / 149
+  first-return vs retrigger     count 3 / 6 -> 3 / 6 vs 0 / 3 -> 0 / 3   hours 0.34 / 0.57 -> 0.34 / 0.57 vs 0.00 / 0.41 -> 0.00 / 0.41
+  per episode (pooled med/P90)  minutes 6 / 12 -> 6 / 12   fights 20 / 42 -> 20 / 42   level progress 1.00 / 1.30 -> 1.00 / 1.30   target med 1.00 -> 1.00
+  return -> next trigger        fights 9 / 17 -> 9 / 17   minutes 7 / 10 -> 7 / 10   (n 8 -> 8)
+  losses in window at trigger   mean 4.16 -> 4.16   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 81% -> 81%   first 20: 86% -> 86%   window at trigger: 56% -> 56%
+  zone: ordinary defeats        43 / 52 -> 43 / 52   rewalk hours 1.12 / 1.93 -> 1.12 / 1.89   non-training hours in zone 2.05 / 2.87 -> 2.05 / 2.87
+  Lv entering / Lv at boss      6 / 7 -> 6 / 7  /  16 / 18 -> 16 / 18   power at boss 3182 / 3860 -> 3182 / 3860
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 3/10 -> 3/10   attempts 2 / 4 -> 2 / 4   streak 1 / 3 -> 1 / 3   stall h 0.38 / 0.88 -> 0.38 / 0.88
+  zone clear h                  2.86 / 3.43 -> 2.86 / 3.43   paired med 0.00 (+0 010 -0)
+
+-- return zone: Thornwood
+  episodes / run                6 / 9 -> 6 / 9   completed returns 6 / 8 -> 6 / 8   quick retriggers 3 / 6 -> 3 / 6   cancels(approx) 1 / 1 -> 1 / 1
+  training hours / run          1.42 / 2.17 -> 1.42 / 2.17   paired med 0.00 (+0 010 -0)   fights / run 214 / 298 -> 214 / 298
+  first-return vs retrigger     count 3 / 5 -> 3 / 5 vs 3 / 6 -> 3 / 6   hours 0.53 / 1.08 -> 0.53 / 1.08 vs 0.81 / 1.43 -> 0.81 / 1.43
+  per episode (pooled med/P90)  minutes 15 / 17 -> 15 / 17   fights 33 / 45 -> 33 / 45   level progress 1.00 / 1.30 -> 1.00 / 1.30   target med 1.00 -> 1.00
+  return -> next trigger        fights 9 / 15 -> 9 / 15   minutes 7 / 10 -> 7 / 10   (n 34 -> 34)
+  losses in window at trigger   mean 4.52 -> 4.52   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 76% -> 76%   first 20: 78% -> 78%   window at trigger: 51% -> 51%
+  zone: ordinary defeats        51 / 64 -> 51 / 64   rewalk hours 1.15 / 2.07 -> 1.15 / 2.17   non-training hours in zone 2.27 / 3.09 -> 2.27 / 3.09
+  Lv entering / Lv at boss      15 / 16 -> 15 / 16  /  26 / 28 -> 26 / 28   power at boss 7665 / 8546 -> 7665 / 8546
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 7/10 -> 7/10   attempts 1 / 2 -> 1 / 2   streak 0 / 1 -> 0 / 1   stall h 0.02 / 0.86 -> 0.02 / 0.86
+  zone clear h                  6.92 / 7.09 -> 6.92 / 7.09   paired med 0.00 (+0 010 -0)
+
+-- return zone: Ironvein Caverns
+  episodes / run                5 / 8 -> 5 / 8   completed returns 5 / 8 -> 5 / 8   quick retriggers 4 / 7 -> 4 / 7   cancels(approx) 0 / 0 -> 0 / 0
+  training hours / run          2.42 / 3.96 -> 2.42 / 3.96   paired med 0.00 (+0 010 -0)   fights / run 354 / 558 -> 354 / 558
+  first-return vs retrigger     count 2 / 4 -> 2 / 4 vs 4 / 7 -> 4 / 7   hours 0.94 / 2.18 -> 0.94 / 2.18 vs 1.77 / 3.44 -> 1.77 / 3.44
+  per episode (pooled med/P90)  minutes 26 / 37 -> 26 / 37   fights 68 / 77 -> 68 / 77   level progress 1.00 / 1.20 -> 1.00 / 1.20   target med 1.00 -> 1.00
+  return -> next trigger        fights 9 / 16 -> 9 / 16   minutes 8 / 11 -> 8 / 11   (n 35 -> 35)
+  losses in window at trigger   mean 4.53 -> 4.53   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 78% -> 78%   first 20: 84% -> 84%   window at trigger: 51% -> 51%
+  zone: ordinary defeats        39 / 49 -> 39 / 49   rewalk hours 0.77 / 1.49 -> 0.77 / 1.56   non-training hours in zone 1.87 / 2.54 -> 1.87 / 2.54
+  Lv entering / Lv at boss      27 / 28 -> 27 / 28  /  35 / 37 -> 35 / 37   power at boss 11986 / 13916 -> 11986 / 13916
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 7/10 -> 7/10   attempts 1 / 3 -> 1 / 3   streak 0 / 2 -> 0 / 2   stall h 0.02 / 1.95 -> 0.02 / 1.95
+  zone clear h                  11.11 / 13.16 -> 11.11 / 13.16   paired med 0.00 (+0 010 -0)
+
+-- return zone: Emberwaste
+  episodes / run                5 / 9 -> 5 / 9   completed returns 4 / 6 -> 4 / 6   quick retriggers 2 / 5 -> 2 / 5   cancels(approx) 1 / 5 -> 1 / 5
+  training hours / run          3.63 / 4.74 -> 3.63 / 4.74   paired med 0.00 (+0 010 -0)   fights / run 417 / 561 -> 417 / 561
+  first-return vs retrigger     count 3 / 6 -> 3 / 6 vs 2 / 5 -> 2 / 5   hours 1.88 / 3.23 -> 1.88 / 3.23 vs 1.40 / 2.82 -> 1.40 / 2.82
+  per episode (pooled med/P90)  minutes 39 / 46 -> 39 / 46   fights 76 / 92 -> 76 / 92   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 8 / 14 -> 8 / 14   minutes 7 / 13 -> 7 / 13   (n 24 -> 24)
+  losses in window at trigger   mean 5.17 -> 5.17   (window length med 9 -> 9; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 70% -> 70%   first 20: 82% -> 82%   window at trigger: 42% -> 42%
+  zone: ordinary defeats        49 / 72 -> 49 / 72   rewalk hours 0.96 / 1.84 -> 0.96 / 1.93   non-training hours in zone 2.06 / 2.92 -> 2.06 / 2.92
+  Lv entering / Lv at boss      35 / 37 -> 35 / 37  /  42 / 45 -> 42 / 45   power at boss 16120 / 19163 -> 16120 / 19163
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 6/10 -> 6/10   attempts 1 / 2 -> 1 / 2   streak 0 / 1 -> 0 / 1   stall h 0.03 / 2.95 -> 0.03 / 2.95
+  zone clear h                  16.14 / 19.10 -> 16.14 / 19.10   paired med 0.00 (+0 010 -0)
+
+-- return zone: Amberfall Woods
+  episodes / run                11 / 16 -> 11 / 16   completed returns 8 / 13 -> 8 / 13   quick retriggers 5 / 12 -> 5 / 12   cancels(approx) 3 / 7 -> 3 / 7
+  training hours / run          7.09 / 11.33 -> 7.09 / 11.33   paired med 0.00 (+0 010 -0)   fights / run 831 / 1422 -> 831 / 1422
+  first-return vs retrigger     count 4 / 9 -> 4 / 9 vs 5 / 12 -> 5 / 12   hours 2.52 / 4.81 -> 2.52 / 4.81 vs 2.88 / 8.91 -> 2.88 / 8.91
+  per episode (pooled med/P90)  minutes 43 / 50 -> 43 / 50   fights 84 / 114 -> 84 / 114   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 10 / 18 -> 10 / 18   minutes 7 / 10 -> 7 / 10   (n 58 -> 58)
+  losses in window at trigger   mean 5.06 -> 5.06   (window length med 10 -> 10; audit: min losses 4 -> 4)
+  win rate after return (mean)  first 10: 78% -> 78%   first 20: 83% -> 83%   window at trigger: 43% -> 43%
+  zone: ordinary defeats        82 / 102 -> 82 / 102   rewalk hours 1.17 / 1.83 -> 1.15 / 1.89   non-training hours in zone 2.35 / 3.58 -> 2.35 / 3.58
+  Lv entering / Lv at boss      44 / 45 -> 44 / 45  /  54 / 61 -> 54 / 61   power at boss 30202 / 40943 -> 30202 / 40943
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 9/10 -> 9/10   attempts 1 / 2 -> 1 / 2   streak 0 / 1 -> 0 / 1   stall h 0.02 / 0.98 -> 0.02 / 0.98
+  zone clear h                  25.15 / 32.34 -> 25.15 / 32.34   paired med 0.00 (+0 010 -0)
+
+-- return zone: Ashen Approach
+  episodes / run                15 / 21 -> 13 / 20   completed returns 14 / 19 -> 12 / 18   quick retriggers 10 / 15 -> 9 / 16   cancels(approx) 1 / 3 -> 1 / 3
+  training hours / run          12.96 / 18.59 -> 10.52 / 16.74   paired med -2.55 (+2 00 -8)   fights / run 1682 / 2329 -> 1367 / 2196
+  first-return vs retrigger     count 4 / 6 -> 3 / 5 vs 10 / 15 -> 9 / 16   hours 3.43 / 4.87 -> 1.98 / 4.09 vs 9.33 / 13.72 -> 7.74 / 14.05
+  per episode (pooled med/P90)  minutes 52 / 57 -> 52 / 58   fights 110 / 129 -> 111 / 136   level progress 1.00 / 1.00 -> 1.00 / 1.00   target med 1.00 -> 1.00
+  return -> next trigger        fights 9 / 19 -> 9 / 13   minutes 8 / 13 -> 7 / 10   (n 107 -> 92)
+  losses in window at trigger   mean 4.90 -> 5.89   (window length med 10 -> 9; audit: min losses 4 -> 5)
+  win rate after return (mean)  first 10: 80% -> 69%   first 20: 82% -> 78%   window at trigger: 45% -> 33%
+  zone: ordinary defeats        115 / 121 -> 95 / 156   rewalk hours 1.56 / 2.24 -> 1.12 / 1.71   non-training hours in zone 3.82 / 4.73 -> 3.33 / 4.38
+  Lv entering / Lv at boss      54 / 61 -> 54 / 61  /  66 / 73 -> 65 / 71   power at boss 44132 / 57511 -> 44674 / 53391
+  boss: reach/attempt/clear     10/10/10 -> 10/10/10   first-try 2/10 -> 7/10   attempts 2 / 5 -> 1 / 3   streak 1 / 4 -> 0 / 2   stall h 3.50 / 9.91 -> 0.02 / 8.91
+  zone clear h                  42.09 / 46.01 -> 41.02 / 45.09   paired med -3.01 (+1 00 -9)
+
+-- return zone: Ashen Keep
+  episodes / run                0 / 0 -> 0 / 0   completed returns 0 / 0 -> 0 / 0   quick retriggers 0 / 0 -> 0 / 0   cancels(approx) 0 / 0 -> 0 / 0
+  training hours / run          0.00 / 0.00 -> 0.00 / 0.00   paired med 0.00 (+0 010 -0)   fights / run 0 / 0 -> 0 / 0
+  first-return vs retrigger     count 0 / 0 -> 0 / 0 vs 0 / 0 -> 0 / 0   hours 0.00 / 0.00 -> 0.00 / 0.00 vs 0.00 / 0.00 -> 0.00 / 0.00
+  per episode (pooled med/P90)  minutes - / - -> - / -   fights - / - -> - / -   level progress - / - -> - / -   target med - -> -
+  return -> next trigger        fights - / - -> - / -   minutes - / - -> - / -   (n 0 -> 0)
+  losses in window at trigger   mean - -> -   (window length med - -> -; audit: min losses Infinity -> Infinity)
+  win rate after return (mean)  first 10: 0% -> 0%   first 20: 0% -> 0%   window at trigger: 0% -> 0%
+  zone: ordinary defeats        286 / 720 -> 380 / 1052   rewalk hours 1.05 / 2.70 -> 1.19 / 4.29   non-training hours in zone 4.94 / 12.87 -> 6.91 / 17.83
+  Lv entering / Lv at boss      71 / 75 -> 70 / 71  /  72 / 75 -> 69 / 72   power at boss 61481 / 67675 -> 54585 / 60549
+  boss: reach/attempt/clear     10/4/0 -> 10/2/0   first-try 0/0 -> 0/0   attempts - / - -> - / -   streak 1 / 3 -> 1 / 1   stall h - / - -> - / -
+  zone clear h                  - / - -> - / -   paired med - (+0 00 -0)
+
+  zones cleared @24/36/48h      24h 5 / 6 -> 5 / 6 [paired med 0.00 (+0 010 -0)]   36h 6 / 7 -> 6 / 7 [paired med 0.00 (+2 08 -0)]   48h 7 / 7 -> 7 / 7 [paired med 0.00 (+0 010 -0)]
+  total defeats                 880 / 1260 -> 1052 / 1520   paired med 183.00 (+10 00 -0)   hordes fought/repelled/lost 5 / 5 -> 5 / 5 / 5 / 5 -> 5 / 5 / 0 / 1 -> 0 / 1

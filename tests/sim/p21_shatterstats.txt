@@ -1,0 +1,355 @@
+
+===== IDLE  (batch_out_p21, audited against batch_out_p20c)
+
+seed 31  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 43  audit OK (26 hourly records identical before first Shatter)
+  Shatter 1: h26.4 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 51 power 25340 gain +22 dust 1->23 reason stalled stalled 3h (last progress h23.4)
+     replay: Ironvein re-cleared +0.79h, back in Emberwaste +0.79h at Lv 20 power 21658; run 1 clears: Greenhollow@26.46 Stillwater@26.56 Thornwood@26.71 Ironvein@27.19 Emberwaste@31.97
+  Shatter 2: h38.01 run1 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 51 power 45354 gain +27 dust 9->36 reason stalled stalled 3h (last progress h35.01)  gap since previous 11.61h, zones re-cleared between: 5
+     replay: Ironvein re-cleared +0.47h, back in Amberfall Woods +1.01h at Lv 26 power 43816; run 2 clears: Greenhollow@38.07 Stillwater@38.16 Thornwood@38.28 Ironvein@38.48 Emberwaste@39.02 Amberfall@43.31
+  Shatter 3: h52.53 run2 in Ashen Approach fight 25 (far mark 33, cleared 6) Lv 64 power 85562 gain +34 dust 9->43 reason stalled stalled 3h (last progress h49.53)  gap since previous 14.52h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run2 Approach @43.31h Lv 44 pw 59078
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 798  training 21.3h  hordes 3/3/3  catacomb best 3
+
+seed 32  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 46  audit OK (26 hourly records identical before first Shatter)
+  Shatter 1: h26.13 run0 in Emberwaste fight 25 (far mark 35, cleared 4) Lv 50 power 24234 gain +22 dust 2->24 reason stalled stalled 3h (last progress h23.13)
+     replay: Ironvein re-cleared +0.66h, back in Emberwaste +0.66h at Lv 19 power 20261; run 1 clears: Greenhollow@26.2 Stillwater@26.29 Thornwood@26.47 Ironvein@26.79 Emberwaste@31.7 Amberfall@39.24
+  Shatter 2: h43.52 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 59 power 49605 gain +32 dust 6->38 reason stalled stalled 3h (last progress h40.52)  gap since previous 17.39h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.46h, back in Ashen Approach +3.79h at Lv 42 power 59366; run 2 clears: Greenhollow@43.58 Stillwater@43.67 Thornwood@43.78 Ironvein@43.98 Emberwaste@44.25 Amberfall@47.31 Ashen@56.8
+  Shatter 3: h61.42 run2 in Ashen Keep fight 14 (far mark 22, cleared 7) Lv 69 power 108197 gain +38 dust 8->46 reason stalled stalled 3h (last progress h58.42)  gap since previous 17.9h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @39.24h Lv 53 pw 46455 | run2 Approach @47.31h Lv 42 pw 59366 | run2 Keep @56.8h Lv 64 pw 92013
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 117 defeats in 4.61h (loss ~25%, rewalk 2.36h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 829  training 21.7h  hordes 5/5/2  catacomb best 2
+
+seed 33  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 44  audit OK (40 hourly records identical before first Shatter)
+  Shatter 1: h40.71 run0 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 65 power 45483 gain +30 dust 7->37 reason stalled stalled 3h (last progress h37.71)
+     replay: Ironvein re-cleared +0.45h, back in Ashen Approach +2.97h at Lv 39 power 47992; run 1 clears: Greenhollow@40.77 Stillwater@40.86 Thornwood@40.97 Ironvein@41.16 Emberwaste@41.44 Amberfall@43.68 Ashen@51.19
+  Shatter 2: h58.3 run1 in Ashen Keep fight 12 (far mark 19, cleared 7) Lv 66 power 86057 gain +35 dust 2->37 reason stalled stalled 3h (last progress h55.3)  gap since previous 17.59h, zones re-cleared between: 7
+     replay: Ironvein re-cleared +0.36h, back in Ashen Keep +3.19h at Lv 46 power 94404; run 2 clears: Greenhollow@58.36 Stillwater@58.44 Thornwood@58.53 Ironvein@58.66 Emberwaste@58.83 Amberfall@59.07 Ashen@61.49
+  Shatter 3: h67.42 run2 in Ashen Keep fight 20 (far mark 22, cleared 7) Lv 61 power 121394 gain +39 dust 5->44 reason stalled stalled 3h (last progress h64.42)  gap since previous 9.12h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run0 Approach @35.83h Lv 61 pw 39932 | run1 Approach @43.68h Lv 39 pw 47992 | run1 Keep @51.19h Lv 58 pw 66985 | run2 Approach @59.07h Lv 29 pw 81288 | run2 Keep @61.49h Lv 46 pw 94404
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 320 defeats in 13.04h (loss ~24%, rewalk 8.09h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 1007  training 20.8h  hordes 4/4/4  catacomb best 4
+
+seed 34  Shatters 3  final: run 3 Greenhollow Fields Lv 1 dust 34  audit OK (23 hourly records identical before first Shatter)
+  Shatter 1: h23.32 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 49 power 23319 gain +22 dust 4->26 reason stalled stalled 3h (last progress h20.32)
+     replay: Ironvein re-cleared +0.69h, back in Emberwaste +0.69h at Lv 19 power 21075; run 1 clears: Greenhollow@23.39 Stillwater@23.49 Thornwood@23.65 Ironvein@24.01
+  Shatter 2: h30.13 run1 in Emberwaste fight 29 (far mark 35, cleared 4) Lv 42 power 33673 gain +23 dust 4->27 reason stalled stalled 3h (last progress h27.13)  gap since previous 6.81h, zones re-cleared between: 4
+     replay: Ironvein re-cleared +0.53h, back in Emberwaste +0.53h at Lv 19 power 31643; run 2 clears: Greenhollow@30.19 Stillwater@30.28 Thornwood@30.42 Ironvein@30.66 Emberwaste@33.24 Amberfall@37.19
+  Shatter 3: h47.27 run2 in Ashen Approach fight 35 (far mark 35, cleared 6) Lv 65 power 87503 gain +34 dust 0->34 reason stalled stalled 3h (last progress h44.27)  gap since previous 17.14h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run2 Approach @37.19h Lv 48 pw 56079
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 3/4, 36h 5/5, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 629  training 16.0h  hordes 1/1/4  catacomb best 2
+
+seed 35  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 42  audit OK (32 hourly records identical before first Shatter)
+  Shatter 1: h32.51 run0 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 57 power 32916 gain +25 dust 3->28 reason stalled stalled 3h (last progress h29.51)
+     replay: Ironvein re-cleared +0.52h, back in Amberfall Woods +2.83h at Lv 32 power 33440; run 1 clears: Greenhollow@32.57 Stillwater@32.66 Thornwood@32.8 Ironvein@33.03 Emberwaste@35.34 Amberfall@41.51
+  Shatter 2: h52.95 run1 in Ashen Approach fight 24 (far mark 35, cleared 6) Lv 67 power 71768 gain +32 dust 5->37 reason stalled stalled 3h (last progress h49.95)  gap since previous 20.44h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.38h, back in Ashen Approach +0.92h at Lv 29 power 69128; run 2 clears: Greenhollow@53 Stillwater@53.08 Thornwood@53.18 Ironvein@53.33 Emberwaste@53.52 Amberfall@53.87
+  Shatter 3: h60.17 run2 in Ashen Approach fight 35 (far mark 35, cleared 6) Lv 56 power 94688 gain +33 dust 9->42 reason stalled stalled 3h (last progress h57.17)  gap since previous 7.22h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run1 Approach @41.51h Lv 49 pw 46059 | run2 Approach @53.87h Lv 29 pw 69128
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 850  training 22.7h  hordes 5/5/2  catacomb best 3
+
+seed 36  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 45  audit OK (30 hourly records identical before first Shatter)
+  Shatter 1: h30.11 run0 in Amberfall Woods fight 24 (far mark 31, cleared 5) Lv 57 power 35528 gain +25 dust 5->30 reason stalled stalled 3h (last progress h27.11)
+     replay: Ironvein re-cleared +0.47h, back in Amberfall Woods +2.18h at Lv 31 power 36605; run 1 clears: Greenhollow@30.17 Stillwater@30.26 Thornwood@30.39 Ironvein@30.58 Emberwaste@32.29 Amberfall@36.6
+  Shatter 2: h44.43 run1 in Ashen Approach fight 28 (far mark 34, cleared 6) Lv 62 power 67371 gain +32 dust 1->33 reason stalled stalled 3h (last progress h41.43)  gap since previous 14.32h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.38h, back in Ashen Approach +1.16h at Lv 32 power 71118; run 2 clears: Greenhollow@44.49 Stillwater@44.57 Thornwood@44.67 Ironvein@44.81 Emberwaste@45.01 Amberfall@45.59
+  Shatter 3: h51.13 run2 in Ashen Approach fight 29 (far mark 35, cleared 6) Lv 55 power 94478 gain +33 dust 12->45 reason stalled stalled 3h (last progress h48.13)  gap since previous 6.7h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run1 Approach @36.6h Lv 46 pw 48987 | run2 Approach @45.59h Lv 32 pw 71118
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 762  training 20.8h  hordes 2/2/4  catacomb best 5
+
+seed 37  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 45  audit OK (34 hourly records identical before first Shatter)
+  Shatter 1: h34.06 run0 in Amberfall Woods fight 26 (far mark 35, cleared 5) Lv 60 power 40162 gain +26 dust 5->31 reason stalled stalled 3h (last progress h31.06)
+     replay: Ironvein re-cleared +0.45h, back in Amberfall Woods +1.21h at Lv 27 power 37113; run 1 clears: Greenhollow@34.12 Stillwater@34.21 Thornwood@34.32 Ironvein@34.51 Emberwaste@35.27
+  Shatter 2: h39.08 run1 in Amberfall Woods fight 27 (far mark 35, cleared 5) Lv 43 power 50002 gain +26 dust 9->35 reason stalled stalled 3h (last progress h36.08)  gap since previous 5.02h, zones re-cleared between: 5
+     replay: Ironvein re-cleared +0.42h, back in Amberfall Woods +0.68h at Lv 24 power 50902; run 2 clears: Greenhollow@39.14 Stillwater@39.22 Thornwood@39.33 Ironvein@39.5 Emberwaste@39.76 Amberfall@42.57
+  Shatter 3: h46.22 run2 in Ashen Approach fight 29 (far mark 32, cleared 6) Lv 52 power 72653 gain +33 dust 12->45 reason stalled stalled 3h (last progress h43.22)  gap since previous 7.14h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run2 Approach @42.57h Lv 42 pw 65787
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 605  training 19.0h  hordes 4/4/1  catacomb best 2
+
+seed 38  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 44  audit OK (19 hourly records identical before first Shatter)
+  Shatter 1: h19.05 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 44 power 17606 gain +21 dust 4->25 reason stalled stalled 3h (last progress h16.05)
+     replay: Ironvein re-cleared +1.60h, back in Emberwaste +1.60h at Lv 23 power 17531; run 1 clears: Greenhollow@19.11 Stillwater@19.22 Thornwood@19.42 Ironvein@20.65 Emberwaste@29.44 Amberfall@35.81
+  Shatter 2: h40.01 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 61 power 51186 gain +32 dust 8->40 reason stalled stalled 3h (last progress h37.01)  gap since previous 20.96h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.46h, back in Ashen Approach +3.06h at Lv 39 power 59549; run 2 clears: Greenhollow@40.07 Stillwater@40.16 Thornwood@40.28 Ironvein@40.47 Emberwaste@40.71 Amberfall@43.07 Ashen@51.59
+  Shatter 3: h64.13 run2 in Ashen Keep fight 24 (far mark 32, cleared 7) Lv 71 power 123941 gain +38 dust 6->44 reason stalled stalled 3h (last progress h61.13)  gap since previous 24.12h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @35.81h Lv 55 pw 46671 | run2 Approach @43.07h Lv 39 pw 59549 | run2 Keep @51.59h Lv 61 pw 90183
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 332 defeats in 12.54h (loss ~27%, rewalk 5.47h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 1016  training 19.8h  hordes 3/3/4  catacomb best 4
+
+seed 39  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 45  audit OK (22 hourly records identical before first Shatter)
+  Shatter 1: h22.52 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 48 power 21676 gain +21 dust 2->23 reason stalled stalled 3h (last progress h19.52)
+     replay: Ironvein re-cleared +0.60h, back in Emberwaste +0.60h at Lv 18 power 18593; run 1 clears: Greenhollow@22.58 Stillwater@22.68 Thornwood@22.85 Ironvein@23.12 Emberwaste@28.87 Amberfall@35.51
+  Shatter 2: h39.44 run1 in Ashen Approach fight 16 (far mark 18, cleared 6) Lv 59 power 49439 gain +32 dust 6->38 reason stalled stalled 3h (last progress h36.44)  gap since previous 16.92h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.43h, back in Ashen Approach +4.78h at Lv 45 power 61851; run 2 clears: Greenhollow@39.5 Stillwater@39.58 Thornwood@39.69 Ironvein@39.87 Emberwaste@40.12 Amberfall@44.22 Ashen@51.92
+  Shatter 3: h62.23 run2 in Ashen Keep fight 25 (far mark 31, cleared 7) Lv 71 power 114337 gain +38 dust 7->45 reason stalled stalled 3h (last progress h59.23)  gap since previous 22.79h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @35.51h Lv 54 pw 45627 | run2 Approach @44.22h Lv 45 pw 61851 | run2 Keep @51.92h Lv 63 pw 90836
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 362 defeats in 10.32h (loss ~33%, rewalk 4.25h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 1090  training 21.5h  hordes 3/3/4  catacomb best 3
+
+seed 40  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 39  audit OK (28 hourly records identical before first Shatter)
+  Shatter 1: h28.01 run0 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 55 power 31065 gain +25 dust 4->29 reason stalled stalled 3h (last progress h25.01)
+     replay: Ironvein re-cleared +0.52h, back in Amberfall Woods +2.50h at Lv 32 power 33336; run 1 clears: Greenhollow@28.07 Stillwater@28.16 Thornwood@28.3 Ironvein@28.53 Emberwaste@30.51 Amberfall@35.8
+  Shatter 2: h41.49 run1 in Amberfall Woods fight 36 (far mark 36, cleared 6) Lv 58 power 56278 gain +31 dust 6->37 reason stalled stalled 3h (last progress h38.49)  gap since previous 13.48h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.43h, back in Ashen Approach +1.45h at Lv 32 power 59629; run 2 clears: Greenhollow@41.55 Stillwater@41.64 Thornwood@41.75 Ironvein@41.92 Emberwaste@42.14 Amberfall@42.94 Ashen@49.68
+  Shatter 3: h56.52 run2 in Ashen Keep fight 24 (far mark 28, cleared 7) Lv 65 power 110661 gain +37 dust 2->39 reason stalled stalled 3h (last progress h53.52)  gap since previous 15.03h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @35.8h Lv 48 pw 47167 | run2 Approach @42.94h Lv 32 pw 59629 | run2 Keep @49.68h Lv 58 pw 89407
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 215 defeats in 6.84h (loss ~30%, rewalk 3.15h)
+  zones cleared @24h 5/5, 36h 6/6, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 906  training 21.5h  hordes 3/3/4  catacomb best 3
+
+-- idle summary: Shatters per run med 3 (min 3 max 3), first Shatter h med 26.4 P90 40.7; Ironvein re-clear +0.46h med; back in the zone left +1.21h med (n 20); gaps between Shatters med 14.5h min 5.0h, min zones re-cleared between consecutive Shatters 4; audit 10/10 OK
+   Ashen Approach entry by run: run0 Lv med 61 @35.8h (n1), run1 Lv med 49 @36.6h (n7), run2 Lv med 39 @43.3h (n10)
+   Keep entry Lv by run: run1 med 58 (n1), run2 med 61 (n5) | Hollow King by run: 
+   zones cleared (current/best) med: 24h 4/4, 36h 5/5, 48h 6/6, 72h 6/6
+
+===== LIGHT  (batch_out_p21, audited against batch_out_p20c)
+
+seed 31  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 39  audit OK (22 hourly records identical before first Shatter)
+  Shatter 1: h22.93 run0 in Emberwaste fight 31 (far mark 35, cleared 4) Lv 49 power 23831 gain +22 dust 0->22 reason stalled stalled 3h (last progress h19.93)
+     replay: Ironvein re-cleared +0.59h, back in Emberwaste +0.59h at Lv 18 power 20443; run 1 clears: Greenhollow@22.99 Stillwater@23.08 Thornwood@23.23 Ironvein@23.52 Emberwaste@28.08 Amberfall@34.03
+  Shatter 2: h38.09 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 58 power 50070 gain +31 dust 6->37 reason stalled stalled 3h (last progress h35.09)  gap since previous 15.16h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.44h, back in Ashen Approach +1.99h at Lv 33 power 55008; run 2 clears: Greenhollow@38.15 Stillwater@38.24 Thornwood@38.35 Ironvein@38.53 Emberwaste@38.86 Amberfall@40.08 Ashen@48.07
+  Shatter 3: h60.1 run2 in Ashen Keep fight 25 (far mark 35, cleared 7) Lv 65 power 104717 gain +37 dust 2->39 reason stalled stalled 3h (last progress h57.1)  gap since previous 22.01h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @34.03h Lv 51 pw 45394 | run2 Approach @40.08h Lv 33 pw 55008 | run2 Keep @48.08h Lv 59 pw 87699
+  Hollow King: run2 0/2 wins, Lv 65, loss dur med 10s, HP left med 96%, summon 0/2
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 606 defeats in 12.03h (loss ~48%, rewalk 2.71h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 1308  training 22.2h  hordes 2/2/5  catacomb best 2
+
+seed 32  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 41  audit OK (29 hourly records identical before first Shatter)
+  Shatter 1: h29.08 run0 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 55 power 33657 gain +25 dust 0->25 reason stalled stalled 3h (last progress h26.08)
+     replay: Ironvein re-cleared +0.51h, back in Amberfall Woods +2.00h at Lv 30 power 33553; run 1 clears: Greenhollow@29.14 Stillwater@29.23 Thornwood@29.35 Ironvein@29.59 Emberwaste@31.08 Amberfall@36.03 Ashen@40.04
+  Shatter 2: h43.1 run1 in Ashen Keep fight 0 (far mark 7, cleared 7) Lv 58 power 59897 gain +35 dust 9->44 reason stalled stalled 3h (last progress h40.1)  gap since previous 14.02h, zones re-cleared between: 7
+     replay: Ironvein re-cleared +0.40h, back in Ashen Keep +6.93h at Lv 55 power 84924; run 2 clears: Greenhollow@43.16 Stillwater@43.24 Thornwood@43.34 Ironvein@43.5 Emberwaste@43.72 Amberfall@44.07 Ashen@50.03
+  Shatter 3: h58.05 run2 in Ashen Keep fight 24 (far mark 28, cleared 7) Lv 62 power 102987 gain +39 dust 2->41 reason stalled stalled 3h (last progress h55.05)  gap since previous 14.95h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @36.03h Lv 47 pw 48139 | run1 Keep @40.04h Lv 55 pw 53914 | run2 Approach @44.07h Lv 29 pw 59833 | run2 Keep @50.03h Lv 55 pw 84924
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 476 defeats in 11.08h (loss ~40%, rewalk 4.41h)
+  zones cleared @24h 5/5, 36h 5/5, 48h 6/7, 72h 7/7  (current run / best run)   total defeats 1178  training 21.6h  hordes 4/4/3  catacomb best 5
+
+seed 33  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 44  audit OK (23 hourly records identical before first Shatter)
+  Shatter 1: h23.06 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 49 power 22018 gain +22 dust 2->24 reason stalled stalled 3h (last progress h20.06)
+     replay: Ironvein re-cleared +0.75h, back in Emberwaste +0.75h at Lv 19 power 18648; run 1 clears: Greenhollow@23.13 Stillwater@23.23 Thornwood@23.4 Ironvein@23.81 Emberwaste@29.01 Amberfall@35.08
+  Shatter 2: h39.85 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 59 power 47844 gain +32 dust 7->39 reason stalled stalled 3h (last progress h36.85)  gap since previous 16.79h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.45h, back in Ashen Approach +2.21h at Lv 35 power 51957; run 2 clears: Greenhollow@39.91 Stillwater@40 Thornwood@40.09 Ironvein@40.3 Emberwaste@40.75 Amberfall@42.06 Ashen@51.02
+  Shatter 3: h58.06 run2 in Ashen Keep fight 28 (far mark 30, cleared 7) Lv 65 power 94998 gain +37 dust 7->44 reason stalled stalled 3h (last progress h55.06)  gap since previous 18.21h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @35.08h Lv 52 pw 42748 | run2 Approach @42.06h Lv 35 pw 51957 | run2 Keep @51.02h Lv 61 pw 85866
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 361 defeats in 7.04h (loss ~49%, rewalk 1.51h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 1091  training 22.3h  hordes 4/4/3  catacomb best 5
+
+seed 34  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 39  audit OK (22 hourly records identical before first Shatter)
+  Shatter 1: h22.58 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 48 power 20481 gain +21 dust 4->25 reason stalled stalled 3h (last progress h19.58)
+     replay: Ironvein re-cleared +1.29h, back in Emberwaste +1.29h at Lv 23 power 19092; run 1 clears: Greenhollow@22.64 Stillwater@22.75 Thornwood@22.92 Ironvein@23.87 Emberwaste@28.07
+  Shatter 2: h32.08 run1 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 45 power 33197 gain +26 dust 4->30 reason stalled stalled 3h (last progress h29.08)  gap since previous 9.5h, zones re-cleared between: 5
+     replay: Ironvein re-cleared +0.58h, back in Amberfall Woods +1.94h at Lv 30 power 35732; run 2 clears: Greenhollow@32.15 Stillwater@32.25 Thornwood@32.4 Ironvein@32.66 Emberwaste@34.02 Amberfall@39.88
+  Shatter 3: h43.08 run2 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 55 power 57173 gain +33 dust 6->39 reason stalled stalled 3h (last progress h40.08)  gap since previous 11h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run2 Approach @39.88h Lv 48 pw 53845
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 642  training 19.6h  hordes 3/3/2  catacomb best 4
+
+seed 35  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 46  audit OK (21 hourly records identical before first Shatter)
+  Shatter 1: h21.1 run0 in Emberwaste fight 24 (far mark 35, cleared 4) Lv 48 power 23026 gain +21 dust 3->24 reason stalled stalled 3h (last progress h18.1)
+     replay: Ironvein re-cleared +0.95h, back in Emberwaste +0.95h at Lv 21 power 20995; run 1 clears: Greenhollow@21.16 Stillwater@21.26 Thornwood@21.41 Ironvein@22.05 Emberwaste@26.04
+  Shatter 2: h31.08 run1 in Amberfall Woods fight 35 (far mark 35, cleared 5) Lv 49 power 41340 gain +27 dust 9->36 reason stalled stalled 3h (last progress h28.07)  gap since previous 9.98h, zones re-cleared between: 5
+     replay: Ironvein re-cleared +0.48h, back in Amberfall Woods +1.01h at Lv 26 power 41223; run 2 clears: Greenhollow@31.14 Stillwater@31.22 Thornwood@31.35 Ironvein@31.56 Emberwaste@32.09 Amberfall@36.04 Ashen@44.06
+  Shatter 3: h52.1 run2 in Ashen Keep fight 24 (far mark 33, cleared 7) Lv 66 power 96522 gain +37 dust 9->46 reason stalled stalled 3h (last progress h49.1)  gap since previous 21.02h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run2 Approach @36.04h Lv 45 pw 58506 | run2 Keep @44.06h Lv 62 pw 84926
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 404 defeats in 8.04h (loss ~47%, rewalk 1.79h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1040  training 20.5h  hordes 4/4/2  catacomb best 4
+
+seed 36  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 38  audit OK (29 hourly records identical before first Shatter)
+  Shatter 1: h29.14 run0 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 56 power 33607 gain +25 dust 1->26 reason stalled stalled 3h (last progress h26.14)
+     replay: Ironvein re-cleared +0.53h, back in Amberfall Woods +1.90h at Lv 30 power 32729; run 1 clears: Greenhollow@29.2 Stillwater@29.29 Thornwood@29.42 Ironvein@29.67 Emberwaste@31.04 Amberfall@36.03
+  Shatter 2: h44.1 run1 in Ashen Approach fight 28 (far mark 35, cleared 6) Lv 61 power 60669 gain +32 dust 9->41 reason stalled stalled 3h (last progress h41.1)  gap since previous 14.96h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.42h, back in Ashen Approach +0.93h at Lv 28 power 59043; run 2 clears: Greenhollow@44.16 Stillwater@44.24 Thornwood@44.34 Ironvein@44.52 Emberwaste@44.76 Amberfall@45.03 Ashen@50.07
+  Shatter 3: h55.11 run2 in Ashen Keep fight 15 (far mark 23, cleared 7) Lv 60 power 95535 gain +37 dust 1->38 reason stalled stalled 3h (last progress h52.11)  gap since previous 11.01h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @36.03h Lv 46 pw 45569 | run2 Approach @45.03h Lv 28 pw 59043 | run2 Keep @50.07h Lv 51 pw 78785
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 169 defeats in 5.04h (loss ~31%, rewalk 2.49h)
+  zones cleared @24h 5/5, 36h 5/5, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 893  training 22.7h  hordes 3/3/3  catacomb best 2
+
+seed 37  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 41  audit OK (22 hourly records identical before first Shatter)
+  Shatter 1: h22.11 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 48 power 21620 gain +21 dust 2->23 reason stalled stalled 3h (last progress h19.11)
+     replay: Ironvein re-cleared +0.93h, back in Emberwaste +0.93h at Lv 21 power 19354; run 1 clears: Greenhollow@22.18 Stillwater@22.28 Thornwood@22.47 Ironvein@23.04 Emberwaste@26.07 Amberfall@34.98
+  Shatter 2: h44.07 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 64 power 59074 gain +32 dust 8->40 reason stalled stalled 3h (last progress h41.07)  gap since previous 21.96h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.40h, back in Ashen Approach +0.98h at Lv 28 power 56906; run 2 clears: Greenhollow@44.13 Stillwater@44.21 Thornwood@44.32 Ironvein@44.47 Emberwaste@44.7 Amberfall@45.05 Ashen@49.07
+  Shatter 3: h61.07 run2 in Ashen Keep fight 29 (far mark 31, cleared 7) Lv 59 power 91906 gain +37 dust 4->41 reason stalled stalled 3h (last progress h58.07)  gap since previous 17h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @34.98h Lv 53 pw 43490 | run2 Approach @45.05h Lv 28 pw 56906 | run2 Keep @49.07h Lv 47 pw 72653
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 624 defeats in 12.00h (loss ~50%, rewalk 3.08h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 1327  training 25.1h  hordes 2/2/5  catacomb best 5
+
+seed 38  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 47  audit OK (30 hourly records identical before first Shatter)
+  Shatter 1: h30.09 run0 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 56 power 31610 gain +25 dust 4->29 reason stalled stalled 3h (last progress h27.09)
+     replay: Ironvein re-cleared +0.53h, back in Amberfall Woods +1.97h at Lv 29 power 30798; run 1 clears: Greenhollow@30.15 Stillwater@30.23 Thornwood@30.37 Ironvein@30.62 Emberwaste@32.06 Amberfall@37.05 Ashen@47.08
+  Shatter 2: h56.07 run1 in Ashen Keep fight 24 (far mark 29, cleared 7) Lv 67 power 70204 gain +35 dust 0->35 reason stalled stalled 3h (last progress h53.07)  gap since previous 25.98h, zones re-cleared between: 7
+     replay: Ironvein re-cleared +0.41h, back in Ashen Keep +4.02h at Lv 46 power 79680; run 2 clears: Greenhollow@56.14 Stillwater@56.22 Thornwood@56.34 Ironvein@56.48 Emberwaste@56.71 Amberfall@56.99 Ashen@60.09
+  Shatter 3: h70.08 run2 in Ashen Keep fight 24 (far mark 30, cleared 7) Lv 57 power 94099 gain +36 dust 11->47 reason stalled stalled 3h (last progress h67.08)  gap since previous 14.01h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @37.05h Lv 45 pw 42904 | run1 Keep @47.08h Lv 63 pw 60950 | run2 Approach @56.99h Lv 28 pw 64909 | run2 Keep @60.09h Lv 46 pw 79680
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 971 defeats in 18.99h (loss ~52%, rewalk 4.74h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1638  training 26.9h  hordes 4/4/4  catacomb best 4
+
+seed 39  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 40  audit OK (21 hourly records identical before first Shatter)
+  Shatter 1: h21.1 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 4) Lv 48 power 22934 gain +21 dust 2->23 reason stalled stalled 3h (last progress h18.1)
+     replay: Ironvein re-cleared +0.71h, back in Emberwaste +0.71h at Lv 19 power 19933; run 1 clears: Greenhollow@21.16 Stillwater@21.26 Thornwood@21.41 Ironvein@21.81 Emberwaste@26.09 Amberfall@32.79
+  Shatter 2: h36.09 run1 in Amberfall Woods fight 36 (far mark 36, cleared 6) Lv 58 power 49762 gain +31 dust 6->37 reason stalled stalled 3h (last progress h33.09)  gap since previous 14.99h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.42h, back in Ashen Approach +1.95h at Lv 33 power 54046; run 2 clears: Greenhollow@36.15 Stillwater@36.24 Thornwood@36.35 Ironvein@36.51 Emberwaste@36.92 Amberfall@38.04 Ashen@45.09
+  Shatter 3: h54.06 run2 in Ashen Keep fight 25 (far mark 31, cleared 7) Lv 63 power 99090 gain +37 dust 3->40 reason stalled stalled 3h (last progress h51.06)  gap since previous 17.97h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @32.79h Lv 53 pw 47644 | run2 Approach @38.04h Lv 33 pw 54046 | run2 Keep @45.09h Lv 57 pw 80650
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 460 defeats in 8.97h (loss ~47%, rewalk 2.72h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1210  training 20.6h  hordes 3/3/3  catacomb best 2
+
+seed 40  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 39  audit OK (31 hourly records identical before first Shatter)
+  Shatter 1: h31.08 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 5) Lv 56 power 30438 gain +25 dust 4->29 reason stalled stalled 3h (last progress h28.08)
+     replay: Ironvein re-cleared +0.54h, back in Amberfall Woods +2.97h at Lv 33 power 32849; run 1 clears: Greenhollow@31.15 Stillwater@31.24 Thornwood@31.37 Ironvein@31.62 Emberwaste@34.05 Amberfall@39.03
+  Shatter 2: h43.88 run1 in Amberfall Woods fight 36 (far mark 36, cleared 6) Lv 55 power 48611 gain +31 dust 6->37 reason stalled stalled 3h (last progress h40.88)  gap since previous 12.8h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.43h, back in Ashen Approach +3.19h at Lv 39 power 57001; run 2 clears: Greenhollow@43.94 Stillwater@44.02 Thornwood@44.12 Ironvein@44.31 Emberwaste@44.58 Amberfall@47.07 Ashen@55.06
+  Shatter 3: h62.08 run2 in Ashen Keep fight 22 (far mark 22, cleared 7) Lv 66 power 101117 gain +37 dust 2->39 reason stalled stalled 3h (last progress h59.08)  gap since previous 18.2h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @39.03h Lv 46 pw 43182 | run2 Approach @47.07h Lv 39 pw 57001 | run2 Keep @55.07h Lv 59 pw 80739
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 277 defeats in 7.01h (loss ~37%, rewalk 3.22h)
+  zones cleared @24h 4/4, 36h 5/5, 48h 6/6, 72h 7/7  (current run / best run)   total defeats 1083  training 26.4h  hordes 2/2/5  catacomb best 3
+
+-- light summary: Shatters per run med 3 (min 3 max 3), first Shatter h med 22.9 P90 31.1; Ironvein re-clear +0.51h med; back in the zone left +1.90h med (n 20); gaps between Shatters med 15.0h min 9.5h, min zones re-cleared between consecutive Shatters 5; audit 10/10 OK
+   Ashen Approach entry by run: run1 Lv med 47 @35.1h (n8), run2 Lv med 33 @42.1h (n10)
+   Keep entry Lv by run: run1 med 55 (n2), run2 med 57 (n9) | Hollow King by run: run2 0/2 wins over 1 runs
+   zones cleared (current/best) med: 24h 4/4, 36h 5/5, 48h 6/6, 72h 7/7
+
+===== CASUAL  (batch_out_p21, audited against batch_out_p20c)
+
+seed 31  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 41  audit OK (20 hourly records identical before first Shatter)
+  Shatter 1: h20.07 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 5) Lv 47 power 21542 gain +24 dust 4->28 reason stalled stalled 3h (last progress h17.06)
+     replay: Ironvein re-cleared +0.95h, back in Amberfall Woods +3.04h at Lv 31 power 24625; run 1 clears: Greenhollow@20.12 Stillwater@20.22 Thornwood@20.38 Ironvein@21.02 Emberwaste@23.11 Amberfall@27.11
+  Shatter 2: h34.17 run1 in Amberfall Woods fight 36 (far mark 36, cleared 6) Lv 57 power 47547 gain +31 dust 7->38 reason stalled stalled 3h (last progress h31.17)  gap since previous 14.1h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.42h, back in Ashen Approach +1.91h at Lv 35 power 52994; run 2 clears: Greenhollow@34.23 Stillwater@34.31 Thornwood@34.42 Ironvein@34.59 Emberwaste@34.85 Amberfall@36.08 Ashen@41.12
+  Shatter 3: h47.14 run2 in Ashen Keep fight 24 (far mark 33, cleared 7) Lv 59 power 83153 gain +37 dust 4->41 reason stalled stalled 3h (last progress h44.14)  gap since previous 12.97h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @27.11h Lv 44 pw 34295 | run2 Approach @36.08h Lv 35 pw 52994 | run2 Keep @41.12h Lv 53 pw 71430
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 347 defeats in 6.02h (loss ~50%, rewalk 1.30h)
+  zones cleared @24h 5/5, 36h 5/6, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1140  training 21.9h  hordes 5/5/0  catacomb best 1
+
+seed 32  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 48  audit OK (25 hourly records identical before first Shatter)
+  Shatter 1: h25.17 run0 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 51 power 24642 gain +25 dust 0->25 reason stalled stalled 3h (last progress h22.17)
+     replay: Ironvein re-cleared +0.68h, back in Amberfall Woods +1.99h at Lv 28 power 23129; run 1 clears: Greenhollow@25.23 Stillwater@25.33 Thornwood@25.51 Ironvein@25.85 Emberwaste@27.16 Amberfall@30.15
+  Shatter 2: h40.07 run1 in Ashen Approach fight 31 (far mark 31, cleared 6) Lv 56 power 46648 gain +31 dust 8->39 reason stalled stalled 3h (last progress h37.07)  gap since previous 14.9h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.48h, back in Ashen Approach +1.10h at Lv 29 power 44474; run 2 clears: Greenhollow@40.13 Stillwater@40.22 Thornwood@40.34 Ironvein@40.55 Emberwaste@40.82 Amberfall@41.17 Ashen@44.13
+  Shatter 3: h55.11 run2 in Ashen Keep fight 24 (far mark 28, cleared 7) Lv 56 power 72048 gain +36 dust 12->48 reason stalled stalled 3h (last progress h52.11)  gap since previous 15.04h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @30.15h Lv 39 pw 31034 | run2 Approach @41.17h Lv 29 pw 44474 | run2 Keep @44.13h Lv 43 pw 56715
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 610 defeats in 10.98h (loss ~53%, rewalk 2.86h)
+  zones cleared @24h 5/5, 36h 6/6, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1331  training 23.7h  hordes 4/4/2  catacomb best 4
+
+seed 33  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 49  audit OK (20 hourly records identical before first Shatter)
+  Shatter 1: h20.17 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 5) Lv 47 power 21326 gain +24 dust 0->24 reason stalled stalled 3h (last progress h17.17)
+     replay: Ironvein re-cleared +0.85h, back in Amberfall Woods +2.96h at Lv 32 power 24677; run 1 clears: Greenhollow@20.23 Stillwater@20.33 Thornwood@20.51 Ironvein@21.02 Emberwaste@23.13
+  Shatter 2: h28.16 run1 in Amberfall Woods fight 25 (far mark 35, cleared 5) Lv 46 power 35753 gain +26 dust 9->35 reason stalled stalled 3h (last progress h25.16)  gap since previous 7.99h, zones re-cleared between: 5
+     replay: Ironvein re-cleared +0.53h, back in Amberfall Woods +0.91h at Lv 25 power 34719; run 2 clears: Greenhollow@28.22 Stillwater@28.31 Thornwood@28.45 Ironvein@28.69 Emberwaste@29.07 Amberfall@30.14 Ashen@35.15
+  Shatter 3: h41.14 run2 in Ashen Keep fight 15 (far mark 20, cleared 7) Lv 54 power 60837 gain +36 dust 13->49 reason stalled stalled 3h (last progress h38.14)  gap since previous 12.98h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run2 Approach @30.14h Lv 33 pw 41328 | run2 Keep @35.15h Lv 49 pw 52330
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 446 defeats in 5.99h (loss ~65%, rewalk 1.25h)
+  zones cleared @24h 5/5, 36h 7/7, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1130  training 17.2h  hordes 3/3/2  catacomb best 5
+
+seed 34  Shatters 3  final: run 3 Greenhollow Fields Lv 1 dust 39  audit OK (16 hourly records identical before first Shatter)
+  Shatter 1: h16.17 run0 in Thornwood fight 30 (far mark 30, cleared 4) Lv 43 power 17038 gain +21 dust 4->25 reason stalled stalled 3h (last progress h13.17)
+     replay: Ironvein re-cleared +0.88h, back in Emberwaste +0.88h at Lv 19 power 15239; run 1 clears: Greenhollow@16.24 Stillwater@16.35 Thornwood@16.56 Ironvein@17.05
+  Shatter 2: h23.08 run1 in Emberwaste fight 35 (far mark 35, cleared 4) Lv 39 power 26363 gain +23 dust 0->23 reason stalled stalled 3h (last progress h20.08)  gap since previous 6.91h, zones re-cleared between: 4
+     replay: Ironvein re-cleared +0.64h, back in Emberwaste +0.64h at Lv 19 power 24146; run 2 clears: Greenhollow@23.14 Stillwater@23.24 Thornwood@23.41 Ironvein@23.72 Emberwaste@26.15 Amberfall@28.11
+  Shatter 3: h32.18 run2 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 50 power 47365 gain +33 dust 6->39 reason stalled stalled 3h (last progress h29.18)  gap since previous 9.1h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run2 Approach @28.11h Lv 41 pw 40900
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 4/4, 36h 6/6, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 575  training 15.4h  hordes 4/4/0  catacomb best 3
+
+seed 35  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 51  audit OK (20 hourly records identical before first Shatter)
+  Shatter 1: h20.12 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 5) Lv 47 power 22080 gain +24 dust 2->26 reason stalled stalled 3h (last progress h17.12)
+     replay: Ironvein re-cleared +0.61h, back in Amberfall Woods +1.99h at Lv 28 power 22810; run 1 clears: Greenhollow@20.18 Stillwater@20.27 Thornwood@20.43 Ironvein@20.73 Emberwaste@22.11 Amberfall@25.1 Ashen@34.14
+  Shatter 2: h41.16 run1 in Ashen Keep fight 17 (far mark 22, cleared 7) Lv 60 power 56467 gain +35 dust 6->41 reason stalled stalled 3h (last progress h38.16)  gap since previous 21.04h, zones re-cleared between: 7
+     replay: Ironvein re-cleared +0.42h, back in Ashen Keep +3.95h at Lv 45 power 70213; run 2 clears: Greenhollow@41.22 Stillwater@41.31 Thornwood@41.41 Ironvein@41.58 Emberwaste@41.8 Amberfall@42.12 Ashen@45.11
+  Shatter 3: h55.13 run2 in Ashen Keep fight 29 (far mark 34, cleared 7) Lv 56 power 87294 gain +36 dust 15->51 reason stalled stalled 3h (last progress h52.13)  gap since previous 13.97h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @25.1h Lv 39 pw 31017 | run1 Keep @34.14h Lv 55 pw 47438 | run2 Approach @42.12h Lv 29 pw 55741 | run2 Keep @45.11h Lv 45 pw 70213
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 1008 defeats in 17.05h (loss ~56%, rewalk 4.22h)
+  zones cleared @24h 5/5, 36h 7/7, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1721  training 17.8h  hordes 3/3/3  catacomb best 3
+
+seed 36  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 46  audit OK (23 hourly records identical before first Shatter)
+  Shatter 1: h23.09 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 5) Lv 51 power 24327 gain +25 dust 3->28 reason stalled stalled 3h (last progress h20.08)
+     replay: Ironvein re-cleared +0.58h, back in Amberfall Woods +2.03h at Lv 28 power 22927; run 1 clears: Greenhollow@23.14 Stillwater@23.24 Thornwood@23.4 Ironvein@23.67 Emberwaste@25.12
+  Shatter 2: h32.12 run1 in Emberwaste fight 36 (far mark 36, cleared 5) Lv 48 power 40375 gain +26 dust 9->35 reason stalled stalled 3h (last progress h29.12)  gap since previous 9.03h, zones re-cleared between: 5
+     replay: Ironvein re-cleared +0.47h, back in Amberfall Woods +0.97h at Lv 26 power 39148; run 2 clears: Greenhollow@32.18 Stillwater@32.27 Thornwood@32.39 Ironvein@32.59 Emberwaste@33.09 Amberfall@34.13
+  Shatter 3: h41.15 run2 in Ashen Approach fight 24 (far mark 35, cleared 6) Lv 55 power 63526 gain +33 dust 13->46 reason stalled stalled 3h (last progress h38.15)  gap since previous 9.03h, zones re-cleared between: 6
+     replay: Ironvein re-cleared not within horizon, back in Ashen Approach not within horizon; run 3 clears: 
+  late entries: run2 Approach @34.13h Lv 34 pw 45558
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)
+  zones cleared @24h 4/5, 36h 6/6, 48h 6/6, 72h 6/6  (current run / best run)   total defeats 779  training 21.5h  hordes 4/4/1  catacomb best 3
+
+seed 37  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 46  audit OK (26 hourly records identical before first Shatter)
+  Shatter 1: h26.16 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 6) Lv 55 power 30704 gain +29 dust 2->31 reason stalled stalled 3h (last progress h23.16)
+     replay: Ironvein re-cleared +0.52h, back in Ashen Approach +4.92h at Lv 41 power 38505; run 1 clears: Greenhollow@26.23 Stillwater@26.32 Thornwood@26.45 Ironvein@26.68 Emberwaste@27.11 Amberfall@31.08
+  Shatter 2: h37.13 run1 in Amberfall Woods fight 36 (far mark 36, cleared 6) Lv 56 power 55825 gain +31 dust 7->38 reason stalled stalled 3h (last progress h34.13)  gap since previous 10.97h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.42h, back in Ashen Approach +0.92h at Lv 28 power 54463; run 2 clears: Greenhollow@37.19 Stillwater@37.27 Thornwood@37.38 Ironvein@37.55 Emberwaste@37.76 Amberfall@38.04 Ashen@40.15
+  Shatter 3: h53.13 run2 in Ashen Keep fight 26 (far mark 35, cleared 7) Lv 57 power 88414 gain +36 dust 10->46 reason stalled stalled 3h (last progress h50.13)  gap since previous 16h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run0 Approach @21.11h Lv 49 pw 25857 | run1 Approach @31.08h Lv 41 pw 38505 | run2 Approach @38.05h Lv 28 pw 54463 | run2 Keep @40.16h Lv 41 pw 65385
+  Hollow King: run2 0/1 wins, Lv 55, loss dur med 18s, HP left med 85%, summon 0/1
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 802 defeats in 12.97h (loss ~56%, rewalk 2.65h)
+  zones cleared @24h 6/6, 36h 6/6, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1571  training 19.0h  hordes 3/3/3  catacomb best 3
+
+seed 38  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 40  audit OK (21 hourly records identical before first Shatter)
+  Shatter 1: h21.12 run0 in Amberfall Woods fight 33 (far mark 33, cleared 5) Lv 51 power 25839 gain +25 dust 4->29 reason stalled stalled 3h (last progress h18.12)
+     replay: Ironvein re-cleared +0.55h, back in Amberfall Woods +1.01h at Lv 24 power 23682; run 1 clears: Greenhollow@21.18 Stillwater@21.27 Thornwood@21.41 Ironvein@21.67 Emberwaste@22.13 Amberfall@26.09
+  Shatter 2: h31.12 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 53 power 45805 gain +31 dust 9->40 reason stalled stalled 3h (last progress h28.12)  gap since previous 10h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.41h, back in Ashen Approach +1.05h at Lv 30 power 46822; run 2 clears: Greenhollow@31.17 Stillwater@31.26 Thornwood@31.36 Ironvein@31.53 Emberwaste@31.78 Amberfall@32.17 Ashen@37.09
+  Shatter 3: h48.08 run2 in Ashen Keep fight 24 (far mark 35, cleared 7) Lv 62 power 89403 gain +37 dust 3->40 reason stalled stalled 3h (last progress h45.08)  gap since previous 16.96h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @26.09h Lv 41 pw 36493 | run2 Approach @32.17h Lv 30 pw 46822 | run2 Keep @37.09h Lv 52 pw 69654
+  Hollow King: run2 0/2 wins, Lv 60, loss dur med 15s, HP left med 87%, summon 0/2
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 677 defeats in 10.99h (loss ~53%, rewalk 2.06h)
+  zones cleared @24h 5/5, 36h 6/6, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1366  training 18.6h  hordes 4/4/1  catacomb best 2
+
+seed 39  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 37  audit OK (22 hourly records identical before first Shatter)
+  Shatter 1: h22.16 run0 in Ironvein Caverns fight 36 (far mark 36, cleared 5) Lv 51 power 26934 gain +25 dust 0->25 reason stalled stalled 3h (last progress h19.16)
+     replay: Ironvein re-cleared +0.54h, back in Amberfall Woods +1.00h at Lv 24 power 23801; run 1 clears: Greenhollow@22.22 Stillwater@22.31 Thornwood@22.45 Ironvein@22.7 Emberwaste@23.16 Amberfall@27.09
+  Shatter 2: h31.17 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 50 power 41144 gain +31 dust 8->39 reason stalled stalled 3h (last progress h28.17)  gap since previous 9.01h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.44h, back in Ashen Approach +3.91h at Lv 43 power 52866; run 2 clears: Greenhollow@31.22 Stillwater@31.31 Thornwood@31.42 Ironvein@31.61 Emberwaste@32.05 Amberfall@35.08 Ashen@37.15
+  Shatter 3: h53.1 run2 in Ashen Keep fight 32 (far mark 35, cleared 7) Lv 65 power 98157 gain +37 dust 0->37 reason stalled stalled 3h (last progress h50.1)  gap since previous 21.93h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @27.09h Lv 40 pw 34671 | run2 Approach @35.08h Lv 43 pw 52866 | run2 Keep @37.16h Lv 50 pw 62760
+  Hollow King: run2 0/1 wins, Lv 64, loss dur med 15s, HP left med 81%, summon 0/1
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 1016 defeats in 15.94h (loss ~53%, rewalk 4.46h)
+  zones cleared @24h 5/5, 36h 6/6, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1794  training 18.8h  hordes 4/4/2  catacomb best 2
+
+seed 40  Shatters 3  final: run 3 Greenhollow Fields Lv 6 dust 48  audit OK (17 hourly records identical before first Shatter)
+  Shatter 1: h17.18 run0 in Thornwood fight 30 (far mark 30, cleared 4) Lv 44 power 17545 gain +21 dust 4->25 reason stalled stalled 3h (last progress h14.18)
+     replay: Ironvein re-cleared +0.90h, back in Emberwaste +0.90h at Lv 19 power 15223; run 1 clears: Greenhollow@17.24 Stillwater@17.35 Thornwood@17.52 Ironvein@18.08 Emberwaste@21.1 Amberfall@27.15
+  Shatter 2: h34.17 run1 in Emberwaste fight 36 (far mark 36, cleared 6) Lv 57 power 43532 gain +31 dust 5->36 reason stalled stalled 3h (last progress h31.17)  gap since previous 16.99h, zones re-cleared between: 6
+     replay: Ironvein re-cleared +0.45h, back in Ashen Approach +1.94h at Lv 33 power 46582; run 2 clears: Greenhollow@34.23 Stillwater@34.31 Thornwood@34.43 Ironvein@34.62 Emberwaste@35.05 Amberfall@36.11 Ashen@40.12
+  Shatter 3: h53.15 run2 in Ashen Keep fight 27 (far mark 31, cleared 7) Lv 58 power 74956 gain +36 dust 12->48 reason stalled stalled 3h (last progress h50.15)  gap since previous 18.98h, zones re-cleared between: 7
+     replay: Ironvein re-cleared not within horizon, back in Ashen Keep not within horizon; run 3 clears: 
+  late entries: run1 Approach @27.15h Lv 46 pw 33174 | run2 Approach @36.11h Lv 33 pw 46582 | run2 Keep @40.12h Lv 47 pw 58061
+  Keep ordinary before first Shatter: 0 defeats in 0.00h (loss ~-, rewalk 0.00h)  |  after: 830 defeats in 13.02h (loss ~57%, rewalk 2.87h)
+  zones cleared @24h 5/5, 36h 5/6, 48h 7/7, 72h 7/7  (current run / best run)   total defeats 1648  training 23.3h  hordes 4/4/2  catacomb best 1
+
+-- casual summary: Shatters per run med 3 (min 3 max 3), first Shatter h med 20.2 P90 26.2; Ironvein re-clear +0.53h med; back in the zone left +1.10h med (n 20); gaps between Shatters med 13.0h min 6.9h, min zones re-cleared between consecutive Shatters 4; audit 10/10 OK
+   Ashen Approach entry by run: run0 Lv med 49 @21.1h (n1), run1 Lv med 41 @27.1h (n7), run2 Lv med 33 @35.1h (n10)
+   Keep entry Lv by run: run1 med 55 (n1), run2 med 47 (n8) | Hollow King by run: run2 0/4 wins over 3 runs
+   zones cleared (current/best) med: 24h 5/5, 36h 6/6, 48h 7/7, 72h 7/7

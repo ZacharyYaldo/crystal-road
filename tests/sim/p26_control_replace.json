@@ -1,0 +1,6 @@
+[
+ [
+  "const rf=Math.pow(1.10,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));",
+  "const rf=Math.pow(1.25,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));"
+ ]
+]

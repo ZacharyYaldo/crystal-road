@@ -1,0 +1,41 @@
+// Paired comparison of two Shatter-diagnostic batches (same seeds): dust flow and purchases, post-Shatter strength, replay, late-zone arrivals, Keep/Hollow King, horizons.
+// Usage: node tests/sim/shattercmp.js --a batch_out_p21 --b batch_out_p22 [--profiles idle,light,casual] [--seedStart 31 --seeds 10]
+'use strict';
+const fs=require('fs'),path=require('path');
+const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
+const A=String(args.a||'batch_out_p21'),B=String(args.b||'batch_out_p22'),P=String(args.profiles||'idle,light,casual').split(','),S0=args.seedStart||31,N=args.seeds||10,H=[24,36,48,72];
+const ZONES=['Greenhollow Fields','Stillwater Lagoon','Thornwood','Ironvein Caverns','Emberwaste','Amberfall Woods','Ashen Approach','Ashen Keep','The Foundry'],KEEP='Ashen Keep',APP='Ashen Approach';
+const srt=a=>a.filter(v=>v!=null&&!isNaN(v)).sort((x,y)=>x-y),med=a=>{a=srt(a);return a.length?a[Math.floor((a.length-1)/2)]:null},f=(v,d=1)=>v==null?'-':(+v).toFixed(d);
+const rd=(d,p,s)=>{const fp=path.join(__dirname,d,p+'_'+s+'.json');return fs.existsSync(fp)?JSON.parse(fs.readFileSync(fp,'utf8')):null;};
+const pair=(va,vb)=>{const d=va.map((v,i)=>(vb[i]==null||v==null)?null:vb[i]-v).filter(x=>x!=null);return d.length?'med '+f(med(va),1)+' -> '+f(med(vb),1)+' (paired med '+f(med(d),1)+', +'+d.filter(x=>x>0).length+' 0'+d.filter(x=>x===0).length+' -'+d.filter(x=>x<0).length+')':'-';};
+function metrics(r){const sh=r.shatters||[];const rz=r.runZones||{},rc=r.runClears||{};const m={};
+  m.nsh=sh.length;m.first=sh[0]?sh[0].h:null;m.dustEarned=sh.reduce((a,s)=>a+(s.gain||0),0);m.dustLeft=r.final.dust;m.buys=(r.dustBuys||[]);m.ranks=sh.length&&sh[sh.length-1].treeAfter?sh[sh.length-1].treeAfter:null;
+  m.startNext=sh.map(s=>s.startLvNextRun!=null?s.startLvNextRun:null);m.powerAfter=sh.map(s=>s.powerAfter!=null?s.powerAfter:null);
+  m.ivReclear=sh.map(s=>{const c=rc[String((s.run||0)+1)]||{};return c['Ironvein Caverns']!=null?+(c['Ironvein Caverns']-s.h).toFixed(2):null;});
+  m.appLv={},m.appH={},m.keepLv={},m.keepH={};for(const rk of Object.keys(rz)){if(rz[rk][APP]){m.appLv[rk]=rz[rk][APP].lvAtEntry;m.appH[rk]=rz[rk][APP].enterH;}if(rz[rk][KEEP]){m.keepLv[rk]=rz[rk][KEEP].lvAtEntry;m.keepH[rk]=rz[rk][KEEP].enterH;}}
+  const hk=r.bossFailRates&&r.bossFailRates[KEEP];m.hkAtt=hk?hk.attemptLog.length:0;m.hkWins=hk?hk.attemptLog.filter(a=>a.win).length:0;m.hkHp=hk?med(hk.attemptLog.filter(a=>!a.win).map(a=>a.hpLeft)):null;m.hkSum=hk?hk.attemptLog.filter(a=>a.summoned).length:0;m.keepCleared=r.zonesCleared[KEEP]!=null||Object.values(rc).some(c=>c[KEEP]!=null);m.hkStall=hk?hk.stallH:null;
+  const bz=(r.byZone||{})[KEEP],zt=(r.zoneTime||{})[KEEP],spe=(r.deadTime&&r.deadTime.secPerEncounter)||60;m.keepDef=bz?bz.defeats:0;m.keepH_=zt?zt.sec/3600:0;m.keepLoss=zt&&zt.sec>0?100*m.keepDef/Math.max(1,zt.sec/spe):null;m.keepRewalk=bz?bz.rewalk*spe/3600:0;
+  m.zAt={};for(const h of H){let cur=0,best=0;for(const rk of Object.keys(rc)){const c=Object.values(rc[rk]).filter(t=>t<=h).length;best=Math.max(best,c);const started=rk==='0'?0:(sh[Number(rk)-1]?sh[Number(rk)-1].h:1e9);if(started<=h)cur=c;}m.zAt[h]=[cur,best];}
+  m.def=r.final.defeats||0;m.train=(r.autoTrain&&r.autoTrain.timeSec||0)/3600;m.hordes=r.hordes?r.hordes.fought+'/'+r.hordes.repelled+'/'+r.hordes.lost:'-';m.cat=r.catacombs?r.catacombs.best:null;return m;}
+for(const p of P){
+  console.log('\n===== '+p.toUpperCase()+'   '+A+' -> '+B);
+  const MA=[],MB=[];
+  for(let s=S0;s<S0+N;s++){const a=rd(A,p,s),b=rd(B,p,s);if(!a||!b){console.log('seed '+s+': missing');continue;}const ma=metrics(a),mb=metrics(b);MA.push(ma);MB.push(mb);
+    const h0=(a.shatters[0]?a.shatters[0].h:1e9);let same=0,n=0;for(let i=0;i<Math.min(a.hourly.length,b.hourly.length);i++){if(a.hourly[i].h>=h0)break;n++;if(JSON.stringify(a.hourly[i])===JSON.stringify(b.hourly[i]))same++;}
+    console.log('\nseed '+s+'  pre-first-Shatter identical '+same+'/'+n+'  Shatters '+ma.nsh+' -> '+mb.nsh+' (first h'+f(ma.first,1)+' -> h'+f(mb.first,1)+')  dust earned '+ma.dustEarned+' -> '+mb.dustEarned+', left at end '+ma.dustLeft+' -> '+mb.dustLeft+'  ranks bought: '+(mb.ranks?'start '+mb.ranks.b_start+' hp '+mb.ranks.b_hp+' dmg '+mb.ranks.b_dmg:'-')+' ('+mb.buys.length+' purchases)');
+    for(let i=0;i<Math.max(ma.nsh,mb.nsh);i++){const sa=a.shatters[i],sb=b.shatters[i];console.log('  Shatter '+(i+1)+': '+(sa?'h'+sa.h+' '+sa.zone+' Lv'+sa.lv+' +'+sa.gain:'-').padEnd(44)+' -> '+(sb?'h'+sb.h+' '+sb.zone+' Lv'+sb.lv+' +'+sb.gain+' dust '+sb.dustBefore+'->'+sb.dustAfterGain+'->'+sb.dustAfter+' buys ['+(sb.purchases||[]).map(x=>x.id.slice(2)+x.rank+'@'+x.cost).join(' ')+'] next start Lv '+sb.startLvNextRun+' power after '+sb.powerAfter:'-')+'   Ironvein re-clear +'+f(ma.ivReclear[i],2)+'h -> +'+f(mb.ivReclear[i],2)+'h');}
+    const ent=k=>Object.keys(k).map(rk=>'run'+rk+' Lv'+k[rk]).join(' ');console.log('  Ashen Approach entry: '+ent(ma.appLv)+'  ->  '+ent(mb.appLv)+'   |   Keep entry: '+ent(ma.keepLv)+'  ->  '+ent(mb.keepLv));
+    console.log('  Keep: defeats '+ma.keepDef+' -> '+mb.keepDef+', hours '+f(ma.keepH_,1)+' -> '+f(mb.keepH_,1)+', loss ~'+f(ma.keepLoss,0)+'% -> '+f(mb.keepLoss,0)+'%, rewalk '+f(ma.keepRewalk,2)+' -> '+f(mb.keepRewalk,2)+'h | Hollow King '+ma.hkWins+'/'+ma.hkAtt+' -> '+mb.hkWins+'/'+mb.hkAtt+(mb.hkAtt?' (loss HP left med '+f(100*(mb.hkHp||0),0)+'%, summons '+mb.hkSum+')':'')+(mb.keepCleared?'  KEEP CLEARED':''));
+    console.log('  zones (cur/best) '+H.map(h=>h+'h '+ma.zAt[h].join('/')+' -> '+mb.zAt[h].join('/')).join(', ')+' | defeats '+ma.def+' -> '+mb.def+' | training '+f(ma.train,1)+' -> '+f(mb.train,1)+'h | hordes '+ma.hordes+' -> '+mb.hordes);}
+  console.log('\n-- '+p+' summary (n='+MA.length+'):');
+  console.log('   first Shatter h            '+pair(MA.map(m=>m.first),MB.map(m=>m.first)));
+  console.log('   dust earned / left         '+pair(MA.map(m=>m.dustEarned),MB.map(m=>m.dustEarned))+'  |  '+pair(MA.map(m=>m.dustLeft),MB.map(m=>m.dustLeft)));
+  console.log('   ranks at end (b) med       start '+f(med(MB.map(m=>m.ranks&&m.ranks.b_start)),0)+' hp '+f(med(MB.map(m=>m.ranks&&m.ranks.b_hp)),0)+' dmg '+f(med(MB.map(m=>m.ranks&&m.ranks.b_dmg)),0)+'  next-run start Lv after Shatter 1/2/3: '+[0,1,2].map(i=>f(med(MB.map(m=>m.startNext[i])),0)).join('/'));
+  console.log('   Ironvein re-clear after Shatter 1/2  '+[0,1].map(i=>pair(MA.map(m=>m.ivReclear[i]),MB.map(m=>m.ivReclear[i]))).join('  |  '));
+  for(const rk of ['1','2','3']){const la=MA.map(m=>m.appLv[rk]),lb=MB.map(m=>m.appLv[rk]);if(la.some(v=>v!=null)||lb.some(v=>v!=null))console.log('   Ashen Approach entry Lv run'+rk+'   '+pair(la,lb)+'   (reached '+la.filter(v=>v!=null).length+' -> '+lb.filter(v=>v!=null).length+' runs; entry h '+f(med(MA.map(m=>m.appH[rk])),1)+' -> '+f(med(MB.map(m=>m.appH[rk])),1)+')');}
+  for(const rk of ['1','2','3']){const la=MA.map(m=>m.keepLv[rk]),lb=MB.map(m=>m.keepLv[rk]);if(la.some(v=>v!=null)||lb.some(v=>v!=null))console.log('   Keep entry Lv run'+rk+'             '+pair(la,lb)+'   (reached '+la.filter(v=>v!=null).length+' -> '+lb.filter(v=>v!=null).length+' runs; entry h '+f(med(MA.map(m=>m.keepH[rk])),1)+' -> '+f(med(MB.map(m=>m.keepH[rk])),1)+')');}
+  console.log('   Keep defeats / hours / loss%   '+pair(MA.map(m=>m.keepDef),MB.map(m=>m.keepDef))+' | '+pair(MA.map(m=>m.keepH_),MB.map(m=>m.keepH_))+' | '+pair(MA.map(m=>m.keepLoss),MB.map(m=>m.keepLoss)));
+  console.log('   Hollow King attempts / wins   '+MA.reduce((a,m)=>a+m.hkAtt,0)+' / '+MA.reduce((a,m)=>a+m.hkWins,0)+' -> '+MB.reduce((a,m)=>a+m.hkAtt,0)+' / '+MB.reduce((a,m)=>a+m.hkWins,0)+'   Keep cleared runs '+MA.filter(m=>m.keepCleared).length+' -> '+MB.filter(m=>m.keepCleared).length);
+  console.log('   zones best-run med @'+H.map(h=>h+'h '+med(MA.map(m=>m.zAt[h][1]))+' -> '+med(MB.map(m=>m.zAt[h][1]))).join(', ')+'   current-run med @'+H.map(h=>h+'h '+med(MA.map(m=>m.zAt[h][0]))+' -> '+med(MB.map(m=>m.zAt[h][0]))).join(', '));
+  console.log('   total defeats / training h    '+pair(MA.map(m=>m.def),MB.map(m=>m.def))+' | '+pair(MA.map(m=>m.train),MB.map(m=>m.train)));
+}

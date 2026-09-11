@@ -1,0 +1,684 @@
+
+===== IDLE   control batch_out_p26c (1.25 override) -> candidate batch_out_p26x (production 1.10)
+
+seed 41  hours 72.00/72.00  Shatters 3 -> 2  audit through first Shatter: hourly 58/58, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h58.69 Ashen +35, h65 Ashen +34, h71.85 Ashen +36  ->  h58.69 Ashen +35, h69.91 Ashen +35 (min gap 6.3->11.2h, min zones re-cleared between 7->7)
+  runs: run0 [Gree@0.3 Stil@3.1 Thor@7.1 Iron@14.8 Embe@25.1 Ambe@34.5 Ashe@49.5] Keep in@49.55 Lv74 ; run1 [Gree@58.8 Stil@58.8 Thor@58.9 Iron@59.0 Embe@59.2 Ambe@59.5 Ashe@61.5] Keep in@61.45 Lv43 ; run2 [Gree@65.1 Stil@65.1 Thor@65.2 Iron@65.3 Embe@65.5 Ambe@65.7 Ashe@66.4] Keep in@66.42 Lv38 ; run3 [Gree@71.9 Stil@72.0]
+     -> run0 [Gree@0.3 Stil@3.1 Thor@7.1 Iron@14.8 Embe@25.1 Ambe@34.5 Ashe@49.5] Keep in@49.55 Lv74 ; run1 [Gree@58.8 Stil@58.8 Thor@58.9 Iron@59.0 Embe@59.2 Ambe@59.4 Ashe@59.8] Keep in@59.83 Lv34 ; run2 [Gree@70.0 Stil@70.0 Thor@70.1 Iron@70.3 Embe@70.4 Ambe@70.6 Ashe@70.8] Keep in@70.79 Lv34
+  Keep ordinary: enc 1907 L563 (30%) far 28 18.1h  ->  enc 2138 L516 (24%) far 35 20.4h
+  Sand Tyrant: r0 auto 1/2 act 0/0 atk1077 L103s 32% sum1
+     -> r0 auto 1/2 act 0/0 atk1077 L103s 32% sum1
+  Hunter King: r0 auto 1/1 act 0/0 atk1617 L97s 0%
+     -> r0 auto 1/1 act 0/0 atk1617 L97s 0%
+  Grave Knight: r0 auto 1/2 act 0/0 atk5586 L33s 79% | r1 auto 0/3 act 0/0 atk6983 L60s 63% sum3 | r2 auto 0/1 act 0/0 atk8728 L102s 21% sum1
+     -> r0 auto 1/2 act 0/0 atk5586 L33s 79%
+  Hollow King: none
+     -> r1 auto 0/3 act 0/0 atk8832 L25s 84% | r2 auto 0/2 act 0/0 atk9715 L21s 83%
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->6/6, 60h 6/7->7/7, 72h 2/7->7/7 | defeats 1179->1113 | training 28.3->28.2h | gold 12.8->13.4M | ore 426K->436K | dust 105/4->70/0 | Lv@72h 22->43 | final 3 Thornwood f5 Lv22 -> 2 Ashen Keep f30 Lv43
+
+seed 42  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 24/24, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h24.24 Emberwaste +22, h53.52 Ashen +36, h66.21 Ashen +36  ->  h24.24 Emberwaste +22, h49.33 Ashen +35, h63.23 Ashen +37 (min gap 12.7->13.9h, min zones re-cleared between 7->7)
+  runs: run0 [Gree@0.4 Stil@2.8 Thor@7.0 Iron@13.4] ; run1 [Gree@24.3 Stil@24.4 Thor@24.6 Iron@24.9 Embe@30.6 Ambe@36.5 Ashe@46.4] Keep in@46.43 Lv64 ; run2 [Gree@53.6 Stil@53.7 Thor@53.8 Iron@53.9 Embe@54.1 Ambe@54.4 Ashe@58.8] Keep in@58.84 Lv48 ; run3 [Gree@66.3 Stil@66.3 Thor@66.4 Iron@66.5 Embe@66.7 Ambe@66.9 Ashe@68.0] Keep in@67.98 Lv38
+     -> run0 [Gree@0.4 Stil@2.8 Thor@7.0 Iron@13.4] ; run1 [Gree@24.3 Stil@24.4 Thor@24.6 Iron@24.8 Embe@27.9 Ambe@33.8 Ashe@44.5] Keep in@44.52 Lv63 ; run2 [Gree@49.4 Stil@49.5 Thor@49.6 Iron@49.7 Embe@49.9 Ambe@50.1 Ashe@52.2] Keep in@52.24 Lv42 ; run3 [Gree@63.3 Stil@63.4 Thor@63.4 Iron@63.5 Embe@63.7 Ambe@63.9 Ashe@64.1] Keep in@64.12 Lv33
+  Keep ordinary: enc 1951 L585 (30%) far 27 18.5h  ->  enc 2435 L452 (19%) far 34 23.7h
+  Sand Tyrant: r0 auto 0/2 act 0/0 atk1077 L89s 40% sum2 | r1 auto 1/3 act 0/0 atk1347 L81s 32% sum2
+     -> r0 auto 0/2 act 0/0 atk1077 L89s 40% sum2 | r1 auto 1/3 act 0/0 atk1185 L80s 42% sum2
+  Hunter King: r1 auto 1/2 act 0/0 atk2022 L63s 44% sum1
+     -> r1 auto 1/1 act 0/0 atk1779 L97s 0%
+  Grave Knight: r1 auto 1/2 act 0/0 atk6983 L67s 66% sum1 | r2 auto 0/5 act 0/0 atk8728 L52s 64% sum5
+     -> r1 auto 1/5 act 0/0 atk6145 L95s 50% sum4 | r2 auto 0/7 act 0/0 atk6759 L72s 52% sum7
+  Hollow King: none
+     -> r3 auto 0/21 act 0/0 atk10686 L30s 73% sum6
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1303->1103 | training 22.8->21.2h | gold 14.1->19.7M | ore 401K->498K | dust 94/2->94/5 | Lv@72h 50->61 | final 3 Ashen Keep f15 Lv50 -> 3 Ashen Keep f29 Lv61
+
+seed 43  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 27/27, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h27.25 Emberwaste +22, h42.95 Ashen +31, h66.21 Ashen +37  ->  h27.25 Emberwaste +22, h57.32 Ashen +36, h69.9 Ashen +36 (min gap 15.7->12.6h, min zones re-cleared between 6->7)
+  runs: run0 [Gree@0.5 Stil@3.5 Thor@9.1 Iron@17.6] ; run1 [Gree@27.3 Stil@27.4 Thor@27.6 Iron@27.9 Embe@34.7 Ambe@39.5] ; run2 [Gree@43.0 Stil@43.1 Thor@43.2 Iron@43.4 Embe@44.3 Ambe@50.1 Ashe@58.6] Keep in@58.56 Lv60 ; run3 [Gree@66.3 Stil@66.3 Thor@66.4 Iron@66.6 Embe@66.8 Ambe@67.0 Ashe@70.8] Keep in@70.8 Lv47
+     -> run0 [Gree@0.5 Stil@3.5 Thor@9.1 Iron@17.6] ; run1 [Gree@27.3 Stil@27.4 Thor@27.6 Iron@27.9 Embe@32.2 Ambe@38.4 Ashe@48.6] Keep in@48.57 Lv63 ; run2 [Gree@57.4 Stil@57.5 Thor@57.5 Iron@57.7 Embe@57.8 Ambe@58.1 Ashe@59.9] Keep in@59.85 Lv39 ; run3 [Gree@70.0 Stil@70.0 Thor@70.1 Iron@70.3 Embe@70.4 Ambe@70.6 Ashe@71.0] Keep in@71.02 Lv35
+  Keep ordinary: enc 921 L182 (20%) far 21 8.9h  ->  enc 1950 L533 (27%) far 30 19.8h
+  Sand Tyrant: r1 auto 1/2 act 0/0 atk1347 L107s 12% sum1 | r2 auto 0/3 act 0/0 atk1684 L100s 6% sum3
+     -> r1 auto 1/5 act 0/0 atk1185 L107s 23% sum4
+  Hunter King: r1 auto 1/2 act 0/0 atk2022 L65s 46% sum1 | r2 auto 0/2 act 0/0 atk2527 L59s 51% sum2
+     -> r1 auto 1/4 act 0/0 atk1779 L70s 51% sum3
+  Grave Knight: r2 auto 1/2 act 0/0 atk8728 L42s 71% | r3 auto 0/6 act 0/0 atk10910 L62s 62% sum5
+     -> r1 auto 1/2 act 0/0 atk6145 L83s 65% sum1 | r2 auto 0/6 act 0/0 atk6759 L46s 64% sum6 | r3 auto 0/1 act 0/0 atk7435 L104s 12% sum1
+  Hollow King: none
+     -> none
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 5/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 978->1142 | training 25.0->20.6h | gold 13.6->12.7M | ore 399K->368K | dust 90/0->94/15 | Lv@72h 50->41 | final 3 Ashen Keep f8 Lv50 -> 3 Ashen Keep f16 Lv41
+
+seed 44  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 25/25, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h25.39 Emberwaste +22, h43.71 Ashen +31, h65.53 Ashen +37  ->  h25.39 Emberwaste +22, h47.79 Ashen +32, h58.91 Ashen +36 (min gap 18.3->11.1h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@3.2 Thor@9.2 Iron@16.6] ; run1 [Gree@25.4 Stil@25.6 Thor@25.7 Iron@26.2 Embe@34.3 Ambe@40.4] ; run2 [Gree@43.8 Stil@43.9 Thor@44.0 Iron@44.2 Embe@44.5 Ambe@48.9 Ashe@57.2] Keep in@57.2 Lv58 ; run3 [Gree@65.6 Stil@65.7 Thor@65.8 Iron@65.9 Embe@66.1 Ambe@66.3 Ashe@69.9] Keep in@69.87 Lv46
+     -> run0 [Gree@0.3 Stil@3.2 Thor@9.2 Iron@16.6] ; run1 [Gree@25.4 Stil@25.6 Thor@25.7 Iron@26.0 Embe@32.1 Ambe@36.5] ; run2 [Gree@47.9 Stil@47.9 Thor@48.0 Iron@48.2 Embe@48.4 Ambe@48.9 Ashe@53.6] Keep in@53.59 Lv48 ; run3 [Gree@59.0 Stil@59.0 Thor@59.1 Iron@59.3 Embe@59.4 Ambe@59.6 Ashe@59.9] Keep in@59.93 Lv33
+  Keep ordinary: enc 1088 L238 (22%) far 19 10.5h  ->  enc 1701 L648 (38%) far 26 17.4h
+  Sand Tyrant: r0 auto 0/2 act 0/0 atk1077 L82s 40% sum2 | r1 auto 1/7 act 0/0 atk1347 L92s 37% sum6
+     -> r0 auto 0/2 act 0/0 atk1077 L82s 40% sum2 | r1 auto 1/8 act 0/0 atk1185 L90s 30% sum7
+  Hunter King: r1 auto 1/4 act 0/0 atk2022 L86s 19% sum3 | r2 auto 0/2 act 0/0 atk2527 L65s 40% sum2
+     -> r1 auto 1/3 act 0/0 atk1779 L106s 8% sum2 | r2 auto 0/1 act 0/0 atk1957 L76s 26% sum1
+  Grave Knight: r2 auto 1/3 act 0/0 atk8728 L85s 62% sum2 | r3 auto 0/7 act 0/0 atk10910 L75s 53% sum7
+     -> r2 auto 1/6 act 0/0 atk6759 L68s 63% sum5
+  Hollow King: none
+     -> none
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 5/6->2/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1045->1339 | training 23.9->22.5h | gold 13.8->11.9M | ore 406K->347K | dust 90/18->90/14 | Lv@72h 52->46 | final 3 Ashen Keep f12 Lv52 -> 3 Ashen Keep f26 Lv46
+
+seed 45  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 19/19, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h19.6 Emberwaste +21, h42.35 Ashen +31, h57.75 Ashen +34  ->  h19.6 Emberwaste +21, h35.33 Emberwaste +27, h52.53 Ashen +37 (min gap 15.4->15.7h, min zones re-cleared between 6->5)
+  runs: run0 [Gree@0.4 Stil@2.8 Thor@8.8 Iron@15.4] ; run1 [Gree@19.7 Stil@19.8 Thor@20.0 Iron@22.0 Embe@31.6 Ambe@39.1] ; run2 [Gree@42.4 Stil@42.5 Thor@42.6 Iron@42.8 Embe@43.5 Ambe@48.9] ; run3 [Gree@57.8 Stil@57.9 Thor@58.0 Iron@58.1 Embe@58.4 Ambe@58.7 Ashe@67.0] Keep in@67.03 Lv54
+     -> run0 [Gree@0.4 Stil@2.8 Thor@8.8 Iron@15.4] ; run1 [Gree@19.7 Stil@19.8 Thor@19.9 Iron@20.3 Embe@28.4] ; run2 [Gree@35.4 Stil@35.5 Thor@35.6 Iron@35.8 Embe@36.0 Ambe@38.3 Ashe@47.5] Keep in@47.46 Lv56 ; run3 [Gree@52.6 Stil@52.7 Thor@52.8 Iron@52.9 Embe@53.1 Ambe@53.3 Ashe@54.3] Keep in@54.27 Lv36
+  Keep ordinary: enc 494 L126 (26%) far 14 5.0h  ->  enc 2121 L375 (18%) far 32 22.8h
+  Sand Tyrant: r1 auto 1/5 act 0/0 atk1347 L118s 18% sum4 | r2 auto 0/1 act 0/0 atk1684 L105s 11% sum1
+     -> r1 auto 1/2 act 0/0 atk1185 L108s 26% sum1
+  Hunter King: r1 auto 1/3 act 0/0 atk2022 L79s 52% sum2 | r2 auto 0/3 act 0/0 atk2527 L67s 50% sum3
+     -> r2 auto 1/4 act 0/0 atk1957 L92s 27% sum3
+  Grave Knight: r2 auto 0/3 act 0/0 atk8728 L39s 76% sum1 | r3 auto 1/9 act 0/0 atk10910 L64s 63% sum7
+     -> r2 auto 1/5 act 0/0 atk6759 L65s 61% sum3 | r3 auto 0/2 act 0/0 atk7435 L62s 60% sum2
+  Hollow King: none
+     -> r3 auto 0/26 act 0/0 atk10686 L37s 78% sum1
+  zones cur/best 24h 4/4->4/4, 36h 5/5->4/5, 48h 5/6->7/7, 60h 6/6->7/7, 72h 7/7->7/7 | defeats 1019->1036 | training 27.5->19.5h | gold 14.6->19.3M | ore 402K->481K | dust 86/2->85/4 | Lv@72h 60->67 | final 3 Ashen Keep f14 Lv60 -> 3 Ashen Keep f28 Lv67
+
+seed 46  hours 72.00/72.00  Shatters 2 -> 3  audit through first Shatter: hourly 41/41, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h41.82 Emberwaste +30, h60.75 Ashen +32  ->  h41.82 Emberwaste +30, h59.79 Ashen +35, h68.68 Ashen +36 (min gap 18.9->8.9h, min zones re-cleared between 6->7)
+  runs: run0 [Gree@0.5 Stil@4.1 Thor@9.3 Iron@16.9 Embe@29.4 Ambe@38.6] ; run1 [Gree@41.9 Stil@42.0 Thor@42.1 Iron@42.3 Embe@42.7 Ambe@47.4] ; run2 [Gree@60.8 Stil@60.9 Thor@61.0 Iron@61.1 Embe@61.3 Ambe@61.6 Ashe@66.2] Keep in@66.19 Lv49
+     -> run0 [Gree@0.5 Stil@4.1 Thor@9.3 Iron@16.9 Embe@29.4 Ambe@38.6] ; run1 [Gree@41.9 Stil@42.0 Thor@42.1 Iron@42.3 Embe@42.5 Ambe@44.5 Ashe@54.3] Keep in@54.26 Lv59 ; run2 [Gree@59.9 Stil@59.9 Thor@60.0 Iron@60.1 Embe@60.3 Ambe@60.6 Ashe@62.3] Keep in@62.26 Lv41 ; run3 [Gree@68.7 Stil@68.8 Thor@68.9 Iron@69.0 Embe@69.2 Ambe@69.4 Ashe@69.7] Keep in@69.74 Lv35
+  Keep ordinary: enc 607 L144 (24%) far 18 5.8h  ->  enc 1466 L446 (30%) far 28 14.2h
+  Sand Tyrant: r0 auto 1/2 act 0/0 atk1077 L103s 34% sum1
+     -> r0 auto 1/2 act 0/0 atk1077 L103s 34% sum1
+  Hunter King: r0 auto 1/4 act 0/0 atk1617 L66s 53% sum3 | r1 auto 0/1 act 0/0 atk2022 L67s 53% sum1
+     -> r0 auto 1/4 act 0/0 atk1617 L66s 53% sum3
+  Grave Knight: r1 auto 0/16 act 0/0 atk6983 L62s 60% sum16 | r2 auto 1/12 act 0/0 atk8728 L63s 64% sum11
+     -> r1 auto 1/6 act 0/0 atk6145 L59s 63% sum4 | r2 auto 0/5 act 0/0 atk6759 L75s 51% sum5
+  Hollow King: none
+     -> none
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 60h 6/6->2/7, 72h 7/7->7/7 | defeats 1010->1174 | training 26.3->22.8h | gold 13.3->13.0M | ore 424K->389K | dust 62/2->101/3 | Lv@72h 60->42 | final 2 Ashen Keep f13 Lv60 -> 3 Ashen Keep f24 Lv42
+
+seed 47  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 23/23, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h23.16 Emberwaste +22, h47.76 Amberfall +32, h58.91 Ashen +33  ->  h23.16 Emberwaste +22, h44.68 Ashen +32, h53.77 Ashen +36 (min gap 11.1->9.1h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@2.8 Thor@8.3 Iron@14.3] ; run1 [Gree@23.2 Stil@23.3 Thor@23.5 Iron@23.8 Embe@31.0 Ambe@38.2] ; run2 [Gree@47.8 Stil@47.9 Thor@48.0 Iron@48.2 Embe@48.4 Ambe@49.1] ; run3 [Gree@59.0 Stil@59.0 Thor@59.1 Iron@59.3 Embe@59.5 Ambe@59.7 Ashe@64.6] Keep in@64.57 Lv48
+     -> run0 [Gree@0.3 Stil@2.8 Thor@8.3 Iron@14.3] ; run1 [Gree@23.2 Stil@23.3 Thor@23.5 Iron@23.8 Embe@28.1 Ambe@35.5] ; run2 [Gree@44.7 Stil@44.8 Thor@44.9 Iron@45.1 Embe@45.3 Ambe@45.7 Ashe@50.1] Keep in@50.14 Lv47 ; run3 [Gree@53.8 Stil@53.9 Thor@54.0 Iron@54.1 Embe@54.3 Ambe@54.5 Ashe@56.1] Keep in@56.15 Lv40
+  Keep ordinary: enc 771 L219 (28%) far 24 7.4h  ->  enc 1928 L399 (21%) far 30 19.5h
+  Sand Tyrant: r1 auto 1/6 act 0/0 atk1347 L89s 42% sum4
+     -> r1 auto 1/2 act 0/0 atk1185 L86s 40% sum1
+  Hunter King: r1 auto 1/3 act 0/0 atk2022 L73s 40% sum2 | r2 auto 0/2 act 0/0 atk2527 L80s 29% sum2
+     -> r1 auto 1/2 act 0/0 atk1779 L101s 3% sum1
+  Grave Knight: r2 auto 0/9 act 0/0 atk8728 L57s 63% sum8 | r3 auto 1/5 act 0/0 atk10910 L75s 49% sum4
+     -> r2 auto 1/3 act 0/0 atk6759 L68s 62% sum2 | r3 auto 0/6 act 0/0 atk7435 L72s 49% sum6
+  Hollow King: none
+     -> r3 auto 0/16 act 0/0 atk10686 L30s 73% sum5
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 3/6->6/6, 60h 6/6->7/7, 72h 7/7->7/7 | defeats 997->1020 | training 28.9->22.6h | gold 15.4->19.2M | ore 413K->486K | dust 87/8->90/8 | Lv@72h 58->67 | final 3 Ashen Keep f24 Lv58 -> 3 Ashen Keep f26 Lv67
+
+seed 48  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 28/28, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h28.05 Emberwaste +22, h46.12 Emberwaste +31, h67.76 Ashen +37  ->  h28.05 Emberwaste +22, h36.74 Amberfall +26, h48.64 Ashen +33 (min gap 18.1->8.7h, min zones re-cleared between 6->5)
+  runs: run0 [Gree@0.2 Stil@2.8 Thor@9.0 Iron@17.3] ; run1 [Gree@28.1 Stil@28.2 Thor@28.4 Iron@28.7 Embe@32.8 Ambe@41.7] ; run2 [Gree@46.2 Stil@46.3 Thor@46.4 Iron@46.6 Embe@46.9 Ambe@51.5 Ashe@61.6] Keep in@61.59 Lv60 ; run3 [Gree@67.8 Stil@67.9 Thor@68.0 Iron@68.1 Embe@68.3 Ambe@68.6]
+     -> run0 [Gree@0.2 Stil@2.8 Thor@9.0 Iron@17.3] ; run1 [Gree@28.1 Stil@28.2 Thor@28.4 Iron@28.7 Embe@32.5] ; run2 [Gree@36.8 Stil@36.9 Thor@37.0 Iron@37.3 Embe@37.6 Ambe@41.3] ; run3 [Gree@48.7 Stil@48.8 Thor@48.9 Iron@49.0 Embe@49.2 Ambe@49.5 Ashe@53.8] Keep in@53.82 Lv46
+  Keep ordinary: enc 605 L153 (25%) far 20 6.2h  ->  enc 1704 L346 (20%) far 32 18.2h
+  Sand Tyrant: r0 auto 0/3 act 0/0 atk1077 L118s 40% sum3 | r1 auto 1/2 act 0/0 atk1347 L90s 45% sum1
+     -> r0 auto 0/3 act 0/0 atk1077 L118s 40% sum3 | r1 auto 1/1 act 0/0 atk1185 L139s 0%
+  Hunter King: r1 auto 1/2 act 0/0 atk2022 L65s 53% sum1 | r2 auto 0/7 act 0/0 atk2527 L77s 49% sum7
+     -> r2 auto 1/3 act 0/0 atk1957 L80s 43% sum2
+  Grave Knight: r2 auto 1/6 act 0/0 atk8728 L56s 69% sum3 | r3 auto 0/3 act 0/0 atk10910 L49s 69% sum2
+     -> r3 auto 1/4 act 0/0 atk7435 L76s 63% sum3
+  Hollow King: none
+     -> r3 auto 0/10 act 0/0 atk10686 L27s 81%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 5/6->6/6, 60h 6/6->7/7, 72h 6/7->7/7 | defeats 970->1073 | training 23.6->20.1h | gold 12.3->17.4M | ore 366K->427K | dust 90/9->81/4 | Lv@72h 45->69 | final 3 Ashen Approach f26 Lv45 -> 3 Ashen Keep f25 Lv69
+
+seed 49  hours 72.00/72.00  Shatters 2 -> 3  audit through first Shatter: hourly 36/36, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h36.52 Emberwaste +30, h67.97 Ashen +36  ->  h36.52 Emberwaste +30, h44.33 Ashen +31, h56.95 Ashen +37 (min gap 31.4->7.8h, min zones re-cleared between 7->6)
+  runs: run0 [Gree@0.3 Stil@2.5 Thor@6.0 Iron@13.3 Embe@20.7 Ambe@32.5] ; run1 [Gree@36.6 Stil@36.7 Thor@36.8 Iron@37.0 Embe@37.2 Ambe@41.0 Ashe@50.0] Keep in@49.96 Lv61 ; run2 [Gree@68.0 Stil@68.1 Thor@68.2 Iron@68.3 Embe@68.5 Ambe@68.7 Ashe@69.0] Keep in@69.04 Lv34
+     -> run0 [Gree@0.3 Stil@2.5 Thor@6.0 Iron@13.3 Embe@20.7 Ambe@32.5] ; run1 [Gree@36.6 Stil@36.7 Thor@36.8 Iron@37.0 Embe@37.2 Ambe@39.5] ; run2 [Gree@44.4 Stil@44.5 Thor@44.6 Iron@44.7 Embe@44.9 Ambe@45.1 Ashe@49.1] Keep in@49.15 Lv50 ; run3 [Gree@57.0 Stil@57.1 Thor@57.2 Iron@57.3 Embe@57.4 Ambe@57.6 Ashe@57.9 Ashe@70.3] Keep in@57.87 Lv34 FOUNDRY in@70.35 Lv73 pw192853
+  Keep ordinary: enc 2254 L599 (27%) far 34 21.0h  ->  enc 2248 L342 (15%) far 36 20.3h
+  Sand Tyrant: r0 auto 1/1 act 0/0 atk1077 L133s 0%
+     -> r0 auto 1/1 act 0/0 atk1077 L133s 0%
+  Hunter King: r0 auto 1/6 act 0/0 atk1617 L62s 51% sum5
+     -> r0 auto 1/6 act 0/0 atk1617 L62s 51% sum5 | r1 auto 0/1 act 0/0 atk1779 L56s 48% sum1
+  Grave Knight: r1 auto 1/5 act 0/0 atk6983 L67s 60% sum4 | r2 auto 0/1 act 0/0 atk8728 L34s 67% sum1
+     -> r2 auto 1/7 act 0/0 atk6759 L63s 55% sum6
+  Hollow King: none
+     -> r3 auto 1/59 act 0/0 atk10686 L37s 68% sum43
+  zones cur/best 24h 5/5->5/5, 36h 6/6->6/6, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 1306->1084 | training 22.9->22.0h | gold 14.9->29.9M | ore 463K->729K | dust 66/2->98/9 | Lv@72h 49->76 | final 2 Ashen Keep f27 Lv49 -> 3 The Foundry f25 Lv76
+
+seed 50  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 17/17, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h17.2 Ironvein +21, h26.75 Ironvein +23, h51.04 Ashen +34  ->  h17.2 Ironvein +21, h44.46 Ashen +32, h58.42 Ashen +37 (min gap 9.6->14.0h, min zones re-cleared between 4->6)
+  runs: run0 [Gree@0.4 Stil@2.0 Thor@7.6 Iron@13.4] ; run1 [Gree@17.3 Stil@17.4 Thor@17.6 Iron@19.8] ; run2 [Gree@26.8 Stil@26.9 Thor@27.1 Iron@27.3 Embe@33.3 Ambe@39.2] ; run3 [Gree@51.1 Stil@51.2 Thor@51.3 Iron@51.4 Embe@51.6 Ambe@52.0 Ashe@56.3] Keep in@56.31 Lv46
+     -> run0 [Gree@0.4 Stil@2.0 Thor@7.6 Iron@13.4] ; run1 [Gree@17.3 Stil@17.4 Thor@17.6 Iron@18.1 Embe@26.0 Ambe@32.1] ; run2 [Gree@44.5 Stil@44.6 Thor@44.7 Iron@44.8 Embe@45.0 Ambe@45.3 Ashe@49.7] Keep in@49.66 Lv47 ; run3 [Gree@58.5 Stil@58.5 Thor@58.6 Iron@58.8 Embe@58.9 Ambe@59.1 Ashe@59.4] Keep in@59.44 Lv33
+  Keep ordinary: enc 1540 L391 (25%) far 30 15.7h  ->  enc 2080 L336 (16%) far 33 21.3h
+  Sand Tyrant: r2 auto 1/3 act 0/0 atk1684 L114s 26% sum2
+     -> r1 auto 1/3 act 0/0 atk1185 L128s 18% sum2
+  Hunter King: r2 auto 1/1 act 0/0 atk2527 L95s 0%
+     -> r1 auto 1/2 act 0/0 atk1779 L101s 37% sum1
+  Grave Knight: r2 auto 0/6 act 0/0 atk8728 L63s 63% sum5 | r3 auto 1/4 act 0/0 atk10910 L55s 68% sum3
+     -> r1 auto 0/6 act 0/0 atk6145 L62s 67% sum5 | r2 auto 1/10 act 0/0 atk6759 L67s 62% sum7
+  Hollow King: r3 auto 0/1 act 0/0 atk15681 L21s 91%
+     -> r3 auto 0/41 act 0/0 atk10686 L39s 69% sum25
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1180->1008 | training 23.5->21.6h | gold 17.9->21.2M | ore 472K->538K | dust 78/4->90/6 | Lv@72h 65->67 | final 3 Ashen Keep f24 Lv65 -> 3 Ashen Keep f32 Lv67
+
+-- idle validity: 72h 10/10, Shatter cap 10/10, audit through first Shatter OK 10/10, ascensions 0->0
+-- idle summary:
+   zones cur/best med 24h 4/4->4/4, 36h 5/5->5/5, 48h 5/6->6/6, 60h 6/7->7/7, 72h 7/7->7/7
+   Shatters per run med 3 -> 3 (paired med 0, +2 07 -1) | first h med 25.4 -> 25.4 (paired med 0.0, +0 010 -0) | min gap h med 15.4 -> 11.1 (paired med -3.1, +4 00 -6) | min zones re-cleared between med 6 -> 6 (paired med 0, +3 04 -3)
+   run1: Keep entered 3->4 runs (h 50.0->48.6, Lv 61->59); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run2: Keep entered 7->9 runs (h 61.6->52.2, Lv 49->47); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run3: Keep entered 6->9 runs (h 67.0->59.4, Lv 46->35); Keep cleared 0->1; Foundry entered 0->1, cleared 0->0; Endless entered 0->0
+   Keep ordinary (all runs): encounters med 921 -> 1950 (paired med 613, +9 00 -1) | loss% med 25 -> 20 (paired med -8, +3 00 -7) | furthest med 21 -> 32 (paired med 7, +10 00 -0) | hours med 8.9 -> 19.8 (paired med 6.9, +9 00 -1) | fight 36 reached 1->7 runs | Keep clears 0->1 | hours after first Keep clear med -->1.7
+   Sand Tyrant by run: r0 auto 3/12 act 0/0 (6 runs, loss 103s 40%, sum9) | r1 auto 6/25 act 0/0 (6 runs, loss 92s 41%, sum18) | r2 auto 1/7 act 0/0 (3 runs, loss 105s 11%, sum6)
+     -> r0 auto 3/12 act 0/0 (6 runs, loss 103s 40%, sum9) | r1 auto 7/24 act 0/0 (7 runs, loss 99s 26%, sum17)
+   Hunter King by run: r0 auto 3/11 act 0/0 (3 runs, loss 66s 51%, sum8) | r1 auto 6/17 act 0/0 (7 runs, loss 79s 49%, sum11) | r2 auto 1/17 act 0/0 (6 runs, loss 77s 49%, sum16)
+     -> r0 auto 3/11 act 0/0 (3 runs, loss 66s 51%, sum8) | r1 auto 5/13 act 0/0 (6 runs, loss 97s 45%, sum8) | r2 auto 2/8 act 0/0 (3 runs, loss 91s 27%, sum6)
+   Grave Knight by run: r0 auto 1/2 act 0/0 (1 runs, loss 33s 79%, sum0) | r1 auto 2/26 act 0/0 (4 runs, loss 66s 61%, sum24) | r2 auto 4/48 act 0/0 (10 runs, loss 61s 65%, sum37) | r3 auto 3/34 act 0/0 (6 runs, loss 64s 63%, sum28)
+     -> r0 auto 1/2 act 0/0 (1 runs, loss 33s 79%, sum0) | r1 auto 3/19 act 0/0 (4 runs, loss 80s 65%, sum14) | r2 auto 5/49 act 0/0 (8 runs, loss 68s 61%, sum41) | r3 auto 1/13 act 0/0 (4 runs, loss 76s 60%, sum12)
+   Hollow King by run: r3 auto 0/1 act 0/0 (1 runs, loss 21s 91%, sum0)
+     -> r1 auto 0/3 act 0/0 (1 runs, loss 25s 84%, sum0) | r2 auto 0/2 act 0/0 (1 runs, loss 21s 83%, sum0) | r3 auto 1/173 act 0/0 (6 runs, loss 34s 70%, sum80)
+   totals: defeats med 1019 -> 1084 (paired med 17, +6 00 -4) | training h med 23.9 -> 21.6 (paired med -3.5, +0 00 -10) | gold earned M med 13.82 -> 17.37 (paired med 3.29, +7 00 -3) | ore earned med 406080 -> 435960 (paired med 61200, +7 00 -3) | dust earned med 87 -> 90 (paired med 0, +5 02 -3) | Lv@72h med 50 -> 61 (paired med 7, +7 00 -3)
+   outliers (candidate): seed 42: gold earned 39% || seed 45: gold earned 32% || seed 48: gold earned 41% || seed 49: gold earned 100%
+
+===== LIGHT   control batch_out_p26c (1.25 override) -> candidate batch_out_p26x (production 1.10)
+
+seed 41  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 30/30, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h30.11 Amberfall +25, h48.1 Ashen +32, h66.07 Ashen +36  ->  h30.11 Amberfall +25, h47.09 Ashen +32, h58.08 Ashen +36 (min gap 18.0->11.0h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@3.1 Thor@7.0 Iron@13.0 Embe@24.1] ; run1 [Gree@30.2 Stil@30.3 Thor@30.4 Iron@30.7 Embe@34.1 Ambe@39.0] ; run2 [Gree@48.2 Stil@48.2 Thor@48.4 Iron@48.5 Embe@48.7 Ambe@49.1 Ashe@56.1] Keep in@56.09 Lv51 ; run3 [Gree@66.1 Stil@66.2 Thor@66.3 Iron@66.5 Embe@66.6 Ambe@66.8 Ashe@70.1] Keep in@70.07 Lv45
+     -> run0 [Gree@0.3 Stil@3.1 Thor@7.0 Iron@13.0 Embe@24.1] ; run1 [Gree@30.2 Stil@30.3 Thor@30.4 Iron@30.6 Embe@32.1 Ambe@36.0] ; run2 [Gree@47.1 Stil@47.2 Thor@47.3 Iron@47.5 Embe@47.7 Ambe@47.9 Ashe@51.1] Keep in@51.06 Lv44 ; run3 [Gree@58.1 Stil@58.2 Thor@58.3 Iron@58.4 Embe@58.6 Ambe@58.8 Ashe@59.1] Keep in@59.07 Lv33
+  Keep ordinary: enc 1269 L592 (47%) far 32 11.9h  ->  enc 2012 L790 (39%) far 34 19.9h
+  Sand Tyrant: r0 auto 0/1 act 1/1 atk1077 L63s 36% sum1 | r1 auto 0/2 act 0/0 atk1347 L93s 21% sum2
+     -> r0 auto 0/1 act 1/1 atk1077 L63s 36% sum1 | r1 auto 0/1 act 0/0 atk1185 L68s 47% sum1
+  Hunter King: r1 auto 0/1 act 1/1 atk2022 L32s 77%
+     -> r1 auto 0/1 act 1/1 atk1779 L58s 56% sum1
+  Grave Knight: r2 auto 0/1 act 1/1 atk8728 L73s 57% sum1 | r3 auto 0/4 act 0/2 atk10910 L51s 64% sum6
+     -> r1 auto 0/2 act 0/1 atk6145 L65s 67% sum2 | r2 auto 0/5 act 1/2 atk6759 L59s 61% sum4
+  Hollow King: none
+     -> r3 auto 0/0 act 0/1 atk10686 L48s 53% sum1
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1450->1461 | training 30.8->26.0h | gold 12.4->13.1M | ore 380K->358K | dust 93/4->93/5 | Lv@72h 50->51 | final 3 Ashen Keep f12 Lv50 -> 3 Ashen Keep f28 Lv51
+
+seed 42  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 21/21, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h21.08 Ironvein +21, h36.08 Ashen +31, h45.1 Amberfall +33  ->  h21.08 Ironvein +21, h30.09 Emberwaste +26, h52.09 Ashen +37 (min gap 9.0->9.0h, min zones re-cleared between 6->5)
+  runs: run0 [Gree@0.5 Stil@2.7 Thor@7.7 Iron@13.1] ; run1 [Gree@21.1 Stil@21.2 Thor@21.4 Iron@21.7 Embe@26.1 Ambe@32.7] ; run2 [Gree@36.1 Stil@36.2 Thor@36.3 Iron@36.5 Embe@36.8 Ambe@38.1] ; run3 [Gree@45.2 Stil@45.2 Thor@45.3 Iron@45.5 Embe@45.7 Ambe@46.1 Ashe@52.0] Keep in@52.03 Lv50
+     -> run0 [Gree@0.5 Stil@2.7 Thor@7.7 Iron@13.1] ; run1 [Gree@21.1 Stil@21.2 Thor@21.4 Iron@21.9 Embe@24.4] ; run2 [Gree@30.1 Stil@30.2 Thor@30.4 Iron@30.6 Embe@30.9 Ambe@33.6 Ashe@40.0] Keep in@40.02 Lv54 ; run3 [Gree@52.1 Stil@52.2 Thor@52.3 Iron@52.4 Embe@52.6 Ambe@52.8 Ashe@53.1 Ashe@65.1] Keep in@53.09 Lv32 FOUNDRY in@65.07 Lv59 pw131936
+  Keep ordinary: enc 2048 L980 (48%) far 29 20.0h  ->  enc 2432 L797 (33%) far 36 24.1h
+  Sand Tyrant: r0 auto 0/2 act 0/1 atk1077 L91s 47% sum3 | r1 auto 0/0 act 1/1 atk1347 L65s 0%
+     -> r0 auto 0/2 act 0/1 atk1077 L91s 47% sum3 | r1 auto 1/1 act 0/1 atk1185 L66s 44% sum1
+  Hunter King: r1 auto 1/1 act 0/1 atk2022 L61s 24% sum1
+     -> r2 auto 1/2 act 0/1 atk1957 L67s 1% sum1
+  Grave Knight: r2 auto 0/1 act 0/0 atk8728 L50s 78% | r3 auto 0/1 act 1/4 atk10910 L52s 45% sum3
+     -> r2 auto 1/2 act 0/0 atk6759 L54s 68% sum1
+  Hollow King: none
+     -> r3 auto 0/3 act 1/4 atk10686 L26s 73% sum2
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 1815->1563 | training 21.8->19.4h | gold 14.4->24.5M | ore 347K->547K | dust 85/2->84/3 | Lv@72h 62->72 | final 3 Ashen Keep f24 Lv62 -> 3 Ashen Keep f36 Lv72
+
+seed 43  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 16/16, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h16.08 Thornwood +21, h33.08 Emberwaste +27, h41.33 Ashen +32  ->  h16.08 Thornwood +21, h54.05 Ashen +36, h63.11 Ashen +35 (min gap 8.3->9.1h, min zones re-cleared between 5->7)
+  runs: run0 [Gree@0.4 Stil@2.9 Thor@8.4 Iron@11.1] ; run1 [Gree@16.1 Stil@16.3 Thor@16.5 Iron@19.1 Embe@28.1] ; run2 [Gree@33.1 Stil@33.2 Thor@33.4 Iron@33.6 Embe@35.0 Ambe@38.0] ; run3 [Gree@41.4 Stil@41.5 Thor@41.6 Iron@41.8 Embe@42.0 Ambe@46.1 Ashe@54.0] Keep in@54.02 Lv59
+     -> run0 [Gree@0.4 Stil@2.9 Thor@8.4 Iron@11.1] ; run1 [Gree@16.1 Stil@16.3 Thor@16.5 Iron@18.0 Embe@25.1 Ambe@31.1 Ashe@43.1] Keep in@43.06 Lv65 ; run2 [Gree@54.1 Stil@54.2 Thor@54.3 Iron@54.4 Embe@54.6 Ambe@54.8 Ashe@55.6] Keep in@55.58 Lv35 ; run3 [Gree@63.2 Stil@63.3 Thor@63.3 Iron@63.5 Embe@63.6 Ambe@63.8 Ashe@64.1] Keep in@64.08 Lv33
+  Keep ordinary: enc 1860 L1104 (59%) far 24 18.0h  ->  enc 2659 L1021 (38%) far 33 26.4h
+  Sand Tyrant: r1 auto 0/2 act 1/2 atk1347 L74s 40% sum3 | r2 auto 0/1 act 0/0 atk1684 L67s 38% sum1
+     -> r1 auto 0/0 act 1/1 atk1185 L68s 0%
+  Hunter King: r2 auto 0/0 act 1/1 atk2527 L48s 0% | r3 auto 0/3 act 0/0 atk3159 L59s 53% sum3
+     -> r1 auto 0/1 act 1/3 atk1779 L73s 53% sum3
+  Grave Knight: r3 auto 0/0 act 1/2 atk10910 L55s 67% sum1
+     -> r1 auto 0/2 act 1/1 atk6145 L72s 62% sum1 | r2 auto 0/2 act 0/0 atk6759 L32s 66% sum1
+  Hollow King: none
+     -> r3 auto 0/0 act 0/2 atk10686 L21s 71%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1917->1622 | training 24.3->21.4h | gold 13.1->13.7M | ore 324K->350K | dust 80/9->92/0 | Lv@72h 63->51 | final 3 Ashen Keep f24 Lv63 -> 3 Ashen Keep f26 Lv51
+
+seed 44  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 17/17, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h17.67 Thornwood +21, h25.06 Ironvein +22, h54.06 Ashen +38  ->  h17.67 Thornwood +21, h25.1 Emberwaste +23, h36.09 Emberwaste +33 (min gap 7.4->7.4h, min zones re-cleared between 4->4)
+  runs: run0 [Gree@0.3 Stil@3.4 Thor@8.3 Iron@14.3] ; run1 [Gree@17.7 Stil@17.9 Thor@18.1 Iron@19.1] ; run2 [Gree@25.1 Stil@25.2 Thor@25.4 Iron@25.7 Embe@31.1 Ambe@35.1 Ashe@47.1] Keep in@47.1 Lv65 ; run3 [Gree@54.1 Stil@54.2 Thor@54.3 Iron@54.4 Embe@54.6 Ambe@54.9 Ashe@56.1] Keep in@56.07 Lv37
+     -> run0 [Gree@0.3 Stil@3.4 Thor@8.3 Iron@14.3] ; run1 [Gree@17.7 Stil@17.8 Thor@18.0 Iron@19.1] ; run2 [Gree@25.2 Stil@25.3 Thor@25.4 Iron@25.6 Embe@27.1 Ambe@31.1] ; run3 [Gree@36.1 Stil@36.2 Thor@36.3 Iron@36.5 Embe@36.7 Ambe@37.0 Ashe@42.1 Ashe@67.0] Keep in@42.06 Lv50 FOUNDRY in@67.02 Lv69 pw134037
+  Keep ordinary: enc 2490 L1148 (46%) far 26 22.9h  ->  enc 2605 L893 (34%) far 36 25.0h
+  Sand Tyrant: r1 auto 0/0 act 0/1 atk1347 L71s 22% sum1 | r2 auto 0/3 act 1/2 atk1684 L72s 44% sum4
+     -> r1 auto 0/1 act 0/1 atk1185 L26s 23% sum1 | r2 auto 0/1 act 1/2 atk1304 L67s 42% sum2
+  Hunter King: r2 auto 0/0 act 1/1 atk2527 L50s 0%
+     -> r2 auto 0/1 act 1/1 atk1957 L50s 57% sum1 | r3 auto 0/1 act 0/0 atk2153 L75s 38% sum1
+  Grave Knight: r2 auto 0/1 act 1/1 atk8728 L66s 64% sum1
+     -> r3 auto 0/1 act 1/1 atk7435 L53s 56% sum1
+  Hollow King: none
+     -> r3 auto 1/10 act 0/6 atk10686 L27s 80% sum5
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 1853->1640 | training 25.3->23.0h | gold 14.7->24.9M | ore 432K->631K | dust 81/16->77/0 | Lv@72h 53->76 | final 3 Ashen Keep f24 Lv53 -> 3 Ashen Keep f36 Lv76
+
+seed 45  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 30/30, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h30.09 Emberwaste +25, h44.09 Amberfall +32, h58.1 Ashen +36  ->  h30.09 Emberwaste +25, h50.1 Ashen +35, h60.08 Ashen +36 (min gap 14.0->10.0h, min zones re-cleared between 6->7)
+  runs: run0 [Gree@0.4 Stil@2.6 Thor@6.1 Iron@13.1 Embe@23.1] ; run1 [Gree@30.1 Stil@30.2 Thor@30.4 Iron@30.6 Embe@31.1 Ambe@36.1] ; run2 [Gree@44.2 Stil@44.2 Thor@44.3 Iron@44.5 Embe@44.7 Ambe@45.1 Ashe@49.0] Keep in@49.04 Lv46 ; run3 [Gree@58.2 Stil@58.2 Thor@58.3 Iron@58.5 Embe@58.6 Ambe@58.9 Ashe@60.1] Keep in@60.08 Lv38
+     -> run0 [Gree@0.4 Stil@2.6 Thor@6.1 Iron@13.1 Embe@23.1] ; run1 [Gree@30.1 Stil@30.2 Thor@30.4 Iron@30.6 Embe@31.0 Ambe@33.7 Ashe@40.1] Keep in@40.08 Lv54 ; run2 [Gree@50.2 Stil@50.2 Thor@50.3 Iron@50.5 Embe@50.6 Ambe@50.9 Ashe@52.1] Keep in@52.08 Lv37 ; run3 [Gree@60.1 Stil@60.2 Thor@60.3 Iron@60.4 Embe@60.6 Ambe@60.8 Ashe@61.0 Ashe@71.0] Keep in@61.03 Lv33 FOUNDRY in@71.04 Lv59 pw142244
+  Keep ordinary: enc 2261 L1004 (44%) far 32 21.0h  ->  enc 2924 L1048 (36%) far 34 28.0h
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L51s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L51s 0% | r1 auto 0/1 act 0/0 atk1185 L103s 14% sum1
+  Hunter King: r1 auto 0/1 act 1/3 atk2022 L65s 12% sum3
+     -> r1 auto 1/4 act 0/0 atk1779 L55s 52% sum3
+  Grave Knight: r1 auto 0/1 act 0/0 atk6983 L58s 70% sum1 | r2 auto 0/1 act 1/2 atk8728 L68s 48% sum2
+     -> r1 auto 0/0 act 1/1 atk6145 L74s 0% | r2 auto 0/1 act 0/0 atk6759 L74s 54% sum1
+  Hollow King: none
+     -> r3 auto 0/4 act 1/6 atk10686 L29s 81% sum3
+  zones cur/best 24h 5/5->5/5, 36h 5/5->6/6, 48h 6/6->7/7, 60h 6/7->7/7, 72h 7/7->8/8 | defeats 1746->1668 | training 23.1->19.7h | gold 16.4->19.2M | ore 418K->470K | dust 93/2->96/5 | Lv@72h 55->61 | final 3 Ashen Keep f24 Lv55 -> 3 The Foundry f3 Lv61
+
+seed 46  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 35/35, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h35.36 Emberwaste +30, h55.04 Ashen +35, h67.09 Ashen +36  ->  h35.36 Emberwaste +30, h44.08 Ashen +31, h53.07 Ashen +36 (min gap 12.1->8.7h, min zones re-cleared between 7->6)
+  runs: run0 [Gree@0.3 Stil@2.9 Thor@7.8 Iron@14.1 Embe@20.1 Ambe@32.1] ; run1 [Gree@35.4 Stil@35.5 Thor@35.6 Iron@35.8 Embe@36.1 Ambe@39.1 Ashe@47.1] Keep in@47.08 Lv59 ; run2 [Gree@55.1 Stil@55.2 Thor@55.3 Iron@55.4 Embe@55.6 Ambe@55.8 Ashe@57.1] Keep in@57.06 Lv39 ; run3 [Gree@67.2 Stil@67.2 Thor@67.3 Iron@67.5 Embe@67.6 Ambe@67.8 Ashe@69.1] Keep in@69.06 Lv40
+     -> run0 [Gree@0.3 Stil@2.9 Thor@7.8 Iron@14.1 Embe@20.1 Ambe@32.1] ; run1 [Gree@35.4 Stil@35.5 Thor@35.6 Iron@35.8 Embe@36.1 Ambe@38.1] ; run2 [Gree@44.1 Stil@44.2 Thor@44.3 Iron@44.5 Embe@44.7 Ambe@44.9 Ashe@47.1] Keep in@47.09 Lv43 ; run3 [Gree@53.1 Stil@53.2 Thor@53.3 Iron@53.4 Embe@53.6 Ambe@53.8 Ashe@54.1 Ashe@67.1] Keep in@54.07 Lv34 FOUNDRY in@67.08 Lv67 pw142079
+  Keep ordinary: enc 2236 L938 (42%) far 34 20.9h  ->  enc 2028 L531 (26%) far 36 19.0h
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L80s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L80s 0%
+  Hunter King: r0 auto 0/1 act 1/1 atk1617 L48s 54% sum1 | r1 auto 0/1 act 0/0 atk2022 L60s 55% sum1
+     -> r0 auto 0/1 act 1/1 atk1617 L48s 54% sum1 | r1 auto 0/4 act 0/0 atk1779 L66s 46% sum4
+  Grave Knight: r1 auto 0/1 act 1/1 atk6983 L43s 68% sum1 | r2 auto 0/2 act 0/0 atk8728 L60s 41% sum2 | r3 auto 0/2 act 0/0 atk10910 L33s 51% sum2
+     -> r1 auto 0/2 act 0/2 atk6145 L58s 65% sum3 | r2 auto 0/1 act 1/2 atk6759 L67s 60% sum2
+  Hollow King: none
+     -> r3 auto 0/14 act 1/7 atk10686 L30s 74% sum6
+  zones cur/best 24h 5/5->5/5, 36h 4/6->4/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 1586->1221 | training 23.7->24.7h | gold 14.3->28.0M | ore 381K->628K | dust 101/3->97/5 | Lv@72h 48->76 | final 3 Ashen Keep f24 Lv48 -> 3 The Foundry f18 Lv76
+
+seed 47  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 21/21, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h21.08 Emberwaste +21, h38.94 Emberwaste +31, h50.81 Ashen +33  ->  h21.08 Emberwaste +21, h42.06 Ashen +32, h55.09 Ashen +36 (min gap 11.9->13.0h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@2.6 Thor@7.1 Iron@13.0] ; run1 [Gree@21.1 Stil@21.3 Thor@21.4 Iron@22.1 Embe@29.1 Ambe@34.1] ; run2 [Gree@39.0 Stil@39.1 Thor@39.2 Iron@39.4 Embe@39.7 Ambe@43.1] ; run3 [Gree@50.9 Stil@51.0 Thor@51.0 Iron@51.2 Embe@51.4 Ambe@51.9 Ashe@60.1] Keep in@60.09 Lv56
+     -> run0 [Gree@0.3 Stil@2.6 Thor@7.1 Iron@13.0] ; run1 [Gree@21.1 Stil@21.2 Thor@21.4 Iron@21.9 Embe@26.1 Ambe@32.1] ; run2 [Gree@42.1 Stil@42.2 Thor@42.3 Iron@42.5 Embe@42.6 Ambe@43.0 Ashe@46.1] Keep in@46.06 Lv42 ; run3 [Gree@55.1 Stil@55.2 Thor@55.3 Iron@55.4 Embe@55.6 Ambe@55.8 Ashe@57.0] Keep in@57.03 Lv39
+  Keep ordinary: enc 1250 L754 (60%) far 24 11.9h  ->  enc 2354 L993 (42%) far 29 24.0h
+  Sand Tyrant: r1 auto 0/1 act 1/2 atk1347 L63s 23% sum2
+     -> r1 auto 0/0 act 1/1 atk1185 L56s 0%
+  Hunter King: r1 auto 0/0 act 1/1 atk2022 L57s 0% | r2 auto 0/1 act 0/0 atk2527 L48s 59% sum1
+     -> r1 auto 0/0 act 1/1 atk1779 L63s 0%
+  Grave Knight: r3 auto 0/2 act 1/3 atk10910 L66s 55% sum4
+     -> r1 auto 0/0 act 0/1 atk6145 L120s 19% sum1 | r2 auto 0/1 act 1/1 atk6759 L44s 77% | r3 auto 0/4 act 0/0 atk7435 L91s 30% sum4
+  Hollow King: none
+     -> r3 auto 0/3 act 0/1 atk10686 L16s 87% sum1
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->7/7, 60h 6/6->7/7, 72h 7/7->7/7 | defeats 1714->1656 | training 29.1->23.4h | gold 13.1->14.1M | ore 346K->356K | dust 85/6->89/9 | Lv@72h 59->57 | final 3 Ashen Keep f24 Lv59 -> 3 Ashen Keep f24 Lv57
+
+seed 48  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 23/23, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h23.07 Emberwaste +22, h39.09 Emberwaste +31, h49.09 Amberfall +33  ->  h23.07 Emberwaste +22, h55.08 Ashen +35, h64.05 Ashen +35 (min gap 10.0->9.0h, min zones re-cleared between 6->7)
+  runs: run0 [Gree@0.3 Stil@3.0 Thor@7.9 Iron@12.1] ; run1 [Gree@23.1 Stil@23.2 Thor@23.4 Iron@23.7 Embe@29.1 Ambe@35.0] ; run2 [Gree@39.1 Stil@39.2 Thor@39.4 Iron@39.5 Embe@39.9 Ambe@43.1] ; run3 [Gree@49.1 Stil@49.2 Thor@49.3 Iron@49.5 Embe@49.7 Ambe@50.0 Ashe@58.1] Keep in@58.1 Lv55
+     -> run0 [Gree@0.3 Stil@3.0 Thor@7.9 Iron@12.1] ; run1 [Gree@23.1 Stil@23.2 Thor@23.4 Iron@23.7 Embe@26.1 Ambe@32.0 Ashe@45.0] Keep in@45.01 Lv65 ; run2 [Gree@55.1 Stil@55.2 Thor@55.3 Iron@55.4 Embe@55.6 Ambe@55.8 Ashe@57.0] Keep in@57.05 Lv38 ; run3 [Gree@64.1 Stil@64.2 Thor@64.3 Iron@64.4 Embe@64.6 Ambe@64.8 Ashe@65.1] Keep in@65.06 Lv33
+  Keep ordinary: enc 1481 L820 (55%) far 25 13.9h  ->  enc 2402 L1172 (49%) far 32 24.0h
+  Sand Tyrant: r0 auto 0/2 act 0/2 atk1077 L79s 38% sum4 | r1 auto 0/2 act 1/1 atk1347 L81s 41% sum2 | r2 auto 0/1 act 0/0 atk1684 L78s 33% sum1
+     -> r0 auto 0/2 act 0/2 atk1077 L79s 38% sum4 | r1 auto 0/0 act 1/1 atk1185 L10787s 0%
+  Hunter King: r1 auto 0/1 act 1/2 atk2022 L54s 38% sum2
+     -> r1 auto 0/0 act 1/1 atk1779 L59s 0%
+  Grave Knight: r3 auto 0/2 act 1/3 atk10910 L87s 21% sum3
+     -> r1 auto 1/6 act 0/1 atk6145 L60s 64% sum4 | r2 auto 0/4 act 0/0 atk6759 L60s 60% sum4
+  Hollow King: none
+     -> none
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1741->1817 | training 27.8->23.8h | gold 13.5->11.4M | ore 349K->300K | dust 86/4->92/14 | Lv@72h 60->44 | final 3 Ashen Keep f24 Lv60 -> 3 Ashen Keep f24 Lv44
+
+seed 49  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 23/23, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h23.09 Emberwaste +22, h35.08 Emberwaste +27, h40.09 Amberfall +28  ->  h23.09 Emberwaste +22, h38.78 Emberwaste +31, h52.04 Ashen +36 (min gap 5.0->13.3h, min zones re-cleared between 5->6)
+  runs: run0 [Gree@0.3 Stil@2.5 Thor@8.1 Iron@13.1] ; run1 [Gree@23.2 Stil@23.3 Thor@23.4 Iron@23.9 Embe@28.1] ; run2 [Gree@35.1 Stil@35.2 Thor@35.4 Iron@35.5 Embe@36.0] ; run3 [Gree@40.1 Stil@40.2 Thor@40.4 Iron@40.5 Embe@40.8 Ambe@43.0 Ashe@53.1] Keep in@53.08 Lv59
+     -> run0 [Gree@0.3 Stil@2.5 Thor@8.1 Iron@13.1] ; run1 [Gree@23.2 Stil@23.3 Thor@23.4 Iron@23.7 Embe@28.0 Ambe@32.0] ; run2 [Gree@38.8 Stil@38.9 Thor@39.0 Iron@39.2 Embe@39.4 Ambe@40.4 Ashe@45.0] Keep in@45.05 Lv47 ; run3 [Gree@52.1 Stil@52.2 Thor@52.3 Iron@52.4 Embe@52.6 Ambe@52.8 Ashe@54.1] Keep in@54.07 Lv39
+  Keep ordinary: enc 1903 L931 (49%) far 24 18.9h  ->  enc 2367 L1157 (49%) far 28 24.9h
+  Sand Tyrant: r0 auto 0/1 act 0/1 atk1077 L78s 18% sum1 | r1 auto 0/0 act 1/1 atk1347 L77s 0%
+     -> r0 auto 0/1 act 0/1 atk1077 L78s 18% sum1 | r1 auto 0/5 act 1/2 atk1185 L85s 42% sum6
+  Hunter King: r1 auto 0/1 act 0/1 atk2022 L58s 52% sum2 | r3 auto 0/0 act 1/1 atk3159 L53s 0%
+     -> r1 auto 0/1 act 1/1 atk1779 L51s 57% sum1
+  Grave Knight: r3 auto 0/2 act 1/1 atk10910 L55s 62% sum2
+     -> r2 auto 0/0 act 1/2 atk6759 L46s 61% sum1 | r3 auto 0/3 act 0/1 atk7435 L52s 64% sum4
+  Hollow King: none
+     -> r3 auto 0/1 act 0/1 atk10686 L14s 60% sum1
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1723->1802 | training 23.1->18.7h | gold 14.5->12.0M | ore 348K->304K | dust 77/9->89/3 | Lv@72h 66->54 | final 3 Ashen Keep f24 Lv66 -> 3 Ashen Keep f24 Lv54
+
+seed 50  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 21/21, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h21.75 Ironvein +21, h39.65 Ashen +31, h48.07 Ashen +33  ->  h21.75 Ironvein +21, h35.09 Amberfall +31, h44.1 Ashen +33 (min gap 8.4->9.0h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@2.6 Thor@7.0 Iron@13.1] ; run1 [Gree@21.8 Stil@21.9 Thor@22.1 Iron@22.5 Embe@28.1 Ambe@35.0] ; run2 [Gree@39.7 Stil@39.8 Thor@39.9 Iron@40.1 Embe@40.4 Ambe@41.1] ; run3 [Gree@48.1 Stil@48.2 Thor@48.3 Iron@48.5 Embe@48.7 Ambe@49.0 Ashe@54.1] Keep in@54.06 Lv49
+     -> run0 [Gree@0.3 Stil@2.6 Thor@7.0 Iron@13.1] ; run1 [Gree@21.8 Stil@21.9 Thor@22.0 Iron@22.3 Embe@25.4 Ambe@30.1] ; run2 [Gree@35.1 Stil@35.2 Thor@35.4 Iron@35.5 Embe@35.9 Ambe@37.0] ; run3 [Gree@44.2 Stil@44.2 Thor@44.3 Iron@44.5 Embe@44.7 Ambe@44.9 Ashe@46.1] Keep in@46.07 Lv37
+  Keep ordinary: enc 1877 L805 (43%) far 24 17.9h  ->  enc 2490 L1114 (45%) far 28 25.9h
+  Sand Tyrant: r1 auto 0/0 act 1/1 atk1347 L61s 0%
+     -> r1 auto 1/1 act 0/0 atk1185 L152s 0%
+  Hunter King: r1 auto 0/0 act 1/2 atk2022 L46s 44% sum1
+     -> r1 auto 1/1 act 0/0 atk1779 L127s 0%
+  Grave Knight: r3 auto 0/1 act 1/1 atk10910 L40s 74%
+     -> r2 auto 0/2 act 0/1 atk6759 L63s 65% sum2 | r3 auto 0/0 act 1/1 atk7435 L68s 0%
+  Hollow King: none
+     -> r3 auto 0/1 act 0/1 atk10686 L20s 81%
+  zones cur/best 24h 4/4->4/4, 36h 6/6->5/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1619->1807 | training 28.7->21.9h | gold 14.7->13.8M | ore 381K->324K | dust 85/1->85/2 | Lv@72h 62->60 | final 3 Ashen Keep f24 Lv62 -> 3 Ashen Keep f26 Lv60
+
+-- light validity: 72h 10/10, Shatter cap 10/10, audit through first Shatter OK 10/10, ascensions 0->0
+-- light summary:
+   zones cur/best med 24h 4/4->4/4, 36h 5/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7
+   Shatters per run med 3 -> 3 (paired med 0, +0 010 -0) | first h med 21.8 -> 21.8 (paired med 0.0, +0 010 -0) | min gap h med 9.0 -> 9.0 (paired med -0.0, +5 00 -5) | min zones re-cleared between med 6 -> 6 (paired med 0, +4 04 -2)
+   run1: Keep entered 1->3 runs (h 47.1->43.1, Lv 59->65); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run2: Keep entered 4->8 runs (h 49.0->47.1, Lv 46->42); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run3: Keep entered 10->10 runs (h 56.1->54.1, Lv 49->33); Keep cleared 0->4; Foundry entered 0->4, cleared 0->0; Endless entered 0->0
+   Keep ordinary (all runs): encounters med 1877 -> 2402 (paired med 613, +9 00 -1) | loss% med 47 -> 38 (paired med -12, +1 00 -9) | furthest med 25 -> 33 (paired med 4, +10 00 -0) | hours med 18.0 -> 24.1 (paired med 7.0, +9 00 -1) | fight 36 reached 0->9 runs | Keep clears 0->4 | hours after first Keep clear med -->4.9
+   Sand Tyrant by run: r0 auto 0/6 act 3/7 (6 runs, loss 80s 39%, sum9) | r1 auto 0/7 act 6/9 (8 runs, loss 76s 39%, sum10) | r2 auto 0/5 act 1/2 (3 runs, loss 72s 38%, sum6)
+     -> r0 auto 0/6 act 3/7 (6 runs, loss 80s 39%, sum9) | r1 auto 2/10 act 4/7 (9 runs, loss 79s 43%, sum10) | r2 auto 0/1 act 1/2 (1 runs, loss 67s 42%, sum2)
+   Hunter King by run: r0 auto 0/1 act 1/1 (1 runs, loss 48s 54%, sum1) | r1 auto 1/6 act 5/11 (8 runs, loss 58s 47%, sum10) | r2 auto 0/1 act 2/2 (3 runs, loss 48s 59%, sum1) | r3 auto 0/3 act 1/1 (2 runs, loss 53s 53%, sum3)
+     -> r0 auto 0/1 act 1/1 (1 runs, loss 48s 54%, sum1) | r1 auto 2/12 act 5/7 (8 runs, loss 65s 51%, sum12) | r2 auto 1/3 act 1/2 (2 runs, loss 57s 57%, sum2) | r3 auto 0/1 act 0/0 (1 runs, loss 75s 38%, sum1)
+   Grave Knight by run: r1 auto 0/2 act 1/1 (2 runs, loss 58s 68%, sum2) | r2 auto 0/6 act 3/4 (5 runs, loss 68s 63%, sum6) | r3 auto 0/14 act 6/16 (8 runs, loss 57s 62%, sum21)
+     -> r1 auto 1/12 act 2/7 (6 runs, loss 64s 65%, sum11) | r2 auto 1/18 act 4/8 (9 runs, loss 60s 64%, sum16) | r3 auto 0/8 act 2/3 (4 runs, loss 88s 42%, sum9)
+   Hollow King by run: none
+     -> r3 auto 1/36 act 3/29 (9 runs, loss 29s 79%, sum19)
+   totals: defeats med 1723 -> 1640 (paired med -78, +4 00 -6) | training h med 24.3 -> 21.9 (paired med -4.1, +1 00 -9) | gold earned M med 14.28 -> 13.84 (paired med 0.79, +7 00 -3) | ore earned med 349344 -> 355968 (paired med 10368, +6 00 -4) | dust earned med 85 -> 89 (paired med 0, +5 02 -3) | Lv@72h med 59 -> 57 (paired med -2, +5 00 -5)
+   outliers (candidate): seed 42: gold earned 70% || seed 44: gold earned 70% || seed 46: gold earned 96%
+
+===== CASUAL   control batch_out_p26c (1.25 override) -> candidate batch_out_p26x (production 1.10)
+
+seed 41  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 17/17, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h17.16 Ironvein +21, h33.11 Ashen +31, h42.17 Emberwaste +33  ->  h17.16 Ironvein +21, h27.13 Amberfall +26, h51.15 Ashen +36 (min gap 9.1->10.0h, min zones re-cleared between 6->5)
+  runs: run0 [Gree@0.3 Stil@2.7 Thor@7.2 Iron@12.1] ; run1 [Gree@17.2 Stil@17.3 Thor@17.5 Iron@18.1 Embe@21.1 Ambe@27.2] ; run2 [Gree@33.2 Stil@33.3 Thor@33.4 Iron@33.6 Embe@34.1 Ambe@36.2] ; run3 [Gree@42.2 Stil@42.3 Thor@42.4 Iron@42.6 Embe@42.8 Ambe@43.1 Ashe@47.2] Keep in@47.17 Lv45
+     -> run0 [Gree@0.3 Stil@2.7 Thor@7.2 Iron@12.1] ; run1 [Gree@17.2 Stil@17.3 Thor@17.5 Iron@17.9 Embe@21.1] ; run2 [Gree@27.2 Stil@27.3 Thor@27.4 Iron@27.6 Embe@28.0 Ambe@29.1 Ashe@33.2] Keep in@33.18 Lv44 ; run3 [Gree@51.2 Stil@51.3 Thor@51.4 Iron@51.5 Embe@51.7 Ambe@52.0 Ashe@53.1] Keep in@53.08 Lv37
+  Keep ordinary: enc 2562 L1532 (60%) far 24 24.8h  ->  enc 3495 L1970 (56%) far 35 36.9h
+  Sand Tyrant: r1 auto 0/0 act 1/1 atk1347 L76s 0%
+     -> r1 auto 0/1 act 1/1 atk1185 L68s 47% sum1 | r2 auto 0/1 act 0/0 atk1304 L97s 14% sum1
+  Hunter King: r1 auto 0/0 act 1/1 atk2022 L68s 0%
+     -> r1 auto 0/0 act 0/1 atk1779 L87s 5% sum1 | r2 auto 0/0 act 1/1 atk1957 L56s 0%
+  Grave Knight: r3 auto 0/0 act 1/2 atk10910 L52s 58% sum1
+     -> r2 auto 0/0 act 1/1 atk6759 L112s 0%
+  Hollow King: none
+     -> r2 auto 0/0 act 0/1 atk9715 L17s 87% | r3 auto 0/3 act 0/7 atk10686 L19s 84% sum3
+  zones cur/best 24h 5/5->5/5, 36h 5/6->7/7, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 2400->2550 | training 25.5->17.0h | gold 14.4->15.5M | ore 290K->276K | dust 85/1->83/19 | Lv@72h 59->58 | final 3 Ashen Keep f24 Lv59 -> 3 Ashen Keep f24 Lv58
+
+seed 42  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 16/16, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h16.16 Emberwaste +21, h35.13 Emberwaste +31, h47.13 Ashen +36  ->  h16.16 Emberwaste +21, h25.1 Emberwaste +26, h42.08 Ashen +36 (min gap 12.0->8.9h, min zones re-cleared between 6->5)
+  runs: run0 [Gree@0.4 Stil@2.9 Thor@7.1 Iron@11.1] ; run1 [Gree@16.2 Stil@16.3 Thor@16.5 Iron@17.1 Embe@23.1 Ambe@27.1] ; run2 [Gree@35.2 Stil@35.3 Thor@35.4 Iron@35.6 Embe@35.9 Ambe@36.2 Ashe@41.1] Keep in@41.14 Lv46 ; run3 [Gree@47.2 Stil@47.3 Thor@47.4 Iron@47.5 Embe@47.7 Ambe@48.0 Ashe@49.1] Keep in@49.15 Lv37
+     -> run0 [Gree@0.4 Stil@2.9 Thor@7.1 Iron@11.1] ; run1 [Gree@16.2 Stil@16.3 Thor@16.5 Iron@17.0 Embe@20.1] ; run2 [Gree@25.2 Stil@25.3 Thor@25.4 Iron@25.6 Embe@26.1 Ambe@27.1 Ashe@32.1] Keep in@32.11 Lv38 ; run3 [Gree@42.1 Stil@42.2 Thor@42.3 Iron@42.4 Embe@42.6 Ambe@42.8 Ashe@43.1 Ashe@60.1] Keep in@43.11 Lv31 FOUNDRY in@60.13 Lv59 pw111225
+  Keep ordinary: enc 3064 L1668 (54%) far 24 28.9h  ->  enc 2833 L1161 (41%) far 36 27.0h
+  Sand Tyrant: r0 auto 0/0 act 0/1 atk1077 L67s 72% | r1 auto 0/0 act 1/2 atk1347 L57s 43% sum1
+     -> r0 auto 0/0 act 0/1 atk1077 L67s 72% | r1 auto 0/1 act 1/2 atk1185 L69s 17% sum1
+  Hunter King: r1 auto 0/0 act 1/1 atk2022 L51s 0%
+     -> r1 auto 0/0 act 0/1 atk1779 L65s 28% sum1 | r2 auto 0/0 act 1/1 atk1957 L62s 0%
+  Grave Knight: r1 auto 0/1 act 0/0 atk6983 L42s 85% | r2 auto 0/0 act 1/1 atk8728 L72s 0%
+     -> r2 auto 0/0 act 1/1 atk6759 L84s 0%
+  Hollow King: r3 auto 0/1 act 0/2 atk15681 L15s 88%
+     -> r3 auto 0/0 act 1/15 atk10686 L26s 66% sum7
+  zones cur/best 24h 5/5->5/5, 36h 5/6->7/7, 48h 5/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2419->1916 | training 22.1->24.2h | gold 15.3->33.1M | ore 315K->642K | dust 88/10->83/6 | Lv@72h 56->79 | final 3 Ashen Keep f24 Lv56 -> 3 Ashen Keep f36 Lv79
+
+seed 43  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 25/25, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h25.16 Emberwaste +29, h34.13 Amberfall +30, h45.07 Ashen +36  ->  h25.16 Emberwaste +29, h34.16 Ashen +31, h46.13 Ashen +36 (min gap 9.0->9.0h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.2 Stil@2.1 Thor@6.8 Iron@10.2 Embe@14.1 Ambe@21.2] ; run1 [Gree@25.2 Stil@25.3 Thor@25.5 Iron@25.7 Embe@26.1 Ambe@30.1] ; run2 [Gree@34.2 Stil@34.3 Thor@34.4 Iron@34.6 Embe@34.9 Ambe@35.1 Ashe@38.1] Keep in@38.11 Lv40 ; run3 [Gree@45.1 Stil@45.2 Thor@45.3 Iron@45.5 Embe@45.7 Ambe@45.9 Ashe@49.1] Keep in@49.11 Lv44
+     -> run0 [Gree@0.2 Stil@2.1 Thor@6.8 Iron@10.2 Embe@14.1 Ambe@21.2] ; run1 [Gree@25.2 Stil@25.3 Thor@25.5 Iron@25.7 Embe@26.1 Ambe@28.1] ; run2 [Gree@34.2 Stil@34.3 Thor@34.4 Iron@34.6 Embe@34.8 Ambe@35.1 Ashe@36.2] Keep in@36.16 Lv36 ; run3 [Gree@46.2 Stil@46.3 Thor@46.4 Iron@46.5 Embe@46.6 Ambe@46.9 Ashe@47.1 Ashe@59.1] Keep in@47.13 Lv33 FOUNDRY in@59.1 Lv54 pw108181
+  Keep ordinary: enc 3124 L1832 (59%) far 24 29.9h  ->  enc 2310 L1047 (45%) far 36 21.9h
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L102s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L102s 0%
+  Hunter King: r0 auto 0/1 act 1/2 atk1617 L49s 39% sum1
+     -> r0 auto 0/1 act 1/2 atk1617 L49s 39% sum1
+  Grave Knight: r2 auto 0/0 act 1/1 atk8728 L86s 0% | r3 auto 0/0 act 0/2 atk10910 L44s 32% sum2
+     -> r2 auto 0/0 act 1/1 atk6759 L79s 0%
+  Hollow King: r3 auto 0/0 act 0/7 atk15681 L16s 85%
+     -> r3 auto 0/1 act 1/9 atk10686 L18s 80%
+  zones cur/best 24h 6/6->6/6, 36h 6/6->6/6, 48h 6/7->7/7, 60h 7/7->8/8, 72h 7/7->8/8 | defeats 2643->1948 | training 20.9->27.3h | gold 15.5->32.9M | ore 343K->694K | dust 95/4->96/1 | Lv@72h 60->79 | final 3 Ashen Keep f24 Lv60 -> 3 Ashen Keep f36 Lv79
+
+seed 44  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 25/25, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h25.2 Ironvein +25, h47.12 Ashen +35, h65.12 Ashen +36  ->  h25.2 Ironvein +25, h33.19 Emberwaste +30, h43.09 Ashen +35 (min gap 18.0->8.0h, min zones re-cleared between 7->6)
+  runs: run0 [Gree@0.3 Stil@2.7 Thor@6.1 Iron@10.2 Embe@18.1] ; run1 [Gree@25.3 Stil@25.4 Thor@25.5 Iron@25.8 Embe@26.2 Ambe@30.1 Ashe@41.1] Keep in@41.12 Lv57 ; run2 [Gree@47.2 Stil@47.3 Thor@47.4 Iron@47.5 Embe@47.8 Ambe@48.1 Ashe@49.2] Keep in@49.17 Lv36 ; run3 [Gree@65.2 Stil@65.3 Thor@65.3 Iron@65.5 Embe@65.7 Ambe@66.0 Ashe@67.1] Keep in@67.14 Lv38
+     -> run0 [Gree@0.3 Stil@2.7 Thor@6.1 Iron@10.2 Embe@18.1] ; run1 [Gree@25.3 Stil@25.4 Thor@25.5 Iron@25.8 Embe@27.1 Ambe@29.1] ; run2 [Gree@33.2 Stil@33.3 Thor@33.5 Iron@33.6 Embe@33.9 Ambe@35.1 Ashe@37.1] Keep in@37.13 Lv39 ; run3 [Gree@43.1 Stil@43.2 Thor@43.3 Iron@43.5 Embe@43.7 Ambe@43.9 Ashe@45.1 Ashe@69.2] Keep in@45.11 Lv37 FOUNDRY in@69.16 Lv62 pw107734
+  Keep ordinary: enc 2864 L1585 (55%) far 35 26.8h  ->  enc 3002 L1315 (44%) far 36 30.0h
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L72s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L72s 0% | r1 auto 0/0 act 0/1 atk1185 L62s 0% sum1
+  Hunter King: r1 auto 0/0 act 1/1 atk2022 L70s 0%
+     -> r1 auto 0/0 act 1/1 atk1779 L60s 0% | r2 auto 0/0 act 0/1 atk1957 L50s 22% sum1
+  Grave Knight: r1 auto 0/0 act 1/1 atk6983 L75s 0%
+     -> r2 auto 0/0 act 1/1 atk6759 L94s 0%
+  Hollow King: r2 auto 0/0 act 0/1 atk12545 L10s 89%
+     -> r3 auto 0/0 act 1/16 atk10686 L25s 71% sum7
+  zones cur/best 24h 5/5->5/5, 36h 6/6->6/6, 48h 5/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2356->2033 | training 25.7->21.3h | gold 12.6->19.1M | ore 285K->371K | dust 96/2->90/0 | Lv@72h 45->67 | final 3 Ashen Keep f24 Lv45 -> 3 Ashen Keep f36 Lv67
+
+seed 45  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 21/21, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h21.15 Ironvein +21, h29.17 Ironvein +26, h39.17 Ashen +32  ->  h21.15 Ironvein +21, h31.08 Ironvein +30, h50.11 Ashen +36 (min gap 8.0->9.9h, min zones re-cleared between 5->6)
+  runs: run0 [Gree@0.3 Stil@2.9 Thor@8.1 Iron@12.1] ; run1 [Gree@21.2 Stil@21.3 Thor@21.5 Iron@22.0 Embe@25.1] ; run2 [Gree@29.2 Stil@29.3 Thor@29.5 Iron@29.7 Embe@30.1 Ambe@35.1] ; run3 [Gree@39.2 Stil@39.3 Thor@39.5 Iron@39.7 Embe@40.1 Ambe@41.2 Ashe@50.1] Keep in@50.09 Lv54
+     -> run0 [Gree@0.3 Stil@2.9 Thor@8.1 Iron@12.1] ; run1 [Gree@21.2 Stil@21.3 Thor@21.5 Iron@21.9 Embe@23.1 Ambe@26.1] ; run2 [Gree@31.1 Stil@31.2 Thor@31.4 Iron@31.6 Embe@32.1 Ambe@34.1 Ashe@42.1] Keep in@42.11 Lv53 ; run3 [Gree@50.2 Stil@50.3 Thor@50.3 Iron@50.5 Embe@50.7 Ambe@50.9 Ashe@52.1] Keep in@52.08 Lv38
+  Keep ordinary: enc 2247 L1316 (59%) far 24 21.9h  ->  enc 2709 L1312 (48%) far 35 27.9h
+  Sand Tyrant: r0 auto 0/0 act 0/2 atk1077 L80s 32% sum2 | r1 auto 0/0 act 1/1 atk1347 L69s 0%
+     -> r0 auto 0/0 act 0/2 atk1077 L80s 32% sum2 | r1 auto 0/0 act 1/1 atk1185 L84s 0%
+  Hunter King: r2 auto 0/0 act 1/1 atk2527 L66s 0%
+     -> r1 auto 0/0 act 1/1 atk1779 L86s 0%
+  Grave Knight: r3 auto 0/0 act 1/1 atk10910 L67s 0%
+     -> r2 auto 0/0 act 1/1 atk6759 L68s 0%
+  Hollow King: r3 auto 0/0 act 0/1 atk15681 L15s 90%
+     -> r2 auto 0/0 act 0/1 atk9715 L16s 86% | r3 auto 0/1 act 0/13 atk10686 L26s 70% sum5
+  zones cur/best 24h 4/4->5/5, 36h 6/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 2236->2100 | training 26.9->22.8h | gold 13.8->15.5M | ore 278K->293K | dust 79/7->87/4 | Lv@72h 62->58 | final 3 Ashen Keep f24 Lv62 -> 3 Ashen Keep f24 Lv58
+
+seed 46  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 29/29, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h29.15 Ironvein +29, h38.16 Ashen +30, h51.08 Ashen +36  ->  h29.15 Ironvein +29, h37.14 Ashen +30, h49.08 Ashen +35 (min gap 9.0->8.0h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@2.8 Thor@6.1 Iron@10.2 Embe@15.1 Ambe@19.1] ; run1 [Gree@29.2 Stil@29.3 Thor@29.4 Iron@29.7 Embe@30.1 Ambe@32.1] ; run2 [Gree@38.2 Stil@38.3 Thor@38.4 Iron@38.6 Embe@39.0 Ambe@40.1 Ashe@43.1] Keep in@43.13 Lv43 ; run3 [Gree@51.1 Stil@51.2 Thor@51.3 Iron@51.5 Embe@51.7 Ambe@52.1 Ashe@53.1] Keep in@53.13 Lv36
+     -> run0 [Gree@0.3 Stil@2.8 Thor@6.1 Iron@10.2 Embe@15.1 Ambe@19.1] ; run1 [Gree@29.2 Stil@29.3 Thor@29.4 Iron@29.7 Embe@30.1 Ambe@32.1] ; run2 [Gree@37.2 Stil@37.3 Thor@37.4 Iron@37.6 Embe@37.8 Ambe@38.1 Ashe@40.1] Keep in@40.08 Lv38 ; run3 [Gree@49.1 Stil@49.2 Thor@49.3 Iron@49.5 Embe@49.6 Ambe@49.9 Ashe@50.2 Ashe@66.1] Keep in@50.16 Lv33 FOUNDRY in@66.09 Lv55 pw101994
+  Keep ordinary: enc 2782 L1616 (58%) far 30 26.8h  ->  enc 2507 L1233 (49%) far 36 24.9h
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L94s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L94s 0%
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L94s 0% | r2 auto 0/1 act 0/1 atk2527 L57s 55% sum2
+     -> r0 auto 0/0 act 1/1 atk1617 L94s 0% | r1 auto 0/0 act 0/1 atk1779 L60s 8% sum1
+  Grave Knight: r2 auto 0/0 act 1/1 atk8728 L85s 0%
+     -> r1 auto 0/0 act 0/1 atk6145 L55s 53% sum1 | r2 auto 0/0 act 1/1 atk6759 L68s 0%
+  Hollow King: r3 auto 0/0 act 0/3 atk15681 L16s 88%
+     -> r3 auto 0/4 act 1/13 atk10686 L27s 75% sum7
+  zones cur/best 24h 6/6->6/6, 36h 6/6->6/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2490->2061 | training 23.8->24.5h | gold 13.9->20.6M | ore 280K->406K | dust 95/12->94/1 | Lv@72h 55->68 | final 3 Ashen Keep f24 Lv55 -> 3 The Foundry f12 Lv68
+
+seed 47  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 20/20, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h20.16 Ironvein +21, h44.11 Ashen +35, h58.07 Ashen +36  ->  h20.16 Ironvein +21, h26.16 Amberfall +25, h34.16 Emberwaste +32 (min gap 14.0->6.0h, min zones re-cleared between 7->5)
+  runs: run0 [Gree@0.3 Stil@2.9 Thor@7.1 Iron@11.1] ; run1 [Gree@20.2 Stil@20.3 Thor@20.5 Iron@21.0 Embe@26.1 Ambe@31.1 Ashe@37.1] Keep in@37.14 Lv55 ; run2 [Gree@44.2 Stil@44.3 Thor@44.4 Iron@44.5 Embe@44.8 Ambe@45.1 Ashe@48.1] Keep in@48.13 Lv40 ; run3 [Gree@58.1 Stil@58.2 Thor@58.3 Iron@58.5 Embe@58.7 Ambe@59.0 Ashe@60.2] Keep in@60.18 Lv37
+     -> run0 [Gree@0.3 Stil@2.9 Thor@7.1 Iron@11.1] ; run1 [Gree@20.2 Stil@20.3 Thor@20.5 Iron@20.8 Embe@22.2] ; run2 [Gree@26.2 Stil@26.3 Thor@26.4 Iron@26.7 Embe@27.1 Ambe@29.1] ; run3 [Gree@34.2 Stil@34.3 Thor@34.4 Iron@34.6 Embe@34.9 Ambe@35.1 Ashe@38.1 Ashe@64.1] Keep in@38.12 Lv40 FOUNDRY in@64.14 Lv59 pw93289
+  Keep ordinary: enc 2804 L1541 (55%) far 30 28.7h  ->  enc 2427 L1251 (52%) far 36 26.0h
+  Sand Tyrant: r1 auto 0/0 act 1/1 atk1347 L72s 0%
+     -> r1 auto 0/0 act 1/1 atk1185 L84s 0%
+  Hunter King: r1 auto 0/0 act 1/2 atk2022 L56s 59% sum1
+     -> r2 auto 0/0 act 1/1 atk1957 L72s 0%
+  Grave Knight: r1 auto 0/0 act 1/2 atk6983 L112s 30% sum1
+     -> r3 auto 0/0 act 1/2 atk7435 L81s 25% sum1
+  Hollow King: none
+     -> r3 auto 0/1 act 1/8 atk10686 L25s 80%
+  zones cur/best 24h 4/4->5/5, 36h 6/6->6/6, 48h 6/7->7/7, 60h 6/7->7/7, 72h 7/7->8/8 | defeats 2170->2028 | training 22.1->24.0h | gold 12.1->21.6M | ore 257K->394K | dust 92/8->78/6 | Lv@72h 48->71 | final 3 Ashen Keep f24 Lv48 -> 3 The Foundry f24 Lv71
+
+seed 48  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 17/17, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h17.08 Ironvein +21, h42.1 Ashen +35, h49.08 Amberfall +33  ->  h17.08 Ironvein +21, h47.17 Ashen +35, h57.12 Ashen +35 (min gap 7.0->9.9h, min zones re-cleared between 6->7)
+  runs: run0 [Gree@0.2 Stil@3.0 Thor@7.1 Iron@12.1] ; run1 [Gree@17.1 Stil@17.2 Thor@17.4 Iron@18.1 Embe@21.1 Ambe@27.1 Ashe@34.1] Keep in@34.12 Lv56 ; run2 [Gree@42.2 Stil@42.2 Thor@42.4 Iron@42.5 Embe@42.9 Ambe@43.1] ; run3 [Gree@49.1 Stil@49.2 Thor@49.3 Iron@49.5 Embe@49.7 Ambe@50.1 Ashe@52.1] Keep in@52.1 Lv40
+     -> run0 [Gree@0.2 Stil@3.0 Thor@7.1 Iron@12.1] ; run1 [Gree@17.1 Stil@17.2 Thor@17.4 Iron@18.0 Embe@21.2 Ambe@25.1 Ashe@34.1] Keep in@34.13 Lv56 ; run2 [Gree@47.2 Stil@47.3 Thor@47.4 Iron@47.6 Embe@47.8 Ambe@48.0 Ashe@49.1] Keep in@49.11 Lv37 ; run3 [Gree@57.2 Stil@57.3 Thor@57.4 Iron@57.5 Embe@57.6 Ambe@57.9 Ashe@58.1 Ashe@66.1] Keep in@58.11 Lv33 FOUNDRY in@66.11 Lv50 pw94695
+  Keep ordinary: enc 2970 L1737 (58%) far 24 27.9h  ->  enc 2962 L1361 (46%) far 35 29.0h
+  Sand Tyrant: r1 auto 0/0 act 1/1 atk1347 L70s 0% | r2 auto 0/1 act 0/0 atk1684 L70s 32% sum1
+     -> r1 auto 0/0 act 1/2 atk1185 L65s 45% sum1
+  Hunter King: r1 auto 0/0 act 1/1 atk2022 L56s 0%
+     -> r1 auto 0/0 act 1/1 atk1779 L75s 0%
+  Grave Knight: r1 auto 0/0 act 1/1 atk6983 L91s 0% | r2 auto 0/1 act 0/3 atk8728 L51s 43% sum2 | r3 auto 0/0 act 0/1 atk10910 L54s 30% sum1
+     -> r1 auto 0/0 act 1/1 atk6145 L81s 0%
+  Hollow King: r3 auto 0/0 act 0/4 atk15681 L15s 86%
+     -> r2 auto 0/0 act 0/1 atk9715 L14s 91% | r3 auto 0/3 act 1/4 atk10686 L25s 72% sum2
+  zones cur/best 24h 5/5->5/5, 36h 7/7->7/7, 48h 6/7->6/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2478->2089 | training 22.6->23.3h | gold 15.0->19.8M | ore 315K->397K | dust 89/11->91/2 | Lv@72h 58->65 | final 3 Ashen Keep f24 Lv58 -> 3 Ashen Approach f36 Lv65
+
+seed 49  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 23/23, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h23.04 Ironvein +25, h31.11 Emberwaste +30, h39.13 Ashen +33  ->  h23.04 Ironvein +25, h33.21 Amberfall +31, h47.12 Ashen +36 (min gap 8.0->10.2h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@2.7 Thor@6.1 Iron@10.1 Embe@17.2] ; run1 [Gree@23.1 Stil@23.2 Thor@23.3 Iron@23.6 Embe@25.1 Ambe@27.1] ; run2 [Gree@31.2 Stil@31.3 Thor@31.4 Iron@31.6 Embe@32.1 Ambe@33.1] ; run3 [Gree@39.2 Stil@39.3 Thor@39.4 Iron@39.5 Embe@39.8 Ambe@40.1 Ashe@44.1] Keep in@44.11 Lv44
+     -> run0 [Gree@0.3 Stil@2.7 Thor@6.1 Iron@10.1 Embe@17.2] ; run1 [Gree@23.1 Stil@23.2 Thor@23.3 Iron@23.6 Embe@24.1 Ambe@27.1] ; run2 [Gree@33.3 Stil@33.4 Thor@33.5 Iron@33.6 Embe@33.9 Ambe@34.1 Ashe@38.2] Keep in@38.16 Lv45 ; run3 [Gree@47.2 Stil@47.3 Thor@47.3 Iron@47.5 Embe@47.6 Ambe@47.9 Ashe@48.1 Ashe@55.1] Keep in@48.15 Lv33 FOUNDRY in@55.11 Lv48 pw94296
+  Keep ordinary: enc 2759 L1623 (59%) far 24 27.9h  ->  enc 1666 L728 (44%) far 36 15.9h
+  Sand Tyrant: r0 auto 0/0 act 1/3 atk1077 L85s 0% sum2
+     -> r0 auto 0/0 act 1/3 atk1077 L85s 0% sum2
+  Hunter King: r1 auto 0/0 act 1/1 atk2022 L70s 0%
+     -> r1 auto 0/0 act 1/1 atk1779 L58s 0%
+  Grave Knight: r2 auto 0/0 act 0/1 atk8728 L61s 45% sum1 | r3 auto 0/0 act 1/2 atk10910 L50s 62% sum1
+     -> r2 auto 0/0 act 1/1 atk6759 L60s 0%
+  Hollow King: r3 auto 0/0 act 0/3 atk15681 L15s 87% sum1
+     -> r2 auto 0/0 act 0/2 atk9715 L16s 82% | r3 auto 0/0 act 1/5 atk10686 L24s 64% sum2
+  zones cur/best 24h 4/5->4/5, 36h 6/6->6/6, 48h 7/7->6/7, 60h 7/7->8/8, 72h 7/7->8/8 | defeats 2453->1685 | training 20.4->31.2h | gold 15.2->36.1M | ore 288K->737K | dust 88/2->92/6 | Lv@72h 60->81 | final 3 Ashen Keep f24 Lv60 -> 3 Ashen Keep f36 Lv81
+
+seed 50  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 17/17, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h17.17 Thornwood +21, h24.13 Emberwaste +22, h47.13 Ashen +37  ->  h17.17 Thornwood +21, h26.16 Amberfall +26, h36.17 Amberfall +33 (min gap 7.0->9.0h, min zones re-cleared between 4->5)
+  runs: run0 [Gree@0.4 Stil@3.5 Thor@7.1 Iron@12.1] ; run1 [Gree@17.2 Stil@17.4 Thor@17.6 Iron@19.1] ; run2 [Gree@24.2 Stil@24.3 Thor@24.4 Iron@25.1 Embe@27.1 Ambe@33.1 Ashe@40.2] Keep in@40.16 Lv46 ; run3 [Gree@47.2 Stil@47.3 Thor@47.4 Iron@47.5 Embe@47.8 Ambe@48.1 Ashe@52.2] Keep in@52.16 Lv44
+     -> run0 [Gree@0.4 Stil@3.5 Thor@7.1 Iron@12.1] ; run1 [Gree@17.2 Stil@17.4 Thor@17.6 Iron@18.0 Embe@21.1] ; run2 [Gree@26.2 Stil@26.3 Thor@26.4 Iron@26.7 Embe@27.1 Ambe@29.1] ; run3 [Gree@36.2 Stil@36.3 Thor@36.4 Iron@36.6 Embe@36.9 Ambe@37.1 Ashe@39.1 Ashe@70.1] Keep in@39.09 Lv38 FOUNDRY in@70.11 Lv60 pw98097
+  Keep ordinary: enc 2813 L1522 (54%) far 24 26.8h  ->  enc 3011 L1720 (57%) far 24 31.0h
+  Sand Tyrant: r1 auto 0/0 act 0/1 atk1347 L91s 6% sum1 | r2 auto 0/0 act 1/1 atk1684 L61s 0%
+     -> r1 auto 0/0 act 1/1 atk1185 L84s 0%
+  Hunter King: r2 auto 0/0 act 1/1 atk2527 L54s 0%
+     -> r2 auto 0/0 act 1/1 atk1957 L66s 0%
+  Grave Knight: r2 auto 0/0 act 1/1 atk8728 L91s 0% | r3 auto 0/2 act 0/0 atk10910 L34s 79%
+     -> r3 auto 0/0 act 1/1 atk7435 L86s 0%
+  Hollow King: r3 auto 0/0 act 0/2 atk15681 L13s 84%
+     -> r3 auto 0/1 act 1/8 atk10686 L25s 74% sum3
+  zones cur/best 24h 4/4->5/5, 36h 6/6->6/6, 48h 5/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2322->2452 | training 24.7->20.7h | gold 15.5->16.9M | ore 312K->301K | dust 80/3->80/2 | Lv@72h 60->64 | final 3 Ashen Keep f24 Lv60 -> 3 Ashen Approach f36 Lv64
+
+-- casual validity: 72h 10/10, Shatter cap 10/10, audit through first Shatter OK 10/10, ascensions 0->0
+-- casual summary:
+   zones cur/best med 24h 5/5->5/5, 36h 6/6->6/6, 48h 6/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8
+   Shatters per run med 3 -> 3 (paired med 0, +0 010 -0) | first h med 20.2 -> 20.2 (paired med 0.0, +0 010 -0) | min gap h med 9.0 -> 9.0 (paired med 0.0, +6 00 -4) | min zones re-cleared between med 6 -> 6 (paired med 0, +3 03 -4)
+   run1: Keep entered 3->1 runs (h 37.1->34.1, Lv 56->56); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run2: Keep entered 6->8 runs (h 41.1->37.1, Lv 40->38); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run3: Keep entered 10->10 runs (h 50.1->47.1, Lv 40->33); Keep cleared 0->8; Foundry entered 0->8, cleared 0->0; Endless entered 0->0
+   Keep ordinary (all runs): encounters med 2804 -> 2709 (paired med -231, +4 00 -6) | loss% med 58 -> 46 (paired med -12, +1 00 -9) | furthest med 24 -> 36 (paired med 11, +9 01 -0) | hours med 26.8 -> 27.0 (paired med -1.9, +5 00 -5) | fight 36 reached 8->10 runs | Keep clears 0->8 | hours after first Keep clear med -->5.9
+   Sand Tyrant by run: r0 auto 0/0 act 4/9 (6 runs, loss 80s 32%, sum4) | r1 auto 0/0 act 5/7 (6 runs, loss 70s 6%, sum2) | r2 auto 0/1 act 1/1 (2 runs, loss 61s 32%, sum1)
+     -> r0 auto 0/0 act 4/9 (6 runs, loss 80s 32%, sum4) | r1 auto 0/2 act 6/9 (7 runs, loss 74s 45%, sum4) | r2 auto 0/1 act 0/0 (1 runs, loss 97s 14%, sum1)
+   Hunter King by run: r0 auto 0/1 act 2/3 (2 runs, loss 49s 39%, sum1) | r1 auto 0/0 act 6/7 (6 runs, loss 57s 59%, sum1) | r2 auto 0/1 act 2/3 (3 runs, loss 57s 55%, sum2)
+     -> r0 auto 0/1 act 2/3 (2 runs, loss 49s 39%, sum1) | r1 auto 0/0 act 4/7 (7 runs, loss 65s 8%, sum3) | r2 auto 0/0 act 4/5 (5 runs, loss 62s 22%, sum1)
+   Grave Knight by run: r1 auto 0/1 act 3/4 (4 runs, loss 91s 30%, sum1) | r2 auto 0/1 act 4/8 (6 runs, loss 71s 45%, sum3) | r3 auto 0/2 act 3/8 (6 runs, loss 52s 62%, sum5)
+     -> r1 auto 0/0 act 1/2 (2 runs, loss 55s 53%, sum1) | r2 auto 0/0 act 7/7 (7 runs, loss 79s 0%, sum0) | r3 auto 0/0 act 2/3 (2 runs, loss 86s 25%, sum1)
+   Hollow King by run: r2 auto 0/0 act 0/1 (1 runs, loss 10s 89%, sum0) | r3 auto 0/1 act 0/22 (7 runs, loss 15s 87%, sum1)
+     -> r2 auto 0/0 act 0/5 (4 runs, loss 16s 87%, sum0) | r3 auto 0/14 act 8/98 (10 runs, loss 25s 75%, sum36)
+   totals: defeats med 2400 -> 2033 (paired med -389, +2 00 -8) | training h med 22.6 -> 23.3 (paired med 0.7, +6 00 -4) | gold earned M med 14.39 -> 19.85 (paired med 6.46, +10 00 -0) | ore earned med 287784 -> 393552 (paired med 86040, +8 00 -2) | dust earned med 88 -> 87 (paired med -1, +4 01 -5) | Lv@72h med 58 -> 67 (paired med 13, +8 00 -2)
+   outliers (candidate): seed 42: gold earned 117% || seed 43: gold earned 112% || seed 44: gold earned 51% || seed 46: gold earned 48% || seed 47: gold earned 78% || seed 48: gold earned 33% || seed 49: gold earned 138%
+
+===== ENGAGED   control batch_out_p26c (1.25 override) -> candidate batch_out_p26x (production 1.10)
+
+seed 41  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 38/38, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h38.09 Ashen +33, h47.12 Ashen +34, h56.1 Ashen +36  ->  h38.09 Ashen +33, h45.12 Ashen +33, h51.2 Ashen +35 (min gap 9.0->6.1h, min zones re-cleared between 7->7)
+  runs: run0 [Gree@0.2 Stil@2.4 Thor@5.1 Iron@9.2 Embe@12.2 Ambe@18.1 Ashe@29.2] Keep in@29.21 Lv61 ; run1 [Gree@38.1 Stil@38.2 Thor@38.3 Iron@38.5 Embe@38.8 Ambe@39.1 Ashe@40.1] Keep in@40.15 Lv36 ; run2 [Gree@47.2 Stil@47.3 Thor@47.3 Iron@47.5 Embe@47.7 Ambe@48.0 Ashe@49.1] Keep in@49.13 Lv38 ; run3 [Gree@56.2 Stil@56.2 Thor@56.3 Iron@56.5 Embe@56.7 Ambe@56.9 Ashe@57.1 Ashe@68.1] Keep in@57.12 Lv34 FOUNDRY in@68.1 Lv56 pw133231
+     -> run0 [Gree@0.2 Stil@2.4 Thor@5.1 Iron@9.2 Embe@12.2 Ambe@18.1 Ashe@29.2] Keep in@29.21 Lv61 ; run1 [Gree@38.1 Stil@38.2 Thor@38.3 Iron@38.5 Embe@38.7 Ambe@39.0 Ashe@40.1] Keep in@40.09 Lv36 ; run2 [Gree@45.2 Stil@45.2 Thor@45.3 Iron@45.5 Embe@45.7 Ambe@45.9 Ashe@46.1] Keep in@46.15 Lv33 ; run3 [Gree@51.3 Stil@51.3 Thor@51.4 Iron@51.6 Embe@51.7 Ambe@51.9 Ashe@52.1 Ashe@55.1 The@65.2] Keep in@52.16 Lv35 FOUNDRY in@55.1 Lv46 pw103476 ENDLESS in@65.16
+  Keep ordinary: enc 3569 L1848 (52%) far 36 33.8h  ->  enc 2434 L1219 (50%) far 36 21.9h  | Endless best 0->156 milestones 0->6
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L108s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L108s 0%
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L77s 0%
+     -> r0 auto 0/0 act 1/1 atk1617 L77s 0%
+  Grave Knight: r0 auto 0/0 act 1/2 atk5586 L49s 70% sum1
+     -> r0 auto 0/0 act 1/2 atk5586 L49s 70% sum1
+  Hollow King: r1 auto 0/0 act 0/1 atk10036 L13s 93% | r2 auto 0/0 act 0/2 atk12545 L19s 64% sum1 | r3 auto 0/0 act 1/14 atk15681 L19s 74% sum4
+     -> r2 auto 0/0 act 0/6 atk9715 L18s 76% | r3 auto 0/0 act 1/4 atk10686 L44s 41% sum3
+  zones cur/best 24h 6/6->6/6, 36h 7/7->7/7, 48h 5/7->7/7, 60h 7/7->8/8, 72h 8/8->9/9 | defeats 2561->2068 | training 23.2->26.6h | gold 26.8->103.4M | ore 443K->1450K | dust 103/8->101/3 | Lv@72h 66->96 | final 3 Ashen Keep f36 Lv66 -> 3 The Endless Road f121 Lv96
+
+seed 42  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 22/22, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h22.29 Ironvein +29, h44.1 Ashen +35, h55.1 Ashen +36  ->  h22.29 Ironvein +29, h33.25 Ashen +31, h41.23 Ashen +35 (min gap 11.0->8.0h, min zones re-cleared between 7->6)
+  runs: run0 [Gree@0.4 Stil@3.2 Thor@6.1 Iron@11.1 Embe@16.2 Ambe@19.2] ; run1 [Gree@22.4 Stil@22.4 Thor@22.6 Iron@23.1 Embe@24.2 Ambe@26.1 Ashe@35.1] Keep in@35.11 Lv54 ; run2 [Gree@44.2 Stil@44.2 Thor@44.3 Iron@44.5 Embe@44.8 Ambe@45.0 Ashe@46.1] Keep in@46.14 Lv35 ; run3 [Gree@55.2 Stil@55.2 Thor@55.3 Iron@55.5 Embe@55.6 Ambe@56.0 Ashe@56.2] Keep in@56.19 Lv34
+     -> run0 [Gree@0.4 Stil@3.2 Thor@6.1 Iron@11.1 Embe@16.2 Ambe@19.2] ; run1 [Gree@22.4 Stil@22.4 Thor@22.6 Iron@23.0 Embe@23.2 Ambe@25.1] ; run2 [Gree@33.3 Stil@33.4 Thor@33.5 Iron@33.7 Embe@34.0 Ambe@34.2 Ashe@35.2] Keep in@35.22 Lv36 ; run3 [Gree@41.3 Stil@41.4 Thor@41.5 Iron@41.6 Embe@41.8 Ambe@42.0 Ashe@42.2 Ashe@56.1 The@70.1] Keep in@42.23 Lv33 FOUNDRY in@56.1 Lv57 pw100161 ENDLESS in@70.14
+  Keep ordinary: enc 3662 L2049 (56%) far 35 33.8h  ->  enc 2294 L1022 (45%) far 36 19.9h  | Endless best 0->84 milestones 0->3
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L72s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L72s 0%
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L80s 0% | r3 auto 0/1 act 0/0 atk3159 L72s 27% sum1
+     -> r0 auto 0/0 act 1/1 atk1617 L80s 0%
+  Grave Knight: r1 auto 0/0 act 1/1 atk6983 L75s 0%
+     -> r2 auto 0/0 act 1/1 atk6759 L74s 0%
+  Hollow King: r2 auto 0/0 act 0/2 atk12545 L10s 86% | r3 auto 0/1 act 0/10 atk15681 L16s 80% sum1
+     -> r2 auto 0/0 act 0/2 atk9715 L13s 74% | r3 auto 0/0 act 1/19 atk10686 L17s 79% sum4
+  zones cur/best 24h 4/6->5/6, 36h 7/7->7/7, 48h 7/7->7/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2810->2000 | training 21.1->30.0h | gold 19.9->56.3M | ore 376K->1076K | dust 100/5->95/4 | Lv@72h 57->88 | final 3 Ashen Keep f24 Lv57 -> 3 The Endless Road f53 Lv88
+
+seed 43  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 25/25, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h25.25 Emberwaste +29, h33.26 Ashen +30, h47.16 Ashen +36  ->  h25.25 Emberwaste +29, h32.25 Ashen +30, h42.14 Ashen +35 (min gap 8.0->7.0h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.3 Stil@3.0 Thor@6.2 Iron@8.2 Embe@13.1 Ambe@17.2] ; run1 [Gree@25.3 Stil@25.4 Thor@25.6 Iron@25.8 Embe@26.1 Ambe@28.2] ; run2 [Gree@33.3 Stil@33.4 Thor@33.5 Iron@33.7 Embe@34.0 Ambe@35.2 Ashe@36.2] Keep in@36.24 Lv38 ; run3 [Gree@47.2 Stil@47.3 Thor@47.4 Iron@47.5 Embe@47.8 Ambe@48.1 Ashe@49.2] Keep in@49.18 Lv37
+     -> run0 [Gree@0.3 Stil@3.0 Thor@6.2 Iron@8.2 Embe@13.1 Ambe@17.2] ; run1 [Gree@25.3 Stil@25.4 Thor@25.5 Iron@25.8 Embe@26.1 Ambe@28.1] ; run2 [Gree@32.3 Stil@32.4 Thor@32.5 Iron@32.7 Embe@32.9 Ambe@33.1 Ashe@35.1] Keep in@35.12 Lv39 ; run3 [Gree@42.2 Stil@42.3 Thor@42.4 Iron@42.5 Embe@42.7 Ambe@43.0 Ashe@43.2 Ashe@57.2 The@71.2] Keep in@43.2 Lv33 FOUNDRY in@57.17 Lv58 pw100753 ENDLESS in@71.17
+  Keep ordinary: enc 3511 L2062 (59%) far 31 33.7h  ->  enc 2270 L968 (43%) far 36 21.0h  | Endless best 0->44 milestones 0->1
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L100s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L100s 0%
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L87s 0%
+     -> r0 auto 0/0 act 1/1 atk1617 L87s 0% | r1 auto 0/0 act 0/1 atk1779 L72s 7% sum1
+  Grave Knight: r2 auto 0/0 act 1/1 atk8728 L91s 0%
+     -> r2 auto 0/0 act 1/2 atk6759 L49s 67% sum1
+  Hollow King: r3 auto 0/1 act 0/10 atk15681 L17s 81% sum1
+     -> r3 auto 0/2 act 1/19 atk10686 L23s 73% sum9
+  zones cur/best 24h 6/6->6/6, 36h 6/6->7/7, 48h 5/7->7/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2884->1945 | training 20.4->30.1h | gold 20.6->47.5M | ore 300K->803K | dust 95/8->94/15 | Lv@72h 60->85 | final 3 Ashen Keep f24 Lv60 -> 3 The Endless Road f36 Lv85
+
+seed 44  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 20/20, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h20.17 Ironvein +24, h37.14 Ashen +34, h50.24 Ashen +36  ->  h20.17 Ironvein +24, h27.26 Ashen +30, h43.11 Ashen +36 (min gap 13.1->7.1h, min zones re-cleared between 7->6)
+  runs: run0 [Gree@0.3 Stil@2.8 Thor@6.1 Iron@10.1 Embe@14.2] ; run1 [Gree@20.2 Stil@20.3 Thor@20.5 Iron@21.0 Embe@21.2 Ambe@23.2 Ashe@32.1] Keep in@32.13 Lv52 ; run2 [Gree@37.2 Stil@37.3 Thor@37.4 Iron@37.6 Embe@37.8 Ambe@38.1 Ashe@40.1] Keep in@40.12 Lv37 ; run3 [Gree@50.3 Stil@50.4 Thor@50.5 Iron@50.6 Embe@50.9 Ambe@51.1 Ashe@52.2] Keep in@52.18 Lv37
+     -> run0 [Gree@0.3 Stil@2.8 Thor@6.1 Iron@10.1 Embe@14.2] ; run1 [Gree@20.2 Stil@20.3 Thor@20.5 Iron@20.8 Embe@21.1 Ambe@22.3] ; run2 [Gree@27.3 Stil@27.4 Thor@27.5 Iron@27.7 Embe@28.0 Ambe@29.1 Ashe@31.2] Keep in@31.16 Lv40 ; run3 [Gree@43.2 Stil@43.2 Thor@43.3 Iron@43.5 Embe@43.6 Ambe@43.9 Ashe@44.2 Ashe@54.2] Keep in@44.17 Lv32 FOUNDRY in@54.19 Lv54 pw100019
+  Keep ordinary: enc 3535 L1992 (56%) far 35 35.0h  ->  enc 2279 L1032 (45%) far 36 22.0h
+  Sand Tyrant: r0 auto 0/0 act 1/2 atk1077 L71s 69%
+     -> r0 auto 0/0 act 1/2 atk1077 L71s 69%
+  Hunter King: r1 auto 0/0 act 1/1 atk2022 L84s 0%
+     -> r1 auto 0/0 act 1/1 atk1779 L87s 0% | r2 auto 0/1 act 0/0 atk1957 L42s 75%
+  Grave Knight: r1 auto 0/0 act 1/1 atk6983 L94s 0%
+     -> r2 auto 0/0 act 1/1 atk6759 L91s 0%
+  Hollow King: r2 auto 0/0 act 0/3 atk12545 L16s 88% | r3 auto 0/0 act 0/20 atk15681 L17s 78% sum1
+     -> r3 auto 0/0 act 1/14 atk10686 L32s 61% sum8
+  zones cur/best 24h 6/6->6/6, 36h 7/7->7/7, 48h 7/7->7/7, 60h 7/7->8/8, 72h 7/7->8/8 | defeats 2751->1893 | training 19.4->28.4h | gold 21.1->48.3M | ore 330K->804K | dust 94/9->90/14 | Lv@72h 59->86 | final 3 Ashen Keep f24 Lv59 -> 3 Ashen Keep f36 Lv86
+
+seed 45  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 30/30, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h30.25 Emberwaste +29, h44.24 Ashen +33, h58.12 Ashen +36  ->  h30.25 Emberwaste +29, h47.18 Ashen +34, h53.24 Ashen +35 (min gap 13.9->6.1h, min zones re-cleared between 7->7)
+  runs: run0 [Gree@0.2 Stil@2.4 Thor@5.2 Iron@9.2 Embe@14.3 Ambe@18.2] ; run1 [Gree@30.3 Stil@30.4 Thor@30.5 Iron@30.8 Embe@31.1 Ambe@32.2 Ashe@34.2] Keep in@34.21 Lv39 ; run2 [Gree@44.3 Stil@44.4 Thor@44.5 Iron@44.7 Embe@44.9 Ambe@45.1 Ashe@46.2] Keep in@46.17 Lv36 ; run3 [Gree@58.2 Stil@58.3 Thor@58.4 Iron@58.5 Embe@58.7 Ambe@59.0 Ashe@59.2] Keep in@59.22 Lv33
+     -> run0 [Gree@0.2 Stil@2.4 Thor@5.2 Iron@9.2 Embe@14.3 Ambe@18.2] ; run1 [Gree@30.3 Stil@30.4 Thor@30.5 Iron@30.8 Embe@31.1 Ambe@32.2 Ashe@34.2] Keep in@34.21 Lv39 ; run2 [Gree@47.3 Stil@47.3 Thor@47.4 Iron@47.6 Embe@47.8 Ambe@48.0 Ashe@49.0] Keep in@49.05 Lv36 ; run3 [Gree@53.3 Stil@53.4 Thor@53.5 Iron@53.6 Embe@53.8 Ambe@54.0 Ashe@54.2 Ashe@58.1 The@70.2] Keep in@54.2 Lv33 FOUNDRY in@58.08 Lv46 pw95189 ENDLESS in@70.17
+  Keep ordinary: enc 3428 L1902 (55%) far 35 34.8h  ->  enc 2185 L1074 (49%) far 36 21.1h  | Endless best 0->66 milestones 0->2
+  Sand Tyrant: r0 auto 0/0 act 1/2 atk1077 L78s 75%
+     -> r0 auto 0/0 act 1/2 atk1077 L78s 75%
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L119s 0%
+     -> r0 auto 0/0 act 1/1 atk1617 L119s 0%
+  Grave Knight: r1 auto 0/0 act 1/1 atk6983 L116s 0%
+     -> r1 auto 0/0 act 1/1 atk6145 L101s 0%
+  Hollow King: r2 auto 0/0 act 0/1 atk12545 L15s 87% | r3 auto 0/0 act 0/14 atk15681 L20s 79% sum2
+     -> r1 auto 0/0 act 0/1 atk8832 L14s 92% | r2 auto 0/0 act 0/4 atk9715 L21s 78% | r3 auto 0/0 act 1/5 atk10686 L36s 49% sum2
+  zones cur/best 24h 6/6->6/6, 36h 7/7->7/7, 48h 7/7->5/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2575->1952 | training 19.1->27.5h | gold 20.9->50.2M | ore 311K->778K | dust 98/7->98/3 | Lv@72h 54->80 | final 3 Ashen Keep f24 Lv54 -> 3 The Endless Road f56 Lv80
+
+seed 46  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 26/26, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h26.26 Ironvein +29, h34.25 Ashen +30, h43.13 Ashen +35  ->  h26.26 Ironvein +29, h41.19 Ashen +34, h47.22 Ashen +35 (min gap 8.0->6.0h, min zones re-cleared between 6->7)
+  runs: run0 [Gree@0.2 Stil@2.3 Thor@6.1 Iron@10.2 Embe@15.1 Ambe@18.2] ; run1 [Gree@26.3 Stil@26.4 Thor@26.6 Iron@26.8 Embe@27.1 Ambe@29.2] ; run2 [Gree@34.3 Stil@34.4 Thor@34.5 Iron@34.7 Embe@35.0 Ambe@35.3 Ashe@37.2] Keep in@37.22 Lv39 ; run3 [Gree@43.2 Stil@43.3 Thor@43.4 Iron@43.5 Embe@43.8 Ambe@44.1 Ashe@45.2] Keep in@45.18 Lv37
+     -> run0 [Gree@0.2 Stil@2.3 Thor@6.1 Iron@10.2 Embe@15.1 Ambe@18.2] ; run1 [Gree@26.3 Stil@26.4 Thor@26.6 Iron@26.8 Embe@27.1 Ambe@28.2 Ashe@31.2] Keep in@31.23 Lv42 ; run2 [Gree@41.3 Stil@41.3 Thor@41.4 Iron@41.6 Embe@41.8 Ambe@42.0 Ashe@43.1] Keep in@43.07 Lv36 ; run3 [Gree@47.3 Stil@47.4 Thor@47.4 Iron@47.6 Embe@47.8 Ambe@48.0 Ashe@48.2 Ashe@57.3 The@69.1] Keep in@48.19 Lv33 FOUNDRY in@57.25 Lv54 pw101139 ENDLESS in@69.13
+  Keep ordinary: enc 3516 L1948 (55%) far 25 32.7h  ->  enc 2573 L1206 (47%) far 36 23.2h  | Endless best 0->91 milestones 0->3
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L75s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L75s 0%
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L83s 0%
+     -> r0 auto 0/0 act 1/1 atk1617 L83s 0%
+  Grave Knight: r1 auto 0/1 act 0/0 atk6983 L42s 89% | r2 auto 0/0 act 1/1 atk8728 L82s 0%
+     -> r1 auto 0/0 act 1/1 atk6145 L98s 0% | r2 auto 0/1 act 0/0 atk6759 L43s 80%
+  Hollow King: r3 auto 0/4 act 0/18 atk15681 L16s 80% sum3
+     -> r1 auto 0/0 act 0/2 atk8832 L11s 91% | r3 auto 0/0 act 1/16 atk10686 L21s 71% sum6
+  zones cur/best 24h 6/6->6/6, 36h 6/6->7/7, 48h 7/7->6/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2747->2078 | training 20.1->24.9h | gold 22.1->55.7M | ore 379K->991K | dust 94/6->98/13 | Lv@72h 64->86 | final 3 Ashen Keep f24 Lv64 -> 3 The Endless Road f65 Lv86
+
+seed 47  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 26/26, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h26.21 Ashen +29, h37.2 Ashen +33, h52.14 Ashen +36  ->  h26.21 Ashen +29, h42.14 Ashen +34, h48.14 Ashen +35 (min gap 11.0->6.0h, min zones re-cleared between 7->7)
+  runs: run0 [Gree@0.2 Stil@2.1 Thor@6.2 Iron@10.2 Embe@13.2 Ambe@18.2] ; run1 [Gree@26.3 Stil@26.4 Thor@26.5 Iron@26.7 Embe@27.1 Ambe@28.2 Ashe@30.2] Keep in@30.23 Lv39 ; run2 [Gree@37.3 Stil@37.3 Thor@37.4 Iron@37.6 Embe@37.9 Ambe@38.1 Ashe@39.2] Keep in@39.19 Lv36 ; run3 [Gree@52.2 Stil@52.3 Thor@52.4 Iron@52.5 Embe@52.7 Ambe@53.0 Ashe@54.1] Keep in@54.11 Lv38
+     -> run0 [Gree@0.2 Stil@2.1 Thor@6.2 Iron@10.2 Embe@13.2 Ambe@18.2] ; run1 [Gree@26.3 Stil@26.4 Thor@26.5 Iron@26.7 Embe@27.1 Ambe@28.2 Ashe@31.2] Keep in@31.19 Lv42 ; run2 [Gree@42.2 Stil@42.3 Thor@42.4 Iron@42.5 Embe@42.7 Ambe@43.0 Ashe@43.2] Keep in@43.18 Lv32 ; run3 [Gree@48.2 Stil@48.3 Thor@48.4 Iron@48.5 Embe@48.7 Ambe@48.9 Ashe@49.1 Ashe@55.1 The@69.1] Keep in@49.12 Lv33 FOUNDRY in@55.09 Lv50 pw103452 ENDLESS in@69.12
+  Keep ordinary: enc 3824 L2153 (56%) far 35 37.8h  ->  enc 2373 L1064 (45%) far 36 21.9h  | Endless best 0->99 milestones 0->3
+  Sand Tyrant: r0 auto 0/0 act 1/2 atk1077 L76s 49% sum1
+     -> r0 auto 0/0 act 1/2 atk1077 L76s 49% sum1
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L88s 0%
+     -> r0 auto 0/0 act 1/1 atk1617 L88s 0%
+  Grave Knight: r1 auto 0/0 act 1/1 atk6983 L111s 0% | r3 auto 0/0 act 0/1 atk10910 L51s 48% sum1
+     -> r1 auto 0/0 act 1/2 atk6145 L91s 23% sum1
+  Hollow King: r2 auto 0/0 act 0/2 atk12545 L14s 86% | r3 auto 0/1 act 0/20 atk15681 L20s 75% sum6
+     -> r2 auto 0/0 act 0/2 atk9715 L15s 80% | r3 auto 0/0 act 1/10 atk10686 L24s 73% sum4
+  zones cur/best 24h 6/6->6/6, 36h 7/7->7/7, 48h 7/7->7/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2778->1912 | training 17.4->26.7h | gold 21.9->60.3M | ore 382K->1114K | dust 98/1->98/16 | Lv@72h 61->88 | final 3 Ashen Keep f24 Lv61 -> 3 The Endless Road f66 Lv88
+
+seed 48  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 27/27, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h27.25 Ashen +29, h35.23 Ashen +30, h49.15 Ashen +36  ->  h27.25 Ashen +29, h36.24 Ashen +31, h46.18 Ashen +36 (min gap 8.0->9.0h, min zones re-cleared between 6->6)
+  runs: run0 [Gree@0.2 Stil@2.3 Thor@5.3 Iron@10.1 Embe@15.2 Ambe@20.3] ; run1 [Gree@27.3 Stil@27.4 Thor@27.6 Iron@27.8 Embe@28.2 Ambe@30.1] ; run2 [Gree@35.3 Stil@35.4 Thor@35.5 Iron@35.7 Embe@36.1 Ambe@37.1 Ashe@42.2] Keep in@42.24 Lv48 ; run3 [Gree@49.2 Stil@49.3 Thor@49.4 Iron@49.5 Embe@49.8 Ambe@50.0 Ashe@51.2] Keep in@51.19 Lv37
+     -> run0 [Gree@0.2 Stil@2.3 Thor@5.3 Iron@10.1 Embe@15.2 Ambe@20.3] ; run1 [Gree@27.3 Stil@27.4 Thor@27.5 Iron@27.8 Embe@28.2 Ambe@29.2] ; run2 [Gree@36.3 Stil@36.4 Thor@36.5 Iron@36.7 Embe@36.9 Ambe@37.1 Ashe@38.2] Keep in@38.19 Lv36 ; run3 [Gree@46.2 Stil@46.3 Thor@46.4 Iron@46.6 Embe@46.8 Ambe@47.0 Ashe@47.2 Ashe@54.2 The@70.2] Keep in@47.22 Lv33 FOUNDRY in@54.22 Lv50 pw87181 ENDLESS in@70.19
+  Keep ordinary: enc 2834 L1487 (52%) far 34 27.7h  ->  enc 1610 L664 (41%) far 36 15.0h  | Endless best 0->83 milestones 0->3
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L90s 0%
+     -> r0 auto 0/0 act 1/1 atk1077 L90s 0%
+  Hunter King: r0 auto 0/0 act 1/1 atk1617 L80s 0%
+     -> r0 auto 0/0 act 1/1 atk1617 L80s 0%
+  Grave Knight: r2 auto 0/0 act 1/2 atk8728 L68s 33% sum1
+     -> r1 auto 0/0 act 0/1 atk6145 L64s 69% sum1 | r2 auto 0/0 act 1/1 atk6759 L75s 0%
+  Hollow King: r3 auto 0/0 act 0/15 atk15681 L20s 78% sum1
+     -> r2 auto 0/0 act 0/3 atk9715 L19s 82% | r3 auto 0/1 act 1/11 atk10686 L26s 66% sum6
+  zones cur/best 24h 6/6->6/6, 36h 4/6->6/6, 48h 7/7->7/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2397->1644 | training 23.4->30.9h | gold 20.5->50.8M | ore 344K->818K | dust 95/0->96/17 | Lv@72h 61->85 | final 3 Ashen Keep f24 Lv61 -> 3 The Endless Road f40 Lv85
+
+seed 49  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 26/26, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h26.25 Emberwaste +29, h39.21 Ashen +34, h50.12 Ashen +35  ->  h26.25 Emberwaste +29, h41.12 Ashen +34, h50.16 Ashen +35 (min gap 10.9->9.0h, min zones re-cleared between 7->7)
+  runs: run0 [Gree@0.2 Stil@2.0 Thor@5.1 Iron@10.2 Embe@12.2 Ambe@19.2] ; run1 [Gree@26.3 Stil@26.4 Thor@26.6 Iron@26.8 Embe@27.1 Ambe@28.2 Ashe@31.2] Keep in@31.24 Lv41 ; run2 [Gree@39.3 Stil@39.4 Thor@39.5 Iron@39.6 Embe@39.9 Ambe@40.1 Ashe@42.1] Keep in@42.11 Lv39 ; run3 [Gree@50.2 Stil@50.3 Thor@50.4 Iron@50.5 Embe@50.7 Ambe@51.0 Ashe@52.1] Keep in@52.09 Lv37
+     -> run0 [Gree@0.2 Stil@2.0 Thor@5.1 Iron@10.2 Embe@12.2 Ambe@19.2] ; run1 [Gree@26.3 Stil@26.4 Thor@26.5 Iron@26.8 Embe@27.0 Ambe@28.1 Ashe@29.2] Keep in@29.24 Lv36 ; run2 [Gree@41.2 Stil@41.2 Thor@41.3 Iron@41.5 Embe@41.7 Ambe@42.0 Ashe@42.2] Keep in@42.24 Lv32 ; run3 [Gree@50.2 Stil@50.3 Thor@50.4 Iron@50.5 Embe@50.7 Ambe@50.9 Ashe@51.1 Ashe@56.1 The@71.2] Keep in@51.11 Lv32 FOUNDRY in@56.12 Lv48 pw99146 ENDLESS in@71.24
+  Keep ordinary: enc 3620 L2071 (57%) far 34 35.9h  ->  enc 2674 L1362 (51%) far 36 24.8h  | Endless best 0->58 milestones 0->2
+  Sand Tyrant: r0 auto 0/0 act 1/2 atk1077 L80s 48% sum1
+     -> r0 auto 0/0 act 1/2 atk1077 L80s 48% sum1
+  Hunter King: r0 auto 0/0 act 1/3 atk1617 L63s 47% sum2
+     -> r0 auto 0/0 act 1/3 atk1617 L63s 47% sum2
+  Grave Knight: r0 auto 0/1 act 0/1 atk5586 L31s 45% sum1 | r1 auto 0/0 act 1/1 atk6983 L103s 0% | r2 auto 0/0 act 0/1 atk8728 L48s 36% sum1 | r3 auto 0/1 act 0/0 atk10910 L32s 84%
+     -> r0 auto 0/1 act 0/1 atk5586 L31s 45% sum1 | r1 auto 0/0 act 1/1 atk6145 L102s 0%
+  Hollow King: r3 auto 0/1 act 0/16 atk15681 L18s 78% sum4
+     -> r2 auto 0/0 act 0/2 atk9715 L17s 74% | r3 auto 0/0 act 1/7 atk10686 L26s 70% sum2
+  zones cur/best 24h 6/6->6/6, 36h 7/7->7/7, 48h 7/7->7/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2773->2173 | training 18.6->26.5h | gold 20.7->46.5M | ore 341K->888K | dust 98/8->98/5 | Lv@72h 59->84 | final 3 Ashen Keep f24 Lv59 -> 3 The Endless Road f58 Lv84
+
+seed 50  hours 72.00/72.00  Shatters 3 -> 3  audit through first Shatter: hourly 25/25, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h25.25 Emberwaste +29, h32.22 Ashen +33, h44.15 Ashen +36  ->  h25.25 Emberwaste +29, h38.18 Ashen +33, h46.11 Ashen +35 (min gap 7.0->7.9h, min zones re-cleared between 7->7)
+  runs: run0 [Gree@0.3 Stil@2.8 Thor@5.1 Iron@7.3 Embe@11.2 Ambe@20.1] ; run1 [Gree@25.3 Stil@25.4 Thor@25.5 Iron@25.8 Embe@26.1 Ambe@27.1 Ashe@28.3] Keep in@28.25 Lv36 ; run2 [Gree@32.3 Stil@32.4 Thor@32.5 Iron@32.7 Embe@33.0 Ambe@33.2 Ashe@35.1] Keep in@35.11 Lv38 ; run3 [Gree@44.2 Stil@44.3 Thor@44.4 Iron@44.5 Embe@44.8 Ambe@45.0 Ashe@45.2 Ashe@67.2] Keep in@45.24 Lv33 FOUNDRY in@67.17 Lv63 pw126792
+     -> run0 [Gree@0.3 Stil@2.8 Thor@5.1 Iron@7.3 Embe@11.2 Ambe@20.1] ; run1 [Gree@25.3 Stil@25.4 Thor@25.5 Iron@25.7 Embe@26.1 Ambe@27.1 Ashe@28.2] Keep in@28.21 Lv36 ; run2 [Gree@38.2 Stil@38.3 Thor@38.4 Iron@38.6 Embe@38.8 Ambe@39.0 Ashe@39.2] Keep in@39.24 Lv32 ; run3 [Gree@46.2 Stil@46.2 Thor@46.3 Iron@46.5 Embe@46.6 Ambe@46.9 Ashe@47.1 Ashe@54.2 The@67.2] Keep in@47.11 Lv33 FOUNDRY in@54.17 Lv53 pw98225 ENDLESS in@67.2
+  Keep ordinary: enc 3710 L1892 (51%) far 36 34.9h  ->  enc 2681 L1328 (50%) far 36 23.9h  | Endless best 0->153 milestones 0->6
+  Sand Tyrant: r0 auto 0/0 act 1/1 atk1077 L118s 0% | r2 auto 0/1 act 0/0 atk1684 L81s 21% sum1
+     -> r0 auto 0/0 act 1/1 atk1077 L118s 0%
+  Hunter King: r0 auto 0/0 act 1/2 atk1617 L56s 34% sum1
+     -> r0 auto 0/0 act 1/2 atk1617 L56s 34% sum1
+  Grave Knight: r1 auto 0/0 act 1/1 atk6983 L107s 0%
+     -> r1 auto 0/0 act 1/1 atk6145 L91s 0%
+  Hollow King: r3 auto 0/0 act 1/30 atk15681 L18s 76% sum7
+     -> r2 auto 0/0 act 0/4 atk9715 L14s 88% | r3 auto 0/0 act 1/12 atk10686 L29s 55% sum7
+  zones cur/best 24h 6/6->6/6, 36h 7/7->7/7, 48h 7/7->7/7, 60h 7/7->8/8, 72h 8/8->9/9 | defeats 2610->2132 | training 21.6->26.2h | gold 28.6->85.4M | ore 522K->1512K | dust 98/0->97/3 | Lv@72h 71->94 | final 3 Ashen Approach f36 Lv71 -> 3 The Endless Road f101 Lv94
+
+-- engaged validity: 72h 10/10, Shatter cap 10/10, audit through first Shatter OK 10/10, ascensions 0->0
+-- engaged summary:
+   zones cur/best med 24h 6/6->6/6, 36h 7/7->7/7, 48h 7/7->7/7, 60h 7/7->8/8, 72h 7/7->9/9
+   Shatters per run med 3 -> 3 (paired med 0, +0 010 -0) | first h med 26.2 -> 26.2 (paired med 0.0, +0 010 -0) | min gap h med 9.0 -> 7.0 (paired med -2.9, +2 00 -8) | min zones re-cleared between med 7 -> 7 (paired med 0, +1 07 -2)
+   run1: Keep entered 7->6 runs (h 32.1->31.2, Lv 39->36); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run2: Keep entered 10->10 runs (h 40.1->39.2, Lv 38->36); Keep cleared 0->0; Foundry entered 0->0, cleared 0->0; Endless entered 0->0
+   run3: Keep entered 10->10 runs (h 52.1->47.2, Lv 37->33); Keep cleared 2->10; Foundry entered 2->10, cleared 0->9; Endless entered 0->9
+   Keep ordinary (all runs): encounters med 3535 -> 2294 (paired med -1241, +0 00 -10) | loss% med 55 -> 45 (paired med -11, +0 00 -10) | furthest med 35 -> 36 (paired med 1, +8 02 -0) | hours med 33.8 -> 21.9 (paired med -12.7, +0 00 -10) | fight 36 reached 10->10 runs | Keep clears 2->10 | hours after first Keep clear med 3.9->15.9
+   Sand Tyrant by run: r0 auto 0/0 act 10/14 (10 runs, loss 82s 49%, sum2) | r2 auto 0/1 act 0/0 (1 runs, loss 81s 21%, sum1)
+     -> r0 auto 0/0 act 10/14 (10 runs, loss 82s 49%, sum2)
+   Hunter King by run: r0 auto 0/0 act 9/12 (9 runs, loss 77s 47%, sum3) | r1 auto 0/0 act 1/1 (1 runs, loss 84s 0%, sum0) | r3 auto 0/1 act 0/0 (1 runs, loss 72s 27%, sum1)
+     -> r0 auto 0/0 act 9/12 (9 runs, loss 77s 47%, sum3) | r1 auto 0/0 act 1/2 (2 runs, loss 72s 7%, sum1) | r2 auto 0/1 act 0/0 (1 runs, loss 42s 75%, sum0)
+   Grave Knight by run: r0 auto 0/1 act 1/3 (2 runs, loss 49s 70%, sum2) | r1 auto 0/1 act 6/6 (7 runs, loss 103s 89%, sum0) | r2 auto 0/0 act 3/5 (4 runs, loss 82s 33%, sum2) | r3 auto 0/1 act 0/1 (2 runs, loss 32s 48%, sum1)
+     -> r0 auto 0/1 act 1/3 (2 runs, loss 49s 70%, sum2) | r1 auto 0/0 act 5/7 (6 runs, loss 92s 23%, sum2) | r2 auto 0/1 act 4/5 (5 runs, loss 69s 67%, sum1)
+   Hollow King by run: r1 auto 0/0 act 0/1 (1 runs, loss 13s 93%, sum0) | r2 auto 0/0 act 0/10 (5 runs, loss 16s 86%, sum1) | r3 auto 0/8 act 2/167 (10 runs, loss 18s 78%, sum30)
+     -> r1 auto 0/0 act 0/3 (2 runs, loss 14s 92%, sum0) | r2 auto 0/0 act 0/23 (7 runs, loss 18s 82%, sum0) | r3 auto 0/3 act 10/117 (10 runs, loss 25s 71%, sum51)
+   totals: defeats med 2747 -> 1952 (paired med -753, +0 00 -10) | training h med 20.1 -> 26.7 (paired med 7.9, +10 00 -0) | gold earned M med 20.90 -> 50.76 (paired med 30.31, +10 00 -0) | ore earned med 343728 -> 888336 (paired med 547776, +10 00 -0) | dust earned med 98 -> 97 (paired med -1, +2 03 -5) | Lv@72h med 60 -> 86 (paired med 25, +10 00 -0)
+   outliers (candidate): seed 41: Endless entered run3 @65.16h Lv76 (best wave 156); Foundry cleared run3@65.16; gold earned 286% || seed 42: Endless entered run3 @70.14h Lv84 (best wave 84); Foundry cleared run3@70.14; gold earned 183% || seed 43: Endless entered run3 @71.17h Lv83 (best wave 44); Foundry cleared run3@71.17; gold earned 130% || seed 44: gold earned 128% || seed 45: Endless entered run3 @70.17h Lv75 (best wave 66); Foundry cleared run3@70.17; gold earned 140% || seed 46: Endless entered run3 @69.13h Lv79 (best wave 91); Foundry cleared run3@69.13; gold earned 152% || seed 47: Endless entered run3 @69.12h Lv81 (best wave 99); Foundry cleared run3@69.12; gold earned 176% || seed 48: Endless entered run3 @70.19h Lv81 (best wave 83); Foundry cleared run3@70.18; gold earned 148% || seed 49: Endless entered run3 @71.24h Lv82 (best wave 58); Foundry cleared run3@71.24; gold earned 124% || seed 50: Endless entered run3 @67.2h Lv82 (best wave 153); Foundry cleared run3@67.2; gold earned 198%

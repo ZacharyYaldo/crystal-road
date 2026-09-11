@@ -1,0 +1,381 @@
+
+===== IDLE   control batch_out_p24 -> candidate batch_out_p25
+
+seed 31  hours 72.00  Shatters 2 -> 3  audit through first Shatter: hourly 26/26, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h26.4 Ironvein +22, h51.22 Ashen +32  ->  h26.4 Ironvein +22, h46.7 Ashen +32, h58.11 Ashen +36 (min gap 11.4h)
+  runs: run0: 4z ; run1: 6z ; run2: 7z App@59.12 Keep in@59.12 Lv52
+     -> run0: 4z ; run1: 6z ; run2: 7z App@53.05 Keep in@53.05 Lv49 ; run3: 7z App@59.24 Keep in@59.24 Lv34
+  Keep ordinary: enc 1356 L359 (26%) far 24 12.9h  ->  enc 1807 L466 (26%) far 31 17.8h
+  Grave Knight: run2 1/2 atk8728 Lv50 loss 55s 69% summon1
+     -> run2 1/6 atk6759 Lv46 loss 66s 63% summon4 | run3 0/1 atk7435 Lv32 loss 104s 20% summon1 | run? 0/1 atk7435 Lv33 loss -s 0%
+  Hollow King: none
+     -> run3 0/1 atk10686 Lv57 loss 26s 84%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1161->1205 | training 24.6->21.4h | gold 12.7->15.0M | ore 366K->402K | dust 54/5->90/3 | Lv@72h 65->58 | final 2 Ashen Keep f24 Lv65 -> 3 Ashen Keep f28 Lv58
+
+seed 32  hours 72.00  Shatters 2 -> 3  audit through first Shatter: hourly 26/26, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h26.13 Emberwaste +22, h52.16 Amberfall +32  ->  h26.13 Emberwaste +22, h47.66 Ashen +32, h54.63 Ashen +33 (min gap 7.0h)
+  runs: run0: 4z ; run1: 6z ; run2: 7z App@62.54 Keep in@62.54 Lv55
+     -> run0: 4z ; run1: 6z ; run2: 6z ; run3: 7z App@56.52 Keep in@56.52 Lv37
+  Keep ordinary: enc 913 L284 (31%) far 17 9.5h  ->  enc 1451 L316 (22%) far 29 15.5h
+  Grave Knight: run2 1/6 atk8728 Lv53 loss 72s 64% summon4
+     -> run2 0/4 atk6759 Lv47 loss 67s 65% summon4 | run3 1/2 atk7435 Lv36 loss 84s 62% summon1
+  Hollow King: none
+     -> run3 0/3 atk10686 Lv57 loss 21s 88%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->3/6, 60h 6/6->7/7, 72h 7/7->7/7 | defeats 1033->980 | training 25.9->22.9h | gold 11.8->14.6M | ore 347K->381K | dust 54/9->87/9 | Lv@72h 64->61 | final 2 Ashen Keep f14 Lv64 -> 3 Ashen Keep f29 Lv61
+
+seed 33  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 40/40, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h40.71 Emberwaste +30, h53.44 Ashen +32, h64.77 Ashen +37  ->  h40.71 Emberwaste +30, h62.11 Ashen +35, h69.31 Ashen +36 (min gap 7.2h)
+  runs: run0: 6z ; run1: 6z ; run2: 7z App@57.61 Keep in@57.61 Lv45 ; run3: 7z App@66.28 Keep in@66.28 Lv37
+     -> run0: 6z ; run1: 7z App@50.88 Keep in@50.88 Lv57 ; run2: 7z App@63.18 Keep in@63.18 Lv33 ; run3: 7z App@70.23 Keep in@70.23 Lv34
+  Keep ordinary: enc 1313 L409 (31%) far 25 12.9h  ->  enc 1897 L531 (28%) far 31 19.1h
+  Grave Knight: run1 0/8 atk6983 Lv57 loss 78s 55% summon8 | run2 1/3 atk8728 Lv42 loss 75s 64% summon2 | run3 0/1 atk10910 Lv35 loss 45s 69% summon1 | run? 0/1 atk10910 Lv37 loss -s 0%
+     -> run1 1/9 atk6145 Lv55 loss 76s 64% summon7 | run? 0/2 atk6759 Lv33 loss -s 0%
+  Hollow King: none
+     -> none
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1137->1192 | training 20.6->20.8h | gold 14.4->13.2M | ore 416K->374K | dust 99/7->101/4 | Lv@72h 49->44 | final 3 Ashen Keep f24 Lv49 -> 3 Ashen Keep f24 Lv44
+
+seed 34  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 23/23, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h23.32 Ironvein +22, h38.79 Emberwaste +31, h66.75 Ashen +38  ->  h23.32 Ironvein +22, h50.71 Ashen +35, h63.31 Ashen +36 (min gap 12.6h)
+  runs: run0: 4z ; run1: 6z ; run2: 7z App@53.32 Keep in@53.32 Lv60 ; run3: 7z App@68.29 Keep in@68.29 Lv35
+     -> run0: 4z ; run1: 7z App@45.27 Keep in@45.27 Lv64 ; run2: 7z App@52.02 Keep in@52.02 Lv32 ; run3: 7z App@64.24 Keep in@64.24 Lv33
+  Keep ordinary: enc 1714 L415 (24%) far 33 17.1h  ->  enc 2408 L598 (25%) far 32 24.5h
+  Grave Knight: run2 1/11 atk8728 Lv58 loss 67s 58% summon10 | run3 0/3 atk10910 Lv33 loss 63s 59% summon3 | run? 0/1 atk10910 Lv35 loss -s 0%
+     -> run1 1/6 atk6145 Lv63 loss 62s 66% summon4 | run? 0/2 atk6759 Lv32 loss -s 0%
+  Hollow King: none
+     -> run3 0/3 atk10686 Lv52 loss 30s 80%
+  zones cur/best 24h 3/4->4/4, 36h 6/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1111->1165 | training 19.6->20.1h | gold 15.4->15.7M | ore 419K->412K | dust 91/18->93/4 | Lv@72h 48->56 | final 3 Ashen Keep f24 Lv48 -> 3 Ashen Keep f30 Lv56
+
+seed 35  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 32/32, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h32.51 Emberwaste +25, h51.91 Ashen +32, h64.38 Ashen +36  ->  h32.51 Emberwaste +25, h49.37 Ashen +32, h60.17 Ashen +36 (min gap 10.8h)
+  runs: run0: 5z ; run1: 6z ; run2: 7z App@57.53 Keep in@57.53 Lv47 ; run3: 7z App@66.7 Keep in@66.7 Lv40
+     -> run0: 5z ; run1: 6z ; run2: 7z App@53.93 Keep in@53.93 Lv46 ; run3: 7z App@61.2 Keep in@61.2 Lv33
+  Keep ordinary: enc 1246 L329 (26%) far 24 12.1h  ->  enc 1700 L340 (20%) far 35 17.0h
+  Grave Knight: run1 0/6 atk6983 Lv61 loss 55s 63% summon3 | run2 1/4 atk8728 Lv46 loss 48s 69% summon2 | run3 0/4 atk10910 Lv36 loss 44s 62% summon4 | run? 0/1 atk10910 Lv40 loss -s 0%
+     -> run1 0/7 atk6145 Lv60 loss 53s 66% summon6 | run2 1/8 atk6759 Lv41 loss 74s 60% summon6 | run? 0/1 atk7435 Lv33 loss -s 0%
+  Hollow King: none
+     -> run3 0/12 atk10686 Lv59 loss 29s 79% | run? 0/1 atk10686 Lv62 loss -s 0%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1098->1031 | training 20.1->17.6h | gold 16.2->19.8M | ore 455K->507K | dust 93/9->93/9 | Lv@72h 52->62 | final 3 Ashen Keep f24 Lv52 -> 3 Ashen Keep f35 Lv62
+
+seed 36  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 30/30, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h30.11 Amberfall +25, h41.08 Ashen +31, h65.88 Ashen +38  ->  h30.11 Amberfall +25, h36.94 Amberfall +26, h57.71 Ashen +37 (min gap 6.8h)
+  runs: run0: 5z ; run1: 6z ; run2: 7z App@50.82 Keep in@50.82 Lv55 ; run3: 7z App@67.35 Keep in@67.35 Lv37
+     -> run0: 5z ; run1: 5z ; run2: 7z App@46.15 Keep in@46.15 Lv56 ; run3: 7z App@58.64 Keep in@58.64 Lv33
+  Keep ordinary: enc 2163 L477 (22%) far 31 19.7h  ->  enc 2647 L541 (20%) far 34 24.9h
+  Grave Knight: run2 1/2 atk8728 Lv55 loss 52s 65% summon1 | run3 0/2 atk10910 Lv33 loss 46s 3% summon2 | run? 0/1 atk10910 Lv37 loss -s 0%
+     -> run2 1/9 atk6759 Lv54 loss 73s 56% summon8 | run? 0/1 atk7435 Lv33 loss -s 0%
+  Hollow King: none
+     -> run3 0/54 atk10686 Lv65 loss 32s 69% summon32
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1256->1253 | training 21.3->17.2h | gold 17.3->23.6M | ore 489K->576K | dust 94/4->88/5 | Lv@72h 53->70 | final 3 Ashen Keep f25 Lv53 -> 3 Ashen Keep f34 Lv70
+
+seed 37  hours 72.00  Shatters 2 -> 3  audit through first Shatter: hourly 34/34, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h34.06 Amberfall +26, h67.46 Ashen +36  ->  h34.06 Amberfall +26, h56.03 Ashen +35, h63.59 Ashen +35 (min gap 7.6h)
+  runs: run0: 5z ; run1: 7z App@52.12 Keep in@52.12 Lv63 ; run2: 7z App@68.47 Keep in@68.47 Lv32
+     -> run0: 5z ; run1: 7z App@48.03 Keep in@48.03 Lv59 ; run2: 7z App@57.18 Keep in@57.18 Lv32 ; run3: 7z App@64.58 Keep in@64.58 Lv34
+  Keep ordinary: enc 1887 L339 (18%) far 35 18.9h  ->  enc 2183 L407 (19%) far 34 21.8h
+  Grave Knight: run1 1/9 atk6983 Lv62 loss 88s 50% summon7 | run? 0/1 atk8728 Lv32 loss -s 0%
+     -> run1 1/3 atk6145 Lv58 loss 42s 73% | run? 0/2 atk6759 Lv32 loss -s 0%
+  Hollow King: run1 0/1 atk10036 Lv72 loss 20s 86% | run2 0/1 atk12545 Lv45 loss 17s 93%
+     -> run3 0/23 atk10686 Lv55 loss 33s 74% summon10
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1007->1044 | training 23.5->20.8h | gold 14.6->19.0M | ore 444K->497K | dust 62/9->96/2 | Lv@72h 47->60 | final 2 Ashen Keep f25 Lv47 -> 3 Ashen Keep f33 Lv60
+
+seed 38  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 19/19, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h19.05 Ironvein +21, h28.63 Ironvein +23, h51.38 Ashen +34  ->  h19.05 Ironvein +21, h44.14 Ashen +32, h53.56 Ashen +36 (min gap 9.4h)
+  runs: run0: 4z ; run1: 4z ; run2: 6z ; run3: 7z App@60.93 Keep in@60.93 Lv55
+     -> run0: 4z ; run1: 6z ; run2: 7z App@49.73 Keep in@49.73 Lv46 ; run3: 7z App@55.13 Keep in@55.14 Lv36
+  Keep ordinary: enc 1071 L327 (31%) far 26 11.1h  ->  enc 1982 L399 (20%) far 32 20.7h
+  Grave Knight: run3 1/9 atk10910 Lv52 loss 74s 60% summon7
+     -> run2 1/2 atk6759 Lv45 loss 79s 60% summon1 | run3 0/3 atk7435 Lv34 loss 81s 55% summon3 | run? 0/1 atk7435 Lv36 loss -s 0%
+  Hollow King: none
+     -> run3 0/20 atk10686 Lv64 loss 30s 78% summon3
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->6/6, 60h 6/6->7/7, 72h 7/7->7/7 | defeats 1091->1040 | training 23.0->20.9h | gold 15.1->18.6M | ore 408K->481K | dust 78/1->89/3 | Lv@72h 63->67 | final 3 Ashen Keep f24 Lv63 -> 3 Ashen Keep f32 Lv67
+
+seed 39  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 22/22, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h22.52 Ironvein +21, h41.61 Emberwaste +32, h61.57 Ashen +37  ->  h22.52 Ironvein +21, h38.77 Emberwaste +31, h63.19 Ashen +37 (min gap 16.3h)
+  runs: run0: 4z ; run1: 6z ; run2: 7z App@57.11 Keep in@57.11 Lv62 ; run3: 7z App@66.48 Keep in@66.48 Lv48
+     -> run0: 4z ; run1: 6z ; run2: 7z App@47.71 Keep in@47.71 Lv53 ; run3: 7z App@64.15 Keep in@64.15 Lv32
+  Keep ordinary: enc 1060 L329 (31%) far 24 10.0h  ->  enc 2326 L567 (24%) far 35 23.3h
+  Grave Knight: run2 1/11 atk8728 Lv60 loss 63s 62% summon9 | run3 0/6 atk10910 Lv46 loss 61s 47% summon6 | run? 0/1 atk10910 Lv48 loss -s 0%
+     -> run2 1/4 atk6759 Lv48 loss 79s 63% summon3 | run? 0/1 atk7435 Lv31 loss -s 0%
+  Hollow King: none
+     -> run2 0/1 atk9715 Lv64 loss 20s 88% | run3 0/4 atk10686 Lv51 loss 18s 82%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1176->1233 | training 23.5->18.5h | gold 15.2->16.7M | ore 431K->446K | dust 90/1->89/10 | Lv@72h 55->56 | final 3 Ashen Keep f24 Lv55 -> 3 Ashen Keep f31 Lv56
+
+seed 40  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 28/28, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h28.01 Emberwaste +25, h47.59 Ashen +32, h58.99 Ashen +36  ->  h28.01 Emberwaste +25, h34.88 Amberfall +26, h59.03 Ashen +37 (min gap 6.9h)
+  runs: run0: 5z ; run1: 6z ; run2: 7z App@53.22 Keep in@53.22 Lv48 ; run3: 7z App@64.52 Keep in@64.52 Lv51
+     -> run0: 5z ; run1: 5z ; run2: 7z App@45.81 Keep in@45.81 Lv56 ; run3: 7z App@60.07 Keep in@60.07 Lv34
+  Keep ordinary: enc 1362 L399 (29%) far 30 13.2h  ->  enc 2467 L539 (22%) far 35 25.2h
+  Grave Knight: run1 0/1 atk6983 Lv58 loss 32s 85% | run2 1/2 atk8728 Lv47 loss 73s 61% summon1 | run3 0/17 atk10910 Lv46 loss 63s 59% summon17 | run? 0/1 atk10910 Lv51 loss -s 0%
+     -> run2 1/5 atk6759 Lv55 loss 44s 68% summon2 | run? 0/1 atk7435 Lv33 loss -s 0%
+  Hollow King: run3 0/1 atk15681 Lv59 loss 21s 87%
+     -> run2 0/1 atk9715 Lv65 loss 13s 93% | run3 0/20 atk10686 Lv61 loss 34s 72% summon8 | run? 0/1 atk10686 Lv64 loss -s 0%
+  zones cur/best 24h 5/5->5/5, 36h 5/5->5/5, 48h 4/6->7/7, 60h 6/7->6/7, 72h 7/7->7/7 | defeats 1177->1171 | training 23.6->19.2h | gold 16.4->19.8M | ore 448K->494K | dust 93/4->88/2 | Lv@72h 61->64 | final 3 Ashen Keep f25 Lv61 -> 3 Ashen Keep f35 Lv64
+
+-- idle validity: 72h 10/10, Shatter cap 10/10, audit through first Shatter OK 10/10, ascensions 0
+-- idle summary:
+   zones cur/best med 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7
+   Shatters per run med 3 -> 3 (paired med 0, +3 07 -0) | first h med 26.4 -> 26.4 (paired med 0.0, +0 010 -0) | min gap h med 12.5 -> 7.6 (paired med -4.1, +0 00 -10)
+   run1: Ashen Approach cleared 1->3 runs (h 52.1->48.0); Keep entered 1->3 (h 52.1->48.0, Lv 63->59); Keep cleared 0->0
+   run2: Ashen Approach cleared 9->9 runs (h 57.5->52.0); Keep entered 9->9 (h 57.5->52.0, Lv 52->46); Keep cleared 0->0
+   run3: Ashen Approach cleared 7->10 runs (h 66.5->60.1); Keep entered 7->10 (h 66.5->60.1, Lv 40->34); Keep cleared 0->0
+   Keep ordinary (all runs): encounters med 1313 -> 1982 (paired med 538, +10 00 -0) | loss% med 26 -> 22 (paired med -6, +2 00 -8) | furthest med 25 -> 32 (paired med 6, +8 00 -2) | hours med 12.9 -> 20.7 (paired med 6.0, +10 00 -0) | fight 36 reached 2->9 runs
+   Grave Knight by run: run1 1/24 over 4 runs (loss med 76s 59% HP, summons 18) | run2 8/41 over 8 runs (loss med 70s 64% HP, summons 30) | run3 1/42 over 7 runs (loss med 63s 59% HP, summons 40) | run? 0/7 over 7 runs (loss med -s 0% HP, summons 0)
+     -> run1 3/25 over 4 runs (loss med 63s 66% HP, summons 17) | run2 6/38 over 7 runs (loss med 73s 63% HP, summons 28) | run3 1/6 over 3 runs (loss med 81s 55% HP, summons 5) | run? 0/12 over 9 runs (loss med -s 0% HP, summons 0)
+   Hollow King by run: run1 0/1 over 1 runs (loss med 20s 86% HP, summons 0) | run2 0/1 over 1 runs (loss med 17s 93% HP, summons 0) | run3 0/1 over 1 runs (loss med 21s 87% HP, summons 0)
+     -> run2 0/2 over 2 runs (loss med 13s 88% HP, summons 0) | run3 0/140 over 9 runs (loss med 32s 73% HP, summons 53) | run? 0/2 over 2 runs (loss med -s 0% HP, summons 0)
+   Keep clears (runs) 0->0, Foundry entries 0->0
+   totals: defeats med 1111 -> 1165 (paired med -3, +5 00 -5) | training h med 23.0 -> 20.1 (paired med -3.0, +2 00 -8) | gold earned M med 15.05 -> 16.69 (paired med 2.82, +9 00 -1) | ore earned med 418752 -> 446184 (paired med 35496, +8 00 -2) | dust earned med 90 -> 89 (paired med 2, +6 01 -3) | Lv@72h med 53 -> 60 (paired med 3, +7 00 -3)
+
+===== LIGHT   control batch_out_p24 -> candidate batch_out_p25
+
+seed 31  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 22/22, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h22.93 Emberwaste +22, h45.89 Amberfall +32, h56.08 Ashen +36  ->  h22.93 Emberwaste +22, h50.06 Ashen +35, h66.1 Ashen +36 (min gap 16.0h)
+  runs: run0: 4z ; run1: 6z ; run2: 7z App@51.05 Keep in@51.06 Lv46 ; run3: 7z App@58.04 Keep in@58.04 Lv37
+     -> run0: 4z ; run1: 7z App@44.09 Keep in@44.09 Lv64 ; run2: 7z App@52.06 Keep in@52.06 Lv36 ; run3: 7z App@67.02 Keep in@67.02 Lv33
+  Keep ordinary: enc 1998 L626 (31%) far 27 19.0h  ->  enc 2485 L920 (37%) far 35 25.0h
+  Grave Knight: run2 1/1 atk8728 Lv46 | run? 0/1 atk10910 Lv37 loss -s 0%
+     -> run1 1/4 atk6145 Lv63 loss 55s 67% summon2 | run2 0/2 atk6759 Lv34 loss 52s 67% summon2 | run? 0/2 atk6759 Lv33 loss -s 0%
+  Hollow King: run3 0/2 atk15681 Lv60 loss 24s 67% summon1
+     -> run2 0/3 atk9715 Lv54 loss 17s 93% | run3 0/4 atk10686 Lv45 loss 23s 54% summon2
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1331->1562 | training 26.9->24.0h | gold 17.0->14.2M | ore 490K->404K | dust 90/0->93/13 | Lv@72h 61->50 | final 3 Ashen Keep f25 Lv61 -> 3 Ashen Keep f24 Lv50
+
+seed 32  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 29/29, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h29.08 Emberwaste +25, h57.07 Ashen +35, h71.1 Ashen +36  ->  h29.08 Emberwaste +25, h37.06 Ashen +30, h56.12 Ashen +36 (min gap 8.0h)
+  runs: run0: 5z ; run1: 7z App@46.04 Keep in@46.04 Lv61 ; run2: 7z App@60.09 Keep in@60.1 Lv40 ; run3: 6z
+     -> run0: 5z ; run1: 6z ; run2: 7z App@42.09 Keep in@42.09 Lv44 ; run3: 7z App@57.14 Keep in@57.14 Lv31
+  Keep ordinary: enc 2273 L1208 (53%) far 32 22.0h  ->  enc 2796 L1214 (43%) far 33 28.9h
+  Grave Knight: run1 1/1 atk6983 Lv61 | run2 0/2 atk8728 Lv35 loss 33s 56% summon1 | run? 0/1 atk8728 Lv40 loss -s 0%
+     -> run2 1/2 atk6759 Lv37 loss 34s 86% | run? 0/1 atk7435 Lv31 loss -s 0%
+  Hollow King: none
+     -> run3 0/6 atk10686 Lv49 loss 16s 88%
+  zones cur/best 24h 5/5->5/5, 36h 5/5->6/6, 48h 7/7->7/7, 60h 6/7->7/7, 72h 6/7->7/7 | defeats 1879->1853 | training 22.8->18.9h | gold 10.3->12.6M | ore 330K->326K | dust 96/11->91/14 | Lv@72h 31->53 | final 3 Ashen Approach f21 Lv31 -> 3 Ashen Keep f27 Lv53
+
+seed 33  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 23/23, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h23.06 Ironvein +22, h36.07 Amberfall +27, h53.07 Ashen +36  ->  h23.06 Ironvein +22, h54.09 Ashen +35, h64.07 Ashen +36 (min gap 10.0h)
+  runs: run0: 4z ; run1: 5z ; run2: 7z App@46.08 Keep in@46.08 Lv52 ; run3: 7z App@59.06 Keep in@59.06 Lv48
+     -> run0: 4z ; run1: 7z App@46.11 Keep in@46.11 Lv64 ; run2: 7z App@57.03 Keep in@57.03 Lv40 ; run3: 7z App@65.09 Keep in@65.09 Lv33
+  Keep ordinary: enc 2038 L940 (46%) far 24 19.9h  ->  enc 2141 L810 (38%) far 33 21.9h
+  Grave Knight: run2 1/1 atk8728 Lv52 | run3 0/1 atk10910 Lv47 loss 81s 60% summon1 | run? 0/1 atk10910 Lv48 loss -s 0%
+     -> run1 1/6 atk6145 Lv63 loss 65s 64% summon5 | run2 0/4 atk6759 Lv37 loss 53s 57% summon4 | run? 0/2 atk6759 Lv33 loss -s 0%
+  Hollow King: none
+     -> run3 0/1 atk10686 Lv47 loss 25s 73%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1682->1427 | training 22.8->21.0h | gold 13.0->13.0M | ore 341K->338K | dust 85/19->93/18 | Lv@72h 57->50 | final 3 Ashen Keep f24 Lv57 -> 3 Ashen Keep f24 Lv50
+
+seed 34  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 22/22, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h22.58 Ironvein +21, h37.11 Amberfall +27, h60.1 Ashen +37  ->  h22.58 Ironvein +21, h52.08 Ashen +35, h66.08 Ashen +35 (min gap 14.0h)
+  runs: run0: 4z ; run1: 5z ; run2: 7z App@53.04 Keep in@53.04 Lv59 ; run3: 7z App@65.05 Keep in@65.05 Lv45
+     -> run0: 4z ; run1: 7z App@46.06 Keep in@46.06 Lv63 ; run2: 7z App@54.06 Keep in@54.06 Lv35 ; run3: 7z App@67.69 Keep in@67.69 Lv37
+  Keep ordinary: enc 1425 L631 (44%) far 24 14.0h  ->  enc 2163 L1055 (49%) far 32 22.4h
+  Grave Knight: run2 1/2 atk8728 Lv55 loss 74s 67% summon1 | run3 0/3 atk10910 Lv42 loss 61s 66% summon3 | run? 0/1 atk10910 Lv45 loss -s 0%
+     -> run1 1/2 atk6145 Lv63 loss 64s 67% summon1 | run3 0/3 atk7435 Lv35 loss 69s 61% summon3 | run? 0/2 atk6759 Lv35 loss -s 0%
+  Hollow King: none
+     -> none
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1479->1705 | training 29.1->24.1h | gold 12.8->11.5M | ore 358K->345K | dust 85/7->91/6 | Lv@72h 52->50 | final 3 Ashen Keep f24 Lv52 -> 3 Ashen Keep f24 Lv50
+
+seed 35  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 21/21, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h21.1 Emberwaste +21, h52.08 Ashen +36, h64.08 Ashen +36  ->  h21.1 Emberwaste +21, h41.22 Ashen +32, h52.05 Ashen +36 (min gap 10.8h)
+  runs: run0: 4z ; run1: 7z App@45.01 Keep in@45.01 Lv65 ; run2: 7z App@54.11 Keep in@54.11 Lv37 ; run3: 7z App@66.05 Keep in@66.05 Lv38
+     -> run0: 4z ; run1: 6z ; run2: 7z App@45.01 Keep in@45.01 Lv42 ; run3: 8z App@53.06 Keep in@53.06 Lv33 KEEP CLEAR@63.07
+  Keep ordinary: enc 2332 L929 (40%) far 32 23.0h  ->  enc 1739 L562 (32%) far 36 17.0h
+  Grave Knight: run1 1/1 atk6983 Lv65 | run2 0/2 atk8728 Lv33 loss 51s 66% summon2 | run3 0/2 atk10910 Lv37 loss 51s 60% summon2 | run? 0/2 atk8728 Lv36 loss -s 0%
+     -> run1 0/2 atk6145 Lv59 loss 54s 36% summon1 | run2 1/2 atk6759 Lv40 loss 55s 67% summon1 | run? 0/1 atk7435 Lv33 loss -s 0%
+  Hollow King: none
+     -> run3 1/7 atk10686 Lv56 loss 26s 85%   KEEP CLEARED run3@63.07   FOUNDRY run3@63.07h Lv59 pw129772
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 1605->1306 | training 25.7->28.2h | gold 13.3->26.2M | ore 358K->592K | dust 93/3->89/3 | Lv@72h 47->75 | final 3 Ashen Keep f24 Lv47 -> 3 The Foundry f24 Lv75
+
+seed 36  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 29/29, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h29.14 Emberwaste +25, h35.06 Amberfall +26, h53.12 Ashen +37  ->  h29.14 Emberwaste +25, h53.08 Ashen +35, h60.08 Ashen +35 (min gap 7.0h)
+  runs: run0: 5z ; run1: 5z ; run2: 7z App@48.06 Keep in@48.06 Lv58 ; run3: 7z App@56.09 Keep in@56.09 Lv40
+     -> run0: 5z ; run1: 7z App@44.07 Keep in@44.07 Lv60 ; run2: 7z App@54.17 Keep in@54.17 Lv31 ; run3: 8z App@61.09 Keep in@61.09 Lv33 KEEP CLEAR@71.07
+  Keep ordinary: enc 2074 L800 (39%) far 26 21.0h  ->  enc 2410 L875 (36%) far 32 24.9h
+  Grave Knight: run2 1/5 atk8728 Lv57 loss 58s 67% summon2 | run3 0/2 atk10910 Lv36 loss 41s 67% summon1 | run? 0/1 atk10910 Lv40 loss -s 0%
+     -> run1 1/4 atk6145 Lv58 loss 68s 62% summon3 | run? 0/2 atk6759 Lv30 loss -s 0%
+  Hollow King: run3 0/1 atk15681 Lv54 loss 12s 97%
+     -> run3 1/5 atk10686 Lv52 loss 23s 85% summon1   KEEP CLEARED run3@71.07   FOUNDRY run3@71.08h Lv55 pw119259
+  zones cur/best 24h 5/5->5/5, 36h 4/5->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 1520->1502 | training 22.8->19.6h | gold 14.2->14.1M | ore 411K->390K | dust 88/10->95/17 | Lv@72h 56->57 | final 3 Ashen Keep f24 Lv56 -> 3 The Foundry f1 Lv57
+
+seed 37  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 22/22, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h22.11 Ironvein +21, h42.1 Ashen +32, h52.07 Amberfall +33  ->  h22.11 Ironvein +21, h38.08 Ashen +31, h55.08 Ashen +36 (min gap 16.0h)
+  runs: run0: 4z ; run1: 6z ; run2: 6z ; run3: 7z App@59.05 Keep in@59.06 Lv50
+     -> run0: 4z ; run1: 6z ; run2: 7z App@48.05 Keep in@48.06 Lv53 ; run3: 7z App@56.81 Keep in@56.81 Lv37
+  Keep ordinary: enc 1302 L768 (59%) far 24 12.9h  ->  enc 2122 L710 (33%) far 35 22.2h
+  Grave Knight: run2 0/1 atk8728 Lv47 loss 55s 56% summon1 | run3 1/4 atk10910 Lv45 loss 57s 64% summon2
+     -> run2 1/3 atk6759 Lv51 loss 86s 8% summon2 | run3 0/3 atk7435 Lv34 loss 63s 68% summon2 | run? 0/1 atk7435 Lv37 loss -s 0%
+  Hollow King: none
+     -> run3 0/6 atk10686 Lv54 loss 22s 85% summon1
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1647->1439 | training 30.4->23.9h | gold 12.0->15.4M | ore 311K->372K | dust 86/8->88/1 | Lv@72h 55->60 | final 3 Ashen Keep f24 Lv55 -> 3 Ashen Keep f25 Lv60
+
+seed 38  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 30/30, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h30.09 Emberwaste +25, h38.07 Emberwaste +26, h43.09 Amberfall +28  ->  h30.09 Emberwaste +25, h43.17 Amberfall +31, h60.08 Ashen +36 (min gap 13.1h)
+  runs: run0: 5z ; run1: 5z ; run2: 5z ; run3: 7z App@55.07 Keep in@55.07 Lv56
+     -> run0: 5z ; run1: 6z ; run2: 7z App@49.77 Keep in@49.77 Lv49 ; run3: 7z App@61.99 Keep in@61.99 Lv39
+  Keep ordinary: enc 1688 L887 (53%) far 24 16.9h  ->  enc 1935 L718 (37%) far 33 20.3h
+  Grave Knight: run3 1/1 atk10910 Lv56
+     -> run2 1/8 atk6759 Lv47 loss 63s 67% summon6 | run3 0/7 atk7435 Lv35 loss 77s 59% summon7 | run? 0/1 atk7435 Lv39 loss -s 0%
+  Hollow King: none
+     -> run3 0/4 atk10686 Lv48 loss 17s 86%
+  zones cur/best 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->6/6, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 1654->1361 | training 27.2->23.3h | gold 13.6->15.4M | ore 354K->386K | dust 79/0->92/9 | Lv@72h 63->55 | final 3 Ashen Keep f24 Lv63 -> 3 Ashen Keep f24 Lv55
+
+seed 39  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 21/21, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h21.1 Ironvein +21, h39.06 Emberwaste +31, h49.04 Ashen +33  ->  h21.1 Ironvein +21, h37.1 Amberfall +31, h55.08 Ashen +36 (min gap 16.0h)
+  runs: run0: 4z ; run1: 6z ; run2: 6z ; run3: 7z App@54.09 Keep in@54.09 Lv47
+     -> run0: 4z ; run1: 6z ; run2: 7z App@43.06 Keep in@43.06 Lv47 ; run3: 8z App@56.06 Keep in@56.06 Lv33 KEEP CLEAR@70.06
+  Keep ordinary: enc 1880 L1158 (62%) far 24 17.9h  ->  enc 2677 L1023 (38%) far 33 26.0h
+  Grave Knight: run2 0/3 atk8728 Lv50 loss 38s 47% summon3 | run3 1/2 atk10910 Lv44 loss 53s 18% summon1
+     -> run2 1/4 atk6759 Lv44 loss 49s 61% summon3 | run? 0/1 atk7435 Lv32 loss -s 0%
+  Hollow King: none
+     -> run3 1/8 atk10686 Lv57 loss 31s 72% summon3   KEEP CLEARED run3@70.06   FOUNDRY run3@70.06h Lv61 pw131534
+  zones cur/best 24h 4/4->4/4, 36h 6/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2086->1775 | training 25.8->20.1h | gold 12.3->19.3M | ore 320K->458K | dust 85/7->88/5 | Lv@72h 55->65 | final 3 Ashen Keep f24 Lv55 -> 3 Ashen Approach f36 Lv65
+
+seed 40  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 31/31, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h31.08 Ironvein +25, h52.07 Ashen +32, h70.05 Ashen +36  ->  h31.08 Ironvein +25, h53.08 Ashen +35, h64.08 Ashen +36 (min gap 11.0h)
+  runs: run0: 5z ; run1: 6z ; run2: 7z App@58.03 Keep in@58.03 Lv47 ; run3: 6z
+     -> run0: 5z ; run1: 7z App@47.09 Keep in@47.09 Lv58 ; run2: 7z App@55.08 Keep in@55.08 Lv37 ; run3: 7z App@65.09 Keep in@65.09 Lv33
+  Keep ordinary: enc 1251 L527 (42%) far 29 12.0h  ->  enc 2172 L922 (42%) far 31 21.9h
+  Grave Knight: run1 0/1 atk6983 Lv59 loss 51s 63% summon1 | run2 1/1 atk8728 Lv47 | run3 0/1 atk10910 Lv35 loss 62s 67% summon1
+     -> run1 1/2 atk6145 Lv57 loss 54s 67% summon1 | run2 0/1 atk6759 Lv37 loss 55s 69% summon1 | run? 0/2 atk6759 Lv33 loss -s 0%
+  Hollow King: none
+     -> none
+  zones cur/best 24h 4/4->4/4, 36h 5/5->5/5, 48h 6/6->7/7, 60h 7/7->7/7, 72h 6/7->7/7 | defeats 1355->1549 | training 31.5->23.5h | gold 10.9->10.4M | ore 355K->304K | dust 93/11->96/11 | Lv@72h 37->42 | final 3 Ashen Approach f27 Lv37 -> 3 Ashen Keep f24 Lv42
+
+-- light validity: 72h 10/10, Shatter cap 10/10, audit through first Shatter OK 10/10, ascensions 0
+-- light summary:
+   zones cur/best med 24h 4/4->4/4, 36h 5/5->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7
+   Shatters per run med 3 -> 3 (paired med 0, +0 010 -0) | first h med 22.9 -> 22.9 (paired med 0.0, +0 010 -0) | min gap h med 10.2 -> 11.0 (paired med -0.5, +5 00 -5)
+   run1: Ashen Approach cleared 2->5 runs (h 45.0->46.1); Keep entered 2->5 (h 45.0->46.1, Lv 61->63); Keep cleared 0->0
+   run2: Ashen Approach cleared 7->10 runs (h 53.0->49.8); Keep entered 7->10 (h 53.0->49.8, Lv 47->40); Keep cleared 0->0
+   run3: Ashen Approach cleared 8->10 runs (h 58.0->61.1); Keep entered 8->10 (h 58.0->61.1, Lv 45->33); Keep cleared 0->3
+   Keep ordinary (all runs): encounters med 1880 -> 2163 (paired med 487, +9 00 -1) | loss% med 44 -> 37 (paired med -8, +3 00 -7) | furthest med 24 -> 33 (paired med 8, +10 00 -0) | hours med 17.9 -> 22.2 (paired med 6.0, +9 00 -1) | fight 36 reached 2->8 runs
+   Grave Knight by run: run1 2/3 over 3 runs (loss med 65s 63% HP, summons 1) | run2 5/18 over 9 runs (loss med 55s 67% HP, summons 10) | run3 3/16 over 8 runs (loss med 61s 66% HP, summons 11) | run? 0/7 over 6 runs (loss med -s 0% HP, summons 0)
+     -> run1 5/20 over 6 runs (loss med 67s 67% HP, summons 13) | run2 5/26 over 8 runs (loss med 58s 66% HP, summons 19) | run3 0/13 over 3 runs (loss med 71s 60% HP, summons 12) | run? 0/15 over 10 runs (loss med -s 0% HP, summons 0)
+   Hollow King by run: run3 0/3 over 2 runs (loss med 24s 87% HP, summons 1)
+     -> run2 0/3 over 1 runs (loss med 17s 93% HP, summons 0) | run3 3/41 over 8 runs (loss med 25s 85% HP, summons 7)
+   Keep clears (runs) 0->3, Foundry entries 0->3
+   totals: defeats med 1605 -> 1502 (paired med -208, +3 00 -7) | training h med 25.8 -> 23.3 (paired med -3.9, +1 00 -9) | gold earned M med 12.78 -> 14.11 (paired med 0.05, +6 00 -4) | ore earned med 353592 -> 371664 (paired med -3672, +4 00 -6) | dust earned med 86 -> 91 (paired med 3, +8 00 -2) | Lv@72h med 55 -> 53 (paired med 1, +6 00 -4)
+
+===== CASUAL   control batch_out_p24 -> candidate batch_out_p25
+
+seed 31  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 20/20, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h20.07 Ironvein +24, h36.09 Emberwaste +31, h52.09 Ashen +36  ->  h20.07 Ironvein +24, h27.15 Emberwaste +26, h51.14 Ashen +36 (min gap 7.1h)
+  runs: run0: 5z ; run1: 6z ; run2: 7z App@41.13 Keep in@41.13 Lv43 ; run3: 7z App@54.15 Keep in@54.15 Lv37
+     -> run0: 5z ; run1: 5z ; run2: 7z App@32.13 Keep in@32.13 Lv35 ; run3: 8z App@52.16 Keep in@52.16 Lv32 KEEP CLEAR@69.11
+  Keep ordinary: enc 3068 L1736 (57%) far 32 28.8h  ->  enc 3626 L2043 (56%) far 33 36.0h
+  Grave Knight: run2 1/1 atk8728 Lv43 | run3 0/1 atk10910 Lv36 loss 47s 32% summon1 | run? 0/1 atk10910 Lv36 loss -s 0%
+     -> run2 1/1 atk6759 Lv41 | run? 0/1 atk7435 Lv31 loss -s 0%
+  Hollow King: run3 0/1 atk15681 Lv54 loss 22s 81%
+     -> run3 1/11 atk10686 Lv51 loss 20s 79% summon4   KEEP CLEARED run3@69.11   FOUNDRY run3@69.11h Lv56 pw102977
+  zones cur/best 24h 4/5->5/5, 36h 6/6->7/7, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2483->2722 | training 22.5->17.9h | gold 14.7->17.8M | ore 301K->332K | dust 91/4->86/1 | Lv@72h 55->62 | final 3 Ashen Keep f24 Lv55 -> 3 The Foundry f4 Lv62
+
+seed 32  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 25/25, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h25.17 Emberwaste +25, h37.08 Amberfall +31, h55.16 Ashen +36  ->  h25.17 Emberwaste +25, h33.16 Amberfall +30, h52.17 Ashen +36 (min gap 8.0h)
+  runs: run0: 5z ; run1: 6z ; run2: 7z App@47.12 Keep in@47.12 Lv51 ; run3: 7z App@58.13 Keep in@58.13 Lv40
+     -> run0: 5z ; run1: 6z ; run2: 7z App@40.17 Keep in@40.17 Lv46 ; run3: 8z App@54.09 Keep in@54.09 Lv37 KEEP CLEAR@70.11
+  Keep ordinary: enc 2162 L1235 (57%) far 34 21.9h  ->  enc 2580 L1217 (47%) far 36 28.0h
+  Grave Knight: run2 1/3 atk8728 Lv49 loss 83s 32% summon2 | run3 0/1 atk10910 Lv37 loss 75s 68% summon1 | run? 0/1 atk10910 Lv40 loss -s 0%
+     -> run2 1/1 atk6759 Lv46 | run? 0/1 atk7435 Lv37 loss -s 0%
+  Hollow King: run3 0/1 atk15681 Lv51 loss 25s 85%
+     -> run3 1/8 atk10686 Lv53 loss 31s 66% summon4   KEEP CLEARED run3@70.11   FOUNDRY run3@70.11h Lv57 pw97289
+  zones cur/best 24h 5/5->5/5, 36h 6/6->6/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2016->1919 | training 24.4->21.3h | gold 14.6->17.8M | ore 302K->337K | dust 92/3->91/5 | Lv@72h 52->60 | final 3 Ashen Keep f24 Lv52 -> 3 Ashen Keep f36 Lv60
+
+seed 33  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 20/20, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h20.17 Ironvein +24, h29.19 Emberwaste +26, h37.17 Ashen +32  ->  h20.17 Ironvein +24, h38.16 Ashen +34, h52.17 Ashen +36 (min gap 14.0h)
+  runs: run0: 5z ; run1: 5z ; run2: 6z ; run3: 7z App@45.07 Keep in@45.07 Lv51
+     -> run0: 5z ; run1: 7z App@32.16 Keep in@32.16 Lv40 ; run2: 7z App@42.11 Keep in@42.11 Lv40 ; run3: 7z App@54.09 Keep in@54.09 Lv37
+  Keep ordinary: enc 2731 L1690 (62%) far 24 26.9h  ->  enc 3271 L1769 (54%) far 31 34.0h
+  Grave Knight: run3 1/1 atk10910 Lv51
+     -> run1 1/1 atk6145 Lv49 | run? 0/2 atk6759 Lv37 loss -s 0%
+  Hollow King: run3 0/3 atk15681 Lv57 loss 19s 86%
+     -> run3 0/9 atk10686 Lv54 loss 26s 76% summon3
+  zones cur/best 24h 5/5->5/5, 36h 6/6->7/7, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 2610->2546 | training 22.4->19.4h | gold 14.2->14.7M | ore 268K->277K | dust 82/6->94/7 | Lv@72h 61->58 | final 3 Ashen Keep f24 Lv61 -> 3 Ashen Keep f27 Lv58
+
+seed 34  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 16/16, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h16.17 Thornwood +21, h32.18 Ashen +31, h41.19 Amberfall +33  ->  h16.17 Thornwood +21, h30.16 Emberwaste +31, h47.05 Ashen +36 (min gap 14.0h)
+  runs: run0: 4z ; run1: 6z ; run2: 6z ; run3: 7z App@51.04 Keep in@51.04 Lv55
+     -> run0: 4z ; run1: 6z ; run2: 7z App@35.14 Keep in@35.14 Lv43 ; run3: 8z App@49.1 Keep in@49.1 Lv37 KEEP CLEAR@67.1
+  Keep ordinary: enc 2206 L1296 (59%) far 24 21.0h  ->  enc 2959 L1420 (48%) far 29 29.9h
+  Grave Knight: run3 1/2 atk10910 Lv47 loss 50s 77%
+     -> run2 1/1 atk6759 Lv43 | run3 0/1 atk7435 Lv32 loss 31s 86% | run? 0/1 atk7435 Lv37 loss -s 0%
+  Hollow King: run3 0/3 atk15681 Lv62 loss 14s 84% summon1
+     -> run3 1/11 atk10686 Lv54 loss 35s 60% summon6   KEEP CLEARED run3@67.1   FOUNDRY run3@67.1h Lv59 pw104285
+  zones cur/best 24h 5/5->5/5, 36h 5/6->7/7, 48h 6/6->6/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2283->2146 | training 27.1->19.9h | gold 15.9->20.8M | ore 331K->397K | dust 85/4->88/6 | Lv@72h 64->68 | final 3 Ashen Keep f24 Lv64 -> 3 Ashen Approach f36 Lv68
+
+seed 35  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 20/20, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h20.12 Ironvein +24, h28.12 Amberfall +26, h46.17 Ashen +37  ->  h20.12 Ironvein +24, h29.17 Amberfall +30, h41.14 Ashen +36 (min gap 9.1h)
+  runs: run0: 5z ; run1: 5z ; run2: 7z App@41.11 Keep in@41.11 Lv56 ; run3: 7z App@48.11 Keep in@48.11 Lv36
+     -> run0: 5z ; run1: 6z ; run2: 7z App@34.13 Keep in@34.13 Lv44 ; run3: 9z App@43.05 Keep in@43.05 Lv36 KEEP CLEAR@56.11
+  Keep ordinary: enc 2863 L1606 (56%) far 29 29.0h  ->  enc 2018 L1000 (50%) far 36 20.1h
+  Grave Knight: run2 1/2 atk8728 Lv52 loss 48s 44% summon1 | run? 0/1 atk10910 Lv35 loss -s 0%
+     -> run2 1/2 atk6759 Lv41 loss 56s 77% | run? 0/1 atk7435 Lv36 loss -s 0%
+  Hollow King: run3 0/5 atk15681 Lv55 loss 16s 82% summon2
+     -> run2 0/1 atk9715 Lv48 loss 15s 91% | run3 1/7 atk10686 Lv49 loss 22s 79% summon1   KEEP CLEARED run3@56.11   FOUNDRY run3@56.11h Lv53 pw98972
+  zones cur/best 24h 5/5->5/5, 36h 6/6->7/7, 48h 6/7->7/7, 60h 7/7->8/8, 72h 7/7->9/9 | defeats 2419->1876 | training 21.2->25.6h | gold 15.2->36.1M | ore 337K->738K | dust 87/8->90/6 | Lv@72h 57->81 | final 3 Ashen Keep f24 Lv57 -> 3 The Endless Road f31 Lv81
+
+seed 36  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 23/23, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h23.09 Ironvein +25, h31.17 Amberfall +26, h40.22 Emberwaste +32  ->  h23.09 Ironvein +25, h54.16 Ashen +35, h62.09 Ashen +35 (min gap 7.9h)
+  runs: run0: 5z ; run1: 5z ; run2: 6z ; run3: 7z App@51.09 Keep in@51.09 Lv55
+     -> run0: 5z ; run1: 7z App@36.09 Keep in@36.09 Lv54 ; run2: 7z App@56.11 Keep in@56.11 Lv36 ; run3: 7z App@63.13 Keep in@63.13 Lv33
+  Keep ordinary: enc 2295 L1281 (56%) far 24 20.9h  ->  enc 3425 L2047 (60%) far 35 32.9h
+  Grave Knight: run2 0/1 atk8728 Lv43 loss 33s 91% | run3 1/3 atk10910 Lv45 loss 58s 38% summon2
+     -> run1 1/2 atk6145 Lv53 loss 58s 65% summon1 | run? 0/2 atk6759 Lv33 loss -s 0%
+  Hollow King: run3 0/1 atk15681 Lv62 loss 18s 84%
+     -> run1 0/1 atk8832 Lv61 loss 16s 88% | run3 0/1 atk10686 Lv44 loss 17s 79%
+  zones cur/best 24h 4/5->4/5, 36h 6/6->6/6, 48h 6/6->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 2352->2694 | training 28.3->19.8h | gold 15.4->12.0M | ore 319K->244K | dust 83/3->95/8 | Lv@72h 64->45 | final 3 Ashen Keep f24 Lv64 -> 3 Ashen Keep f24 Lv45
+
+seed 37  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 26/26, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h26.16 Ironvein +29, h40.14 Ashen +34, h52.16 Ashen +36  ->  h26.16 Ironvein +29, h42.17 Ashen +34, h51.11 Ashen +35 (min gap 8.9h)
+  runs: run0: 6z ; run1: 7z App@35.12 Keep in@35.12 Lv48 ; run2: 7z App@46.05 Keep in@46.05 Lv47 ; run3: 7z App@54.17 Keep in@54.17 Lv38
+     -> run0: 6z ; run1: 7z App@37.05 Keep in@37.05 Lv53 ; run2: 7z App@44.18 Keep in@44.18 Lv37 ; run3: 8z App@52.12 Keep in@52.12 Lv34 KEEP CLEAR@62.15
+  Keep ordinary: enc 3056 L1771 (58%) far 34 28.9h  ->  enc 2345 L976 (42%) far 36 22.1h
+  Grave Knight: run1 1/1 atk6983 Lv48 | run2 0/1 atk8728 Lv44 loss 51s 29% summon1 | run? 0/2 atk8728 Lv38 loss -s 0%
+     -> run1 1/1 atk6145 Lv53 | run? 0/2 atk6759 Lv33 loss -s 0%
+  Hollow King: run3 0/2 atk15681 Lv52 loss 14s 85%
+     -> run2 0/3 atk9715 Lv46 loss 15s 88% | run3 1/12 atk10686 Lv49 loss 28s 66% summon7   KEEP CLEARED run3@62.15   FOUNDRY run3@62.15h Lv56 pw119283
+  zones cur/best 24h 6/6->6/6, 36h 7/7->6/6, 48h 7/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2561->1831 | training 18.8->23.7h | gold 14.5->29.6M | ore 321K->660K | dust 99/2->98/4 | Lv@72h 56->76 | final 3 Ashen Keep f24 Lv56 -> 3 Ashen Keep f36 Lv76
+
+seed 38  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 21/21, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h21.12 Amberfall +25, h49.14 Ashen +35, h60.1 Ashen +36  ->  h21.12 Amberfall +25, h32.18 Amberfall +31, h45.1 Ashen +36 (min gap 11.1h)
+  runs: run0: 5z ; run1: 7z App@33.13 Keep in@33.13 Lv52 ; run2: 7z App@51.12 Keep in@51.12 Lv37 ; run3: 7z App@61.13 Keep in@61.13 Lv34
+     -> run0: 5z ; run1: 6z ; run2: 7z App@37.07 Keep in@37.07 Lv46 ; run3: 8z App@46.09 Keep in@46.09 Lv33 KEEP CLEAR@58.14
+  Keep ordinary: enc 3889 L1877 (48%) far 35 35.9h  ->  enc 2281 L919 (40%) far 36 20.1h
+  Grave Knight: run1 1/1 atk6983 Lv52 | run? 0/2 atk8728 Lv33 loss -s 0%
+     -> run2 1/1 atk6759 Lv46 | run? 0/1 atk7435 Lv33 loss -s 0%
+  Hollow King: run1 0/1 atk10036 Lv62 loss 19s 84% | run2 0/1 atk12545 Lv49 loss 16s 84% | run3 0/5 atk15681 Lv50 loss 15s 83%
+     -> run2 0/2 atk9715 Lv53 loss 10s 82% | run3 1/18 atk10686 Lv50 loss 22s 74% summon5   KEEP CLEARED run3@58.14   FOUNDRY run3@58.14h Lv57 pw110612
+  zones cur/best 24h 5/5->5/5, 36h 7/7->6/6, 48h 7/7->7/7, 60h 7/7->8/8, 72h 7/7->8/8 | defeats 2568->1851 | training 18.6->30.6h | gold 15.3->39.9M | ore 327K->757K | dust 96/5->92/15 | Lv@72h 52->83 | final 3 Ashen Keep f24 Lv52 -> 3 Ashen Keep f36 Lv83
+
+seed 39  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 22/22, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h22.16 Ironvein +25, h47.14 Ashen +35, h55.18 Ashen +36  ->  h22.16 Ironvein +25, h33.16 Amberfall +31, h49.09 Ashen +36 (min gap 11.0h)
+  runs: run0: 5z ; run1: 7z App@35.12 Keep in@35.12 Lv55 ; run2: 7z App@50.14 Keep in@50.14 Lv40 ; run3: 7z App@57.14 Keep in@57.14 Lv38
+     -> run0: 5z ; run1: 6z ; run2: 7z App@38.15 Keep in@38.15 Lv45 ; run3: 8z App@50.07 Keep in@50.07 Lv33 KEEP CLEAR@70.05
+  Keep ordinary: enc 3612 L1898 (53%) far 28 31.9h  ->  enc 3425 L1564 (46%) far 33 30.9h
+  Grave Knight: run1 1/2 atk6983 Lv54 loss 86s 8% summon1 | run? 0/2 atk8728 Lv38 loss -s 0%
+     -> run2 1/1 atk6759 Lv45 | run? 0/1 atk7435 Lv32 loss -s 0%
+  Hollow King: none
+     -> run3 1/25 atk10686 Lv55 loss 22s 67% summon12   KEEP CLEARED run3@70.05   FOUNDRY run3@70.06h Lv64 pw132749
+  zones cur/best 24h 4/5->4/5, 36h 7/7->6/6, 48h 5/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8 | defeats 2663->2372 | training 20.1->20.4h | gold 14.9->22.1M | ore 323K->439K | dust 96/7->92/1 | Lv@72h 53->68 | final 3 Ashen Keep f24 Lv53 -> 3 Ashen Approach f36 Lv68
+
+seed 40  hours 72.00  Shatters 3 -> 3  audit through first Shatter: hourly 17/17, first Shatter same, dust buys same, run-0 boss attempts same -> OK
+  Shatters: h17.18 Thornwood +21, h24.1 Ironvein +22, h47.11 Ashen +36  ->  h17.18 Thornwood +21, h31.17 Ashen +31, h44.11 Ashen +36 (min gap 12.9h)
+  runs: run0: 4z ; run1: 4z ; run2: 7z App@37.15 Keep in@37.15 Lv52 ; run3: 7z App@51.14 Keep in@51.14 Lv41
+     -> run0: 4z ; run1: 6z ; run2: 7z App@37.14 Keep in@37.14 Lv46 ; run3: 7z App@46.11 Keep in@46.11 Lv35
+  Keep ordinary: enc 3282 L1907 (58%) far 24 30.8h  ->  enc 3241 L1623 (50%) far 33 32.9h
+  Grave Knight: run2 1/1 atk8728 Lv51 | run? 0/1 atk10910 Lv41 loss -s 0%
+     -> run2 1/1 atk6759 Lv46 | run? 0/1 atk7435 Lv35 loss -s 0%
+  Hollow King: run3 0/1 atk15681 Lv58 loss 14s 91%
+     -> run3 0/15 atk10686 Lv55 loss 25s 71% summon6
+  zones cur/best 24h 4/4->5/5, 36h 6/6->6/6, 48h 5/7->7/7, 60h 7/7->7/7, 72h 7/7->7/7 | defeats 2660->2327 | training 22.1->20.6h | gold 14.0->16.2M | ore 286K->301K | dust 79/6->88/3 | Lv@72h 58->61 | final 3 Ashen Keep f24 Lv58 -> 3 Ashen Keep f24 Lv61
+
+-- casual validity: 72h 10/10, Shatter cap 10/10, audit through first Shatter OK 10/10, ascensions 0
+-- casual summary:
+   zones cur/best med 24h 5/5->5/5, 36h 6/6->6/6, 48h 6/7->7/7, 60h 7/7->7/7, 72h 7/7->8/8
+   Shatters per run med 3 -> 3 (paired med 0, +0 010 -0) | first h med 20.2 -> 20.2 (paired med 0.0, +0 010 -0) | min gap h med 8.1 -> 9.1 (paired med 0.1, +6 00 -4)
+   run1: Ashen Approach cleared 3->3 runs (h 35.1->36.1); Keep entered 3->3 (h 35.1->36.1, Lv 52->53); Keep cleared 0->0
+   run2: Ashen Approach cleared 7->10 runs (h 46.0->37.1); Keep entered 7->10 (h 46.0->37.1, Lv 47->43); Keep cleared 0->0
+   run3: Ashen Approach cleared 10->10 runs (h 51.1->50.1); Keep entered 10->10 (h 51.1->50.1, Lv 38->34); Keep cleared 0->7
+   Keep ordinary (all runs): encounters med 2863 -> 2959 (paired med -41, +5 00 -5) | loss% med 57 -> 48 (paired med -8, +1 00 -9) | furthest med 28 -> 33 (paired med 5, +10 00 -0) | hours med 28.8 -> 29.9 (paired med 2.0, +6 00 -4) | fight 36 reached 9->10 runs
+   Grave Knight by run: run1 3/4 over 3 runs (loss med 86s 8% HP, summons 1) | run2 4/9 over 6 runs (loss med 63s 35% HP, summons 4) | run3 3/8 over 5 runs (loss med 53s 60% HP, summons 4) | run? 0/10 over 7 runs (loss med -s 0% HP, summons 0)
+     -> run1 3/4 over 3 runs (loss med 66s 65% HP, summons 1) | run2 7/8 over 7 runs (loss med 71s 77% HP, summons 0) | run3 0/1 over 1 runs (loss med 31s 86% HP, summons 0) | run? 0/13 over 10 runs (loss med -s 0% HP, summons 0)
+   Hollow King by run: run1 0/1 over 1 runs (loss med 19s 84% HP, summons 0) | run2 0/1 over 1 runs (loss med 16s 84% HP, summons 0) | run3 0/22 over 9 runs (loss med 16s 84% HP, summons 3)
+     -> run1 0/1 over 1 runs (loss med 16s 88% HP, summons 0) | run2 0/6 over 3 runs (loss med 15s 88% HP, summons 0) | run3 7/117 over 10 runs (loss med 24s 73% HP, summons 48)
+   Keep clears (runs) 0->7, Foundry entries 0->7
+   totals: defeats med 2483 -> 2146 (paired med -291, +2 00 -8) | training h med 22.1 -> 20.4 (paired med -3.0, +4 00 -6) | gold earned M med 14.74 -> 17.84 (paired med 3.19, +9 00 -1) | ore earned med 318672 -> 337392 (paired med 34920, +9 00 -1) | dust earned med 87 -> 91 (paired med -1, +5 00 -5) | Lv@72h med 56 -> 62 (paired med 7, +8 00 -2)

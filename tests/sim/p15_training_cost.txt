@@ -1,0 +1,21 @@
+TRAINING TRIGGERED BY ZONE, 48h runs (trainings per run; median minutes per training; median party level at trigger; median training fights; ordinary win rate in the window before -> after return)
+profile  triggering zone      per run  min/training  Lv     fights  win before -> after
+idle     Stillwater Lagoon      2.8      7           13     18      0.6 -> 0.8
+idle     Thornwood              6.7     16           24     39      0.6 -> 0.8
+idle     Ironvein Caverns       4.8     35           34     68      0.6 -> 0.8
+idle     Emberwaste             9.6     42           44     74      0.6 -> 0.8
+idle     Amberfall Woods        4.9     56           56    106      0.6 -> 0.8
+idle     Ashen Approach         5.1     59           68    107      0.6 -> 0.8   (7 of 10 runs reached)
+light    Stillwater Lagoon      2.8      7           14     19      0.6 -> 0.8
+light    Thornwood              7.0     16           23     36      0.6 -> 0.8
+light    Ironvein Caverns       6.2     34           33     72      0.6 -> 0.8
+light    Emberwaste             9.2     44           44     74      0.6 -> 0.8
+light    Amberfall Woods        7.8     52           54    100      0.6 -> 0.8
+light    Ashen Approach         9.7     59           65    114      0.6 -> 0.8
+casual   Stillwater Lagoon      3.8      6           14     20      0.6 -> 0.8
+casual   Thornwood              6.3     15           22     33      0.6 -> 0.8
+casual   Ironvein Caverns       5.8     26           31     68      0.6 -> 0.8
+casual   Emberwaste             7.9     36           41     70      0.5 -> 0.7
+casual   Amberfall Woods        8.3     46           49     87      0.6 -> 0.9
+casual   Ashen Approach        12.3     52           61    110      0.6 -> 0.8
+Where the training happens (per run hours, mean): trainings triggered by Ashen Approach run mostly two zones back in Emberwaste (light 6.6h, casual 6.8h) plus Amberfall (2.6h, 1.7h) and for casual Ironvein (2.0h); trainings triggered by Emberwaste run in Ironvein (idle 3.4h, light 3.1h, casual 0.9h) and Thornwood (2.3h, 2.5h, 3.3h).

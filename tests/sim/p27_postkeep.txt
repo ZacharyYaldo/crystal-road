@@ -1,0 +1,635 @@
+
+===== IDLE  batch_out_p27  (production 1.10, 96h)
+
+seed 51  hours 96.00  Shatters h23.21 Ironvein, h42.69 Amberfall, h54.96 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f33 Lv94
+  Hollow King 1/59 [r3/auto 1/59] loss dur med 49s HP left med 68% deaths med 4 | loss phase: 38 after skeletons (70-35%), 7 opening (before 70% summon), 13 after armored skeletons (<35%) | damage share at loss (mean): boss 92% skeletons 6% armored 0% other 2% | KEEP CLEARED run3@77.4 stall 8.5h
+  Foundry: entered run3@77.4h Lv72 pw181962 | not cleared | ordinary enc 1314 L87 (7%) 13.1h far 35 | Core 0/98 loss dur med 26s HP left med 70% summon reached 4 deaths med 4
+
+seed 52  hours 96.00  Shatters h32.56 Ironvein, h46.14 Amberfall, h58.78 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f31 Lv96
+  Hollow King 1/58 [r3/auto 1/58] loss dur med 45s HP left med 68% deaths med 4 | loss phase: 12 opening (before 70% summon), 37 after skeletons (70-35%), 8 after armored skeletons (<35%) | damage share at loss (mean): boss 93% skeletons 6% armored 0% other 1% | KEEP CLEARED run3@77.04 stall 7.3h
+  Foundry: entered run3@77.04h Lv73 pw179543 | not cleared | ordinary enc 1197 L92 (8%) 11.9h far 35 | Core 0/77 loss dur med 28s HP left med 69% summon reached 4 deaths med 4
+
+seed 53  hours 96.00  Shatters h25.29 Emberwaste, h38.14 Ashen, h50.02 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f32 Lv86
+  Hollow King 1/66 [r3/auto 1/66] loss dur med 42s HP left med 68% deaths med 4 | loss phase: 16 opening (before 70% summon), 41 after skeletons (70-35%), 8 after armored skeletons (<35%) | damage share at loss (mean): boss 94% skeletons 5% armored 0% other 1% | KEEP CLEARED run3@86.43 stall 10.3h
+  Foundry: entered run3@86.43h Lv76 pw184839 | not cleared | ordinary enc 407 L64 (16%) 4.4h far 34 | Core 0/12 loss dur med 19s HP left med 91% summon reached 0 deaths med 4
+
+seed 54  hours 96.00  Shatters h31.89 Emberwaste, h47.62 Ashen, h58.33 Ashen  zones cur/best 24h 4/4, 48h 4/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f31 Lv95
+  Hollow King 1/67 [r3/auto 1/67] loss dur med 41s HP left med 69% deaths med 4 | loss phase: 26 opening (before 70% summon), 36 after skeletons (70-35%), 4 after armored skeletons (<35%) | damage share at loss (mean): boss 94% skeletons 5% armored 0% other 1% | KEEP CLEARED run3@76.54 stall 10.7h
+  Foundry: entered run3@76.54h Lv73 pw182681 | not cleared | ordinary enc 1290 L105 (8%) 12.9h far 35 | Core 0/81 loss dur med 26s HP left med 71% summon reached 0 deaths med 4
+
+seed 55  hours 96.00  Shatters h40.58 Emberwaste, h62.18 Ashen, h69.31 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f34 Lv90
+  Hollow King 1/60 [r2/auto 0/1 r3/auto 1/59] loss dur med 46s HP left med 69% deaths med 4 | loss phase: 16 opening (before 70% summon), 35 after skeletons (70-35%), 8 after armored skeletons (<35%) | damage share at loss (mean): boss 94% skeletons 5% armored 0% other 1% | KEEP CLEARED run3@81.78 stall 15.5h
+  Foundry: entered run3@81.78h Lv70 pw184131 | not cleared | ordinary enc 1070 L80 (7%) 11.2h far 34 | Core 0/55 loss dur med 23s HP left med 88% summon reached 0 deaths med 4
+
+seed 56  hours 96.00  Shatters h32.25 Emberwaste, h47.01 Ashen, h61.29 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 Ashen Keep f36 Lv87
+  Hollow King 1/64 [r3/auto 1/64] loss dur med 44s HP left med 69% deaths med 4 | loss phase: 16 opening (before 70% summon), 35 after skeletons (70-35%), 12 after armored skeletons (<35%) | damage share at loss (mean): boss 93% skeletons 6% armored 0% other 1% | KEEP CLEARED run3@84.51 stall 10.3h
+  Foundry: entered run3@84.51h Lv73 pw180925 | not cleared | ordinary enc 423 L75 (18%) 4.4h far 33 | Core 0/8 loss dur med 19s HP left med 90% summon reached 0 deaths med 4
+
+seed 57  hours 96.00  Shatters h20.08 Emberwaste, h45.69 Ashen, h64.26 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f30 Lv94
+  Hollow King 1/52 [r2/auto 0/4 r3/auto 1/48] loss dur med 40s HP left med 70% deaths med 4 | loss phase: 22 opening (before 70% summon), 25 after skeletons (70-35%), 4 after armored skeletons (<35%) | damage share at loss (mean): boss 96% skeletons 3% armored 0% other 0% | KEEP CLEARED run3@75.12 stall 13.9h
+  Foundry: entered run3@75.12h Lv65 pw171732 | not cleared | ordinary enc 1471 L119 (8%) 15.1h far 35 | Core 0/101 loss dur med 26s HP left med 77% summon reached 6 deaths med 4
+
+seed 58  hours 96.00  Shatters h19.37 Emberwaste, h41.41 Amberfall, h54.01 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f26 Lv96
+  Hollow King 1/53 [r3/auto 1/53] loss dur med 41s HP left med 69% deaths med 4 | loss phase: 18 opening (before 70% summon), 31 after skeletons (70-35%), 3 after armored skeletons (<35%) | damage share at loss (mean): boss 95% skeletons 4% armored 0% other 0% | KEEP CLEARED run3@75.53 stall 10.7h
+  Foundry: entered run3@75.53h Lv74 pw177771 | not cleared | ordinary enc 1463 L112 (8%) 14.5h far 35 | Core 0/81 loss dur med 28s HP left med 72% summon reached 1 deaths med 4
+
+seed 59  hours 96.00  Shatters h34.61 Emberwaste, h48.14 Amberfall, h60.39 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f32 Lv94
+  Hollow King 1/54 [r3/auto 1/54] loss dur med 40s HP left med 69% deaths med 4 | loss phase: 18 opening (before 70% summon), 35 after skeletons (70-35%) | damage share at loss (mean): boss 94% skeletons 6% armored 0% other 0% | KEEP CLEARED run3@75.69 stall 10.2h
+  Foundry: entered run3@75.69h Lv70 pw178559 | not cleared | ordinary enc 1343 L108 (8%) 13.2h far 34 | Core 0/80 loss dur med 26s HP left med 75% summon reached 2 deaths med 4
+
+seed 60  hours 96.00  Shatters h16.65 Ironvein, h33.83 Ashen, h42.61 Ashen  zones cur/best 24h 4/4, 48h 7/7, 72h 8/8, 96h 8/8  final run 3 The Foundry f35 Lv103
+  Hollow King 1/63 [r3/auto 1/63] loss dur med 41s HP left med 69% deaths med 4 | loss phase: 20 opening (before 70% summon), 35 after skeletons (70-35%), 7 after armored skeletons (<35%) | damage share at loss (mean): boss 95% skeletons 4% armored 0% other 1% | KEEP CLEARED run3@69.04 stall 10.8h
+  Foundry: entered run3@69.04h Lv77 pw182037 | not cleared | ordinary enc 2091 L127 (6%) 20.2h far 35 | Core 0/173 loss dur med 29s HP left med 62% summon reached 59 deaths med 4
+
+-- idle validity: 96h reached 10/10, Shatter cap 10/10
+-- idle Hollow King: reached in 10/10 runs, cleared 10; attempts 596 wins 10 [r2/auto 0/5 r3/auto 10/591]; loss dur med 41s, HP left med 69%; stall to clear med 10.3h; loss phases: 348 after skeletons (70-35%), 171 opening (before 70% summon), 67 after armored skeletons (<35%); damage share at loss: boss 94% skeletons 5% armored 0%
+-- idle Foundry: entered 10/10 runs (entry h med 76.5), cleared 0 (hours to clear med -); ordinary loss% med 8, hours med 12.9, furthest med 35; Core attempts 766 wins 0, loss dur med 26s HP left med 72%; stall to clear med -h
+-- idle Endless: entered 0/10 runs (entry h med -, hours in zone med -); per hour in zone (median over run-hours, n=0): wins/h -, deaths/h -, gold earned/h 0.00M, spent/h 0.00M, ore/h -, +Lv/h -, training h/h -; wave by hour since entry: +1h -, +2h -, +4h -, +8h -, +12h -, +16h -, +24h -; enemy Lv at +1/+8/+16h: -/-/-; party Lv at +1/+8/+16h: -/-/-
+-- idle horizons (cur/best med): 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8; Shatters per run med 3
+
+===== LIGHT  batch_out_p27  (production 1.10, 96h)
+
+seed 51  hours 96.00  Shatters h28.12 Ironvein, h45.08 Ashen, h58.08 Ashen  zones cur/best 24h 5/5, 48h 6/7, 72h 7/7, 96h 8/8  final run 3 The Foundry f25 Lv88
+  Hollow King 1/5 [r3/act 1/3 r3/auto 0/2] loss dur med 27s HP left med 74% deaths med 4 | loss phase: 3 opening (before 70% summon), 1 after skeletons (70-35%) | damage share at loss (mean): boss 97% skeletons 3% armored 0% other 0% | KEEP CLEARED run3@75.08 stall 5.0h
+  Foundry: entered run3@75.08h Lv60 pw124747 | not cleared | ordinary enc 670 L171 (26%) 6.5h far 25 | Core 0/7 loss dur med 18s HP left med 88% summon reached 0 deaths med 4
+
+seed 52  hours 96.00  Shatters h22.55 Ironvein, h40.15 Amberfall, h58.09 Ashen  zones cur/best 24h 4/4, 48h 7/7, 72h 7/7, 96h 9/9  final run 3 The Endless Road f100 Lv97
+  Hollow King 1/5 [r3/auto 0/1 r3/act 1/4] loss dur med 20s HP left med 70% deaths med 4 | loss phase: 2 opening (before 70% summon), 2 after skeletons (70-35%) | damage share at loss (mean): boss 94% skeletons 6% armored 0% other 0% | KEEP CLEARED run3@73.06 stall 7.0h
+  Foundry: entered run3@73.06h Lv57 pw122455 | CLEARED run3@88.07h Lv84 pw358581 | ordinary enc 455 L138 (30%) 4.6h far 27 | Core 1/3 loss dur med 17s HP left med 69% summon reached 0 deaths med 4 stall 6.0h
+  Endless: entered run3 @88.07h Lv82 pw230732 (7.9h in zone) carried in: gold 3M ore 3368 | best wave 127 milestones 5
+    +1h: wave 38 (best 63) enemy Lv75 party Lv84 pw359K | wins/h 116 deaths/h 5 | gold earned/h 4.8M spent/h 4.9M ore/h 73306 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 51.6 | top spends: tree 2491K, ranks 1439K
+    +2h: wave 51 (best 63) enemy Lv77 party Lv86 pw399K | wins/h 110 deaths/h 8 | gold earned/h 5.7M spent/h 4.6M ore/h 84436 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 52.3 | top spends: ranks 2992K, tree 1658K
+    +3h: wave 65 (best 66) enemy Lv79 party Lv88 pw436K | wins/h 122 deaths/h 6 | gold earned/h 5.8M spent/h 5.9M ore/h 98598 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 53.1 | top spends: ranks 3217K, tree 2660K
+    +4h: wave 56 (best 78) enemy Lv78 party Lv90 pw477K | wins/h 112 deaths/h 8 | gold earned/h 6.4M spent/h 6.1M ore/h 103955 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 53.7 | top spends: tree 4430K, talents 960K
+    +5h: wave 66 (best 90) enemy Lv79 party Lv92 pw516K | wins/h 97 deaths/h 12 | gold earned/h 5.9M spent/h 5.2M ore/h 90056 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54.3 | top spends: tree 4889K, talents 320K
+    +6h: wave 96 (best 96) enemy Lv84 party Lv94 pw552K | wins/h 92 deaths/h 8 | gold earned/h 6.6M spent/h 5.1M ore/h 99146 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54.8 | top spends: tree 5056K, gear 95K
+    +7h: wave 109 (best 116) enemy Lv86 party Lv95 pw613K | wins/h 75 deaths/h 6 | gold earned/h 8.7M spent/h 8.3M ore/h 117865 | +Lv 1.0 train h 0.00 | gear rank 1.25 lvl 55.5 | top spends: tree 7557K, promote 720K
+    +8h: wave 100 (best 127) enemy Lv85 party Lv97 pw664K | wins/h 78 deaths/h 5 | gold earned/h 8.4M spent/h 8.5M ore/h 119092 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 56.1 | top spends: tree 7752K, promote 720K
+
+seed 53  hours 96.00  Shatters h31.14 Emberwaste, h42.14 Emberwaste, h57.1 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 7/7, 96h 8/8  final run 3 The Foundry f27 Lv85
+  Hollow King 1/6 [r3/auto 0/4 r3/act 1/2] loss dur med 19s HP left med 90% deaths med 4 | loss phase: 5 opening (before 70% summon) | damage share at loss (mean): boss 100% skeletons 0% armored 0% other 0% | KEEP CLEARED run3@78.08 stall 9.0h
+  Foundry: entered run3@78.08h Lv59 pw118945 | not cleared | ordinary enc 624 L140 (22%) 6.7h far 27 | Core 0/7 loss dur med 21s HP left med 90% summon reached 0 deaths med 4
+
+seed 54  hours 96.00  Shatters h21.08 Ironvein, h39.08 Amberfall, h54.11 Ashen  zones cur/best 24h 4/4, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f168 Lv110
+  Hollow King 1/10 [r2/auto 0/2 r3/auto 0/3 r3/act 1/5] loss dur med 17s HP left med 92% deaths med 4 | loss phase: 6 opening (before 70% summon), 2 after skeletons (70-35%), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 97% skeletons 3% armored 0% other 1% | KEEP CLEARED run3@65.07 stall 14.0h
+  Foundry: entered run3@65.07h Lv57 pw124778 | CLEARED run3@79.08h Lv83 pw350460 | ordinary enc 521 L118 (23%) 5.2h far 27 | Core 1/3 loss dur med 17s HP left med 96% summon reached 0 deaths med 4 stall 3.0h
+  Endless: entered run3 @79.08h Lv81 pw221982 (16.9h in zone) carried in: gold 2M ore 3121 | best wave 190 milestones 7
+    +1h: wave 55 (best 60) enemy Lv78 party Lv83 pw350K | wins/h 115 deaths/h 5 | gold earned/h 4.7M spent/h 4.3M ore/h 84177 | +Lv 3.0 train h 0.00 | gear rank 1.5 lvl 49.8 | top spends: ranks 2865K, castle 993K
+    +2h: wave 63 (best 68) enemy Lv79 party Lv85 pw392K | wins/h 106 deaths/h 8 | gold earned/h 5.2M spent/h 4.2M ore/h 71897 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 50.3 | top spends: tree 4149K, gear 71K
+    +3h: wave 54 (best 75) enemy Lv78 party Lv87 pw425K | wins/h 112 deaths/h 8 | gold earned/h 5.9M spent/h 7.2M ore/h 97693 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 51.1 | top spends: ranks 4533K, tree 2660K
+    +4h: wave 58 (best 75) enemy Lv78 party Lv89 pw470K | wins/h 109 deaths/h 6 | gold earned/h 6.4M spent/h 4.6M ore/h 99915 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 51.9 | top spends: tree 2398K, ranks 1575K
+    +5h: wave 84 (best 84) enemy Lv82 party Lv91 pw510K | wins/h 116 deaths/h 5 | gold earned/h 6.6M spent/h 7.6M ore/h 90186 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 52.4 | top spends: tree 6920K, talents 640K
+    +6h: wave 112 (best 118) enemy Lv86 party Lv93 pw575K | wins/h 75 deaths/h 5 | gold earned/h 8.3M spent/h 5.8M ore/h 129305 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 53.1 | top spends: tree 5056K, promote 720K
+    +7h: wave 108 (best 125) enemy Lv86 party Lv95 pw629K | wins/h 79 deaths/h 5 | gold earned/h 7.9M spent/h 8.3M ore/h 109903 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 53.9 | top spends: tree 7557K, promote 720K
+    +8h: wave 115 (best 125) enemy Lv87 party Lv96 pw675K | wins/h 86 deaths/h 4 | gold earned/h 8.4M spent/h 8.5M ore/h 96358 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 54.3 | top spends: tree 7752K, promote 720K
+    +9h: wave 100 (best 136) enemy Lv85 party Lv98 pw722K | wins/h 73 deaths/h 15 | gold earned/h 7.8M spent/h 4.3M ore/h 116508 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 55 | top spends: tree 4290K, gear 116K
+    +10h: wave 135 (best 139) enemy Lv90 party Lv99 pw758K | wins/h 85 deaths/h 10 | gold earned/h 9.1M spent/h 8.2M ore/h 118889 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 55.3 | top spends: tree 4265K, ranks 3955K
+    +11h: wave 128 (best 150) enemy Lv89 party Lv101 pw801K | wins/h 85 deaths/h 10 | gold earned/h 9.3M spent/h 12.1M ore/h 111574 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 56 | top spends: ranks 12099K, gear 119K
+    +12h: wave 152 (best 152) enemy Lv92 party Lv102 pw834K | wins/h 91 deaths/h 6 | gold earned/h 10.4M spent/h 9.6M ore/h 131173 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 56.3 | top spends: ranks 8361K, tree 1219K
+    +13h: wave 158 (best 162) enemy Lv93 party Lv104 pw877K | wins/h 73 deaths/h 15 | gold earned/h 12.2M spent/h 12.7M ore/h 130811 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 56.9 | top spends: tree 12707K, gear 120K
+    +14h: wave 153 (best 174) enemy Lv92 party Lv105 pw935K | wins/h 87 deaths/h 7 | gold earned/h 13.7M spent/h 8.9M ore/h 190490 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 57.4 | top spends: tree 8146K, promote 720K
+    +15h: wave 163 (best 174) enemy Lv94 party Lv107 pw994K | wins/h 98 deaths/h 7 | gold earned/h 14.5M spent/h 13.6M ore/h 175771 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 58 | top spends: tree 13566K, gear 172K
+    +16h: wave 164 (best 184) enemy Lv94 party Lv108 pw1041K | wins/h 83 deaths/h 11 | gold earned/h 13M spent/h 16.2M ore/h 127840 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 58.3 | top spends: tree 14972K, castle 1241K
+    +17h: wave 168 (best 190) enemy Lv95 party Lv110 pw1098K | wins/h 94 deaths/h 5 | gold earned/h 15.5M spent/h 8.1M ore/h 197264 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 59 | top spends: tree 6775K, castle 1349K
+
+seed 55  hours 96.00  Shatters h21.09 Ironvein, h35.09 Emberwaste, h49.08 Ashen  zones cur/best 24h 4/4, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f117 Lv100
+  Hollow King 1/6 [r3/act 1/4 r3/auto 0/2] loss dur med 31s HP left med 67% deaths med 4 | loss phase: 2 after skeletons (70-35%), 2 opening (before 70% summon), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 94% skeletons 6% armored 0% other 0% | KEEP CLEARED run3@70.07 stall 4.0h
+  Foundry: entered run3@70.07h Lv62 pw127263 | CLEARED run3@89.07h Lv89 pw420034 | ordinary enc 629 L162 (26%) 6.2h far 31 | Core 1/17 loss dur med 19s HP left med 90% summon reached 0 deaths med 4 stall 8.0h
+  Endless: entered run3 @89.07h Lv87 pw266499 (6.9h in zone) carried in: gold 3M ore 6809 | best wave 124 milestones 4
+    +1h: wave 60 (best 63) enemy Lv79 party Lv89 pw420K | wins/h 127 deaths/h 4 | gold earned/h 5.5M spent/h 5.6M ore/h 109312 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 52 | top spends: tree 2205K, ranks 1538K
+    +2h: wave 62 (best 74) enemy Lv79 party Lv91 pw471K | wins/h 118 deaths/h 7 | gold earned/h 6.3M spent/h 5.8M ore/h 106245 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 52.8 | top spends: ranks 3276K, tree 1857K
+    +3h: wave 62 (best 81) enemy Lv79 party Lv93 pw525K | wins/h 101 deaths/h 8 | gold earned/h 6.5M spent/h 5.6M ore/h 105546 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 53.5 | top spends: tree 3141K, ranks 1743K
+    +4h: wave 100 (best 114) enemy Lv85 party Lv94 pw576K | wins/h 99 deaths/h 5 | gold earned/h 7.9M spent/h 5.8M ore/h 128029 | +Lv 1.0 train h 0.00 | gear rank 1.42 lvl 54.2 | top spends: tree 5775K, gear 128K
+    +5h: wave 108 (best 118) enemy Lv86 party Lv96 pw639K | wins/h 72 deaths/h 7 | gold earned/h 7.7M spent/h 7.2M ore/h 105360 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 54.7 | top spends: tree 6503K, promote 720K
+    +6h: wave 104 (best 124) enemy Lv85 party Lv98 pw694K | wins/h 81 deaths/h 5 | gold earned/h 8.5M spent/h 8.6M ore/h 134248 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 55.4 | top spends: tree 7905K, promote 720K
+    +7h: wave 117 (best 124) enemy Lv87 party Lv100 pw754K | wins/h 95 deaths/h 4 | gold earned/h 10.2M spent/h 8.4M ore/h 165064 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 56 | top spends: tree 7655K, promote 720K
+
+seed 56  hours 96.00  Shatters h28.09 Ironvein, h52.07 Ashen, h64.09 Ashen  zones cur/best 24h 5/5, 48h 7/7, 72h 7/7, 96h 9/9  final run 3 The Endless Road f119 Lv96
+  Hollow King 1/10 [r3/auto 0/8 r3/act 1/2] loss dur med 34s HP left med 75% deaths med 4 | loss phase: 7 opening (before 70% summon), 1 after armored skeletons (<35%), 1 after skeletons (70-35%) | damage share at loss (mean): boss 98% skeletons 2% armored 0% other 0% | KEEP CLEARED run3@73.07 stall 6.0h
+  Foundry: entered run3@73.08h Lv59 pw143516 | CLEARED run3@90.06h Lv87 pw421352 | ordinary enc 768 L138 (18%) 8.0h far 29 | Core 1/20 loss dur med 21s HP left med 88% summon reached 0 deaths med 4 stall 8.0h
+  Endless: entered run3 @90.06h Lv85 pw264249 (5.9h in zone) carried in: gold 2M ore 3622 | best wave 133 milestones 5
+    +1h: wave 52 (best 63) enemy Lv77 party Lv87 pw421K | wins/h 114 deaths/h 4 | gold earned/h 6.4M spent/h 4.8M ore/h 127753 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 54 | top spends: tree 1857K, ranks 1709K
+    +2h: wave 50 (best 69) enemy Lv77 party Lv89 pw474K | wins/h 108 deaths/h 8 | gold earned/h 7.2M spent/h 6.1M ore/h 112011 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 54.8 | top spends: tree 4374K, ranks 1709K
+    +3h: wave 64 (best 75) enemy Lv79 party Lv91 pw529K | wins/h 116 deaths/h 5 | gold earned/h 7.8M spent/h 7.3M ore/h 126139 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 55.6 | top spends: tree 5299K, talents 1280K
+    +4h: wave 80 (best 97) enemy Lv82 party Lv93 pw565K | wins/h 96 deaths/h 4 | gold earned/h 7.7M spent/h 6.5M ore/h 116802 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 56.1 | top spends: tree 6541K, gear 113K
+    +5h: wave 119 (best 122) enemy Lv87 party Lv95 pw626K | wins/h 78 deaths/h 3 | gold earned/h 9.8M spent/h 8.8M ore/h 114843 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 56.7 | top spends: tree 8056K, promote 720K
+    +6h: wave 119 (best 133) enemy Lv87 party Lv96 pw690K | wins/h 79 deaths/h 5 | gold earned/h 9.6M spent/h 12.1M ore/h 145270 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 57.3 | top spends: tree 12110K, gear 147K
+
+seed 57  hours 96.00  Shatters h24.11 Emberwaste, h29.08 Emberwaste, h39.09 Ashen  zones cur/best 24h 4/4, 48h 6/6, 72h 8/8, 96h 9/9  final run 3 The Endless Road f107 Lv100
+  Hollow King 1/8 [r3/auto 0/4 r3/act 1/4] loss dur med 28s HP left med 85% deaths med 4 | loss phase: 5 opening (before 70% summon), 1 after skeletons (70-35%), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 96% skeletons 4% armored 0% other 0% | KEEP CLEARED run3@68.08 stall 8.0h
+  Foundry: entered run3@68.08h Lv70 pw124172 | CLEARED run3@89.05h Lv92 pw390453 | ordinary enc 781 L165 (21%) 7.7h far 29 | Core 1/8 loss dur med 23s HP left med 83% summon reached 1 deaths med 4 stall 3.0h
+  Endless: entered run3 @89.05h Lv91 pw247595 (6.9h in zone) carried in: gold 3M ore 4444 | best wave 127 milestones 5
+    +1h: wave 69 (best 69) enemy Lv80 party Lv92 pw390K | wins/h 115 deaths/h 4 | gold earned/h 4.7M spent/h 5.2M ore/h 98518 | +Lv 1.0 train h 0.00 | gear rank 0.58 lvl 57.5 | top spends: tree 2851K, ranks 1580K
+    +2h: wave 68 (best 85) enemy Lv80 party Lv94 pw434K | wins/h 103 deaths/h 8 | gold earned/h 5.7M spent/h 4.8M ore/h 78625 | +Lv 2.0 train h 0.00 | gear rank 0.58 lvl 58.3 | top spends: ranks 4826K, gear 80K
+    +3h: wave 85 (best 85) enemy Lv82 party Lv95 pw463K | wins/h 89 deaths/h 9 | gold earned/h 5.3M spent/h 5.5M ore/h 82446 | +Lv 1.0 train h 0.00 | gear rank 0.58 lvl 58.5 | top spends: tree 3888K, ranks 1609K
+    +4h: wave 77 (best 98) enemy Lv81 party Lv96 pw504K | wins/h 90 deaths/h 13 | gold earned/h 5.8M spent/h 4.3M ore/h 92196 | +Lv 1.0 train h 0.00 | gear rank 0.58 lvl 59.3 | top spends: tree 4320K, gear 91K
+    +5h: wave 75 (best 98) enemy Lv81 party Lv98 pw532K | wins/h 85 deaths/h 11 | gold earned/h 6.6M spent/h 8M ore/h 103075 | +Lv 2.0 train h 0.00 | gear rank 0.58 lvl 59.6 | top spends: tree 7958K, gear 103K
+    +6h: wave 91 (best 113) enemy Lv83 party Lv99 pw581K | wins/h 79 deaths/h 7 | gold earned/h 8.3M spent/h 7.9M ore/h 98372 | +Lv 1.0 train h 0.00 | gear rank 0.58 lvl 60.3 | top spends: tree 7905K, gear 104K
+    +7h: wave 107 (best 127) enemy Lv86 party Lv100 pw615K | wins/h 81 deaths/h 5 | gold earned/h 7.9M spent/h 5.2M ore/h 102184 | +Lv 1.0 train h 0.00 | gear rank 0.58 lvl 60.5 | top spends: tree 4502K, promote 720K
+
+seed 58  hours 96.00  Shatters h32.32 Emberwaste, h50.07 Ashen, h58.1 Ashen  zones cur/best 24h 4/4, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f150 Lv109
+  Hollow King 1/7 [r2/auto 0/2 r3/act 1/5] loss dur med 21s HP left med 76% deaths med 4 | loss phase: 5 opening (before 70% summon), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 97% skeletons 2% armored 0% other 1% | KEEP CLEARED run3@67.05 stall 11.9h
+  Foundry: entered run3@67.05h Lv55 pw126159 | CLEARED run3@84.07h Lv89 pw429720 | ordinary enc 741 L186 (25%) 6.5h far 33 | Core 1/7 loss dur med 15s HP left med 84% summon reached 1 deaths med 4 stall 7.0h
+  Endless: entered run3 @84.07h Lv87 pw267219 (11.9h in zone) carried in: gold 4M ore 6137 | best wave 188 milestones 7
+    +1h: wave 61 (best 61) enemy Lv79 party Lv89 pw430K | wins/h 142 deaths/h 6 | gold earned/h 7.8M spent/h 8.3M ore/h 114194 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 57.3 | top spends: tree 6171K, ranks 1508K
+    +2h: wave 63 (best 85) enemy Lv79 party Lv91 pw496K | wins/h 122 deaths/h 11 | gold earned/h 7.9M spent/h 5.9M ore/h 144411 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 58.1 | top spends: tree 4889K, promote 720K
+    +3h: wave 83 (best 97) enemy Lv82 party Lv93 pw537K | wins/h 121 deaths/h 7 | gold earned/h 8.9M spent/h 8.3M ore/h 119877 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 58.6 | top spends: tree 7958K, talents 320K
+    +4h: wave 103 (best 117) enemy Lv85 party Lv95 pw623K | wins/h 85 deaths/h 7 | gold earned/h 11.1M spent/h 10.3M ore/h 179071 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 59.5 | top spends: tree 8852K, promote 1440K
+    +5h: wave 118 (best 127) enemy Lv87 party Lv97 pw689K | wins/h 97 deaths/h 6 | gold earned/h 11.9M spent/h 12.1M ore/h 176313 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 60.3 | top spends: tree 12110K, gear 181K
+    +6h: wave 100 (best 137) enemy Lv85 party Lv99 pw740K | wins/h 98 deaths/h 11 | gold earned/h 11.9M spent/h 12.4M ore/h 151287 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 60.9 | top spends: ranks 11669K, promote 720K
+    +7h: wave 128 (best 141) enemy Lv89 party Lv101 pw786K | wins/h 92 deaths/h 14 | gold earned/h 12.1M spent/h 8M ore/h 152474 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 61.5 | top spends: ranks 8043K, gear 150K
+    +8h: wave 126 (best 158) enemy Lv88 party Lv102 pw838K | wins/h 101 deaths/h 10 | gold earned/h 13.6M spent/h 12.9M ore/h 198006 | +Lv 1.0 train h 0.00 | gear rank 0.75 lvl 62.3 | top spends: tree 8848K, ranks 4089K
+    +9h: wave 130 (best 158) enemy Lv89 party Lv104 pw871K | wins/h 114 deaths/h 9 | gold earned/h 14.7M spent/h 13.2M ore/h 168170 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 62.5 | top spends: tree 13224K, gear 155K
+    +10h: wave 145 (best 162) enemy Lv91 party Lv106 pw964K | wins/h 101 deaths/h 13 | gold earned/h 15.3M spent/h 13.6M ore/h 242637 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 63.4 | top spends: tree 13566K, gear 254K
+    +11h: wave 166 (best 180) enemy Lv94 party Lv108 pw1022K | wins/h 113 deaths/h 8 | gold earned/h 19.3M spent/h 17.1M ore/h 270377 | +Lv 2.0 train h 0.00 | gear rank 0.75 lvl 64.1 | top spends: tree 17105K, gear 254K
+    +12h: wave 150 (best 188) enemy Lv92 party Lv109 pw1100K | wins/h 98 deaths/h 11 | gold earned/h 20.2M spent/h 22.2M ore/h 302818 | +Lv 1.0 train h 0.00 | gear rank 0.75 lvl 64.8 | top spends: tree 22237K, gear 321K
+
+seed 59  hours 96.00  Shatters h16.16 Thornwood, h50.08 Ashen, h62.08 Ashen  zones cur/best 24h 5/5, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f127 Lv104
+  Hollow King 1/9 [r2/act 0/2 r2/auto 0/1 r3/act 1/4 r3/auto 0/2] loss dur med 12s HP left med 84% deaths med 4 | loss phase: 6 opening (before 70% summon), 2 after skeletons (70-35%) | damage share at loss (mean): boss 96% skeletons 4% armored 0% other 0% | KEEP CLEARED run3@69.07 stall 10.0h
+  Foundry: entered run3@69.07h Lv54 pw126846 | CLEARED run3@86.04h Lv86 pw408445 | ordinary enc 806 L169 (21%) 7.7h far 30 | Core 1/12 loss dur med 13s HP left med 92% summon reached 1 deaths med 4 stall 7.0h
+  Endless: entered run3 @86.04h Lv84 pw253585 (10.0h in zone) carried in: gold 3M ore 2012 | best wave 161 milestones 6
+    +1h: wave 58 (best 60) enemy Lv78 party Lv86 pw408K | wins/h 119 deaths/h 5 | gold earned/h 5.5M spent/h 5.6M ore/h 97348 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 52.5 | top spends: ranks 2992K, tree 2577K
+    +2h: wave 60 (best 79) enemy Lv79 party Lv88 pw454K | wins/h 105 deaths/h 8 | gold earned/h 6.1M spent/h 4.9M ore/h 114191 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 53.3 | top spends: ranks 3150K, tree 1741K
+    +3h: wave 55 (best 79) enemy Lv78 party Lv90 pw513K | wins/h 119 deaths/h 8 | gold earned/h 8.9M spent/h 7.9M ore/h 143947 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54.3 | top spends: tree 6231K, talents 960K
+    +4h: wave 100 (best 107) enemy Lv85 party Lv92 pw589K | wins/h 94 deaths/h 9 | gold earned/h 8.1M spent/h 9.2M ore/h 111933 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54.8 | top spends: tree 8143K, promote 720K
+    +5h: wave 118 (best 122) enemy Lv87 party Lv94 pw646K | wins/h 89 deaths/h 5 | gold earned/h 9.3M spent/h 8.3M ore/h 130685 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 55.5 | top spends: tree 7557K, promote 720K
+    +6h: wave 103 (best 136) enemy Lv85 party Lv96 pw705K | wins/h 94 deaths/h 6 | gold earned/h 10.1M spent/h 8.5M ore/h 135570 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 56.3 | top spends: tree 7752K, promote 720K
+    +7h: wave 111 (best 136) enemy Lv86 party Lv98 pw753K | wins/h 98 deaths/h 4 | gold earned/h 10.4M spent/h 8.6M ore/h 137039 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 56.8 | top spends: tree 8556K, gear 135K
+    +8h: wave 132 (best 143) enemy Lv89 party Lv100 pw809K | wins/h 97 deaths/h 8 | gold earned/h 10.3M spent/h 12M ore/h 162808 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 57.5 | top spends: ranks 11998K, gear 172K
+    +9h: wave 142 (best 147) enemy Lv91 party Lv102 pw858K | wins/h 104 deaths/h 7 | gold earned/h 12M spent/h 9.7M ore/h 184371 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 58.3 | top spends: ranks 8443K, tree 1219K
+    +10h: wave 127 (best 161) enemy Lv89 party Lv104 pw923K | wins/h 97 deaths/h 10 | gold earned/h 13.7M spent/h 12M ore/h 213249 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 58.9 | top spends: tree 7629K, ranks 4387K
+
+seed 60  hours 96.00  Shatters h31.08 Emberwaste, h46.06 Ashen, h54.09 Ashen  zones cur/best 24h 5/5, 48h 6/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f211 Lv112
+  Hollow King 1/4 [r3/auto 0/3 r3/act 1/1] loss dur med 18s HP left med 90% deaths med 4 | loss phase: 3 opening (before 70% summon) | damage share at loss (mean): boss 100% skeletons 0% armored 0% other 0% | KEEP CLEARED run3@63.08 stall 3.0h
+  Foundry: entered run3@63.08h Lv52 pw119415 | CLEARED run3@80.04h Lv86 pw414415 | ordinary enc 797 L156 (20%) 7.9h far 32 | Core 1/12 loss dur med 21s HP left med 89% summon reached 0 deaths med 4 stall 6.0h
+  Endless: entered run3 @80.04h Lv83 pw260436 (16.0h in zone) carried in: gold 4M ore 1990 | best wave 212 milestones 8
+    +1h: wave 55 (best 61) enemy Lv78 party Lv86 pw414K | wins/h 114 deaths/h 4 | gold earned/h 6.5M spent/h 6.4M ore/h 105782 | +Lv 3.0 train h 0.00 | gear rank 1.42 lvl 51.8 | top spends: tree 3410K, ranks 2921K
+    +2h: wave 65 (best 75) enemy Lv79 party Lv88 pw460K | wins/h 109 deaths/h 7 | gold earned/h 6M spent/h 6.4M ore/h 105454 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 52.5 | top spends: tree 3399K, ranks 3034K
+    +3h: wave 75 (best 82) enemy Lv81 party Lv90 pw510K | wins/h 105 deaths/h 9 | gold earned/h 6.2M spent/h 6M ore/h 116871 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 53.4 | top spends: ranks 3485K, tree 1857K
+    +4h: wave 93 (best 93) enemy Lv83 party Lv92 pw565K | wins/h 105 deaths/h 6 | gold earned/h 7M spent/h 5.7M ore/h 125054 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 54.1 | top spends: tree 4374K, promote 720K
+    +5h: wave 100 (best 121) enemy Lv85 party Lv94 pw621K | wins/h 79 deaths/h 4 | gold earned/h 9.5M spent/h 8.9M ore/h 121453 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 54.5 | top spends: tree 8143K, promote 720K
+    +6h: wave 116 (best 121) enemy Lv87 party Lv96 pw675K | wins/h 82 deaths/h 4 | gold earned/h 8.6M spent/h 7.6M ore/h 112460 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 55.3 | top spends: tree 7557K, gear 116K
+    +7h: wave 127 (best 137) enemy Lv89 party Lv97 pw737K | wins/h 75 deaths/h 12 | gold earned/h 8.5M spent/h 8.5M ore/h 143002 | +Lv 1.0 train h 0.00 | gear rank 1.42 lvl 55.8 | top spends: tree 7752K, promote 720K
+    +8h: wave 125 (best 139) enemy Lv88 party Lv99 pw788K | wins/h 86 deaths/h 9 | gold earned/h 9.6M spent/h 8.6M ore/h 154002 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 56.5 | top spends: tree 8556K, gear 145K
+    +9h: wave 127 (best 150) enemy Lv89 party Lv101 pw834K | wins/h 85 deaths/h 8 | gold earned/h 10.2M spent/h 8M ore/h 142986 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 57.1 | top spends: ranks 7976K, gear 147K
+    +10h: wave 140 (best 150) enemy Lv91 party Lv102 pw879K | wins/h 94 deaths/h 6 | gold earned/h 10.9M spent/h 10.7M ore/h 180913 | +Lv 1.0 train h 0.00 | gear rank 1.42 lvl 57.6 | top spends: ranks 8144K, tree 2545K
+    +11h: wave 152 (best 168) enemy Lv92 party Lv104 pw954K | wins/h 88 deaths/h 7 | gold earned/h 12.8M spent/h 11.5M ore/h 196832 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 58.4 | top spends: tree 6303K, ranks 4470K
+    +12h: wave 173 (best 173) enemy Lv95 party Lv105 pw1020K | wins/h 97 deaths/h 7 | gold earned/h 14.3M spent/h 17.8M ore/h 232618 | +Lv 1.0 train h 0.00 | gear rank 1.42 lvl 59.1 | top spends: tree 13224K, ranks 4553K
+    +13h: wave 168 (best 189) enemy Lv95 party Lv107 pw1078K | wins/h 94 deaths/h 7 | gold earned/h 16.1M spent/h 13.6M ore/h 215114 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 59.5 | top spends: tree 13566K, gear 196K
+    +14h: wave 189 (best 196) enemy Lv98 party Lv109 pw1144K | wins/h 86 deaths/h 6 | gold earned/h 15.5M spent/h 16.2M ore/h 197553 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 60.1 | top spends: tree 14972K, castle 1241K
+    +15h: wave 185 (best 212) enemy Lv97 party Lv110 pw1228K | wins/h 70 deaths/h 7 | gold earned/h 20.1M spent/h 16.8M ore/h 256983 | +Lv 1.0 train h 0.00 | gear rank 1.42 lvl 60.6 | top spends: tree 15484K, castle 1349K
+    +16h: wave 211 (best 212) enemy Lv101 party Lv112 pw1341K | wins/h 75 deaths/h 5 | gold earned/h 18.7M spent/h 11.3M ore/h 292487 | +Lv 2.0 train h 0.00 | gear rank 1.42 lvl 61.5 | top spends: tree 11324K, gear 305K
+
+-- light validity: 96h reached 10/10, Shatter cap 10/10
+-- light Hollow King: reached in 10/10 runs, cleared 10; attempts 70 wins 10 [r2/act 0/2 r2/auto 0/5 r3/act 10/34 r3/auto 0/29]; loss dur med 20s, HP left med 76%; stall to clear med 7.0h; loss phases: 44 opening (before 70% summon), 11 after skeletons (70-35%), 5 after armored skeletons (<35%); damage share at loss: boss 97% skeletons 3% armored 0%
+-- light Foundry: entered 10/10 runs (entry h med 69.1), cleared 8 (hours to clear med 17.0); ordinary loss% med 22, hours med 6.5, furthest med 29; Core attempts 96 wins 8, loss dur med 18s HP left med 88%; stall to clear med 6.0h
+-- light Endless: entered 8/10 runs (entry h med 86.0, hours in zone med 7.9); per hour in zone (median over run-hours, n=83): wins/h 97, deaths/h 7, gold earned/h 8.51M, spent/h 8.24M, ore/h 121453, +Lv/h 2.00, training h/h 0.00; wave by hour since entry: +1h 55, +2h 62, +4h 80, +8h 125, +12h 152, +16h 164, +24h -; enemy Lv at +1/+8/+16h: 78/88/94; party Lv at +1/+8/+16h: 86/99/108
+-- light horizons (cur/best med): 24h 4/4, 48h 7/7, 72h 8/8, 96h 9/9; Shatters per run med 3
+
+===== CASUAL  batch_out_p27  (production 1.10, 96h)
+
+seed 51  hours 96.00  Shatters h24.17 Ironvein, h31.08 Emberwaste, h41.16 Amberfall  zones cur/best 24h 5/5, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f101 Lv97
+  Hollow King 1/8 [r3/act 1/8] loss dur med 22s HP left med 80% deaths med 4 | loss phase: 6 opening (before 70% summon), 1 after skeletons (70-35%) | damage share at loss (mean): boss 99% skeletons 1% armored 0% other 0% | KEEP CLEARED run3@67.13 stall 10.0h
+  Foundry: entered run3@67.13h Lv58 pw92893 | CLEARED run3@91.08h Lv90 pw357126 | ordinary enc 433 L169 (39%) 4.2h far 24 | Core 1/2 loss dur med 12s HP left med 97% summon reached 0 deaths med 4 stall 0.2h
+  Endless: entered run3 @91.08h Lv88 pw230017 (4.9h in zone) carried in: gold 4M ore 4971 | best wave 116 milestones 4
+    +1h: wave 52 (best 62) enemy Lv77 party Lv90 pw357K | wins/h 120 deaths/h 7 | gold earned/h 5.5M spent/h 5.7M ore/h 85425 | +Lv 2.0 train h 0.00 | gear rank 0.67 lvl 56.2 | top spends: ranks 3094K, tree 1658K
+    +2h: wave 55 (best 77) enemy Lv78 party Lv92 pw399K | wins/h 107 deaths/h 9 | gold earned/h 6.2M spent/h 7.1M ore/h 100913 | +Lv 2.0 train h 0.00 | gear rank 0.67 lvl 57 | top spends: tree 3598K, ranks 3142K
+    +3h: wave 59 (best 82) enemy Lv78 party Lv94 pw450K | wins/h 113 deaths/h 7 | gold earned/h 6.9M spent/h 4.6M ore/h 126519 | +Lv 2.0 train h 0.00 | gear rank 0.67 lvl 57.9 | top spends: tree 3914K, promote 720K
+    +4h: wave 75 (best 88) enemy Lv81 party Lv95 pw493K | wins/h 102 deaths/h 8 | gold earned/h 6.5M spent/h 7.5M ore/h 118410 | +Lv 1.0 train h 0.00 | gear rank 0.67 lvl 58.5 | top spends: tree 7493K, gear 114K
+    +5h: wave 101 (best 116) enemy Lv85 party Lv97 pw546K | wins/h 78 deaths/h 7 | gold earned/h 8.6M spent/h 9M ore/h 100649 | +Lv 2.0 train h 0.00 | gear rank 0.67 lvl 59 | top spends: tree 7557K, promote 1440K
+
+seed 52  hours 96.00  Shatters h18.05 Emberwaste, h46.12 Ashen, h57.11 Ashen  zones cur/best 24h 5/5, 48h 6/7, 72h 7/7, 96h 8/8  final run 3 Ashen Keep f36 Lv85
+  Hollow King 1/15 [r3/act 1/15] loss dur med 33s HP left med 66% deaths med 4 | loss phase: 7 opening (before 70% summon), 4 after skeletons (70-35%), 3 after armored skeletons (<35%) | damage share at loss (mean): boss 93% skeletons 6% armored 0% other 1% | KEEP CLEARED run3@76.09 stall 13.9h
+  Foundry: entered run3@76.09h Lv58 pw102855 | not cleared | ordinary enc 494 L152 (31%) 5.2h far 26 | Core 0/3 loss dur med 20s HP left med 81% summon reached 0 deaths med 4
+
+seed 53  hours 96.00  Shatters h31.17 Emberwaste, h43.14 Ashen, h50.16 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f226 Lv119
+  Hollow King 1/7 [r3/act 1/6 r3/auto 0/1] loss dur med 25s HP left med 67% deaths med 4 | loss phase: 3 opening (before 70% summon), 3 after skeletons (70-35%) | damage share at loss (mean): boss 94% skeletons 6% armored 0% other 0% | KEEP CLEARED run3@60.14 stall 4.0h
+  Foundry: entered run3@60.14h Lv52 pw102389 | CLEARED run3@76.03h Lv85 pw370043 | ordinary enc 484 L147 (30%) 4.6h far 32 | Core 1/8 loss dur med 20s HP left med 88% summon reached 0 deaths med 4 stall 4.9h
+  Endless: entered run3 @76.03h Lv82 pw229621 (20.0h in zone) carried in: gold 2M ore 2647 | best wave 247 milestones 9
+    +1h: wave 60 (best 68) enemy Lv79 party Lv85 pw370K | wins/h 130 deaths/h 4 | gold earned/h 6.5M spent/h 6.6M ore/h 91550 | +Lv 3.0 train h 0.00 | gear rank 1.17 lvl 52.5 | top spends: ranks 4403K, tree 2089K
+    +2h: wave 63 (best 72) enemy Lv79 party Lv87 pw430K | wins/h 116 deaths/h 9 | gold earned/h 7.8M spent/h 5.8M ore/h 148319 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 53.7 | top spends: tree 5797K, gear 146K
+    +3h: wave 50 (best 91) enemy Lv77 party Lv89 pw482K | wins/h 117 deaths/h 7 | gold earned/h 8.2M spent/h 7.6M ore/h 138977 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 54.6 | top spends: tree 6920K, talents 640K
+    +4h: wave 88 (best 91) enemy Lv83 party Lv91 pw528K | wins/h 101 deaths/h 11 | gold earned/h 7.6M spent/h 8.6M ore/h 111714 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 55.2 | top spends: tree 7958K, talents 640K
+    +5h: wave 103 (best 120) enemy Lv85 party Lv93 pw600K | wins/h 84 deaths/h 5 | gold earned/h 12.6M spent/h 8.9M ore/h 180291 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 56.1 | top spends: tree 8852K, gear 174K
+    +6h: wave 116 (best 130) enemy Lv87 party Lv96 pw673K | wins/h 93 deaths/h 5 | gold earned/h 12.3M spent/h 12.8M ore/h 169903 | +Lv 3.0 train h 0.00 | gear rank 1.17 lvl 56.9 | top spends: tree 12110K, promote 730K
+    +7h: wave 143 (best 144) enemy Lv91 party Lv98 pw720K | wins/h 96 deaths/h 5 | gold earned/h 13.2M spent/h 11.7M ore/h 174347 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 57.7 | top spends: ranks 11696K, gear 181K
+    +8h: wave 134 (best 172) enemy Lv90 party Lv99 pw785K | wins/h 90 deaths/h 14 | gold earned/h 13.7M spent/h 13.4M ore/h 211023 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 58.6 | top spends: ranks 12233K, tree 1219K
+    +9h: wave 150 (best 172) enemy Lv92 party Lv101 pw850K | wins/h 96 deaths/h 7 | gold earned/h 15.6M spent/h 13.4M ore/h 217524 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 59.3 | top spends: tree 12707K, promote 720K
+    +10h: wave 166 (best 182) enemy Lv94 party Lv103 pw914K | wins/h 95 deaths/h 8 | gold earned/h 17M spent/h 15.5M ore/h 227781 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 59.9 | top spends: tree 15492K, gear 223K
+    +11h: wave 162 (best 195) enemy Lv94 party Lv105 pw988K | wins/h 99 deaths/h 9 | gold earned/h 18.4M spent/h 15M ore/h 216502 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 60.7 | top spends: tree 13728K, castle 1241K
+    +12h: wave 167 (best 195) enemy Lv95 party Lv107 pw1055K | wins/h 98 deaths/h 6 | gold earned/h 19.5M spent/h 24.3M ore/h 243227 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 61.3 | top spends: tree 22948K, castle 1349K
+    +13h: wave 188 (best 196) enemy Lv98 party Lv108 pw1134K | wins/h 93 deaths/h 8 | gold earned/h 20M spent/h 11.3M ore/h 270873 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 61.9 | top spends: tree 11324K, gear 267K
+    +14h: wave 190 (best 222) enemy Lv98 party Lv110 pw1219K | wins/h 90 deaths/h 5 | gold earned/h 26.2M spent/h 24.2M ore/h 280982 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 62.7 | top spends: tree 21771K, castle 1688K
+    +15h: wave 208 (best 222) enemy Lv101 party Lv112 pw1313K | wins/h 96 deaths/h 4 | gold earned/h 24.2M spent/h 19.7M ore/h 321076 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 63.3 | top spends: tree 16834K, castle 2109K
+    +16h: wave 205 (best 233) enemy Lv100 party Lv114 pw1382K | wins/h 77 deaths/h 7 | gold earned/h 25.9M spent/h 25M ore/h 229273 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 63.7 | top spends: ranks 21771K, tree 3199K
+    +17h: wave 214 (best 233) enemy Lv102 party Lv115 pw1461K | wins/h 90 deaths/h 5 | gold earned/h 28.4M spent/h 33.3M ore/h 290032 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 64.3 | top spends: ranks 33340K, gear 273K
+    +18h: wave 211 (best 242) enemy Lv101 party Lv117 pw1598K | wins/h 81 deaths/h 8 | gold earned/h 26.4M spent/h 31.2M ore/h 359909 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 64.8 | top spends: tree 19956K, ranks 11258K
+    +19h: wave 231 (best 245) enemy Lv104 party Lv118 pw1675K | wins/h 80 deaths/h 5 | gold earned/h 27.5M spent/h 14.3M ore/h 356614 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 65.4 | top spends: tree 11857K, castle 2429K
+    +20h: wave 226 (best 247) enemy Lv103 party Lv119 pw1780K | wins/h 78 deaths/h 5 | gold earned/h 31.7M spent/h 30.8M ore/h 350469 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 65.9 | top spends: tree 30791K, gear 339K
+
+seed 54  hours 96.00  Shatters h25.13 Ironvein, h32.2 Emberwaste, h46.12 Ashen  zones cur/best 24h 5/5, 48h 6/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f189 Lv110
+  Hollow King 1/14 [r3/act 1/12 r3/auto 0/2] loss dur med 24s HP left med 80% deaths med 4 | loss phase: 10 opening (before 70% summon), 2 after armored skeletons (<35%), 1 after skeletons (70-35%) | damage share at loss (mean): boss 96% skeletons 4% armored 0% other 0% | KEEP CLEARED run3@64.03 stall 12.9h
+  Foundry: entered run3@64.03h Lv57 pw100775 | CLEARED run3@80.13h Lv83 pw327203 | ordinary enc 408 L134 (33%) 4.3h far 31 | Core 1/4 loss dur med 26s HP left med 80% summon reached 0 deaths med 4 stall 4.0h
+  Endless: entered run3 @80.13h Lv81 pw211108 (15.9h in zone) carried in: gold 2M ore 1869 | best wave 198 milestones 7
+    +1h: wave 27 (best 61) enemy Lv74 party Lv83 pw327K | wins/h 98 deaths/h 6 | gold earned/h 5.3M spent/h 4.5M ore/h 98716 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 53 | top spends: tree 1785K, ranks 1439K
+    +2h: wave 61 (best 66) enemy Lv79 party Lv86 pw377K | wins/h 106 deaths/h 7 | gold earned/h 5.9M spent/h 6.2M ore/h 112119 | +Lv 3.0 train h 0.00 | gear rank 1 lvl 54 | top spends: tree 3283K, ranks 2963K
+    +3h: wave 60 (best 84) enemy Lv79 party Lv88 pw411K | wins/h 105 deaths/h 8 | gold earned/h 6M spent/h 6.4M ore/h 98652 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 54.7 | top spends: ranks 4646K, tree 1741K
+    +4h: wave 81 (best 87) enemy Lv82 party Lv90 pw453K | wins/h 99 deaths/h 8 | gold earned/h 6.1M spent/h 5.1M ore/h 96933 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 55.4 | top spends: tree 4430K, talents 640K
+    +5h: wave 90 (best 106) enemy Lv83 party Lv91 pw488K | wins/h 97 deaths/h 10 | gold earned/h 7.9M spent/h 5.5M ore/h 109711 | +Lv 1.0 train h 0.00 | gear rank 1 lvl 56 | top spends: tree 4889K, talents 640K
+    +6h: wave 113 (best 120) enemy Lv86 party Lv93 pw552K | wins/h 79 deaths/h 5 | gold earned/h 8.3M spent/h 8.7M ore/h 128461 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 56.8 | top spends: tree 7958K, promote 720K
+    +7h: wave 123 (best 136) enemy Lv88 party Lv95 pw595K | wins/h 70 deaths/h 4 | gold earned/h 9.5M spent/h 8.6M ore/h 120512 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 57.4 | top spends: tree 7905K, promote 720K
+    +8h: wave 109 (best 149) enemy Lv86 party Lv97 pw643K | wins/h 84 deaths/h 8 | gold earned/h 9.1M spent/h 7.3M ore/h 114744 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 58 | top spends: tree 6541K, promote 720K
+    +9h: wave 127 (best 149) enemy Lv89 party Lv98 pw690K | wins/h 88 deaths/h 5 | gold earned/h 12.9M spent/h 14.4M ore/h 160531 | +Lv 1.0 train h 0.00 | gear rank 1 lvl 58.7 | top spends: ranks 7876K, tree 6516K
+    +10h: wave 128 (best 153) enemy Lv89 party Lv100 pw737K | wins/h 85 deaths/h 7 | gold earned/h 11.1M spent/h 8M ore/h 171058 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 59.3 | top spends: ranks 8010K, gear 179K
+    +11h: wave 129 (best 153) enemy Lv89 party Lv102 pw784K | wins/h 85 deaths/h 9 | gold earned/h 11.4M spent/h 13.3M ore/h 169461 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 60 | top spends: tree 8848K, ranks 4470K
+    +12h: wave 130 (best 161) enemy Lv89 party Lv103 pw838K | wins/h 92 deaths/h 8 | gold earned/h 12.1M spent/h 9.5M ore/h 187934 | +Lv 1.0 train h 0.00 | gear rank 1 lvl 60.7 | top spends: tree 5078K, ranks 4470K
+    +13h: wave 175 (best 175) enemy Lv96 party Lv105 pw886K | wins/h 92 deaths/h 4 | gold earned/h 13.9M spent/h 14.6M ore/h 208214 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 61.2 | top spends: tree 13833K, promote 720K
+    +14h: wave 164 (best 198) enemy Lv94 party Lv107 pw946K | wins/h 85 deaths/h 9 | gold earned/h 15.7M spent/h 11.4M ore/h 191732 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 61.8 | top spends: tree 11447K, gear 195K
+    +15h: wave 175 (best 198) enemy Lv96 party Lv109 pw1010K | wins/h 94 deaths/h 7 | gold earned/h 16.1M spent/h 12.8M ore/h 239434 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 62.4 | top spends: tree 11403K, castle 1349K
+    +16h: wave 189 (best 198) enemy Lv98 party Lv110 pw1071K | wins/h 96 deaths/h 5 | gold earned/h 17.4M spent/h 15.5M ore/h 252017 | +Lv 1.0 train h 0.00 | gear rank 1 lvl 63 | top spends: tree 15484K, gear 267K
+
+seed 55  hours 96.00  Shatters h30.12 Emberwaste, h38.15 Ashen, h51.15 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f136 Lv104
+  Hollow King 1/15 [r2/act 0/1 r3/act 1/13 r3/auto 0/1] loss dur med 25s HP left med 73% deaths med 4 | loss phase: 8 opening (before 70% summon), 5 after skeletons (70-35%), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 95% skeletons 4% armored 0% other 0% | KEEP CLEARED run3@68.11 stall 20.0h
+  Foundry: entered run3@68.11h Lv59 pw110860 | CLEARED run3@86.04h Lv88 pw404501 | ordinary enc 559 L151 (27%) 5.4h far 30 | Core 1/11 loss dur med 15s HP left med 87% summon reached 0 deaths med 4 stall 8.9h
+  Endless: entered run3 @86.04h Lv86 pw248612 (10.0h in zone) carried in: gold 2M ore 7440 | best wave 167 milestones 6
+    +1h: wave 50 (best 62) enemy Lv77 party Lv88 pw405K | wins/h 128 deaths/h 6 | gold earned/h 5.4M spent/h 4.3M ore/h 121962 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 54.9 | top spends: ranks 3048K, castle 1241K
+    +2h: wave 50 (best 79) enemy Lv77 party Lv90 pw451K | wins/h 109 deaths/h 8 | gold earned/h 6.1M spent/h 5.6M ore/h 122538 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 55.7 | top spends: ranks 3251K, tree 1741K
+    +3h: wave 54 (best 89) enemy Lv78 party Lv92 pw495K | wins/h 94 deaths/h 8 | gold earned/h 6.7M spent/h 5.7M ore/h 122398 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 56.3 | top spends: tree 4998K, talents 640K
+    +4h: wave 95 (best 95) enemy Lv84 party Lv94 pw535K | wins/h 111 deaths/h 4 | gold earned/h 7.7M spent/h 6.5M ore/h 126617 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 57 | top spends: tree 6533K, gear 132K
+    +5h: wave 106 (best 120) enemy Lv85 party Lv96 pw617K | wins/h 77 deaths/h 7 | gold earned/h 9.5M spent/h 11.1M ore/h 129162 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 57.8 | top spends: tree 10400K, promote 720K
+    +6h: wave 120 (best 134) enemy Lv88 party Lv97 pw666K | wins/h 86 deaths/h 6 | gold earned/h 9.5M spent/h 7.8M ore/h 164849 | +Lv 1.0 train h 0.00 | gear rank 1 lvl 58.4 | top spends: tree 7752K, gear 170K
+    +7h: wave 130 (best 147) enemy Lv89 party Lv99 pw715K | wins/h 90 deaths/h 7 | gold earned/h 10.5M spent/h 9.3M ore/h 173936 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 59 | top spends: tree 8556K, promote 720K
+    +8h: wave 132 (best 159) enemy Lv89 party Lv101 pw780K | wins/h 87 deaths/h 11 | gold earned/h 10.3M spent/h 8M ore/h 165045 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 59.9 | top spends: ranks 7976K, gear 165K
+    +9h: wave 140 (best 160) enemy Lv91 party Lv102 pw817K | wins/h 95 deaths/h 8 | gold earned/h 11.9M spent/h 13.7M ore/h 182208 | +Lv 1.0 train h 0.00 | gear rank 1 lvl 60.3 | top spends: ranks 12448K, tree 1219K
+    +10h: wave 136 (best 167) enemy Lv90 party Lv104 pw874K | wins/h 91 deaths/h 10 | gold earned/h 13.2M spent/h 12M ore/h 208730 | +Lv 2.0 train h 0.00 | gear rank 1 lvl 61 | top spends: tree 7629K, ranks 4387K
+
+seed 56  hours 96.00  Shatters h20.17 Ironvein, h49.14 Ashen, h56.13 Ashen  zones cur/best 24h 5/5, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f117 Lv100
+  Hollow King 1/6 [r2/act 0/1 r3/act 1/5] loss dur med 37s HP left med 53% deaths med 4 | loss phase: 2 opening (before 70% summon), 2 after skeletons (70-35%), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 92% skeletons 7% armored 0% other 1% | KEEP CLEARED run3@68.08 stall 14.9h
+  Foundry: entered run3@68.08h Lv54 pw100491 | CLEARED run3@89.01h Lv90 pw396237 | ordinary enc 612 L153 (25%) 5.7h far 35 | Core 1/9 loss dur med 21s HP left med 88% summon reached 0 deaths med 4 stall 8.8h
+  Endless: entered run3 @89.01h Lv88 pw245166 (7.0h in zone) carried in: gold 4M ore 1744 | best wave 142 milestones 5
+    +1h: wave 52 (best 68) enemy Lv77 party Lv90 pw396K | wins/h 132 deaths/h 5 | gold earned/h 6M spent/h 6.8M ore/h 98372 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 55.2 | top spends: ranks 3180K, tree 2282K
+    +2h: wave 62 (best 81) enemy Lv79 party Lv92 pw450K | wins/h 117 deaths/h 10 | gold earned/h 6.6M spent/h 6.2M ore/h 109047 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 55.8 | top spends: tree 3888K, ranks 1642K
+    +3h: wave 80 (best 100) enemy Lv82 party Lv93 pw488K | wins/h 106 deaths/h 7 | gold earned/h 7.2M spent/h 4.9M ore/h 117870 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 56.5 | top spends: tree 4889K, gear 116K
+    +4h: wave 108 (best 121) enemy Lv86 party Lv95 pw551K | wins/h 87 deaths/h 5 | gold earned/h 9.6M spent/h 8.8M ore/h 108776 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 57.3 | top spends: tree 8753K, gear 110K
+    +5h: wave 104 (best 132) enemy Lv85 party Lv97 pw604K | wins/h 92 deaths/h 8 | gold earned/h 9.5M spent/h 8.8M ore/h 157138 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 57.9 | top spends: tree 8056K, promote 720K
+    +6h: wave 112 (best 132) enemy Lv86 party Lv99 pw655K | wins/h 90 deaths/h 6 | gold earned/h 10.6M spent/h 12.1M ore/h 152182 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 58.6 | top spends: tree 12110K, gear 152K
+    +7h: wave 117 (best 142) enemy Lv87 party Lv100 pw705K | wins/h 90 deaths/h 12 | gold earned/h 10.4M spent/h 8.7M ore/h 125241 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 59.3 | top spends: ranks 7976K, promote 720K
+
+seed 57  hours 96.00  Shatters h28.16 Ashen, h50.11 Ashen, h58.15 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f119 Lv97
+  Hollow King 1/8 [r2/act 0/2 r3/act 1/6] loss dur med 31s HP left med 69% deaths med 4 | loss phase: 3 opening (before 70% summon), 4 after skeletons (70-35%) | damage share at loss (mean): boss 94% skeletons 6% armored 0% other 0% | KEEP CLEARED run3@70.12 stall 15.0h
+  Foundry: entered run3@70.12h Lv52 pw97981 | CLEARED run3@89.15h Lv85 pw347953 | ordinary enc 639 L168 (26%) 6.4h far 27 | Core 1/10 loss dur med 15s HP left med 88% summon reached 2 deaths med 4 stall 9.0h
+  Endless: entered run3 @89.15h Lv83 pw222398 (6.9h in zone) carried in: gold 3M ore 6519 | best wave 137 milestones 5
+    +1h: wave 53 (best 53) enemy Lv77 party Lv85 pw348K | wins/h 113 deaths/h 5 | gold earned/h 5M spent/h 5.2M ore/h 78864 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 51.3 | top spends: tree 3738K, ranks 1482K
+    +2h: wave 61 (best 78) enemy Lv79 party Lv87 pw391K | wins/h 101 deaths/h 9 | gold earned/h 6M spent/h 5.3M ore/h 80694 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 51.9 | top spends: ranks 3071K, tree 2205K
+    +3h: wave 56 (best 89) enemy Lv78 party Lv89 pw439K | wins/h 107 deaths/h 10 | gold earned/h 6.6M spent/h 6.6M ore/h 115861 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 52.8 | top spends: tree 4430K, ranks 1575K
+    +4h: wave 78 (best 89) enemy Lv81 party Lv91 pw482K | wins/h 107 deaths/h 7 | gold earned/h 7.3M spent/h 6.2M ore/h 122385 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 53.6 | top spends: tree 4889K, promote 720K
+    +5h: wave 109 (best 115) enemy Lv86 party Lv93 pw551K | wins/h 76 deaths/h 6 | gold earned/h 8.8M spent/h 8.7M ore/h 105413 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54.3 | top spends: tree 7958K, promote 720K
+    +6h: wave 112 (best 132) enemy Lv86 party Lv95 pw597K | wins/h 75 deaths/h 6 | gold earned/h 9.4M spent/h 8.6M ore/h 100220 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54.9 | top spends: tree 7905K, promote 720K
+    +7h: wave 119 (best 137) enemy Lv87 party Lv97 pw653K | wins/h 92 deaths/h 5 | gold earned/h 9.9M spent/h 7.3M ore/h 148320 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 55.7 | top spends: tree 6541K, promote 720K
+
+seed 58  hours 96.00  Shatters h14.12 Thornwood, h41.13 Ashen, h50.09 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f150 Lv109
+  Hollow King 1/15 [r1/act 0/1 r3/act 1/14] loss dur med 24s HP left med 53% deaths med 4 | loss phase: 6 opening (before 70% summon), 7 after skeletons (70-35%), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 92% skeletons 8% armored 0% other 0% | KEEP CLEARED run3@66.16 stall 28.0h
+  Foundry: entered run3@66.16h Lv57 pw109507 | CLEARED run3@85.14h Lv91 pw433964 | ordinary enc 553 L167 (30%) 5.0h far 25 | Core 1/6 loss dur med 15s HP left med 81% summon reached 0 deaths med 4 stall 11.0h
+  Endless: entered run3 @85.14h Lv89 pw266726 (10.9h in zone) carried in: gold 5M ore 7217 | best wave 193 milestones 7
+    +1h: wave 55 (best 70) enemy Lv78 party Lv91 pw434K | wins/h 148 deaths/h 5 | gold earned/h 5.8M spent/h 7.4M ore/h 109417 | +Lv 2.0 train h 0.80 | gear rank 1.08 lvl 54.5 | top spends: tree 4564K, ranks 1552K
+    +2h: wave 71 (best 86) enemy Lv80 party Lv93 pw478K | wins/h 126 deaths/h 6 | gold earned/h 7.5M spent/h 6.2M ore/h 100964 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 55 | top spends: tree 3888K, ranks 1566K
+    +3h: wave 80 (best 100) enemy Lv82 party Lv95 pw531K | wins/h 125 deaths/h 6 | gold earned/h 8.2M spent/h 8.8M ore/h 136366 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 55.7 | top spends: tree 8779K, gear 127K
+    +4h: wave 113 (best 117) enemy Lv86 party Lv97 pw620K | wins/h 85 deaths/h 7 | gold earned/h 10.3M spent/h 9M ore/h 114890 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 56.5 | top spends: tree 7557K, promote 1440K
+    +5h: wave 100 (best 138) enemy Lv85 party Lv98 pw665K | wins/h 94 deaths/h 12 | gold earned/h 9.8M spent/h 7.8M ore/h 142939 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 57.2 | top spends: tree 7752K, gear 133K
+    +6h: wave 102 (best 138) enemy Lv85 party Lv100 pw733K | wins/h 111 deaths/h 6 | gold earned/h 11.8M spent/h 9.3M ore/h 179387 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 57.9 | top spends: tree 8556K, promote 720K
+    +7h: wave 126 (best 138) enemy Lv88 party Lv102 pw791K | wins/h 112 deaths/h 9 | gold earned/h 11.8M spent/h 12.1M ore/h 178900 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 58.6 | top spends: ranks 12066K, gear 187K
+    +8h: wave 132 (best 162) enemy Lv89 party Lv104 pw859K | wins/h 101 deaths/h 9 | gold earned/h 13.4M spent/h 13.6M ore/h 181177 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 59.5 | top spends: ranks 12334K, tree 1219K
+    +9h: wave 153 (best 169) enemy Lv92 party Lv105 pw912K | wins/h 95 deaths/h 15 | gold earned/h 14.6M spent/h 12.7M ore/h 230396 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 60.3 | top spends: tree 12707K, gear 229K
+    +10h: wave 162 (best 184) enemy Lv94 party Lv107 pw972K | wins/h 111 deaths/h 9 | gold earned/h 17.1M spent/h 15.5M ore/h 210450 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 60.8 | top spends: tree 15492K, gear 213K
+    +11h: wave 150 (best 193) enemy Lv92 party Lv109 pw1064K | wins/h 109 deaths/h 8 | gold earned/h 18M spent/h 21.2M ore/h 212831 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 61.5 | top spends: tree 21192K, gear 196K
+
+seed 59  hours 96.00  Shatters h27.18 Ironvein, h36.19 Amberfall, h52.11 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f153 Lv105
+  Hollow King 1/7 [r3/act 1/7] loss dur med 24s HP left med 68% deaths med 4 | loss phase: 3 after skeletons (70-35%), 3 opening (before 70% summon) | damage share at loss (mean): boss 97% skeletons 3% armored 0% other 0% | KEEP CLEARED run3@64.11 stall 7.0h
+  Foundry: entered run3@64.11h Lv53 pw95147 | CLEARED run3@84.08h Lv87 pw347224 | ordinary enc 489 L147 (30%) 4.9h far 24 | Core 1/6 loss dur med 16s HP left med 96% summon reached 0 deaths med 4 stall 4.9h
+  Endless: entered run3 @84.08h Lv85 pw226092 (11.9h in zone) carried in: gold 3M ore 3787 | best wave 178 milestones 7
+    +1h: wave 33 (best 62) enemy Lv74 party Lv87 pw347K | wins/h 115 deaths/h 4 | gold earned/h 5.2M spent/h 6M ore/h 79103 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 52.8 | top spends: tree 3283K, ranks 1496K
+    +2h: wave 64 (best 69) enemy Lv79 party Lv89 pw390K | wins/h 112 deaths/h 6 | gold earned/h 6M spent/h 4.8M ore/h 83538 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 53.5 | top spends: ranks 3099K, tree 1741K
+    +3h: wave 69 (best 87) enemy Lv80 party Lv91 pw437K | wins/h 99 deaths/h 7 | gold earned/h 6.6M spent/h 7.3M ore/h 117595 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 54.4 | top spends: tree 4430K, ranks 1575K
+    +4h: wave 83 (best 92) enemy Lv82 party Lv93 pw483K | wins/h 98 deaths/h 5 | gold earned/h 7.1M spent/h 5.6M ore/h 116121 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 55.2 | top spends: tree 4889K, promote 720K
+    +5h: wave 102 (best 116) enemy Lv85 party Lv94 pw532K | wins/h 70 deaths/h 5 | gold earned/h 8.7M spent/h 8.7M ore/h 75793 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 55.5 | top spends: tree 7958K, promote 720K
+    +6h: wave 100 (best 128) enemy Lv85 party Lv96 pw580K | wins/h 80 deaths/h 6 | gold earned/h 8.3M spent/h 7.9M ore/h 120382 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 56.3 | top spends: tree 7905K, gear 131K
+    +7h: wave 127 (best 128) enemy Lv89 party Lv98 pw632K | wins/h 87 deaths/h 3 | gold earned/h 9.2M spent/h 6.2M ore/h 133702 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 56.9 | top spends: tree 5497K, promote 720K
+    +8h: wave 119 (best 150) enemy Lv87 party Lv100 pw682K | wins/h 87 deaths/h 6 | gold earned/h 10.6M spent/h 12.3M ore/h 150103 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 57.6 | top spends: tree 7561K, ranks 3973K
+    +9h: wave 127 (best 150) enemy Lv89 party Lv101 pw730K | wins/h 78 deaths/h 12 | gold earned/h 10.4M spent/h 8M ore/h 151023 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 58.3 | top spends: ranks 8010K, gear 145K
+    +10h: wave 151 (best 155) enemy Lv92 party Lv103 pw771K | wins/h 85 deaths/h 7 | gold earned/h 11.6M spent/h 13.5M ore/h 159180 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 58.8 | top spends: ranks 12267K, tree 1219K
+    +11h: wave 125 (best 178) enemy Lv88 party Lv104 pw822K | wins/h 81 deaths/h 10 | gold earned/h 12.4M spent/h 7.6M ore/h 149915 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 59.5 | top spends: tree 7629K, gear 150K
+    +12h: wave 153 (best 178) enemy Lv92 party Lv105 pw865K | wins/h 86 deaths/h 11 | gold earned/h 12.5M spent/h 13.2M ore/h 166441 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 60 | top spends: tree 13224K, gear 165K
+
+seed 60  hours 96.00  Shatters h29.17 Ironvein, h38.14 Emberwaste, h45.17 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f207 Lv120
+  Hollow King 1/14 [r3/act 1/11 r3/auto 0/3] loss dur med 19s HP left med 76% deaths med 4 | loss phase: 9 opening (before 70% summon), 4 after skeletons (70-35%) | damage share at loss (mean): boss 95% skeletons 5% armored 0% other 0% | KEEP CLEARED run3@61.08 stall 8.9h
+  Foundry: entered run3@61.08h Lv59 pw121496 | CLEARED run3@76.08h Lv87 pw405343 | ordinary enc 508 L141 (28%) 4.5h far 25 | Core 1/13 loss dur med 15s HP left med 83% summon reached 0 deaths med 4 stall 6.0h
+  Endless: entered run3 @76.08h Lv85 pw252558 (19.9h in zone) carried in: gold 2M ore 5096 | best wave 243 milestones 9
+    +1h: wave 51 (best 63) enemy Lv77 party Lv87 pw405K | wins/h 132 deaths/h 5 | gold earned/h 5.4M spent/h 5.1M ore/h 109579 | +Lv 3.0 train h 0.00 | gear rank 1.17 lvl 53.3 | top spends: ranks 3006K, tree 2113K
+    +2h: wave 51 (best 80) enemy Lv77 party Lv89 pw464K | wins/h 123 deaths/h 10 | gold earned/h 7.1M spent/h 6M ore/h 138960 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 54.3 | top spends: ranks 3150K, tree 2205K
+    +3h: wave 60 (best 81) enemy Lv79 party Lv91 pw523K | wins/h 127 deaths/h 9 | gold earned/h 7.5M spent/h 6.4M ore/h 139251 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 55.2 | top spends: tree 4998K, promote 720K
+    +4h: wave 79 (best 92) enemy Lv81 party Lv93 pw581K | wins/h 112 deaths/h 11 | gold earned/h 7.4M spent/h 6.5M ore/h 168203 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 56 | top spends: tree 6533K, gear 162K
+    +5h: wave 103 (best 118) enemy Lv85 party Lv95 pw651K | wins/h 84 deaths/h 8 | gold earned/h 10.1M spent/h 11.1M ore/h 126033 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 56.6 | top spends: tree 10400K, promote 730K
+    +6h: wave 125 (best 131) enemy Lv88 party Lv96 pw716K | wins/h 86 deaths/h 16 | gold earned/h 9.3M spent/h 8.5M ore/h 129230 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 57.3 | top spends: tree 7752K, promote 720K
+    +7h: wave 113 (best 152) enemy Lv86 party Lv98 pw776K | wins/h 95 deaths/h 7 | gold earned/h 11.3M spent/h 8.6M ore/h 177174 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 58 | top spends: tree 8556K, gear 172K
+    +8h: wave 125 (best 152) enemy Lv88 party Lv100 pw823K | wins/h 99 deaths/h 13 | gold earned/h 11.3M spent/h 12.7M ore/h 178356 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 58.6 | top spends: ranks 11998K, promote 720K
+    +9h: wave 129 (best 155) enemy Lv89 party Lv102 pw883K | wins/h 98 deaths/h 10 | gold earned/h 12.5M spent/h 9.6M ore/h 180663 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 59.3 | top spends: ranks 8393K, tree 1219K
+    +10h: wave 125 (best 161) enemy Lv88 party Lv104 pw951K | wins/h 104 deaths/h 11 | gold earned/h 13.5M spent/h 11.9M ore/h 211087 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 60 | top spends: tree 7629K, ranks 4305K
+    +11h: wave 133 (best 161) enemy Lv89 party Lv105 pw1001K | wins/h 107 deaths/h 8 | gold earned/h 13.9M spent/h 13.2M ore/h 249036 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 60.6 | top spends: tree 13224K, gear 232K
+    +12h: wave 155 (best 165) enemy Lv93 party Lv107 pw1085K | wins/h 113 deaths/h 9 | gold earned/h 15.7M spent/h 13.6M ore/h 244587 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 61.3 | top spends: tree 13566K, gear 248K
+    +13h: wave 163 (best 184) enemy Lv94 party Lv109 pw1162K | wins/h 103 deaths/h 9 | gold earned/h 19.5M spent/h 17.6M ore/h 228869 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 61.9 | top spends: tree 14972K, castle 2590K
+    +14h: wave 191 (best 194) enemy Lv98 party Lv111 pw1219K | wins/h 108 deaths/h 7 | gold earned/h 19.4M spent/h 24.4M ore/h 321550 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 62.5 | top spends: tree 24370K, gear 321K
+    +15h: wave 178 (best 216) enemy Lv96 party Lv112 pw1314K | wins/h 89 deaths/h 9 | gold earned/h 23.4M spent/h 14.3M ore/h 279702 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 63.3 | top spends: tree 14256K, gear 290K
+    +16h: wave 185 (best 216) enemy Lv97 party Lv114 pw1436K | wins/h 96 deaths/h 6 | gold earned/h 22.5M spent/h 25.4M ore/h 344888 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 63.9 | top spends: tree 23740K, castle 1688K
+    +17h: wave 200 (best 216) enemy Lv100 party Lv116 pw1533K | wins/h 87 deaths/h 7 | gold earned/h 23.8M spent/h 19.4M ore/h 354393 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 64.5 | top spends: ranks 11093K, tree 6246K
+    +18h: wave 205 (best 227) enemy Lv100 party Lv117 pw1632K | wins/h 90 deaths/h 6 | gold earned/h 23.7M spent/h 26M ore/h 291497 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 65 | top spends: ranks 22599K, tree 3411K
+    +19h: wave 217 (best 231) enemy Lv102 party Lv119 pw1705K | wins/h 91 deaths/h 5 | gold earned/h 25.3M spent/h 28.1M ore/h 354549 | +Lv 2.0 train h 0.00 | gear rank 1.17 lvl 65.5 | top spends: tree 16545K, ranks 11506K
+    +20h: wave 207 (best 243) enemy Lv101 party Lv120 pw1811K | wins/h 81 deaths/h 13 | gold earned/h 24M spent/h 11.7M ore/h 287906 | +Lv 1.0 train h 0.00 | gear rank 1.17 lvl 66 | top spends: ranks 11678K, gear 301K
+
+-- casual validity: 96h reached 10/10, Shatter cap 10/10
+-- casual Hollow King: reached in 10/10 runs, cleared 10; attempts 109 wins 10 [r1/act 0/1 r2/act 0/4 r3/act 10/97 r3/auto 0/7]; loss dur med 24s, HP left med 68%; stall to clear med 12.9h; loss phases: 57 opening (before 70% summon), 34 after skeletons (70-35%), 8 after armored skeletons (<35%); damage share at loss: boss 95% skeletons 5% armored 0%
+-- casual Foundry: entered 10/10 runs (entry h med 66.2), cleared 9 (hours to clear med 19.0); ordinary loss% med 30, hours med 4.9, furthest med 26; Core attempts 72 wins 9, loss dur med 15s HP left med 87%; stall to clear med 6.0h
+-- casual Endless: entered 9/10 runs (entry h med 85.1, hours in zone med 10.9); per hour in zone (median over run-hours, n=108): wins/h 95, deaths/h 7, gold earned/h 10.34M, spent/h 8.78M, ore/h 151023, +Lv/h 2.00, training h/h 0.00; wave by hour since entry: +1h 52, +2h 61, +4h 83, +8h 125, +12h 153, +16h 189, +24h -; enemy Lv at +1/+8/+16h: 77/88/98; party Lv at +1/+8/+16h: 87/100/114
+-- casual horizons (cur/best med): 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9; Shatters per run med 3
+
+===== ENGAGED  batch_out_p27  (production 1.10, 96h)
+
+seed 51  hours 96.00  Shatters h30.22 Ashen, h48.26 Ashen, h56.14 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f186 Lv114
+  Hollow King 1/13 [r1/act 0/2 r2/act 0/3 r3/act 1/8] loss dur med 22s HP left med 75% deaths med 4 | loss phase: 10 opening (before 70% summon), 2 after skeletons (70-35%) | damage share at loss (mean): boss 99% skeletons 1% armored 0% other 0% | KEEP CLEARED run3@62.11 stall 16.9h
+  Foundry: entered run3@62.11h Lv47 pw88720 | CLEARED run3@80.22h Lv85 pw343013 | ordinary enc 491 L172 (35%) 4.6h far 24 | Core 1/16 loss dur med 15s HP left med 88% summon reached 2 deaths med 4 stall 8.1h
+  Endless: entered run3 @80.22h Lv84 pw221940 (15.8h in zone) carried in: gold 3M ore 8180 | best wave 208 milestones 8
+    +1h: wave 42 (best 46) enemy Lv76 party Lv85 pw343K | wins/h 131 deaths/h 3 | gold earned/h 5.9M spent/h 6.2M ore/h 91581 | +Lv 2.0 train h 0.75 | gear rank 0.92 lvl 54.5 | top spends: tree 3332K, ranks 1482K
+    +2h: wave 52 (best 82) enemy Lv77 party Lv88 pw396K | wins/h 115 deaths/h 7 | gold earned/h 7.1M spent/h 6.9M ore/h 103609 | +Lv 3.0 train h 0.00 | gear rank 0.92 lvl 55.3 | top spends: tree 5256K, ranks 1642K
+    +3h: wave 55 (best 99) enemy Lv78 party Lv90 pw444K | wins/h 108 deaths/h 9 | gold earned/h 7.2M spent/h 6.4M ore/h 119594 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 55.9 | top spends: tree 5755K, talents 640K
+    +4h: wave 101 (best 110) enemy Lv85 party Lv92 pw514K | wins/h 84 deaths/h 6 | gold earned/h 8.8M spent/h 7.1M ore/h 114645 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 56.7 | top spends: tree 5056K, promote 1440K
+    +5h: wave 108 (best 133) enemy Lv86 party Lv93 pw568K | wins/h 70 deaths/h 8 | gold earned/h 9.3M spent/h 8.3M ore/h 141441 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 57.5 | top spends: tree 7557K, promote 720K
+    +6h: wave 108 (best 144) enemy Lv86 party Lv95 pw618K | wins/h 85 deaths/h 4 | gold earned/h 10.7M spent/h 9.8M ore/h 141723 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 58.2 | top spends: tree 9791K, gear 136K
+    +7h: wave 121 (best 150) enemy Lv88 party Lv97 pw667K | wins/h 95 deaths/h 4 | gold earned/h 11.8M spent/h 11.1M ore/h 152001 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 58.8 | top spends: tree 6516K, ranks 3888K
+    +8h: wave 107 (best 164) enemy Lv86 party Lv99 pw718K | wins/h 87 deaths/h 12 | gold earned/h 12.1M spent/h 11.9M ore/h 207487 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 59.7 | top spends: ranks 11864K, gear 202K
+    +9h: wave 100 (best 164) enemy Lv85 party Lv101 pw774K | wins/h 93 deaths/h 11 | gold earned/h 12.5M spent/h 10.8M ore/h 196492 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 60.5 | top spends: ranks 8278K, tree 2545K
+    +10h: wave 135 (best 164) enemy Lv90 party Lv103 pw833K | wins/h 105 deaths/h 6 | gold earned/h 12.9M spent/h 12.8M ore/h 198019 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 61.1 | top spends: tree 12773K, gear 199K
+    +11h: wave 142 (best 176) enemy Lv91 party Lv105 pw881K | wins/h 94 deaths/h 8 | gold earned/h 15.3M spent/h 12.4M ore/h 218207 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 61.8 | top spends: tree 12441K, gear 213K
+    +12h: wave 142 (best 186) enemy Lv91 party Lv106 pw951K | wins/h 101 deaths/h 10 | gold earned/h 17.1M spent/h 15.4M ore/h 220947 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 62.5 | top spends: tree 15386K, gear 215K
+    +13h: wave 154 (best 197) enemy Lv93 party Lv108 pw1020K | wins/h 112 deaths/h 6 | gold earned/h 18.8M spent/h 22.9M ore/h 252506 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 63 | top spends: tree 22948K, gear 256K
+    +14h: wave 158 (best 197) enemy Lv93 party Lv110 pw1074K | wins/h 105 deaths/h 5 | gold earned/h 20.6M spent/h 11.3M ore/h 284612 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 63.7 | top spends: tree 11324K, gear 274K
+    +15h: wave 162 (best 205) enemy Lv94 party Lv112 pw1160K | wins/h 99 deaths/h 6 | gold earned/h 24.8M spent/h 23.5M ore/h 325859 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 64.5 | top spends: tree 21771K, castle 1688K
+    +16h: wave 186 (best 208) enemy Lv97 party Lv114 pw1254K | wins/h 104 deaths/h 4 | gold earned/h 23M spent/h 18.9M ore/h 335316 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 65.1 | top spends: tree 16834K, castle 2109K
+
+seed 52  hours 96.00  Shatters h21.21 Amberfall, h34.2 Ashen, h47.13 Ashen  zones cur/best 24h 5/5, 48h 5/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f207 Lv118
+  Hollow King 1/21 [r2/act 0/2 r3/act 1/18 r3/auto 0/1] loss dur med 22s HP left med 78% deaths med 4 | loss phase: 13 opening (before 70% summon), 7 after skeletons (70-35%) | damage share at loss (mean): boss 96% skeletons 4% armored 0% other 0% | KEEP CLEARED run3@60.22 stall 16.1h
+  Foundry: entered run3@60.23h Lv55 pw91041 | CLEARED run3@76.23h Lv83 pw300170 | ordinary enc 403 L122 (30%) 4.1h far 25 | Core 1/10 loss dur med 28s HP left med 72% summon reached 2 deaths med 4 stall 7.1h
+  Endless: entered run3 @76.23h Lv82 pw198855 (19.8h in zone) carried in: gold 3M ore 3524 | best wave 246 milestones 9
+    +1h: wave 43 (best 43) enemy Lv76 party Lv83 pw300K | wins/h 113 deaths/h 5 | gold earned/h 4.5M spent/h 5M ore/h 66972 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 49.5 | top spends: ranks 2893K, tree 2089K
+    +2h: wave 54 (best 78) enemy Lv78 party Lv86 pw347K | wins/h 106 deaths/h 8 | gold earned/h 6.1M spent/h 6.4M ore/h 92196 | +Lv 3.0 train h 0.00 | gear rank 1.33 lvl 50.4 | top spends: tree 3399K, ranks 3016K
+    +3h: wave 55 (best 98) enemy Lv78 party Lv88 pw390K | wins/h 107 deaths/h 6 | gold earned/h 6.8M spent/h 5M ore/h 98653 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 51.3 | top spends: tree 4998K, gear 99K
+    +4h: wave 67 (best 98) enemy Lv80 party Lv90 pw430K | wins/h 107 deaths/h 8 | gold earned/h 7.4M spent/h 6.7M ore/h 106536 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 52 | top spends: tree 5017K, talents 960K
+    +5h: wave 68 (best 98) enemy Lv80 party Lv92 pw475K | wins/h 113 deaths/h 5 | gold earned/h 8.3M spent/h 7.6M ore/h 115425 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 52.9 | top spends: tree 7261K, talents 320K
+    +6h: wave 109 (best 114) enemy Lv86 party Lv94 pw542K | wins/h 93 deaths/h 7 | gold earned/h 9.4M spent/h 8.6M ore/h 119619 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 53.7 | top spends: tree 7905K, promote 725K
+    +7h: wave 100 (best 145) enemy Lv85 party Lv96 pw600K | wins/h 82 deaths/h 7 | gold earned/h 10.7M spent/h 8.4M ore/h 157608 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 54.5 | top spends: tree 7655K, promote 720K
+    +8h: wave 132 (best 145) enemy Lv89 party Lv98 pw655K | wins/h 92 deaths/h 7 | gold earned/h 11.3M spent/h 13.2M ore/h 144300 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 55.4 | top spends: ranks 7809K, tree 5402K
+    +9h: wave 130 (best 167) enemy Lv89 party Lv99 pw708K | wins/h 86 deaths/h 9 | gold earned/h 12.7M spent/h 9.9M ore/h 171422 | +Lv 1.0 train h 0.00 | gear rank 1.33 lvl 56.1 | top spends: ranks 7943K, tree 1219K
+    +10h: wave 125 (best 172) enemy Lv88 party Lv101 pw763K | wins/h 91 deaths/h 10 | gold earned/h 13.9M spent/h 16.2M ore/h 156248 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 56.8 | top spends: ranks 8609K, tree 7629K
+    +11h: wave 137 (best 172) enemy Lv90 party Lv103 pw812K | wins/h 104 deaths/h 6 | gold earned/h 14.3M spent/h 13.2M ore/h 182783 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 57.5 | top spends: tree 13224K, gear 186K
+    +12h: wave 161 (best 181) enemy Lv94 party Lv105 pw879K | wins/h 100 deaths/h 6 | gold earned/h 16.8M spent/h 13.6M ore/h 184377 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 58.2 | top spends: tree 13566K, gear 185K
+    +13h: wave 154 (best 200) enemy Lv93 party Lv107 pw932K | wins/h 92 deaths/h 10 | gold earned/h 17.1M spent/h 16.1M ore/h 179230 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 58.8 | top spends: tree 14972K, castle 1241K
+    +14h: wave 151 (best 200) enemy Lv92 party Lv108 pw991K | wins/h 97 deaths/h 5 | gold earned/h 18.8M spent/h 16.8M ore/h 200562 | +Lv 1.0 train h 0.00 | gear rank 1.33 lvl 59.4 | top spends: tree 15484K, castle 1349K
+    +15h: wave 176 (best 200) enemy Lv96 party Lv110 pw1068K | wins/h 103 deaths/h 6 | gold earned/h 18.8M spent/h 13.8M ore/h 177859 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 59.9 | top spends: tree 13812K, gear 176K
+    +16h: wave 180 (best 216) enemy Lv97 party Lv112 pw1130K | wins/h 83 deaths/h 5 | gold earned/h 24.7M spent/h 21M ore/h 277133 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 60.5 | top spends: tree 19283K, castle 1688K
+    +17h: wave 179 (best 218) enemy Lv96 party Lv113 pw1214K | wins/h 84 deaths/h 5 | gold earned/h 22.5M spent/h 22.1M ore/h 224099 | +Lv 1.0 train h 0.00 | gear rank 1.33 lvl 61.1 | top spends: tree 20033K, castle 2109K
+    +18h: wave 201 (best 220) enemy Lv100 party Lv115 pw1295K | wins/h 93 deaths/h 4 | gold earned/h 23.9M spent/h 22.1M ore/h 291661 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 61.8 | top spends: ranks 22102K, gear 279K
+    +19h: wave 211 (best 240) enemy Lv101 party Lv116 pw1394K | wins/h 73 deaths/h 7 | gold earned/h 25.9M spent/h 25.8M ore/h 332143 | +Lv 1.0 train h 0.00 | gear rank 1.33 lvl 62.5 | top spends: ranks 22433K, tree 3411K
+    +20h: wave 207 (best 246) enemy Lv101 party Lv118 pw1506K | wins/h 82 deaths/h 6 | gold earned/h 27.2M spent/h 28.4M ore/h 268586 | +Lv 2.0 train h 0.00 | gear rank 1.33 lvl 63 | top spends: tree 16545K, ranks 11891K
+
+seed 53  hours 96.00  Shatters h20.21 Ironvein, h40.17 Ashen, h48.2 Ashen  zones cur/best 24h 5/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f213 Lv123
+  Hollow King 1/25 [r2/act 0/1 r3/act 1/22 r3/auto 0/2] loss dur med 21s HP left med 68% deaths med 4 | loss phase: 12 opening (before 70% summon), 8 after skeletons (70-35%), 4 after armored skeletons (<35%) | damage share at loss (mean): boss 92% skeletons 8% armored 0% other 1% | KEEP CLEARED run3@62.17 stall 17.0h
+  Foundry: entered run3@62.17h Lv59 pw107908 | CLEARED run3@74.2h Lv83 pw334034 | ordinary enc 303 L90 (30%) 2.8h far 24 | Core 1/12 loss dur med 14s HP left med 82% summon reached 1 deaths med 4 stall 5.1h
+  Endless: entered run3 @74.2h Lv81 pw204942 (21.8h in zone) carried in: gold 2M ore 2457 | best wave 266 milestones 10
+    +1h: wave 58 (best 58) enemy Lv78 party Lv83 pw334K | wins/h 123 deaths/h 6 | gold earned/h 4.8M spent/h 4.4M ore/h 87950 | +Lv 2.0 train h 0.71 | gear rank 1.08 lvl 51.7 | top spends: tree 2977K, ranks 1453K
+    +2h: wave 51 (best 98) enemy Lv77 party Lv86 pw380K | wins/h 109 deaths/h 9 | gold earned/h 8.1M spent/h 8.3M ore/h 109850 | +Lv 3.0 train h 0.00 | gear rank 1.08 lvl 52.7 | top spends: tree 5256K, ranks 3083K
+    +3h: wave 49 (best 98) enemy Lv77 party Lv88 pw422K | wins/h 123 deaths/h 7 | gold earned/h 7.3M spent/h 4.4M ore/h 106068 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 53.5 | top spends: tree 4374K, gear 103K
+    +4h: wave 56 (best 98) enemy Lv78 party Lv90 pw465K | wins/h 127 deaths/h 8 | gold earned/h 8.4M spent/h 9.1M ore/h 109438 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 54.3 | top spends: tree 8143K, talents 960K
+    +5h: wave 100 (best 111) enemy Lv85 party Lv92 pw532K | wins/h 89 deaths/h 8 | gold earned/h 9.8M spent/h 8.6M ore/h 117361 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 55.2 | top spends: tree 7557K, promote 720K
+    +6h: wave 100 (best 143) enemy Lv85 party Lv95 pw590K | wins/h 87 deaths/h 8 | gold earned/h 10.7M spent/h 8.5M ore/h 123519 | +Lv 3.0 train h 0.00 | gear rank 1.08 lvl 55.8 | top spends: tree 7752K, promote 720K
+    +7h: wave 123 (best 143) enemy Lv88 party Lv97 pw650K | wins/h 95 deaths/h 6 | gold earned/h 12M spent/h 13.1M ore/h 164340 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 56.7 | top spends: tree 8556K, ranks 3808K
+    +8h: wave 114 (best 164) enemy Lv87 party Lv99 pw705K | wins/h 99 deaths/h 7 | gold earned/h 13.5M spent/h 11.7M ore/h 171023 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 57.5 | top spends: ranks 11684K, gear 162K
+    +9h: wave 128 (best 164) enemy Lv89 party Lv101 pw770K | wins/h 95 deaths/h 14 | gold earned/h 13.7M spent/h 11.9M ore/h 202186 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 58.4 | top spends: ranks 8043K, tree 3872K
+    +10h: wave 134 (best 175) enemy Lv90 party Lv103 pw821K | wins/h 113 deaths/h 6 | gold earned/h 15.9M spent/h 18.9M ore/h 186755 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 59.1 | top spends: tree 18200K, promote 720K
+    +11h: wave 155 (best 185) enemy Lv93 party Lv105 pw884K | wins/h 105 deaths/h 8 | gold earned/h 17.5M spent/h 13.6M ore/h 193829 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 59.7 | top spends: tree 13566K, gear 204K
+    +12h: wave 151 (best 200) enemy Lv92 party Lv107 pw955K | wins/h 99 deaths/h 10 | gold earned/h 19.9M spent/h 16.2M ore/h 196680 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 60.4 | top spends: tree 14972K, castle 1241K
+    +13h: wave 156 (best 200) enemy Lv93 party Lv109 pw1014K | wins/h 111 deaths/h 9 | gold earned/h 20.4M spent/h 16.8M ore/h 226441 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 61.1 | top spends: tree 15484K, castle 1349K
+    +14h: wave 160 (best 202) enemy Lv94 party Lv110 pw1078K | wins/h 116 deaths/h 7 | gold earned/h 24M spent/h 24.8M ore/h 260657 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 61.7 | top spends: tree 23142K, castle 1688K
+    +15h: wave 176 (best 208) enemy Lv96 party Lv112 pw1199K | wins/h 105 deaths/h 6 | gold earned/h 23.1M spent/h 23.8M ore/h 244203 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 62.4 | top spends: tree 23740K, gear 245K
+    +16h: wave 196 (best 220) enemy Lv99 party Lv114 pw1261K | wins/h 101 deaths/h 7 | gold earned/h 24.4M spent/h 23.9M ore/h 264572 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 63 | top spends: ranks 20808K, tree 3047K
+    +17h: wave 199 (best 236) enemy Lv99 party Lv116 pw1331K | wins/h 94 deaths/h 5 | gold earned/h 27.4M spent/h 27.6M ore/h 298515 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 63.6 | top spends: ranks 22268K, tree 3199K
+    +18h: wave 202 (best 237) enemy Lv100 party Lv117 pw1418K | wins/h 88 deaths/h 7 | gold earned/h 27.3M spent/h 22.7M ore/h 303553 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 64.3 | top spends: ranks 22682K, gear 318K
+    +19h: wave 213 (best 239) enemy Lv101 party Lv119 pw1495K | wins/h 102 deaths/h 6 | gold earned/h 27.9M spent/h 20M ore/h 332421 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 64.7 | top spends: tree 19956K, gear 306K
+    +20h: wave 202 (best 252) enemy Lv100 party Lv120 pw1602K | wins/h 88 deaths/h 7 | gold earned/h 30.5M spent/h 29.5M ore/h 324374 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 65.3 | top spends: tree 27097K, castle 2429K
+    +21h: wave 230 (best 252) enemy Lv104 party Lv121 pw1677K | wins/h 85 deaths/h 12 | gold earned/h 27.7M spent/h 22.7M ore/h 322780 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 65.8 | top spends: tree 19816K, castle 2869K
+    +22h: wave 213 (best 266) enemy Lv101 party Lv123 pw1795K | wins/h 94 deaths/h 8 | gold earned/h 35M spent/h 38.1M ore/h 419806 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 66.5 | top spends: tree 38100K, gear 414K
+
+seed 54  hours 96.00  Shatters h21.21 Ironvein, h30.25 Ashen, h40.26 Ashen  zones cur/best 24h 5/6, 48h 8/8, 72h 9/9, 96h 9/9  final run 3 The Endless Road f351 Lv149
+  Hollow King 1/13 [r2/act 0/2 r3/act 1/10 r3/auto 0/1] loss dur med 19s HP left med 78% deaths med 4 | loss phase: 9 opening (before 70% summon), 3 after skeletons (70-35%) | damage share at loss (mean): boss 98% skeletons 2% armored 0% other 0% | KEEP CLEARED run3@47.25 stall 10.0h
+  Foundry: entered run3@47.25h Lv51 pw90595 | CLEARED run3@59.21h Lv80 pw283144 | ordinary enc 356 L129 (36%) 3.1h far 25 | Core 1/9 loss dur med 15s HP left med 80% summon reached 1 deaths med 4 stall 3.1h
+  Endless: entered run3 @59.21h Lv77 pw185515 (36.8h in zone) carried in: gold 2M ore 4643 | best wave 383 milestones 15
+    +1h: wave 37 (best 43) enemy Lv75 party Lv80 pw283K | wins/h 126 deaths/h 5 | gold earned/h 4.7M spent/h 4.3M ore/h 72524 | +Lv 3.0 train h 0.59 | gear rank 1.08 lvl 50.7 | top spends: tree 2794K, castle 1480K
+    +2h: wave 51 (best 77) enemy Lv77 party Lv82 pw337K | wins/h 115 deaths/h 11 | gold earned/h 7M spent/h 7.5M ore/h 111153 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 51.8 | top spends: ranks 7114K, tree 398K
+    +3h: wave 61 (best 90) enemy Lv79 party Lv85 pw381K | wins/h 110 deaths/h 9 | gold earned/h 7.5M spent/h 6M ore/h 122327 | +Lv 3.0 train h 0.00 | gear rank 1.08 lvl 52.9 | top spends: tree 4604K, ranks 1441K
+    +4h: wave 52 (best 100) enemy Lv77 party Lv87 pw429K | wins/h 121 deaths/h 9 | gold earned/h 8M spent/h 7.2M ore/h 139273 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 54 | top spends: tree 7203K, gear 138K
+    +5h: wave 63 (best 100) enemy Lv79 party Lv90 pw480K | wins/h 136 deaths/h 7 | gold earned/h 8.5M spent/h 7.1M ore/h 149800 | +Lv 3.0 train h 0.00 | gear rank 1.08 lvl 55 | top spends: tree 5775K, promote 720K
+    +6h: wave 105 (best 111) enemy Lv85 party Lv92 pw562K | wins/h 87 deaths/h 10 | gold earned/h 10.2M spent/h 10.2M ore/h 154380 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 55.8 | top spends: tree 8111K, promote 1440K
+    +7h: wave 109 (best 146) enemy Lv86 party Lv94 pw620K | wins/h 93 deaths/h 7 | gold earned/h 13.5M spent/h 11.8M ore/h 159673 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 56.7 | top spends: tree 11793K, gear 168K
+    +8h: wave 118 (best 152) enemy Lv87 party Lv97 pw683K | wins/h 98 deaths/h 9 | gold earned/h 12.4M spent/h 11.5M ore/h 181276 | +Lv 3.0 train h 0.00 | gear rank 1.08 lvl 57.6 | top spends: ranks 7450K, tree 3295K
+    +9h: wave 113 (best 160) enemy Lv86 party Lv99 pw736K | wins/h 98 deaths/h 10 | gold earned/h 14.1M spent/h 16.1M ore/h 183180 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 58.4 | top spends: ranks 11797K, tree 4265K
+    +10h: wave 138 (best 160) enemy Lv90 party Lv101 pw798K | wins/h 115 deaths/h 5 | gold earned/h 15.1M spent/h 12.9M ore/h 188286 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 59.2 | top spends: tree 8848K, ranks 4022K
+    +11h: wave 130 (best 183) enemy Lv89 party Lv103 pw875K | wins/h 110 deaths/h 10 | gold earned/h 17.2M spent/h 14.2M ore/h 239965 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 59.9 | top spends: tree 13224K, castle 993K
+    +12h: wave 154 (best 185) enemy Lv93 party Lv105 pw950K | wins/h 106 deaths/h 8 | gold earned/h 18M spent/h 15.3M ore/h 278375 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 60.7 | top spends: tree 15307K, gear 267K
+    +13h: wave 160 (best 198) enemy Lv94 party Lv107 pw1032K | wins/h 102 deaths/h 8 | gold earned/h 19.6M spent/h 18M ore/h 265516 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 61.5 | top spends: tree 15364K, castle 2590K
+    +14h: wave 194 (best 206) enemy Lv99 party Lv109 pw1114K | wins/h 99 deaths/h 6 | gold earned/h 24.3M spent/h 22.3M ore/h 275222 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 62.3 | top spends: tree 22237K, gear 267K
+    +15h: wave 186 (best 232) enemy Lv97 party Lv111 pw1202K | wins/h 94 deaths/h 7 | gold earned/h 25.5M spent/h 25.9M ore/h 372673 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 63.1 | top spends: tree 24209K, castle 1688K
+    +16h: wave 194 (best 232) enemy Lv99 party Lv113 pw1293K | wins/h 101 deaths/h 6 | gold earned/h 25.5M spent/h 23.3M ore/h 348217 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 63.7 | top spends: tree 13787K, ranks 9555K
+    +17h: wave 209 (best 235) enemy Lv101 party Lv115 pw1390K | wins/h 91 deaths/h 6 | gold earned/h 27.4M spent/h 29.6M ore/h 296042 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 64.4 | top spends: ranks 21284K, tree 6246K
+    +18h: wave 209 (best 248) enemy Lv101 party Lv116 pw1504K | wins/h 91 deaths/h 6 | gold earned/h 29.3M spent/h 22.4M ore/h 376109 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 65 | top spends: ranks 22351K, gear 351K
+    +19h: wave 209 (best 251) enemy Lv101 party Lv118 pw1594K | wins/h 91 deaths/h 6 | gold earned/h 29.1M spent/h 31.3M ore/h 326918 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 65.5 | top spends: tree 19956K, ranks 11341K
+    +20h: wave 229 (best 254) enemy Lv104 party Lv119 pw1714K | wins/h 89 deaths/h 9 | gold earned/h 28.6M spent/h 29.5M ore/h 447512 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 66.3 | top spends: tree 27097K, castle 2429K
+    +21h: wave 227 (best 267) enemy Lv104 party Lv121 pw1787K | wins/h 91 deaths/h 7 | gold earned/h 32.9M spent/h 19.8M ore/h 365395 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 66.7 | top spends: tree 19816K, gear 354K
+    +22h: wave 287 (best 300) enemy Lv113 party Lv123 pw1976K | wins/h 115 deaths/h 3 | gold earned/h 55.1M spent/h 65.1M ore/h 673083 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 67.6 | top spends: tree 62227K, castle 2869K
+    +23h: wave 230 (best 328) enemy Lv104 party Lv125 pw2101K | wins/h 90 deaths/h 8 | gold earned/h 57.8M spent/h 49.4M ore/h 489456 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 68.3 | top spends: tree 45852K, castle 3586K
+    +24h: wave 281 (best 328) enemy Lv112 party Lv128 pw2256K | wins/h 126 deaths/h 3 | gold earned/h 63M spent/h 51.8M ore/h 748312 | +Lv 3.0 train h 0.00 | gear rank 1.08 lvl 68.9 | top spends: tree 47419K, castle 4372K
+    +25h: wave 276 (best 330) enemy Lv111 party Lv130 pw2425K | wins/h 126 deaths/h 7 | gold earned/h 73.9M spent/h 75.8M ore/h 803980 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 69.7 | top spends: tree 70873K, castle 4877K
+    +26h: wave 280 (best 330) enemy Lv112 party Lv132 pw2672K | wins/h 114 deaths/h 10 | gold earned/h 73.1M spent/h 72.7M ore/h 832762 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 70.5 | top spends: tree 72703K, gear 826K
+    +27h: wave 306 (best 334) enemy Lv115 party Lv134 pw2853K | wins/h 110 deaths/h 12 | gold earned/h 69.6M spent/h 47M ore/h 843521 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 71.2 | top spends: ranks 31629K, tree 9331K
+    +28h: wave 316 (best 350) enemy Lv117 party Lv136 pw3038K | wins/h 116 deaths/h 5 | gold earned/h 87M spent/h 74.7M ore/h 1001923 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 71.8 | top spends: ranks 64892K, tree 9797K
+    +29h: wave 325 (best 357) enemy Lv118 party Lv138 pw3254K | wins/h 108 deaths/h 7 | gold earned/h 84M spent/h 99.6M ore/h 968610 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 72.5 | top spends: ranks 99583K, gear 991K
+    +30h: wave 331 (best 369) enemy Lv119 party Lv139 pw3430K | wins/h 104 deaths/h 9 | gold earned/h 104.5M spent/h 72.7M ore/h 1001871 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 73.1 | top spends: tree 72544K, gear 929K
+    +31h: wave 329 (best 374) enemy Lv119 party Lv141 pw3619K | wins/h 105 deaths/h 11 | gold earned/h 88.3M spent/h 87.7M ore/h 812813 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 73.5 | top spends: tree 71553K, castle 16160K
+    +32h: wave 328 (best 374) enemy Lv119 party Lv142 pw3799K | wins/h 103 deaths/h 11 | gold earned/h 91.6M spent/h 124M ore/h 961281 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 74.1 | top spends: tree 124028K, gear 965K
+    +33h: wave 337 (best 374) enemy Lv120 party Lv144 pw3981K | wins/h 107 deaths/h 8 | gold earned/h 98.2M spent/h 53.3M ore/h 766589 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 74.5 | top spends: tree 53339K, gear 752K
+    +34h: wave 331 (best 382) enemy Lv119 party Lv145 pw4153K | wins/h 110 deaths/h 10 | gold earned/h 100.7M spent/h 84.3M ore/h 998671 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 74.8 | top spends: tree 73891K, castle 10364K
+    +35h: wave 329 (best 382) enemy Lv119 party Lv147 pw4428K | wins/h 100 deaths/h 10 | gold earned/h 99M spent/h 70.4M ore/h 1187213 | +Lv 2.0 train h 0.00 | gear rank 1.08 lvl 75.5 | top spends: tree 70414K, gear 1224K
+    +36h: wave 332 (best 383) enemy Lv119 party Lv148 pw4513K | wins/h 97 deaths/h 14 | gold earned/h 94.4M spent/h 90M ore/h 793292 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 75.7 | top spends: tree 90010K, gear 802K
+    +37h: wave 351 (best 383) enemy Lv122 party Lv149 pw4759K | wins/h 102 deaths/h 9 | gold earned/h 101M spent/h 153.5M ore/h 843698 | +Lv 1.0 train h 0.00 | gear rank 1.08 lvl 76.2 | top spends: tree 125218K, castle 28259K
+
+seed 55  hours 96.00  Shatters h23.24 Ironvein, h31.18 Amberfall, h38.24 Ashen  zones cur/best 24h 4/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f207 Lv117
+  Hollow King 1/23 [r3/act 1/23] loss dur med 22s HP left med 72% deaths med 4 | loss phase: 15 opening (before 70% summon), 5 after skeletons (70-35%), 2 after armored skeletons (<35%) | damage share at loss (mean): boss 96% skeletons 4% armored 0% other 1% | KEEP CLEARED run3@62.1 stall 17.9h
+  Foundry: entered run3@62.1h Lv63 pw101114 | CLEARED run3@78.17h Lv88 pw320965 | ordinary enc 433 L109 (25%) 4.2h far 32 | Core 1/9 loss dur med 17s HP left med 80% summon reached 2 deaths med 4 stall 10.1h
+  Endless: entered run3 @78.17h Lv87 pw212137 (17.8h in zone) carried in: gold 3M ore 4588 | best wave 230 milestones 9
+    +1h: wave 48 (best 50) enemy Lv77 party Lv88 pw321K | wins/h 123 deaths/h 5 | gold earned/h 5.2M spent/h 5M ore/h 81844 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 53.6 | top spends: tree 3399K, ranks 1575K
+    +2h: wave 61 (best 83) enemy Lv79 party Lv90 pw373K | wins/h 114 deaths/h 8 | gold earned/h 7M spent/h 6.6M ore/h 91893 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 54.3 | top spends: tree 4430K, ranks 1575K
+    +3h: wave 69 (best 100) enemy Lv80 party Lv92 pw413K | wins/h 103 deaths/h 6 | gold earned/h 8.1M spent/h 6.2M ore/h 118925 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 55.2 | top spends: tree 5585K, talents 640K
+    +4h: wave 102 (best 111) enemy Lv85 party Lv94 pw483K | wins/h 78 deaths/h 7 | gold earned/h 9M spent/h 8.8M ore/h 102171 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 55.9 | top spends: tree 8057K, promote 720K
+    +5h: wave 101 (best 138) enemy Lv85 party Lv96 pw527K | wins/h 70 deaths/h 8 | gold earned/h 10.8M spent/h 12.3M ore/h 108279 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 56.5 | top spends: tree 11611K, promote 720K
+    +6h: wave 101 (best 142) enemy Lv85 party Lv97 pw575K | wins/h 80 deaths/h 9 | gold earned/h 10M spent/h 5M ore/h 120197 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 57.2 | top spends: tree 4290K, promote 720K
+    +7h: wave 109 (best 142) enemy Lv86 party Lv99 pw624K | wins/h 94 deaths/h 7 | gold earned/h 11.2M spent/h 12.9M ore/h 127038 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 57.9 | top spends: ranks 7876K, tree 4265K
+    +8h: wave 106 (best 152) enemy Lv85 party Lv101 pw656K | wins/h 97 deaths/h 6 | gold earned/h 12.3M spent/h 13.5M ore/h 150000 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 58.5 | top spends: ranks 12314K, tree 1219K
+    +9h: wave 105 (best 154) enemy Lv85 party Lv103 pw716K | wins/h 101 deaths/h 9 | gold earned/h 12.8M spent/h 11.9M ore/h 174238 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 59.3 | top spends: tree 7629K, ranks 4305K
+    +10h: wave 137 (best 154) enemy Lv90 party Lv104 pw755K | wins/h 105 deaths/h 6 | gold earned/h 13.8M spent/h 13.2M ore/h 184325 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 59.9 | top spends: tree 13224K, gear 173K
+    +11h: wave 138 (best 180) enemy Lv90 party Lv106 pw826K | wins/h 100 deaths/h 8 | gold earned/h 17.5M spent/h 13.6M ore/h 221435 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 60.8 | top spends: tree 13566K, gear 219K
+    +12h: wave 154 (best 185) enemy Lv93 party Lv108 pw881K | wins/h 104 deaths/h 8 | gold earned/h 17M spent/h 14.9M ore/h 214596 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 61.5 | top spends: tree 14972K, gear 223K
+    +13h: wave 163 (best 197) enemy Lv94 party Lv110 pw943K | wins/h 102 deaths/h 7 | gold earned/h 19.4M spent/h 16.8M ore/h 217817 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 62.1 | top spends: tree 15484K, castle 1349K
+    +14h: wave 179 (best 205) enemy Lv96 party Lv111 pw997K | wins/h 94 deaths/h 10 | gold earned/h 22.4M spent/h 23.1M ore/h 205218 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 62.7 | top spends: tree 23142K, gear 201K
+    +15h: wave 171 (best 219) enemy Lv95 party Lv113 pw1055K | wins/h 91 deaths/h 8 | gold earned/h 22.1M spent/h 14.5M ore/h 232342 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 63.3 | top spends: tree 12854K, castle 1688K
+    +16h: wave 194 (best 219) enemy Lv99 party Lv114 pw1144K | wins/h 95 deaths/h 5 | gold earned/h 22.4M spent/h 19.2M ore/h 235794 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 63.8 | top spends: tree 17131K, castle 2109K
+    +17h: wave 189 (best 230) enemy Lv98 party Lv116 pw1203K | wins/h 91 deaths/h 7 | gold earned/h 23.9M spent/h 33.3M ore/h 229817 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 64.3 | top spends: ranks 33258K, gear 254K
+    +18h: wave 207 (best 230) enemy Lv101 party Lv117 pw1260K | wins/h 91 deaths/h 5 | gold earned/h 24.5M spent/h 22.6M ore/h 237384 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 64.8 | top spends: ranks 22599K, gear 217K
+
+seed 56  hours 96.00  Shatters h25.21 Ironvein, h40.24 Ashen, h47.15 Ashen  zones cur/best 24h 6/6, 48h 6/7, 72h 9/9, 96h 9/9  final run 3 The Endless Road f325 Lv139
+  Hollow King 1/17 [r2/act 0/3 r3/act 1/14] loss dur med 25s HP left med 67% deaths med 4 | loss phase: 7 opening (before 70% summon), 5 after skeletons (70-35%), 4 after armored skeletons (<35%) | damage share at loss (mean): boss 91% skeletons 9% armored 0% other 0% | KEEP CLEARED run3@56.19 stall 12.0h
+  Foundry: entered run3@56.19h Lv54 pw105924 | CLEARED run3@68.21h Lv82 pw350983 | ordinary enc 380 L116 (31%) 3.5h far 4 | Core 1/11 loss dur med 14s HP left med 77% summon reached 2 deaths med 4 stall 9.0h
+  Endless: entered run3 @68.21h Lv80 pw218205 (27.8h in zone) carried in: gold 3M ore 2546 | best wave 367 milestones 14
+    +1h: wave 54 (best 59) enemy Lv78 party Lv82 pw351K | wins/h 135 deaths/h 6 | gold earned/h 5.1M spent/h 4.8M ore/h 101713 | +Lv 3.0 train h 0.65 | gear rank 2 lvl 45.3 | top spends: ranks 2850K, castle 993K
+    +2h: wave 61 (best 91) enemy Lv79 party Lv85 pw406K | wins/h 112 deaths/h 8 | gold earned/h 8.3M spent/h 8.3M ore/h 97499 | +Lv 3.0 train h 0.00 | gear rank 2 lvl 46.3 | top spends: ranks 4523K, tree 3738K
+    +3h: wave 62 (best 106) enemy Lv79 party Lv87 pw472K | wins/h 112 deaths/h 8 | gold earned/h 9.1M spent/h 7.8M ore/h 124477 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 47.3 | top spends: tree 7800K, gear 126K
+    +4h: wave 80 (best 108) enemy Lv82 party Lv89 pw540K | wins/h 99 deaths/h 13 | gold earned/h 7.9M spent/h 6.6M ore/h 113791 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 48.3 | top spends: tree 5936K, talents 640K
+    +5h: wave 110 (best 123) enemy Lv86 party Lv91 pw613K | wins/h 91 deaths/h 6 | gold earned/h 10.5M spent/h 11.8M ore/h 128803 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 49.2 | top spends: tree 10400K, promote 730K
+    +6h: wave 116 (best 147) enemy Lv87 party Lv94 pw677K | wins/h 94 deaths/h 5 | gold earned/h 13.6M spent/h 9.8M ore/h 141783 | +Lv 3.0 train h 0.00 | gear rank 2 lvl 50 | top spends: tree 9791K, gear 144K
+    +7h: wave 138 (best 157) enemy Lv90 party Lv96 pw751K | wins/h 99 deaths/h 8 | gold earned/h 13.5M spent/h 14.9M ore/h 186661 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 51 | top spends: ranks 7675K, tree 6516K
+    +8h: wave 128 (best 176) enemy Lv89 party Lv98 pw821K | wins/h 90 deaths/h 13 | gold earned/h 14M spent/h 13.5M ore/h 154489 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 51.9 | top spends: ranks 12263K, tree 1219K
+    +9h: wave 126 (best 176) enemy Lv88 party Lv100 pw873K | wins/h 109 deaths/h 7 | gold earned/h 15M spent/h 12M ore/h 171846 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 52.6 | top spends: tree 7629K, ranks 4387K
+    +10h: wave 127 (best 176) enemy Lv89 party Lv103 pw937K | wins/h 112 deaths/h 8 | gold earned/h 16.4M spent/h 18.9M ore/h 208794 | +Lv 3.0 train h 0.00 | gear rank 2 lvl 53.3 | top spends: tree 18911K, gear 196K
+    +11h: wave 154 (best 187) enemy Lv93 party Lv105 pw1034K | wins/h 109 deaths/h 7 | gold earned/h 18.2M spent/h 11.4M ore/h 234142 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 54.2 | top spends: tree 11447K, gear 232K
+    +12h: wave 172 (best 199) enemy Lv95 party Lv107 pw1131K | wins/h 103 deaths/h 7 | gold earned/h 20.9M spent/h 16.8M ore/h 270558 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 55 | top spends: tree 13536K, castle 2590K
+    +13h: wave 167 (best 215) enemy Lv95 party Lv109 pw1252K | wins/h 86 deaths/h 7 | gold earned/h 25.9M spent/h 25.4M ore/h 241693 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 55.8 | top spends: tree 24675K, promote 720K
+    +14h: wave 189 (best 215) enemy Lv98 party Lv111 pw1316K | wins/h 107 deaths/h 5 | gold earned/h 24.3M spent/h 23.5M ore/h 293646 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 56.5 | top spends: tree 21771K, castle 1688K
+    +15h: wave 215 (best 230) enemy Lv102 party Lv113 pw1452K | wins/h 85 deaths/h 8 | gold earned/h 26.4M spent/h 22.1M ore/h 306061 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 57.3 | top spends: tree 20033K, castle 2109K
+    +16h: wave 202 (best 251) enemy Lv100 party Lv115 pw1565K | wins/h 84 deaths/h 9 | gold earned/h 30.2M spent/h 33.1M ore/h 332205 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 57.9 | top spends: ranks 33112K, gear 331K
+    +17h: wave 204 (best 251) enemy Lv100 party Lv116 pw1703K | wins/h 92 deaths/h 7 | gold earned/h 29.7M spent/h 31.2M ore/h 357825 | +Lv 1.0 train h 0.00 | gear rank 2 lvl 58.7 | top spends: tree 19956K, ranks 11258K
+    +18h: wave 206 (best 251) enemy Lv100 party Lv118 pw1801K | wins/h 90 deaths/h 7 | gold earned/h 31.1M spent/h 27.1M ore/h 289437 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 59.2 | top spends: ranks 24630K, castle 2429K
+    +19h: wave 227 (best 251) enemy Lv104 party Lv120 pw1935K | wins/h 91 deaths/h 7 | gold earned/h 31.6M spent/h 27.1M ore/h 349639 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 59.8 | top spends: tree 27097K, gear 330K
+    +20h: wave 290 (best 300) enemy Lv113 party Lv122 pw2093K | wins/h 113 deaths/h 2 | gold earned/h 60.5M spent/h 60.8M ore/h 598619 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 60.8 | top spends: tree 57916K, castle 2869K
+    +21h: wave 297 (best 333) enemy Lv114 party Lv125 pw2309K | wins/h 115 deaths/h 5 | gold earned/h 75.9M spent/h 73.7M ore/h 701574 | +Lv 3.0 train h 0.00 | gear rank 2 lvl 61.7 | top spends: tree 69980K, castle 3586K
+    +22h: wave 276 (best 337) enemy Lv111 party Lv128 pw2481K | wins/h 112 deaths/h 6 | gold earned/h 75.5M spent/h 51.8M ore/h 669277 | +Lv 3.0 train h 0.00 | gear rank 2 lvl 62.3 | top spends: tree 47419K, castle 4372K
+    +23h: wave 303 (best 337) enemy Lv115 party Lv130 pw2715K | wins/h 122 deaths/h 8 | gold earned/h 70.9M spent/h 75.8M ore/h 677855 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 63.2 | top spends: tree 70873K, castle 4877K
+    +24h: wave 312 (best 345) enemy Lv116 party Lv132 pw2964K | wins/h 113 deaths/h 6 | gold earned/h 80.2M spent/h 72.7M ore/h 681800 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 63.9 | top spends: tree 72703K, gear 670K
+    +25h: wave 308 (best 353) enemy Lv116 party Lv134 pw3087K | wins/h 101 deaths/h 9 | gold earned/h 81.6M spent/h 80.2M ore/h 668481 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 64.4 | top spends: ranks 64761K, tree 9331K
+    +26h: wave 328 (best 353) enemy Lv119 party Lv136 pw3297K | wins/h 102 deaths/h 13 | gold earned/h 79.5M spent/h 75.8M ore/h 681380 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 65 | top spends: ranks 66035K, tree 9797K
+    +27h: wave 308 (best 367) enemy Lv116 party Lv137 pw3417K | wins/h 94 deaths/h 14 | gold earned/h 78.3M spent/h 61.1M ore/h 561638 | +Lv 1.0 train h 0.00 | gear rank 2 lvl 65.4 | top spends: tree 61114K, gear 579K
+    +28h: wave 325 (best 367) enemy Lv118 party Lv139 pw3647K | wins/h 111 deaths/h 9 | gold earned/h 84.1M spent/h 88.2M ore/h 802964 | +Lv 2.0 train h 0.00 | gear rank 2 lvl 66 | top spends: ranks 76813K, tree 11430K
+
+seed 57  hours 96.00  Shatters h22.33 Ironvein, h30.18 Ashen, h43.13 Ashen  zones cur/best 24h 5/6, 48h 7/7, 72h 9/9, 96h 9/9  final run 3 The Endless Road f312 Lv136
+  Hollow King 1/20 [r2/act 0/1 r3/act 1/19] loss dur med 24s HP left med 71% deaths med 4 | loss phase: 10 opening (before 70% summon), 8 after skeletons (70-35%), 1 after armored skeletons (<35%) | damage share at loss (mean): boss 93% skeletons 5% armored 0% other 2% | KEEP CLEARED run3@55.1 stall 15.0h
+  Foundry: entered run3@55.1h Lv55 pw98712 | CLEARED run3@70.22h Lv86 pw363290 | ordinary enc 445 L140 (31%) 4.0h far 0 | Core 1/17 loss dur med 16s HP left med 80% summon reached 1 deaths med 4 stall 8.1h
+  Endless: entered run3 @70.23h Lv84 pw235695 (25.8h in zone) carried in: gold 4M ore 3902 | best wave 346 milestones 13
+    +1h: wave 33 (best 50) enemy Lv74 party Lv86 pw363K | wins/h 144 deaths/h 6 | gold earned/h 5.2M spent/h 6.1M ore/h 104036 | +Lv 3.0 train h 0.71 | gear rank 1.5 lvl 49.8 | top spends: tree 3283K, ranks 1496K
+    +2h: wave 56 (best 81) enemy Lv78 party Lv88 pw429K | wins/h 124 deaths/h 9 | gold earned/h 7.3M spent/h 6.3M ore/h 110750 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 50.7 | top spends: ranks 4546K, tree 1741K
+    +3h: wave 50 (best 100) enemy Lv77 party Lv91 pw483K | wins/h 114 deaths/h 7 | gold earned/h 9.9M spent/h 10.6M ore/h 133134 | +Lv 3.0 train h 0.00 | gear rank 1.5 lvl 51.6 | top spends: tree 9318K, talents 1280K
+    +4h: wave 109 (best 110) enemy Lv86 party Lv93 pw568K | wins/h 95 deaths/h 5 | gold earned/h 10.3M spent/h 8.7M ore/h 141211 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 52.5 | top spends: tree 7958K, promote 720K
+    +5h: wave 114 (best 150) enemy Lv87 party Lv95 pw629K | wins/h 90 deaths/h 6 | gold earned/h 12.5M spent/h 9.6M ore/h 124787 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 53.4 | top spends: tree 8852K, promote 720K
+    +6h: wave 131 (best 155) enemy Lv89 party Lv97 pw686K | wins/h 94 deaths/h 10 | gold earned/h 12.3M spent/h 12.1M ore/h 125909 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 54 | top spends: tree 12110K, gear 122K
+    +7h: wave 126 (best 172) enemy Lv88 party Lv99 pw736K | wins/h 92 deaths/h 11 | gold earned/h 12.6M spent/h 11.8M ore/h 150933 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 54.8 | top spends: ranks 11797K, gear 161K
+    +8h: wave 129 (best 172) enemy Lv89 party Lv101 pw780K | wins/h 93 deaths/h 12 | gold earned/h 13.4M spent/h 13.7M ore/h 159287 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 55.4 | top spends: ranks 12515K, tree 1219K
+    +9h: wave 148 (best 174) enemy Lv92 party Lv103 pw855K | wins/h 105 deaths/h 5 | gold earned/h 15.6M spent/h 13.4M ore/h 189698 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 56.3 | top spends: tree 12707K, promote 720K
+    +10h: wave 150 (best 189) enemy Lv92 party Lv105 pw941K | wins/h 95 deaths/h 9 | gold earned/h 19.8M spent/h 21.7M ore/h 249416 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 57.1 | top spends: tree 21712K, gear 243K
+    +11h: wave 135 (best 197) enemy Lv90 party Lv107 pw1008K | wins/h 104 deaths/h 7 | gold earned/h 19.4M spent/h 15M ore/h 209280 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 57.8 | top spends: tree 14972K, gear 206K
+    +12h: wave 155 (best 197) enemy Lv93 party Lv109 pw1073K | wins/h 116 deaths/h 6 | gold earned/h 18.4M spent/h 15.5M ore/h 250965 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 58.4 | top spends: tree 15484K, gear 262K
+    +13h: wave 183 (best 202) enemy Lv97 party Lv110 pw1177K | wins/h 107 deaths/h 8 | gold earned/h 24M spent/h 23.1M ore/h 267365 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 59.3 | top spends: tree 23142K, gear 265K
+    +14h: wave 181 (best 223) enemy Lv97 party Lv112 pw1258K | wins/h 95 deaths/h 5 | gold earned/h 25M spent/h 25.4M ore/h 217350 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 59.8 | top spends: tree 23740K, castle 1688K
+    +15h: wave 191 (best 225) enemy Lv98 party Lv114 pw1329K | wins/h 108 deaths/h 5 | gold earned/h 25.2M spent/h 20.1M ore/h 337684 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 60.4 | top spends: ranks 11010K, tree 6246K
+    +16h: wave 204 (best 232) enemy Lv100 party Lv116 pw1447K | wins/h 95 deaths/h 6 | gold earned/h 28.2M spent/h 22.3M ore/h 314524 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 61.3 | top spends: ranks 22268K, gear 316K
+    +17h: wave 213 (best 245) enemy Lv101 party Lv118 pw1571K | wins/h 94 deaths/h 6 | gold earned/h 29.5M spent/h 31.2M ore/h 334010 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 61.9 | top spends: tree 19956K, ranks 11258K
+    +18h: wave 210 (best 254) enemy Lv101 party Lv119 pw1664K | wins/h 92 deaths/h 7 | gold earned/h 30.1M spent/h 26.8M ore/h 322079 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 62.4 | top spends: ranks 24418K, castle 2429K
+    +19h: wave 234 (best 254) enemy Lv105 party Lv121 pw1788K | wins/h 85 deaths/h 5 | gold earned/h 30.7M spent/h 27.1M ore/h 342445 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 63 | top spends: tree 27097K, gear 331K
+    +20h: wave 230 (best 267) enemy Lv104 party Lv122 pw1842K | wins/h 91 deaths/h 8 | gold earned/h 33.7M spent/h 43.4M ore/h 373348 | +Lv 1.0 train h 0.00 | gear rank 1.5 lvl 63.4 | top spends: tree 40499K, castle 2869K
+    +21h: wave 296 (best 300) enemy Lv114 party Lv124 pw2037K | wins/h 116 deaths/h 3 | gold earned/h 54.5M spent/h 41.5M ore/h 523143 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 64.3 | top spends: tree 41545K, gear 511K
+    +22h: wave 300 (best 334) enemy Lv115 party Lv127 pw2247K | wins/h 113 deaths/h 5 | gold earned/h 77.5M spent/h 60.3M ore/h 781584 | +Lv 3.0 train h 0.00 | gear rank 1.5 lvl 65.3 | top spends: tree 52384K, castle 7958K
+    +23h: wave 298 (best 340) enemy Lv114 party Lv129 pw2429K | wins/h 114 deaths/h 6 | gold earned/h 74.8M spent/h 68.1M ore/h 678532 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 66 | top spends: tree 68102K, gear 685K
+    +24h: wave 278 (best 341) enemy Lv111 party Lv132 pw2569K | wins/h 121 deaths/h 6 | gold earned/h 78.5M spent/h 79M ore/h 703511 | +Lv 3.0 train h 0.00 | gear rank 1.5 lvl 66.7 | top spends: tree 74139K, castle 4877K
+    +25h: wave 303 (best 341) enemy Lv115 party Lv134 pw2798K | wins/h 116 deaths/h 8 | gold earned/h 75.4M spent/h 57.7M ore/h 662867 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 67.4 | top spends: tree 51554K, castle 6096K
+    +26h: wave 312 (best 346) enemy Lv116 party Lv136 pw2997K | wins/h 115 deaths/h 5 | gold earned/h 80.1M spent/h 74.8M ore/h 749891 | +Lv 2.0 train h 0.00 | gear rank 1.5 lvl 68 | top spends: ranks 64973K, tree 9797K
+
+seed 58  hours 96.00  Shatters h15.12 Emberwaste, h36.23 Ashen, h46.15 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f203 Lv120
+  Hollow King 1/17 [r2/act 0/2 r3/act 1/15] loss dur med 23s HP left med 73% deaths med 4 | loss phase: 9 opening (before 70% summon), 7 after skeletons (70-35%) | damage share at loss (mean): boss 96% skeletons 4% armored 0% other 0% | KEEP CLEARED run3@59.1 stall 16.0h
+  Foundry: entered run3@59.1h Lv56 pw96474 | CLEARED run3@78.18h Lv89 pw367823 | ordinary enc 540 L155 (29%) 5.1h far 24 | Core 1/10 loss dur med 16s HP left med 83% summon reached 0 deaths med 4 stall 9.0h
+  Endless: entered run3 @78.18h Lv87 pw238145 (17.8h in zone) carried in: gold 2M ore 4394 | best wave 250 milestones 10
+    +1h: wave 36 (best 51) enemy Lv75 party Lv89 pw368K | wins/h 139 deaths/h 7 | gold earned/h 5.5M spent/h 5.1M ore/h 102167 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 52.3 | top spends: tree 3598K, ranks 1508K
+    +2h: wave 57 (best 87) enemy Lv78 party Lv91 pw434K | wins/h 121 deaths/h 6 | gold earned/h 8.3M spent/h 5.8M ore/h 120039 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 53.3 | top spends: tree 3833K, talents 1280K
+    +3h: wave 80 (best 100) enemy Lv82 party Lv93 pw481K | wins/h 100 deaths/h 7 | gold earned/h 9.8M spent/h 9M ore/h 102134 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54 | top spends: tree 8939K, gear 100K
+    +4h: wave 108 (best 121) enemy Lv86 party Lv95 pw554K | wins/h 90 deaths/h 6 | gold earned/h 11.1M spent/h 10.7M ore/h 131963 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 54.7 | top spends: tree 10011K, promote 720K
+    +5h: wave 101 (best 144) enemy Lv85 party Lv97 pw632K | wins/h 92 deaths/h 6 | gold earned/h 11.2M spent/h 8.4M ore/h 206541 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 55.8 | top spends: tree 7655K, promote 720K
+    +6h: wave 126 (best 148) enemy Lv88 party Lv99 pw681K | wins/h 110 deaths/h 5 | gold earned/h 12.3M spent/h 14M ore/h 157967 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 56.5 | top spends: ranks 7876K, tree 5402K
+    +7h: wave 100 (best 165) enemy Lv85 party Lv101 pw738K | wins/h 94 deaths/h 12 | gold earned/h 16M spent/h 13.5M ore/h 182652 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 57.3 | top spends: ranks 12265K, tree 1219K
+    +8h: wave 134 (best 165) enemy Lv90 party Lv103 pw815K | wins/h 107 deaths/h 8 | gold earned/h 13.3M spent/h 16.9M ore/h 212404 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 58.3 | top spends: tree 12707K, ranks 4222K
+    +9h: wave 131 (best 179) enemy Lv89 party Lv105 pw864K | wins/h 107 deaths/h 6 | gold earned/h 16.2M spent/h 13.8M ore/h 203880 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 58.9 | top spends: tree 13833K, gear 206K
+    +10h: wave 152 (best 183) enemy Lv92 party Lv107 pw943K | wins/h 111 deaths/h 8 | gold earned/h 17.6M spent/h 11.4M ore/h 221712 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 59.5 | top spends: tree 11447K, gear 223K
+    +11h: wave 159 (best 202) enemy Lv93 party Lv109 pw1025K | wins/h 98 deaths/h 8 | gold earned/h 22.4M spent/h 18.2M ore/h 202119 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 60.3 | top spends: tree 18178K, gear 195K
+    +12h: wave 163 (best 206) enemy Lv94 party Lv110 pw1084K | wins/h 101 deaths/h 7 | gold earned/h 19.2M spent/h 20M ore/h 223721 | +Lv 1.0 train h 0.00 | gear rank 1.25 lvl 60.8 | top spends: tree 20032K, gear 223K
+    +13h: wave 177 (best 209) enemy Lv96 party Lv112 pw1141K | wins/h 102 deaths/h 8 | gold earned/h 22.5M spent/h 23.5M ore/h 253310 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 61.3 | top spends: tree 21771K, castle 1688K
+    +14h: wave 185 (best 219) enemy Lv97 party Lv114 pw1247K | wins/h 101 deaths/h 5 | gold earned/h 24M spent/h 16.8M ore/h 253369 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 62.1 | top spends: tree 16834K, gear 267K
+    +15h: wave 197 (best 225) enemy Lv99 party Lv115 pw1328K | wins/h 100 deaths/h 5 | gold earned/h 25.6M spent/h 27.4M ore/h 341074 | +Lv 1.0 train h 0.00 | gear rank 1.25 lvl 62.7 | top spends: ranks 22102K, tree 3199K
+    +16h: wave 210 (best 236) enemy Lv101 party Lv117 pw1435K | wins/h 84 deaths/h 7 | gold earned/h 26.4M spent/h 22.6M ore/h 291747 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 63.3 | top spends: ranks 22599K, gear 289K
+    +17h: wave 213 (best 240) enemy Lv101 party Lv118 pw1508K | wins/h 76 deaths/h 10 | gold earned/h 26.6M spent/h 22.4M ore/h 260372 | +Lv 1.0 train h 0.00 | gear rank 1.25 lvl 63.7 | top spends: tree 19956K, castle 2429K
+    +18h: wave 203 (best 250) enemy Lv100 party Lv120 pw1592K | wins/h 88 deaths/h 7 | gold earned/h 30.8M spent/h 28.8M ore/h 322322 | +Lv 2.0 train h 0.00 | gear rank 1.25 lvl 64.3 | top spends: ranks 25055K, tree 3732K
+
+seed 59  hours 96.00  Shatters h15.11 Emberwaste, h34.17 Ashen, h45.09 Ashen  zones cur/best 24h 6/6, 48h 7/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f215 Lv118
+  Hollow King 1/28 [r3/act 1/27 r3/auto 0/1] loss dur med 19s HP left med 78% deaths med 4 | loss phase: 18 opening (before 70% summon), 7 after skeletons (70-35%), 2 after armored skeletons (<35%) | damage share at loss (mean): boss 95% skeletons 5% armored 0% other 0% | KEEP CLEARED run3@63.09 stall 14.9h
+  Foundry: entered run3@63.09h Lv60 pw101922 | CLEARED run3@78.22h Lv86 pw318469 | ordinary enc 335 L123 (37%) 3.2h far 24 | Core 1/7 loss dur med 16s HP left med 81% summon reached 1 deaths med 4 stall 7.1h
+  Endless: entered run3 @78.22h Lv84 pw209634 (17.8h in zone) carried in: gold 3M ore 2414 | best wave 247 milestones 9
+    +1h: wave 25 (best 62) enemy Lv73 party Lv86 pw318K | wins/h 131 deaths/h 5 | gold earned/h 5.2M spent/h 5.6M ore/h 73341 | +Lv 2.0 train h 0.75 | gear rank 0.92 lvl 53.1 | top spends: tree 4318K, castle 1241K
+    +2h: wave 50 (best 72) enemy Lv77 party Lv88 pw370K | wins/h 131 deaths/h 7 | gold earned/h 7.2M spent/h 7.6M ore/h 119244 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 54.1 | top spends: tree 4430K, ranks 3184K
+    +3h: wave 56 (best 90) enemy Lv78 party Lv91 pw411K | wins/h 120 deaths/h 9 | gold earned/h 9M spent/h 6.2M ore/h 108109 | +Lv 3.0 train h 0.00 | gear rank 0.92 lvl 54.8 | top spends: tree 4889K, talents 1280K
+    +4h: wave 82 (best 102) enemy Lv82 party Lv93 pw461K | wins/h 105 deaths/h 11 | gold earned/h 8.5M spent/h 8.6M ore/h 100155 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 55.5 | top spends: tree 7958K, promote 720K
+    +5h: wave 101 (best 123) enemy Lv85 party Lv94 pw533K | wins/h 77 deaths/h 9 | gold earned/h 9.4M spent/h 8.6M ore/h 135954 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 56.5 | top spends: tree 7905K, promote 720K
+    +6h: wave 104 (best 139) enemy Lv85 party Lv96 pw583K | wins/h 88 deaths/h 7 | gold earned/h 12.3M spent/h 9.5M ore/h 137329 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 57.3 | top spends: tree 8792K, promote 720K
+    +7h: wave 110 (best 144) enemy Lv86 party Lv99 pw644K | wins/h 98 deaths/h 7 | gold earned/h 12.4M spent/h 12.8M ore/h 153102 | +Lv 3.0 train h 0.00 | gear rank 0.92 lvl 58.1 | top spends: ranks 7809K, tree 4265K
+    +8h: wave 133 (best 153) enemy Lv89 party Lv101 pw708K | wins/h 103 deaths/h 6 | gold earned/h 13.2M spent/h 13.5M ore/h 187124 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 58.8 | top spends: ranks 12314K, tree 1219K
+    +9h: wave 126 (best 176) enemy Lv88 party Lv102 pw759K | wins/h 95 deaths/h 12 | gold earned/h 14.1M spent/h 11.9M ore/h 177662 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 59.5 | top spends: tree 7629K, ranks 4305K
+    +10h: wave 128 (best 176) enemy Lv89 party Lv104 pw819K | wins/h 110 deaths/h 9 | gold earned/h 15.1M spent/h 13.2M ore/h 198084 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 60.4 | top spends: tree 13224K, gear 209K
+    +11h: wave 139 (best 176) enemy Lv90 party Lv106 pw884K | wins/h 108 deaths/h 7 | gold earned/h 17.2M spent/h 15.3M ore/h 213153 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 61.2 | top spends: tree 15307K, gear 212K
+    +12h: wave 154 (best 187) enemy Lv93 party Lv108 pw945K | wins/h 108 deaths/h 9 | gold earned/h 17.7M spent/h 14.6M ore/h 243687 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 61.8 | top spends: tree 13231K, castle 1349K
+    +13h: wave 153 (best 200) enemy Lv92 party Lv110 pw1022K | wins/h 105 deaths/h 7 | gold earned/h 19.9M spent/h 24.4M ore/h 208812 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 62.5 | top spends: tree 24370K, gear 215K
+    +14h: wave 160 (best 200) enemy Lv94 party Lv111 pw1082K | wins/h 116 deaths/h 5 | gold earned/h 21.3M spent/h 14.3M ore/h 272859 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 63.3 | top spends: tree 14256K, gear 279K
+    +15h: wave 179 (best 213) enemy Lv96 party Lv113 pw1139K | wins/h 101 deaths/h 4 | gold earned/h 25.6M spent/h 25.4M ore/h 222113 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 63.5 | top spends: tree 23740K, castle 1688K
+    +16h: wave 180 (best 222) enemy Lv97 party Lv115 pw1225K | wins/h 103 deaths/h 5 | gold earned/h 24.6M spent/h 19.4M ore/h 295606 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 64.3 | top spends: ranks 11010K, tree 6246K
+    +17h: wave 208 (best 228) enemy Lv101 party Lv116 pw1311K | wins/h 97 deaths/h 5 | gold earned/h 26M spent/h 33.7M ore/h 314700 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 65 | top spends: ranks 33691K, gear 326K
+    +18h: wave 215 (best 247) enemy Lv102 party Lv118 pw1413K | wins/h 93 deaths/h 4 | gold earned/h 28.5M spent/h 20M ore/h 252010 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 65.5 | top spends: tree 19956K, gear 232K
+
+seed 60  hours 96.00  Shatters h29.25 Emberwaste, h47.25 Ashen, h54.12 Ashen  zones cur/best 24h 6/6, 48h 5/7, 72h 8/8, 96h 9/9  final run 3 The Endless Road f211 Lv121
+  Hollow King 1/11 [r2/act 0/3 r3/act 1/8] loss dur med 19s HP left med 74% deaths med 4 | loss phase: 6 opening (before 70% summon), 1 after skeletons (70-35%), 3 after armored skeletons (<35%) | damage share at loss (mean): boss 93% skeletons 4% armored 0% other 3% | KEEP CLEARED run3@60.2 stall 9.1h
+  Foundry: entered run3@60.2h Lv48 pw91128 | CLEARED run3@74.14h Lv80 pw296724 | ordinary enc 452 L140 (31%) 4.3h far 27 | Core 1/14 loss dur med 16s HP left med 83% summon reached 2 deaths med 4 stall 7.0h
+  Endless: entered run3 @74.14h Lv78 pw192868 (21.9h in zone) carried in: gold 3M ore 3676 | best wave 263 milestones 10
+    +1h: wave 29 (best 47) enemy Lv74 party Lv80 pw297K | wins/h 124 deaths/h 6 | gold earned/h 5.7M spent/h 6.4M ore/h 81196 | +Lv 2.0 train h 0.74 | gear rank 0.92 lvl 52.8 | top spends: tree 3410K, ranks 2949K
+    +2h: wave 60 (best 68) enemy Lv79 party Lv83 pw345K | wins/h 117 deaths/h 7 | gold earned/h 8.7M spent/h 7.8M ore/h 99892 | +Lv 3.0 train h 0.00 | gear rank 0.92 lvl 53.8 | top spends: tree 7829K, gear 99K
+    +3h: wave 62 (best 91) enemy Lv79 party Lv86 pw385K | wins/h 107 deaths/h 8 | gold earned/h 8.6M spent/h 6.3M ore/h 106752 | +Lv 3.0 train h 0.00 | gear rank 0.92 lvl 54.7 | top spends: tree 6343K, gear 111K
+    +4h: wave 51 (best 100) enemy Lv77 party Lv88 pw422K | wins/h 115 deaths/h 8 | gold earned/h 8.5M spent/h 8.1M ore/h 115151 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 55.5 | top spends: tree 8111K, gear 109K
+    +5h: wave 69 (best 100) enemy Lv80 party Lv90 pw472K | wins/h 115 deaths/h 8 | gold earned/h 9.2M spent/h 8.2M ore/h 125737 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 56.3 | top spends: tree 7244K, talents 960K
+    +6h: wave 101 (best 112) enemy Lv85 party Lv92 pw541K | wins/h 85 deaths/h 7 | gold earned/h 11.3M spent/h 10.4M ore/h 151454 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 57.1 | top spends: tree 5594K, ranks 3720K
+    +7h: wave 102 (best 135) enemy Lv85 party Lv94 pw592K | wins/h 82 deaths/h 5 | gold earned/h 12.3M spent/h 14.7M ore/h 138328 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 57.8 | top spends: ranks 7450K, tree 6516K
+    +8h: wave 102 (best 142) enemy Lv85 party Lv96 pw632K | wins/h 91 deaths/h 7 | gold earned/h 13.3M spent/h 11.6M ore/h 151991 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 58.5 | top spends: ranks 11629K, gear 150K
+    +9h: wave 113 (best 146) enemy Lv86 party Lv98 pw704K | wins/h 97 deaths/h 6 | gold earned/h 14.5M spent/h 14.6M ore/h 213616 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 59.5 | top spends: tree 13926K, promote 720K
+    +10h: wave 125 (best 160) enemy Lv88 party Lv100 pw741K | wins/h 90 deaths/h 13 | gold earned/h 13.6M spent/h 13.8M ore/h 148366 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 59.9 | top spends: tree 13833K, gear 146K
+    +11h: wave 130 (best 168) enemy Lv89 party Lv102 pw802K | wins/h 96 deaths/h 9 | gold earned/h 16M spent/h 9.6M ore/h 172883 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 60.7 | top spends: tree 9619K, gear 185K
+    +12h: wave 141 (best 176) enemy Lv91 party Lv104 pw858K | wins/h 107 deaths/h 9 | gold earned/h 17.2M spent/h 14.5M ore/h 233401 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 61.4 | top spends: tree 13231K, castle 1241K
+    +13h: wave 126 (best 184) enemy Lv88 party Lv106 pw936K | wins/h 104 deaths/h 7 | gold earned/h 19.7M spent/h 16.8M ore/h 278618 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 62.3 | top spends: tree 15484K, castle 1349K
+    +14h: wave 168 (best 184) enemy Lv95 party Lv108 pw1000K | wins/h 111 deaths/h 7 | gold earned/h 20.7M spent/h 23.9M ore/h 274996 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 62.8 | top spends: tree 23142K, promote 720K
+    +15h: wave 152 (best 209) enemy Lv92 party Lv110 pw1093K | wins/h 99 deaths/h 8 | gold earned/h 28.8M spent/h 25.4M ore/h 295944 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 63.7 | top spends: tree 23740K, castle 1688K
+    +16h: wave 178 (best 209) enemy Lv96 party Lv111 pw1160K | wins/h 103 deaths/h 5 | gold earned/h 25.3M spent/h 19.1M ore/h 303727 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 64.3 | top spends: ranks 10761K, tree 6246K
+    +17h: wave 188 (best 221) enemy Lv98 party Lv113 pw1226K | wins/h 97 deaths/h 4 | gold earned/h 27.4M spent/h 32.9M ore/h 317112 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 64.8 | top spends: ranks 32864K, gear 329K
+    +18h: wave 207 (best 228) enemy Lv101 party Lv115 pw1316K | wins/h 97 deaths/h 4 | gold earned/h 31.1M spent/h 31.8M ore/h 356917 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 65.6 | top spends: tree 19956K, ranks 11891K
+    +19h: wave 209 (best 245) enemy Lv101 party Lv117 pw1414K | wins/h 90 deaths/h 5 | gold earned/h 31.1M spent/h 18.1M ore/h 380429 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 66.3 | top spends: ranks 11891K, tree 3732K
+    +20h: wave 202 (best 246) enemy Lv100 party Lv118 pw1483K | wins/h 81 deaths/h 5 | gold earned/h 32.7M spent/h 38.9M ore/h 249544 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 66.7 | top spends: tree 38915K, gear 240K
+    +21h: wave 225 (best 246) enemy Lv103 party Lv119 pw1563K | wins/h 80 deaths/h 8 | gold earned/h 30.3M spent/h 27.8M ore/h 275246 | +Lv 1.0 train h 0.00 | gear rank 0.92 lvl 67 | top spends: tree 24948K, castle 2869K
+    +22h: wave 211 (best 263) enemy Lv101 party Lv121 pw1667K | wins/h 78 deaths/h 8 | gold earned/h 35.2M spent/h 22.5M ore/h 433570 | +Lv 2.0 train h 0.00 | gear rank 0.92 lvl 67.7 | top spends: tree 22495K, gear 424K
+
+-- engaged validity: 96h reached 10/10, Shatter cap 10/10
+-- engaged Hollow King: reached in 10/10 runs, cleared 10; attempts 188 wins 10 [r1/act 0/2 r2/act 0/17 r3/act 10/164 r3/auto 0/5]; loss dur med 22s, HP left med 73%; stall to clear med 15.0h; loss phases: 109 opening (before 70% summon), 53 after skeletons (70-35%), 16 after armored skeletons (<35%); damage share at loss: boss 95% skeletons 5% armored 0%
+-- engaged Foundry: entered 10/10 runs (entry h med 60.2), cleared 10 (hours to clear med 15.1); ordinary loss% med 31, hours med 4.0, furthest med 24; Core attempts 115 wins 10, loss dur med 16s HP left med 80%; stall to clear med 7.1h
+-- engaged Endless: entered 10/10 runs (entry h med 74.2, hours in zone med 19.8); per hour in zone (median over run-hours, n=225): wins/h 101, deaths/h 7, gold earned/h 18.05M, spent/h 15.39M, ore/h 217350, +Lv/h 2.00, training h/h 0.00; wave by hour since entry: +1h 37, +2h 54, +4h 80, +8h 118, +12h 154, +16h 194, +24h 281; enemy Lv at +1/+8/+16h: 75/87/99; party Lv at +1/+8/+16h: 83/99/114
+-- engaged horizons (cur/best med): 24h 5/6, 48h 7/7, 72h 8/8, 96h 9/9; Shatters per run med 3

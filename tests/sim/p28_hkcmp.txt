@@ -1,0 +1,276 @@
+
+===== IDLE   baseline batch_out_p27 (ATK 1.7) -> candidate batch_out_p28 (ATK 1.3)
+
+seed 51  hours 96.00  Shatters 3->3  audit through first Keep entry (h48.5): hourly 48/48, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 59->19 wins 1->1 [auto 1/59->1/19, active 0/0->0/0] stall 8.5->4.5h | party Lv 66->62 pw 160K->147K | loss dur 49->81s HP left 68->35% deaths 4->4 | win surv 4->4 HP 87->62% dur 138->143s
+  phases (opening/skel/armored) 7/38/13 -> 0/9/9 | damage share boss/skel/armored 92/6/0% -> 85/9/0% | Keep clear h 77.4->73.38 time in Keep 27.9->23.9h
+  Foundry: entered @77.4 Lv72 -> @73.38 Lv65 | ordinary enc 1314 L87 far 35 -> enc 1445 L126 far 34 | Core 0/98 (auto 0/98) -> 0/91 (auto 0/91) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1481->1499 | training 27.2->29.9h | Lv@96h 94->94 pw 344K->344K | gold 62.8->63.5M (spent 58.1->58.5) ore 1365K->1368K | final 3 The Foundry f33 Lv94 -> 3 The Foundry f29 Lv94
+
+seed 52  hours 96.00  Shatters 3->3  audit through first Keep entry (h50.8): hourly 50/50, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 58->15 wins 1->1 [auto 1/58->1/15, active 0/0->0/0] stall 7.3->2.4h | party Lv 68->63 pw 161K->139K | loss dur 45->76s HP left 68->45% deaths 4->4 | win surv 4->4 HP 68->86% dur 116->141s
+  phases (opening/skel/armored) 12/37/8 -> 1/9/4 | damage share boss/skel/armored 93/6/0% -> 92/6/0% | Keep clear h 77.04->72.06 time in Keep 25.1->20.2h
+  Foundry: entered @77.04 Lv73 -> @72.06 Lv64 | ordinary enc 1197 L92 far 35 -> enc 1495 L141 far 35 | Core 0/77 (auto 0/77) -> 0/87 (auto 0/87) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1253->1292 | training 27.0->28.9h | Lv@96h 96->95 pw 341K->337K | gold 72.4->72.1M (spent 66.6->66.5) ore 1519K->1514K | final 3 The Foundry f31 Lv96 -> 3 The Foundry f31 Lv95
+
+seed 53  hours 96.00  Shatters 3->3  audit through first Keep entry (h52.9): hourly 52/52, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 66->15 wins 1->1 [auto 1/66->1/15, active 0/0->0/0] stall 10.3->4.6h | party Lv 71->65 pw 165K->140K | loss dur 42->70s HP left 68->63% deaths 4->4 | win surv 4->4 HP 90->91% dur 101->130s
+  phases (opening/skel/armored) 16/41/8 -> 2/9/3 | damage share boss/skel/armored 94/5/0% -> 92/7/0% | Keep clear h 86.43->80.74 time in Keep 33.6->27.9h
+  Foundry: entered @86.43 Lv76 -> @80.74 Lv68 | ordinary enc 407 L64 far 34 -> enc 615 L108 far 28 | Core 0/12 (auto 0/12) -> 0/13 (auto 0/13) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1670->1684 | training 21.9->25.4h | Lv@96h 86->87 pw 250K->262K | gold 40.8->42.5M (spent 37.3->40.5) ore 917K->962K | final 3 The Foundry f32 Lv86 -> 3 The Foundry f25 Lv87
+
+seed 54  hours 96.00  Shatters 3->3  audit through first Keep entry (h51.4): hourly 51/51, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 67->30 wins 1->1 [auto 1/67->1/30, active 0/0->0/0] stall 10.7->6.7h | party Lv 68->62 pw 160K->146K | loss dur 41->60s HP left 69->67% deaths 4->4 | win surv 4->4 HP 65->92% dur 140->128s
+  phases (opening/skel/armored) 26/36/4 -> 1/18/10 | damage share boss/skel/armored 94/5/0% -> 89/8/0% | Keep clear h 76.54->72.5 time in Keep 24.1->20.0h
+  Foundry: entered @76.54 Lv73 -> @72.5 Lv67 | ordinary enc 1290 L105 far 35 -> enc 1552 L121 far 35 | Core 0/81 (auto 0/81) -> 0/95 (auto 0/95) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 4/6->4/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1313->1331 | training 26.0->27.4h | Lv@96h 95->95 pw 333K->342K | gold 61.6->62.7M (spent 58.1->58.3) ore 1298K->1361K | final 3 The Foundry f31 Lv95 -> 3 The Foundry f26 Lv95
+
+seed 55  hours 96.00  Shatters 3->3  audit through first Keep entry (h49.8): hourly 49/49, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 60->23 wins 1->1 [auto 1/60->1/23, active 0/0->0/0] stall 15.5->7.8h | party Lv 63->52 pw 155K->145K | loss dur 46->103s HP left 69->35% deaths 4->4 | win surv 4->4 HP 99->96% dur 105->141s
+  phases (opening/skel/armored) 16/35/8 -> 2/8/12 | damage share boss/skel/armored 94/5/0% -> 88/5/0% | Keep clear h 81.78->80.65 time in Keep 30.1->28.8h
+  Foundry: entered @81.78 Lv70 -> @80.65 Lv54 | ordinary enc 1070 L80 far 34 -> enc 1028 L140 far 32 | Core 0/55 (auto 0/55) -> 0/26 (auto 0/26) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1245->1298 | training 27.0->28.5h | Lv@96h 90->85 pw 289K->276K | gold 54.1->48.2M (spent 50.0->44.7) ore 1205K->1138K | final 3 The Foundry f34 Lv90 -> 3 The Foundry f28 Lv85
+
+seed 56  hours 96.00  Shatters 3->3  audit through first Keep entry (h54.7): hourly 54/54, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 64->17 wins 1->1 [auto 1/64->1/17, active 0/0->0/0] stall 10.3->4.5h | party Lv 68->59 pw 161K->140K | loss dur 44->61s HP left 69->67% deaths 4->4 | win surv 4->4 HP 85->95% dur 166->173s
+  phases (opening/skel/armored) 16/35/12 -> 2/10/4 | damage share boss/skel/armored 93/6/0% -> 87/10/0% | Keep clear h 84.51->78.75 time in Keep 28.5->22.7h
+  Foundry: entered @84.51 Lv73 -> @78.75 Lv63 | ordinary enc 423 L75 far 33 -> enc 816 L138 far 29 | Core 0/8 (auto 0/8) -> 0/15 (auto 0/15) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1330->1367 | training 30.5->32.7h | Lv@96h 87->86 pw 264K->265K | gold 43.8->44.5M (spent 40.6->41.9) ore 1113K->1128K | final 3 Ashen Keep f36 Lv87 -> 3 The Foundry f27 Lv86
+
+seed 57  hours 96.00  Shatters 3->3  audit through first Keep entry (h50.3): hourly 50/50, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 52->17 wins 1->1 [auto 1/52->1/17, active 0/0->0/0] stall 13.9->9.7h | party Lv 59->52 pw 148K->133K | loss dur 40->53s HP left 70->64% deaths 4->4 | win surv 4->4 HP 58->81% dur 127->146s
+  phases (opening/skel/armored) 22/25/4 -> 5/7/4 | damage share boss/skel/armored 96/3/0% -> 93/4/0% | Keep clear h 75.12->71 time in Keep 23.9->19.7h
+  Foundry: entered @75.12 Lv65 -> @71 Lv55 | ordinary enc 1471 L119 far 35 -> enc 1725 L169 far 34 | Core 0/101 (auto 0/101) -> 0/96 (auto 0/96) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->8/8, 96h 8/8->8/8 | defeats 1232->1257 | training 25.8->27.2h | Lv@96h 94->94 pw 340K->337K | gold 64.1->64.3M (spent 59.5->59.4) ore 1363K->1351K | final 3 The Foundry f30 Lv94 -> 3 The Foundry f27 Lv94
+
+seed 58  hours 96.00  Shatters 3->3  audit through first Keep entry (h50.4): hourly 50/50, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 53->18 wins 1->1 [auto 1/53->1/18, active 0/0->0/0] stall 10.7->6.4h | party Lv 70->63 pw 160K->135K | loss dur 41->70s HP left 69->53% deaths 4->4 | win surv 4->4 HP 79->85% dur 146->130s
+  phases (opening/skel/armored) 18/31/3 -> 1/11/5 | damage share boss/skel/armored 95/4/0% -> 91/7/0% | Keep clear h 75.53->71.23 time in Keep 23.3->19.0h
+  Foundry: entered @75.53 Lv74 -> @71.23 Lv67 | ordinary enc 1463 L112 far 35 -> enc 1479 L159 far 35 | Core 0/81 (auto 0/81) -> 0/62 (auto 0/62) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->8/8, 96h 8/8->8/8 | defeats 1289->1310 | training 27.2->31.2h | Lv@96h 96->95 pw 332K->315K | gold 64.5->63.3M (spent 60.9->59.5) ore 1404K->1317K | final 3 The Foundry f26 Lv96 -> 3 The Foundry f28 Lv95
+
+seed 59  hours 96.00  Shatters 3->3  audit through first Keep entry (h54.0): hourly 53/53, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 54->18 wins 1->1 [auto 1/54->1/18, active 0/0->0/0] stall 10.2->7.1h | party Lv 65->60 pw 160K->143K | loss dur 40->84s HP left 69->55% deaths 4->4 | win surv 4->4 HP 98->66% dur 114->127s
+  phases (opening/skel/armored) 18/35/0 -> 2/8/7 | damage share boss/skel/armored 94/6/0% -> 91/7/0% | Keep clear h 75.69->72.66 time in Keep 20.7->17.7h
+  Foundry: entered @75.69 Lv70 -> @72.66 Lv65 | ordinary enc 1343 L108 far 34 -> enc 1571 L130 far 34 | Core 0/80 (auto 0/80) -> 0/89 (auto 0/89) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1209->1239 | training 30.0->30.6h | Lv@96h 94->94 pw 339K->338K | gold 61.1->60.5M (spent 58.5->57.4) ore 1496K->1491K | final 3 The Foundry f32 Lv94 -> 3 The Foundry f30 Lv94
+
+seed 60  hours 96.00  Shatters 3->3  audit through first Keep entry (h46.6): hourly 46/46, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 63->26 wins 1->1 [auto 1/63->1/26, active 0/0->0/0] stall 10.8->6.8h | party Lv 72->69 pw 159K->148K | loss dur 41->104s HP left 69->35% deaths 4->4 | win surv 4->4 HP 73->94% dur 153->163s
+  phases (opening/skel/armored) 20/35/7 -> 3/9/13 | damage share boss/skel/armored 95/4/0% -> 90/5/0% | Keep clear h 69.04->65.12 time in Keep 22.5->18.6h
+  Foundry: entered @69.04 Lv77 -> @65.12 Lv71 | ordinary enc 2091 L127 far 35 -> enc 2037 L142 far 35 | Core 0/173 (auto 0/173) -> 1/162 (auto 1/162) | cleared -->@94.75 | Endless - -> @94.75 (1.2h, wave 120)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 8/8->9/9 | defeats 1337->1324 | training 23.0->26.2h | Lv@96h 103->104 pw 423K->717K | gold 88.0->96.6M (spent 81.9->89.3) ore 1834K->1938K | final 3 The Foundry f35 Lv103 -> 3 The Endless Road f111 Lv104
+
+-- idle validity: 96h 10/10, Shatter cap 10/10, audit through first Keep entry OK 10/10
+-- idle Hollow King: attempts med 59 -> 18 (paired med -37, +0 00 -10) | Auto-Cast wins/att 10/596 -> 10/198 (5.1%) | active wins/att 0/0 -> 0/0 (0%) | stall h med 10.3 -> 6.4 (paired med -4.3, +0 00 -10) | first-try clears 0->0 | loss dur med 41 -> 70 (paired med 29, +10 00 -0) | HP left% med 69 -> 53 (paired med -16, +0 00 -10) | win party HP% med 79 -> 86 (paired med 6, +7 00 -3)
+   loss phases opening/skeletons/armored 171/348/67 -> 19/98/71 | damage share boss 94% -> 90%, skeletons 5% -> 7% | Keep clear h med 76.5 -> 72.5 (paired med -4.1, +0 00 -10) | time in Keep h med 24.1 -> 20.0 (paired med -4.2, +0 00 -10)
+-- idle downstream: Foundry entry h med 76.5 -> 72.5 (paired med -4.1, +0 00 -10) | Foundry cleared runs 0->1 | Core wins/att 0/766 -> 1/736 (auto 0/766 -> 1/736) | Endless reached 0->1 (entry h med - -> 94.8, hours med 0.0 -> 0.0 (paired med 0.0, +1 09 -0))
+-- idle horizons cur/best med 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats med 1289 -> 1310 (paired med 21, +9 00 -1) | training h med 27.0 -> 28.5 (paired med 1.9, +10 00 -0) | Lv@96h med 94 -> 94 (paired med 0, +2 04 -4) | gold earned M med 61.6 -> 62.7 (paired med 0.3, +6 00 -4) | ore earned med 1362528 -> 1350624 (paired med -4224, +5 00 -5)
+-- idle outliers: seed 60: Endless newly reached @94.75; 
+
+===== LIGHT   baseline batch_out_p27 (ATK 1.7) -> candidate batch_out_p28 (ATK 1.3)
+
+seed 51  hours 96.00  Shatters 3->3  audit through first Keep entry (h41.1): hourly 41/41, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 5->4 wins 1->1 [auto 0/2->0/2, active 1/3->1/2] stall 5.0->5.0h | party Lv 57->54 pw 115K->112K | loss dur 27->31s HP left 74->79% deaths 4->4 | win surv 4->4 HP 100->100% dur 71->62s
+  phases (opening/skel/armored) 3/1/0 -> 3/0/0 | damage share boss/skel/armored 97/3/0% -> 100/0/0% | Keep clear h 75.08->75.06 time in Keep 27.1->27.0h
+  Foundry: entered @75.08 Lv60 -> @75.06 Lv60 | ordinary enc 670 L171 far 25 -> enc 604 L149 far 28 | Core 0/7 (auto 0/5) -> 1/8 (auto 0/5) | cleared -->@95.06 | Endless - -> @95.06 (0.9h, wave 66)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 7/7->7/7, 96h 8/8->9/9 | defeats 1954->1938 | training 35.0->34.7h | Lv@96h 88->90 pw 256K->411K | gold 47.5->51.5M (spent 45.3->49.4) ore 1034K->1113K | final 3 The Foundry f25 Lv88 -> 3 The Endless Road f58 Lv90
+
+seed 52  hours 96.00  Shatters 3->3  audit through first Keep entry (h46.1): hourly 46/46, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 5->3 wins 1->1 [auto 0/1->0/1, active 1/4->1/2] stall 7.0->4.0h | party Lv 51->48 pw 112K->108K | loss dur 20->23s HP left 70->83% deaths 4->4 | win surv 4->4 HP 43->100% dur 102->73s
+  phases (opening/skel/armored) 2/2/0 -> 2/0/0 | damage share boss/skel/armored 94/6/0% -> 100/0/0% | Keep clear h 73.06->70.07 time in Keep 26.0->23.0h
+  Foundry: entered @73.06 Lv57 -> @70.07 Lv52 | ordinary enc 455 L138 far 27 -> enc 861 L189 far 35 | Core 1/3 (auto 0/1) -> 1/25 (auto 0/19) | cleared @88.07->@94.02 | Endless @88.07 (7.9h, wave 127) -> @94.02 (2.0h, wave 84)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 7/7->8/8, 96h 9/9->9/9 | defeats 1792->1795 | training 33.4->38.4h | Lv@96h 97->94 pw 664K->502K | gold 90.3->65.4M (spent 83.7->60.7) ore 1599K->1279K | final 3 The Endless Road f100 Lv97 -> 3 The Endless Road f82 Lv94
+
+seed 53  hours 96.00  Shatters 3->3  audit through first Keep entry (h48.1): hourly 48/48, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 6->6 wins 1->1 [auto 0/4->0/4, active 1/2->1/2] stall 9.0->9.0h | party Lv 56->50 pw 111K->98K | loss dur 19->37s HP left 90->84% deaths 4->4 | win surv 4->4 HP 100->100% dur 70->79s
+  phases (opening/skel/armored) 5/0/0 -> 4/0/1 | damage share boss/skel/armored 100/0/0% -> 95/3/0% | Keep clear h 78.08->78.09 time in Keep 28.7->28.7h
+  Foundry: entered @78.08 Lv59 -> @78.09 Lv58 | ordinary enc 624 L140 far 27 -> enc 537 L134 far 27 | Core 0/7 (auto 0/6) -> 0/5 (auto 0/4) | cleared -->- | Endless - -> -
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 7/7->7/7, 96h 8/8->8/8 | defeats 1927->1950 | training 33.5->34.0h | Lv@96h 85->84 pw 240K->228K | gold 40.4->38.2M (spent 37.4->34.6) ore 976K->910K | final 3 The Foundry f27 Lv85 -> 3 Ashen Keep f36 Lv84
+
+seed 54  hours 96.00  Shatters 3->3  audit through first Keep entry (h44.1): hourly 44/44, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 10->3 wins 1->1 [auto 0/5->0/1, active 1/5->1/2] stall 14.0->11.0h | party Lv 50->48 pw 108K->107K | loss dur 17->25s HP left 92->66% deaths 4->4 | win surv 4->4 HP 100->100% dur 61->97s
+  phases (opening/skel/armored) 6/2/1 -> 1/1/0 | damage share boss/skel/armored 97/3/0% -> 94/6/0% | Keep clear h 65.07->62.08 time in Keep 19.9->17.0h
+  Foundry: entered @65.07 Lv57 -> @62.08 Lv48 | ordinary enc 521 L118 far 27 -> enc 986 L206 far 34 | Core 1/3 (auto 0/2) -> 1/24 (auto 0/18) | cleared @79.08->@84.02 | Endless @79.08 (16.9h, wave 190) -> @84.02 (12.0h, wave 171)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1520->1569 | training 30.6->34.0h | Lv@96h 110->106 pw 1098K->973K | gold 194.3->154.4M (spent 177.2->146.5) ore 2845K->2462K | final 3 The Endless Road f168 Lv110 -> 3 The Endless Road f160 Lv106
+
+seed 55  hours 96.00  Shatters 3->3  audit through first Keep entry (h41.1): hourly 41/41, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 6->7 wins 1->1 [auto 0/2->0/2, active 1/4->1/5] stall 4.0->5.0h | party Lv 59->60 pw 120K->122K | loss dur 31->40s HP left 67->67% deaths 4->4 | win surv 4->4 HP 100->100% dur 97->52s
+  phases (opening/skel/armored) 2/2/1 -> 3/3/0 | damage share boss/skel/armored 94/6/0% -> 91/9/0% | Keep clear h 70.07->71.06 time in Keep 27.0->28.0h
+  Foundry: entered @70.07 Lv62 -> @71.06 Lv63 | ordinary enc 629 L162 far 31 -> enc 618 L135 far 35 | Core 1/17 (auto 0/14) -> 1/8 (auto 0/6) | cleared @89.07->@90.02 | Endless @89.07 (6.9h, wave 124) -> @90.02 (6.0h, wave 138)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2007->1972 | training 30.8->30.9h | Lv@96h 100->99 pw 754K->714K | gold 97.8->92.1M (spent 89.4->86.9) ore 1811K->1674K | final 3 The Endless Road f117 Lv100 -> 3 The Endless Road f102 Lv99
+
+seed 56  hours 96.00  Shatters 3->3  audit through first Keep entry (h42.0): hourly 42/42, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 10->5 wins 1->1 [auto 0/8->0/3, active 1/2->1/2] stall 6.0->3.0h | party Lv 55->48 pw 132K->120K | loss dur 34->30s HP left 75->79% deaths 4->4 | win surv 4->4 HP 100->100% dur 62->69s
+  phases (opening/skel/armored) 7/1/1 -> 3/1/0 | damage share boss/skel/armored 98/2/0% -> 98/2/0% | Keep clear h 73.07->70.08 time in Keep 28.1->25.1h
+  Foundry: entered @73.08 Lv59 -> @70.08 Lv50 | ordinary enc 768 L138 far 29 -> enc 783 L160 far 35 | Core 1/20 (auto 0/15) -> 1/15 (auto 0/13) | cleared @90.06->@89.04 | Endless @90.06 (5.9h, wave 133) -> @89.04 (7.0h, wave 138)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 7/7->8/8, 96h 9/9->9/9 | defeats 1649->1681 | training 28.7->30.5h | Lv@96h 96->98 pw 690K->758K | gold 97.4->107.6M (spent 92.2->98.1) ore 1760K->1949K | final 3 The Endless Road f119 Lv96 -> 3 The Endless Road f112 Lv98
+
+seed 57  hours 96.00  Shatters 3->3  audit through first Keep entry (h48.1): hourly 48/48, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 8->7 wins 1->1 [auto 0/4->0/3, active 1/4->1/4] stall 8.0->7.0h | party Lv 68->66 pw 116K->109K | loss dur 28->38s HP left 85->70% deaths 4->4 | win surv 4->4 HP 100->100% dur 67->73s
+  phases (opening/skel/armored) 5/1/1 -> 3/2/1 | damage share boss/skel/armored 96/4/0% -> 90/9/0% | Keep clear h 68.08->67.08 time in Keep 20.0->19.0h
+  Foundry: entered @68.08 Lv70 -> @67.09 Lv69 | ordinary enc 781 L165 far 29 -> enc 649 L163 far 27 | Core 1/8 (auto 0/5) -> 1/9 (auto 0/4) | cleared @89.05->@90.06 | Endless @89.05 (6.9h, wave 127) -> @90.07 (5.9h, wave 124)
+  zones cur/best 24h 4/4->4/4, 48h 6/6->6/6, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1630->1623 | training 34.2->37.6h | Lv@96h 100->101 pw 615K->647K | gold 93.7->93.6M (spent 87.0->87.7) ore 1703K->1750K | final 3 The Endless Road f107 Lv100 -> 3 The Endless Road f107 Lv101
+
+seed 58  hours 96.00  Shatters 3->3  audit through first Keep entry (h44.0): hourly 44/44, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 7->6 wins 1->1 [auto 0/2->0/3, active 1/5->1/3] stall 11.9->11.0h | party Lv 48->49 pw 110K->113K | loss dur 21->34s HP left 76->69% deaths 4->4 | win surv 4->4 HP 100->100% dur 56->56s
+  phases (opening/skel/armored) 5/0/1 -> 2/2/1 | damage share boss/skel/armored 97/2/0% -> 89/9/0% | Keep clear h 67.05->66.06 time in Keep 21.1->20.1h
+  Foundry: entered @67.05 Lv55 -> @66.06 Lv53 | ordinary enc 741 L186 far 33 -> enc 829 L168 far 32 | Core 1/7 (auto 0/3) -> 1/19 (auto 0/13) | cleared @84.07->@85.02 | Endless @84.07 (11.9h, wave 188) -> @85.02 (11.0h, wave 179)
+  zones cur/best 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1900->1872 | training 32.4->33.5h | Lv@96h 109->109 pw 1100K->1084K | gold 207.3->198.4M (spent 193.4->184.7) ore 3341K->3305K | final 3 The Endless Road f150 Lv109 -> 3 The Endless Road f158 Lv109
+
+seed 59  hours 96.00  Shatters 3->3  audit through first Keep entry (h37.1): hourly 37/37, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 9->3 wins 1->1 [auto 0/3->0/0, active 1/6->1/3] stall 10.0->9.0h | party Lv 51->50 pw 112K->119K | loss dur 12->20s HP left 84->69% deaths 4->4 | win surv 4->4 HP 94->100% dur 62->65s
+  phases (opening/skel/armored) 6/2/0 -> 1/1/0 | damage share boss/skel/armored 96/4/0% -> 94/6/0% | Keep clear h 69.07->68.08 time in Keep 30.1->29.1h
+  Foundry: entered @69.07 Lv54 -> @68.08 Lv52 | ordinary enc 806 L169 far 30 -> enc 882 L179 far 33 | Core 1/12 (auto 0/8) -> 1/25 (auto 0/20) | cleared @86.04->@88.03 | Endless @86.04 (10.0h, wave 161) -> @88.03 (8.0h, wave 149)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2039->2045 | training 29.2->31.5h | Lv@96h 104->102 pw 923K->830K | gold 136.8->120.7M (spent 126.2->112.2) ore 2330K->2083K | final 3 The Endless Road f127 Lv104 -> 3 The Endless Road f141 Lv102
+
+seed 60  hours 96.00  Shatters 3->3  audit through first Keep entry (h41.1): hourly 41/41, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 4->8 wins 1->1 [auto 0/3->0/3, active 1/1->1/5] stall 3.0->5.0h | party Lv 49->53 pw 113K->121K | loss dur 18->48s HP left 90->63% deaths 4->4 | win surv 4->4 HP 100->100% dur 71->62s
+  phases (opening/skel/armored) 3/0/0 -> 2/3/2 | damage share boss/skel/armored 100/0/0% -> 87/10/0% | Keep clear h 63.08->65.07 time in Keep 19.0->21.0h
+  Foundry: entered @63.08 Lv52 -> @65.07 Lv58 | ordinary enc 797 L156 far 32 -> enc 815 L127 far 33 | Core 1/12 (auto 0/9) -> 1/21 (auto 0/17) | cleared @80.04->@81.07 | Endless @80.04 (16.0h, wave 212) -> @81.08 (14.9h, wave 209)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1576->1532 | training 27.3->26.1h | Lv@96h 112->111 pw 1341K->1296K | gold 218.7->207.9M (spent 198.6->195.0) ore 3632K->3583K | final 3 The Endless Road f211 Lv112 -> 3 The Endless Road f198 Lv111
+
+-- light validity: 96h 10/10, Shatter cap 10/10, audit through first Keep entry OK 10/10
+-- light Hollow King: attempts med 6 -> 5 (paired med -1, +2 01 -7) | Auto-Cast wins/att 0/34 -> 0/22 (0.0%) | active wins/att 10/36 -> 10/30 (33%) | stall h med 7.0 -> 5.0 (paired med -1.0, +3 00 -7) | first-try clears 0->0 | loss dur med 20 -> 31 (paired med 8, +9 00 -1) | HP left% med 76 -> 69 (paired med -7, +3 01 -6) | win party HP% med 100 -> 100 (paired med 0, +2 08 -0)
+   loss phases opening/skeletons/armored 44/11/5 -> 24/13/5 | damage share boss 97% -> 94%, skeletons 3% -> 5% | Keep clear h med 69.1 -> 68.1 (paired med -1.0, +3 00 -7) | time in Keep h med 26.0 -> 23.0 (paired med -1.0, +3 00 -7)
+-- light downstream: Foundry entry h med 69.1 -> 68.1 (paired med -1.0, +3 00 -7) | Foundry cleared runs 8->9 | Core wins/att 8/96 -> 9/159 (auto 0/68 -> 0/119) | Endless reached 8->9 (entry h med 86.0 -> 89.0 (paired med 1.0, +7 00 -1), hours med 6.9 -> 6.0 (paired med -1.0, +2 01 -7))
+-- light horizons cur/best med 24h 4/4->4/4, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats med 1792 -> 1795 (paired med -7, +5 00 -5) | training h med 30.8 -> 33.5 (paired med 1.1, +8 00 -2) | Lv@96h med 100 -> 99 (paired med -1, +3 01 -6) | gold earned M med 97.4 -> 93.6 (paired med -8.9, +2 00 -8) | ore earned med 1760256 -> 1749600 (paired med -66432, +3 00 -7)
+-- light outliers: seed 51: Endless newly reached @95.06; 
+
+===== CASUAL   baseline batch_out_p27 (ATK 1.7) -> candidate batch_out_p28 (ATK 1.3)
+
+seed 51  hours 96.00  Shatters 3->3  audit through first Keep entry (h43.2): hourly 43/43, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 8->4 wins 1->1 [auto 0/0->0/0, active 1/8->1/4] stall 10.0->4.0h | party Lv 54->52 pw 85K->79K | loss dur 22->26s HP left 80->81% deaths 4->4 | win surv 4->4 HP 100->100% dur 83->86s
+  phases (opening/skel/armored) 6/1/0 -> 2/1/0 | damage share boss/skel/armored 99/1/0% -> 98/2/0% | Keep clear h 67.13->61.14 time in Keep 24.0->18.0h
+  Foundry: entered @67.13 Lv58 -> @61.14 Lv54 | ordinary enc 433 L169 far 24 -> enc 666 L182 far 24 | Core 1/2 (auto 0/1) -> 1/2 (auto 0/0) | cleared @91.08->@87.15 | Endless @91.08 (4.9h, wave 116) -> @87.15 (8.9h, wave 153)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2275->2093 | training 40.0->39.9h | Lv@96h 97->103 pw 546K->733K | gold 81.9->122.2M (spent 78.5->113.1) ore 1466K->2041K | final 3 The Endless Road f101 Lv97 -> 3 The Endless Road f119 Lv103
+
+seed 52  hours 96.00  Shatters 3->3  audit through first Keep entry (h35.1): hourly 35/35, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 15->3 wins 1->1 [auto 0/0->0/0, active 1/15->1/3] stall 13.9->4.0h | party Lv 51->45 pw 90K->82K | loss dur 33->48s HP left 66->29% deaths 4->4 | win surv 4->4 HP 100->100% dur 67->106s
+  phases (opening/skel/armored) 7/4/3 -> 0/1/1 | damage share boss/skel/armored 93/6/0% -> 78/22/0% | Keep clear h 76.09->66.14 time in Keep 35.0->25.0h
+  Foundry: entered @76.09 Lv58 -> @66.14 Lv47 | ordinary enc 494 L152 far 26 -> enc 701 L202 far 32 | Core 0/3 (auto 0/0) -> 1/8 (auto 0/4) | cleared -->@92.04 | Endless - -> @92.04 (4.0h, wave 109)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 7/7->8/8, 96h 8/8->9/9 | defeats 2468->2260 | training 35.2->39.9h | Lv@96h 85->94 pw 217K->510K | gold 45.2->73.0M (spent 42.0->66.7) ore 840K->1263K | final 3 Ashen Keep f36 Lv85 -> 3 The Endless Road f100 Lv94
+
+seed 53  hours 96.00  Shatters 3->3  audit through first Keep entry (h36.1): hourly 36/36, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 7->2 wins 1->1 [auto 0/1->0/0, active 1/6->1/2] stall 4.0->1.0h | party Lv 49->45 pw 97K->90K | loss dur 25->46s HP left 67->34% deaths 4->4 | win surv 4->4 HP 75->100% dur 65->81s
+  phases (opening/skel/armored) 3/3/0 -> 0/0/1 | damage share boss/skel/armored 94/6/0% -> 82/18/0% | Keep clear h 60.14->57.11 time in Keep 21.0->18.0h
+  Foundry: entered @60.14 Lv52 -> @57.11 Lv47 | ordinary enc 484 L147 far 32 -> enc 611 L176 far 26 | Core 1/8 (auto 0/5) -> 1/15 (auto 0/9) | cleared @76.03->@76.06 | Endless @76.03 (20.0h, wave 247) -> @76.06 (19.9h, wave 255)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1896->1892 | training 28.6->30.5h | Lv@96h 119->121 pw 1780K->1825K | gold 405.2->423.9M (spent 373.3->401.4) ore 5426K->5639K | final 3 The Endless Road f226 Lv119 -> 3 The Endless Road f233 Lv121
+
+seed 54  hours 96.00  Shatters 3->3  audit through first Keep entry (h38.1): hourly 38/38, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 14->6 wins 1->1 [auto 0/2->0/0, active 1/12->1/6] stall 12.9->6.9h | party Lv 50->46 pw 89K->80K | loss dur 24->47s HP left 80->47% deaths 4->4 | win surv 4->4 HP 100->100% dur 78->96s
+  phases (opening/skel/armored) 10/1/2 -> 2/1/2 | damage share boss/skel/armored 96/4/0% -> 86/11/0% | Keep clear h 64.03->58.1 time in Keep 23.9->18.0h
+  Foundry: entered @64.03 Lv57 -> @58.11 Lv49 | ordinary enc 408 L134 far 31 -> enc 607 L175 far 24 | Core 1/4 (auto 0/1) -> 1/6 (auto 0/3) | cleared @80.13->@79.15 | Endless @80.13 (15.9h, wave 198) -> @79.15 (16.8h, wave 216)
+  zones cur/best 24h 5/5->5/5, 48h 6/7->6/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 1970->1886 | training 31.4->34.4h | Lv@96h 110->113 pw 1071K->1238K | gold 205.3->239.1M (spent 186.0->219.3) ore 3242K->3840K | final 3 The Endless Road f189 Lv110 -> 3 The Endless Road f200 Lv113
+
+seed 55  hours 96.00  Shatters 3->3  audit through first Keep entry (h41.2): hourly 41/41, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 15->6 wins 1->1 [auto 0/1->0/0, active 1/14->1/6] stall 20.0->13.0h | party Lv 51->47 pw 92K->83K | loss dur 25->29s HP left 73->76% deaths 4->4 | win surv 4->4 HP 100->100% dur 65->89s
+  phases (opening/skel/armored) 8/5/1 -> 4/0/1 | damage share boss/skel/armored 95/4/0% -> 95/5/0% | Keep clear h 68.11->61.15 time in Keep 25.0->18.1h
+  Foundry: entered @68.11 Lv59 -> @61.15 Lv49 | ordinary enc 559 L151 far 30 -> enc 593 L159 far 35 | Core 1/11 (auto 0/4) -> 1/11 (auto 0/5) | cleared @86.04->@83.02 | Endless @86.04 (10.0h, wave 167) -> @83.02 (13.0h, wave 189)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2170->2077 | training 32.8->36.5h | Lv@96h 104->109 pw 874K->1081K | gold 135.8->182.6M (spent 126.7->169.2) ore 2488K->3139K | final 3 The Endless Road f136 Lv104 -> 3 The Endless Road f176 Lv109
+
+seed 56  hours 96.00  Shatters 3->3  audit through first Keep entry (h38.1): hourly 38/38, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 6->2 wins 1->1 [auto 0/0->0/0, active 1/6->1/2] stall 14.9->8.0h | party Lv 49->42 pw 95K->69K | loss dur 37->20s HP left 53->86% deaths 4->4 | win surv 4->4 HP 99->100% dur 63->81s
+  phases (opening/skel/armored) 2/2/1 -> 1/0/0 | damage share boss/skel/armored 92/7/0% -> 100/0/0% | Keep clear h 68.08->61.14 time in Keep 27.0->20.1h
+  Foundry: entered @68.08 Lv54 -> @61.14 Lv43 | ordinary enc 612 L153 far 35 -> enc 575 L173 far 24 | Core 1/9 (auto 1/8) -> 1/7 (auto 0/1) | cleared @89.01->@82.13 | Endless @89.01 (7.0h, wave 142) -> @82.13 (13.9h, wave 170)
+  zones cur/best 24h 5/5->5/5, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2279->2158 | training 38.3->38.8h | Lv@96h 100->108 pw 705K->964K | gold 109.9->182.2M (spent 102.7->168.7) ore 1842K->2694K | final 3 The Endless Road f117 Lv100 -> 3 The Endless Road f157 Lv108
+
+seed 57  hours 96.00  Shatters 3->3  audit through first Keep entry (h37.1): hourly 37/37, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 8->6 wins 1->1 [auto 0/0->0/0, active 1/8->1/6] stall 15.0->9.0h | party Lv 47->43 pw 90K->83K | loss dur 31->35s HP left 69->71% deaths 4->4 | win surv 4->4 HP 100->100% dur 69->79s
+  phases (opening/skel/armored) 3/4/0 -> 5/0/0 | damage share boss/skel/armored 94/6/0% -> 100/0/0% | Keep clear h 70.12->64.15 time in Keep 30.0->24.0h
+  Foundry: entered @70.12 Lv52 -> @64.15 Lv44 | ordinary enc 639 L168 far 27 -> enc 478 L208 far 25 | Core 1/10 (auto 0/3) -> 1/5 (auto 0/2) | cleared @89.15->@85.08 | Endless @89.15 (6.9h, wave 137) -> @85.08 (10.9h, wave 165)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2521->2407 | training 32.5->36.0h | Lv@96h 97->103 pw 653K->845K | gold 93.9->134.2M (spent 86.0->125.8) ore 1510K->2100K | final 3 The Endless Road f119 Lv97 -> 3 The Endless Road f110 Lv103
+
+seed 58  hours 96.00  Shatters 3->3  audit through first Keep entry (h31.1): hourly 31/31, Shatters before it same, first Keep entry same, boss ATK 8832->6754 -> OK
+  Hollow King: attempts 15->5 wins 1->1 [auto 0/0->0/0, active 1/15->1/5] stall 28.0->20.0h | party Lv 52->44 pw 99K->87K | loss dur 24->28s HP left 53->43% deaths 4->4 | win surv 4->4 HP 100->93% dur 51->79s
+  phases (opening/skel/armored) 6/7/1 -> 2/1/1 | damage share boss/skel/armored 92/8/0% -> 91/9/0% | Keep clear h 66.16->58.11 time in Keep 32.1->24.1h
+  Foundry: entered @66.16 Lv57 -> @58.11 Lv46 | ordinary enc 553 L167 far 25 -> enc 719 L211 far 24 | Core 1/6 (auto 0/1) -> 1/22 (auto 0/13) | cleared @85.14->@81.06 | Endless @85.14 (10.9h, wave 193) -> @81.07 (14.9h, wave 228)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2679->2505 | training 31.5->34.1h | Lv@96h 109->117 pw 1064K->1407K | gold 179.8->284.7M (spent 170.3->265.0) ore 2783K->3937K | final 3 The Endless Road f150 Lv109 -> 3 The Endless Road f206 Lv117
+
+seed 59  hours 96.00  Shatters 3->3  audit through first Keep entry (h40.1): hourly 40/40, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 7->3 wins 1->1 [auto 0/0->0/0, active 1/7->1/3] stall 7.0->2.0h | party Lv 49->46 pw 87K->83K | loss dur 24->72s HP left 68->10% deaths 4->4 | win surv 4->4 HP 100->100% dur 83->95s
+  phases (opening/skel/armored) 3/3/0 -> 0/0/2 | damage share boss/skel/armored 97/3/0% -> 83/12/0% | Keep clear h 64.11->59.14 time in Keep 22.0->17.1h
+  Foundry: entered @64.11 Lv53 -> @59.14 Lv48 | ordinary enc 489 L147 far 24 -> enc 680 L176 far 26 | Core 1/6 (auto 0/3) -> 1/7 (auto 0/3) | cleared @84.08->@82.08 | Endless @84.08 (11.9h, wave 178) -> @82.08 (13.9h, wave 187)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2073->1995 | training 34.6->35.7h | Lv@96h 105->108 pw 865K->967K | gold 151.1->182.1M (spent 140.6->171.5) ore 2334K->2633K | final 3 The Endless Road f153 Lv105 -> 3 The Endless Road f153 Lv108
+
+seed 60  hours 96.00  Shatters 3->3  audit through first Keep entry (h40.2): hourly 40/40, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 14->4 wins 1->1 [auto 0/3->0/0, active 1/11->1/4] stall 8.9->3.0h | party Lv 53->49 pw 107K->97K | loss dur 19->43s HP left 76->48% deaths 4->4 | win surv 4->4 HP 100->100% dur 56->68s
+  phases (opening/skel/armored) 9/4/0 -> 0/2/1 | damage share boss/skel/armored 95/5/0% -> 77/21/0% | Keep clear h 61.08->55.11 time in Keep 19.9->14.0h
+  Foundry: entered @61.08 Lv59 -> @55.11 Lv51 | ordinary enc 508 L141 far 25 -> enc 523 L158 far 27 | Core 1/13 (auto 0/1) -> 1/9 (auto 0/1) | cleared @76.08->@72.14 | Endless @76.08 (19.9h, wave 243) -> @72.14 (23.9h, wave 269)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2118->1952 | training 30.9->32.9h | Lv@96h 120->125 pw 1811K->2087K | gold 349.0->457.5M (spent 320.0->426.6) ore 5449K->6685K | final 3 The Endless Road f207 Lv120 -> 3 The Endless Road f230 Lv125
+
+-- casual validity: 96h 10/10, Shatter cap 10/10, audit through first Keep entry OK 10/10
+-- casual Hollow King: attempts med 8 -> 4 (paired med -8, +0 00 -10) | Auto-Cast wins/att 0/7 -> 0/0 (0.0%) | active wins/att 10/102 -> 10/41 (24%) | stall h med 12.9 -> 4.0 (paired med -6.0, +0 00 -10) | first-try clears 0->0 | loss dur med 24 -> 35 (paired med 4, +9 00 -1) | HP left% med 68 -> 47 (paired med -28, +4 00 -6) | win party HP% med 100 -> 100 (paired med 0, +2 07 -1)
+   loss phases opening/skeletons/armored 57/34/8 -> 16/6/9 | damage share boss 95% -> 89%, skeletons 5% -> 10% | Keep clear h med 66.2 -> 59.1 (paired med -6.0, +0 00 -10) | time in Keep h med 24.0 -> 18.0 (paired med -6.0, +0 00 -10)
+-- casual downstream: Foundry entry h med 66.2 -> 59.1 (paired med -6.0, +0 00 -10) | Foundry cleared runs 9->10 | Core wins/att 9/72 -> 10/92 (auto 1/27 -> 0/41) | Endless reached 9->10 (entry h med 85.1 -> 82.1 (paired med -3.9, +1 00 -8), hours med 10.0 -> 13.9 (paired med 3.9, +9 00 -1))
+-- casual horizons cur/best med 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats med 2170 -> 2077 (paired med -121, +0 00 -10) | training h med 32.5 -> 35.7 (paired med 2.0, +9 00 -1) | Lv@96h med 104 -> 108 (paired med 5, +10 00 -0) | gold earned M med 135.8 -> 182.2 (paired med 40.3, +10 00 -0) | ore earned med 2333664 -> 2693568 (paired med 589824, +10 00 -0)
+-- casual outliers: seed 52: Endless newly reached @92.04; 
+
+===== ENGAGED   baseline batch_out_p27 (ATK 1.7) -> candidate batch_out_p28 (ATK 1.3)
+
+seed 51  hours 96.00  Shatters 3->2  audit through first Keep entry (h36.2): hourly 36/36, Shatters before it same, first Keep entry same, boss ATK 8832->6754 -> OK
+  Hollow King: attempts 13->10 wins 1->1 [auto 0/0->0/0, active 1/13->1/10] stall 16.9->18.9h | party Lv 44->46 pw 83K->68K | loss dur 22->33s HP left 75->69% deaths 4->4 | win surv 4->4 HP 100->100% dur 74->91s
+  phases (opening/skel/armored) 10/2/0 -> 5/3/1 | damage share boss/skel/armored 99/1/0% -> 92/6/0% | Keep clear h 62.11->64.15 time in Keep 23.0->27.9h
+  Foundry: entered @62.11 Lv47 -> @64.15 Lv50 | ordinary enc 491 L172 far 24 -> enc 531 L170 far 25 | Core 1/16 (auto 0/2) -> 1/5 (auto 0/0) | cleared @80.22->@90.14 | Endless @80.22 (15.8h, wave 208) -> @90.14 (5.9h, wave 134)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->1/7, 96h 9/9->2/7 | defeats 2337->2669 | training 37.4->44.4h | Lv@96h 114->99 pw 1254K->513K | gold 264.4->80.0M (spent 238.7->76.0) ore 4001K->1566K | final 3 The Endless Road f186 Lv114 -> 2 The Endless Road f107 Lv99
+
+seed 52  hours 96.00  Shatters 3->3  audit through first Keep entry (h29.2): hourly 29/29, Shatters before it same, first Keep entry same, boss ATK 9715->8172 -> OK
+  Hollow King: attempts 21->6 wins 1->1 [auto 0/1->0/1, active 1/20->1/5] stall 16.1->3.0h | party Lv 49->43 pw 82K->77K | loss dur 22->38s HP left 78->67% deaths 4->4 | win surv 4->4 HP 100->100% dur 84->94s
+  phases (opening/skel/armored) 13/7/0 -> 1/3/1 | damage share boss/skel/armored 96/4/0% -> 90/10/0% | Keep clear h 60.22->55.13 time in Keep 27.9->22.8h
+  Foundry: entered @60.23 Lv55 -> @55.13 Lv45 | ordinary enc 403 L122 far 25 -> enc 376 L160 far 24 | Core 1/10 (auto 0/1) -> 1/7 (auto 0/1) | cleared @76.23->@71.21 | Endless @76.23 (19.8h, wave 246) -> @71.21 (24.8h, wave 269)
+  zones cur/best 24h 5/5->5/5, 48h 5/7->7/7, 72h 8/8->9/9, 96h 9/9->9/9 | defeats 2214->2275 | training 28.2->28.2h | Lv@96h 118->123 pw 1506K->1822K | gold 343.2->463.2M (spent 318.7->422.5) ore 4190K->5389K | final 3 The Endless Road f207 Lv118 -> 3 The Endless Road f241 Lv123
+
+seed 53  hours 96.00  Shatters 3->3  audit through first Keep entry (h30.2): hourly 30/30, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 25->4 wins 1->1 [auto 0/2->0/0, active 1/23->1/4] stall 17.0->8.9h | party Lv 52->43 pw 91K->76K | loss dur 21->21s HP left 68->81% deaths 4->4 | win surv 4->4 HP 99->96% dur 47->77s
+  phases (opening/skel/armored) 12/8/4 -> 2/1/0 | damage share boss/skel/armored 92/8/0% -> 96/4/0% | Keep clear h 62.17->54.12 time in Keep 29.0->21.0h
+  Foundry: entered @62.17 Lv59 -> @54.12 Lv46 | ordinary enc 303 L90 far 24 -> enc 522 L174 far 24 | Core 1/12 (auto 0/1) -> 1/7 (auto 0/1) | cleared @74.2->@73.07 | Endless @74.2 (21.8h, wave 266) -> @73.07 (22.9h, wave 275)
+  zones cur/best 24h 5/6->5/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2585->2434 | training 25.6->30.6h | Lv@96h 123->126 pw 1795K->1939K | gold 450.2->508.0M (spent 417.4->461.3) ore 5467K->6063K | final 3 The Endless Road f213 Lv123 -> 3 The Endless Road f234 Lv126
+
+seed 54  hours 96.00  Shatters 3->3  audit through first Keep entry (h33.1): hourly 33/33, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 13->5 wins 1->1 [auto 0/1->0/0, active 1/12->1/5] stall 10.0->7.0h | party Lv 48->45 pw 84K->80K | loss dur 19->15s HP left 78->76% deaths 4->4 | win surv 4->4 HP 100->100% dur 66->77s
+  phases (opening/skel/armored) 9/3/0 -> 3/0/1 | damage share boss/skel/armored 98/2/0% -> 95/5/0% | Keep clear h 47.25->44.23 time in Keep 13.2->10.2h
+  Foundry: entered @47.25 Lv51 -> @44.23 Lv45 | ordinary enc 356 L129 far 25 -> enc 746 L196 far 25 | Core 1/9 (auto 0/1) -> 1/20 (auto 0/7) | cleared @59.21->@64.06 | Endless @59.21 (36.8h, wave 383) -> @64.06 (31.9h, wave 374)
+  zones cur/best 24h 5/6->5/6, 48h 8/8->8/8, 72h 9/9->9/9, 96h 9/9->9/9 | defeats 1809->1748 | training 25.8->30.3h | Lv@96h 149->146 pw 4759K->4225K | gold 1751.1->1506.2M (spent 1647.1->1365.9) ore 19402K->16873K | final 3 The Endless Road f351 Lv149 -> 3 The Endless Road f327 Lv146
+
+seed 55  hours 96.00  Shatters 3->3  audit through first Keep entry (h34.2): hourly 34/34, Shatters before it same, first Keep entry same, boss ATK 10686->8172 -> OK
+  Hollow King: attempts 23->8 wins 1->1 [auto 0/0->0/0, active 1/23->1/8] stall 17.9->8.1h | party Lv 57->50 pw 83K->70K | loss dur 22->33s HP left 72->68% deaths 4->4 | win surv 4->4 HP 100->100% dur 71->86s
+  phases (opening/skel/armored) 15/5/2 -> 3/3/1 | damage share boss/skel/armored 96/4/0% -> 91/7/0% | Keep clear h 62.1->53.23 time in Keep 25.9->17.1h
+  Foundry: entered @62.1 Lv63 -> @53.23 Lv55 | ordinary enc 433 L109 far 32 -> enc 643 L177 far 29 | Core 1/9 (auto 0/2) -> 1/14 (auto 0/6) | cleared @78.17->@77.05 | Endless @78.17 (17.8h, wave 230) -> @77.05 (19.0h, wave 250)
+  zones cur/best 24h 4/6->4/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2236->2059 | training 29.7->35.6h | Lv@96h 117->121 pw 1260K->1510K | gold 317.9->390.0M (spent 298.6->361.0) ore 3855K->4893K | final 3 The Endless Road f207 Lv117 -> 3 The Endless Road f225 Lv121
+
+seed 56  hours 96.00  Shatters 3->3  audit through first Keep entry (h29.2): hourly 29/29, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 17->5 wins 1->1 [auto 0/0->0/0, active 1/17->1/5] stall 12.0->8.1h | party Lv 48->43 pw 95K->88K | loss dur 25->62s HP left 67->11% deaths 4->4 | win surv 4->4 HP 95->99% dur 53->62s
+  phases (opening/skel/armored) 7/5/4 -> 1/0/3 | damage share boss/skel/armored 91/9/0% -> 79/13/0% | Keep clear h 56.19->52.21 time in Keep 24.2->20.2h
+  Foundry: entered @56.19 Lv54 -> @52.21 Lv46 | ordinary enc 380 L116 far 4 -> enc 318 L119 far 0 | Core 1/11 (auto 0/0) -> 1/4 (auto 0/0) | cleared @68.21->@63.19 | Endless @68.21 (27.8h, wave 367) -> @63.19 (32.8h, wave 377)
+  zones cur/best 24h 6/6->6/6, 48h 6/7->6/7, 72h 9/9->9/9, 96h 9/9->9/9 | defeats 2311->2234 | training 22.6->22.2h | Lv@96h 139->145 pw 3647K->4591K | gold 1075.5->1498.1M (spent 1000.8->1366.4) ore 10757K->14433K | final 3 The Endless Road f325 Lv139 -> 3 The Endless Road f327 Lv145
+
+seed 57  hours 96.00  Shatters 3->3  audit through first Keep entry (h33.2): hourly 33/33, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 20->7 wins 1->1 [auto 0/0->0/1, active 1/20->1/6] stall 15.0->9.0h | party Lv 50->44 pw 89K->79K | loss dur 24->18s HP left 71->31% deaths 4->4 | win surv 4->4 HP 100->100% dur 59->73s
+  phases (opening/skel/armored) 10/8/1 -> 3/0/3 | damage share boss/skel/armored 93/5/0% -> 90/7/0% | Keep clear h 55.1->49.11 time in Keep 20.9->14.9h
+  Foundry: entered @55.1 Lv55 -> @49.11 Lv46 | ordinary enc 445 L140 far 0 -> enc 427 L174 far 24 | Core 1/17 (auto 0/1) -> 1/10 (auto 0/0) | cleared @70.22->@64.23 | Endless @70.23 (25.8h, wave 346) -> @64.23 (31.8h, wave 375)
+  zones cur/best 24h 5/6->5/6, 48h 7/7->7/7, 72h 9/9->9/9, 96h 9/9->9/9 | defeats 2245->2107 | training 26.6->26.8h | Lv@96h 136->144 pw 2997K->3950K | gold 868.1->1336.7M (spent 785.7->1267.5) ore 9303K->13415K | final 3 The Endless Road f312 Lv136 -> 3 The Endless Road f312 Lv144
+
+seed 58  hours 96.00  Shatters 3->3  audit through first Keep entry (h29.1): hourly 29/29, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 17->10 wins 1->1 [auto 0/0->0/0, active 1/17->1/10] stall 16.0->13.9h | party Lv 51->48 pw 87K->78K | loss dur 23->31s HP left 73->68% deaths 4->4 | win surv 4->4 HP 47->100% dur 66->88s
+  phases (opening/skel/armored) 9/7/0 -> 4/4/1 | damage share boss/skel/armored 96/4/0% -> 91/9/0% | Keep clear h 59.1->56.12 time in Keep 26.9->23.1h
+  Foundry: entered @59.1 Lv56 -> @56.12 Lv52 | ordinary enc 540 L155 far 24 -> enc 553 L166 far 26 | Core 1/10 (auto 0/2) -> 1/11 (auto 0/3) | cleared @78.18->@76.06 | Endless @78.18 (17.8h, wave 250) -> @76.06 (19.9h, wave 253)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2421->2502 | training 30.6->31.7h | Lv@96h 120->122 pw 1592K->1730K | gold 370.9->419.9M (spent 338.1->384.2) ore 4662K->5123K | final 3 The Endless Road f203 Lv120 -> 3 The Endless Road f221 Lv122
+
+seed 59  hours 96.00  Shatters 3->3  audit through first Keep entry (h25.2): hourly 25/25, Shatters before it same, first Keep entry same, boss ATK 10686->7429 -> OK
+  Hollow King: attempts 28->6 wins 1->1 [auto 0/1->0/0, active 1/27->1/6] stall 14.9->9.9h | party Lv 52->44 pw 84K->75K | loss dur 19->31s HP left 78->66% deaths 4->4 | win surv 4->4 HP 100->100% dur 56->72s
+  phases (opening/skel/armored) 18/7/2 -> 2/3/0 | damage share boss/skel/armored 95/5/0% -> 94/6/0% | Keep clear h 63.09->56.11 time in Keep 33.7->26.9h
+  Foundry: entered @63.09 Lv60 -> @56.11 Lv47 | ordinary enc 335 L123 far 24 -> enc 523 L176 far 24 | Core 1/7 (auto 0/0) -> 1/13 (auto 0/0) | cleared @78.22->@75.19 | Endless @78.22 (17.8h, wave 247) -> @75.19 (20.8h, wave 252)
+  zones cur/best 24h 6/6->6/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2741->2581 | training 26.4->28.8h | Lv@96h 118->123 pw 1413K->1714K | gold 333.4->443.0M (spent 307.4->419.9) ore 4151K->5351K | final 3 The Endless Road f215 Lv118 -> 3 The Endless Road f229 Lv123
+
+seed 60  hours 96.00  Shatters 3->3  audit through first Keep entry (h34.2): hourly 34/34, Shatters before it same, first Keep entry same, boss ATK 9715->7429 -> OK
+  Hollow King: attempts 11->5 wins 1->1 [auto 0/0->0/0, active 1/11->1/5] stall 9.1->5.1h | party Lv 44->43 pw 84K->68K | loss dur 19->49s HP left 74->39% deaths 4->4 | win surv 4->4 HP 100->100% dur 7559->83s
+  phases (opening/skel/armored) 6/1/3 -> 0/4/0 | damage share boss/skel/armored 93/4/0% -> 83/17/0% | Keep clear h 60.2->56.21 time in Keep 23.1->19.2h
+  Foundry: entered @60.2 Lv48 -> @56.21 Lv40 | ordinary enc 452 L140 far 27 -> enc 503 L170 far 24 | Core 1/14 (auto 0/0) -> 1/11 (auto 0/0) | cleared @74.14->@73.23 | Endless @74.14 (21.9h, wave 263) -> @73.24 (22.8h, wave 321)
+  zones cur/best 24h 6/6->6/6, 48h 5/7->5/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats 2240->2202 | training 30.8->33.5h | Lv@96h 121->125 pw 1667K->1876K | gold 464.1->588.1M (spent 422.9->540.4) ore 5633K->6379K | final 3 The Endless Road f211 Lv121 -> 3 The Endless Road f250 Lv125
+
+-- engaged validity: 96h 10/10, Shatter cap 10/10, audit through first Keep entry OK 10/10
+-- engaged Hollow King: attempts med 17 -> 6 (paired med -13, +0 00 -10) | Auto-Cast wins/att 0/5 -> 0/2 (0.0%) | active wins/att 10/183 -> 10/64 (16%) | stall h med 15.0 -> 8.1 (paired med -5.0, +1 00 -9) | first-try clears 0->0 | loss dur med 22 -> 31 (paired med 11, +7 00 -3) | HP left% med 73 -> 67 (paired med -11, +1 00 -9) | win party HP% med 100 -> 100 (paired med 0, +2 07 -1)
+   loss phases opening/skeletons/armored 109/53/16 -> 24/21/11 | damage share boss 95% -> 90%, skeletons 4% -> 8% | Keep clear h med 60.2 -> 54.1 (paired med -5.1, +1 00 -9) | time in Keep h med 24.2 -> 20.2 (paired med -5.1, +1 00 -9)
+-- engaged downstream: Foundry entry h med 60.2 -> 54.1 (paired med -5.1, +1 00 -9) | Foundry cleared runs 10->10 | Core wins/att 10/115 -> 10/102 (auto 0/10 -> 0/18) | Endless reached 10->10 (entry h med 74.2 -> 73.1 (paired med -2.1, +2 00 -8), hours med 19.8 -> 22.8 (paired med 1.1, +8 00 -2))
+-- engaged horizons cur/best med 24h 5/6->5/6, 48h 7/7->7/7, 72h 8/8->8/8, 96h 9/9->9/9 | defeats med 2245 -> 2234 (paired med -77, +3 00 -7) | training h med 26.6 -> 30.3 (paired med 2.3, +9 00 -1) | Lv@96h med 120 -> 123 (paired med 4, +8 00 -2) | gold earned M med 370.9 -> 463.2 (paired med 72.1, +8 00 -2) | ore earned med 4661952 -> 5389440 (paired med 745440, +8 00 -2)
+-- engaged outliers: none

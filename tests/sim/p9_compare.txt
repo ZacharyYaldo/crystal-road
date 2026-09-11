@@ -1,0 +1,63 @@
+                                                                        idle                                  casual                                engaged                               
+-- AUTO TRAINING (24h)   med / P90   +1 always -> +2 on quick retrigger                                                                                                                   
+triggers                                                                24 / 30 -> 22 / 25 (-8%)              30 / 34 -> 26 / 29 (-13%)             31 / 36 -> 26 / 31 (-16%)             
+completed returns                                                       18 / 23 -> 16 / 19 (-11%)             22 / 25 -> 17 / 22 (-23%)             22 / 26 -> 17 / 22 (-23%)             
+cancelled (build change)                                                5 / 8 -> 6 / 7 (+20%)                 6 / 9 -> 6 / 9 (0%)                   8 / 10 -> 8 / 10 (0%)                 
+training hours                                                          9.6 / 11.3 -> 10.8 / 12.1 (+13%)      12.5 / 13.3 -> 12.8 / 14.5 (+2%)      13.2 / 13.9 -> 14.3 / 15.9 (+8%)      
+training share of 24h %                                                 40 / 47 -> 45 / 51 (+13%)             52 / 55 -> 53 / 60 (+2%)              55 / 58 -> 59 / 66 (+8%)              
+levels earned training                                                  20.9 / 25.7 -> 24 / 26.9 (+15%)       25.6 / 29.1 -> 27.5 / 33.5 (+8%)      25.2 / 29.1 -> 27.5 / 33.7 (+9%)      
+triggers for Stillwater Lagoon                                          5 / 7 -> 4 / 6 (-20%)                 2 / 8 -> 3 / 5 (+50%)                 3 / 4 -> 3 / 4 (0%)                   
+triggers for Thornwood                                                  6 / 10 -> 5 / 6 (-17%)                7 / 10 -> 5 / 7 (-29%)                5 / 7 -> 5 / 6 (0%)                   
+triggers for Ironvein Caverns                                           6 / 7 -> 5 / 6 (-17%)                 5 / 8 -> 3 / 6 (-40%)                 5 / 9 -> 4 / 6 (-20%)                 
+triggers for Emberwaste                                                 8 / 9 -> 7 / 11 (-12%)                7 / 14 -> 8 / 12 (+14%)               4 / 8 -> 4 / 8 (0%)                   
+triggers for Amberfall Woods                                            0 / 0 -> 0 / 0                        5 / 8 -> 6 / 8 (+20%)                 7 / 10 -> 7 / 12 (0%)                 
+trainings with +1 target                                                24 / 30 -> 17 / 19 (-29%)             30 / 34 -> 18 / 22 (-40%)             31 / 36 -> 18 / 22 (-42%)             
+trainings with +2 target                                                0 / 0 -> 5 / 9                        0 / 0 -> 8 / 11                       0 / 0 -> 9 / 14                       
+  +2 trainings for Stillwater Lagoon                                    0 / 0 -> 1 / 2                        0 / 0 -> 0 / 2                        0 / 0 -> 0 / 1                        
+  +2 trainings for Thornwood                                            0 / 0 -> 2 / 4                        0 / 0 -> 2 / 4                        0 / 0 -> 2 / 4                        
+  +2 trainings for Ironvein Caverns                                     0 / 0 -> 1 / 2                        0 / 0 -> 1 / 2                        0 / 0 -> 2 / 5                        
+  +2 trainings for Emberwaste                                           0 / 0 -> 1 / 2                        0 / 0 -> 3 / 5                        0 / 0 -> 1 / 4                        
+  +2 trainings for Amberfall Woods                                      0 / 0 -> 0 / 0                        0 / 0 -> 1 / 4                        0 / 0 -> 1 / 4                        
+training fights total                                                   1193 / 1360 -> 1351 / 1654 (+13%)     1562 / 1710 -> 1650 / 1861 (+6%)      1672 / 1857 -> 1811 / 2112 (+8%)      
+back-to-back +2 in same zone (max run)                                  0 / 0 -> 1 / 4                        0 / 0 -> 2 / 4                        0 / 0 -> 2 / 5                        
+-- RETRIGGERS (same zone after a completed return)                                                                                                                                        
+retriggers within 10 ordinary fights                                    3 / 10 -> 2 / 6 (-33%)                7 / 13 -> 5 / 8 (-29%)                5 / 10 -> 5 / 9 (0%)                  
+retriggers within 20 ordinary fights                                    8 / 13 -> 5 / 9 (-37%)                13 / 16 -> 8 / 11 (-38%)              11 / 17 -> 9 / 14 (-18%)              
+retriggers exactly on ordinary fight 20                                 0 / 0 -> 0 / 1                        0 / 1 -> 0 / 1                        0 / 4 -> 0 / 2                        
+quick-classified triggers (game)                                        8 / 13 -> 5 / 9 (-37%)                13 / 16 -> 8 / 11 (-38%)              11 / 17 -> 9 / 14 (-18%)              
+share of triggers that are retriggers <=20 %                            32 / 43 -> 22 / 38 (-32%)             43 / 55 -> 31 / 42 (-28%)             39 / 47 -> 30 / 52 (-23%)             
+fresh fights to retrigger (med of run medians)                          9 / 16 -> 9 / 16 (0%)                 9 / 12 -> 10 / 12 (+11%)              11 / 13 -> 8 / 11 (-27%)              
+minutes to retrigger (med of run medians)                               7 / 10 -> 7 / 11 (0%)                 7 / 9 -> 7 / 8 (-1%)                  7 / 9 -> 6 / 8 (-14%)                 
+win% first 10 fights after return                                       80 / 80 -> 80 / 80 (0%)               80 / 90 -> 80 / 90 (0%)               90 / 100 -> 90 / 90 (0%)              
+win% first 20 fights after return                                       80 / 85 -> 85 / 85 (+6%)              85 / 85 -> 85 / 85 (0%)               85 / 90 -> 85 / 95 (0%)               
+win% in window at trigger                                               60 / 60 -> 60 / 60 (0%)               60 / 60 -> 60 / 60 (0%)               60 / 60 -> 60 / 60 (0%)               
+enemy Lv minus party Lv at trigger                                      -6.8 / -5 -> -7.5 / -3.8 (-10%)       -6 / -4 -> -6 / -4.8 (0%)             -4 / -3 -> -5 / -3.5 (-25%)           
+pre-rollback loss position % of zone at trigger                         67 / 67 -> 67 / 67 (0%)               67 / 67 -> 67 / 69 (0%)               67 / 67 -> 67 / 67 (0%)               
+checkpoint % of zone after rollback                                     67 / 67 -> 67 / 67 (0%)               67 / 67 -> 67 / 67 (0%)               67 / 67 -> 67 / 67 (0%)               
+-- DEAD TIME outside training                                                                                                                                                             
+ordinary defeats outside training                                       245 / 284 -> 225 / 250 (-8%)          237 / 263 -> 211 / 234 (-11%)         229 / 257 -> 206 / 246 (-10%)         
+rewalk fights (ordinary defeats)                                        810 / 948 -> 720 / 941 (-11%)         619 / 715 -> 565 / 716 (-9%)          500 / 738 -> 456 / 689 (-9%)          
+rewalk fights (boss losses)                                             90 / 207 -> 72 / 180 (-20%)           36 / 81 -> 45 / 90 (+25%)             27 / 72 -> 36 / 108 (+33%)            
+rewalk hours equiv (ordinary)                                           7.4 / 8.87 -> 6.64 / 8.7 (-10%)       5.61 / 6.14 -> 4.84 / 6.3 (-14%)      4.32 / 6.27 -> 3.7 / 5.82 (-14%)      
+rewalk hours equiv (boss)                                               0.87 / 1.89 -> 0.69 / 1.66 (-21%)     0.31 / 0.68 -> 0.4 / 0.79 (+26%)      0.24 / 0.62 -> 0.3 / 0.88 (+25%)      
+total defeats in 24h                                                    314 / 365 -> 280 / 316 (-11%)         353 / 412 -> 318 / 334 (-10%)         413 / 457 -> 352 / 403 (-15%)         
+-- STILLWATER                                                                                                                                                                             
+first-try clear (mean)                                                  50% -> 40% (-20%)                     20% -> 10% (-50%)                     30% -> 30% (0%)                       
+attempts to clear                                                       1 / 4 -> 2 / 3 (+100%)                2 / 4 -> 3 / 4 (+50%)                 2 / 5 -> 2 / 5 (0%)                   
+stall h                                                                 0.03 / 0.97 -> 0.13 / 0.69 (+333%)    0.5 / 0.93 -> 0.63 / 0.93 (+26%)      0.37 / 0.93 -> 0.37 / 0.93 (0%)       
+zone clear h                                                            2.74 / 3.38 -> 2.78 / 3.38 (+1%)      2.77 / 3.13 -> 2.89 / 3.07 (+4%)      2.73 / 2.99 -> 2.73 / 2.99 (0%)       
+Lv at first try                                                         17 / 18 -> 17 / 18 (0%)               16 / 18 -> 16 / 19 (0%)               16 / 18 -> 16 / 18 (0%)               
+-- IRONVEIN                                                                                                                                                                               
+first-try clear (mean)                                                  0% -> 10%                             40% -> 70% (+75%)                     100% -> 60% (-40%)                    
+attempts to clear                                                       7 / 18 -> 7 / 14 (0%)                 2 / 5 -> 1 / 4 (-50%)                 1 / 1 -> 1 / 3 (0%)                   
+stall h                                                                 2.35 / 4.24 -> 1.56 / 4.27 (-34%)     0.87 / 2.84 -> 0.02 / 1.06 (-98%)     0.02 / 0.03 -> 0.02 / 2.8 (0%)        
+zone clear h                                                            16.06 / 18.17 -> 16.02 / 17.16 (0%)   11.15 / 14 -> 10.13 / 12.13 (-9%)     10.1 / 11.19 -> 10.1 / 12.03 (0%)     
+Lv entering zone                                                        28 / 30 -> 29 / 31 (+4%)              27 / 30 -> 28 / 31 (+4%)              26 / 27 -> 27 / 29 (+4%)              
+Lv at first try                                                         38 / 40 -> 38 / 40 (0%)               34 / 37 -> 35 / 38 (+3%)              34 / 37 -> 33 / 40 (-3%)              
+-- EARLY ROAD CLEAR TIMES (h)                                                                                                                                                             
+Stillwater Lagoon                                                       2.74 / 3.38 -> 2.78 / 3.38 (+1%)      2.77 / 3.13 -> 2.89 / 3.07 (+4%)      2.73 / 2.99 -> 2.73 / 2.99 (0%)       
+Thornwood                                                               7.57 / 8.79 -> 7.67 / 8.58 (+1%)      7.05 / 8.08 -> 7.06 / 8.07 (+0%)      6.07 / 6.09 -> 6.24 / 7.21 (+3%)      
+Ironvein Caverns                                                        16.06 / 18.17 -> 16.02 / 17.16 (0%)   11.15 / 14 -> 10.13 / 12.13 (-9%)     10.1 / 11.19 -> 10.1 / 12.03 (0%)     
+Emberwaste                                                              - / - -> - / -                        17.13 / 23.11 -> 17.15 / 22.12 (+0%)  14.14 / 16.2 -> 14.16 / 17.19 (+0%)   
+zones cleared @24h                                                      4 / 4 -> 4 / 4 (0%)                   6 / 6 -> 5 / 6 (-17%)                 6 / 6 -> 6 / 6 (0%)                   
+party Lv @24h                                                           50 / 51 -> 50 / 51 (0%)               52 / 54 -> 53 / 54 (+2%)              54 / 55 -> 55 / 56 (+2%)              

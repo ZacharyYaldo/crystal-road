@@ -1,0 +1,144 @@
+
+== idle  Amberfall Woods  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  3 | 0.71 | 2 | auto/L/61 | 1/3 | 0/0 | 37.2 | Lv 52            -> 3 | 0.71 | 2 | auto/L/61 | 1/3 | 0/0 | 37.2 | Lv 52
+32  3 | 2.68 | 2 | auto/L/58 | 1/3 | 0/0 | 36.7 | Lv 51            -> 3 | 2.68 | 2 | auto/L/58 | 1/3 | 0/0 | 36.7 | Lv 51
+33  4 | 2.92 | 3 | auto/L/58 | 1/4 | 0/0 | 35.8 | Lv 49            -> 4 | 2.92 | 3 | auto/L/58 | 1/4 | 0/0 | 35.8 | Lv 49
+34  4 | 1.54 | 3 | auto/L/58 | 1/4 | 0/0 | 33.5 | Lv 51            -> 4 | 1.54 | 3 | auto/L/58 | 1/4 | 0/0 | 33.5 | Lv 51
+35  8 | 2.03 | 7 | auto/L/60 | 1/8 | 0/0 | 37.1 | Lv 51            -> 8 | 2.03 | 7 | auto/L/60 | 1/8 | 0/0 | 37.1 | Lv 51
+36  2 | 1.80 | 1 | auto/L/59 | 1/2 | 0/0 | 33.2 | Lv 50            -> 2 | 1.80 | 1 | auto/L/59 | 1/2 | 0/0 | 33.2 | Lv 50
+37  5 | 3.30 | 4 | auto/L/57 | 1/5 | 0/0 | 34.4 | Lv 50            -> 5 | 3.30 | 4 | auto/L/57 | 1/5 | 0/0 | 34.4 | Lv 50
+38  3 | 2.07 | 2 | auto/L/58 | 1/3 | 0/0 | 35.2 | Lv 52            -> 3 | 2.07 | 2 | auto/L/58 | 1/3 | 0/0 | 35.2 | Lv 52
+39  2 | 0.12 | 1 | auto/L/61 | 1/2 | 0/0 | 34.8 | Lv 51            -> 2 | 0.12 | 1 | auto/L/61 | 1/2 | 0/0 | 34.8 | Lv 51
+40  1 | 0.03 | 0 | auto/W/60 | 1/1 | 0/0 | 33.0 | Lv 49            -> 1 | 0.03 | 0 | auto/W/60 | 1/1 | 0/0 | 33.0 | Lv 49
+   batch_out_p20c  reached 10 attempted 10 | losses n=25 bossHP left q25/50/75 0.32/0.48/0.55 | <=25% 5 | summoned 23 | dur med 69s | charge kills/loss 2.52 | boss hits/loss 7.6 | wins n=10 survivors med 4 partyHP med 96%
+   batch_out_p20x  reached 10 attempted 10 | losses n=25 bossHP left q25/50/75 0.32/0.48/0.55 | <=25% 5 | summoned 23 | dur med 69s | charge kills/loss 2.52 | boss hits/loss 7.6 | wins n=10 survivors med 4 partyHP med 96%
+
+== idle  Ashen Approach  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  entered, no boss attempt | Lv 62                               -> entered, no boss attempt | Lv 62
+32  entered, no boss attempt | Lv 61                               -> entered, no boss attempt | Lv 61
+33  null | - | 3 | auto/L/71 | 0/3 | 0/0 | - | Lv 61               -> entered, no boss attempt | Lv 61
+34  null | - | 7 | auto/L/70 | 0/7 | 0/0 | - | Lv 59               -> null | - | 6 | auto/L/70 | 0/6 | 0/0 | - | Lv 59
+35  entered, no boss attempt | Lv 62                               -> entered, no boss attempt | Lv 62
+36  4 | 4.50 | 3 | auto/L/69 | 1/4 | 0/0 | 46.2 | Lv 60            -> null | - | 9 | auto/L/71 | 0/9 | 0/0 | - | Lv 60
+37  3 | 3.11 | 2 | auto/L/69 | 1/3 | 0/0 | 46.6 | Lv 60            -> null | - | 4 | auto/L/71 | 0/4 | 0/0 | - | Lv 60
+38  null | - | 1 | auto/L/70 | 0/1 | 0/0 | - | Lv 59               -> entered, no boss attempt | Lv 59
+39  null | - | 4 | auto/L/69 | 0/4 | 0/0 | - | Lv 61               -> null | - | 3 | auto/L/72 | 0/3 | 0/0 | - | Lv 61
+40  2 | 2.00 | 1 | auto/L/69 | 1/2 | 0/0 | 44.4 | Lv 60            -> 3 | 1.81 | 2 | auto/L/71 | 1/3 | 0/0 | 47.5 | Lv 60
+   batch_out_p20c  reached 10 attempted 7 | losses n=21 bossHP left q25/50/75 0.60/0.66/0.69 | <=25% 1 | summoned 18 | dur med 60s | charge kills/loss 1.33 | boss hits/loss 4.9 | wins n=3 survivors med 4 partyHP med 83%
+   batch_out_p20x  reached 10 attempted 5 | losses n=24 bossHP left q25/50/75 0.59/0.66/0.67 | <=25% 0 | summoned 21 | dur med 56s | charge kills/loss 1.04 | boss hits/loss 4.5 | wins n=1 survivors med 4 partyHP med 79%
+
+== idle  Ashen Keep  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  not reached | Lv -                                             -> not reached | Lv -
+32  not reached | Lv -                                             -> not reached | Lv -
+33  not reached | Lv -                                             -> not reached | Lv -
+34  not reached | Lv -                                             -> not reached | Lv -
+35  not reached | Lv -                                             -> not reached | Lv -
+36  entered, no boss attempt | Lv 73                               -> not reached | Lv -
+37  entered, no boss attempt | Lv 72                               -> not reached | Lv -
+38  not reached | Lv -                                             -> not reached | Lv -
+39  not reached | Lv -                                             -> not reached | Lv -
+40  entered, no boss attempt | Lv 70                               -> entered, no boss attempt | Lv 72
+   batch_out_p20c  reached 3 attempted 0 | losses n=0 bossHP left q25/50/75 -/-/- | <=25% 0 | summoned 0 | dur med -s | charge kills/loss 0.00 | boss hits/loss 0.0 | wins n=0 survivors med - partyHP med 0%
+   batch_out_p20x  reached 1 attempted 0 | losses n=0 bossHP left q25/50/75 -/-/- | <=25% 0 | summoned 0 | dur med -s | charge kills/loss 0.00 | boss hits/loss 0.0 | wins n=0 survivors med - partyHP med 0%
+
+== idle  zones cleared at horizons (med / P90) and paired direction; total defeats; training hours
+   @24h  4 / 4 -> 4 / 4   paired +0 010 -0
+   @36h  6 / 6 -> 6 / 6   paired +0 010 -0
+   @48h  6 / 7 -> 6 / 6   paired +0 08 -2
+   total defeats med 559 -> 598   training h med 23.3 -> 22.0
+
+== light  Amberfall Woods  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  1 | 0.01 | 0 | active/W/59 | 0/0 | 1/1 | 32.1 | Lv 50          -> 1 | 0.01 | 0 | active/W/59 | 0/0 | 1/1 | 32.1 | Lv 50
+32  1 | 0.01 | 0 | active/W/60 | 0/0 | 1/1 | 33.1 | Lv 50          -> 1 | 0.01 | 0 | active/W/60 | 0/0 | 1/1 | 33.1 | Lv 50
+33  1 | 0.01 | 0 | active/W/59 | 0/0 | 1/1 | 33.0 | Lv 50          -> 1 | 0.01 | 0 | active/W/59 | 0/0 | 1/1 | 33.0 | Lv 50
+34  2 | 1.25 | 1 | auto/L/60 | 0/1 | 1/1 | 36.1 | Lv 51            -> 2 | 1.25 | 1 | auto/L/60 | 0/1 | 1/1 | 36.1 | Lv 51
+35  3 | 3.52 | 2 | auto/L/56 | 1/3 | 0/0 | 31.8 | Lv 50            -> 3 | 3.52 | 2 | auto/L/56 | 1/3 | 0/0 | 31.8 | Lv 50
+36  1 | 0.02 | 0 | active/W/57 | 0/0 | 1/1 | 30.1 | Lv 49          -> 1 | 0.02 | 0 | active/W/57 | 0/0 | 1/1 | 30.1 | Lv 49
+37  4 | 6.93 | 3 | active/L/54 | 1/3 | 0/1 | 34.0 | Lv 51          -> 4 | 6.93 | 3 | active/L/54 | 1/3 | 0/1 | 34.0 | Lv 51
+38  1 | 0.01 | 0 | active/W/58 | 0/0 | 1/1 | 32.0 | Lv 51          -> 1 | 0.01 | 0 | active/W/58 | 0/0 | 1/1 | 32.0 | Lv 51
+39  1 | 0.01 | 0 | active/W/60 | 0/0 | 1/1 | 32.0 | Lv 50          -> 1 | 0.01 | 0 | active/W/60 | 0/0 | 1/1 | 32.0 | Lv 50
+40  2 | 2.00 | 1 | active/L/58 | 0/0 | 1/2 | 35.1 | Lv 51          -> 2 | 2.00 | 1 | active/L/58 | 0/0 | 1/2 | 35.1 | Lv 51
+   batch_out_p20c  reached 10 attempted 10 | losses n=7 bossHP left q25/50/75 0.35/0.56/0.57 | <=25% 1 | summoned 7 | dur med 62s | charge kills/loss 2.29 | boss hits/loss 6.3 | wins n=10 survivors med 4 partyHP med 96%
+   batch_out_p20x  reached 10 attempted 10 | losses n=7 bossHP left q25/50/75 0.35/0.56/0.57 | <=25% 1 | summoned 7 | dur med 62s | charge kills/loss 2.29 | boss hits/loss 6.3 | wins n=10 survivors med 4 partyHP med 96%
+
+== light  Ashen Approach  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 44.1 | Lv 59          -> 1 | 0.02 | 0 | active/W/69 | 0/0 | 1/1 | 43.1 | Lv 59
+32  1 | 0.02 | 0 | active/W/71 | 0/0 | 1/1 | 44.0 | Lv 60          -> 1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 43.1 | Lv 60
+33  1 | 0.02 | 0 | active/W/71 | 0/0 | 1/1 | 45.1 | Lv 60          -> 1 | 0.02 | 0 | active/W/69 | 0/0 | 1/1 | 43.1 | Lv 60
+34  entered, no boss attempt | Lv 61                               -> 2 | 4.00 | 1 | active/L/68 | 0/0 | 1/2 | 47.1 | Lv 61
+35  1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 42.0 | Lv 60          -> 1 | 0.03 | 0 | active/W/69 | 0/0 | 1/1 | 41.1 | Lv 60
+36  1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 44.1 | Lv 57          -> 1 | 0.02 | 0 | active/W/71 | 0/0 | 1/1 | 45.1 | Lv 57
+37  2 | 0.99 | 1 | auto/L/71 | 0/1 | 1/1 | 46.1 | Lv 61            -> 1 | 0.03 | 0 | active/W/69 | 0/0 | 1/1 | 43.1 | Lv 61
+38  1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 46.1 | Lv 58          -> null | - | 1 | active/L/68 | 0/0 | 0/1 | - | Lv 58
+39  1 | 0.04 | 0 | auto/W/72 | 1/1 | 0/0 | 42.7 | Lv 61            -> 1 | 0.04 | 0 | active/W/72 | 0/0 | 1/1 | 43.1 | Lv 61
+40  null | - | 1 | active/L/70 | 0/0 | 0/1 | - | Lv 60             -> entered, no boss attempt | Lv 60
+   batch_out_p20c  reached 10 attempted 9 | losses n=2 bossHP left q25/50/75 0.64/0.64/0.64 | <=25% 0 | summoned 2 | dur med 56s | charge kills/loss 1.00 | boss hits/loss 5.0 | wins n=8 survivors med 4 partyHP med 100%
+   batch_out_p20x  reached 10 attempted 9 | losses n=2 bossHP left q25/50/75 0.04/0.04/0.04 | <=25% 1 | summoned 2 | dur med 54s | charge kills/loss 0.50 | boss hits/loss 4.5 | wins n=8 survivors med 4 partyHP med 100%
+
+== light  Ashen Keep  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  entered, no boss attempt | Lv 70                               -> entered, no boss attempt | Lv 69
+32  entered, no boss attempt | Lv 71                               -> entered, no boss attempt | Lv 70
+33  entered, no boss attempt | Lv 71                               -> entered, no boss attempt | Lv 69
+34  not reached | Lv -                                             -> entered, no boss attempt | Lv 71
+35  entered, no boss attempt | Lv 70                               -> entered, no boss attempt | Lv 69
+36  entered, no boss attempt | Lv 70                               -> entered, no boss attempt | Lv 71
+37  entered, no boss attempt | Lv 72                               -> entered, no boss attempt | Lv 69
+38  entered, no boss attempt | Lv 70                               -> not reached | Lv -
+39  entered, no boss attempt | Lv 72                               -> entered, no boss attempt | Lv 72
+40  not reached | Lv -                                             -> not reached | Lv -
+   batch_out_p20c  reached 8 attempted 0 | losses n=0 bossHP left q25/50/75 -/-/- | <=25% 0 | summoned 0 | dur med -s | charge kills/loss 0.00 | boss hits/loss 0.0 | wins n=0 survivors med - partyHP med 0%
+   batch_out_p20x  reached 8 attempted 0 | losses n=0 bossHP left q25/50/75 -/-/- | <=25% 0 | summoned 0 | dur med -s | charge kills/loss 0.00 | boss hits/loss 0.0 | wins n=0 survivors med - partyHP med 0%
+
+== light  zones cleared at horizons (med / P90) and paired direction; total defeats; training hours
+   @24h  4 / 5 -> 4 / 5   paired +0 010 -0
+   @36h  6 / 6 -> 6 / 6   paired +0 010 -0
+   @48h  7 / 7 -> 7 / 7   paired +1 08 -1
+   total defeats med 634 -> 702   training h med 26.2 -> 25.2
+
+== casual  Amberfall Woods  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  1 | 0.02 | 0 | active/W/54 | 0/0 | 1/1 | 25.1 | Lv 41          -> 1 | 0.02 | 0 | active/W/54 | 0/0 | 1/1 | 25.1 | Lv 41
+32  1 | 0.02 | 0 | active/W/55 | 0/0 | 1/1 | 29.1 | Lv 44          -> 1 | 0.02 | 0 | active/W/55 | 0/0 | 1/1 | 29.1 | Lv 44
+33  1 | 0.02 | 0 | active/W/56 | 0/0 | 1/1 | 27.2 | Lv 41          -> 1 | 0.02 | 0 | active/W/56 | 0/0 | 1/1 | 27.2 | Lv 41
+34  1 | 0.03 | 0 | auto/W/61 | 1/1 | 0/0 | 31.9 | Lv 45            -> 1 | 0.03 | 0 | auto/W/61 | 1/1 | 0/0 | 31.9 | Lv 45
+35  1 | 0.02 | 0 | active/W/49 | 0/0 | 1/1 | 22.1 | Lv 41          -> 1 | 0.02 | 0 | active/W/49 | 0/0 | 1/1 | 22.1 | Lv 41
+36  1 | 0.03 | 0 | auto/W/61 | 1/1 | 0/0 | 32.3 | Lv 45            -> 1 | 0.03 | 0 | auto/W/61 | 1/1 | 0/0 | 32.3 | Lv 45
+37  1 | 0.02 | 0 | active/W/49 | 0/0 | 1/1 | 21.1 | Lv 44          -> 1 | 0.02 | 0 | active/W/49 | 0/0 | 1/1 | 21.1 | Lv 44
+38  2 | 0.98 | 1 | auto/L/56 | 0/1 | 1/1 | 26.2 | Lv 44            -> 2 | 0.98 | 1 | auto/L/56 | 0/1 | 1/1 | 26.2 | Lv 44
+39  1 | 0.01 | 0 | active/W/54 | 0/0 | 1/1 | 24.1 | Lv 42          -> 1 | 0.01 | 0 | active/W/54 | 0/0 | 1/1 | 24.1 | Lv 42
+40  1 | 0.03 | 0 | active/W/50 | 0/0 | 1/1 | 22.2 | Lv 45          -> 1 | 0.03 | 0 | active/W/50 | 0/0 | 1/1 | 22.2 | Lv 45
+   batch_out_p20c  reached 10 attempted 10 | losses n=1 bossHP left q25/50/75 0.48/0.48/0.48 | <=25% 0 | summoned 1 | dur med 64s | charge kills/loss 3.00 | boss hits/loss 6.0 | wins n=10 survivors med 4 partyHP med 95%
+   batch_out_p20x  reached 10 attempted 10 | losses n=1 bossHP left q25/50/75 0.48/0.48/0.48 | <=25% 0 | summoned 1 | dur med 64s | charge kills/loss 3.00 | boss hits/loss 6.0 | wins n=10 survivors med 4 partyHP med 95%
+
+== casual  Ashen Approach  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  2 | 6.85 | 1 | auto/L/64 | 0/1 | 1/1 | 42.1 | Lv 54            -> 1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 41.1 | Lv 54
+32  2 | 6.91 | 1 | auto/L/64 | 0/1 | 1/1 | 45.1 | Lv 55            -> 1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 45.1 | Lv 55
+33  2 | 0.24 | 1 | auto/L/73 | 0/1 | 1/1 | 44.1 | Lv 56            -> 1 | 0.02 | 0 | active/W/69 | 0/0 | 1/1 | 41.0 | Lv 56
+34  1 | 0.02 | 0 | active/W/72 | 0/0 | 1/1 | 42.1 | Lv 61          -> 1 | 0.03 | 0 | active/W/65 | 0/0 | 1/1 | 35.1 | Lv 61
+35  1 | 0.02 | 0 | active/W/70 | 0/0 | 1/1 | 41.0 | Lv 49          -> 2 | 1.66 | 1 | auto/L/69 | 0/1 | 1/1 | 42.0 | Lv 49
+36  2 | 3.50 | 1 | auto/L/72 | 0/1 | 1/1 | 46.0 | Lv 61            -> 2 | 8.91 | 1 | active/L/63 | 0/0 | 1/2 | 43.1 | Lv 61
+37  2 | 0.40 | 1 | auto/L/69 | 0/1 | 1/1 | 39.1 | Lv 49            -> 1 | 0.02 | 0 | active/W/63 | 0/0 | 1/1 | 33.2 | Lv 49
+38  4 | 4.97 | 3 | active/L/62 | 0/1 | 1/3 | 35.1 | Lv 57          -> 1 | 0.03 | 0 | active/W/62 | 0/0 | 1/1 | 30.2 | Lv 57
+39  5 | 9.91 | 4 | active/L/63 | 0/3 | 1/2 | 43.1 | Lv 54          -> 3 | 5.89 | 2 | active/L/65 | 0/0 | 1/3 | 40.0 | Lv 54
+40  3 | 6.89 | 2 | active/L/66 | 0/1 | 1/2 | 45.0 | Lv 50          -> 1 | 0.02 | 0 | active/W/71 | 0/0 | 1/1 | 43.1 | Lv 50
+   batch_out_p20c  reached 10 attempted 10 | losses n=14 bossHP left q25/50/75 0.62/0.64/0.79 | <=25% 1 | summoned 9 | dur med 51s | charge kills/loss 1.21 | boss hits/loss 4.0 | wins n=10 survivors med 4 partyHP med 100%
+   batch_out_p20x  reached 10 attempted 10 | losses n=4 bossHP left q25/50/75 0.43/0.61/0.64 | <=25% 0 | summoned 4 | dur med 51s | charge kills/loss 1.00 | boss hits/loss 3.5 | wins n=10 survivors med 4 partyHP med 100%
+
+== casual  Ashen Keep  seed: attempts | stall h | streak | first attempt window/result/Lv | Auto-Cast w/a | active w/a | zone clear h | Lv entering   (batch_out_p20c -> batch_out_p20x)
+31  entered, no boss attempt | Lv 71                               -> entered, no boss attempt | Lv 70
+32  entered, no boss attempt | Lv 71                               -> entered, no boss attempt | Lv 71
+33  entered, no boss attempt | Lv 73                               -> entered, no boss attempt | Lv 69
+34  null | - | 1 | active/L/74 | 0/0 | 0/1 | - | Lv 72             -> null | - | 1 | active/L/69 | 0/0 | 0/1 | - | Lv 65
+35  null | - | 1 | active/L/72 | 0/0 | 0/1 | - | Lv 70             -> null | - | 1 | active/L/72 | 0/0 | 0/1 | - | Lv 70
+36  entered, no boss attempt | Lv 75                               -> entered, no boss attempt | Lv 71
+37  entered, no boss attempt | Lv 69                               -> entered, no boss attempt | Lv 63
+38  null | - | 3 | active/L/71 | 0/0 | 0/3 | - | Lv 68             -> entered, no boss attempt | Lv 62
+39  null | - | 2 | active/L/75 | 0/0 | 0/2 | - | Lv 74             -> entered, no boss attempt | Lv 71
+40  entered, no boss attempt | Lv 73                               -> entered, no boss attempt | Lv 71
+   batch_out_p20c  reached 10 attempted 4 | losses n=7 bossHP left q25/50/75 0.85/0.87/0.87 | <=25% 0 | summoned 0 | dur med 15s | charge kills/loss 0.00 | boss hits/loss 5.4 | wins n=0 survivors med - partyHP med 0%
+   batch_out_p20x  reached 10 attempted 2 | losses n=2 bossHP left q25/50/75 0.89/0.89/0.89 | <=25% 0 | summoned 0 | dur med 12s | charge kills/loss 0.00 | boss hits/loss 5.0 | wins n=0 survivors med - partyHP med 0%
+
+== casual  zones cleared at horizons (med / P90) and paired direction; total defeats; training hours
+   @24h  5 / 6 -> 5 / 6   paired +0 010 -0
+   @36h  6 / 6 -> 6 / 7   paired +2 08 -0
+   @48h  7 / 7 -> 7 / 7   paired +0 010 -0
+   total defeats med 880 -> 1052   training h med 27.4 -> 26.5
