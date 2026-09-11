@@ -1,13 +1,13 @@
-// Compare two batch output folders (paired seeds) side by side: node tests/sim/compare.js --a batch_out_p8c --b batch_out_p8x [--profiles idle,casual,engaged] [--labels control,candidate]
+// Compare two batch output folders (paired seeds) side by side: node tests/sim/compare.js --a batch_out_p8c --b batch_out_p8x [--profiles idle,casual,engaged] [--labels control,candidate] [--focus "Emberwaste"] (focus = the boss zone the attempt rows describe; default Ironvein Caverns)
 'use strict';
 const fs=require('fs'),path=require('path');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
-const P=String(args.profiles||'idle,casual,engaged').split(','),[LA,LB]=String(args.labels||'control,candidate').split(',');
+const FOCUS=String(args.focus||FOCUS);const P=String(args.profiles||'idle,casual,engaged').split(','),[LA,LB]=String(args.labels||'control,candidate').split(',');
 const load=d=>{const dir=path.join(__dirname,d);const R={};for(const p of P)R[p]=fs.readdirSync(dir).filter(f=>f.startsWith(p+'_')&&f.endsWith('.json')).sort((x,y)=>Number(x.match(/_(\d+)/)[1])-Number(y.match(/_(\d+)/)[1])).map(f=>JSON.parse(fs.readFileSync(path.join(dir,f),'utf8')));return R;};
 const A=load(args.a),B=load(args.b);
 const srt=a=>a.filter(v=>v!=null&&!isNaN(v)).sort((x,y)=>x-y);const med=a=>{a=srt(a);return a.length?a[Math.floor((a.length-1)/2)]:null;};const p90=a=>{a=srt(a);return a.length?a[Math.min(a.length-1,Math.ceil((a.length-1)*0.9))]:null;};const mean=a=>{a=srt(a);return a.length?a.reduce((x,y)=>x+y,0)/a.length:null;};
 const f=(v,d=2)=>v==null?'-':String(+(+v).toFixed(d));
-const zones=['Greenhollow Fields','Stillwater Lagoon','Thornwood','Ironvein Caverns','Emberwaste','Amberfall Woods','Ashen Approach','Ashen Keep','The Foundry'];const FIGHTS=[24,30,30,36,36,36,36,40,40];
+const zones=['Greenhollow Fields','Stillwater Lagoon','Thornwood',FOCUS,'Emberwaste','Amberfall Woods','Ashen Approach','Ashen Keep','The Foundry'];const FIGHTS=[24,30,30,36,36,36,36,40,40];
 const at=r=>r.autoTrain||{triggers:0,returns:0,cancels:0,timeSec:0,log:[]};
 const medOf=a=>med(a);
 const rows=[];
@@ -48,14 +48,14 @@ row('stall h',r=>r.bossFailRates['Stillwater Lagoon']&&r.bossFailRates['Stillwat
 row('zone clear h',r=>r.zonesCleared['Stillwater Lagoon'],2);
 row('Lv at first try',r=>r.bossFailRates['Stillwater Lagoon']&&r.bossFailRates['Stillwater Lagoon'].lvFirst,1);
 section('IRONVEIN');
-row('first-try clear (mean)',r=>r.bossFailRates['Ironvein Caverns']?r.bossFailRates['Ironvein Caverns'].firstTryClear:null,0,'mean');
-row('attempts to clear',r=>r.bossFailRates['Ironvein Caverns']&&r.bossFailRates['Ironvein Caverns'].attemptsToClear,0);
-row('stall h',r=>r.bossFailRates['Ironvein Caverns']&&r.bossFailRates['Ironvein Caverns'].stallH,2);
-row('zone clear h',r=>r.zonesCleared['Ironvein Caverns'],2);
-row('Lv entering zone',r=>r.zoneRec['Ironvein Caverns']&&r.zoneRec['Ironvein Caverns'].lvAtEntry,1);
-row('Lv at first try',r=>r.bossFailRates['Ironvein Caverns']&&r.bossFailRates['Ironvein Caverns'].lvFirst,1);
+row('first-try clear (mean)',r=>r.bossFailRates[FOCUS]?r.bossFailRates[FOCUS].firstTryClear:null,0,'mean');
+row('attempts to clear',r=>r.bossFailRates[FOCUS]&&r.bossFailRates[FOCUS].attemptsToClear,0);
+row('stall h',r=>r.bossFailRates[FOCUS]&&r.bossFailRates[FOCUS].stallH,2);
+row('zone clear h',r=>r.zonesCleared[FOCUS],2);
+row('Lv entering zone',r=>r.zoneRec[FOCUS]&&r.zoneRec[FOCUS].lvAtEntry,1);
+row('Lv at first try',r=>r.bossFailRates[FOCUS]&&r.bossFailRates[FOCUS].lvFirst,1);
 section('IRONVEIN ATTEMPTS (attempt-level, all attempts)');
-const IV='Ironvein Caverns';const att=r=>(r.bossFailRates[IV]&&r.bossFailRates[IV].attemptLog)||[];
+const IV=FOCUS;const att=r=>(r.bossFailRates[IV]&&r.bossFailRates[IV].attemptLog)||[];
 row('Warlord ATK at first attempt (audit)',r=>{const a=att(r)[0];return a?a.bossAtk:null;},0);
 row('Warlord Lv at first attempt',r=>{const a=att(r)[0];return a?a.bossLv:null;},0);
 row('attempts per run',r=>att(r).length,0);

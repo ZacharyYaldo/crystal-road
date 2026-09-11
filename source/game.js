@@ -468,7 +468,7 @@ function applyAbility0(a){const u=a.u,pow=a.pow;
 function updateAction(dt){const a=G.action,u=a.u;
   if(a.kind==='skip'){if(u.done)endAction();return;}
   if(a.phase==='tele'){a.pt+=dt;if(a.pt>=a.tele){a.phase=a.kind==='chargeM'?'dash':'fire';a.pt=0;if(a.phase==='fire')setAnim(u,'attack',false,a.fps);}return;}
-  if(a.kind==='chargeR'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;for(const t of (u.range==='aoe'?a.tgts:[a.tgt]))if(t&&!t.dead)dealDamage(u,t,a.parried?0.9:2.2);}if(u.done)endAction();return;}
+  if(a.kind==='chargeR'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;for(const t of (u.range==='aoe'?a.tgts:[a.tgt]))if(t&&!t.dead){const hp0=t.hp,mh=t.maxhp;G.dmgSrcEnemy='charge';try{dealDamage(u,t,a.parried?0.9:2.2);}finally{G.dmgSrcEnemy=null;}if(G.fs&&u.enemy){(G.fs.chargeDetail=G.fs.chargeDetail||[]).push({hpFrac:+(hp0/mh).toFixed(2),dmg:R(hp0-Math.max(0,t.hp)),maxhp:mh,front:t===frontHero()||t===G.active[0],ranged:true});G.fs.chargeHits=(G.fs.chargeHits||0)+1;if(a.parried)G.fs.chargeParried=(G.fs.chargeParried||0)+1;if(t.dead)G.fs.chargeKills=(G.fs.chargeKills||0)+1;}}}if(u.done)endAction();return;}
   if(a.kind==='melee'||a.kind==='chargeM'||(a.kind==='ability'&&a.ab==='shadowstep')){
     const tgt=a.tgt;if(!tgt||tgt.dead&&a.phase==='dash'){endAction();return;}
     const dir=u.enemy?-1:1,dest=(tgt.x+tgt.dx)-dir*(30+(tgt.scale>1?10*(tgt.scale-1):0))-u.x;
