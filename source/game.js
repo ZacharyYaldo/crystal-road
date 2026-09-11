@@ -258,7 +258,7 @@ function goZone(i){G.zone=i;G.enemies=[];G.projs=[];G.action=null;G.bossFight=fa
 function atAllowed(z){return !G.autoTrainOff&&z>0&&z!==7&&!ZONES[z].endless&&!G.cleared[z]&&G.cleared[z-1]&&!(G.keepPushing&&G.keepPushing[z]);}
 function fightStarted(){if(G.delve||G.hordeFight||G.bossFight)return;G.fightPower=partyPower();if(!(G.train&&G.train.active)){G.powerHist=(G.powerHist||[]).concat([G.fightPower]).slice(-AT_WINDOW);}}
 function noteFight(win,wasBoss){const Z=ZONES[G.zone];if(!Z||Z.endless||G.delve||G.hordeFight)return;const T=G.train;
-  if(T&&T.active){if(G.zone!==T.zone)return;T.fights++;const prog=partyProg()-T.startProg;if(prog>=1&&T.fights>=AT_MIN_FIGHTS)finishTraining(true);return;}
+  if(T&&T.active){if(G.zone!==T.zone)return;T.fights++;const prog=partyProg()-T.startProg;if(prog>=1&&T.fights>=AT_MIN_FIGHTS){finishTraining(true);return;}T.r=(T.r||[]).concat([win?1:0]).slice(-AT_WINDOW);if(!win&&T.r.length>=AT_MIN&&T.r.filter(x=>!x).length>=AT_LOSSES&&T.zone>0){T.zone--;T.r=[];if(T.rec)T.rec.zone=ZONES[T.zone].name;goZone(T.zone);banner(ZONES[T.zone+1].name+' is too dangerous too','Training in '+ZONES[T.zone].name,3);}return;}
   if(wasBoss)return;if(!atAllowed(G.zone)&&!(G.keepPushing&&G.keepPushing[G.zone]))return;
   const ref=Math.max(0,...(G.powerHist||[]));if(ref&&G.fightPower<ref*AT_NERF)return; // obviously self-nerfed party: this fight does not count
   const D=(G.danger&&G.danger.zone===G.zone)?G.danger:(G.danger={zone:G.zone,r:[]});D.r.push(win?1:0);if(D.r.length>AT_WINDOW)D.r.shift();
