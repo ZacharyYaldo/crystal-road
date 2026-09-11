@@ -1,122 +1,149 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_13_WARLORD_ATK_CONFIRMATION
-REVIEWED_HANDOFF_PASS: PASS_12_WARLORD_ATK_ROAD_DIAGNOSTIC
-REVIEWED_HANDOFF_SHA: f1d3f50a45563e00a5709861296653187b9ae95d
-BASE_COMMIT: 66bf3b270dc7dc5b44b72faad8ee97bccb4b6c77
+REVIEW_FOR_PASS: PASS_14_WARLORD_ATK_VALIDATION
+REVIEWED_HANDOFF_PASS: PASS_13_WARLORD_ATK_CONFIRMATION
+REVIEWED_HANDOFF_SHA: 7a39a037d0d754291cab407b06742e7bc43aa750
+BASE_COMMIT: eee8a0d6f1c125e63d291fdc683fce9f1457d98a
 CONFIDENCE: MEDIUM
 
 # Decision
 
-Pass 12 produced a strong positive signal for Warlord ATK x1.2, but it did not pass the predeclared gate. Do not call this a successful diagnostic or begin release validation yet.
+Accept the developer's causal argument and advance Warlord base ATK x1.2 to normal validation.
 
-Authorize one bounded confirmation diagnostic of the same x1.2 candidate. The purpose is to resolve the small-sample first-try result and the downstream regression signals. This is not approval to ship x1.2.
+Pass 13 confirms the primary effect on a fresh seed set: x1.2 converts Ironvein from a long Auto-Cast execution wall into a contested boss check without removing the lethal charge or erasing the active-play advantage.
 
-Production remains Warlord ATK x1.7. Keep `AUTO_REACT = false`.
+This authorizes a validation build on `ai-tuning-loop`. It is not approval to merge or ship x1.2 to `main`.
 
-# Pass 12 Assessment
+# Gate Accounting
 
-The experiment separation is credible:
+The handoff reports 12 of 13 criteria met. On the conservative, denominator-based reading, 11 of 13 were met:
 
-- Warlord ATK was 978 in every control first attempt and 691 in every candidate first attempt.
-- Arrival level, party power, HP, charge, and Surge were effectively matched.
-- Production source remains Warlord ATK x1.7.
-- The candidate used only the simulator override.
-- Automatic reactions executed zero times.
-- The run completed 40 control and 40 candidate Road simulations with zero errors.
+1. Engaged ordinary rewalk hours rose 12%, above the 10% threshold.
+2. Light pooled Auto-Cast attempt win rate rose from 5/56 (8.9%) to 4/23 (17.4%), an 8.5-point increase rather than the required 10 points.
 
-The core effect is real and correctly attributed to Auto-Cast:
+The second miss is marginal and the attempt denominator is itself changed by earlier success. Light's player-facing outcomes moved clearly in the intended direction: first-try 15% -> 35%, attempts 3/10 -> 2/5, and stall 1.56h -> 0.95h.
 
-- Idle attempts fell 7 -> 2; P90 fell 18 -> 5.
-- Idle Ironvein stall fell 52%, and boss-loss rewalk time fell 72%.
-- Idle Auto-Cast attempt win rate rose 12% -> 42%.
-- Light Auto-Cast attempt win rate rose 21% -> 38%.
-- Light first-try rose 10% -> 20%.
-- Active light remained 57% and casual 90%, below the 95% ceiling.
-- Warlord continued to produce losses in idle, light, and casual.
-- Stillwater and Thornwood were unchanged.
+The engaged rewalk miss is real, not random noise. The developer's explanation is supported by the paired progression evidence: engaged reaches later zones earlier, the median paired rewalk-hours delta is 0.00h, total defeats remain within the limit, and no downstream median clear time worsens. Raw 24-hour rewalk totals therefore mix encounter difficulty with additional exposure to later content.
 
-This supports the causal premise: lowering ordinary Warlord hit damage lets automatic parties survive long enough to contest the late phase while the x2.5 charge remains lethal and mechanically important.
+These exceptions are documented rather than relabeled as passed gates. They do not outweigh the replicated primary effect, but validation must measure rewalk cost at matched zone exposure.
 
-# Gate Correction
+# Pass 13 Assessment
 
-The handoff says two of twelve criteria missed. Three predeclared criteria were not fully met:
+Credible replicated effects on fresh seeds 11-30:
 
-1. The combined first-try criterion failed because idle remained 0 of 10.
-2. Casual median zones cleared at 24 hours fell 6 -> 5.
-3. Engaged ordinary rewalk increased 14% by fights and 18% by estimated hours, beyond the 10% limit.
+- Idle first-try: 1/20 -> 4/20.
+- Idle attempts: 8/16 -> 3/5.
+- Idle stall: 1.94h -> 1.23h (-37%).
+- Idle pooled Auto-Cast wins: 20/175 -> 20/64; the same number of clears required 111 fewer losing attempts.
+- Light first-try: 3/20 -> 7/20.
+- Light attempts: 3/10 -> 2/5.
+- Light stall: 1.56h -> 0.95h (-39%).
+- Active-window win rates remained non-automatic for light and casual.
+- Stillwater and Thornwood were identical between arms.
+- Median progression did not decline at 20 or 24 hours.
+- Hordes, catacombs, Auto Training, and core damage-share metrics showed no mechanical regression.
 
-The latter two are plausibly small-sample/cutoff effects, but they cannot be dismissed as artifacts yet. Once the Warlord fight consumes different time and random draws, downstream divergence is part of the simulated consequence of the lever, even if it is not a direct stat effect.
+The fight retains its identity:
 
-The idle first-try miss is also an observed miss, not an artifact. It may be underpowered at n=10, but the evidence currently says x1.2 converts the idle experience from a long execution wall into a likely two-attempt check; it does not yet show natural-arrival first-try clears.
+- Charge remains lethal and unchanged at x2.5.
+- Candidate losses reach the summon/late phase much more often.
+- Warlord still produces losses in idle, light, and casual.
+- Automatic reactions remain disabled.
 
-Accordingly, Pass 12 is a 9-of-12 screen with a strong primary signal, not a passed validation gate.
+# Authorized Validation Build
 
-# Authorized Experiment
+Change only the production Warlord base ATK:
 
-Control:
+- x1.7 -> x1.2
 
-- Warlord base ATK x1.7
-- `AUTO_REACT = false`
+Apply the candidate to the canonical production source and any generated runtime artifact required for the game to execute the same value. Keep the control arm at x1.7 through the simulator's existing test-only override or an equivalent isolated mechanism.
 
-Candidate:
+Audit actual Warlord ATK at every first attempt:
 
-- Warlord base ATK x1.2 through the existing simulator-only override
-- `AUTO_REACT = false`
+- control expected: 978 at boss level 31;
+- candidate expected: 691 at boss level 31.
 
-Run a CONFIRMATION DIAGNOSTIC:
+Keep `AUTO_REACT = false` in both arms.
 
-- fresh paired seeds 11-30
-- Idle / Light / Casual / Engaged
+Observation-only telemetry may be added to record ordinary defeats, rewalk fights, and estimated rewalk time by zone. Do not add or change gameplay behavior for that measurement.
+
+# Validation Plan
+
+NORMAL VALIDATION:
+
+- fresh paired seeds 31-50
+- Idle / Light / Casual / Engaged / Stress
 - 24 hours
-- 80 control + 80 candidate runs
-- current production Road, Auto Training, horde, and catacomb behavior
+- 100 control + 100 candidate runs
+- three Shatters
+- production Road, Auto Training, hordes, and catacombs
 - zero simulation errors
 
-Do not reuse seeds 1-10 in the primary scorecard. They may be shown separately as prior evidence.
+Use the candidate production path with no ATK override for the candidate arm. Use the isolated x1.7 override only for the control arm.
 
-Do not add Stress in this pass. Do not test x1.0, x1.4, another ATK value, or a combined lever.
+Do not reuse seeds 1-30 in the primary validation scorecard. They may be summarized separately as prior diagnostic evidence.
 
 # Required Results
 
-Report the same Pass 12 tables, plus:
+Report median / P90, counts with denominators, and paired deltas for:
 
-- per-seed paired deltas for Ironvein attempts, stall, clear time, zones cleared, ordinary rewalk fights/hours, and total defeats;
-- idle first-attempt outcomes with boss HP remaining, party level, party HP, charge, Surge, and normal-hit/charge counts;
-- candidate and control first-try counts, not only percentages;
-- zones cleared at both 20 and 24 hours;
-- time to the sixth-zone clear, including runs that do not reach it by 24 hours;
-- engaged downstream rewalk deltas by seed and the number of positive, zero, and negative paired deltas;
-- pooled Auto-Cast and active-window attempt counts and wins, with denominators.
+- Ironvein first-try, attempts, maximum loss streak, combat stall, retry stall, and total stall;
+- active-window and Auto-Cast Warlord attempts and wins;
+- Warlord ordinary hits, charge telegraphs, charge hits/kills, parries, interrupts, loss phase/HP, and win survivors/HP;
+- arrival level, power, HP, charge, Surge, and activity window;
+- every early-Road boss first-try, attempts, stall, and clear time;
+- zones cleared at 20 and 24 hours and party level at 24 hours;
+- time to the sixth zone, including censored/not-reached runs;
+- ordinary and boss defeats and rewalk fights/hours;
+- ordinary rewalk fights/hours by zone;
+- hours spent in each zone;
+- rewalk fights and estimated hours per hour of exposure in each zone;
+- Auto Training triggers, returns, hours/share, levels earned, and zone;
+- horde and catacomb outcomes;
+- ability casts and active/Auto-Cast damage share.
 
-Do not describe downstream differences as RNG artifacts unless the new paired distribution supports that claim.
+For Stress, report results as an exploit/ceiling benchmark. Do not tune toward continuous tapping.
 
-# Confirmation Gate
+# Validation Gate
 
-Advance x1.2 to normal validation only if all are true on fresh seeds 11-30:
+Approve x1.2 for final lock only if all are true:
 
-- idle candidate produces at least 2 first-try clears and exceeds control first-try;
-- idle median attempts are <=3 and P90 <=8;
-- idle total Ironvein stall falls at least 35%;
-- idle Auto-Cast attempt win rate improves by at least 20 percentage points;
-- light candidate first-try is at least 15% and exceeds control;
-- light Auto-Cast attempt win rate improves by at least 10 percentage points;
-- active-window win rate remains below 95% for light and casual; engaged may remain at its existing ceiling;
-- Warlord produces losses in at least three profiles;
+- idle first-try is 10-35%;
+- idle median attempts are 2-4 and P90 <=8;
+- idle total Ironvein stall improves at least 30%;
+- idle Auto-Cast attempt efficiency materially improves, with at least 15 percentage points of pooled improvement or an equivalent reduction in losing attempts per clear;
+- light first-try is 20-45%;
+- light median attempts are <=3 and P90 <=6;
+- light total Ironvein stall improves at least 20%;
+- active-window Warlord win rate stays below 95% for light and casual;
+- Warlord produces losses in idle, light, and casual;
+- charge remains lethal enough to preserve reaction value and is not indirectly disabled;
 - Stillwater and Thornwood remain within their locked bands;
-- no profile's ordinary rewalk fights or estimated hours worsens more than 10%;
-- median zones cleared at 20 and 24 hours do not decline;
+- no profile declines in median zones cleared at 20 or 24 hours;
 - no downstream median clear time worsens more than 10% or P90 more than 15%;
-- no horde, catacomb, telemetry, or mechanical regression appears.
+- raw total defeats do not worsen more than 10%;
+- within-zone ordinary rewalk fights/hours per hour of exposure do not worsen more than 10% in any adequately sampled zone;
+- no Auto Training, horde, catacomb, telemetry, or mechanical regression appears.
 
-If all pass, propose the normal 20-seed, five-profile validation with production candidate code. Do not apply the production value before that review.
+A raw engaged 24-hour rewalk increase is acceptable only if all three are true:
 
-If idle first-try remains below the gate but attempts and stall again improve strongly, report x1.2 as a deliberate two-attempt checkpoint option and stop for reviewer judgment. Do not test x1.0 automatically.
+- the within-zone exposure-normalized rewalk rate remains within 10%;
+- median progression is faster or unchanged; and
+- total defeats remain within 10%.
 
-If downstream rewalk or progression regressions repeat beyond the limits, reject x1.2 rather than labeling them noise.
+Do not excuse a within-zone regression merely because the candidate progresses farther.
+
+# Decision Rules After Validation
+
+- If all gates pass: propose locking Warlord ATK x1.2 and removing the control-only validation override.
+- If x1.2 fixes idle/light but active light or casual reaches 95%+: do not ship; return for reviewer judgment.
+- If within-zone rewalk cost worsens beyond 10%: reject x1.2 and retain x1.7.
+- If the primary effect fails to reproduce: reject x1.2 and retain x1.7.
+- Do not test x1.0 automatically.
+- Do not return to Auto-Cast reactions without new evidence.
+- Do not begin a global enemy-ATK curve change in this pass.
 
 # Locked Systems
 
-- production Warlord ATK x1.7
 - Warlord HP x6.0, DEF x1.2, speed 8, charge x2.5, ward, summon threshold, and two-orc summon
 - `AUTO_REACT = false`
 - all other boss and ordinary-enemy values
@@ -135,10 +162,9 @@ If downstream rewalk or progression regressions repeat beyond the limits, reject
 
 # What Not To Do
 
-- Do not ship Warlord ATK x1.2 yet.
-- Do not revive Auto-Cast reactions.
+- Do not merge or ship x1.2 before review of Pass 14.
 - Do not change charge damage, Warlord HP/DEF/speed, ward, summons, or adds.
+- Do not revive Auto-Cast reactions.
 - Do not alter Auto Training.
-- Do not test a second ATK value.
+- Do not test another Warlord ATK value.
 - Do not change the global enemy ATK curve.
-- Do not call this confirmation pass release validation.
