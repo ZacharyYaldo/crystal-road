@@ -75,7 +75,7 @@ function main(){
     const zi=G.zone;
     if(retreatUntil&&simSec<retreatUntil){/* farming the previous zone */}
     else if(G.cleared[zi]&&zi<Z.length-1&&zoneOk(zi+1)){if(!Z[zi+1].endless||avgLv()>=Z[zi+1].lv-2)travelTo(zi+1);}
-    else if(zoneDefeats>=4&&zi>0&&(simSec-zoneEnter)>600){M.stuck.push({zone:Z[zi].name,h:+M.hours.toFixed(2),lv:avgLv()});ev('retreat',Z[zi].name+' after '+zoneDefeats+' defeats, farming '+Z[zi-1].name);travelTo(zi-1);zoneDefeats=0;retreatUntil=simSec+1800;farmTarget=avgLv()+3;}
+    else if(zoneDefeats>=4&&zi>0&&!Z[zi].endless&&(simSec-zoneEnter)>600){M.stuck.push({zone:Z[zi].name,h:+M.hours.toFixed(2),lv:avgLv()});ev('retreat',Z[zi].name+' after '+zoneDefeats+' defeats, farming '+Z[zi-1].name);travelTo(zi-1);zoneDefeats=0;retreatUntil=simSec+1800;farmTarget=avgLv()+3;}
     if(retreatUntil&&(simSec>=retreatUntil||avgLv()>=farmTarget)&&G.cleared[G.zone]&&zoneOk(G.zone+1)){retreatUntil=0;travelTo(G.zone+1);}
     // hordes: prepare and fight when due
     if(G.castle.hordeDue&&S.hordeWindow().used<2&&G.mode==='walk'){const p=G.castle.prep||(G.castle.prep={});for(const k of ['walls','merc']){const c=S.prepCost(k);if(!p[k]&&G.gold>=c*3){G.gold-=c;p[k]=true;if(k==='merc')p.mercLv=1;}}const before=G.castle.hordeCount||0;try{S.startHordeFight();}catch(e){}if(G.hordeFight)ev('horde','#'+((G.castle.currentHorde||{}).number||'?')+' '+S.hordeTier()+' threat '+S.fmtNum(S.hordeThreat())+' vs defense '+S.defense().total);}
