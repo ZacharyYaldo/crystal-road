@@ -1,142 +1,107 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_31_ENDLESS_GOLD_EXPONENT_CANDIDATE
-REVIEWED_HANDOFF_PASS: PASS_30_FOUNDRY_CORE_VOLLEY_CANDIDATE
-REVIEWED_HANDOFF_SHA: 87d15a4c4132f2b8382e6eca1f7c1cab4ab56647
-BASE_COMMIT: 8222960c9eed6f6694cd14e158d64a4da2b777c6
+REVIEW_FOR_PASS: PASS_32_PRODUCTION_RELEASE_VALIDATION
+REVIEWED_HANDOFF_PASS: PASS_31_ENDLESS_GOLD_EXPONENT_CANDIDATE
+REVIEWED_HANDOFF_SHA: 585fcce0eecb095fa463b35e47d565bd6178a8de
+BASE_COMMIT: 93e591bc9df263ed84791edb07f5d158f09dad9e
 CONFIDENCE: HIGH
 
 # Decision
 
-Lock the coupled Foundry Core package:
+Reject the simulator-only Endless kill-gold exponent 1.04 and keep the production exponent at 1.05.
 
-- Foundry Core base ATK: 2.2 -> 1.5.
-- Foundry Core unreacted ranged-volley multiplier: 2.2 -> 0.9.
-- The parried ranged-volley multiplier remains 0.9.
-- Every non-Core ranged charge remains at the global unreacted multiplier 2.2.
+Pass 31 is valid and answers the candidate question. All 40 runs completed 96 simulated hours with zero errors; all 40 paired audits were identical through Endless entry; the two runs that never reached Endless were identical end to end; the first divergence was the first Endless kill reward; and the accepted Foundry Core production package reproduced in 40/40 runs. No telemetry defect blocks interpretation.
 
-Pass 30 is valid and materially meets the player-facing goal. Idle Core clears rose from 2/10 to 9/10, median attempts fell from 75 to 13, median cleared-run stall fell from 13.4h to 6.1h, and median Foundry time fell from 15.2h to 7.4h. The volley changed from a full-health one-shot to a heavy hit: candidate median damage was 53% of target max HP, 39% against the front hero, with no idle hit at or above 100%. Light, casual, and engaged attempt win rates remained below 90%, the fight continued to reach charge and summon phases, and earlier Road progression was unchanged in all 40 audits.
+The candidate fails the primary causal and player-facing rule. It cuts gold per kill and purchasing cadence by roughly half throughout Endless, but it reduces late-versus-early gold growth only about 20-25% rather than about half. Engaged gold-per-kill growth changed from x5.84 to x4.54, casual from x4.88 to x4.00, and light from x4.88 to x4.30. Party-power growth barely changed: x3.82 to x3.49 engaged, x3.42 to x3.18 casual, and x3.20 to x3.09 light. Kills, waves, and deaths per hour remained close to baseline. The result is substantially poorer rewards with almost the same play curve, not a meaningfully better progression curve.
 
-The weak secondary result does not justify another Core pass. Idle volley kills per attempt fell only 3.50 -> 3.29 because surviving parties encountered about twice as many volley hits; kills per hit fell much more clearly, 0.81 -> 0.37. Casual first-attempt clears reached exactly 5/10, the allowed boundary, but its 59% attempt win rate and continued losses do not establish an automatic fight. Record both as watch items. Do not run another Core candidate or confirmation batch.
+Source and telemetry agree on the mechanism. Endless enemy level rises by 0.15 per wave, kill XP uses 1.04^level, and party level rises about 32 levels over 24 hours while enemy level rises about 23. The party-level/XP curve is the dominant power engine. The 1.05 gold exponent amplifies visible reward magnitude, but lowering it does not materially control the progression engine. Do not test another gold exponent and do not replace it with a flat gold multiplier in this cycle.
 
-The Core-specific 0.9 unreacted value means a successful parry does not further reduce this Core's volley damage; active advantage still exists through interrupts, timing, abilities, and recovery. This is acceptable for this local exception because the global parry rule and all other enemies remain unchanged, and the measured Core encounter remains interactive.
+Pass 31 closes the Endless gold-lever cycle. This is a current-lever decision, not a claim that Endless or the whole game is perfectly tuned.
 
-Pass 30 completes Foundry tuning for this cycle. Move now to the diagnosed Endless Road economy acceleration.
+# Locked Outcome
 
-# Production Lock Implementation
+Keep in production:
 
-Implement the accepted Core package in production source, then rebuild the bundle:
+- Endless kill-gold exponent 1.05.
+- Endless XP exponent 1.04.
+- Endless enemy-level slope 0.15 per wave.
+- Foundry Core base ATK 1.5.
+- Foundry Core-only unreacted ranged-volley multiplier 0.9.
+- Global non-Core unreacted/parried ranged-charge multipliers 2.2/0.9.
+- Hollow King ATK 1.3.
+- Post-Shatter enemy HP/ATK and DEF multipliers 1.10.
+- Ashen Keep level 50.
+- Auto Training target 1.0 and threshold 4.
 
-- set ENEMIES.core.atk to 1.5;
-- add a per-enemy ranged-charge multiplier field to the Core entry with value 0.9;
-- in the unreacted ranged-charge path, read that field when present and otherwise fall back to 2.2;
-- keep the existing parried value at 0.9;
-- do not use an enemy-name string check in production;
-- do not alter charge cadence, target count, HP, DEF, speed, shield, summons, rewards, AUTO_REACT, or any non-Core charge.
+Do not implement the Pass 31 simulator override in production. No production balance value changes are authorized by this review.
 
-The Pass 31 whole-run audit below is the production-lock reproduction check. Do not add a separate full confirmation batch.
+# Pass 32: Production Release-Confidence Validation
 
-# Endless Diagnosis
+Run one broad, fresh-seed validation of the complete production tuning set. Its purpose is to check release confidence and rank the next material cross-map bottleneck after the Ashen Keep, Hollow King, Foundry Core, and Endless gold cycles have been closed.
 
-The existing broad telemetry is sufficient diagnosis: over roughly 24 hours in Endless, time-normalized gold per kill rose about 16x, party power rose about 8x, and deaths per hour stayed roughly flat. Source inspection identifies the primary local lever: kill gold uses 1.05^enemy level while Endless enemy level rises with progress, then the result is compounded by Shatter, Renown, and Omen multipliers. This can create a self-reinforcing gold-to-power loop even when combat pressure is not increasing meaningfully.
+Use:
 
-Do not run another diagnostic pass. Test one local candidate against this mechanism.
-
-# Pass 31 Candidate
-
-After applying the production Core lock, test one simulator-only Endless reward candidate:
-
-- Endless Road kill-gold level exponent: 1.05 -> 1.04.
-- All pre-Endless kill gold retains 1.05.
-- XP remains 1.04.
-- Ore scaling remains 1.035.
-- Renown gain/stat/gold formulas, Omens, Shatter multipliers, enemy scaling, Endless level slope, encounter composition, milestones, champions, drops, and all costs remain unchanged.
-- Production Endless reward code remains unchanged during the candidate.
-
-Use the completed Pass 30 batch as the fixed baseline. Do not rerun its 40 control runs.
-
-Run one candidate batch:
-
-- seeds 51-60;
+- current production source and rebuilt bundle only;
+- no simulator balance replacement map;
+- seeds 61-80;
 - idle, light, casual, and engaged profiles;
 - 96 simulated hours;
-- 40 candidate runs total;
-- production Core ATK 1.5 and Core-only unreacted volley multiplier 0.9;
-- Hollow King ATK 1.3;
-- post-Shatter HP/ATK and DEF factors 1.10;
-- far-mark stall rule at 3 hours;
+- 80 runs total;
+- far-mark stall rule at three hours;
 - three Shatters as a cap with no early stop;
 - Pass 22 dust policy and literal Pass 24 ascension policy;
-- Ashen Keep level 50;
-- zero simulation errors.
+- zero balance changes, zero control reruns, and zero extra profiles or batches.
 
-This is the first and only Endless gold-exponent candidate after diagnosis. Do not test another exponent or another economy lever in Pass 31.
+This is one release-confidence validation, not a new diagnostic for a chosen lever. Do not tune XP, Endless level slope, gold, Renown, Omens, bosses, Auto Training, ascension, or any other value during Pass 32.
 
 # Validity Gate
 
 Before interpreting balance, demonstrate:
 
-- all 40 runs reach 96 simulated hours within one simulation step;
+- all 80 runs reach 96 simulated hours within one simulation step;
 - no run exceeds three Shatters or stops merely because it reaches three;
-- source and rebuilt bundle contain the accepted Core production implementation;
-- Core behavior reproduces the Pass 30 candidate through Foundry exit, including ATK, volley multiplier, attempts, wins, fight phases, clear time, and all earlier hourly state;
-- every paired run is identical through Endless entry and through the state immediately before its first Endless kill reward;
-- the first permitted candidate divergence is Endless kill gold computed with exponent 1.04 instead of 1.05;
-- pre-Endless gold rewards and every non-gold reward are identical;
-- no non-Core charge behavior changes;
-- runs that do not reach Endless remain fully identical to baseline.
+- source and bundle contain every locked production value above;
+- the Pass 31 Endless override is not active;
+- Core-only volley lookup still falls back to 2.2 for every non-Core enemy and keeps parried damage at 0.9;
+- no simulator replacement, stale bundle, missing profile, or mechanical error affects the batch.
 
-If any gate fails, stop balance interpretation and report the defect. Do not run a replacement batch without review.
+If a validity gate fails, stop balance interpretation and report the defect. Do not silently fix it or run a replacement batch without review.
 
 # Required Evidence
 
-Report paired candidate-versus-Pass-30 results by profile and seed for:
+Report by profile, with per-seed outliers:
 
-- Endless entry hour, party level/power, gold balance and relevant tree ranks at entry;
-- hours in Endless, best wave, wins, losses, deaths, fights per hour, and milestone/champion reach;
-- gold earned, gold spent, ending balance, purchases, and party power;
-- XP, party level, ore, gear upgrades, Renown, Omens, and Shatter count;
-- current/best zone and power at 24, 48, 72, and 96 hours;
-- Core attempts, clears, and Foundry exit as the production-lock reproduction audit;
-- paired outliers and any profile that fails to reach Endless.
+- current and best zone, party level and power at 24, 48, 72, and 96 hours;
+- Shatter count and timing;
+- time spent in each zone;
+- boss attempts, wins, clear hour, and longest stall for Grave Knight, Hollow King, and Foundry Core;
+- active-versus-idle differences in attempts, recovery, charge/volley outcomes, and meaningful failures;
+- Foundry exit and Endless entry rate/time;
+- Endless exposure, best wave, milestone reach, deaths per hour, gold earned/spent, purchases, level, power, ore, Renown, and Omens;
+- any non-Endless boss that becomes a repeated multi-hour wall;
+- any regression relative to the established Pass 27-31 ranges.
 
-For runs with at least 12 hours in Endless, split telemetry into time-since-entry windows 0-6h, 6-12h, 12-18h, and 18-24h where available. For each window report gold per kill, gold per hour, kills/fights/deaths per hour, party power, level, best-wave gain, purchases, Renown, and active Omens. Compare late-versus-early growth within each arm and paired between arms. Do not compare raw totals without normalizing for time in Endless.
+Use the fresh batch to rank the largest remaining player-facing bottleneck across the Road. Do not reopen a closed map merely because a secondary percentage narrowly misses an earlier gate. A new candidate is justified only by a genuine mechanical failure, severe regression, or a clearly larger progression wall.
 
-# Candidate Rule
+# Completion Rule
 
-Treat the Endless 1.04 candidate as promising only if the outcomes hold together:
+If the production validation shows no severe regression or material new hard wall, report that the current tuning cycle is ready for human merge consideration. That means this tuning cycle is complete; it does not mean every map, Endless scaling, or the whole game is permanently complete.
 
-- late-versus-early gold-per-kill and gold-per-hour acceleration is materially reduced, with the roughly 24-hour growth ratio cut by about half where that exposure exists;
-- party-power acceleration is also materially reduced rather than gold merely accumulating unspent;
-- Endless still feels progressively rewarding: gold per kill and purchasing power continue to rise, purchases continue across windows, and progression does not flatten into a static grind;
-- median best wave, wins, and fights per hour do not fall by more than about 20% versus baseline for profiles with comparable Endless exposure;
-- losses and meaningful failure states remain present rather than disappearing or exploding;
-- XP, ore, Renown, Omens, and pre-Endless progression show no unintended regression.
-
-Do not chase an exact secondary percentage. Decide from the player-facing progression curve, purchasing cadence, power growth, failure states, and causal telemetry together.
-
-Pass 31 is the one adequately sized candidate test. If it is materially promising and release confidence genuinely requires it, the next review may authorize one final validation. Otherwise lock or reject it and move to the next largest cross-map bottleneck.
+If the validation finds a material blocker, identify exactly one largest cross-map bottleneck and propose one bounded hypothesis and experiment. Do not implement it during Pass 32 and do not run a second validation.
 
 # Locked Systems
 
-Keep locked:
+Keep all previously locked systems unchanged, including:
 
-- Hollow King ATK 1.3 and all other Hollow King fields;
-- Foundry Core ATK 1.5 and Core-only unreacted ranged-volley multiplier 0.9;
-- Foundry Core HP, DEF, speed, charge cadence, target count, shield, summons, rewards, and all other mechanics;
-- global unreacted/parried charge multipliers 2.2/0.9 and AUTO_REACT false;
-- ordinary Foundry enemies, level, fight count, and rewards;
-- Endless enemy scaling, level slope, encounter pools, milestones, champions, Renown, Omens, XP, ore, gear, costs, and all rewards except the simulator-only kill-gold exponent candidate;
-- post-Shatter enemy HP/ATK and DEF multipliers 1.10;
-- Ashen Keep level 50 and all Shatter/dust/stall rules;
-- Auto Training target 1.0, threshold 4, and behavior;
-- all previously locked boss values and every unrelated progression, economy, tap, rarity, promotion, travel, recovery, UI, and save-format system.
+- all accepted boss stats and local mechanics;
+- all Shatter, dust, stall, ascension-policy, and Auto Training behavior;
+- Endless enemy scaling, level slope, encounter pools, milestones, champions, XP, gold, ore, Renown, Omens, gear, and costs;
+- tap balance, rarity, promotion, travel, recovery, UI, monetization, and save format.
 
 # What Not To Do
 
-- Do not run another Core test or confirmation.
-- Do not change a second Endless lever.
-- Do not change production Endless rewards during Pass 31.
-- Do not rerun the Pass 30 baseline.
-- Do not add seeds, profiles, hours, stress profiles, or control arms.
-- Do not tune Renown, Omens, XP, ore, enemy scaling, level slope, costs, or encounter pacing.
-- Do not merge or ship before review.
+- Do not implement Endless exponent 1.04.
+- Do not test another Endless gold exponent, flat multiplier, XP exponent, or level slope.
+- Do not run another Core or Hollow King candidate.
+- Do not add a control arm or confirmation loop.
+- Do not make gameplay changes during Pass 32.
+- Do not merge the pull request before the Pass 32 handoff is reviewed.
