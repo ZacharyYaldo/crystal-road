@@ -35,6 +35,7 @@ function main(){
     simSec+=DT;S.clock.advance(DT*1000);S.setRT(S.getRT()+DT);M.hours=simSec/3600;
     G.title=false;if(G.tut!=null)G.tut=null;
     try{S.update(DT,true);}catch(e){ev('ERROR','update: '+e.message+' @ '+(e.stack||'').split('\n')[1]);break;}
+    if(G.parts.length)G.parts.length=0;if(G.floats.length)G.floats.length=0;
     if(ACTIVE)play();
     // observations every tick
     {const dg=G.gold-lastGold,dO=G.ore-lastOre;if(dg>0)M.econ.goldEarned+=dg;else M.econ.goldSpent-=dg;if(dO>0)M.econ.oreEarned+=dO;else M.econ.oreSpent-=dO;lastGold=G.gold;lastOre=G.ore;}

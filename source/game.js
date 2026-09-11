@@ -242,6 +242,8 @@ function heroStats(h){const c=CLASSES[h.cls],L=h.lvl-1,tm=Math.pow(1.3,h.tier||0
   const eq=h.eq||{};if(eq.weapon)atk+=itemStat(eq.weapon);if(eq.cape)def+=itemStat(eq.cape);if(eq.charm)hp+=itemStat(eq.charm);
   const rn=renownStat();hp*=(1+0.04*treeLv('hp'))*(1+0.1*treeLv('b_hp'))*rn;atk*=(1+0.04*treeLv('atk'))*rn;def*=(1+0.04*treeLv('def'))*rn;return{maxhp:R(hp),atk:R(atk),def:R(def),spd:c.spd};}
 const ZONE_POWER=[0.62,0.86,0.97];
+// per-zone boss multipliers on top of normal scaling; zones not listed are 1.0
+const BOSS_TUNE={0:{hp:0.75,atk:0.80},1:{hp:0.75,atk:0.82}};
 function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.25,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
 // items
 let itemSeq=1;
@@ -357,7 +359,7 @@ function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};
   const n=(bossFight||elite)?1:Math.min(3,1+Math.floor(rand()*Math.min(3,1+p/3))+omenCount('swarm'));G.enemies=[];
   const pool=Z.endless?ZONES[endSeg(p)].pool:Z.pool,etier=Math.min(2,Z.endless?Math.floor(p/50):Math.floor(p/(Z.fights/3)));for(let i=0;i<n;i++){const id=bossFight?BZ.boss:pool[Math.floor(rand()*pool.length)];const L=Z.endless?endlessLv(Z,p):roadLv(Z,Z.lv+p*0.3);
     const E=ENEMIES[id];const e={uid:E.uid||id,id,name:E.name+(bossFight?'':['',' Veteran',' Elder'][etier]),lvl:L,x:W+40+i*36,slot:bossFight?(E.native?226:200+8*(E.scale||1)):ENEMY_X[i],dx:0,yoff:bossFight?0:ENEMY_Y[i],flip:true,fly:!!E.fly,range:E.range,boss:!!E.boss,scale:E.scale||1,native:!!E.native,nscale:E.nscale||1,hue:E.hue||0,tier:bossFight?0:etier,gauge:rand()*40,dead:false,enemy:true,status:{},flash:0};
-    Object.assign(e,enemyStats(id,L));if(G.oath==='iron'){e.maxhp=R(e.maxhp*1.5);e.atk=R(e.atk*1.5);}if(Z.endless){e.maxhp=R(e.maxhp*omenMult('ehp'));e.def=R(e.def*omenMult('edef'));}e.traits=(E.traits||[]).slice();e.mech=E.mech?JSON.parse(JSON.stringify(E.mech)):null;e.acts=0;if(elite){e.name='Elite '+E.name;e.maxhp=R(e.maxhp*3);e.atk=R(e.atk*1.4);e.scale=Math.max(e.scale,2);e.slot=224;if(!e.traits.includes('charge'))e.traits.push('charge');e.elite=true;}
+    Object.assign(e,enemyStats(id,L));if(bossFight&&!Z.endless){const bt=BOSS_TUNE[G.zone];if(bt){e.maxhp=R(e.maxhp*bt.hp);e.atk=R(e.atk*bt.atk);}}if(G.oath==='iron'){e.maxhp=R(e.maxhp*1.5);e.atk=R(e.atk*1.5);}if(Z.endless){e.maxhp=R(e.maxhp*omenMult('ehp'));e.def=R(e.def*omenMult('edef'));}e.traits=(E.traits||[]).slice();e.mech=E.mech?JSON.parse(JSON.stringify(E.mech)):null;e.acts=0;if(elite){e.name='Elite '+E.name;e.maxhp=R(e.maxhp*3);e.atk=R(e.atk*1.4);e.scale=Math.max(e.scale,2);e.slot=224;if(!e.traits.includes('charge'))e.traits.push('charge');e.elite=true;}
     if(bossFight&&e.mech&&e.mech.charge)e.traits.push('charge');if(bossFight&&e.mech&&e.mech.shieldAllies&&!e.traits.includes('shieldAllies'))e.traits.push('shieldAllies');e.hp=e.maxhp;setAnim(e,'walk');G.enemies.push(e);}
   for(const h of G.active){h.unbrokenUsed=false;h.marks=0;if(h.talents&&tal(h,'quickdraw'))h.charge=Math.max(h.charge,30);}for(const e of G.enemies)e.marks=0;
   G.mode='enter';G.bossFight=bossFight;G.active.forEach(h=>setAnim(h,'idle'));if(bossFight)banner(ENEMIES[BZ.boss].name,Z.endless?'guards milestone '+(p/100):'holds '+(3+G.zone)+' prisoners',2.5);else if(elite)banner(G.enemies[0].name,'blocks the road',2.2);

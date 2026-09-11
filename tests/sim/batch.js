@@ -20,6 +20,7 @@ function report(){console.log('\n');const rows=[];const all={};for(const j of jo
   for(const z of zones)metric('boss fail% '+z,r=>r.bossFailRates[z]?Math.round(r.bossFailRates[z].rate*100):null);
   for(const z of zones)metric('boss max streak '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].maxStreak:null);
   for(const z of zones)metric('boss stall h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].stallH:null);
+  for(const z of zones)metric('party Lv entering '+z,r=>r.zoneRec&&r.zoneRec[z]?r.zoneRec[z].lvAtEntry:null);
   for(const z of zones)metric('boss 1st-try clear% '+z,r=>r.bossFailRates[z]&&r.bossFailRates[z].firstTryClear!=null?r.bossFailRates[z].firstTryClear*100:null);
   for(const z of zones)metric('boss attempts to clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].attemptsToClear:null);
   for(const z of zones)metric('boss Lv at first try '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].lvFirst:null);
