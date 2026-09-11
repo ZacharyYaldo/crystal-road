@@ -1,112 +1,111 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_22_SHATTER_DUST_POLICY_DIAGNOSTIC
-REVIEWED_HANDOFF_PASS: PASS_21_SHATTER_BEHAVIOR_DIAGNOSTIC
-REVIEWED_HANDOFF_SHA: 90be24734459c768d590e92b35da4ec913ef4d42
-BASE_COMMIT: f466b7d8d0334fbc07ba9be0166ca2dcec992a3b
+REVIEW_FOR_PASS: PASS_23_ASHEN_KEEP_LEVEL_CANDIDATE
+REVIEWED_HANDOFF_PASS: PASS_22_SHATTER_DUST_POLICY_DIAGNOSTIC
+REVIEWED_HANDOFF_SHA: 0c36d141c6d6ffb37961f208e60de82a5237ceb5
+BASE_COMMIT: 79e6ebc6bbad2808ffc5ba339da788bb05fe7bac
 CONFIDENCE: HIGH
 
 # Decision
 
-The Pass 21 diagnostic is valid for the bot policy it actually ran:
+Accept the Pass 22 diagnostic.
 
-- all 30 runs passed their pre-Shatter deterministic audit;
-- 90 Shatters fired at real stalls without an artificial loop;
-- zero runs cleared Ashen Keep by 72 hours;
-- Hollow King went 0/6;
-- Shattered parties returned to late zones 10-25 levels below their no-Shatter arrivals.
+The corrected bot spent Shatter dust as authorized and passed all 30 pre-first-Shatter audits with zero errors. It reduced remaining dust from roughly 40-46 to 5-7 and bought meaningful starting-level, HP, and damage blessings. That improved replay strength and Keep exposure, but it did not create a credible route through Ashen Keep:
 
-Do not interpret that as a final verdict on the game's Shatter system. The bot ended with 37-51 dust unspent and did not buy the combat/start blessings Shatter is intended to fund. That materially affects replay speed, arrival level, and survivability.
+- Ashen Keep clears remained 0/30;
+- Hollow King remained 0/4, with no summon phase reached;
+- ordinary Keep loss rates remained 26% idle, 38% light, and 54% casual;
+- the third Shatter still left most runs replaying earlier zones at the 72-hour horizon.
 
-This is a simulator-policy defect that qualifies for the pacing policy's invalid-telemetry exception. Authorize one corrected rerun. It is the final Shatter diagnostic.
+Shatter behavior and dust-policy diagnostics are now closed. Do not test another spending priority, stall rule, duration, or Shatter count.
 
-# Pass 22: Corrected Shatter Dust Policy
+Agree with the developer's causal conclusion: the immediate wall is Ashen Keep as a whole. Parties often fail before fight 36, while the rare Hollow King attempts are also noncompetitive. A local zone-level test is the cleanest single lever because it moves the Keep's ordinary encounters and boss together without reopening Auto Training or separately polishing another boss multiplier.
 
-Change only the simulator bot's post-Shatter dust spending.
+# Pass 23: Ashen Keep Zone-Level Candidate
 
-Immediately after every Shatter and before the next combat, spend dust through this deterministic priority:
+Test one candidate only:
 
-1. `b_start` — Remembered Strength;
-2. `b_hp` — Crystal Vigor;
-3. `b_dmg` — Sharpened Fate.
+- Ashen Keep base level: `50 -> 46`;
+- simulator override only;
+- do not modify `source/game.js` or the production bundle;
+- keep the enemy pool, Hollow King definition, boss tuning, fight count, rewards formulas, Shatter values, and blessing values unchanged.
 
-Use repeated priority passes:
-
-- buy the highest-priority affordable next rank;
-- restart at `b_start` after each purchase;
-- if `b_start` is unaffordable, try `b_hp`, then `b_dmg`;
-- stop only when none of the three next ranks is affordable;
-- leave dust unspent only when it is below every available next cost.
-
-Do not buy another dust blessing, change a blessing cost/effect, or optimize a different priority. Record every purchase, cost, resulting rank, dust remaining, and resulting starting level/party power.
-
-This models a simple progression-focused player policy; it is not asserted to be uniquely optimal.
+This is a candidate test, not approval to ship the value.
 
 # Authorized Batch
 
-Run one corrected batch only:
+Run one paired 30-run batch:
 
 - seeds 31-40;
 - idle, light, and casual;
 - 72 hours;
-- 30 total runs;
 - `--stallRule far`;
 - `--stallHours 3`;
 - up to three Shatters;
-- production gameplay values;
-- normal Auto Training, hordes, and catacombs;
+- the accepted Pass 22 dust policy;
+- production Auto Training, hordes, catacombs, and every other gameplay value;
 - zero simulation errors.
 
-Use the existing Pass 21 results as the comparison arm. Do not rerun the under-spending policy.
+Use Pass 22 as the control. Do not rerun Pass 22 and do not reduce the Shatter cap to make the horizon cleaner.
 
-Audit that every corrected run exactly matches its Pass 21 run through the first Shatter and differs only after the first authorized dust purchases.
+Audit that each candidate run is identical to its paired Pass 22 control through its first Ashen Keep entry. At minimum, compare hourly state, Shatter timing, zone clears, Ashen Approach entry/clear, party level, wins, gold, and dust. Divergence is expected only after the candidate first enters Ashen Keep.
 
-# Required Comparison
+# Required Evidence
 
-Report paired deltas against Pass 21 by profile and seed:
+Report paired results by profile and seed, plus compact profile summaries:
 
-- dust earned, spent, and remaining after each Shatter;
-- `b_start`, `b_hp`, and `b_dmg` ranks bought per run;
-- starting level and party power after each Shatter;
-- time to re-clear Ironvein and return to the zone left;
-- Ashen Approach and Ashen Keep entry/re-entry level and power;
+- Ashen Keep entry count, hour, party level, and power by run;
+- ordinary Keep encounters, wins, losses, loss rate, time in zone, furthest fight, and rewalk time;
+- fight-36 reach and Hollow King attempts, wins, loss duration, HP remaining, summon phases reached, and party state;
+- Keep clears and Foundry entries, including hour, level, and power;
 - current-run and best-run zones cleared at 24h, 36h, 48h, and 72h;
-- Keep ordinary wins/losses, hours, loss rate, and rewalk time;
-- Hollow King reach, attempts, losses, HP remaining, summons reached, clears, and stall;
-- total defeats, training hours, hordes, catacombs, and errors;
-- Shatter timing and no-loop evidence.
+- Shatter count, timing, location, and no-loop evidence;
+- total defeats and training hours;
+- XP, gold, ore, gear progression, and late-zone arrival strength.
 
-# Good-Enough Decision Rules
+The reward comparison is required because lowering enemy level also lowers per-kill XP, gold, and ore. Easier encounters are not a success if reduced rewards erase the downstream progression gain.
 
-After Pass 22, no further Shatter-policy diagnostic is allowed.
+# Good-Enough Decision Rule
 
-- If competent dust spending makes Ashen Keep/Hollow King meaningfully contestable or produces clear whole-Road progression gains, treat the current Shatter system as good enough, lock it, and move forward.
-- If it improves replay strength but still leaves the wall essentially uncontested, identify one dominant production lever and propose one bounded candidate test.
-- If results are mixed, prefer the primary player-facing outcomes and paired causal pattern; do not request another policy, priority, duration, or confirmation batch.
+Judge the candidate on player-facing progression, not a perfect percentage target.
 
-Do not demand a perfect Keep clear rate. The goal is a credible progression path, not an exact simulator optimum.
+Accept the candidate direction if it materially advances parties through the Keep, produces repeated credible Hollow King contests or clears, and does not create a severe upstream or downstream regression. The Keep does not need a perfect clear rate.
+
+Reject it if:
+
+- ordinary Keep fights remain the same wall;
+- the Keep becomes easier than Ashen Approach to a clearly trivial degree;
+- Hollow King remains essentially untouched despite substantially more attempts; or
+- lower rewards negate the progression gained from easier fights.
+
+The developer's proposed seed-direction and boss-reach thresholds may be reported as supporting evidence, but they are not reasons for another confirmation batch.
+
+After Pass 23, do not request another Ashen Keep sizing or confirmation run. Use the evidence to lock or reject this candidate. If the direction is clearly good, the next review should authorize the production value and move immediately to broad Foundry/Endless bottleneck triage rather than polishing the Keep further.
 
 # Locked Systems
 
 Keep locked:
 
-- every Shatter gameplay value, blessing cost, and blessing effect;
-- Hollow King;
+- every Shatter gameplay value, blessing cost, blessing effect, stall rule, and dust priority;
+- Hollow King HP, ATK, DEF, speed, summons, drain, and all direct boss mechanics;
+- Ashen Keep enemy pool and fight count;
 - Auto Training target 1.0, threshold 4, and every other Auto Training rule;
 - Warlord ATK x1.2;
 - Sand Tyrant ATK x1.1;
 - Hunter King ATK x1.0;
 - Grave Knight ATK x2.0;
-- all boss HP, DEF, speed, charge/volley, summon, add, enrage, ward, raise, and other mechanics;
-- ordinary enemies and global enemy curves;
-- AUTO_REACT = false;
+- all other boss HP, DEF, speed, charge/volley, summon, add, enrage, ward, raise, and mechanic values;
+- ordinary enemies outside the authorized Ashen Keep level override;
+- global enemy curves;
+- `AUTO_REACT = false`;
 - all previously locked progression, economy, tap, Renown, rarity, promotion, travel, recovery, and UI systems.
 
 # What Not To Do
 
-- Do not modify gameplay code.
-- Do not change Shatter timing or stall detection.
-- Do not test multiple dust priorities.
-- Do not rerun Pass 21's under-spending arm.
-- Do not add a balance candidate.
+- Do not modify production gameplay code.
+- Do not test another Ashen Keep level.
+- Do not change Hollow King separately.
+- Do not change the Shatter policy or cap.
 - Do not reopen Auto Training or boss-ATK tuning.
+- Do not add a second candidate arm.
+- Do not run a separate confirmation pass.
 - Do not tune toward Stress.
