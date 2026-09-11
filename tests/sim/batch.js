@@ -35,6 +35,21 @@ function report(){console.log('\n');const rows=[];const all={};for(const j of jo
   for(const z of zones)metric('boss IN-ZONE retry h '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].inZoneRetryH:null);
   const arr=(z,k)=>r=>r.bossFailRates[z]&&r.bossFailRates[z].arrival?r.bossFailRates[z].arrival[k]:null;
   for(const z of ['Stillwater Lagoon','Ironvein Caverns']){metric('ARRIVAL '+z+' party HP%',r=>{const v=arr(z,'hp')(r);return v==null?null:Math.round(v*100);});metric('ARRIVAL '+z+' min hero HP%',r=>{const v=arr(z,'minHp')(r);return v==null?null:Math.round(v*100);});metric('ARRIVAL '+z+' avg charge',arr(z,'charge'));metric('ARRIVAL '+z+' surge',arr(z,'surge'));metric('ARRIVAL '+z+' Lv',arr(z,'lv'));metric('ARRIVAL '+z+' power',arr(z,'power'));metric('ARRIVAL '+z+' trainings before',arr(z,'trainingsBefore'));metric('ARRIVAL '+z+' fights since return',arr(z,'fightsSinceReturn'));metric('ARRIVAL '+z+' min since return',arr(z,'minSinceReturn'));metric('ARRIVAL '+z+' via training-return %',r=>{const v=arr(z,'via')(r);return v==null?null:(v==='training-return'?100:0);});}
+  metric('RETRIGGER same-zone within 10 fresh fights',r=>at(r).log.filter(l=>l.retrigger&&l.retrigger.fights<=10).length);
+  metric('RETRIGGER same-zone within 20 fresh fights',r=>at(r).log.filter(l=>l.retrigger&&l.retrigger.fights<=20).length);
+  metric('RETRIGGER share of triggers within 20 %',r=>{const L=at(r).log;return L.length?Math.round(100*L.filter(l=>l.retrigger&&l.retrigger.fights<=20).length/L.length):null;});
+  metric('RETRIGGER med fresh fights to same-zone retrigger',r=>medOf(at(r).log.filter(l=>l.retrigger).map(l=>l.retrigger.fights)));
+  metric('RETRIGGER med minutes to same-zone retrigger',r=>medOf(at(r).log.filter(l=>l.retrigger).map(l=>l.retrigger.minutes)));
+  metric('AFTER RETURN win% first 10 fights (med)',r=>{const v=medOf(at(r).log.filter(l=>l.winAfter!=null).map(l=>l.winAfter));return v==null?null:Math.round(v*100);});
+  metric('AFTER RETURN win% first 20 fights (med)',r=>{const v=medOf(at(r).log.filter(l=>l.winAfter20!=null).map(l=>l.winAfter20));return v==null?null:Math.round(v*100);});
+  metric('AT TRIGGER win% in window (med)',r=>{const v=medOf(at(r).log.filter(l=>l.window).map(l=>{const w=l.window;return w.split('').filter(c=>c==='1').length/w.length;}));return v==null?null:Math.round(v*100);});
+  metric('AT TRIGGER enemy Lv minus party Lv (med)',r=>medOf(at(r).log.filter(l=>l.enemyLv!=null).map(l=>+(l.enemyLv-l.lvBefore).toFixed(1))));
+  metric('AT TRIGGER zone progress % (med)',r=>medOf(at(r).log.filter(l=>l.prog!=null).map(l=>{const z=zones.indexOf(l.ret);return Math.round(100*l.prog/[24,30,30,36,36,36,36,40,40][z]);})));
+  metric('DEAD TIME defeats outside training',r=>r.deadTime?r.deadTime.defeatsOutsideTraining:null);
+  metric('DEAD TIME rewalk fights outside training',r=>r.deadTime?r.deadTime.rewalkFights:null);
+  metric('DEAD TIME rewalk fights after boss losses',r=>r.deadTime?r.deadTime.rewalkBossFights:null);
+  metric('DEAD TIME rewalk hours equiv (non-boss, outside training)',r=>r.deadTime?+(r.deadTime.rewalkFights*r.deadTime.secPerEncounter/3600).toFixed(2):null);
+  metric('DEAD TIME rewalk hours equiv (after boss losses)',r=>r.deadTime?+(r.deadTime.rewalkBossFights*r.deadTime.secPerEncounter/3600).toFixed(2):null);
   const trace=(k,f)=>r=>{const L=(r.autoTrain&&r.autoTrain.log)||[];const vals=L.map(f).filter(v=>v!=null).sort((a,b)=>a-b);return vals.length?vals[Math.floor((vals.length-1)/2)]:null;};
   for(const [k,f] of [['HP% before training',l=>l.before?Math.round(l.before.hp*100):null],['HP% at end of training',l=>l.atEnd?Math.round(l.atEnd.hp*100):null],['HP% after return',l=>l.afterReturn?Math.round(l.afterReturn.hp*100):null],['HP% at next boss',l=>l.nextBoss?Math.round(l.nextBoss.hp*100):null],['charge before training',l=>l.before?l.before.charge:null],['charge at end',l=>l.atEnd?l.atEnd.charge:null],['charge after return',l=>l.afterReturn?l.afterReturn.charge:null],['charge at next boss',l=>l.nextBoss?l.nextBoss.charge:null],['surge before',l=>l.before?l.before.surge:null],['surge after return',l=>l.afterReturn?l.afterReturn.surge:null],['surge at next boss',l=>l.nextBoss?l.nextBoss.surge:null]])metric('TRAIN TRACE '+k,trace(k,f));
   for(const z of zones)metric('fights between 1st try and clear '+z,r=>r.bossFailRates[z]?r.bossFailRates[z].fightsBetween:null);
