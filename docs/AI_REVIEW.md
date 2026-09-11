@@ -1,101 +1,100 @@
 STATUS: READY
-REVIEW_FOR_PASS: PASS_19_LATE_ROAD_TRAINING_TARGET_CANDIDATE
-REVIEWED_HANDOFF_PASS: PASS_18_GRAVE_KNIGHT_ATK_CANDIDATE
-REVIEWED_HANDOFF_SHA: a20b39114d0a310c57915ce8611a813cbf4c009a
-BASE_COMMIT: d1efd10d7e8617a3820b6743c6fa7eaacde209d9
+REVIEW_FOR_PASS: PASS_20_LATE_ROAD_TRAINING_TRIGGER_CANDIDATE
+REVIEWED_HANDOFF_PASS: PASS_19_LATE_ROAD_TRAINING_TARGET_CANDIDATE
+REVIEWED_HANDOFF_SHA: acd4723f53bf178080ca09a6353c453c07013d10
+BASE_COMMIT: 69370dd3f3eaf663d90248fac7f0edf67660f5e9
 CONFIDENCE: HIGH
 
 # Decision
 
-Reject the Grave Knight base-ATK candidate x0.85.
+Reject the late-Road Auto Training target 0.5 candidate.
 
-Keep the production Grave Knight value at x2.0. Do not run another Grave Knight sizing, sweep, confirmation, or road-validation pass.
+Keep the production target at 1.0. Do not implement 0.5 for any profile, zone, or play window.
 
-The rejection is decisive:
+The candidate is not a robust systemic improvement:
 
-- idle first-try clears became 7/7 with Auto-Cast 7/7 and no losses;
-- light first-try clears became 9/10 with Auto-Cast 3/3;
-- the focused harness reached 90% overall clears;
-- every winning profile ended at 100% party HP;
-- charge lethality collapsed from 0.87 kills per hit to 0.14 in the harness;
-- the candidate converted a real wall into a largely automatic fight.
+- casual saved a real 5.2 training hours and cleared Ashen Approach 5.0 hours earlier in all 10 paired seeds;
+- idle and light saved only 0.9-1.2 hours while training episodes rose from 8-9 to 13-15;
+- ordinary Ashen Approach defeats rose 51% for idle and 68% for light;
+- light Grave Knight first-try clears fell from 7/8 to 2/8 and boss stall rose by about 1.9 hours;
+- casual total defeats rose 47% because it reached the Hollow King five hours earlier and six levels lower;
+- no profile gained median zones cleared at 24, 36, or 48 hours.
 
-The x2.0 control remains imperfect, especially for idle Auto-Cast and casual stalls, but the pacing policy requires moving on. Record that uncertainty; do not chase an unknown perfect midpoint. Boss-by-boss ATK tuning is now closed.
+The casual result is valuable evidence, but it does not justify a playstyle-dependent production target or accepting worse idle/light fight quality with no horizon progression gain. The flat 0.5 target mostly shortens each retreat while preserving the rapid retrigger mechanism.
+
+Accept the developer's corrected mechanism: late-Road loop count, not episode length alone, is the remaining Auto Training question.
 
 # Telemetry Assessment
 
-The 60-run paired road result is valid:
+The Pass 19 result is valid for this decision:
 
-- zero simulation errors;
-- exact candidate/control ATK separation;
-- all upstream rows identical;
-- fixed-horizon progression did not regress;
-- the focused harness independently reproduced the endpoint behavior.
+- 60 paired runs, zero simulation errors;
+- candidate/control target separation audited;
+- Grave Knight stayed mechanically identical at x2.0;
+- every result through Amberfall was identical;
+- the snapshot-prefix repair was observation-only;
+- paired directions and player-facing effects are large enough that no confirmation run is needed.
 
-The Ashen Approach/Ashen Keep snapshot-prefix collision did not invalidate the road result because the arms used separate snapshot folders and the harness used zone-filtered arrivals. Apply the queued observation-only prefix fix before the next run so future snapshots cannot collide.
+The casual Hollow King defeat increase is exposure-driven and should not be read as a direct Hollow King regression. It does show that saving training time without preserving arrival strength merely moves the wall forward.
 
-# Pass 19: One Systemic Late-Road Training Test
+# Pass 20: One Final Late-Road Auto Training Test
 
-The current production triage shows that late-Road time cost is now dominated by repeated one-level Auto Training retreats rather than boss combat alone. Test one bounded hypothesis:
+Run one final systemic candidate, then close Auto Training tuning regardless of outcome.
 
-> Shorter late-Road training bursts will reduce dead time while preserving forward progression; if the party returns too weak, the cost will reappear as retriggers, ordinary defeats, or lost horizon progress.
+Hypothesis:
 
-Test exactly one candidate:
+> Raising the late-Road danger trigger from four losses to five will reduce repeated retreats without shortening each training episode or lowering the intended +1-level recovery target.
 
-- control: Auto Training target = 1.0 average party level;
-- candidate: Auto Training target = 0.5 average party level only when returning from Ashen Approach or any later eligible non-Endless zone;
+Test exactly:
+
+- control: production danger threshold = 4 losses in the rolling 10-fight window;
+- candidate: danger threshold = 5 only when the return zone is Ashen Approach or later and is otherwise eligible for Auto Training;
+- keep the training target at 1.0 in both arms;
 - implement the candidate as a simulator-only override;
-- do not change the trigger window, loss threshold, minimum fights, quick-retrigger rule, Keep Pushing behavior, XP, enemy stats, or boss stats;
 - Ashen Keep remains excluded by the existing production rule;
-- keep the production target at 1.0 until review.
+- do not change the rolling window, minimum-fight rule, quick-retrigger behavior, Keep Pushing, XP, ordinary enemies, bosses, or any other value.
 
-Use:
+Use the same bounded batch:
 
 - paired seeds 31-40;
 - idle, light, and casual;
 - 48 hours;
 - 30 control + 30 candidate runs;
-- the production Road with normal Auto Training, hordes, and catacombs;
+- normal production Road, Auto Training, hordes, and catacombs;
 - zero simulation errors.
 
-Do not add other target values or a separate diagnostic batch. Use the existing Pass 18 control logs as the baseline diagnosis.
+Do not run a diagnostic, sweep, third value, or confirmation batch.
 
 # Required Results
 
-Report by profile and by return zone:
+Report, by profile and return zone:
 
-- Auto Training triggers, completed returns, quick retriggers, and cancellations;
-- training hours, fights, and average party-level progress per episode;
-- first-return versus retrigger counts and hours;
-- fights and elapsed time from return until another trigger;
-- win rate for the first 10 and 20 fights after return;
-- ordinary defeats and rewalk time;
-- party level/power entering the zone and at its boss;
+- training triggers, episodes, completed returns, quick retriggers, cancellations, hours, and fights;
+- losses and elapsed time from return until the next trigger;
+- ordinary defeats, rewalk time, and non-training time;
+- level and power at Grave Knight and Hollow King arrival;
 - boss reach, clear, first-try, attempts, loss streak, and stall;
-- per-zone median/P90 clear times;
+- median/P90 zone clear times;
 - zones cleared at 24h, 36h, and 48h;
-- Hollow King reach/attempt/clear counts without changing it;
 - total defeats, hordes, catacombs, and simulation errors.
 
-Audit that every row through Amberfall is identical between arms and that Grave Knight remains x2.0 in both.
+Audit that all rows through Amberfall are identical and that every locked boss value is identical between arms.
 
 # Good-Enough Decision Rules
 
-Lock the late-Road 0.5 target directly if:
+Lock the late-only threshold 5 directly if the evidence shows:
 
-- late-Road training hours materially decrease for the profiles that encounter it;
+- a material reduction in late-Road training episodes or hours across the profiles that encounter it;
 - no profile loses median zones cleared at 24h, 36h, or 48h;
-- no adequately sampled zone's median clear time worsens more than 10% or P90 more than 15%;
-- the saved training time is not merely converted into a severe retrigger loop, ordinary-defeat wall, or rewalk increase;
-- total defeats remain within +10%;
-- Grave Knight and Hollow King remain mechanically unchanged;
-- no material horde, catacomb, telemetry, or simulation regression appears.
+- saved training time is not replaced by a larger ordinary-defeat, rewalk, or boss-stall cost;
+- Grave Knight/Hollow King arrival level and power do not materially worsen;
+- no severe regression in boss experience, total defeats, hordes, catacombs, telemetry, or simulation stability.
 
-Prefer forward progress and reduced dead time over exact secondary thresholds. A moderate increase in retriggers is acceptable if total training time falls and player-facing progression is maintained or improved.
+A result does not need to hit every secondary percentage perfectly. Judge the primary player-facing outcome and paired causal pattern.
 
-Reject 0.5 if it only fragments the same training cost or makes late-Road progression worse.
+If the candidate is mixed, marginal, or converts training time into fighting the same wall, reject it and keep threshold 4. Do not request more Auto Training work.
 
-Do not add a 0.65, 0.75, or other sizing arm. Do not request another confirmation solely for a narrow small-sample miss. After Pass 19, lock or reject the candidate and move to the next whole-game bottleneck.
+After Pass 20, move to broad Shatter/Hollow King progression triage using existing and newly produced whole-Road telemetry. Do not resume boss-by-boss ATK polishing.
 
 # Locked Systems
 
@@ -104,19 +103,20 @@ Keep locked:
 - Warlord ATK x1.2;
 - Sand Tyrant ATK x1.1;
 - Hunter King ATK x1.0;
-- Grave Knight production ATK x2.0;
+- Grave Knight ATK x2.0;
 - Hollow King and the Shatter wall;
 - all boss HP, DEF, speed, charge/volley, summon, add, enrage, ward, raise, and other mechanics;
 - ordinary enemies and global enemy curves;
 - AUTO_REACT = false;
-- all Auto Training behavior except the single simulator-only late-Road target override;
+- Auto Training target = 1.0 and every Auto Training rule except the single simulator-only late-Road threshold override;
 - all previously locked progression, economy, tap, Renown, rarity, promotion, travel, recovery, and UI systems.
 
 # What Not To Do
 
-- Do not implement Grave Knight x0.85.
-- Do not test another Grave Knight value.
-- Do not change Hollow King.
-- Do not revisit Sand Tyrant, Hunter King, Ironvein, or earlier maps.
-- Do not change Auto Training triggers or XP rates.
+- Do not implement target 0.5.
+- Do not add profile-specific Auto Training balance.
+- Do not test another target value.
+- Do not run more than the one authorized batch.
+- Do not change Grave Knight or Hollow King.
+- Do not revisit earlier maps or bosses.
 - Do not tune toward Stress.
