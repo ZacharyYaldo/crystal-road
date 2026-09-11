@@ -2,12 +2,12 @@
 'use strict';
 const fs=require('fs'),path=require('path');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
-const FOCUS=String(args.focus||FOCUS);const P=String(args.profiles||'idle,casual,engaged').split(','),[LA,LB]=String(args.labels||'control,candidate').split(',');
+const FOCUS=String(args.focus||'Ironvein Caverns');const P=String(args.profiles||'idle,casual,engaged').split(','),[LA,LB]=String(args.labels||'control,candidate').split(',');
 const load=d=>{const dir=path.join(__dirname,d);const R={};for(const p of P)R[p]=fs.readdirSync(dir).filter(f=>f.startsWith(p+'_')&&f.endsWith('.json')).sort((x,y)=>Number(x.match(/_(\d+)/)[1])-Number(y.match(/_(\d+)/)[1])).map(f=>JSON.parse(fs.readFileSync(path.join(dir,f),'utf8')));return R;};
 const A=load(args.a),B=load(args.b);
 const srt=a=>a.filter(v=>v!=null&&!isNaN(v)).sort((x,y)=>x-y);const med=a=>{a=srt(a);return a.length?a[Math.floor((a.length-1)/2)]:null;};const p90=a=>{a=srt(a);return a.length?a[Math.min(a.length-1,Math.ceil((a.length-1)*0.9))]:null;};const mean=a=>{a=srt(a);return a.length?a.reduce((x,y)=>x+y,0)/a.length:null;};
 const f=(v,d=2)=>v==null?'-':String(+(+v).toFixed(d));
-const zones=['Greenhollow Fields','Stillwater Lagoon','Thornwood',FOCUS,'Emberwaste','Amberfall Woods','Ashen Approach','Ashen Keep','The Foundry'];const FIGHTS=[24,30,30,36,36,36,36,40,40];
+const zones=['Greenhollow Fields','Stillwater Lagoon','Thornwood','Ironvein Caverns','Emberwaste','Amberfall Woods','Ashen Approach','Ashen Keep','The Foundry'];const FIGHTS=[24,30,30,36,36,36,36,40,40];
 const at=r=>r.autoTrain||{triggers:0,returns:0,cancels:0,timeSec:0,log:[]};
 const medOf=a=>med(a);
 const rows=[];
@@ -47,17 +47,17 @@ row('attempts to clear',r=>r.bossFailRates['Stillwater Lagoon']&&r.bossFailRates
 row('stall h',r=>r.bossFailRates['Stillwater Lagoon']&&r.bossFailRates['Stillwater Lagoon'].stallH,2);
 row('zone clear h',r=>r.zonesCleared['Stillwater Lagoon'],2);
 row('Lv at first try',r=>r.bossFailRates['Stillwater Lagoon']&&r.bossFailRates['Stillwater Lagoon'].lvFirst,1);
-section('IRONVEIN');
+section(FOCUS.toUpperCase());
 row('first-try clear (mean)',r=>r.bossFailRates[FOCUS]?r.bossFailRates[FOCUS].firstTryClear:null,0,'mean');
 row('attempts to clear',r=>r.bossFailRates[FOCUS]&&r.bossFailRates[FOCUS].attemptsToClear,0);
 row('stall h',r=>r.bossFailRates[FOCUS]&&r.bossFailRates[FOCUS].stallH,2);
 row('zone clear h',r=>r.zonesCleared[FOCUS],2);
 row('Lv entering zone',r=>r.zoneRec[FOCUS]&&r.zoneRec[FOCUS].lvAtEntry,1);
 row('Lv at first try',r=>r.bossFailRates[FOCUS]&&r.bossFailRates[FOCUS].lvFirst,1);
-section('IRONVEIN ATTEMPTS (attempt-level, all attempts)');
+section(FOCUS.toUpperCase()+' ATTEMPTS (attempt-level, all attempts)');
 const IV=FOCUS;const att=r=>(r.bossFailRates[IV]&&r.bossFailRates[IV].attemptLog)||[];
-row('Warlord ATK at first attempt (audit)',r=>{const a=att(r)[0];return a?a.bossAtk:null;},0);
-row('Warlord Lv at first attempt',r=>{const a=att(r)[0];return a?a.bossLv:null;},0);
+row('boss ATK at first attempt (audit)',r=>{const a=att(r)[0];return a?a.bossAtk:null;},0);
+row('boss Lv at first attempt',r=>{const a=att(r)[0];return a?a.bossLv:null;},0);
 row('attempts per run',r=>att(r).length,0);
 row('first attempt in active window (1=yes)',r=>{const a=att(r)[0];return a?(a.window==='active'?1:0):null;},0,'mean');
 row('first attempt party HP %',r=>{const a=att(r)[0];return a?Math.round(a.hp*100):null;},0);
@@ -75,9 +75,9 @@ row('LOSS boss HP left (run median)',r=>{const x=att(r).filter(a=>a.win===false&
 row('LOSS reached summon % (pooled)',r=>{const x=att(r).filter(a=>a.win===false&&a.summoned!=null);return x.length?x.filter(a=>a.summoned).length/x.length:null;},0,'mean');
 row('WIN survivors (run median)',r=>{const x=att(r).filter(a=>a.win===true&&a.survivors!=null).map(a=>a.survivors);return x.length?medOf(x):null;},0);
 row('WIN party HP % (run median)',r=>{const x=att(r).filter(a=>a.win===true&&a.partyHp!=null).map(a=>a.partyHp);return x.length?100*medOf(x):null;},0);
-row('Ironvein max loss streak',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].maxStreak,0);
-row('Ironvein combat stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].combatStallH,2);
-row('Ironvein retry stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].retryStallH,2);
+row(FOCUS.split(' ')[0]+' max loss streak',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].maxStreak,0);
+row(FOCUS.split(' ')[0]+' combat stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].combatStallH,2);
+row(FOCUS.split(' ')[0]+' retry stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].retryStallH,2);
 section('REWALK BY ZONE (ordinary defeats outside training): fights | hours in zone (non-training) | rewalk fights per exposure hour');
 for(const z of zones.slice(1,7)){row(z+': ordinary rewalk fights',r=>r.byZone&&r.byZone[z]?r.byZone[z].rewalk:null,0);row(z+': ordinary defeats',r=>r.byZone&&r.byZone[z]?r.byZone[z].defeats:null,0);row(z+': hours in zone (non-training)',r=>r.zoneTime&&r.zoneTime[z]?r.zoneTime[z].sec/3600:null,2);row(z+': rewalk fights per exposure hour',r=>{const b=r.byZone&&r.byZone[z],t=r.zoneTime&&r.zoneTime[z];return b&&t&&t.sec>600?b.rewalk/(t.sec/3600):null;},1);row(z+': rewalk hours per exposure hour',r=>{const b=r.byZone&&r.byZone[z],t=r.zoneTime&&r.zoneTime[z];return b&&t&&t.sec>600&&r.deadTime?(b.rewalk*r.deadTime.secPerEncounter/3600)/(t.sec/3600):null;},2);}
 section('OTHER BOSSES first-try % (mean) / attempts med');
@@ -88,9 +88,9 @@ row('catacomb best floor',r=>r.catacombs?r.catacombs.best:null,0);row('catacomb 
 row('ability casts / h',r=>r.castsPerHour,0);row('dmg share basic %',r=>100*r.dmgShare.basic,0);row('dmg share ability %',r=>100*r.dmgShare.ability,0);row('dmg share tap %',r=>100*r.dmgShare.tap,0);row('dmg share surge %',r=>100*r.dmgShare.surge,0);
 section('PAIRED PER-SEED DELTAS (candidate minus control): median delta | +/0/- counts');
 function paired(name,fn,dec=2){const line={name,cells:[]};for(const p of P){const A2=A[p],B2=B[p];const bySeed=new Map(B2.map(r=>[r.config.seed,r]));const d=[];for(const ra of A2){const rb=bySeed.get(ra.config.seed);if(!rb)continue;const va=fn(ra),vb=fn(rb);if(va==null||vb==null)continue;d.push(vb-va);}const pos=d.filter(x=>x>0).length,zero=d.filter(x=>x===0).length,neg=d.filter(x=>x<0).length;line.cells.push(d.length?f(med(d),dec)+' | +'+pos+' 0'+zero+' -'+neg+' (n'+d.length+')':'-');}rows.push(line);}
-paired('Ironvein attempts',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].attemptsToClear,0);
-paired('Ironvein stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].stallH,2);
-paired('Ironvein clear h',r=>r.zonesCleared[IV],2);
+paired(FOCUS.split(' ')[0]+' attempts',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].attemptsToClear,0);
+paired(FOCUS.split(' ')[0]+' stall h',r=>r.bossFailRates[IV]&&r.bossFailRates[IV].stallH,2);
+paired(FOCUS.split(' ')[0]+' clear h',r=>r.zonesCleared[IV],2);
 paired('zones cleared @24h',r=>Object.keys(r.zonesCleared).length,0);
 paired('zones cleared @20h',r=>Object.values(r.zonesCleared).filter(t=>t<=20).length,0);
 paired('ordinary rewalk fights',r=>r.deadTime&&r.deadTime.rewalkFights,0);
@@ -98,7 +98,7 @@ paired('ordinary rewalk hours',r=>r.deadTime&&r.deadTime.rewalkFights*r.deadTime
 paired('total defeats',r=>r.final.defeats,0);
 section('COUNTS WITH DENOMINATORS');
 function counts(name,fn){const line={name,cells:[]};for(const p of P){const ca=fn(A[p]),cb=fn(B[p]);line.cells.push(ca+' -> '+cb);}rows.push(line);}
-counts('Ironvein first-try clears / runs',rs=>{const x=rs.map(r=>r.bossFailRates[IV]).filter(b=>b&&b.firstTryClear!=null);return x.filter(b=>b.firstTryClear).length+'/'+x.length;});
+counts(FOCUS.split(' ')[0]+' first-try clears / runs',rs=>{const x=rs.map(r=>r.bossFailRates[IV]).filter(b=>b&&b.firstTryClear!=null);return x.filter(b=>b.firstTryClear).length+'/'+x.length;});
 counts('Auto-Cast attempts: wins / attempts',rs=>{const x=rs.flatMap(r=>att(r)).filter(a=>a.window==='auto'&&a.win!=null);return x.filter(a=>a.win).length+'/'+x.length;});
 counts('active-window attempts: wins / attempts',rs=>{const x=rs.flatMap(r=>att(r)).filter(a=>a.window==='active'&&a.win!=null);return x.filter(a=>a.win).length+'/'+x.length;});
 counts('runs reaching a 6th zone by 24h / runs',rs=>rs.filter(r=>Object.keys(r.zonesCleared).length>=6).length+'/'+rs.length);
