@@ -371,7 +371,7 @@ function frontHero(){return living(G.active)[0];}
 function rankCost(h){let c=80*(1+h.lvl*0.05);for(let k=1;k<(h.abLvl||1);k++)c*=1.9*(1+0.05*Math.max(0,k-8));return R(c);}
 function abilityPower(h){const r=h.abLvl||1;const base=0.45+0.38*Math.log(1+(r-1)/4);const bonus=1+Math.min(0.6,0.02*treeLv('abil'))+Math.min(1.0,0.05*treeLv('b_ab'))+0.15*(h.tier||0)+(built('library')?0.15:0);return base*bonus;}
 function shieldDur(h){return Math.min(6,3+Math.floor((h.abLvl||1)/8));}
-const AB_BOOST=1.05; // flat multiplier on every ability's effect (shield, heal, revive, rage and the three damage abilities)
+const AB_BOOST=1.05; // flat multiplier on revive, rage and the three damage abilities (Shield Wall and the heal were set directly)
 function rageMult(h){return AB_BOOST*(1.5+1.0*(1-Math.exp(-0.5*abilityPower(h))));}
 function rageDur(h){return Math.min(8,4+Math.floor((h.abLvl||1)/3));}
 function f1(x){return (Math.round(x*10)/10).toString();}
@@ -384,8 +384,8 @@ function abilityDesc(h){const r=h.abLvl,p=abilityPower(h);switch(CLASSES[h.cls].
   case 'rain':return 'Hits every enemy for '+f1(110*AB_BOOST*p)+'% and bleeds them '+(3+Math.floor(r/2))+' turns.';
   case 'rage':return 'Attack x'+rageMult(h).toFixed(3)+' for '+rageDur(h)+' turns, heals 5% of damage dealt; takes 30% more.';}}
 function abRise(h){return Math.exp(-0.32*0.45)-Math.exp(-0.32*abilityPower(h));} // 0 at rank 1 with no bonuses, rises slowly with ability power
-function shieldPct(h){return AB_BOOST*(0.15+0.85*abRise(h));}
-function healPct(h){return AB_BOOST*(0.175+abRise(h));}
+function shieldPct(h){return 0.15+0.85*abRise(h);}
+function healPct(h){return 0.175+abRise(h);}
 function revivePct(h){return 0.9*AB_BOOST*(1-Math.exp(-0.25*abilityPower(h)));}
 
 // ============================================================ battle
