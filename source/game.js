@@ -121,7 +121,7 @@ const ENEMIES={
   palewidow:{name:'The Pale Widow',uid:'marshbat',hue:300,scale:2,hp:3.4,atk:1.6,def:0.9,spd:12,range:'melee',fly:true,boss:true,traits:['poison'],mech:{drain:true,howl:0.5,enrage:0.25},lore:'poisons, drains your ability, and quickens when hurt'},
   hollowking:{name:'The Hollow King',uid:'armoredorc',hue:30,scale:2.3,hp:5.5,atk:1.5,def:1.5,spd:8,range:'melee',boss:true,traits:['stun','charge'],mech:{enrage:0.35,summon:[{at:0.5,id:'orc',n:2}]},lore:'stuns, cleaves, and calls his guard'},
 
-  slime:{name:'Slime',hp:0.7,atk:0.6,def:0.3,spd:8,range:'melee'},bat:{name:'Bat',hp:0.5,atk:0.7,def:0.2,spd:13,range:'melee',fly:true,traits:['stun']},orc:{name:'Orc',hp:1.0,atk:1.0,def:0.6,spd:9,range:'melee'},
+  slime:{name:'Slime',hp:0.7,atk:0.6,def:0.3,spd:8,range:'melee',chargeName:'Slam'},bat:{name:'Bat',hp:0.5,atk:0.7,def:0.2,spd:13,range:'melee',fly:true,traits:['stun']},orc:{name:'Orc',hp:1.0,atk:1.0,def:0.6,spd:9,range:'melee'},
   skeleton:{name:'Skeleton',hp:0.9,atk:1.0,def:0.7,spd:10,range:'melee'},marshbat:{name:'Marsh Bat',hp:0.6,atk:0.9,def:0.3,spd:14,range:'melee',fly:true,traits:['poison']},werewolf:{name:'Werewolf',hp:1.3,atk:1.3,def:0.6,spd:12,range:'melee'},
   armoredorc:{name:'Armored Orc',hp:1.6,atk:1.1,def:1.5,spd:8,range:'melee'},skelarcher:{name:'Skeleton Archer',hp:0.8,atk:1.2,def:0.5,spd:11,range:'ranged',traits:['charge']},eliteorc:{name:'Elite Orc',hp:1.8,atk:1.5,def:1.0,spd:9,range:'melee'},
   armoredskel:{name:'Ash Skeleton',hp:1.5,atk:1.2,def:1.6,spd:9,range:'melee'},greatskel:{name:'Bone Reaver',hp:1.9,atk:1.7,def:0.9,spd:6,range:'melee',traits:['charge']},necromancer:{name:'The Hollow King',scale:2,hp:7.0,atk:1.3,def:1.0,spd:8,range:'aoe',boss:true,mech:{drain:true,summon:[{at:0.7,id:'skeleton',n:2},{at:0.35,id:'armoredskel',n:2}]}},
@@ -137,7 +137,7 @@ const ENEMIES={
   direwolf:{name:'Dire Wolf',uid:'werewolf',hue:300,hp:1.5,atk:1.5,def:0.7,spd:13,range:'melee'},cavetroll:{name:'Cave Troll',uid:'werebear',hue:200,hp:2.1,atk:1.6,def:1.2,spd:6,range:'melee',traits:['enrage']},
   ironhusk:{name:'Iron Husk',uid:'skeleton',hue:200,hp:1.3,atk:1.2,def:1.5,spd:9,range:'melee'},sentinel:{name:'Sentinel',uid:'armoredskel',hue:120,hp:1.8,atk:1.4,def:1.9,spd:8,range:'melee',traits:['shieldAllies']},
   sandorc:{name:'Sand Orc',uid:'orc',hue:40,hp:1.2,atk:1.2,def:0.8,spd:9,range:'melee'},
-  slimeking:{name:'The Slime King',uid:'slime',scale:4,mech:{summon:[{at:0.5,id:'slime',n:2}]},hp:5.0,atk:1.3,def:0.5,spd:6,range:'melee',boss:true},
+  slimeking:{name:'The Slime King',uid:'slime',scale:4,chargeName:'Slam',mech:{summon:[{at:0.5,id:'slime',n:2}]},hp:5.0,atk:1.3,def:0.5,spd:6,range:'melee',boss:true},
   alphawolf:{name:'The Alpha',uid:'werewolf',scale:3,mech:{summon:[{at:0.6,id:'werewolf',n:1,hp:0.75,atk:0.85}],howl:0.3},hp:5.5,atk:1.6,def:0.7,spd:10,range:'melee',boss:true},
   warlord:{name:'Orc Warlord',uid:'eliteorc',scale:3,mech:{charge:true,shieldAllies:true,summon:[{at:0.5,id:'orc',n:2}]},hp:6.0,atk:1.2,def:1.2,spd:8,range:'melee',boss:true},
 };
@@ -435,7 +435,7 @@ function chooseAction(u){
   if(u.enemy){u.acts=(u.acts||0)+1;const tr=u.traits||[];
     if(u.mech&&u.mech.raise&&u.acts%3===0){const corpse=G.enemies.find(x=>x.dead&&!x.boss&&!x.raised);if(corpse){corpse.raised=true;corpse.dead=false;if(G.fs)G.fs.raised=(G.fs.raised||0)+1;corpse.hp=R(corpse.maxhp*0.4);setAnim(corpse,'idle');float(corpse.x,GROUND-40,'raised','#b06cff');return{u,kind:'skip',anim:'attack',fps,hit:99};}}
     if(tr.includes('shieldAllies')&&u.acts%3===0&&allies.length>1){for(const a of allies)if(a!==u){a.status.ward=3;}float(u.x+u.dx,GROUND-40,'wards allies','#7fd4ff');return{u,kind:'skip',anim:'attack',fps,hit:99};}
-    if(tr.includes('charge')&&u.acts%3===0){const tgt=pickTarget(u);const kind=u.range==='ranged'||u.range==='aoe'?'chargeR':'chargeM';return{u,kind,tgt,tgts:foes,anim:'attack',fps,hit,phase:'tele',pt:0,tele:2.0,name:u.range==='melee'?'Cleave':'Volley'};}}
+    if(tr.includes('charge')&&u.acts%3===0){const tgt=pickTarget(u);const kind=u.range==='ranged'||u.range==='aoe'?'chargeR':'chargeM';return{u,kind,tgt,tgts:foes,anim:'attack',fps,hit,phase:'tele',pt:0,tele:2.0,name:(ENEMIES[u.id]&&ENEMIES[u.id].chargeName)||(u.range==='melee'?'Cleave':'Volley')};}}
   if(!u.enemy&&(u.tapCast||(u.charge>=100&&autoOn()&&u.readyT>=0.4))){return abilityAction(u,!!u.tapCast);}
   if(u.range==='heal')return{u,kind:'bolt',tgt:pickTarget(u),anim:'attack',fps,hit};
   const tgt=pickTarget(u);
@@ -672,7 +672,7 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.hordeFight?'door':G.delve
   const sx=G.shake>0?R((rand()-0.5)*4):0;ctx.save();ctx.beginPath();ctx.rect(0,SCENE_Y,W,208);ctx.clip();ctx.translate(sx,0);
   for(const l of layers){const w=l.img.width||368;let off=-(Math.floor(G.scroll*l.p)%w);for(let x=off;x<W+w;x+=w)ctx.drawImage(l.img,x,SCENE_Y);}
   if(!G.delve&&G.screen==='road'&&G.tut==null)drawTreasure();
-  const units=G.active.concat(G.enemies).slice().sort((a,b)=>(a.yoff||0)-(b.yoff||0));for(const u of units)drawUnit(u);drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;
+  const units=G.active.concat(G.enemies).slice().sort((a,b)=>((a.yoff||0)-(a.boss?20:0))-((b.yoff||0)-(b.boss?20:0)));for(const u of units)drawUnit(u);drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;
   if(G.mode==='battle'||G.mode==='enter'){for(const e of G.enemies){if(e.dead)continue;const x=R(e.x+e.dx),bs=e.native?(e.boss?4:1.2):(e.scale>1?e.scale:US),y=GROUND+(e.yoff||0)-(e.fly?44:R(26*bs+6));bar(x-10*bs,y,20*bs,4,e.hp/e.maxhp,C.red,'#1b1b1b');if(G.focus&&G.focus.e===e&&RT<G.focus.until){const fy=y-4+Math.sin(RT*6)*2;ctx.fillStyle=C.goldL;ctx.beginPath();ctx.moveTo(x-5,fy-6);ctx.lineTo(x+5,fy-6);ctx.lineTo(x,fy);ctx.closePath();ctx.fill();}const hs=14*bs;hit(x-hs,GROUND-hs*2.4,hs*2,hs*2.6,()=>tapEnemy(e));}
   }
   for(const h of G.active){if(h.dead)continue;const fighting=G.mode==='battle'||G.mode==='enter';if(!fighting&&h.hp>=h.maxhp)continue;const x=R(h.x+h.dx),y=GROUND-48+(h.yoff||0);bar(x-15,y,30,4,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red,'#1b1b1b');}
