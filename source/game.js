@@ -382,8 +382,9 @@ function abilityDesc(h){const r=h.abLvl,p=abilityPower(h);switch(CLASSES[h.cls].
   case 'meteor':return 'Hits every enemy for '+f1(180*p)+'% damage.';
   case 'rain':return 'Hits every enemy for '+f1(110*p)+'% and bleeds them '+(3+Math.floor(r/2))+' turns.';
   case 'rage':return 'Attack x'+rageMult(h).toFixed(3)+' for '+rageDur(h)+' turns, heals 5% of damage dealt; takes 30% more.';}}
-function shieldPct(h){return 0.85*(1-Math.exp(-0.4315*abilityPower(h)));}
-function healPct(h){return 1-Math.exp(-0.2967*abilityPower(h));}
+function abRise(h){return Math.exp(-0.32*0.45)-Math.exp(-0.32*abilityPower(h));} // 0 at rank 1 with no bonuses, rises slowly with ability power
+function shieldPct(h){return 0.15+0.85*abRise(h);}
+function healPct(h){return 0.175+abRise(h);}
 function revivePct(h){return 0.9*(1-Math.exp(-0.25*abilityPower(h)));}
 
 // ============================================================ battle
