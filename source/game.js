@@ -371,21 +371,22 @@ function frontHero(){return living(G.active)[0];}
 function rankCost(h){let c=80*(1+h.lvl*0.05);for(let k=1;k<(h.abLvl||1);k++)c*=1.9*(1+0.05*Math.max(0,k-8));return R(c);}
 function abilityPower(h){const r=h.abLvl||1;const base=0.45+0.38*Math.log(1+(r-1)/4);const bonus=1+Math.min(0.6,0.02*treeLv('abil'))+Math.min(1.0,0.05*treeLv('b_ab'))+0.15*(h.tier||0)+(built('library')?0.15:0);return base*bonus;}
 function shieldDur(h){return Math.min(6,3+Math.floor((h.abLvl||1)/8));}
-function rageMult(h){return 1.5+1.0*(1-Math.exp(-0.5*abilityPower(h)));}
+const AB_BOOST=1.05; // flat multiplier on every ability's effect (shield, heal, revive, rage and the three damage abilities)
+function rageMult(h){return AB_BOOST*(1.5+1.0*(1-Math.exp(-0.5*abilityPower(h))));}
 function rageDur(h){return Math.min(8,4+Math.floor((h.abLvl||1)/3));}
 function f1(x){return (Math.round(x*10)/10).toString();}
 function drawAbilityNums(h,x,y,parts){const nums=(abilityDesc(h).match(/[\d.]+%|\b\d+ turns?/g)||[]);let cy=y;for(const line of parts){let idx=0;for(const n of nums){const at=line.indexOf(n,idx);if(at<0)continue;idx=at+n.length;const px0=x+textW(line.slice(0,at),'xs');text(px0,cy,n,'xsb',C.cream);}cy+=9;}}
 function abilityDesc(h){const r=h.abLvl,p=abilityPower(h);switch(CLASSES[h.cls].ab.id){
   case 'shieldwall':return 'Draws all attacks for '+shieldDur(h)+' turns, taking '+(shieldPct(h)*100).toFixed(2)+'% less damage.';
   case 'sanctuary':return 'Heals the party '+(healPct(h)*100).toFixed(2)+'% and revives the fallen at '+(revivePct(h)*100).toFixed(2)+'%.';
-  case 'shadowstep':return 'Three strikes at '+f1(90*p)+'% each; the last always crits.';
-  case 'meteor':return 'Hits every enemy for '+f1(180*p)+'% damage.';
-  case 'rain':return 'Hits every enemy for '+f1(110*p)+'% and bleeds them '+(3+Math.floor(r/2))+' turns.';
+  case 'shadowstep':return 'Three strikes at '+f1(90*AB_BOOST*p)+'% each; the last always crits.';
+  case 'meteor':return 'Hits every enemy for '+f1(180*AB_BOOST*p)+'% damage.';
+  case 'rain':return 'Hits every enemy for '+f1(110*AB_BOOST*p)+'% and bleeds them '+(3+Math.floor(r/2))+' turns.';
   case 'rage':return 'Attack x'+rageMult(h).toFixed(3)+' for '+rageDur(h)+' turns, heals 5% of damage dealt; takes 30% more.';}}
 function abRise(h){return Math.exp(-0.32*0.45)-Math.exp(-0.32*abilityPower(h));} // 0 at rank 1 with no bonuses, rises slowly with ability power
-function shieldPct(h){return 0.15+0.85*abRise(h);}
-function healPct(h){return 0.175+abRise(h);}
-function revivePct(h){return 0.9*(1-Math.exp(-0.25*abilityPower(h)));}
+function shieldPct(h){return AB_BOOST*(0.15+0.85*abRise(h));}
+function healPct(h){return AB_BOOST*(0.175+abRise(h));}
+function revivePct(h){return 0.9*AB_BOOST*(1-Math.exp(-0.25*abilityPower(h)));}
 
 // ============================================================ battle
 function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};fightStarted();
@@ -462,8 +463,8 @@ function applyAbility0(a){const u=a.u,pow=a.pow;
   switch(a.ab){
     case 'shieldwall':u.status.shield=shieldDur(u)+1;u.status.shieldPct=shieldPct(u);if(u.talents&&tal(u,'ironguard')){const i=G.active.indexOf(u),b=G.active[i+1];if(b&&!b.dead){b.status.shield=shieldDur(u)+1;b.status.shieldPct=shieldPct(u)*0.6;}}break;
     case 'sanctuary':for(const h of G.active){if(h.dead){h.dead=false;h.hp=R(h.maxhp*revivePct(u));setAnim(h,'idle');float(h.x,GROUND-30,'Revived','#8ff0a0');if(u.talents&&tal(u,'lastrites'))h.gauge=100;}else heal(u,h,h.maxhp*healPct(u));}if(u.talents&&tal(u,'echo'))u.echo=2;break;
-    case 'meteor':G.shake=0.4;for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.8*pow,{spell:true,pierce:0.6});if(u.talents&&tal(u,'stars'))for(let k=0;k<3;k++)if(!t.dead)dealDamage(u,t,0.3*pow,{spell:true,noHurt:true});}break;
-    case 'rain':for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.1*pow);t.status.bleed=(3+Math.floor(u.abLvl/2))*(sup(u,'bow')?2:1);}break;
+    case 'meteor':G.shake=0.4;for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.8*AB_BOOST*pow,{spell:true,pierce:0.6});if(u.talents&&tal(u,'stars'))for(let k=0;k<3;k++)if(!t.dead)dealDamage(u,t,0.3*pow,{spell:true,noHurt:true});}break;
+    case 'rain':for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.1*AB_BOOST*pow);t.status.bleed=(3+Math.floor(u.abLvl/2))*(sup(u,'bow')?2:1);}break;
     case 'rage':u.status.rage=rageDur(u);if(u.talents&&tal(u,'warcry'))for(const h of living(G.active))if(h!==u)h.status.cry=3;break;
   }}
 function updateAction(dt){const a=G.action,u=a.u;
@@ -474,7 +475,7 @@ function updateAction(dt){const a=G.action,u=a.u;
     const tgt=a.tgt;if(!tgt||tgt.dead&&a.phase==='dash'){endAction();return;}
     const dir=u.enemy?-1:1,dest=(tgt.x+tgt.dx)-dir*(30+(tgt.scale>1?10*(tgt.scale-1):0))-u.x;
     if(a.phase==='dash'){a.pt+=dt/0.11;u.dx=dest*Math.min(1,a.pt);if(a.pt>=1){a.phase='hit';setAnim(u,'attack',false,a.kind==='ability'?16:a.fps);}}
-    else if(a.phase==='hit'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;if(!tgt.dead){if(a.kind==='ability'){a.hits++;let m2=0.9*a.pow;if(u.talents&&tal(u,'executioner')&&tgt.hp<tgt.maxhp*0.3)m2*=1.5;G.dmgSrc='ability';dealDamage(u,tgt,m2,{crit:a.hits===3,noHurt:a.hits<3});G.dmgSrc=null;if(a.hits===3&&!tgt.dead&&sup(u,'dagger'))tgt.status.bleed=Math.max(tgt.status.bleed||0,3);}else if(a.kind==='chargeM'){const wasDead=tgt.dead;const hp0=tgt.hp,mh=tgt.maxhp;G.dmgSrcEnemy='charge';try{dealDamage(u,tgt,a.parried?1.0:2.5);}finally{G.dmgSrcEnemy=null;}G.shake=0.3;if(G.fs&&u.enemy)(G.fs.chargeDetail=G.fs.chargeDetail||[]).push({hpFrac:+(hp0/mh).toFixed(2),dmg:R(hp0-Math.max(0,tgt.hp)),maxhp:mh,front:tgt===frontHero()||tgt===G.active[0]});if(G.fs){G.fs.chargeHits=(G.fs.chargeHits||0)+1;if(a.parried)G.fs.chargeParried=(G.fs.chargeParried||0)+1;if(!wasDead&&tgt.dead)G.fs.chargeKills=(G.fs.chargeKills||0)+1;}}else{let m3=1;if(!u.enemy&&u.talents&&tal(u,'mark'))m3*=1+0.05*Math.min(10,tgt.marks||0);dealDamage(u,tgt,m3);}}}
+    else if(a.phase==='hit'){if(!a.hitDone&&u.frame>=a.hit){a.hitDone=true;if(!tgt.dead){if(a.kind==='ability'){a.hits++;let m2=0.9*AB_BOOST*a.pow;if(u.talents&&tal(u,'executioner')&&tgt.hp<tgt.maxhp*0.3)m2*=1.5;G.dmgSrc='ability';dealDamage(u,tgt,m2,{crit:a.hits===3,noHurt:a.hits<3});G.dmgSrc=null;if(a.hits===3&&!tgt.dead&&sup(u,'dagger'))tgt.status.bleed=Math.max(tgt.status.bleed||0,3);}else if(a.kind==='chargeM'){const wasDead=tgt.dead;const hp0=tgt.hp,mh=tgt.maxhp;G.dmgSrcEnemy='charge';try{dealDamage(u,tgt,a.parried?1.0:2.5);}finally{G.dmgSrcEnemy=null;}G.shake=0.3;if(G.fs&&u.enemy)(G.fs.chargeDetail=G.fs.chargeDetail||[]).push({hpFrac:+(hp0/mh).toFixed(2),dmg:R(hp0-Math.max(0,tgt.hp)),maxhp:mh,front:tgt===frontHero()||tgt===G.active[0]});if(G.fs){G.fs.chargeHits=(G.fs.chargeHits||0)+1;if(a.parried)G.fs.chargeParried=(G.fs.chargeParried||0)+1;if(!wasDead&&tgt.dead)G.fs.chargeKills=(G.fs.chargeKills||0)+1;}}else{let m3=1;if(!u.enemy&&u.talents&&tal(u,'mark'))m3*=1+0.05*Math.min(10,tgt.marks||0);dealDamage(u,tgt,m3);}}}
       if(u.done){if(a.kind==='ability'&&a.hits<3&&!tgt.dead){a.hitDone=false;setAnim(u,'attack',false,16);}else{a.phase='back';a.pt=0;a.from=u.dx;}}}
     else{a.pt+=dt/0.11;u.dx=a.from*(1-Math.min(1,a.pt));if(a.pt>=1){u.dx=0;endAction();}}
     return;}
