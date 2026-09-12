@@ -673,7 +673,7 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.hordeFight?'door':G.delve
   const sx=G.shake>0?R((rand()-0.5)*4):0;ctx.save();ctx.beginPath();ctx.rect(0,SCENE_Y,W,208);ctx.clip();ctx.translate(sx,0);
   for(const l of layers){const w=l.img.width||368;let off=-(Math.floor(G.scroll*l.p)%w);for(let x=off;x<W+w;x+=w)ctx.drawImage(l.img,x,SCENE_Y);}
   if(!G.delve&&G.screen==='road'&&G.tut==null)drawTreasure();
-  const units=G.active.concat(G.enemies).slice().sort((a,b)=>((a.yoff||0)-(a.boss?20:0))-((b.yoff||0)-(b.boss?20:0)));for(const u of units)drawUnit(u);drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;
+  const units=G.active.concat(G.enemies).slice().sort((a,b)=>((a.yoff||0)-(a.boss?20:0))-((b.yoff||0)-(b.boss?20:0)));for(const u of units)drawUnit(u);if(!G.delve&&G.screen==='road'&&G.tut==null)treasureHit();drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;
   if(G.mode==='battle'||G.mode==='enter'){for(const e of G.enemies){if(e.dead)continue;const x=R(e.x+e.dx),bs=e.native?(e.boss?4:1.2):(e.scale>1?e.scale:US),y=GROUND+(e.yoff||0)-(e.fly?44:R(26*bs+6));bar(x-10*bs,y,20*bs,4,e.hp/e.maxhp,C.red,'#1b1b1b');if(G.focus&&G.focus.e===e&&RT<G.focus.until){const fy=y-4+Math.sin(RT*6)*2;ctx.fillStyle=C.goldL;ctx.beginPath();ctx.moveTo(x-5,fy-6);ctx.lineTo(x+5,fy-6);ctx.lineTo(x,fy);ctx.closePath();ctx.fill();}const hs=14*bs;hit(x-hs,GROUND-hs*2.4,hs*2,hs*2.6,()=>tapEnemy(e));}
   }
   for(const h of G.active){if(h.dead)continue;const fighting=G.mode==='battle'||G.mode==='enter';if(!fighting&&h.hp>=h.maxhp)continue;const x=R(h.x+h.dx),y=GROUND-48+(h.yoff||0);bar(x-15,y,30,4,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red,'#1b1b1b');}
@@ -993,7 +993,8 @@ function treasureX(){return G.treasure.wx-G.scroll;}
 function drawTreasure(){const t=G.treasure;if(!t)return;const x=R(treasureX());if(x<-20){G.treasure=null;return;}const pu=0.5+0.5*Math.sin(RT*6);
   const g=ctx.createRadialGradient(x+14,t.y-8,1,x+14,t.y-8,22);g.addColorStop(0,'rgba(255,240,170,'+(0.45*pu)+')');g.addColorStop(1,'rgba(255,240,170,0)');ctx.fillStyle=g;ctx.fillRect(x-8,t.y-30,44,44);
   const rc=t.kind==='gear'?RANKHEX[t.rank||0]:t.kind==='ore'?'#6e7480':'#8a5a2c';const pal=Object.assign({},CPAL,{W:rc,w:rc,g:'#f1d778'});pixGrid(CHEST,x,t.y-14,2,pal);
-  for(let k=0;k<3;k++){const a=RT*3+k*2.1;px(x+14+R(Math.cos(a)*16),t.y-8+R(Math.sin(a)*10),1,1,'#fff');}hit(x-6,t.y-30,42,44,grabTreasure);}
+  for(let k=0;k<3;k++){const a=RT*3+k*2.1;px(x+14+R(Math.cos(a)*16),t.y-8+R(Math.sin(a)*10),1,1,'#fff');}}
+function treasureHit(){const t=G.treasure;if(!t)return;const x=R(treasureX());hit(x-6,t.y-30,42,44,grabTreasure);} // registered after the units so a chest behind an enemy still takes the tap
 function grabTreasure(){const t=G.treasure;if(!t)return;const tx0=treasureX()+14;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');uiSparks(tx0,t.y-6,16);
   if(t.kind==='gear'&&G.pack.length<15){const it=makeItem(G.zone,t.rank);G.pack.push(it);float(tx0,t.y-16,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank]);}
   else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6))*oreScale(L)*refMult()*zoneBonus('chest'));G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
