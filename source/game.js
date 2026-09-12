@@ -245,7 +245,7 @@ const ZONE_POWER=[0.62,0.86,0.97];
 // per-zone boss multipliers on top of normal scaling; zones not listed are 1.0
 const BOSS_TUNE={0:{hp:0.75,atk:0.80},1:{hp:0.55,atk:0.70}};
 // encounters before a boss can be retried after a loss; a list escalates with consecutive losses
-const BOSS_RETRY={default:9,7:9};
+// boss losses return the party to the last checkpoint before the boss (see the defeat branch in update)
 // ===== Auto Road training fallback =====
 // When the last 10 ordinary fights in an uncleared zone hold 4 losses, retreat to the previous cleared zone and train there
 // until the party has earned about one party level (min 3 fights), then return. Manual build changes reset the window.
@@ -276,7 +276,7 @@ function finishTraining(done){const T=G.train;if(!T||!T.active)return;const S=at
 function keepPushing(){const T=G.train;if(!T||!T.active)return;const ret=T.ret;G.keepPushing=G.keepPushing||{};G.keepPushing[ret]=true;atStats().keepPushing++;finishTraining(false);goZone(ret);toast('Pushing on - no more retreats from '+ZONES[ret].name);}
 let AUTO_EQ=false;
 function buildChanged(){if(AUTO_EQ)return;G.danger=null;if(G.train&&G.train.active){const ret=G.train.ret;finishTraining(false);goZone(ret);toast('Training cancelled - the party changed');}else if(G.train&&!G.train.active)G.train=null;}
-function bossRetry(z){const r=BOSS_RETRY[z]!=null?BOSS_RETRY[z]:BOSS_RETRY.default;return Array.isArray(r)?r[Math.min(r.length-1,Math.max(0,(G.bossStreak||1)-1))]:r;}
+
 function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.10,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
 // items
 let itemSeq=1;
@@ -634,7 +634,7 @@ function update(dt,ui=true){if(G.mode==='battle')dt*=BATTLE_SPEED;G.t+=dt;if(G.s
       if(ready){if(ready!==caster)ready.gauge=0;const a=chooseAction(ready);if(a){startAction(a);
         for(const e of living(G.enemies))if(e.status.bleed>0&&ready.enemy){e.status.bleed--;e.hp-=R(e.maxhp*0.04);float(e.x,GROUND-26,'bleed','#ff8a80');if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}}}}}
   }else if(G.mode==='victory'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.mode='walk';G.enc=2.5+rand()*3;const wb=!!G.bossFight;if(G.bossFight)G.bossFight=false;noteFight(true,wb);}}
-  else if(G.mode==='defeat'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.projs=[];G.action=null;for(const h of G.active){h.dead=false;h.hp=h.maxhp;h.dx=0;h.status={};setAnim(h,'walk');}layout();const progBefore=G.prog[G.zone];G.lastLossProg=progBefore;if(!G.cleared[G.zone]){const Z9=ZONES[G.zone];if(Z9.endless){G.prog[G.zone]=Math.max(0,Math.floor((G.prog[G.zone]-1)/25)*25);if((G.omens||[]).length){G.omens=[];G.omenOffer=null;toast('The omens scatter');}}else if(G.bossFight){const cs=Z9.fights/3;G.prog[G.zone]=Math.max(Math.floor((Z9.fights-1)/cs)*cs-cs,Z9.fights-1-bossRetry(G.zone));}else{const cs=Z9.fights/3;G.prog[G.zone]=Math.floor(G.prog[G.zone]/cs)*cs;}}{const S=G.stats,tr=!!(G.train&&G.train.active);const lost=Math.max(0,progBefore-G.prog[G.zone]);const zn=ZONES[G.zone].name;S.byZone=S.byZone||{};const bz=S.byZone[zn]=S.byZone[zn]||{defeats:0,rewalk:0,bossRewalk:0,trainRewalk:0};if(G.bossFight){S.rewalkBoss=(S.rewalkBoss||0)+lost;bz.bossRewalk+=lost;}else if(!tr){S.rewalk=(S.rewalk||0)+lost;S.defeatsNoTrain=(S.defeatsNoTrain||0)+1;bz.defeats++;bz.rewalk+=lost;}else{S.rewalkTrain=(S.rewalkTrain||0)+lost;bz.trainRewalk+=lost;}}G.mode='walk';G.enc=3;noteFight(false,!!G.bossFight);}}
+  else if(G.mode==='defeat'){G.timer-=dt;if(G.timer<=0){G.enemies=[];G.projs=[];G.action=null;for(const h of G.active){h.dead=false;h.hp=h.maxhp;h.dx=0;h.status={};setAnim(h,'walk');}layout();const progBefore=G.prog[G.zone];G.lastLossProg=progBefore;if(!G.cleared[G.zone]){const Z9=ZONES[G.zone];if(Z9.endless){G.prog[G.zone]=Math.max(0,Math.floor((G.prog[G.zone]-1)/25)*25);if((G.omens||[]).length){G.omens=[];G.omenOffer=null;toast('The omens scatter');}}else if(G.bossFight){const cs=Z9.fights/3;G.prog[G.zone]=Math.floor((Z9.fights-1)/cs)*cs;}else{const cs=Z9.fights/3;G.prog[G.zone]=Math.floor(G.prog[G.zone]/cs)*cs;}}{const S=G.stats,tr=!!(G.train&&G.train.active);const lost=Math.max(0,progBefore-G.prog[G.zone]);const zn=ZONES[G.zone].name;S.byZone=S.byZone||{};const bz=S.byZone[zn]=S.byZone[zn]||{defeats:0,rewalk:0,bossRewalk:0,trainRewalk:0};if(G.bossFight){S.rewalkBoss=(S.rewalkBoss||0)+lost;bz.bossRewalk+=lost;}else if(!tr){S.rewalk=(S.rewalk||0)+lost;S.defeatsNoTrain=(S.defeatsNoTrain||0)+1;bz.defeats++;bz.rewalk+=lost;}else{S.rewalkTrain=(S.rewalkTrain||0)+lost;bz.trainRewalk+=lost;}}G.mode='walk';G.enc=3;noteFight(false,!!G.bossFight);}}
   if(G.castle&&(G.t%1)<dt)castleTick();
   if(ui&&!G.delve&&G.screen==='road'&&G.tut==null){if(G.treasure){G.treasure.t+=dt;if(G.treasure.t>=G.treasure.life)G.treasure=null;}else{G.treasureAt-=dt;if(G.treasureAt<=0&&G.mode==='walk'){spawnTreasure();G.treasureAt=25+rand()*30;}}}
   for(const q of G.quests.slice())if(now()>=q.end&&!q.done){q.done=true;toast(q.hero.name+' is back from the '+q.q.name.toLowerCase());}
