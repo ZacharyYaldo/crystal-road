@@ -424,7 +424,7 @@ function dealDamage(src,tgt,mult=1,opts={}){
   return dmg;}
 function killReward(e){G.stats.kills++;if(e.boss)G.stats.bosses++;G.surge=Math.min(100,(G.surge||0)+2.5*(1+0.1*treeLv('b_surge'))*(built('workshop')?1.5:1));sfx('death');setTimeout(()=>sfx('coin'),120);const xp=R((6+e.lvl*3+(e.boss?60:0))*Math.pow(1.04,e.lvl)*bless('xp')),gold=R((3+e.lvl*2+(e.boss?80:0))*Math.pow(1.05,e.lvl)*(0.9+rand()*0.2)*bless('gold')*refMult()*zoneBonus());G.gold+=gold;G.run.gold+=gold;G.stats.gold+=gold;if(G.fs)G.fs.gold+=gold;float(e.x+e.dx,GROUND+(e.yoff||0)-40,'+'+fmtNum(gold)+' gold',C.goldL);
   for(const h of G.active){if(h.dead)continue;h.xp+=xp;while(h.xp>=xpNeed(h.lvl)){h.xp-=xpNeed(h.lvl);h.lvl++;refreshStats(h);h.hp=h.maxhp;h.dead=false;levelBurst(h);}}
-  if(rand()<0.35){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*oreScale(e.lvl)*(1+0.05*treeLv('ore'))*bless('ore')*refMult()*zoneBonus());G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+fmtNum(o)+' ore',C.muted);}}
+  if(rand()<ORE_DROP_CHANCE){const o=R((1+Math.floor(rand()*2))*(1+Math.floor(e.lvl/6))*oreScale(e.lvl)*(1+0.05*treeLv('ore'))*bless('ore')*refMult()*zoneBonus());G.ore+=o;float(e.x+e.dx,GROUND+(e.yoff||0)-50,'+'+fmtNum(o)+' ore',C.muted);}}
 function heal(src,tgt,amt){amt=R(amt*omenMult('heal'));sfx('heal');tgt.hp=Math.min(tgt.maxhp,tgt.hp+amt);float(tgt.x+tgt.dx,GROUND-30,'+'+fmtNum(amt),'#8ff0a0');}
 function pickTarget(u){const foes=living(u.enemy?G.active:G.enemies);if(!foes.length)return null;
   if(u.enemy){const shield=foes.find(h=>h.status.shield>0);if(shield)return shield;const f=frontHero();return rand()<0.6?f:foes[Math.floor(rand()*foes.length)];}
@@ -535,6 +535,8 @@ function renownGold(){return 1+0.02*renownLog();}
 function renownGain(p,kind){const m=Math.max(1,Math.ceil((p+1)/25));const base=kind==='milestone'?50*m*m:kind==='champion'?8*m*m:Math.max(1,R(0.4*m*m));return R(base*(1+0.1*(G.reforges||0))*(G.oath==='solitude'?2:1)*omenMult('renown'));}
 function roadLv(Z,base){return R(base+(G.cleared[G.zone]?2:0));}
 function oreScale(L){return Math.pow(1.035,L||0);}
+const ORE_DROP_CHANCE=0.40; /* was 0.35 */
+const CHEST_ORE_MULT=1.2; /* ore chests hold this much more */
 const DROP_MULT=1.1; // flat bonus on every map's monster gold and ore drops and chest rewards (also the offline estimate)
 function zoneBonus(k){return (G.zone===0?(k==='chest'?1.15:1.1):G.zone===1?1.05:1)*(1+0.02*G.zone)*DROP_MULT;}
 function refMult(){return (1+0.25*(G.reforges||0))*renownGold();}
@@ -1000,7 +1002,7 @@ function drawTreasure(){const t=G.treasure;if(!t)return;const x=R(treasureX());i
 function treasureHit(){const t=G.treasure;if(!t)return;const x=R(treasureX());hit(x-6,t.y-30,42,44,grabTreasure);} // registered after the units so a chest behind an enemy still takes the tap
 function grabTreasure(){const t=G.treasure;if(!t)return;const tx0=treasureX()+14;G.treasure=null;const Z=ZONES[G.zone],L=R(Z.lv+Math.min(G.prog[G.zone],Z.fights)*0.3);sfx('coin');uiSparks(tx0,t.y-6,16);
   if(t.kind==='gear'&&G.pack.length<15){const it=makeItem(G.zone,t.rank);G.pack.push(it);float(tx0,t.y-16,itemName(it),RANKHEX[it.rank],true);toast('Found: '+itemName(it),RANKHEX[it.rank]);}
-  else if(t.kind==='ore'){const o=R((2+L*0.4)*(1+Math.floor(L/6))*oreScale(L)*refMult()*zoneBonus('chest'));G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
+  else if(t.kind==='ore'){const o=R(CHEST_ORE_MULT*(2+L*0.4)*(1+Math.floor(L/6))*oreScale(L)*refMult()*zoneBonus('chest'));G.ore+=o;float(tx0,t.y-16,'+'+fmtNum(o)+' ore',C.muted,true);}
   else{const g=R((5+L*3)*Math.pow(1.05,L)*bless('gold')*refMult()*zoneBonus('chest'));G.gold+=g;float(tx0,t.y-16,'+'+fmtNum(g)+' gold',C.goldL,true);}}
 
 // ============================================================ saving & offline progress
