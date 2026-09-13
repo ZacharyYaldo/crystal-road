@@ -1030,7 +1030,7 @@ function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.p
   G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;G.delve=null;G.hordeFight=null;if(G.castle)G.castle.hordeDue=false;
   offlineReport(d.t);return true;}
 function offlineGains(hours,eff){const fights=Math.floor(hours*3600/22*eff);const Z=ZONES[G.zone],L=Z.endless?endlessLv(Z,G.prog[G.zone]):roadLv(Z,Z.lv+Math.min(G.prog[G.zone],Z.fights-1)*0.45);const per=1.8;
-  return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')*refMult()*zoneBonus()),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*0.35*1.5*(1+Math.floor(L/6))*oreScale(L)*refMult()*zoneBonus())};}
+  return{fights,gold:R(fights*per*(3+2*L)*Math.pow(1.05,L)*bless('gold')*refMult()*zoneBonus()),xp:R(fights*per*(6+3*L)*Math.pow(1.04,L)*bless('xp')),ore:R(fights*ORE_DROP_CHANCE*1.5*(1+Math.floor(L/6))*oreScale(L)*(1+0.05*treeLv('ore'))*bless('ore')*refMult()*zoneBonus())};}
 function offlineReport(lastT){const elapsed=Math.max(0,(now()-lastT)/1000);if(elapsed<120)return;
   const hours=Math.min(8+0.5*treeLv('offline')+(built('shrine')?2:0),elapsed/3600),eff=G.autoUntil>lastT?0.65:0.5;const g=offlineGains(hours,eff),fights=g.fights;if(fights<1)return;
   const gold=g.gold,xp=g.xp,ore=g.ore;
