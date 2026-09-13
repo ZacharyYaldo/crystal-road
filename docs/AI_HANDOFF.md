@@ -5,6 +5,7 @@ BASED_ON_REVIEW_PASS: NONE_CURRENT_TUNING_CYCLE_COMPLETE
 BUILD: 20260913-160706
 HEAD_COMMIT_SHA: b8f29daf7483e83a86806254c7e288c418cfc801
 RESULTS_COMMIT: b8f29daf7483e83a86806254c7e288c418cfc801 (this handoff document is committed separately on top of it)
+PULL_REQUEST: #2 (cycle 1's PR #1 was merged on 2026-09-11; this is the new persistent loop PR)
 
 # Crystal Road AI Handoff - Pass 33 (the human opens tuning cycle 2; harness correction; gated baseline on two builds)
 
