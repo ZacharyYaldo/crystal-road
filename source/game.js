@@ -825,8 +825,9 @@ function buildCost(k){const l=G.castle.b[k];return R(BUILD[k].cost*Math.pow(BUIL
 function hireCost(){return R(100*Math.pow(1.5,G.castle.hired)*(1-0.03*treeLv('haggle')));}
 function vilCap(){return 4+(built('well')?4:2)*castleLv();}
 function garrisonSlots(){return Math.min(4,1+G.castle.b.walls);}
-function orePerHour(){return R(G.castle.b.mine*G.castle.vil.mine*2*refMult());}
-function goldPerHour(){return R(G.castle.b.market*G.castle.vil.market*8*refMult());}
+const VAEL_ORE_BASE=2.5,VAEL_GOLD_BASE=10; /* per villager per building level per hour (were 2 and 8) */
+function orePerHour(){return R(G.castle.b.mine*G.castle.vil.mine*VAEL_ORE_BASE*refMult());}
+function goldPerHour(){return R(G.castle.b.market*G.castle.vil.market*VAEL_GOLD_BASE*refMult());}
 function garrisonRate(){const w=G.castle.b.walls;return 0.04+0.01*Math.min(w,5)+(w>5?0.11*(1-Math.pow(0.98,w-5)):0);}
 function garrisonXp(h){return R(xpNeed(h.lvl)*garrisonRate());}
 function garrisonHeroes(){return G.castle.garrison.map(id=>G.roster.find(h=>h.id===id)).filter(Boolean);}
