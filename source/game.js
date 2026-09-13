@@ -499,7 +499,7 @@ function castSurge(){if(G.surge<100)return;if(G.mode!=='battle'){toast('Save it 
   for(const e of living(G.enemies)){const d=R(atk*2.5*(0.9+rand()*0.2));e.hp-=d;dmgBy('surge',d);e.flash=0.2;float(e.x+e.dx,GROUND+(e.yoff||0)-40,fmtNum(d),C.goldL,true);G.fs.dmg+=d;if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}}}
 function tapDamage(){const avgAtk=G.active.reduce((s2,h)=>s2+h.atk,0)/Math.max(1,G.active.length);return Math.max(1,R(avgAtk*0.3*Math.pow(1.15,treeLv('tap'))*(built('watchtower')?1.1:1)));}
 const TAP_DAMAGE_MULT=0.22;
-const BATTLE_SPEED=1.15; // combat runs this much faster than real time (animations, gauges, actions); walking, timers and travel are unaffected
+const BATTLE_SPEED=1.265; // 1.15 x 1.1 // combat runs this much faster than real time (animations, gauges, actions); walking, timers and travel are unaffected
 function tapRateMult(n){return n<=1?1:n===2?0.7:n===3?0.45:0.25;}
 function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;G.stats.taps++;G.focus={e,until:RT+6};sfx('tap');{const sec=Math.floor(RT);if(G.tapSecAt!==sec){G.tapSecAt=sec;G.tapSecN=0;}G.tapSecN++;}let d=Math.max(1,R(tapDamage()*TAP_DAMAGE_MULT*tapRateMult(G.tapSecN)));if(rand()<0.02*treeLv('tapcrit')){d*=3;sfx('crit');}if(treeLv('tapgold')){const g=R((3+e.lvl*2)*Math.pow(1.05,e.lvl)*0.005*treeLv('tapgold')*bless('gold'));if(g>0){G.gold+=g;}}e.hp-=d;dmgBy('tap',d);e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,fmtNum(d),C.cyan);G.fs.taps++;G.fs.dmg+=d;
   if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}
