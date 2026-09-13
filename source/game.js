@@ -677,9 +677,10 @@ function drawScene(){const Z=ZONES[G.zone];const key=G.hordeFight?'door':G.delve
   const sx=G.shake>0?R((rand()-0.5)*4):0;ctx.save();ctx.beginPath();ctx.rect(0,SCENE_Y,W,208);ctx.clip();ctx.translate(sx,0);
   for(const l of layers){const w=l.img.width||368;let off=-(Math.floor(G.scroll*l.p)%w);for(let x=off;x<W+w;x+=w)ctx.drawImage(l.img,x,SCENE_Y);}
   if(!G.delve&&G.screen==='road'&&G.tut==null)drawTreasure();
-  const units=G.active.concat(G.enemies).slice().sort((a,b)=>((a.yoff||0)-(a.boss?20:0))-((b.yoff||0)-(b.boss?20:0)));for(const u of units)drawUnit(u);if(!G.delve&&G.screen==='road'&&G.tut==null)treasureHit();drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;
+  const units=G.active.concat(G.enemies).slice().sort((a,b)=>((a.yoff||0)-(a.boss?20:0))-((b.yoff||0)-(b.boss?20:0)));for(const u of units)drawUnit(u);drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;
   if(G.mode==='battle'||G.mode==='enter'){for(const e of G.enemies){if(e.dead)continue;const x=R(e.x+e.dx),bs=e.native?(e.boss?4:1.2):(e.scale>1?e.scale:US),y=GROUND+(e.yoff||0)-(e.fly?44:R(26*bs+6));bar(x-10*bs,y,20*bs,4,e.hp/e.maxhp,C.red,'#1b1b1b');if(G.focus&&G.focus.e===e&&RT<G.focus.until){const fy=y-4+Math.sin(RT*6)*2;ctx.fillStyle=C.goldL;ctx.beginPath();ctx.moveTo(x-5,fy-6);ctx.lineTo(x+5,fy-6);ctx.lineTo(x,fy);ctx.closePath();ctx.fill();}const hs=14*bs;hit(x-hs,GROUND-hs*2.4,hs*2,hs*2.6,()=>tapEnemy(e));}
   }
+  if(!G.delve&&G.screen==='road'&&G.tut==null)treasureHit(); /* after the enemy tap boxes so a chest under a monster takes the tap */
   for(const h of G.active){if(h.dead)continue;const fighting=G.mode==='battle'||G.mode==='enter';if(!fighting&&h.hp>=h.maxhp)continue;const x=R(h.x+h.dx),y=GROUND-48+(h.yoff||0);bar(x-15,y,30,4,h.hp/h.maxhp,h.hp/h.maxhp>0.35?C.green:C.red,'#1b1b1b');}
   if(G.mode==='battle'||G.mode==='enter'){
     for(const u of G.active.concat(G.enemies)){if(u.dead)continue;const bs=u.native?(u.boss?4:1.2):(u.scale>1?u.scale:US),x=R(u.x+u.dx),y=(u.enemy?GROUND+(u.yoff||0)-(u.fly?44:R(26*bs+6)):GROUND-48+(u.yoff||0))+5;px(x-10*bs,y,20*bs,1,'#141826');px(x-10*bs,y,R(20*bs*clamp(u.gauge/100,0,1)),1,'#8a93a8');
