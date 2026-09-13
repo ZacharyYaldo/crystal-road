@@ -499,7 +499,8 @@ function castSurge(){if(G.surge<100)return;if(G.mode!=='battle'){toast('Save it 
   for(const e of living(G.enemies)){const d=R(atk*2.5*(0.9+rand()*0.2));e.hp-=d;dmgBy('surge',d);e.flash=0.2;float(e.x+e.dx,GROUND+(e.yoff||0)-40,fmtNum(d),C.goldL,true);G.fs.dmg+=d;if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}}}
 function tapDamage(){const avgAtk=G.active.reduce((s2,h)=>s2+h.atk,0)/Math.max(1,G.active.length);return Math.max(1,R(avgAtk*0.3*Math.pow(1.15,treeLv('tap'))*(built('watchtower')?1.1:1)));}
 const TAP_DAMAGE_MULT=0.22;
-const BATTLE_SPEED=1.265; // 1.15 x 1.1 // combat runs this much faster than real time (animations, gauges, actions); walking, timers and travel are unaffected
+const BATTLE_SPEED=1.265; // 1.15 x 1.1
+const MARCH_SPEED=1.15; // the road march runs this much faster than real time; the 1x/2x/4x toggle multiplies on top // combat runs this much faster than real time (animations, gauges, actions); walking, timers and travel are unaffected
 function tapRateMult(n){return n<=1?1:n===2?0.7:n===3?0.45:0.25;}
 function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;G.stats.taps++;G.focus={e,until:RT+6};sfx('tap');{const sec=Math.floor(RT);if(G.tapSecAt!==sec){G.tapSecAt=sec;G.tapSecN=0;}G.tapSecN++;}let d=Math.max(1,R(tapDamage()*TAP_DAMAGE_MULT*tapRateMult(G.tapSecN)));if(rand()<0.02*treeLv('tapcrit')){d*=3;sfx('crit');}if(treeLv('tapgold')){const g=R((3+e.lvl*2)*Math.pow(1.05,e.lvl)*0.005*treeLv('tapgold')*bless('gold'));if(g>0){G.gold+=g;}}e.hp-=d;dmgBy('tap',d);e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,fmtNum(d),C.cyan);G.fs.taps++;G.fs.dmg+=d;
   if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}
@@ -608,7 +609,7 @@ const SCROLL={tree:0,heroes:0,map:0},CONTENT={tree:0,heroes:0,map:0},SCROLLTOP={
 function beginScroll(key,top){const sc=SCROLL[key]||0;ctx.save();ctx.beginPath();ctx.rect(0,top,W,TABY-top-TABTOP);ctx.clip();ctx.translate(0,-sc);tx.save();tx.beginPath();tx.rect(0,top*TS,W*TS,(TABY-top-TABTOP)*TS);tx.clip();tx.translate(0,-sc*TS);HIT_DY=-sc;}
 function endScroll(key,bottom){ctx.restore();tx.restore();HIT_DY=0;CONTENT[key]=bottom;}
 function scrollMax(key,top){const m=(CONTENT[key]||0)-(TABY-8-TABTOP);return m<=10?0:m;}
-function update(dt,ui=true){if(G.mode==='battle')dt*=BATTLE_SPEED;G.t+=dt;if(G.shake>0)G.shake-=dt;
+function update(dt,ui=true){if(G.mode==='battle')dt*=BATTLE_SPEED;else if(G.mode==='walk')dt*=MARCH_SPEED;G.t+=dt;if(G.shake>0)G.shake-=dt;
   for(const h of G.active){if(h.tx!=null&&Math.abs(h.x-h.tx)>0.2)h.x+=(h.tx-h.x)*Math.min(1,dt*6);else if(h.tx!=null)h.x=h.tx;h.hop=Math.max(0,h.hop-dt*2.5);if(G.mode==='battle'&&!h.dead&&h.charge<100){h.charge=Math.min(100,h.charge+7*dt*(G.delve&&G.delve.relics.find(r=>r.charge)?2:1)*(sup(h,'staff')?1.25:1));if(h.charge>=100)h.readyT=0;}if(h.charge>=100&&!h.dead)h.readyT+=dt;}
   const all=G.active.concat(G.enemies);
   for(const u of all){stepAnim(u,dt);if(u.flash>0)u.flash-=dt;if(u.done&&u.anim==='hurt'&&!(G.action&&G.action.u===u))setAnim(u,'idle');}
