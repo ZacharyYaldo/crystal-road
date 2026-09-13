@@ -600,8 +600,8 @@ function equipItem(h,it){if(it.slot==='weapon'&&it.kind!==CLASSES[h.cls].weapon)
 function unequip(h,slot){const it=h.eq[slot];if(!it)return;if(G.pack.length>=15){toast('Pack is full');return;}delete h.eq[slot];G.pack.push(it);refreshStats(h);buildChanged();}
 function sellItem(it){const o=salvageBase(it.rank)+it.lvl*2;G.pack=G.pack.filter(i=>i!==it);G.ore+=o;toast('Forged into '+fmtNum(o)+' ore');}
 function bulkCost(costAt,lv,funds){const want=G.mult==='max'?1e9:G.mult;let n=0,total=0;while(n<want){const c=costAt(lv+n);if(G.mult==='max'&&total+c>funds)break;total+=c;n++;if(n>=2000)break;}if(G.mult==='max'&&n===0){return{n:1,total:costAt(lv)};}return{n,total};}
-const SALV_BASE=[5,12,24,45,80,120];function salvageBase(r){return R(SALV_BASE[Math.min(r,SALV_BASE.length-1)]*(1+0.25*(G.reforges||0)));}
-function salvageValue(it){let spent=0;for(let l=0;l<(it.lvl||0);l++)spent+=R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,l)*(built('forge')?0.85:1));return R(salvageBase(it.rank)+spent*0.3);}
+const SALV_BASE=[5,12,24,45,80,120],SALVAGE_REFUND=0.5; /* share of the ore spent on upgrade levels returned on salvage (was 0.3) */function salvageBase(r){return R(SALV_BASE[Math.min(r,SALV_BASE.length-1)]*(1+0.25*(G.reforges||0)));}
+function salvageValue(it){let spent=0;for(let l=0;l<(it.lvl||0);l++)spent+=R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,l)*(built('forge')?0.85:1));return R(salvageBase(it.rank)+spent*SALVAGE_REFUND);}
 function upgradeItem(it,h){let n=0,want=G.mult==='max'?1e9:G.mult;while(n<want){const cost=upgradeCost(it);if(G.ore<cost)break;G.ore-=cost;it.lvl++;n++;}if(!n){toast('Need '+fmtNum(upgradeCost(it))+' ore');return;}if(h)refreshStats(h);toast(itemName(it)+' Lv '+it.lvl+(n>1?' (+'+n+' levels)':''));}
 function multLabel(){return G.mult==='max'?'Max':'×'+G.mult;}
 function cycleMult(){G.mult=G.mult===1?5:G.mult===5?25:G.mult===25?'max':1;}
