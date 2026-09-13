@@ -394,7 +394,8 @@ function healPct(h){return 0.175+abRise(h);}
 function revivePct(h){return 0.9*AB_BOOST*(1-Math.exp(-0.25*abilityPower(h)));}
 
 // ============================================================ battle
-function spawnEncounter(){G.fs={dmg:0,taps:0,gold:0};fightStarted();
+function clearPendingCasts(){for(const h of G.active){if(h.tapCast){h.tapCast=false;h.charge=100;}}} /* a tapped cast that never fired (fight ended or hero fell first) is cancelled and the charge handed back, so it cannot fire on its own next fight */
+function spawnEncounter(){clearPendingCasts();G.fs={dmg:0,taps:0,gold:0};fightStarted();
   const Z=ZONES[G.zone],p=G.prog[G.zone];const bossFight=!!(Z.boss&&p===Z.fights-1&&!G.cleared[G.zone])||(Z.endless&&endlessMilestone(p));const BZ=bossZone();const cpS=Z.fights/3,elite=!bossFight&&!G.cleared[G.zone]&&(p===2*cpS||(Z.endless&&p>0&&p%25===0&&!endlessMilestone(p)));
   const n=(bossFight||elite)?1:Math.min(3,1+Math.floor(rand()*Math.min(3,1+p/3))+omenCount('swarm'));G.enemies=[];
   const pool=Z.endless?ZONES[endSeg(p)].pool:Z.pool,etier=Math.min(2,Z.endless?Math.floor(p/50):Math.floor(p/(Z.fights/3)));for(let i=0;i<n;i++){const id=bossFight?BZ.boss:pool[Math.floor(rand()*pool.length)];const L=Z.endless?endlessLv(Z,p):roadLv(Z,Z.lv+p*0.3);
@@ -952,7 +953,7 @@ function hordeWave(){const hf=G.hordeFight;hf.wave++;const wv=hf.waves||[2,2,1];
     if(tierRank>=2&&!boss&&i===0){const tr=['enrage','poison','stun'][Math.floor(rand()*3)];if(!e.traits.includes(tr))e.traits.push(tr);}
     if(tierRank>=4&&!boss&&i===n-1){e.maxhp=R(e.maxhp*1.5);e.atk=R(e.atk*1.25);e.scale=Math.max(e.scale,1.5);e.name='Elite '+e.name;}
     e.hp=e.maxhp;setAnim(e,'walk');G.enemies.push(e);}
-  G.fs={dmg:0,taps:0,gold:0};G.mode='enter';G.bossFight=false;hf.volley=hf.mercs>0;G.active.forEach(h=>setAnim(h,'idle'));if(hf.wave>1)banner('Wave '+hf.wave+' of 3',hf.wave===3?'the champion':'',1.6);}
+  clearPendingCasts();G.fs={dmg:0,taps:0,gold:0};G.mode='enter';G.bossFight=false;hf.volley=hf.mercs>0;G.active.forEach(h=>setAnim(h,'idle'));if(hf.wave>1)banner('Wave '+hf.wave+' of 3',hf.wave===3?'the champion':'',1.6);}
 function endHordeFight(win){const hf=G.hordeFight;if(!hf)return;G.castle.lastHordeLv=hf.lvl;G.hordeFight=null;resolveHorde(win);G.active=hf.saved.active;G.zone=hf.saved.zone;G.prog=hf.saved.prog;G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;for(const h of G.roster){h.status={};h.dx=0;if(h.dead){h.dead=false;h.hp=R(h.maxhp*0.3);}}for(const h of G.active)setAnim(h,'walk');layout();G.screen='vael';saveGame();}
 // ============================================================ the Catacombs (delve) and road treasure
 const RELICS=[{id:'blood',name:'Bloodstone',desc:'+30% attack, lose 2% HP per attack',atk:1.3,bleed:0.02},{id:'mirror',name:'Mirror Charm',desc:'Ability fully charged at the start of every floor',mirror:true},{id:'feather',name:"Hunter's Feather",desc:'Critical hits restore 15 ability charge',feather:15},{id:'idol',name:'Golden Idol',desc:'+60% delve gold, enemies +25% HP',gold:1.6,ehp:1.25},{id:'fang',name:'Wolf Fang',desc:'+25% attack',atk:1.25},{id:'heart',name:'Troll Heart',desc:'+35% max HP',hp:1.35},{id:'leech',name:'Leech Charm',desc:'heal 12% of damage dealt',leech:0.12},{id:'focus',name:'Focus Stone',desc:'abilities charge twice as fast',charge:2},{id:'plate',name:'Ancient Plate',desc:'+40% defense',def:1.4},{id:'lucky',name:'Lucky Coin',desc:'+50% gold in the delve',gold:1.5}];
