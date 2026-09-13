@@ -24,3 +24,5 @@ tests/sim/p10_fights.json
 tests/sim/p11_*.json
 tests/sim/snapshots_*/
 tests/sim/*.err
+!build/assets.json
+!build/atlas.json

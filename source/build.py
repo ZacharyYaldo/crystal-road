@@ -3,7 +3,7 @@ root=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sh=open(os.path.join(root,'source/shell.html'),encoding='utf-8').read()
 g=open(os.path.join(root,'source/game.js'),encoding='utf-8').read()
 if not os.path.exists(os.path.join(root,'build/assets.json')):
-    import subprocess;subprocess.run([sys.executable,os.path.join(root,'source/build_assets.py')],check=True)
+    sys.exit('build/assets.json is missing; it is tracked in git, or regenerate it with source/build_assets.py (needs the art packs and PIL)')
 aj=open(os.path.join(root,'build/assets.json'),encoding='utf-8').read()
 build=time.strftime('%Y%m%d-%H%M%S')
 aj=aj.replace('.mp3"','.mp3?v='+build+'"')
