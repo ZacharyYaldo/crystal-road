@@ -37,7 +37,8 @@ Runs in about 30 seconds. `T.runAll(['fights','horde'])` runs a subset. Results 
 node tests/sim/bot.js --hours 24                      # a fresh account, 24 active hours
 node tests/sim/bot.js --hours 60 --shatters 3          # stop after the third Shatter
 node tests/sim/bot.js --endless 300 --hours 48         # strong synthetic party, run 300 milestones
-node tests/sim/bot.js --hours 10 --idle                # a player who never taps
+node tests/sim/bot.js --hours 10 --profile idle        # never taps, never has Auto-Cast
+node tests/sim/bot.js --hours 10 --profile idleboost   # never taps, keeps the four-hour Auto-Cast boost bought
 node tests/sim/bot.js --hours 10 --taps 4 --seed 7 --quiet --json out.json
 ```
 
@@ -49,7 +50,7 @@ Every 5 simulated seconds it equips the best gear and salvages the rest, upgrade
 
 While active it casts every charged ability (using the parry, interrupt and cleanse reactions when an enemy is winding up), fires the Crystal Surge when full, and taps the weakest or focused enemy `--taps` times per second (default 2). `--idle` turns all of that off.
 
-Endless mode (`--endless N`) synthesizes a late-game party: all zones cleared, every hero at `--lvl` (120) with `--rank` (40), tier 3, all talents, legendary gear at `--gear` (60), tree HP and attack at `--tree` (60), `--reforged` (2) past Shatters. It stops at N milestones.
+Endless mode (`--endless N`) synthesizes a late-game party: all zones cleared, every hero at `--lvl` (120) with `--rank` (40), tier 3, all talents, legendary gear at `--gear` (60), tree HP and attack at `--tree` (60), `--reforged` (3) past Shatters. It stops at N milestones.
 
 ### What it reports
 
@@ -57,4 +58,8 @@ Hours to each recruit, zone clear, promotion and talent; each Shatter with its d
 
 ### Caveats
 
-The bot is a competent but simple player: it does not choose Oaths, it does not time hordes or delves around the road, it never buys Boosts or watches ads, and it plays continuously with no offline stretches. Treat its hour counts as a floor for a focused player, not a typical one. Seeds make runs reproducible; compare seeds before trusting a small difference.
+The bot is a competent but simple player: it does not choose Oaths, it does not time hordes or delves around the road, boosted profiles (idleboost, light, casual, engaged) re-buy the production four-hour Auto-Cast boost whenever it lapses outside their active minutes, the idle profile never has Auto-Cast, and no other Boost or ad is used, and it plays continuously with no offline stretches. Treat its hour counts as a floor for a focused player, not a typical one. Seeds make runs reproducible; compare seeds before trusting a small difference.
+
+### Parity with the game
+
+Zone travel goes through the game's own `goZone`, so arriving in a zone snaps to its highest reached checkpoint and heals the party exactly as the map does. The bot may only enter a zone the map would allow (`zoneUnlocked`: previous boss beaten and enough Shatters, zones 5-6 need 1, 7-8 need 2, the Foundry and Endless need 3) and it Shatters when the next zone is sealed (`reason: 'sealed'`). Every tick asserts legal zone entry, a unique roster, that no unboosted profile has Auto-Cast, that no boost exceeds one four-hour purchase, and that boss telemetry is numeric; a failed assertion ends the run with an `ERROR` event and `assertFail` in the JSON. Levels sampled at a zone clear exclude a hero recruited in that same tick.
