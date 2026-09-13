@@ -287,7 +287,8 @@ function itemName(it){if(it.super&&SUPER[it.super])return SUPER[it.super].name;i
 function itemIcon(it){return it.slot==='weapon'?it.kind:it.slot==='cape'?'cape':(it.rank%2?'amulet':'ring');}
 function itemStatLabel(it){return (it.slot==='weapon'?'+'+fmtNum(itemStat(it))+' ATK':it.slot==='cape'?'+'+fmtNum(itemStat(it))+' DEF':'+'+fmtNum(itemStat(it))+' HP');}
 function wielders(it){return Object.values(CLASSES).filter(c=>c.weapon===it.kind).map(c=>c.name).join('/');}
-function ascendCost(it){return R(40*Math.pow(4,it.rank)*Math.pow(1.14,it.lvl));}
+const ASCEND_BASE=[40,160,500,1000]; /* ore to ascend from rank 0, 1, 2, 3 at item level 0; times 1.14 per item level */
+function ascendCost(it){return R(ASCEND_BASE[Math.min(it.rank,ASCEND_BASE.length-1)]*Math.pow(1.14,it.lvl));}
 function ascendCap(){return Math.min(4,1+(G.reforges||0));}
 function ascendItem(it,h){if(it.rank>=4){toast(it.rank>=5?'Nothing surpasses Crystal':'Already Sunforged');return;}if(it.rank>=ascendCap()){toast(RANKS[it.rank+1]+' needs '+(it.rank+1-(G.reforges||0))+' more Shatter'+(it.rank-(G.reforges||0)?'s':''));return;}const c=ascendCost(it);if(G.ore<c){toast('Need '+fmtNum(c)+' ore');return;}G.ore-=c;it.rank++;if(h)refreshStats(h);sfx('level',true);toast(itemName(it)+' - ascended to '+RANKS[it.rank],RANKHEX[it.rank]);}
 function upgradeCost(it){return R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,it.lvl)*(built('forge')?0.85:1));}
