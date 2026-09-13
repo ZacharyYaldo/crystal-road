@@ -280,8 +280,9 @@ function buildChanged(){if(AUTO_EQ)return;G.danger=null;if(G.train&&G.train.acti
 function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.10,G.reforges||0)*(G.delve?1:(ZONE_POWER[G.zone]==null?1:ZONE_POWER[G.zone]));return{maxhp:R((44+24*L)*Math.pow(1.06,L)*e.hp*rf),atk:R((9+3.8*L)*Math.pow(1.05,L)*e.atk*rf),def:R((2+1.3*L)*Math.pow(1.04,L)*e.def*Math.pow(1.1,G.reforges||0)),spd:e.spd};}
 // items
 let itemSeq=1;
-const ITEM_LVL_GROWTH=1.12; /* item stat per upgrade level (was 1.10); upgrade cost still grows 1.14 per level */
-function itemStat(it){const rf=1+0.1*(G.reforges||0),base=it.slot==='weapon'?7:it.slot==='cape'?3.5:14;return R(base*Math.pow(2.2,it.rank)*Math.pow(ITEM_LVL_GROWTH,it.lvl)*rf);}
+const ITEM_LVL_GROWTH=1.12,ITEM_RANK_STEP_HI=2.35; /* item stat per upgrade level (was 1.10); upgrade cost still grows 1.14 per level */
+function itemStat(it){const rf=1+0.1*(G.reforges||0),base=it.slot==='weapon'?7:it.slot==='cape'?3.5:14;return R(base*rankMult(it.rank)*Math.pow(ITEM_LVL_GROWTH,it.lvl)*rf);}
+function rankMult(r){return Math.pow(2.2,Math.min(r,1))*Math.pow(ITEM_RANK_STEP_HI,Math.max(0,r-1));} /* ranks 0-1 step 2.2x; every rank above 1 steps ITEM_RANK_STEP_HI */
 function itemName(it){if(it.super&&SUPER[it.super])return SUPER[it.super].name;if(it.slot==='weapon')return WEAPON_ADJ[it.rank]+' '+WEAPON_NOUN[it.kind];if(it.slot==='cape')return CAPE_NAMES[it.rank];return CHARM_NAMES[it.rank];}
 function itemIcon(it){return it.slot==='weapon'?it.kind:it.slot==='cape'?'cape':(it.rank%2?'amulet':'ring');}
 function itemStatLabel(it){return (it.slot==='weapon'?'+'+fmtNum(itemStat(it))+' ATK':it.slot==='cape'?'+'+fmtNum(itemStat(it))+' DEF':'+'+fmtNum(itemStat(it))+' HP');}
