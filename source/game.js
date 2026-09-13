@@ -255,7 +255,8 @@ function partyLvAvg(){return G.active.length?G.active.reduce((a,h)=>a+h.lvl,0)/G
 function partyProg(){return G.active.length?G.active.reduce((a,h)=>a+h.lvl+h.xp/xpNeed(h.lvl),0)/G.active.length:1;}
 function partyPower(){return G.active.reduce((a,h)=>a+h.maxhp+h.atk*6+h.def*4,0);}
 function atStats(){const S=G.stats;S.autoTrain=S.autoTrain||{triggers:0,timeSec:0,fights:0,xp:0,gold:0,drops:0,returns:0,keepPushing:0,cancels:0,log:[]};return S.autoTrain;}
-function goZone(i){G.zone=i;G.enemies=[];G.projs=[];G.action=null;G.bossFight=false;for(const h of G.active){h.dx=0;h.status={};h.dead=false;h.hp=h.maxhp;setAnim(h,'walk');}layout();G.mode='walk';G.enc=3;}
+function goZone(i){if(i!==G.zone&&!G.cleared[i]){const Zg=ZONES[i],cs=Zg.endless?25:Zg.fights/3;G.prog[i]=Math.floor((G.prog[i]||0)/cs)*cs;} /* arriving in a zone starts at its highest reached checkpoint, not mid-stretch */
+G.zone=i;G.enemies=[];G.projs=[];G.action=null;G.bossFight=false;for(const h of G.active){h.dx=0;h.status={};h.dead=false;h.hp=h.maxhp;setAnim(h,'walk');}layout();G.mode='walk';G.enc=3;}
 const AUTO_TRAIN=false; /* automatic retreat to the previous zone after AT_LOSSES losses; off, the party never leaves a zone on its own */
 function atAllowed(z){return AUTO_TRAIN&&!G.autoTrainOff&&z>0&&z!==7&&!ZONES[z].endless&&!G.cleared[z]&&G.cleared[z-1]&&!(G.keepPushing&&G.keepPushing[z]);}
 function fightStarted(){if(G.delve||G.hordeFight||G.bossFight)return;G.fightPower=partyPower();if(!(G.train&&G.train.active)){G.powerHist=(G.powerHist||[]).concat([G.fightPower]).slice(-AT_WINDOW);}}
