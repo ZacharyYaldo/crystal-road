@@ -282,7 +282,7 @@ function enemyStats(id,L){const e=ENEMIES[id];const rf=Math.pow(1.10,G.reforges|
 // items
 let itemSeq=1;
 const ITEM_LVL_GROWTH=1.12,ITEM_RANK_STEPS=[2.2,3,3,2.2,2.2]; /* stat multiplier from each rank to the next: 0->1, 1->2, 2->3, 3->4, 4->5 */ /* item stat per upgrade level (was 1.10); upgrade cost still grows 1.14 per level */
-function itemStat(it){const rf=1+0.1*(G.reforges||0),base=it.slot==='weapon'?7:it.slot==='cape'?3.5:14;return R(base*rankMult(it.rank)*Math.pow(ITEM_LVL_GROWTH,it.lvl)*rf);}
+function itemStat(it){const rf=1+0.1*(G.reforges||0),base=it.slot==='weapon'?7:it.slot==='cape'?3.5:14,L=it.lvl||0;const f=l=>base*rankMult(it.rank)*Math.pow(ITEM_LVL_GROWTH,l)*rf;return Math.max(Math.ceil(f(L)-1e-6),Math.ceil(f(0)-1e-6)+L);} /* whole numbers, always rounded up; every upgrade level adds at least 1 */
 function rankMult(r){let m=1;for(let k=0;k<r;k++)m*=ITEM_RANK_STEPS[Math.min(k,ITEM_RANK_STEPS.length-1)];return m;}
 function itemName(it){if(it.super&&SUPER[it.super])return SUPER[it.super].name;if(it.slot==='weapon')return WEAPON_ADJ[it.rank]+' '+WEAPON_NOUN[it.kind];if(it.slot==='cape')return CAPE_NAMES[it.rank];return CHARM_NAMES[it.rank];}
 function itemIcon(it){return it.slot==='weapon'?it.kind:it.slot==='cape'?'cape':(it.rank%2?'amulet':'ring');}
