@@ -598,7 +598,7 @@ function equipBest0(only){for(const h of (only?[only]:G.roster)){for(const slot 
 function equipItem(h,it){if(it.slot==='weapon'&&it.kind!==CLASSES[h.cls].weapon){toast(h.name+" can't wield a "+WEAPON_NOUN[it.kind].toLowerCase());return;}
   const cur=h.eq[it.slot];G.pack=G.pack.filter(i=>i!==it);if(cur)G.pack.push(cur);h.eq[it.slot]=it;it.isNew=false;refreshStats(h);buildChanged();toast(itemName(it)+' equipped');}
 function unequip(h,slot){const it=h.eq[slot];if(!it)return;if(G.pack.length>=15){toast('Pack is full');return;}delete h.eq[slot];G.pack.push(it);refreshStats(h);buildChanged();}
-function sellItem(it){const o=salvageBase(it.rank)+it.lvl*2;G.pack=G.pack.filter(i=>i!==it);G.ore+=o;toast('Forged into '+fmtNum(o)+' ore');}
+function salvageItem(it){if(it.super)return 0;const o=salvageValue(it);G.pack=G.pack.filter(i=>i!==it);G.ore+=o;return o;} /* the one salvage path: pack button, make-room, and the simulator */
 function bulkCost(costAt,lv,funds){const want=G.mult==='max'?1e9:G.mult;let n=0,total=0;while(n<want){const c=costAt(lv+n);if(G.mult==='max'&&total+c>funds)break;total+=c;n++;if(n>=2000)break;}if(G.mult==='max'&&n===0){return{n:1,total:costAt(lv)};}return{n,total};}
 const SALV_BASE=[5,12,24,45,80,120],SALVAGE_REFUND=0.5; /* share of the ore spent on upgrade levels returned on salvage (was 0.3) */function salvageBase(r){return R(SALV_BASE[Math.min(r,SALV_BASE.length-1)]*(1+0.25*(G.reforges||0)));}
 function salvageValue(it){let spent=0;for(let l=0;l<(it.lvl||0);l++)spent+=R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,l)*(built('forge')?0.85:1));return R(salvageBase(it.rank)+spent*SALVAGE_REFUND);}
@@ -774,7 +774,7 @@ function drawGear(){drawPanelScreen();const h=G.roster[G.gearHero]||G.roster[0];
   if(G.salvage){button(84,PY+6,58,PB,false);text(113,PY+6+PB/2-4,'Cancel','xs',C.cream,'center');hit(84,PY+6,58,PB,()=>{G.salvage=false;G.sel=[];});}else{button(84,PY+6,58,PB,true);text(113,PY+6+PB/2-4,'Equip best','xs',C.goldL,'center');hit(84,PY+6,58,PB,()=>equipBest(h));}
   G.sel=(G.sel||[]).filter(it=>G.pack.includes(it));const sel=G.sel;const ore=sel.reduce((a,it)=>a+salvageValue(it),0);
   if(G.salvage){button(146,PY+6,54,PB,sel.length>0,!sel.length);text(173,PY+6+PB/2-4,sel.length?'Salvage '+sel.length:'Select…','xs',sel.length?C.goldL:C.dimt,'center');
-    if(sel.length)hit(146,PY+6,54,PB,()=>{if(sel.some(it=>it.super)){toast('Crystal gear cannot be salvaged');G.sel=G.sel.filter(it=>!it.super);return;}for(const it of sel)G.pack=G.pack.filter(i=>i!==it);G.ore+=ore;toast('Salvaged '+sel.length+' for '+fmtNum(ore)+' ore');G.sel=[];G.salvage=false;});
+    if(sel.length)hit(146,PY+6,54,PB,()=>{if(sel.some(it=>it.super)){toast('Crystal gear cannot be salvaged');G.sel=G.sel.filter(it=>!it.super);return;}let got=0;for(const it of sel)got+=salvageItem(it);toast('Salvaged '+sel.length+' for '+fmtNum(got)+' ore');G.sel=[];G.salvage=false;});
     text(10,PY+16,sel.length?sel.length+' selected':'Tap items to salvage','xs',C.goldL);if(sel.length)text(10,PY+25,'+'+fmtNum(ore)+' ore','xs',C.cream);}
   else{button(146,PY+6,54,PB,false,!G.pack.length);text(173,PY+6+PB/2-4,'Salvage','xs',G.pack.length?C.cream:C.dimt,'center');if(G.pack.length)hit(146,PY+6,54,PB,()=>{G.salvage=true;G.sel=[];});}
   const gy=PY+6+PB+4,step=CELL+2,gx=Math.floor((262-5*step+2)/2)+4;
@@ -1151,7 +1151,7 @@ function superCount(key){return G.pack.filter(i=>i.super===key).length+G.roster.
 function makeSuper(key){const d=SUPER[key];return{id:'S'+key+'_'+Date.now().toString(36),slot:d.slot,kind:d.kind,rank:5,lvl:0,super:key};}
 function ownsSuper(key){return G.pack.some(i=>i.super===key)||G.roster.some(h=>h.eq&&Object.values(h.eq).some(i=>i&&i.super===key));}
 function sup(h,key){if(!h||!h.eq)return false;const d=SUPER[key];const it=h.eq[d.slot];return !!(it&&it.super===key);}
-function giveItem(it){if(G.pack.length<15){G.pack.push(it);return true;}const junk=G.pack.filter(x=>!x.super).sort((a,b)=>(a.rank-b.rank)||(a.lvl-b.lvl))[0];if(junk){G.pack=G.pack.filter(x=>x!==junk);const o=salvageValue(junk);G.ore+=o;toast('Salvaged '+itemName(junk)+' to make room');G.pack.push(it);return true;}return false;}
+function giveItem(it){if(G.pack.length<15){G.pack.push(it);return true;}const junk=G.pack.filter(x=>!x.super).sort((a,b)=>(a.rank-b.rank)||(a.lvl-b.lvl))[0];if(junk){salvageItem(junk);toast('Salvaged '+itemName(junk)+' to make room');G.pack.push(it);return true;}return false;}
 function drawItemIcon(it,x,y,scale){if(it.super&&IMG.superGear24&&IMG.superGear24.width){const i=(ASSETS.superOrder||[]).indexOf(it.super);if(i>=0){const sz=12*scale;ctx.drawImage(IMG.superGear24,i*24,0,24,24,x,y,sz,sz);return;}}icon(itemIcon(it),x,y,it.rank,scale);}
 function drawReveal(){const rv=G.reveal;if(!rv||G.screen!=='road'||G.sheet)return;if(!rv.at)rv.at=performance.now();const el=(performance.now()-rv.at)/1000,k=Math.min(1,el*3);hits.length=0;dimRect(0,0,W,H,0.78*k);tx.fillStyle='rgba(6,8,16,'+(0.78*k)+')';tx.fillRect(0,0,tc.width,tc.height);
   const px0=18,py0=SCENE_Y+4,pw=234,ph=192;frame(px0,py0,pw,ph,C.navy,'#8fdcff');tx.clearRect(px0*TS,py0*TS,pw*TS,ph*TS);const cx=W/2,cy=py0+62;const sc=1+0.05*Math.sin(RT*3);
