@@ -26,3 +26,4 @@ tests/sim/snapshots_*/
 tests/sim/*.err
 !build/assets.json
 !build/atlas.json
+.scratch/
