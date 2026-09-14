@@ -171,7 +171,7 @@ const TREE=[
   {branch:'Party',id:'abil',name:'Focus',desc:'+2% ability power per rank',max:30,base:150,cur:'gold'},
   {branch:'Party',id:'front',name:'Vanguard',desc:'+5% defense for the front hero per rank',max:999,base:160,cur:'gold'},
   {branch:'Party',id:'regen',name:'Second Wind',desc:'Heroes heal 1% HP each round per rank',max:10,base:400,cur:'gold'},
-  {branch:'Party',id:'rest',name:'Warm Fire',desc:'Heroes heal 15% after each fight, +2% per rank',max:999,base:90,cur:'gold'},
+  {branch:'Party',id:'rest',name:'Warm Fire',desc:'Heal 15% after each fight, +2% per rank',max:999,base:90,cur:'gold'},
   {branch:'Party',id:'march',name:'Long Stride',desc:'+4% march speed per rank',max:999,base:60,cur:'gold'},
   {branch:'Tap',id:'tap',name:'Strike',desc:'+20% tap damage per rank',max:999,base:40,cur:'gold'},
   {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +1 per rank',max:5,base:300,cur:'gold'},
@@ -380,6 +380,7 @@ const AB_BOOST=1.05; // flat multiplier on revive, rage and the three damage abi
 function rageMult(h){return AB_BOOST*(1.5+1.0*(1-Math.exp(-0.5*abilityPower(h))));}
 function rageDur(h){return Math.min(8,4+Math.floor((h.abLvl||1)/3));}
 function f1(x){return (Math.round(x*10)/10).toString();}
+function boldNums(line,x,y){const nums=line.match(/[+\-]?\d+(?:\.\d+)?%?/g)||[];let idx=0;for(const n of nums){const at=line.indexOf(n,idx);if(at<0)continue;idx=at+n.length;text(x+textW(line.slice(0,at),'xs'),y,n,'xsb',C.cream);}} /* overdraws every number in a muted 'xs' line in bold cream */
 function drawAbilityNums(h,x,y,parts){const nums=(abilityDesc(h).match(/[\d.]+%|\b\d+ turns?/g)||[]);let cy=y;for(const line of parts){let idx=0;for(const n of nums){const at=line.indexOf(n,idx);if(at<0)continue;idx=at+n.length;const px0=x+textW(line.slice(0,at),'xs');text(px0,cy,n,'xsb',C.cream);}cy+=9;}}
 function abilityDesc(h){const r=h.abLvl,p=abilityPower(h);switch(CLASSES[h.cls].ab.id){
   case 'shieldwall':return 'Draws all attacks for '+shieldDur(h)+' turns, taking '+(shieldPct(h)*100).toFixed(2)+'% less damage.';
@@ -808,7 +809,7 @@ function drawTree(){drawPanelScreen();text(8,26,'Upgrade Tree','title',C.goldL);
   {const ty=42+(BIG?22:16)+4;text(8,ty+4,'Upgrades per tap','xs',C.muted);[1,5,25,'max'].forEach((m,i)=>{const x=96+i*42,on=G.mult===m;button(x,ty,40,16,on);text(x+20,ty+4,m==='max'?'Max':'×'+m,'xsb',on?C.goldL:C.cream,'center');hit(x,ty,40,16,()=>{G.mult=m;});});}
   const top=42+(BIG?22:16)+4+22;SCROLLTOP.tree=top;const nRows=TREE.filter(n=>n.branch===G.treeTab).length+(G.treeTab==='Crystal'?1:0);const TRH=Math.max(22,Math.min(BIG?44:32,Math.floor((TABY-8-TABTOP-top)/nRows)-3));beginScroll('tree',top);let y=top+2;if(G.treeTab==='Crystal'){text(8,y,'Blessings are paid in crystal dust and kept through every Shatter.','xs','#bbdefb');y+=14;}for(const n of TREE){if(n.branch!==G.treeTab)continue;
     const lv=treeLv(n.id),isD=n.cur==='dust',cost=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,lv)),max=lv>=n.max,can=!max&&(isD?G.dust:G.gold)>=cost,RH=TRH,TB=Math.min(BIG?32:20,RH-6);px(6,y,258,RH,C.band);
-    icon('nodes',10,y+RH/2-6,lv?4:0);const dl=Math.round(roll('tr_'+n.id,lv));const tight=RH<32;text(28,y+RH/2-(tight?9:12),n.name+(dl?'  rank '+dl:''),tight?'sb':'sb',C.cream);text(28,y+RH/2+(tight?0:-1),fitText(n.desc,'xs',150),'xs',C.muted);
+    icon('nodes',10,y+RH/2-6,lv?4:0);const dl=Math.round(roll('tr_'+n.id,lv));const tight=RH<32;text(28,y+RH/2-(tight?9:12),n.name+(dl?'  rank '+dl:''),tight?'sb':'sb',C.cream);{const dl2=fitText(n.desc,'xs',150),dy=y+RH/2+(tight?0:-1);text(28,dy,dl2,'xs',C.muted);boldNums(dl2,28,dy);}
     const bk=max?null:bulkCost(l=>R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,l)),lv,isD?G.dust:G.gold);button(192,y+(RH-TB)/2,66,TB,can,max);if(!max)icon(isD?'crystal':'coin',197,y+RH/2-6,isD?2:4);if(max)text(225,y+RH/2-4,'Maxed','xsb',C.dimt,'center');else textA(231,211,256,y+RH/2-4,fmtNum(bk.total)+(G.mult==='max'&&bk.n>1?' ('+bk.n+')':''),G.mult==='max'?'0.00K (00)':'0.00K','xsb',can?C.goldL:C.muted);
     if(!max)hit(192,y+(RH-TB)/2,66,TB,()=>{let k=0,want=G.mult==='max'?1e9:G.mult;while(k<want&&treeLv(n.id)<n.max){const c=R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,treeLv(n.id)));if((isD?G.dust:G.gold)<c)break;if(isD)G.dust-=c;else G.gold-=c;G.tree[n.id]=treeLv(n.id)+1;k++;}if(!k){if(treeLv(n.id)>=n.max)toast(n.name+' is maxed');else toast('Need '+fmtNum(R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,treeLv(n.id))))+(isD?' crystal dust':' gold'));return;}for(const h of G.roster)refreshStats(h);toast(n.name+' rank '+treeLv(n.id));},true);y+=RH+3;}endScroll('tree',y);}
 
