@@ -171,7 +171,7 @@ const TREE=[
   {branch:'Party',id:'abil',name:'Focus',desc:'+2% ability power per rank',max:30,base:150,cur:'gold'},
   {branch:'Party',id:'front',name:'Vanguard',desc:'+5% defense for the front hero per rank',max:999,base:160,cur:'gold'},
   {branch:'Party',id:'regen',name:'Second Wind',desc:'Heroes heal 1% HP each round per rank',max:10,base:400,cur:'gold'},
-  {branch:'Party',id:'rest',name:'Warm Fire',desc:'Heal 15% after each fight, +2% per rank',total:r=>'heals '+(15+2*r)+'%',max:999,base:90,cur:'gold'},
+  {branch:'Party',id:'rest',name:'Warm Fire',desc:'+2% per rank to the 15% after-fight heal',total:r=>'heals '+(15+2*r)+'%',max:999,base:90,cur:'gold'},
   {branch:'Party',id:'march',name:'Long Stride',desc:'+4% march speed per rank',max:999,base:60,cur:'gold'},
   {branch:'Tap',id:'tap',name:'Strike',desc:'+20% tap damage per rank',max:999,base:40,cur:'gold'},
   {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +1 per rank',max:5,base:300,cur:'gold'},
