@@ -36,12 +36,15 @@ function makeStubs(){
   return win;
 }
 
-const EXPORTS=['G','update','xpNeed','partyState','partyPower','ZONES','HEROES','CLASSES','TALENTS','ENEMIES','OMENS','SUPER_ORDER','BUILD','STRUCTS','OATHS','equipBest','ascendItem','ascendCost','ascendCap','buyTalent','promoteHero','promoteReq','rankCost','talentReq','treeLv','buildCost','hireCost','vilCap','idleVil','garrisonHeroes','postHero','postLeft','recallHero','garrisonSlots','startHordeFight','hordeWindow','hordeThreat','hordeTier','defense','prepCost','mercLv','startDelve','chooseDoor','endDelve','canReforge','doReforge','zoneUnlocked','reqReforge','goZone','reforgeGain','offlineGains','fmtNum','makeItem','salvageItem','goldMult','oreMult','xpMult','tapRateMult','migrateSave','nodeCost','buyTreeRank','restHealPct','restHealAt','dustBlessMult','dustBlessAt','critChance','actionSpeedMult','offlineReport','nodeTotal','CRIT_CAP','QUESTS','startQuest','collectQuest','questSlots','questDur','keysNow','keyMax','keyPeriod','living','salvageValue','refreshStats','layout','castleTick','checkUnlocks','partyMax','xpNeed','tal','built','endlessLv','endlessMilestone','bossZone','renownGain','offerOmens','milestoneItem','serialize','loadGame','saveGame','storeSet','storeGet','itemName','itemStat','upgradeCost','upgradeItem','heroStats','setAnim','banner','toast','closeSheet','openSheet','spawnEncounter','resolveHorde','genHorde','hordeStrength','currentRoadLevel','hordeCombatLevel','TREE','NODES','tabLocked','heroStatus','tapEnemy','tapDamage','castSurge','reactTo','autoOn','addHero','mkHero'];
+const EXPORTS=['G','update','xpNeed','partyState','partyPower','ZONES','HEROES','CLASSES','TALENTS','ENEMIES','OMENS','SUPER_ORDER','BUILD','STRUCTS','OATHS','equipBest','ascendItem','ascendCost','ascendCap','buyTalent','promoteHero','promoteReq','rankCost','talentReq','treeLv','buildCost','hireCost','vilCap','idleVil','garrisonHeroes','postHero','postLeft','recallHero','garrisonSlots','startHordeFight','hordeWindow','hordeThreat','hordeTier','defense','prepCost','mercLv','startDelve','chooseDoor','endDelve','canReforge','doReforge','zoneUnlocked','reqReforge','goZone','reforgeGain','offlineGains','fmtNum','makeItem','salvageItem','goldMult','oreMult','xpMult','tapRateMult','migrateSave','nodeCost','buyTreeRank','restHealPct','restHealAt','dustBlessMult','dustBlessAt','critChance','actionSpeedMult','offlineReport','nodeTotal','CRIT_CAP','killReward','grabTreasure','delveWin','endBattle','questEvent','orePerHour','goldPerHour','QUESTS','startQuest','collectQuest','questSlots','questDur','keysNow','keyMax','keyPeriod','living','salvageValue','refreshStats','layout','castleTick','checkUnlocks','partyMax','xpNeed','tal','built','endlessLv','endlessMilestone','bossZone','renownGain','offerOmens','milestoneItem','serialize','loadGame','saveGame','storeSet','storeGet','itemName','itemStat','upgradeCost','upgradeItem','heroStats','setAnim','banner','toast','closeSheet','openSheet','spawnEncounter','resolveHorde','genHorde','hordeStrength','currentRoadLevel','hordeCombatLevel','TREE','NODES','tabLocked','heroStatus','tapEnemy','tapDamage','castSurge','reactTo','autoOn','addHero','mkHero'];
 
 function load(opts={}){
   const win=makeStubs();
   // isolated, seeded RNG for this game context (the outer Math.random is never used by the game); S.reseed(seed) resets it
-  let rngState=(opts.seed==null?1:Number(opts.seed))>>>0;const ctxMath=Object.create(Math);ctxMath.random=()=>{rngState=(rngState*1664525+1013904223)>>>0;return rngState/4294967296;};win.Math=ctxMath;
+  // seeds are mixed (murmur-style finalizer) and the first draws burned, so nearby seeds diverge from the first draw
+  const mixSeed=s=>{s=(s^0x9E3779B9)>>>0;s=Math.imul(s,0x85EBCA6B)>>>0;s^=s>>>13;s=Math.imul(s,0xC2B2AE35)>>>0;s^=s>>>16;return s>>>0;};
+  let rngState=0;const seedRng=s=>{rngState=mixSeed(Number(s)>>>0);for(let i=0;i<8;i++)rngState=(rngState*1664525+1013904223)>>>0;};seedRng(opts.seed==null?1:opts.seed);
+  const ctxMath=Object.create(Math);ctxMath.random=()=>{rngState=(rngState*1664525+1013904223)>>>0;return rngState/4294967296;};win.Math=ctxMath;
   // virtual clock: Date.now() follows the simulation
   let simMs=opts.startMs||Date.now();
   const RealDate=Date;
@@ -56,7 +59,7 @@ function load(opts={}){
   const S=ctx.SIM;
   S.win=win;
   S.clock={get:()=>simMs,advance:ms=>{simMs+=ms;},set:ms=>{simMs=ms;}};
-  S.reseed=s=>{rngState=Number(s)>>>0;};S.seed=()=>rngState;
+  S.reseed=s=>{seedRng(s);};S.seed=()=>rngState;
   S.ready=new Promise(res=>{const chk=()=>{if(S.G.booted)res();else setTimeout(chk,5);};chk();});
   return S;
 }
