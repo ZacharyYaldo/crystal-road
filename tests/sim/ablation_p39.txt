@@ -1,0 +1,195 @@
+NODE ABLATION REPORT  seed 1  dt 1/60  arena hours 2  source game d10cce7468447b62 harness 60a7bbf05c234614:b74578c55d66d95f  (improvement vs rank 0 in the same scenario with the same RNG; cost is the price actually paid through buyTreeRank)
+
+== Vigor (hp, Party, max 999, gold base 80)  +4% max HP
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     120 gold: kills 75.5 (+16.2%) | defeats 33 (-16.5%) | gold 10.3K (+16.4%) | ore 476 (+31.3%) | levels 1 (+15.2%) | dmgAbility 67.9K (-1.7%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    2.5K gold: kills 69.5 (+6.9%) | defeats 31 (-21.5%) | gold 9.5K (+7.6%) | ore 447 (+23.3%) | levels 0.95 (+9.3%) | dmgAbility 70.3K (+1.7%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost   42.9K gold: kills 77 (+18.5%) | defeats 25 (-36.7%) | gold 10.7K (+21.1%) | ore 484 (+33.5%) | levels 1.08 (+24.5%) | dmgAbility 72.4K (+4.8%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Might (atk, Party, max 999, gold base 100)  +4% attack
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     150 gold: kills 74.5 (+14.6%) | defeats 40 (+1.3%) | gold 10.0K (+13.6%) | ore 379.5 (+4.7%) | levels 0.95 (+10.1%) | dmgAbility 73.8K (+6.8%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    3.1K gold: kills 89 (+36.9%) | defeats 37 (-6.3%) | gold 12.1K (+37.5%) | ore 447 (+23.3%) | levels 1.2 (+38.1%) | dmgAbility 88.6K (+28.2%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost   53.7K gold: kills 118.5 (+82.3%) | defeats 34 (-13.9%) | gold 16.5K (+86.9%) | ore 734 (+102.5%) | levels 1.61 (+85.1%) | dmgAbility 107.5K (+55.7%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Bulwark (def, Party, max 999, gold base 120)  +4% defense
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     180 gold: kills 76 (+16.9%) | defeats 37.5 (-5.1%) | gold 10.3K (+16.2%) | ore 440.5 (+21.5%) | levels 1.04 (+20.5%) | dmgAbility 69.4K (+0.4%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    3.7K gold: kills 67.5 (+3.8%) | defeats 39 (-1.3%) | gold 9.1K (+3.5%) | ore 430.5 (+18.8%) | levels 0.86 (-0.4%) | dmgAbility 69.4K (+0.5%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost   64.4K gold: kills 72 (+10.8%) | defeats 39 (-1.3%) | gold 9.8K (+10.9%) | ore 351 (-3.2%) | levels 0.94 (+7.9%) | dmgAbility 71.0K (+2.8%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Quickstep (spd, Party, max 25, gold base 300)  +2% action speed
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     450 gold: kills 74.5 (+14.6%) | defeats 40 (+1.3%) | gold 9.9K (+12.6%) | ore 441.5 (+21.8%) | levels 0.99 (+14.3%) | dmgAbility 70.0K (+1.4%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    9.2K gold: kills 81 (+24.6%) | defeats 36 (-8.9%) | gold 11.0K (+25.1%) | ore 361.5 (-0.3%) | levels 1.07 (+23.8%) | dmgAbility 70.4K (+1.9%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost  161.0K gold: kills 76 (+16.9%) | defeats 33.5 (-15.2%) | gold 10.3K (+16.7%) | ore 420.5 (+16.0%) | levels 1.04 (+20.4%) | dmgAbility 69.3K (+0.3%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Keen Edge (crit, Party, max 20, gold base 250)  +1% critical chance
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     375 gold: kills 68 (+4.6%) | defeats 40 (+1.3%) | gold 9.3K (+4.9%) | ore 451.5 (+24.6%) | levels 0.9 (+3.8%) | dmgAbility 68.4K (-0.9%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    7.7K gold: kills 68 (+4.6%) | defeats 37 (-6.3%) | gold 9.1K (+3.2%) | ore 308.5 (-14.9%) | levels 0.91 (+4.6%) | dmgAbility 68.1K (-1.4%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost  134.2K gold: kills 77.5 (+19.2%) | defeats 37 (-6.3%) | gold 10.5K (+18.9%) | ore 495.5 (+36.7%) | levels 1.01 (+16.7%) | dmgAbility 73.2K (+6.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Focus (abil, Party, max 30, gold base 150)  +2% ability power
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     225 gold: kills 75.5 (+16.2%) | defeats 35 (-11.4%) | gold 10.2K (+15.9%) | ore 489.5 (+35.0%) | levels 0.97 (+12.0%) | dmgAbility 72.6K (+5.1%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    4.6K gold: kills 75.5 (+16.2%) | defeats 38.5 (-2.5%) | gold 10.3K (+16.2%) | ore 468 (+29.1%) | levels 0.99 (+13.7%) | dmgAbility 80.2K (+16.1%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost   80.5K gold: kills 77.5 (+19.2%) | defeats 34 (-13.9%) | gold 10.6K (+20.5%) | ore 396.5 (+9.4%) | levels 1.05 (+21.6%) | dmgAbility 89.2K (+29.2%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Vanguard (front, Party, max 999, gold base 160)  +5% front hero DEF (15% base)
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     240 gold: kills 70.5 (+8.5%) | defeats 39.5 (+0.0%) | gold 9.6K (+8.4%) | ore 380.5 (+5.0%) | levels 0.98 (+13.1%) | dmgAbility 69.5K (+0.6%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    4.9K gold: kills 64.5 (-0.8%) | defeats 38 (-3.8%) | gold 8.7K (-1.5%) | ore 402.5 (+11.0%) | levels 0.86 (-1.1%) | dmgAbility 68.1K (-1.5%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost   85.9K gold: kills 68.5 (+5.4%) | defeats 38.5 (-2.5%) | gold 9.2K (+4.3%) | ore 356.5 (-1.7%) | levels 0.91 (+5.0%) | dmgAbility 69.0K (-0.2%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Second Wind (regen, Party, max 10, gold base 400)  Heal 1% HP each round
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     600 gold: kills 69 (+6.2%) | defeats 38 (-3.8%) | gold 9.4K (+6.3%) | ore 389 (+7.3%) | levels 0.92 (+5.8%) | dmgAbility 67.8K (-1.9%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost   12.3K gold: kills 77 (+18.5%) | defeats 30 (-24.1%) | gold 10.5K (+18.7%) | ore 433.5 (+19.6%) | levels 1.04 (+20.3%) | dmgAbility 70.3K (+1.8%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost  214.7K gold: kills 78.5 (+20.8%) | defeats 27.5 (-30.4%) | gold 10.8K (+22.6%) | ore 374.5 (+3.3%) | levels 1.16 (+34.0%) | dmgAbility 70.7K (+2.4%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Warm Fire (rest, Party, max 40, gold base 90)  +2% to the 15% fight heal
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost     135 gold: kills 69 (+6.2%) | defeats 38 (-3.8%) | gold 9.3K (+5.2%) | ore 387.5 (+6.9%) | levels 0.92 (+5.7%) | dmgAbility 68.1K (-1.5%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    2.8K gold: kills 68.5 (+5.4%) | defeats 33.5 (-15.2%) | gold 9.3K (+5.5%) | ore 455.5 (+25.7%) | levels 0.92 (+5.9%) | dmgAbility 68.8K (-0.4%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost   48.3K gold: kills 72 (+10.8%) | defeats 39.5 (+0.0%) | gold 9.8K (+11.0%) | ore 449.5 (+24.0%) | levels 0.98 (+13.0%) | dmgAbility 70.9K (+2.7%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Crystal Vigor (b_hp, Crystal, max 99, dust base 4)  +10% max HP
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost       4 dust: kills 72 (+10.8%) | defeats 38.5 (-2.5%) | gold 9.7K (+9.3%) | ore 360.5 (-0.6%) | levels 0.96 (+11.2%) | dmgAbility 70.9K (+2.6%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost      53 dust: kills 79 (+21.5%) | defeats 25 (-36.7%) | gold 11.0K (+24.2%) | ore 439 (+21.1%) | levels 1.11 (+28.0%) | dmgAbility 74.4K (+7.7%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost     454 dust: kills 82 (+26.2%) | defeats 17.5 (-55.7%) | gold 11.4K (+29.6%) | ore 482 (+33.0%) | levels 1.2 (+38.1%) | dmgAbility 76.7K (+11.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Sharpened Fate (b_dmg, Crystal, max 99, dust base 4)  +8% attack and ability damage
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost       4 dust: kills 85 (+30.8%) | defeats 37 (-6.3%) | gold 11.6K (+30.8%) | ore 512 (+41.2%) | levels 1.11 (+28.3%) | dmgAbility 77.2K (+11.7%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost      53 dust: kills 113 (+73.8%) | defeats 37.5 (-5.1%) | gold 15.6K (+76.8%) | ore 535 (+47.6%) | levels 1.51 (+74.6%) | dmgAbility 108.0K (+56.4%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost     454 dust: kills 150.5 (+131.5%) | defeats 35.5 (-10.1%) | gold 21.0K (+138.2%) | ore 846.5 (+133.5%) | levels 1.94 (+123.4%) | dmgAbility 144.7K (+109.5%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Crystal Edge (b_crit, Crystal, max 20, dust base 4)  +2% critical chance
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost       4 dust: kills 71.5 (+10.0%) | defeats 37.5 (-5.1%) | gold 9.6K (+9.2%) | ore 431 (+18.9%) | levels 0.93 (+7.6%) | dmgAbility 69.6K (+0.7%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost      53 dust: kills 77.5 (+19.2%) | defeats 37 (-6.3%) | gold 10.5K (+18.9%) | ore 495.5 (+36.7%) | levels 1.01 (+16.7%) | dmgAbility 73.2K (+6.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost     454 dust: kills 78.5 (+20.8%) | defeats 38.5 (-2.5%) | gold 10.6K (+20.4%) | ore 562 (+55.0%) | levels 1.06 (+22.4%) | dmgAbility 75.6K (+9.5%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Attuned (b_ab, Crystal, max 20, dust base 5)  +5% ability power
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost       5 dust: kills 80 (+23.1%) | defeats 34 (-13.9%) | gold 10.9K (+23.4%) | ore 448 (+23.6%) | levels 1.03 (+18.7%) | dmgAbility 75.9K (+9.9%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost      66 dust: kills 79.5 (+22.3%) | defeats 36 (-8.9%) | gold 10.9K (+23.9%) | ore 505 (+39.3%) | levels 1.07 (+23.8%) | dmgAbility 94.8K (+37.3%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost     566 dust: kills 96 (+47.7%) | defeats 35.5 (-10.1%) | gold 13.1K (+48.7%) | ore 598 (+65.0%) | levels 1.3 (+49.8%) | dmgAbility 124.0K (+79.5%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Resonant Heart (b_surge, Crystal, max 10, dust base 5)  Kills charge the Surge 10% faster
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost       5 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 362.5 (+0.0%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost      66 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 362.5 (+0.0%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost     566 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 362.5 (+0.0%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Long Stride (march, Party, max 999, gold base 60)  +4% march speed  [trivial fights: walking dominates]
+   rank 0: kills 694.5 | defeats 0 | gold 31.2K | ore 1.3K | levels 0.98 | dmgAbility 54.5K | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  1 cost      90 gold: kills 694.5 (+0.0%) | defeats 0 | gold 31.2K (+0.0%) | ore 1.3K (+0.0%) | levels 0.98 (+0.0%) | dmgAbility 54.5K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank  5 cost    1.9K gold: kills 694.5 (+0.0%) | defeats 0 | gold 31.2K (+0.0%) | ore 1.3K (+0.0%) | levels 0.98 (+0.0%) | dmgAbility 54.5K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+   rank 10 cost   32.2K gold: kills 694.5 (+0.0%) | defeats 0 | gold 31.2K (+0.0%) | ore 1.3K (+0.0%) | levels 0.98 (+0.0%) | dmgAbility 54.5K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0
+
+== Strike (tap, Tap, max 999, gold base 40)  +20% tap damage
+   rank 0: kills@3tps 77 | kills@10tps 88 | defeats@3tps 36.5 | defeats@10tps 39.5 | gold@3tps 10.5K | gold@10tps 12.0K | ore@3tps 396.5 | ore@10tps 550.5 | levels@3tps 1.01 | levels@10tps 1.13 | dmgAbility@3tps 68.6K | dmgAbility@10tps 68.6K | dmgTap@3tps 25.6K | dmgTap@10tps 52.1K | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K | taps@10tps 25.5K
+   rank  1 cost      60 gold: kills@3tps 73 (-5.2%) | kills@10tps 89 (+1.1%) | defeats@3tps 41 (+12.3%) | defeats@10tps 36 (-8.9%) | gold@3tps 9.8K (-6.2%) | gold@10tps 12.1K (+0.7%) | ore@3tps 436.5 (+10.1%) | ore@10tps 468.5 (-14.9%) | levels@3tps 1 (-1.1%) | levels@10tps 1.18 (+4.5%) | dmgAbility@3tps 69.7K (+1.6%) | dmgAbility@10tps 68.1K (-0.8%) | dmgTap@3tps 34.0K (+32.6%) | dmgTap@10tps 53.1K (+1.8%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (-0.2%) | taps@10tps 25.8K (+1.0%)
+   rank  5 cost    1.2K gold: kills@3tps 82.5 (+7.1%) | kills@10tps 102.5 (+16.5%) | defeats@3tps 38 (+4.1%) | defeats@10tps 37.5 (-5.1%) | gold@3tps 11.3K (+8.0%) | gold@10tps 13.9K (+16.1%) | ore@3tps 362.5 (-8.6%) | ore@10tps 607.5 (+10.4%) | levels@3tps 1.14 (+12.7%) | levels@10tps 1.37 (+21.3%) | dmgAbility@3tps 67.0K (-2.4%) | dmgAbility@10tps 66.6K (-3.0%) | dmgTap@3tps 53.0K (+107.1%) | dmgTap@10tps 102.3K (+96.2%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.1K (-2.1%) | taps@10tps 25.0K (-2.2%)
+   rank 10 cost   21.5K gold: kills@3tps 96.5 (+25.3%) | kills@10tps 119.5 (+35.8%) | defeats@3tps 35 (-4.1%) | defeats@10tps 36.5 (-7.6%) | gold@3tps 13.2K (+26.5%) | gold@10tps 16.5K (+37.1%) | ore@3tps 571 (+44.0%) | ore@10tps 683 (+24.1%) | levels@3tps 1.3 (+28.1%) | levels@10tps 1.57 (+39.0%) | dmgAbility@3tps 66.0K (-3.8%) | dmgAbility@10tps 65.3K (-4.9%) | dmgTap@3tps 82.2K (+221.0%) | dmgTap@10tps 137.4K (+163.6%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.0K (-3.7%) | taps@10tps 24.5K (-4.0%)
+
+== Sharp Taps (tapcrit, Tap, max 25, gold base 120)  +2% tap triple-hit chance
+   rank 0: kills@3tps 77 | kills@10tps 88 | defeats@3tps 36.5 | defeats@10tps 39.5 | gold@3tps 10.5K | gold@10tps 12.0K | ore@3tps 396.5 | ore@10tps 550.5 | levels@3tps 1.01 | levels@10tps 1.13 | dmgAbility@3tps 68.6K | dmgAbility@10tps 68.6K | dmgTap@3tps 25.6K | dmgTap@10tps 52.1K | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K | taps@10tps 25.5K
+   rank  1 cost     180 gold: kills@3tps 75 (-2.6%) | kills@10tps 86.5 (-1.7%) | defeats@3tps 39 (+6.8%) | defeats@10tps 37 (-6.3%) | gold@3tps 10.1K (-3.1%) | gold@10tps 11.8K (-1.7%) | ore@3tps 368.5 (-7.1%) | ore@10tps 542 (-1.5%) | levels@3tps 1.01 (-0.3%) | levels@10tps 1.16 (+2.8%) | dmgAbility@3tps 67.8K (-1.2%) | dmgAbility@10tps 67.5K (-1.7%) | dmgTap@3tps 26.6K (+3.7%) | dmgTap@10tps 54.6K (+4.8%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (-0.3%) | taps@10tps 25.8K (+0.9%)
+   rank  5 cost    3.7K gold: kills@3tps 76 (-1.3%) | kills@10tps 89 (+1.1%) | defeats@3tps 42.5 (+16.4%) | defeats@10tps 38.5 (-2.5%) | gold@3tps 10.3K (-1.6%) | gold@10tps 12.0K (+0.2%) | ore@3tps 477.5 (+20.4%) | ore@10tps 499.5 (-9.3%) | levels@3tps 1.03 (+1.2%) | levels@10tps 1.2 (+6.2%) | dmgAbility@3tps 68.0K (-0.8%) | dmgAbility@10tps 67.8K (-1.2%) | dmgTap@3tps 30.7K (+19.7%) | dmgTap@10tps 63.1K (+21.0%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (-0.5%) | taps@10tps 25.8K (+1.0%)
+   rank 10 cost   64.4K gold: kills@3tps 76 (-1.3%) | kills@10tps 93.5 (+6.3%) | defeats@3tps 40 (+9.6%) | defeats@10tps 39 (-1.3%) | gold@3tps 10.3K (-1.7%) | gold@10tps 12.8K (+6.4%) | ore@3tps 461.5 (+16.4%) | ore@10tps 617.5 (+12.2%) | levels@3tps 1.03 (+1.3%) | levels@10tps 1.29 (+14.2%) | dmgAbility@3tps 67.9K (-1.0%) | dmgAbility@10tps 67.4K (-1.8%) | dmgTap@3tps 35.8K (+39.7%) | dmgTap@10tps 72.5K (+39.0%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (-0.5%) | taps@10tps 25.3K (-1.0%)
+
+== Momentum (tapcharge, Tap, max 5, gold base 300)  Taps charge abilities +1
+   rank 0: kills@3tps 77 | kills@10tps 88 | defeats@3tps 36.5 | defeats@10tps 39.5 | gold@3tps 10.5K | gold@10tps 12.0K | ore@3tps 396.5 | ore@10tps 550.5 | levels@3tps 1.01 | levels@10tps 1.13 | dmgAbility@3tps 68.6K | dmgAbility@10tps 68.6K | dmgTap@3tps 25.6K | dmgTap@10tps 52.1K | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K | taps@10tps 25.5K
+   rank  1 cost     450 gold: kills@3tps 84 (+9.1%) | kills@10tps 89.5 (+1.7%) | defeats@3tps 36.5 (+0.0%) | defeats@10tps 37.5 (-5.1%) | gold@3tps 11.4K (+9.4%) | gold@10tps 12.3K (+2.2%) | ore@3tps 500.5 (+26.2%) | ore@10tps 469 (-14.8%) | levels@3tps 1.19 (+17.0%) | levels@10tps 1.19 (+5.4%) | dmgAbility@3tps 80.7K (+17.6%) | dmgAbility@10tps 69.7K (+1.5%) | dmgTap@3tps 25.4K (-0.7%) | dmgTap@10tps 52.4K (+0.5%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.2K (-0.8%) | taps@10tps 25.7K (+0.5%)
+   rank  5 cost    9.2K gold: kills@3tps 98.5 (+27.9%) | kills@10tps 90.5 (+2.8%) | defeats@3tps 20.5 (-43.8%) | defeats@10tps 37 (-6.3%) | gold@3tps 13.9K (+33.2%) | gold@10tps 12.3K (+2.9%) | ore@3tps 595.5 (+50.2%) | ore@10tps 480 (-12.8%) | levels@3tps 1.47 (+45.0%) | levels@10tps 1.22 (+7.8%) | dmgAbility@3tps 120.0K (+74.9%) | dmgAbility@10tps 71.8K (+4.7%) | dmgTap@3tps 25.9K (+1.3%) | dmgTap@10tps 52.8K (+1.2%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.4K (+1.5%) | taps@10tps 25.9K (+1.3%)
+
+== Pickpocket (tapgold, Tap, max 20, gold base 300)  Taps steal 0.5% of bounty
+   rank 0: kills@3tps 77 | kills@10tps 88 | defeats@3tps 36.5 | defeats@10tps 39.5 | gold@3tps 10.5K | gold@10tps 12.0K | ore@3tps 396.5 | ore@10tps 550.5 | levels@3tps 1.01 | levels@10tps 1.13 | dmgAbility@3tps 68.6K | dmgAbility@10tps 68.6K | dmgTap@3tps 25.6K | dmgTap@10tps 52.1K | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K | taps@10tps 25.5K
+   rank  1 cost     450 gold: kills@3tps 77 (+0.0%) | kills@10tps 88 (+0.0%) | defeats@3tps 36.5 (+0.0%) | defeats@10tps 39.5 (+0.0%) | gold@3tps 12.7K (+21.5%) | gold@10tps 12.2K (+1.3%) | ore@3tps 396.5 (+0.0%) | ore@10tps 550.5 (+0.0%) | levels@3tps 1.01 (+0.0%) | levels@10tps 1.13 (+0.0%) | dmgAbility@3tps 68.6K (+0.0%) | dmgAbility@10tps 68.6K (+0.0%) | dmgTap@3tps 25.6K (+0.0%) | dmgTap@10tps 52.1K (+0.0%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (+0.0%) | taps@10tps 25.5K (+0.0%)
+   rank  5 cost    9.2K gold: kills@3tps 77 (+0.0%) | kills@10tps 88 (+0.0%) | defeats@3tps 36.5 (+0.0%) | defeats@10tps 39.5 (+0.0%) | gold@3tps 21.7K (+107.7%) | gold@10tps 12.8K (+6.3%) | ore@3tps 396.5 (+0.0%) | ore@10tps 550.5 (+0.0%) | levels@3tps 1.01 (+0.0%) | levels@10tps 1.13 (+0.0%) | dmgAbility@3tps 68.6K (+0.0%) | dmgAbility@10tps 68.6K (+0.0%) | dmgTap@3tps 25.6K (+0.0%) | dmgTap@10tps 52.1K (+0.0%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (+0.0%) | taps@10tps 25.5K (+0.0%)
+   rank 10 cost  161.0K gold: kills@3tps 77 (+0.0%) | kills@10tps 88 (+0.0%) | defeats@3tps 36.5 (+0.0%) | defeats@10tps 39.5 (+0.0%) | gold@3tps 33.0K (+215.4%) | gold@10tps 13.5K (+12.6%) | ore@3tps 396.5 (+0.0%) | ore@10tps 550.5 (+0.0%) | levels@3tps 1.01 (+0.0%) | levels@10tps 1.13 (+0.0%) | dmgAbility@3tps 68.6K (+0.0%) | dmgAbility@10tps 68.6K (+0.0%) | dmgTap@3tps 25.6K (+0.0%) | dmgTap@10tps 52.1K (+0.0%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (+0.0%) | taps@10tps 25.5K (+0.0%)
+
+== Resonance (tapsurge, Tap, max 5, gold base 600)  Taps charge the Surge +0.2
+   rank 0: kills@3tps 77 | kills@10tps 88 | defeats@3tps 36.5 | defeats@10tps 39.5 | gold@3tps 10.5K | gold@10tps 12.0K | ore@3tps 396.5 | ore@10tps 550.5 | levels@3tps 1.01 | levels@10tps 1.13 | dmgAbility@3tps 68.6K | dmgAbility@10tps 68.6K | dmgTap@3tps 25.6K | dmgTap@10tps 52.1K | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K | taps@10tps 25.5K
+   rank  1 cost     900 gold: kills@3tps 77 (+0.0%) | kills@10tps 88 (+0.0%) | defeats@3tps 36.5 (+0.0%) | defeats@10tps 39.5 (+0.0%) | gold@3tps 10.5K (+0.0%) | gold@10tps 12.0K (+0.0%) | ore@3tps 396.5 (+0.0%) | ore@10tps 550.5 (+0.0%) | levels@3tps 1.01 (+0.0%) | levels@10tps 1.13 (+0.0%) | dmgAbility@3tps 68.6K (+0.0%) | dmgAbility@10tps 68.6K (+0.0%) | dmgTap@3tps 25.6K (+0.0%) | dmgTap@10tps 52.1K (+0.0%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (+0.0%) | taps@10tps 25.5K (+0.0%)
+   rank  5 cost   18.5K gold: kills@3tps 77 (+0.0%) | kills@10tps 88 (+0.0%) | defeats@3tps 36.5 (+0.0%) | defeats@10tps 39.5 (+0.0%) | gold@3tps 10.5K (+0.0%) | gold@10tps 12.0K (+0.0%) | ore@3tps 396.5 (+0.0%) | ore@10tps 550.5 (+0.0%) | levels@3tps 1.01 (+0.0%) | levels@10tps 1.13 (+0.0%) | dmgAbility@3tps 68.6K (+0.0%) | dmgAbility@10tps 68.6K (+0.0%) | dmgTap@3tps 25.6K (+0.0%) | dmgTap@10tps 52.1K (+0.0%) | dmgSurge@3tps 0 | dmgSurge@10tps 0 | taps@3tps 8.3K (+0.0%) | taps@10tps 25.5K (+0.0%)
+
+== Gilded Road (b_gold, Crystal, max 99, dust base 5)  +15% gold from every source
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 | goldPerDay 2.2K | orePerDay 190 | dustPerDay 13
+   rank  1 cost       5 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 10.2K (+15.0%) | ore 362.5 (+0.0%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.5K (+15.2%) | orePerDay 190 (+0.0%) | dustPerDay 13 (+0.0%)
+   rank  5 cost      66 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 15.5K (+75.0%) | ore 362.5 (+0.0%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 3.9K (+75.1%) | orePerDay 190 (+0.0%) | dustPerDay 13 (+0.0%)
+   rank 10 cost     566 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 22.1K (+150.0%) | ore 362.5 (+0.0%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 5.5K (+150.1%) | orePerDay 190 (+0.0%) | dustPerDay 13 (+0.0%)
+
+== Deep Veins (b_ore, Crystal, max 99, dust base 5)  +15% ore from every source
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 | goldPerDay 2.2K | orePerDay 190 | dustPerDay 13
+   rank  1 cost       5 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 412 (+13.7%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 220 (+15.8%) | dustPerDay 13 (+0.0%)
+   rank  5 cost      66 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 623 (+71.9%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 335 (+76.3%) | dustPerDay 13 (+0.0%)
+   rank 10 cost     566 dust: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 892.5 (+146.2%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 475 (+150.0%) | dustPerDay 13 (+0.0%)
+
+== Prospecting (ore, Camp, max 999, gold base 150)  +5% ore from every source
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 | goldPerDay 2.2K | orePerDay 190 | dustPerDay 13
+   rank  1 cost     225 gold: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 373.5 (+3.0%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 200 (+5.3%) | dustPerDay 13 (+0.0%)
+   rank  5 cost    4.6K gold: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 450.5 (+24.3%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 240 (+26.3%) | dustPerDay 13 (+0.0%)
+   rank 10 cost   80.5K gold: kills 65 (+0.0%) | defeats 39.5 (+0.0%) | gold 8.8K (+0.0%) | ore 541.5 (+49.4%) | levels 0.87 (+0.0%) | dmgAbility 69.1K (+0.0%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 285 (+50.0%) | dustPerDay 13 (+0.0%)
+
+== Old Wisdom (b_xp, Crystal, max 99, dust base 5)  +15% experience
+   rank 0: kills 65 | defeats 39.5 | gold 8.8K | ore 362.5 | levels 0.87 | dmgAbility 69.1K | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 | goldPerDay 2.2K | orePerDay 190 | dustPerDay 13
+   rank  1 cost       5 dust: kills 71 (+9.2%) | defeats 39 (-1.3%) | gold 9.6K (+8.1%) | ore 336 (-7.3%) | levels 1.07 (+23.7%) | dmgAbility 69.0K (-0.1%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 190 (+0.0%) | dustPerDay 13 (+0.0%)
+   rank  5 cost      66 dust: kills 66.5 (+2.3%) | defeats 37.5 (-5.1%) | gold 9.1K (+2.9%) | ore 329 (-9.2%) | levels 1.47 (+69.8%) | dmgAbility 69.7K (+0.9%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 190 (+0.0%) | dustPerDay 13 (+0.0%)
+   rank 10 cost     566 dust: kills 70 (+7.7%) | defeats 35 (-11.4%) | gold 9.5K (+7.4%) | ore 387 (+6.8%) | levels 2.02 (+133.1%) | dmgAbility 70.9K (+2.6%) | dmgTap 0 | dmgSurge 0 | taps 0 | questsPerDay 20 (+0.0%) | goldPerDay 2.2K (+0.0%) | orePerDay 190 (+0.0%) | dustPerDay 13 (+0.0%)
+
+== Bunks (slots, Camp, max 3, gold base 400)  +1 quest slot
+   rank 0: questsPerDay 20 | goldPerDay 2.2K | orePerDay 190 | dustPerDay 13
+   rank  1 cost     600 gold: questsPerDay 26.5 (+32.5%) | goldPerDay 2.6K (+16.6%) | orePerDay 266 (+40.0%) | dustPerDay 15 (+15.4%)
+   rank  3 cost    3.5K gold: questsPerDay 26.5 (+32.5%) | goldPerDay 2.6K (+16.6%) | orePerDay 266 (+40.0%) | dustPerDay 15 (+15.4%)
+
+== Provisions (quest, Camp, max 999, gold base 200)  +6% quest gold, ore and dust
+   rank 0: questsPerDay 20 | goldPerDay 2.2K | orePerDay 190 | dustPerDay 13
+   rank  1 cost     300 gold: questsPerDay 20 (+0.0%) | goldPerDay 2.3K (+4.6%) | orePerDay 200 (+5.3%) | dustPerDay 13 (+0.0%)
+   rank  5 cost    6.2K gold: questsPerDay 20 (+0.0%) | goldPerDay 2.7K (+23.0%) | orePerDay 245 (+28.9%) | dustPerDay 14.5 (+11.5%)
+   rank 10 cost  107.4K gold: questsPerDay 20 (+0.0%) | goldPerDay 3.2K (+46.1%) | orePerDay 305 (+60.5%) | dustPerDay 17.5 (+34.6%)
+
+== Swift Return (swift, Camp, max 20, gold base 350)  Quests finish 3% sooner
+   rank 0: questsPerDay 20 | goldPerDay 2.2K | orePerDay 190 | dustPerDay 13
+   rank  1 cost     525 gold: questsPerDay 20.5 (+2.5%) | goldPerDay 2.1K (-3.7%) | orePerDay 209 (+10.0%) | dustPerDay 13.5 (+3.8%)
+   rank  5 cost   10.8K gold: questsPerDay 23 (+15.0%) | goldPerDay 2.4K (+11.0%) | orePerDay 228 (+20.0%) | dustPerDay 14.5 (+11.5%)
+   rank 10 cost  187.9K gold: questsPerDay 28.5 (+42.5%) | goldPerDay 3.2K (+43.6%) | orePerDay 285 (+50.0%) | dustPerDay 18.5 (+42.3%)
+
+== Locksmith (keys, Camp, max 10, gold base 500)  Keys return 8% faster
+   rank 0: keysPerDay 3
+   rank  1 cost     750 gold: keysPerDay 3 (+0.0%)
+   rank  5 cost   15.4K gold: keysPerDay 4 (+33.3%)
+   rank 10 cost  268.4K gold: keysPerDay 5 (+66.7%)
+
+== Deeper Halls (b_keys, Crystal, max 3, dust base 12)  +1 catacomb key held
+   rank 0: keysHeldAtEnd 3 | capacity 3
+   rank  1 cost      12 dust: keysHeldAtEnd 4 (+33.3%) | capacity 4 (+33.3%)
+   rank  3 cost      57 dust: keysHeldAtEnd 6 (+100.0%) | capacity 6 (+100.0%)
+
+== Night Watch (offline, Camp, max 8, gold base 450)  +30 min offline cap
+   rank 0: gold 246.4K | ore 5.4K | levelsGained 13.28
+   rank  1 cost     675 gold: gold 261.8K (+6.3%) | ore 5.7K (+6.3%) | levelsGained 13.79 (+3.9%)
+   rank  5 cost   13.9K gold: gold 323.6K (+31.3%) | ore 7.1K (+31.4%) | levelsGained 15.67 (+18.0%)
+   rank  8 cost   78.3K gold: gold 369.5K (+50.0%) | ore 8.1K (+50.0%) | levelsGained 16.93 (+27.5%)
+
+== Haggling (haggle, Camp, max 20, gold base 250)  Villagers 3% cheaper
+   rank 0: hireCost 759
+   rank  1 cost     375 gold: hireCost 737 (-2.9%)
+   rank  5 cost    7.7K gold: hireCost 645 (-15.0%)
+   rank 10 cost  134.2K gold: hireCost 532 (-29.9%)
+
+== Crystal Memory (b_dust, Crystal, max 20, dust base 8)  +10% dust from every Shatter
+   rank 0: startLevel 1 | partyPower 3.3K | knightHP 245 | knightATK 77 | dustGained 34
+   rank  1 cost       8 dust: startLevel 1 (+0.0%) | partyPower 3.3K (+0.0%) | knightHP 245 (+0.0%) | knightATK 77 (+0.0%) | dustGained 37 (+8.8%)
+   rank  5 cost     106 dust: startLevel 1 (+0.0%) | partyPower 3.3K (+0.0%) | knightHP 245 (+0.0%) | knightATK 77 (+0.0%) | dustGained 51 (+50.0%)
+   rank 10 cost     908 dust: startLevel 1 (+0.0%) | partyPower 3.3K (+0.0%) | knightHP 245 (+0.0%) | knightATK 77 (+0.0%) | dustGained 68 (+100.0%)
+
+== Remembered Strength (b_start, Crystal, max 10, dust base 6)  Start each run +5 levels
+   rank 0: startLevel 1 | partyPower 3.3K | knightHP 245 | knightATK 77 | dustGained 34
+   rank  1 cost       6 dust: startLevel 6 (+500.0%) | partyPower 3.8K (+16.2%) | knightHP 315 (+28.6%) | knightATK 88 (+14.3%) | dustGained 34 (+0.0%)
+   rank  5 cost      79 dust: startLevel 26 (+2500.0%) | partyPower 5.9K (+79.8%) | knightHP 595 (+142.9%) | knightATK 132 (+71.4%) | dustGained 34 (+0.0%)
+   rank 10 cost     681 dust: startLevel 51 (+5000.0%) | partyPower 8.5K (+158.9%) | knightHP 945 (+285.7%) | knightATK 187 (+142.9%) | dustGained 34 (+0.0%)

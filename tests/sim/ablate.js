@@ -23,10 +23,11 @@ function levelProg(S,G){return G.active.reduce((a,h)=>a+h.lvl+h.xp/Math.max(1,S.
 
 function arena(S,G,{zone=3,hours=HOURS,taps=0}){G.zone=zone;for(let i=0;i<zone;i++){G.cleared[i]=true;G.prog[i]=S.ZONES[i].fights;}G.prog[zone]=0;G.cleared[zone]=false;G.far=G.far||[];G.mode='walk';G.enemies=[];G.projs=[];G.action=null;G.autoCast=true;G.autoUntil=S.clock.get()+1e12;S.layout();
   const k0=G.stats.kills||0,d0=G.stats.defeats||0,g0=G.gold,o0=G.ore,l0=levelProg(S,G),db0=Object.assign({basic:0,ability:0,tap:0,surge:0},G.stats.dmgBy||{});
-  let t=0,nextTap=0,tapsDone=0;while(t<hours*3600){t+=DT;S.setRT(S.getRT()+DT);S.clock.advance(DT*1000);G.tut=null;S.update(DT,true);G.parts.length=0;G.floats.length=0;
-    if(taps>0&&G.mode==='battle'&&S.getRT()>=nextTap){nextTap=S.getRT()+1/taps;const e=G.enemies.find(x=>!x.dead);if(e){S.tapEnemy(e);tapsDone++;}}}
+  let t=0,nextTap=0,tapsDone=0,surges=0;while(t<hours*3600){t+=DT;S.setRT(S.getRT()+DT);S.clock.advance(DT*1000);G.tut=null;S.update(DT,true);G.parts.length=0;G.floats.length=0;
+    if(taps>0&&G.mode==='battle'&&S.getRT()>=nextTap){nextTap=S.getRT()+1/taps;const e=G.enemies.find(x=>!x.dead);if(e){S.tapEnemy(e);tapsDone++;}}
+    if(G.mode==='battle'&&(G.surge||0)>=100){const b=G.surge;S.castSurge();if(G.surge<b)surges++;}}
   const db=Object.assign({basic:0,ability:0,tap:0,surge:0},G.stats.dmgBy||{});const h=hours;
-  return{kills:((G.stats.kills||0)-k0)/h,defeats:((G.stats.defeats||0)-d0)/h,gold:(G.gold-g0)/h,ore:(G.ore-o0)/h,levels:(levelProg(S,G)-l0)/h,dmgAbility:(db.ability-db0.ability)/h,dmgTap:(db.tap-db0.tap)/h,dmgSurge:(db.surge-db0.surge)/h,taps:tapsDone/h};}
+  return{kills:((G.stats.kills||0)-k0)/h,defeats:((G.stats.defeats||0)-d0)/h,gold:(G.gold-g0)/h,ore:(G.ore-o0)/h,levels:(levelProg(S,G)-l0)/h,dmgAbility:(db.ability-db0.ability)/h,dmgTap:(db.tap-db0.tap)/h,surges:surges/h,taps:tapsDone/h};}
 
 function quests(S,G,{hours=48}){G.active=[];G.zone=3;G.quests=[];let done=0;const g0=G.gold,o0=G.ore,d0=G.dust;let qi=0;const order=S.QUESTS;
   const step=60;for(let t=0;t<hours*3600;t+=step){S.clock.advance(step*1000);const nowMs=S.clock.get();
