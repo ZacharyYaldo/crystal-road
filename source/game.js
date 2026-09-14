@@ -178,7 +178,7 @@ const TREE=[
   {branch:'Camp',id:'slots',name:'Bunks',desc:'+1 quest slot',max:3,base:400,cur:'gold'},
   {branch:'Camp',id:'quest',name:'Provisions',desc:'+6% quest rewards',max:999,base:200,cur:'gold'},
   {branch:'Tap',id:'tapcrit',name:'Sharp Taps',desc:'+2% tap triple-hit chance',max:25,base:120,cur:'gold'},
-  {branch:'Tap',id:'tapgold',name:'Pickpocket',desc:'Taps steal 0.5% of an enemy\'s bounty per rank',max:20,base:300,cur:'gold'},
+  {branch:'Tap',id:'tapgold',name:'Pickpocket',desc:'Taps steal 0.5% of bounty',max:20,base:300,cur:'gold'},
   {branch:'Tap',id:'tapsurge',name:'Resonance',desc:'Taps charge the Crystal Surge',max:5,base:600,cur:'gold'},
   {branch:'Camp',id:'keys',name:'Locksmith',desc:'Keys return 8% faster',max:10,base:500,cur:'gold'},
   {branch:'Camp',id:'haggle',name:'Haggling',desc:'Villagers 3% cheaper',max:20,base:250,cur:'gold'},
