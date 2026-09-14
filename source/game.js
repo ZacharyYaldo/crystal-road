@@ -171,7 +171,7 @@ const TREE=[
   {branch:'Party',id:'abil',name:'Focus',desc:'+2% ability power per rank',max:30,base:150,cur:'gold'},
   {branch:'Party',id:'front',name:'Vanguard',desc:'+5% defense for the front hero per rank',max:999,base:160,cur:'gold'},
   {branch:'Party',id:'regen',name:'Second Wind',desc:'Heroes heal 1% HP each round per rank',max:10,base:400,cur:'gold'},
-  {branch:'Party',id:'rest',name:'Warm Fire',desc:'Heal 15% after each fight, +2% per rank',max:999,base:90,cur:'gold'},
+  {branch:'Party',id:'rest',name:'Warm Fire',desc:'Heal 15% after each fight, +2% per rank',total:r=>'heals '+(15+2*r)+'%',max:999,base:90,cur:'gold'},
   {branch:'Party',id:'march',name:'Long Stride',desc:'+4% march speed per rank',max:999,base:60,cur:'gold'},
   {branch:'Tap',id:'tap',name:'Strike',desc:'+20% tap damage per rank',max:999,base:40,cur:'gold'},
   {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +1 per rank',max:5,base:300,cur:'gold'},
@@ -380,7 +380,7 @@ const AB_BOOST=1.05; // flat multiplier on revive, rage and the three damage abi
 function rageMult(h){return AB_BOOST*(1.5+1.0*(1-Math.exp(-0.5*abilityPower(h))));}
 function rageDur(h){return Math.min(8,4+Math.floor((h.abLvl||1)/3));}
 function f1(x){return (Math.round(x*10)/10).toString();}
-function nodeTotal(n,rank){if(!rank)return '';const d=n.desc;let m=d.match(/([+\-]?\d+(?:\.\d+)?)(%?)(?=[^\d%]*per rank)/);if(!m)m=d.match(/([+\-]?\d+(?:\.\d+)?)(%?)/);if(!m)return '';const per=parseFloat(m[1]),pct=m[2],tot=Math.round(per*rank*100)/100;const unit=d.slice(m.index+m[0].length).trim().startsWith('min')?' min':'';return ' · '+(tot>0?'+':'')+tot+pct+unit+' total';} /* cumulative effect of the ranks bought: per-rank number x rank */
+function nodeTotal(n,rank){if(!rank)return '';if(n.total)return ' · '+n.total(rank);const d=n.desc;let m=d.match(/([+\-]?\d+(?:\.\d+)?)(%?)(?=[^\d%]*per rank)/);if(!m)m=d.match(/([+\-]?\d+(?:\.\d+)?)(%?)/);if(!m)return '';const per=parseFloat(m[1]),pct=m[2],tot=Math.round(per*rank*100)/100;const unit=d.slice(m.index+m[0].length).trim().startsWith('min')?' min':'';return ' · '+(tot>0?'+':'')+tot+pct+unit+' total';} /* cumulative effect of the ranks bought: per-rank number x rank */
 function boldNums(line,x,y){const nums=line.match(/[+\-]?\d+(?:\.\d+)?%?/g)||[];let idx=0;for(const n of nums){const at=line.indexOf(n,idx);if(at<0)continue;idx=at+n.length;text(x+textW(line.slice(0,at),'xs'),y,n,'xsb',C.cream);}} /* overdraws every number in a muted 'xs' line in bold cream */
 function drawAbilityNums(h,x,y,parts){const nums=(abilityDesc(h).match(/[\d.]+%|\b\d+ turns?/g)||[]);let cy=y;for(const line of parts){let idx=0;for(const n of nums){const at=line.indexOf(n,idx);if(at<0)continue;idx=at+n.length;const px0=x+textW(line.slice(0,at),'xs');text(px0,cy,n,'xsb',C.cream);}cy+=9;}}
 function abilityDesc(h){const r=h.abLvl,p=abilityPower(h);switch(CLASSES[h.cls].ab.id){
