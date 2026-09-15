@@ -1226,7 +1226,7 @@ function drawDummyBig(d){const u=d.g.enemies[0],sc=DRILL_UI.dummyScale,x0=DRILL_
 function drawDrillScreen(){const d=G.drill;if(!d){G.screen='vael';return;}const st=d.stats,br=d.bracket,live=drillLive(d),t=drillTarget(br);
   const sc=SCENES.hills;if(sc&&sc[0]&&sc[0].img&&sc[0].img.width){ctx.save();ctx.beginPath();ctx.rect(0,56,W,270);ctx.clip();ctx.globalAlpha=0.55;ctx.drawImage(sc[0].img,-40,40);ctx.globalAlpha=1;ctx.restore();}px(0,DRILL_UI.feetY+2,W,2,C.goldD);
   text(8,22,'Training Drill','h',C.goldL);text(8,36,br.name+' · defense '+fmtNum(d.g.enemies[0].def),'xs',C.muted);
-  const left=Math.max(0,d.dur-d.t);text(262,22,d.running?fmtT(left):'done','h',d.running&&left<5?'#ff9696':C.cream,'right');text(262,36,'Tier '+(t==null?'-':drillTierName(drillTier(br,live)))+(d.provisional?' (prov.)':''),'xs',C.cream,'right');
+  const left=Math.max(0,d.dur-d.t);text(262,22,d.running?fmtT(left):'done','h',d.running&&left<5?'#ff9696':C.cream,'right');{const tr=t==null?-1:drillTier(br,live);text(262,36,'Tier '+(tr<0?'-':DRILL.tiers[tr])+(drillProvisional(br)?' (prov.)':''),'xs',tr>=0?C.goldL:C.cream,'right');}
   text(W/2,48,fmtNum(live),'big',C.goldL,'center');
   drawDummyBig(d);const h=d.hero;drawSprite(h,R(h.x+h.dx),DRILL_UI.feetY,h.frame,h.anim,false,2);
   withDrill(()=>{drawProjs();for(const p of G.parts){ctx.globalAlpha=clamp(p.life*1.5,0,1);px(R(p.x),R(p.y),p.life>0.5?2:1,p.life>0.5?2:1,p.col);}ctx.globalAlpha=1;for(const f of G.floats)text(R(f.x),R(f.y),f.text,f.big?'h':'sb',f.color,'center',Math.min(1,f.life*2));});
