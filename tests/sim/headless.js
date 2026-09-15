@@ -44,7 +44,7 @@ function load(opts={}){
   // seeds are mixed (murmur-style finalizer) and the first draws burned, so nearby seeds diverge from the first draw
   const mixSeed=s=>{s=(s^0x9E3779B9)>>>0;s=Math.imul(s,0x85EBCA6B)>>>0;s^=s>>>13;s=Math.imul(s,0xC2B2AE35)>>>0;s^=s>>>16;return s>>>0;};
   let rngState=0;const seedRng=s=>{rngState=mixSeed(Number(s)>>>0);for(let i=0;i<8;i++)rngState=(rngState*1664525+1013904223)>>>0;};seedRng(opts.seed==null?1:opts.seed);
-  const ctxMath=Object.create(Math);ctxMath.random=()=>{rngState=(rngState*1664525+1013904223)>>>0;return rngState/4294967296;};win.Math=ctxMath;
+  let rngCalls=0;const ctxMath=Object.create(Math);ctxMath.random=()=>{rngCalls++;rngState=(rngState*1664525+1013904223)>>>0;return rngState/4294967296;};win.Math=ctxMath;
   // virtual clock: Date.now() follows the simulation
   let simMs=opts.startMs||Date.now();
   const RealDate=Date;
@@ -59,7 +59,7 @@ function load(opts={}){
   const S=ctx.SIM;
   S.win=win;
   S.clock={get:()=>simMs,advance:ms=>{simMs+=ms;},set:ms=>{simMs=ms;}};
-  S.reseed=s=>{seedRng(s);};S.seed=()=>rngState;
+  S.reseed=s=>{seedRng(s);};S.seed=()=>rngState;S.rngCalls=()=>rngCalls; /* number of Math.random draws the game has made in this context (the equivalence gate compares it) */
   S.ready=new Promise(res=>{const chk=()=>{if(S.G.booted)res();else setTimeout(chk,5);};chk();});
   return S;
 }
