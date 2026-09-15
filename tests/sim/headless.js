@@ -4,6 +4,7 @@
 const fs=require('fs'),path=require('path'),vm=require('vm');
 const ROOT=path.join(__dirname,'..','..');
 
+const SIM_NO_AUDIO=Object.freeze({name:'SimNoAudio',message:'no audio in the simulator'}); /* thrown by the AudioContext stub below: a frozen plain object, so no stack trace is captured; the game's ac() catches it and keeps AC null, exactly as a browser without Web Audio (without the stub every sound effect built and threw a fresh TypeError, about a fifth of the CPU time of an early-game run) */
 function makeStubs(){
   const noop=()=>{};
   const ctxProxy=new Proxy({},{get(t,k){if(k==='measureText')return s=>({width:String(s).length*4});if(k==='canvas')return{width:270,height:480};if(k==='createRadialGradient'||k==='createLinearGradient')return()=>({addColorStop:noop});if(k==='getImageData')return(x,y,w,h)=>({data:new Uint8ClampedArray(w*h*4),width:w,height:h});return typeof k==='string'&&/^[a-z]/.test(k)?noop:undefined;},set(){return true;}});
@@ -28,6 +29,7 @@ function makeStubs(){
     performance:{now:()=>Number(process.hrtime.bigint()/1000000n)},
     matchMedia:()=>({matches:false,addEventListener:noop,addListener:noop}),
     console,Math,JSON,Date,Object,Array,Number,String,Boolean,Promise,Map,Set,Symbol,Error,TypeError,RangeError,Uint8ClampedArray,Uint8Array,Float32Array,Int32Array,parseInt,parseFloat,isNaN,isFinite,encodeURIComponent,decodeURIComponent,escape,unescape,btoa:s=>Buffer.from(s,'binary').toString('base64'),atob:s=>Buffer.from(s,'base64').toString('binary'),
+    AudioContext:function SimNoAudio(){throw SIM_NO_AUDIO;},
     Proxy,Reflect,WeakMap,WeakSet,structuredClone:v=>JSON.parse(JSON.stringify(v)),queueMicrotask,
   };
   win.window=win;win.self=win;win.globalThis=win;
