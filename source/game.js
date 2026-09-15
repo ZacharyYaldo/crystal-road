@@ -158,8 +158,9 @@ function zoneScene(Z,p){return Z.endless?ZONES[endSeg(p)].scene:Z.scene;}
 function endlessLv(Z,p){return Z.lv+Math.floor(p*0.15);}
 function bossZone(){const Z=ZONES[G.zone];return Z.endless?ZONES[endSeg(G.prog[G.zone]||0)]:Z;}
 function endlessMilestone(p){return p>0&&p%100===0;}
-const TREE_MIG=[['crit',20,250,'gold'],['b_crit',20,6,'dust']]; /* node, new cap, historical base price, currency */
-function migrateSave(){if((G.migV||0)>=1)return;const msgs=[];for(const [id,cap,base,cur] of TREE_MIG){const r=G.tree[id]||0;if(r>cap){let back=0;for(let l=cap;l<r;l++)back+=cur==='gold'?R(base*1.5*Math.pow(1.75,l)):R(base*Math.pow(1.5,l));G.tree[id]=cap;if(cur==='gold')G.gold+=back;else G.dust+=back;const nd=TREE.find(n=>n.id===id);msgs.push((nd?nd.name:id)+' capped at '+cap+': '+fmtNum(back)+' '+cur+' refunded');}}G.migV=1;if(msgs.length)G.migMsg=msgs.join(' · ');}
+const TREE_MIG=[[1,'crit',20,250,'gold'],[1,'b_crit',20,6,'dust'],[2,'b_start',5,6,'dust']]; /* migration version, node, new cap, historical base price, currency */
+const MIG_VERSION=2;
+function migrateSave(){const from=G.migV||0;if(from>=MIG_VERSION)return;const msgs=[];for(const [ver,id,cap,base,cur] of TREE_MIG){if(ver<=from)continue;const r=G.tree[id]||0;if(r>cap){let back=0;for(let l=cap;l<r;l++)back+=cur==='gold'?R(base*1.5*Math.pow(1.75,l)):R(base*Math.pow(1.5,l));G.tree[id]=cap;if(cur==='gold')G.gold+=back;else G.dust+=back;const nd=TREE.find(n=>n.id===id);msgs.push((nd?nd.name:id)+' capped at '+cap+': '+fmtNum(back)+' '+cur+' refunded');}}G.migV=MIG_VERSION;if(msgs.length)G.migMsg=msgs.join(' · ');}
 function padZones(){while(G.prog.length<ZONES.length)G.prog.push(0);while(G.cleared.length<ZONES.length)G.cleared.push(false);G.far=G.far||[];while(G.far.length<ZONES.length)G.far.push(0);}
 const WEAPON_ADJ=['Iron','Jade','Mithril','Amethyst','Sunforged','Crystal'],WEAPON_NOUN={sword:'Blade',staff:'Staff',dagger:'Daggers',bow:'Bow',axe:'Axe'};
 const CAPE_NAMES=['Wool Cape','Verdant Cape','Mariner Cape','Royal Cape','Sunforged Cape','Crystal Mantle'],CHARM_NAMES=['Iron Band','Jade Ring','Moon Amulet','Amethyst Ring','Sun Amulet','Crystal Heart'];
@@ -168,31 +169,31 @@ const TREE=[
   {branch:'Party',id:'hp',name:'Vigor',desc:'+4% max HP',max:999,base:80,cur:'gold'},
   {branch:'Party',id:'atk',name:'Might',desc:'+4% attack',max:999,base:100,cur:'gold'},
   {branch:'Party',id:'def',name:'Bulwark',desc:'+4% defense',max:999,base:120,cur:'gold'},
-  {branch:'Party',id:'spd',name:'Quickstep',desc:'+2% action speed',max:25,base:300,cur:'gold'},
-  {branch:'Party',id:'crit',name:'Keen Edge',desc:'+1% critical chance',max:20,base:250,cur:'gold'},
+  {branch:'Party',id:'spd',name:'Quickstep',desc:'+2% gauge speed',max:25,base:300,cur:'gold'},
+  {branch:'Party',id:'crit',name:'Keen Edge',desc:'+2% critical chance',max:20,base:350,cur:'gold'},
   {branch:'Party',id:'abil',name:'Focus',desc:'+2% ability power',max:30,base:150,cur:'gold'},
-  {branch:'Party',id:'front',name:'Vanguard',desc:'+5% front hero DEF (15% base)',total:r=>'+'+(15+5*r)+'% total',max:999,base:160,cur:'gold'},
+  {branch:'Party',id:'front',name:'Vanguard',desc:'+5% front hero DEF',total:r=>'+'+(5*r)+'% bought (15% base)',max:999,base:160,cur:'gold'},
   {branch:'Party',id:'regen',name:'Second Wind',desc:'Heal 1% HP each round',max:10,base:400,cur:'gold'},
-  {branch:'Party',id:'rest',name:'Warm Fire',desc:'+2% to the 15% fight heal',total:r=>'heals '+R(100*restHealAt(r))+'%',max:40,base:90,cur:'gold'},
+  {branch:'Party',id:'rest',name:'Warm Fire',desc:'+2% to the 15% road fight heal',total:r=>'heals '+R(100*restHealAt(r))+'%',max:40,base:90,cur:'gold'},
   {branch:'Party',id:'march',name:'Long Stride',desc:'+4% march speed',max:999,base:60,cur:'gold'},
   {branch:'Tap',id:'tap',name:'Strike',desc:'+20% tap damage',max:999,base:40,cur:'gold'},
-  {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +1',max:5,base:300,cur:'gold'},
+  {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +0.5',max:5,base:300,cur:'gold'},
   {branch:'Camp',id:'slots',name:'Bunks',desc:'+1 quest slot',max:3,base:400,cur:'gold'},
-  {branch:'Camp',id:'quest',name:'Provisions',desc:'+6% quest gold, ore and dust',max:999,base:200,cur:'gold'},
-  {branch:'Tap',id:'tapcrit',name:'Sharp Taps',desc:'+2% tap triple-hit chance',max:25,base:120,cur:'gold'},
+  {branch:'Camp',id:'quest',name:'Provisions',desc:'+6% primary quest reward',max:999,base:200,cur:'gold'},
+  {branch:'Tap',id:'tapcrit',name:'Sharp Taps',desc:'+4% tap triple-hit chance',max:25,base:180,cur:'gold'},
   {branch:'Tap',id:'tapgold',name:'Pickpocket',desc:'Taps steal 0.5% of bounty',max:20,base:300,cur:'gold'},
   {branch:'Tap',id:'tapsurge',name:'Resonance',desc:'Taps charge the Surge +0.2',max:5,base:600,cur:'gold'},
   {branch:'Camp',id:'keys',name:'Locksmith',desc:'Keys return 8% faster',max:10,base:500,cur:'gold'},
   {branch:'Camp',id:'haggle',name:'Haggling',desc:'Villagers 3% cheaper',max:20,base:250,cur:'gold'},
-  {branch:'Camp',id:'swift',name:'Swift Return',desc:'Quests finish 3% sooner',max:20,base:350,cur:'gold'},
+  {branch:'Camp',id:'swift',name:'Swift Return',desc:'Quests finish 3% sooner',total:r=>'quests x'+(1/(1-0.03*r)).toFixed(2)+' faster',max:20,base:350,cur:'gold'},
   {branch:'Camp',id:'ore',name:'Prospecting',desc:'+5% ore from every source',max:999,base:150,cur:'gold'},
   {branch:'Camp',id:'offline',name:'Night Watch',desc:'+30 min offline cap',max:8,base:450,cur:'gold'},
   {branch:'Crystal',id:'b_hp',name:'Crystal Vigor',desc:'+10% max HP',max:99,base:4,cur:'dust'},
   {branch:'Crystal',id:'b_dmg',name:'Sharpened Fate',desc:'+8% attack and ability damage',max:99,base:4,cur:'dust'},
-  {branch:'Crystal',id:'b_crit',name:'Crystal Edge',desc:'+2% critical chance',max:20,base:4,cur:'dust'},
+  {branch:'Crystal',id:'b_crit',name:'Crystal Edge',desc:'+3% critical chance',max:20,base:5,cur:'dust'},
   {branch:'Crystal',id:'b_ab',name:'Attuned',desc:'+5% ability power',max:20,base:5,cur:'dust'},
   {branch:'Crystal',id:'b_surge',name:'Resonant Heart',desc:'Kills charge the Surge 10% faster',max:10,base:5,cur:'dust'},
-  {branch:'Crystal',id:'b_start',name:'Remembered Strength',desc:'Start each run +5 levels',max:10,base:6,cur:'dust'},
+  {branch:'Crystal',id:'b_start',name:'Remembered Strength',desc:'Start each run +3 levels',max:5,base:6,cur:'dust'},
   {branch:'Crystal',id:'b_xp',name:'Old Wisdom',desc:'+15% experience',max:99,base:5,cur:'dust'},
   {branch:'Crystal',id:'b_gold',name:'Gilded Road',desc:'+15% gold from every source',max:99,base:5,cur:'dust'},
   {branch:'Crystal',id:'b_ore',name:'Deep Veins',desc:'+15% ore from every source',max:99,base:5,cur:'dust'},
@@ -384,7 +385,7 @@ function abilityPower(h){const r=h.abLvl||1;const base=0.45+0.38*Math.log(1+(r-1
 function shieldDur(h){return Math.min(6,3+Math.floor((h.abLvl||1)/8));}
 const SHIELD_MIN_CUT=3; // Shield Wall removes at least this much from every hit (damage still floors at 1)
 const CRIT_CAP=0.95; /* effective critical chance never exceeds this */
-function critChance(u){const c=CLASSES[u.cls]||{};return Math.min(CRIT_CAP,(c.crit||0)+0.01*treeLv('crit')+0.02*treeLv('b_crit')+(built('range')?0.05:0));}
+function critChance(u){const c=CLASSES[u.cls]||{};return Math.min(CRIT_CAP,(c.crit||0)+0.02*treeLv('crit')+0.03*treeLv('b_crit')+(built('range')?0.05:0));}
 const AB_BOOST=1.05; // flat multiplier on revive, rage and the three damage abilities (Shield Wall and the heal were set directly)
 function rageMult(h){return AB_BOOST*(1.5+1.0*(1-Math.exp(-0.5*abilityPower(h))));}
 function rageDur(h){return Math.min(8,4+Math.floor((h.abLvl||1)/3));}
@@ -518,9 +519,9 @@ const TAP_DAMAGE_MULT=0.22;
 const BATTLE_SPEED=1.265; // 1.15 x 1.1
 const MARCH_SPEED=1.15; /* march multiplier in walk mode; battle uses BATTLE_SPEED; the 1x/2x/4x toggle multiplies on top of both */
 function tapRateMult(n){return n<=1?1:n===2?0.7:n===3?0.45:0.25;}
-function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;G.stats.taps++;const moving=(G.action&&G.action.u===e&&G.action.kind!=='skip')||Math.abs(e.dx||0)>0.5||(e.slot!=null&&Math.abs(e.x-e.slot)>1);if(!moving)G.focus={e,until:RT+6}; /* a tap on a moving enemy (lunging, returning or walking in) still hits it but does not retarget the party */sfx('tap');{const sec=Math.floor(RT);if(G.tapSecAt!==sec){G.tapSecAt=sec;G.tapSecN=0;}G.tapSecN++;}const tw=G.tapSecN<=3?tapRateMult(G.tapSecN):0; /* per wall-clock second: taps 1-3 weigh 1 / 0.7 / 0.45 (2.15 max) for secondary effects; the 4th and later deal 25% damage and feed none */let d=Math.max(1,R(tapDamage()*TAP_DAMAGE_MULT*tapRateMult(G.tapSecN)));if(rand()<0.02*treeLv('tapcrit')){d*=3;sfx('crit');}if(treeLv('tapgold')&&tw>0){G.tapGoldAcc=(G.tapGoldAcc||0)+(3+e.lvl*2)*Math.pow(1.05,e.lvl)*0.005*treeLv('tapgold')*goldMult()*tw;const give=Math.floor(G.tapGoldAcc);if(give>0){G.gold+=give;G.tapGoldAcc-=give;}}e.hp-=d;dmgBy('tap',d);e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,fmtNum(d),C.cyan);G.fs.taps++;G.fs.dmg+=d;
+function tapEnemy(e){if(G.mode!=='battle'||e.dead)return;G.stats.taps++;const moving=(G.action&&G.action.u===e&&G.action.kind!=='skip')||Math.abs(e.dx||0)>0.5||(e.slot!=null&&Math.abs(e.x-e.slot)>1);if(!moving)G.focus={e,until:RT+6}; /* a tap on a moving enemy (lunging, returning or walking in) still hits it but does not retarget the party */sfx('tap');{const sec=Math.floor(RT);if(G.tapSecAt!==sec){G.tapSecAt=sec;G.tapSecN=0;}G.tapSecN++;}const tw=G.tapSecN<=3?tapRateMult(G.tapSecN):0; /* per wall-clock second: taps 1-3 weigh 1 / 0.7 / 0.45 (2.15 max) for secondary effects; the 4th and later deal 25% damage and feed none */let d=Math.max(1,R(tapDamage()*TAP_DAMAGE_MULT*tapRateMult(G.tapSecN)));if(rand()<0.04*treeLv('tapcrit')){d*=3;sfx('crit');}if(treeLv('tapgold')&&tw>0){G.tapGoldAcc=(G.tapGoldAcc||0)+(3+e.lvl*2)*Math.pow(1.05,e.lvl)*0.005*treeLv('tapgold')*goldMult()*tw;const give=Math.floor(G.tapGoldAcc);if(give>0){G.gold+=give;G.tapGoldAcc-=give;}}e.hp-=d;dmgBy('tap',d);e.flash=0.12;float(e.x+e.dx+(rand()*8-4),GROUND+(e.yoff||0)-34,fmtNum(d),C.cyan);G.fs.taps++;G.fs.dmg+=d;
   if(e.hp<=0){e.hp=0;e.dead=true;setAnim(e,'death',false,8);killReward(e);}
-  const mom=treeLv('tapcharge')*tw;if(mom>0)for(const h of living(G.active)){h.charge=Math.min(100,h.charge+mom);}if(treeLv('tapsurge')&&tw>0)G.surge=Math.min(100,(G.surge||0)+0.2*treeLv('tapsurge')*tw);}
+  const mom=0.5*treeLv('tapcharge')*tw;if(mom>0)for(const h of living(G.active)){h.charge=Math.min(100,h.charge+mom);}if(treeLv('tapsurge')&&tw>0)G.surge=Math.min(100,(G.surge||0)+0.2*treeLv('tapsurge')*tw);}
 function endBattle(win){if(G.hordeFight){if(!win){endHordeFight(false);return;}if(G.hordeFight.wave>=3){endHordeFight(true);return;}G.enemies=[];G.mode='delve';for(const h of G.active)if(!h.dead){const g2=R(h.maxhp*0.3);h.hp=Math.min(h.maxhp,h.hp+g2);float(h.x+h.dx,GROUND-30,'+'+fmtNum(g2),'#8ff0a0');}G.hordeFight.nextWaveAt=RT+0.7;return;}if(G.delve){if(win)delveWin();else endDelve(true);return;}const Z=ZONES[G.zone];
   if(win){G.wins++;G.losses=0;G.run.fights++;checkUnlocks();if(canReforge()){G.dustFrac=(G.dustFrac||0)+(1+0.25*G.zone+0.5*(G.reforges||0))/150;if(G.dustFrac>=1){const d=Math.floor(G.dustFrac);G.dustFrac-=d;G.dust+=d;}}if(G.bossFight){G.run.bosses++;if(canReforge()){G.dust+=2;}G.castle.bp=G.castle.bp||{};const BZ=bossZone();const sk=Object.keys(STRUCTS).find(k=>STRUCTS[k].boss===BZ.boss);if(sk&&!G.castle.bp[sk]){G.castle.bp[sk]=true;G.pending='Blueprint found|'+STRUCTS[sk].name+' - build it in Vael';G.vaelNew=true;}const bn=ENEMIES[BZ.boss].name,fs=G.fs||{dmg:0,taps:0,gold:0};G.card={title:bn,sub:'falls',lines:['Damage dealt '+fmtNum(fs.dmg)+'  ·  taps '+fs.taps,'Gold '+fmtNum(fs.gold)],t:0};if(Z.endless){const p0=G.prog[G.zone],m=p0/100;G.run.endless=Math.max(G.run.endless||0,p0);if(endlessMilestone(p0)&&m>(G.endMilestone||0)){G.endMilestone=m;for(const h of G.roster)refreshStats(h);const L=endlessLv(Z,p0),dust=3+2*m,gold=R((3+L*2)*Math.pow(1.05,L)*30*goldMult());G.dust+=dust;G.gold+=gold;let gear='',rvIt=null;const sk2=milestoneItem(m);if(sk2&&(SUPER_CAP[sk2]==null||superCount(sk2)<SUPER_CAP[sk2])){const it=makeSuper(sk2);giveItem(it);G.stats.items++;gear=itemName(it)+' (Mythic)';rvIt=it;}else if(G.pack.length<15){const it=makeItem(G.zone,'boss');G.pack.push(it);G.stats.items++;gear=itemName(it);}G.card={title:'Milestone '+m,sub:'Fight '+p0+' on the Endless Road',lines:['+'+dust+' crystal dust  ·  +'+fmtNum(gold)+' gold','+'+fmtNum(G.lastRenown||0)+' renown  ·  '+fmtNum(G.renown||0)+' total, +'+f1((renownStat()-1)*100)+'% stats',gear?'Found: '+gear:'Pack full - no chest'],t:0};banner('Milestone '+m,'the road goes on',3);if(rvIt){G.reveal={it:rvIt,t:0,card:G.card};G.card=null;sfx('level');}}}}
     const dropChance=G.wins<=3?0.5:0.18;if(G.pack.length<15&&(rand()<dropChance||G.bossFight||G.wins===1)){const it=makeItem(G.zone,G.bossFight?'boss':null);if(omenCount('gearUp')&&it.rank<4)it.rank=Math.min(4,it.rank+omenCount('gearUp'));if(G.wins===1){it.slot='weapon';it.kind=CLASSES[G.active[0].cls].weapon;it.rank=0;}if(G.autoSalvage&&it.rank<G.autoSalvage&&G.wins>1){const o=salvageBase(it.rank);G.ore+=o;toast('Salvaged '+itemName(it)+' for '+fmtNum(o)+' ore',C.muted,'road');}else{G.pack.push(it);G.stats.items++;if(it.rank>=4)G.stats.legendary++;toast('Found: '+itemName(it),RANKHEX[it.rank],'road');if(G.card&&G.bossFight)G.card.lines.push('Loot: '+itemName(it));}}
@@ -569,7 +570,7 @@ function partyMax(){return G.oath==='solitude'?1:4;}
 function reforgeParts(){const cleared=G.cleared.filter(Boolean).length,best=Math.max(...G.roster.map(h=>h.lvl));const r=G.run||{},e=r.endless||0;return[['Base',4],['Zones cleared ('+cleared+')',3*cleared],['Highest level ('+best+')',Math.floor(best/10)],['Past shatters ('+(G.reforges||0)+')',2*(G.reforges||0)],['Bosses this run ('+(r.bosses||0)+')',Math.floor((r.bosses||0)/3)],['Endless depth (fight '+e+')',Math.floor(e/25)+2*Math.floor(e/100)]];}
 function reforgeGain(){const sum=reforgeParts().reduce((a,p)=>a+p[1],0);return R(sum*dustBlessMult()*(G.oath&&OATHS[G.oath]?OATHS[G.oath].dust:1));}
 function canReforge(){return G.cleared[3];}
-function doReforge(){const gain=reforgeGain();G.dust+=gain;G.reforges=(G.reforges||0)+1;const startLv=1+5*treeLv('b_start');
+function doReforge(){const gain=reforgeGain();G.dust+=gain;G.reforges=(G.reforges||0)+1;const startLv=1+3*treeLv('b_start');
   G.heroesSeen=[];for(const h of G.roster){h.lvl=startLv;h.xp=0;h.tier=0;h.status={};refreshStats(h);h.hp=h.maxhp;h.dead=false;h.charge=0;h.tapCast=false;}
   
   G.run={start:now(),fights:0,bosses:0,gold:0,bestFloor:0,endless:0};G.endMilestone=0;G.oath=G.oathPick||null;G.oathPick=null;G.castle.currentHorde=null;G.keepPushing={};G.train=null;G.danger=null;G.powerHist=[];G.omens=[];G.omenOffer=null;G.omenMarks=[];if(G.active.length>partyMax())G.active=G.active.slice(0,partyMax());G.prog=ZONES.map(()=>0);G.far=ZONES.map(()=>0);G.cleared=ZONES.map(()=>false);G.zone=0;G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=4;G.wins=Math.max(G.wins,3);G.newZone=false;
@@ -593,7 +594,7 @@ function questEvent(h){const L=h.lvl,ev=[];const gq=()=>R((30+L*8)*goldMult());
     berserker:()=>{const o=R((8+L)*2*oreMult());G.ore+=o;h.hp=Math.max(1,R(h.maxhp*0.5));return 'Won a tavern brawl: +'+fmtNum(o)+' ore, a few bruises';}};
   if(cls[h.cls]){ev.push(cls[h.cls]);ev.push(cls[h.cls]);}
   return ev[Math.floor(rand()*ev.length)]();}
-function questSlots(){return 3+treeLv('slots');}
+function questSlots(){return 2+treeLv('slots');} /* base 2 = the heroes a full party leaves at camp; Bunks adds one per rank */
 function heroStatus(h){if(G.active.includes(h))return'marching';if(G.quests.find(q=>q.hero===h))return'quest';if(G.castle&&G.castle.garrison.includes(h.id))return'garrison';return'camp';}
 function questDur(q){return q.dur*(G.fast?1/120:1)*(1-0.03*treeLv('swift'))*(built('kennels')?0.85:1);}
 function startQuest(h,qdef){G.quests.push({hero:h,q:qdef,end:now()+questDur(qdef)*1000});toast(h.name+' sets out to '+qdef.name.toLowerCase());}
@@ -647,7 +648,7 @@ function update(dt,ui=true){if(G.mode==='battle')dt*=BATTLE_SPEED;else if(G.mode
   if(G.title||G.tut!=null){return;}if(G.hordeFight&&G.hordeFight.nextWaveAt&&RT>=G.hordeFight.nextWaveAt){G.hordeFight.nextWaveAt=0;hordeWave();}if(G.delve&&G.delve.nextFloorAt&&RT>=G.delve.nextFloorAt){G.delve.nextFloorAt=0;nextFloor();}
   if(G.mode==='delve'&&G.hordeFight){}else if(G.mode==='delve'){if(G.delve&&G.delve.choose&&ui){G.delve.timer-=dt;if(G.delve.timer<=0)chooseDoor(G.delve.doors[Math.floor(rand()*3)]);}}
   if(!G.delve){G.simT=(G.simT||0)+dt;G.zoneT=G.zoneT||[];G.zoneT[G.zone]=(G.zoneT[G.zone]||0)+dt;}
-  if(G.mode==='walk'){G.scroll+=marchSpeed()*dt;G.enc-=dt;G.active.forEach(h=>setAnim(h,'walk'));if(G.enc<=0)spawnEncounter();}
+  if(G.mode==='walk'){G.scroll+=marchSpeed()*dt;G.enc-=dt*(marchSpeed()/28);G.active.forEach(h=>setAnim(h,'walk'));if(G.enc<=0)spawnEncounter();}
   else if(G.mode==='battle'){if(G.hordeFight&&G.hordeFight.volleyAt&&RT>=G.hordeFight.volleyAt&&!G.banner){const hf=G.hordeFight;hf.volleyAt=RT+60;const fr=mercVolley(hf.mercLv||1)/Math.max(1,hf.mercs);const src={enemy:false,status:{},x:0,dx:0};for(let i=0;i<hf.mercs;i++){const mx=[104,166,90,180][i]||104;for(const e of G.enemies)if(!e.dead)G.projs.push({x:mx,y:GROUND-58,tgt:e,src,t:0,dur:0.45,flip:false,merc:true,frac:fr});}float(W/2,GROUND-70,'Mercenary volley!','#9ad0ff',true);sfx('cast');}for(const e of G.enemies){if(!e.dead&&e.x>e.slot){e.x=Math.max(e.slot,e.x-90*dt);if(e.x<=e.slot&&e.anim==='walk'&&!e.fly)setAnim(e,'idle');}}}
   if(G.mode==='enter'){let all2=true;for(const e of G.enemies){if(e.x>e.slot){e.x=Math.max(e.slot,e.x-70*dt);all2=false;}else if(e.anim==='walk'&&!e.fly)setAnim(e,'idle');}if(all2){G.mode='battle';if(G.hordeFight&&G.hordeFight.volley){G.hordeFight.volley=false;G.hordeFight.volleyAt=RT+0.4;}G.enemies.forEach(e=>setAnim(e,'idle'));}}
   else if(G.mode==='battle'){
