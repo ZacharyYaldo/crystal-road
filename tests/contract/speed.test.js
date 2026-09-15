@@ -18,8 +18,8 @@ async function game(){const S=H.load({seed:1,startMs:1700000000000});await S.rea
     const c1=S.clock.get();S.buySpeed4();ok(G.speedUntil===c1+2*HOUR,'a purchase after expiry runs two hours from now, not from the old end');
     S.clock.advance(HOUR);S.buySpeed4();ok(G.speedUntil===c1+4*HOUR,'a purchase while active extends from the current end');}
   {const S=await game(),G=S.G;let gameS=0,frames=0;
-    S.clock.setStep(DT*1000);const frame=()=>{S.clock.frame();S.setRT(S.clock.frames()*DT);G.tut=null;const n=S.speedNow();for(let k=0;k<n;k++){S.update(DT,k===0);gameS+=DT;}frames++;return n;};
-    S.buySpeed4();const t0=S.clock.get();let n4=0;while(S.clock.get()<t0+2*HOUR){if(frame()===4)n4++;}
+    S.clock.setFps(60);const frame=(pre)=>{S.clock.frame();S.setRT(S.clock.frames()*DT);G.tut=null;if(pre)pre();const n=S.speedNow();for(let k=0;k<n;k++){S.update(DT,k===0);gameS+=DT;}frames++;return n;};
+    let t0=0,n4=0,first=true;while(first||S.clock.get()<t0+2*HOUR){const n=frame(first?()=>{S.buySpeed4();t0=S.clock.get();}:null);first=false;if(n===4)n4++;} /* the purchase happens inside a frame, before that frame's updates, as in the game's tap handler and the bot */
     near(gameS,8*3600,4*DT,'game time advances eight hours during the two real hours of 4x (frame-counted clock: within one frame)');ok(n4===2*3600*60,'exactly 432,000 frames ran at 4x ('+n4+')');ok(frames-n4<=1,'every frame inside the window ran at 4x except the crossing frame ('+n4+' of '+frames+')');
     const g1=gameS,f1=frames;while(S.clock.get()<t0+4*HOUR)frame();
     near(gameS-g1,4*3600,4*DT,'the next two real hours run at 2x: four game hours');ok(frames-f1===2*3600*60,'exactly 432,000 real frames in the second window ('+(frames-f1)+')');
