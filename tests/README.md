@@ -42,7 +42,13 @@ node tests/sim/bot.js --hours 10 --profile idleboost   # never taps, keeps the f
 node tests/sim/bot.js --hours 10 --taps 4 --seed 7 --quiet --json out.json
 ```
 
-Speed: roughly one simulated hour per 15 to 25 real seconds.
+Speed: about 8 real seconds per simulated hour at 2x on one core of the i7-1255U. Total throughput saturates at 4 concurrent workers (22 sim-hours per real minute with 1 worker, 42 with 4, 40 to 43 with 6 to 10), so `batch.js` defaults to 4 workers.
+
+`--speed 1|2|4` is the production toggle state. The bot reads the game's `speedNow()` every frame and runs `update()` that many times per real frame, exactly as the production loop does; taps, boosts and the active window are scheduled per real frame, never per game frame. At `--speed 4` the bot buys the production two-hour boost through `buySpeed4()` (the same function the ad sheet calls) and rebuys it whenever it lapses; `--speed4Buys N` caps the purchases, and after the last one the road runs at 2x, as in the game. Every purchase is recorded in `speedBoosts` with its real and game duration, and the effective speed is asserted every frame. Boss replays (`--replayBoss`) run at the same effective speed. `tests/contract/speed.test.js` pins the boost to exactly two real hours, eight game hours per two real hours at 4x, and the fall-back to 2x.
+
+Optimization-equivalence gate: `node tests/sim/equiv.js --ref <commit>` runs the harness committed at `<commit>` and the working tree on identical seeds, profiles and speeds (default idleboost and engaged, seeds 900 to 902, 1x and 2x, 3 hours) and demands identical assertions, RNG-call counts and final RNG state, currencies and progress, milestones, roster and gear, boss outcomes, hourly series, events, and the canonical hash of the whole result. Every harness change goes through it before it is committed.
+
+Known harness property: the simulated clock adds 1000/60 ms per frame in floating point to a base near 1.7e12 ms and drifts about 34 ms per two hours against frames times dt (about 1.6 s over 96 hours). Changing it would alter every past result, so it stays unless the human asks.
 
 ### What the bot does
 
