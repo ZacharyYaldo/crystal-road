@@ -1,43 +1,40 @@
-STATUS: CANDIDATE_ON_BRANCH_NOT_TESTED
-RESPONSE_TYPE: APPROVED_CANDIDATE_COMMITTED_AWAITING_MORE_HUMAN_CHANGES
-PASS_ID: PASS_45_GEOMETRIC_SHATTER_RULE_AND_GEAR_CAP_20
-BASED_ON_REVIEW_PASS: HUMAN_DECISIONS_2026-09-15 (six balance calls; linear/30 candidate rejected; bounded-growth criteria)
-BUILD: 20260915-162318
-HEAD_COMMIT_SHA: 20f3c814f1fdc87708c5974f2ee94b50c11fd402
-RESULTS_COMMIT: 20f3c814f1fdc87708c5974f2ee94b50c11fd402 (this handoff document is committed separately on top of it)
+STATUS: READY_FOR_REVIEW
+RESPONSE_TYPE: FEATURE_ON_BRANCH_CALIBRATED_CLAIMS_DISABLED
+PASS_ID: PASS_46_TRAINING_DUMMY_PRACTICE_AND_CHALLENGE
+BASED_ON_REVIEW_PASS: HUMAN_SPEC_2026-09-15 (practice drill; deterministic party Challenge; reviewer's bracket design with corrections)
+BUILD: 20260915-174858
+HEAD_COMMIT_SHA: 3f02f9742986a4f34216908a5c6ebd66779a78fe
+RESULTS_COMMIT: 3f02f9742986a4f34216908a5c6ebd66779a78fe (this handoff document is committed separately on top of it)
 PULL_REQUEST: #2
-SUPERSEDES: PASS_44 (its analysis stands; the pass 43 baselines remain the reference for release.js comparisons)
+SUPERSEDES: PASS_45 (its balance candidates stand, untested; main untouched at 1aacfbf)
 
-# Crystal Road AI Handoff - Pass 45 (approved candidate on the tuning branch; NOT tested; main untouched at 1aacfbf; the human is making further changes before the next batch)
+# Crystal Road AI Handoff - Pass 46 (Training Dummy: practice drill and standardized Challenge on the tuning branch; targets measured; claims disabled until the payout table is approved)
 
-HUMAN_DECISIONS (2026-09-15, verbatim intent): 1 geometric Shatter requirement, requiredWave = 100 x 2^(nextShatter - 4), so Shatters 4-10 need waves 100, 200, 400, 800, 1600, 3200, 6400; 2 gear cap 20 levels per rank (20 / 40 / 60 / 80 / 100), keep the proposed flat ascension costs for this test; 3 accept 1T gold at about 35-40 h at 2x, no tripling rule; 4 keep the interaction candidate (attention +25%, Auto-Cast at 75% power); 5 keep the 1.75 price curve, cap the eight unlimited nodes at 50; 6 the reference matrix is 2x and continuous 4x. The linear/30 candidate is rejected. The "within 3x of the reference" criterion is replaced by bounded-growth checks. Commit to the tuning branch, keep main unchanged until results pass. Then: do not test yet, more changes are coming.
+HUMAN_DECISIONS (2026-09-15): practice drill = one selected hero, zero-defense dummy, live tapping and abilities, no rewards, hero/tap/total stored separately, local board, only the first three taps per second score; Challenge = current full party, 30 s at standardized 1x, deterministic isolated RNG, two scripted taps a second, zone defense, no attention/oath/omen/temporary boost, player triggers and watches, one-time cumulative rewards per zone or Shatter bracket; calibration from measured production output on at least 30 seeds per bracket, Crystal = P90, Bronze/Silver/Gold at 25/50/75%, Overdrive 125% badge only; rewards in existing gold, ore and dust, no new currencies, dust small and concentrated late; one canonical permanent income-rate helper shared by offline earnings and rewards; claims, progress and scores save atomically; bring the exact payout table before enabling claims. Road tapping unchanged.
 
-DEVELOPER_POSITION: AGREE on every item. Everything below is committed on ai-tuning-loop only. No batch has run on this build.
+DEVELOPER_POSITION: built as specified; claims are disabled (CHALLENGE.claims=false) pending the payout table below. Three choices made and stated to the human: Auto-Cast is always on in the Challenge; Shatter-bracket defense is the Foundry pool at the Endless base level with the road's Shatter scaling; brackets 7-10 are provisional because the depth rule keeps them out of reach within 96 h.
 
-## On the branch (source/game.js, since the pass 44 handoff)
-1. Shatter depth rule: canReforge() requires the Warlord AND G.run.endless >= reforgeNeedWave(), where reforgeNeedWave() = 0 for Shatters 1-3 and 100 x 2^(n-4) for the n-th Shatter from the fourth. The map button reads "Shatter at wave N" once the Warlord is beaten but the depth is short.
-2. Attention: a deliberate tap (an enemy tap, an ability tap, a reaction) sets G.attnUntil = RT + 10 s; goldMult() and xpMult() carry x1.25 while it holds; a "+25% attention" label shows in battle. Not saved; RT is the real-time counter.
-3. Cast power: AUTO_CAST_POWER 0.75 and MANUAL_CAST_POWER 1.3 in abilityAction() for damage abilities (heals and shields use abRise as before). The manual cast has ALWAYS been 1.3x in this code; the change is the Auto-Cast side. tapCastHero(h) is the production manual cast used by the ability button and the simulator.
-4. Gear: itemLvlCap(it) = 20 x (rank + 1); upgradeItem() stops at the cap and the gear sheet button reads "Lv cap N"; ascendCost(it) = ASCEND_COST[rank] = 1500 / 150000 / 15000000 / 200000000 ore, independent of item level; ascendCap() unchanged (rank 1 needs no Shatter, ranks 2-4 need one to three).
-5. Tree: Vigor, Might, Bulwark, Vanguard, Long Stride, Strike, Prospecting, Provisions cap at 50 (were 999). No migration: no save can be above 50 (rank 50 costs about 1e14 gold).
-6. Contract tests: tests/contract/balance.test.js pins all of the above (depth rule at every Shatter 1-10 including the one-wave-short refusal, attention on/off/expiry, cast power ratio, caps, flat ascension, tree caps); tests/run_tests.js: 4 suites green.
+## On the branch (source/game.js)
+- Battle loop extracted into tickUnits() and battleStep(); the drill runs the same code on a swapped context (DRILL_KEYS, withDrill). Bot results before and after the extraction, the late-bound rand() and the offline refactor: identical RNG-call counts and canonical hashes on idleboost and engaged (3 h, seed 900, 2x).
+- Practice drill (Vael yard, "Drill"): hero picker with the road's Auto-Cast option, 30 real seconds, results sheet (total, DPS, basic, ability, tap, crit with counts, tap rate, Auto-Cast used), board of five (hero, damage) saved. Taps beyond the third in a wall-clock second animate and do not score (tapsExtra counted). %-of-max-HP damage over time is skipped on the dummy; burn's damage-taken multiplier counts.
+- Challenge (Vael yard, "Challenge"): party clones at x 128/152/176/200, dummy def = challengeDef(bracket), G.drill.rng = seededRng(20260915) consumed by rand() only while the drill context is active, taps at 0.25 s + k/2 (exactly 60), Auto-Cast on, omens and oath swapped out of the context, 1x regardless of speedNow(). Bracket = highest unlocked zone until Endless is unlocked, then the Shatter count (challengeBracket). End: total = party + taps, tier from CHALLENGE.targets, best and Overdrive badge recorded, claim paid as the difference between cumulative bundles from the highest tier already claimed (challengeBundleDiff), all inside one synchronous block followed by saveGame(). Results sheet lists the four tier thresholds, Overdrive, best here, and the payout or the reason none was paid.
+- incomeRate(zi, prog): gold, ore and XP per minute at 1x (a fight every 22 s, 1.8 enemies) with permGoldMult()/permOreMult() (Gilded Road, Prospecting, Deep Veins, Shatter compounding and flat bonus, renown) and no attention, omen or oath. offlineGains() now uses it: fights unchanged; gold and ore no longer carry an Endless omen or the Poverty oath.
+- Tests: tests/contract/drill.test.js (25) and tests/contract/challenge.test.js (29): determinism, exact tap count, party/tap split, bracket selection, zone defense and its Shatter scaling, immunity to omens/oath/attention/speed, context restoration, no payout while disabled, Gold then Crystal claims paying only the difference, no reset by a weaker run, persistence, practice cap of three scored taps per second, incomeRate equal to the offline decomposition and immune to temporary modifiers. tests/run_tests.js: 6 suites green.
 
-## Evidence behind the decisions (all at 2x, seeds 81-90, zero assertion failures)
-- Linear/30 candidate, 96 h, GATE PASS 40/40 (tests/sim/batch_out_p45x2, manifest committed): Shatter 10 at 19-23 h, 1T at 26-30 h, power at 96 h 92-121x the cap-3 reference, item level 138-141 at rank 4. REJECTED. Engaged reached Endless 25.7% sooner than boosted idle, with fewer boss walls than the reference.
-- Simulator-override experiments (48 h, idleboost + engaged, --replaceFile, not committed): geometric rule alone (30/rank): 7 Shatters by 48 h, the eighth needs wave 1600 and is not reached, power at 48 h 15x / 53x; geometric + 22/rank: 7x / 11x; geometric + 20/rank: 4.8x / 6.6x at 48 h, engaged 20% ahead. The 48 h ratios overstate 96 h because the reference keeps levelling past 100 while the capped party cannot.
-- Why 1T cannot be 50 h: Endless depth sets gold per kill (1.05 per enemy level); seven Shatters' income multipliers reach that depth earlier than three. Every variant landed 1T at 30-39 h. The human accepted 35-40 h.
+## Calibration (tests/sim/drillbench.js --mode challenge; production Challenge run headlessly on saved states)
+- Zone brackets: 40 states per zone (first boss attempt, four profiles x seeds 81-90, tests/sim/snapshots_p45x2). Crystal = P90 rounded to three significant figures: Greenhollow 775, Stillwater 3,560, Thornwood 9,750, Ironvein 19,600, Emberwaste 45,900, Amberfall 77,100, Ashen Approach 141,000, Ashen Keep 286,000, Foundry 617,000 (medians 627 / 3.1K / 8.0K / 14.7K / 35.9K / 56.7K / 111K / 208K / 487K).
+- Shatter brackets: 40 states per bracket saved just before the next Shatter, i.e. the peak of the run with that many Shatters (tests/sim/snapshots_calib, four profiles x seeds 81-90, 48 h at 2x, manifest tests/sim/manifests/calib.json). Crystal: bracket 3 = 3.71M (median 2.52M), 4 = 11.8M (8.98M), 5 = 71.4M (44.9M), 6 = 4.20B (977M). Brackets 7-10 provisional: previous x10.42 (the mean measured growth per bracket): 43.8B, 456B, 4.75T, 49.5T; unreachable within 96 h under the depth rule, to be re-measured if that changes.
+- The reviewer's estimated table was 3x to 70x above measurement and is discarded, as the human decided.
+- Engine property: the party Challenge scores within a few percent of the best single hero's practice drill, because combat runs one action at a time (units take turns); party size barely changes a 30-second score.
 
-## Bounded-growth evaluator (tests/sim/bounded.js, committed)
-node tests/sim/bounded.js --dir <batch> prints PASS/FAIL per profile: 1 Shatter 8 not before 48 h; 2 Shatter 10 not within 96 h; 3 gear at its cap (median share of equipped items within 2 levels of 20 x (rank+1) >= 50%); 4 power log-growth in 72-96 h <= 0.6 of 48-72 h; 5 Endless waves gained 72-96 h < 48-72 h; 6 no softlock (a Road boss never cleared after >= 3 attempts) and a usable ore economy (>= 1 ascension per run, ore spent in the last 24 h), with cleared loss streaks >= 8 listed as walls; 7 engaged 15-30% ahead of boosted idle on Endless entry. Smoke-tested on the rejected batch: fails 1 and 2 in every profile, passes 3-7; one Ashen Keep wall (eight losses, cleared on the ninth) in one seed per profile, worth watching once Auto-Cast is at 75%.
-
-## Before the next simulation run (checklist)
-1. The human's further changes land on ai-tuning-loop with contract tests; node tests/run_tests.js green (never read a verdict through a pipe).
-2. python source/build.py, commit, push; node tests/sim/provenance.js for the expected commit, gameHash, harnessHash.
-3. No simulator overrides (no --replace / --replaceFile). Fresh 2x batch: node tests/sim/batch.js --seeds 10 --seedStart 81 --hours 96 --shatters 10 --profiles idleboost,light,casual,engaged --speed 2 --tag <tag>x2 --workers 4; then the same with --speed 4 --tag <tag>x4 (continuous 4x, the labelled upper bound). Keep the worktree untouched while workers run (use cr-main for anything else).
-4. Validate each: node tests/sim/validate38.js --dir batch_out_<tag>x2 --dt 0.016666667 --speed 2 --hours 96 --profiles idleboost,light,casual,engaged --seedStart 81 --seeds 10 --commit <sha> --gameHash <h> --harnessHash <h:h> (GATE PASS required); then node tests/sim/bounded.js --dir batch_out_<tag>x2 (BOUNDED PASS required at 2x; 4x reported as the upper bound); then node tests/sim/release.js --dir batch_out_<tag>x2 --ref batch_out_base43x2 --refStart 81 --refSeeds 10 --profiles idleboost,light,casual,engaged --seedStart 81 --seeds 10 for the side-by-side.
-5. Commit reports and manifests, write the handoff, and only if bounded PASS at 2x: fast-forward main (the human's call).
+## Proposed payout table (claims disabled until the human approves; bundles are cumulative, a claim pays the difference from the highest tier already claimed in that bracket)
+Minutes of the bracket's permanent income rate (incomeRate at the zone's boss level, or Endless level 70 for Shatter brackets) plus one-time dust.
+- Zone brackets: Bronze 3 min gold; Silver 7 min gold; Gold 12 min gold + 2 min ore + 1 dust; Crystal 20 min gold + 5 min ore + 2 dust. Overdrive: badge.
+- Shatter brackets: Bronze 3 min gold; Silver 7 min gold + 1 min ore + 1 dust; Gold 12 min gold + 2 min ore + 3 dust; Crystal 20 min gold + 5 min ore + 6 dust. Overdrive: badge.
+- Example amounts at a median state (gold / ore per minute measured on the calibration states): Ironvein 2.5K gold/min, 55 ore/min -> Crystal 50K gold + 276 ore + 1 dust... (see the human-facing table); Foundry 105K gold/min -> Crystal 2.1M gold + 5.0K ore + 2 dust; Shatter bracket 3 88K gold/min, 1.0K ore/min -> Crystal 1.8M gold + 5.0K ore + 6 dust; bracket 6 239K gold/min -> Crystal 4.8M gold + 13.5K ore + 6 dust. Dust per Shatter for comparison: 20-65.
 
 ## Open
-- The human's pending changes (unspecified as of this pass).
-- Ascension table 1.5K / 150K / 15M / 200M is provisional for this test.
-- The reviewer's pacing proposal in real hours against the 2x results, once they exist.
+- Payout table approval, then CHALLENGE.claims=true (one constant) and a claims contract test already exists.
+- Visual placement in the yard not yet eyeballed by the human (dummy at the right edge, party left of it, villagers and garrison hidden during a Challenge).
+- Reward tiers for the practice drill: none by decision (practice has no rewards).
+- Pass 45 balance candidates still untested; the pre-run checklist in pass 45 applies.
