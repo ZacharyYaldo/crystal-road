@@ -5,7 +5,8 @@
 'use strict';
 const fs=require('fs'),path=require('path');const H=require('./headless.js');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
-const DIR=path.join(__dirname,String(args.dir||'snapshots_p45x2')),PROFILES=String(args.profiles||'idleboost,engaged').split(','),TAPS=Number(args.taps||2);
+const DIR=path.resolve(__dirname,String(args.dir||'snapshots_p45x2')),PROFILES=String(args.profiles||'idleboost,engaged').split(','),TAPS=Number(args.taps||2);
+const MODE=String(args.mode||'practice'); /* practice: best single hero, Auto-Cast on, 2 taps/s and idle; challenge: the production Challenge (full party, zone defense, 2 scripted taps/s, fixed luck) */
 const [s0,s1]=String(args.seeds||'81-85').split('-').map(Number);const seeds=[];for(let s=s0;s<=(s1||s0);s++)seeds.push(s);
 const med=a=>{a=a.filter(v=>v!=null&&!isNaN(v)).sort((x,y)=>x-y);return a.length?a[Math.floor((a.length-1)/2)]:null;};const p90=a=>{a=a.filter(v=>v!=null).sort((x,y)=>x-y);return a.length?a[Math.min(a.length-1,Math.ceil((a.length-1)*0.9))]:null;};
 const fmt=n=>n==null?'-':n>=1e12?(n/1e12).toFixed(2)+'T':n>=1e9?(n/1e9).toFixed(2)+'B':n>=1e6?(n/1e6).toFixed(2)+'M':n>=1e3?(n/1e3).toFixed(1)+'K':String(Math.round(n));
@@ -16,10 +17,10 @@ async function bench(file){const rec=JSON.parse(fs.readFileSync(path.join(DIR,fi
   const S=H.load({seed:7,startMs:t,save});await S.ready;const G=S.G;G.title=false;G.tut=null;G.sheet=null;G.screen='vael';G.mode='walk';G.enc=1e9;G.enemies=[];G.action=null;G.projs=[];
   const canAuto=true;G.autoCast=true;G.autoUntil=S.clock.get()+4*3600*1000;
   const drill=(h,taps)=>{S.startDrill(h,canAuto);let f=0;const every=taps?Math.round(60/taps):0;while(G.drill.running){S.clock.frame();S.setRT(S.getRT()+DT);S.update(DT,true);S.drillTick(DT);f++;if(every&&f%every===0)S.withDrill(()=>S.tapEnemy(G.enemies[0]));}G.sheet=null;return G.drill.stats.total;};
-  let best={tap:0,idle:0,hero:null};for(const h of G.roster){const a=drill(h,TAPS),b=drill(h,0);if(a>best.tap){best.tap=a;best.hero=h.name+' '+S.CLASSES[h.cls].name+' Lv'+h.lvl;}if(b>best.idle)best.idle=b;}
+  let best={tap:0,idle:0,hero:null};if(MODE==='challenge'){S.CHALLENGE.claims=false;if(!S.startChallenge())throw new Error('no party');while(G.drill.running){S.clock.frame();S.setRT(S.getRT()+DT);S.update(DT,true);S.drillTick(DT);}G.sheet=null;const st=G.drill.stats;best={tap:st.total,idle:st.hero,hero:G.drill.bracket.kind+' '+G.drill.bracket.key+' def '+G.drill.g.enemies[0].def+' party '+G.active.map(h=>h.cls[0]+h.lvl).join('/')};}else{for(const h of G.roster){const a=drill(h,TAPS),b=drill(h,0);if(a>best.tap){best.tap=a;best.hero=h.name+' '+S.CLASSES[h.cls].name+' Lv'+h.lvl;}if(b>best.idle)best.idle=b;}}
   const m=file.match(/^(.*)_([a-z]+)_(\d+)\.json$/);const key=m[1].startsWith('shatter')?m[1]:m[1];return{key,profile:m[2],seed:Number(m[3]),lv:rec.lv||null,hours:rec.hours,zone:rec.zoneName||rec.zone,tap:best.tap,idle:best.idle,hero:best.hero,reforges:G.reforges||0};}
 (async()=>{const rows=[];let n=0;for(const f of files){try{rows.push(await bench(f));}catch(e){console.log('skip '+f+': '+e.message);}n++;process.stdout.write('\r'+n+'/'+files.length+'   ');}
-  console.log('\nstage (first boss attempt of the zone, or the state just before the Shatter)   n   hours   party Lv   best hero 30 s, 2 taps/s: median / P90   best hero idle (Auto-Cast, no taps): median / P90');
+  console.log('\nstage (first boss attempt of the zone, or the state just before the Shatter)   n   hours   party Lv   total (challenge: party+taps; practice: best hero 2 taps/s): median / P90   (challenge: party only; practice: best hero idle): median / P90');
   const keys=[...new Set(rows.map(r=>r.key))].sort((a,b)=>{const ia=ZONE_ORDER.findIndex(z=>a.startsWith(z)),ib=ZONE_ORDER.findIndex(z=>b.startsWith(z));if(ia!==ib)return ia-ib;return (parseInt(a.replace(/\D/g,''))||0)-(parseInt(b.replace(/\D/g,''))||0);});
   for(const k of keys){const R=rows.filter(r=>r.key===k);console.log(k.padEnd(20)+String(R.length).padStart(3)+'   '+String(med(R.map(r=>r.hours)).toFixed(1)).padStart(5)+'   '+String(med(R.map(r=>r.lv))).padStart(6)+'   '+(fmt(med(R.map(r=>r.tap)))+' / '+fmt(p90(R.map(r=>r.tap)))).padStart(22)+'   '+(fmt(med(R.map(r=>r.idle)))+' / '+fmt(p90(R.map(r=>r.idle)))).padStart(22)+'   e.g. '+(R[0].hero||''));}
   if(args.json)fs.writeFileSync(String(args.json),JSON.stringify(rows,null,1));
