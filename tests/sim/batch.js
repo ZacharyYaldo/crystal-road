@@ -1,9 +1,9 @@
 // Batch runner: many seeds x profiles in parallel, then P10 / median / P90 per profile.
-// Usage: node tests/sim/batch.js --seeds 20 --hours 24 [--profiles idle,casual,active] [--shatters 3] [--workers 10] [--out batch.json]
+// Usage: node tests/sim/batch.js --seeds 20 --hours 24 [--profiles idle,casual,active] [--shatters 3] [--workers 4] [--out batch.json]
 'use strict';
-const {spawn}=require('child_process'),path=require('path'),fs=require('fs'),os=require('os');
+const {spawn}=require('child_process'),path=require('path'),fs=require('fs');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
-const SEEDS=args.seeds||10,HOURS=args.hours||24,PROFILES=String(args.profiles||'idle,light,casual,engaged,stress').split(','),WORKERS=args.workers||Math.max(1,os.cpus().length-2),SHATTERS=args.shatters||0;
+const SEEDS=args.seeds||10,HOURS=args.hours||24,PROFILES=String(args.profiles||'idle,light,casual,engaged,stress').split(','),WORKERS=args.workers||4 /* measured 2026-09-14 on the i7-1255U: total throughput saturates at 4 workers (22 sim-h/min at 1, 42 at 4, 40-43 at 6-10) */,SHATTERS=args.shatters||0;
 const dir=path.join(__dirname,'batch_out'+(args.tag?'_'+args.tag:''));fs.mkdirSync(dir,{recursive:true});
 const SEED0=args.seedStart||1;const jobs=[];for(const p of PROFILES)for(let s=SEED0;s<SEED0+SEEDS;s++)jobs.push({p,s,file:path.join(dir,p+'_'+s+'.json')});
 let idx=0,done=0;const t0=Date.now();
