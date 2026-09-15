@@ -42,6 +42,7 @@ const EXPORTS=['G','update','xpNeed','partyState','partyPower','ZONES','HEROES',
 
 function load(opts={}){
   const win=makeStubs();
+  if(opts.save)win.localStorage.setItem('crystal_road_save_v1',typeof opts.save==='string'?opts.save:JSON.stringify(opts.save)); /* boot from a saved game (snapshots, benches); pass startMs equal to the save's t to avoid an offline report */
   // isolated, seeded RNG for this game context (the outer Math.random is never used by the game); S.reseed(seed) resets it
   // seeds are mixed (murmur-style finalizer) and the first draws burned, so nearby seeds diverge from the first draw
   const mixSeed=s=>{s=(s^0x9E3779B9)>>>0;s=Math.imul(s,0x85EBCA6B)>>>0;s^=s>>>13;s=Math.imul(s,0xC2B2AE35)>>>0;s^=s>>>16;return s>>>0;};
