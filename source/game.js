@@ -833,7 +833,7 @@ function drawTree(){drawPanelScreen();text(8,26,'Upgrade Tree','title',C.goldL);
 // ============================================================ Vael: the castle
 const CASTLE_PIX={
 mine:["........oooooo........","......ooSSSSSSoo......","....ooSSSSssSSSSoo....","...oSSSSsssoooSSSSo...","..oSSSSssoDDDDosSSSo..","..oSSSsoDDDDDDDDoSSo..",".oSSSSoWDDDDDDDDWoSSo.",".oSSSSoWDDDDDDDDWoSSo.",".oSSSSoWDDDDDDDDWoSSo.","ooooooWWDDDDDDDDWWoooo","......oWDDDDDDDDWo...."],
-stall:[".oooooooooooooooooo.","oRRWWRRWWRRWWRRWWRRo","oWWRRWWRRWWRRWWRRWWo",".oooooooooooooooooo.","..ow............wo..","..ow..oooooooo..wo..","..ow..oIIooIIo..wo..","..ow..oIIooIIo..wo..","..owoooooooooooowo..","..oWWWWWWWWWWWWWWo..","..oowwwwwwwwwwwwoo..","...ow..........wo...","...ow..........wo..."],
+stall:[".oooooooooooooooooooooooooooo.","oRRRWWWRRRWWWRRRWWWRRRWWWRRRWo","oRRRWWWRRRWWWRRRWWWRRRWWWRRRWo","oWWWRRRWWWRRRWWWRRRWWWRRRWWWRo",".oooooooooooooooooooooooooooo.","..ow......................wo..","..ow......................wo..","..ow...oooooooooooooooo...wo..","..ow...oIIIooIIIIooIIIo...wo..","..ow...oIIIooIIIIooIIIo...wo..","..ow...oIIIooIIIIooIIIo...wo..","..oooooooooooooooooooooooooo..","..oWWWWWWWWWWWWWWWWWWWWWWWWo..","..oWWWWWWWWWWWWWWWWWWWWWWWWo..","..owwwwwwwwwwwwwwwwwwwwwwwwo..","..oooooooooooooooooooooooooo..","...ow....................wo...","...ow....................wo...","...ow....................wo...","...oo....................oo..."], /* 30 x 20 so the Vael icon draws at integer scale; a fractional scale made the pixels uneven */
 wall:["oo..oo..oo..oo..oo..oo..oo..oo..","oSooSSooSSooSSooSSooSSooSSooSSoo","oSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSo","oSsSSSsSSSsSSSsSSSsSSSsSSSsSSSso","oSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSo","oSSsSSSSsSSSSsSSSSsSSSSsSSSSsSSo","oooooooooooooooooooooooooooooooo"],
 vil:["..oo..",".ohho.",".ohho.","..oo..",".oTTo.",".oTTo.",".oTTo.","..oo..",".oLoL."],
 cart:[".oooooo.","oWWWWWWo","oIIIIIIo",".oooooo.","..o..o..",".ooo.ooo",".ooo.ooo"],
@@ -937,7 +937,7 @@ function drawVael(){drawPanelScreen();castleTick();const C2=G.castle,D=defense()
   // cards
   const cards=[
     {k:'mine',ic:()=>pixGrid(CASTLE_PIX.mine.slice(2).map(r=>r.slice(4,18)),12,y0+14,2),sub:C2.b.mine?C2.vil.mine+' villagers · +'+fmtNum(orePerHour())+' ore/h · '+fmtNum(C2.stored.ore)+' stored':'Not built · '+BUILD.mine.desc(0),vil:true},
-    {k:'market',ic:()=>pixGrid(CASTLE_PIX.stall,11,y0+13,1.5),sub:C2.b.market?C2.vil.market+' villagers · +'+fmtNum(goldPerHour())+' gold/h · '+fmtNum(C2.stored.gold)+' stored':'Not built · '+BUILD.market.desc(0),vil:true,hire:true},
+    {k:'market',ic:()=>pixGrid(CASTLE_PIX.stall,11,y0+13,1),sub:C2.b.market?C2.vil.market+' villagers · +'+fmtNum(goldPerHour())+' gold/h · '+fmtNum(C2.stored.gold)+' stored':'Not built · '+BUILD.market.desc(0),vil:true,hire:true},
     {k:'walls',ic:()=>pixGrid(CASTLE_PIX.wall.map(r=>r.slice(0,28)),12,y0+18),sub:C2.b.walls?'Defense +'+fmt5(D.walls)+' · garrison +'+fmt5(D.garrison)+' ('+garrisonHeroes().length+'/'+garrisonSlots()+')':'Not built · '+BUILD.walls.desc(0),gar:true},
     {k:'blueprints',ic:()=>icon('map',20,y0+17,4),sub:(()=>{const bp=Object.keys(STRUCTS).filter(k=>(C2.bp||{})[k]).length,bt=Object.keys(STRUCTS).filter(k=>built(k)).length;return bp?bp+' found · '+bt+' built':'Bosses drop plans for new structures';})()},
     {k:'catacombs',ic:()=>icon('x',20,y0+17,0),sub:'Keys '+keysNow()+'/'+keyMax()+' · best floor '+(G.delveBest||0),keys:true},
