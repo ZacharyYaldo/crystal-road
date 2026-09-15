@@ -299,7 +299,7 @@ function wielders(it){return Object.values(CLASSES).filter(c=>c.weapon===it.kind
 const ASCEND_COST=[1500,150000,15000000,200000000]; /* ore to ascend from rank r to r+1, flat per rank (pass 45 proposal): about ten upgrade levels at that rank's level cap, so ascending is always worth it once the cap binds */
 function ascendCost(it){return ASCEND_COST[Math.min(it.rank,ASCEND_COST.length-1)];}
 function ascendCap(){return Math.min(4,1+(G.reforges||0));}
-const ITEM_LVL_PER_RANK=30;function itemLvlCap(it){return ITEM_LVL_PER_RANK*((it.rank||0)+1);} /* upgrade level cap by rank: 30, 60, 90, 120, 150; ascend to raise it (pass 45) */
+const ITEM_LVL_PER_RANK=20;function itemLvlCap(it){return ITEM_LVL_PER_RANK*((it.rank||0)+1);} /* upgrade level cap by rank: 20, 40, 60, 80, 100; ascend to raise it (pass 45, human-approved) */
 function ascendItem(it,h){if(it.rank>=4){toast(it.rank>=5?'Nothing surpasses Crystal':'Already Sunforged');return;}if(it.rank>=ascendCap()){toast(RANKS[it.rank+1]+' needs '+(it.rank+1-(G.reforges||0))+' more Shatter'+(it.rank-(G.reforges||0)?'s':''));return;}const c=ascendCost(it);if(G.ore<c){toast('Need '+fmtNum(c)+' ore');return;}G.ore-=c;it.rank++;if(h)refreshStats(h);sfx('level',true);toast(itemName(it)+' - ascended to '+RANKS[it.rank],RANKHEX[it.rank]);}
 function upgradeCost(it){return R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,it.lvl)*(built('forge')?0.85:1));}
 const DROP_TABLE=[[80,20,0,0,0],[55,35,10,0,0],[45,40,15,0,0],[35,40,20,5,0],[30,38,24,8,0],[25,36,27,10,2],[20,35,30,12,3],[15,32,32,16,5],[10,28,34,20,8]];
@@ -575,7 +575,7 @@ function offerOmens(){const have=G.omens||[];const pool=Object.keys(OMENS).filte
 function partyMax(){return G.oath==='solitude'?1:4;}
 function reforgeParts(){const cleared=G.cleared.filter(Boolean).length,best=Math.max(...G.roster.map(h=>h.lvl));const r=G.run||{},e=r.endless||0;return[['Base',4],['Zones cleared ('+cleared+')',3*cleared],['Highest level ('+best+')',Math.floor(best/10)],['Past shatters ('+(G.reforges||0)+')',2*(G.reforges||0)],['Bosses this run ('+(r.bosses||0)+')',Math.floor((r.bosses||0)/3)],['Endless depth (fight '+e+')',Math.floor(e/25)+2*Math.floor(e/100)]];}
 function reforgeGain(){const sum=reforgeParts().reduce((a,p)=>a+p[1],0);return R(sum*dustBlessMult()*(G.oath&&OATHS[G.oath]?OATHS[G.oath].dust:1));}
-const SHATTER_WAVE_STEP=100;function reforgeNeedWave(){const n=(G.reforges||0)+1;return n<=3?0:SHATTER_WAVE_STEP*(n-3);} /* the fourth Shatter and later need Endless wave 100, 200, 300 ... this run (pass 45) */
+const SHATTER_WAVE_STEP=100;function reforgeNeedWave(){const n=(G.reforges||0)+1;return n<=3?0:SHATTER_WAVE_STEP*Math.pow(2,n-4);} /* the fourth Shatter and later need Endless wave 100, 200, 400, 800 ... this run: the requirement doubles each time (pass 45, human-approved) */
 function canReforge(){return !!G.cleared[3]&&((G.run&&G.run.endless)||0)>=reforgeNeedWave();}
 function doReforge(){const gain=reforgeGain();G.dust+=gain;G.reforges=(G.reforges||0)+1;const startLv=1+3*treeLv('b_start');
   G.heroesSeen=[];for(const h of G.roster){h.lvl=startLv;h.xp=0;h.tier=0;h.status={};refreshStats(h);h.hp=h.maxhp;h.dead=false;h.charge=0;h.tapCast=false;}
