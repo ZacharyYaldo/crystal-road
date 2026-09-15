@@ -1184,8 +1184,8 @@ function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.h
 
 // ============================================================ Training Drill: one live 30-second attempt by a selected hero against the dummy on its own screen; the road keeps running underneath
 const DRILL={sec:30,seed:20260915,claims:false,calibTaps:2,tiers:['Bronze','Silver','Gold','Crystal'],tierPct:[0.25,0.5,0.75,1],overdrive:1.25,
-  /* Crystal targets: P90 of the production drill on saved states with the selected best hero and exactly two scripted taps a second (tests/sim/drillbench.js); null = not calibrated, no tier */
-  targets:{zone:[775, 3560, 9750, 19600, 45900, 77100, 141000, 286000, 617000],shatter:{"3":3710000,"4":11800000,"5":71400000,"6":4200000000,"7":43800000000,"8":456000000000,"9":4750000000000,"10":49500000000000}},
+  /* Crystal targets: P90 of the production drill (selected best hero, two scripted taps a second) on the calibration states: zone brackets from the first boss attempt of the zone, Shatter brackets from every state in Endless with that many Shatters; measured 3-6 on 2026-09-15, later brackets provisional at the measured growth (tests/sim/drillbench.js, tests/sim/drill_totals.js) */
+  targets:{zone:[678, 3630, 8150, 14500, 37000, 65100, 132000, 253000, 658000],shatter:{"3":3140000,"4":11200000,"5":87300000,"6":10400000000,"7":155000000000,"8":2310000000000,"9":34400000000000,"10":513000000000000}},
   /* cumulative first-clear bundles per tier: minutes of the bracket's permanent income rate (incomeRate) and one-time dust */
   bundles:{zone:[{gold:3,ore:0},{gold:7,ore:0},{gold:12,ore:2},{gold:20,ore:5}],shatter:[{gold:3,ore:0,dust:0},{gold:7,ore:1,dust:0},{gold:12,ore:2,dust:1},{gold:20,ore:5,dust:3}]},
   zoneDust:zi=>zi<3?[0,0,0,0]:zi<6?[0,0,0,1]:[0,0,1,2], /* zone dust, cumulative, 9 over the Road: none before Ironvein; Ironvein-Amberfall 1 at Crystal; Ashen Approach-Foundry 1 at Gold, 2 at Crystal */
