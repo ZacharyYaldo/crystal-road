@@ -545,7 +545,9 @@ function endBattle(win){if(G.hordeFight){if(!win){endHordeFight(false);return;}i
     if(G.bossFight){G.bossStreak=(G.bossStreak||0)+1;if(G.bossStreak===3)tips.unshift(canReforge()?'Three losses to this boss - train an earlier zone, or Shatter':'Three losses to this boss - train an earlier zone first');}G.card={title:'Defeated',sub:top?top[0]+' hit hardest ('+fmtNum(top[1])+')':'The party falls',lines:tips.slice(0,2),plain:true,t:0};G.stats.defeats=(G.stats.defeats||0)+1;banner('The party falls','Regrouping at camp…',2.6);G.mode='defeat';G.timer=2.8;}}
 function reqReforge(z){return z>=8?3:z>=6?2:z>=4?1:0;}
 function zoneUnlocked(z){return z===0||(G.cleared[z-1]&&(G.reforges||0)>=reqReforge(z));}
-function bless(k){const lv=treeLv('b_'+k),rf=Math.pow(1.15,G.reforges||0);return k==='gold'?(1+0.15*lv)*rf*(G.oath==='poverty'?0.6:1)*omenMult('gold'):k==='xp'?1+0.15*lv:k==='dmg'?1+0.08*lv:k==='ore'?(1+0.15*lv)*omenMult('ore'):1;}
+function shatterGoldComp(n){return Math.pow(1.15,Math.min(n,3))*Math.pow(1.17,Math.max(0,n-3));} /* gold compounds 1.15 per Shatter for the first three, 1.17 from the fourth */
+function shatterOreComp(n){return Math.pow(1.05,Math.max(0,n-3));} /* ore compounds 1.05 per Shatter from the fourth; the flat +25% per Shatter in refMult applies to both */
+function bless(k){const lv=treeLv('b_'+k),rf=shatterGoldComp(G.reforges||0);return k==='gold'?(1+0.15*lv)*rf*(G.oath==='poverty'?0.6:1)*omenMult('gold'):k==='xp'?1+0.15*lv:k==='dmg'?1+0.08*lv:k==='ore'?(1+0.15*lv)*omenMult('ore'):1;}
 function renownLog(){return Math.log2(1+(G.renown||0));}
 function renownStat(){return 1+0.05*renownLog();}
 function renownGold(){return 1+0.02*renownLog();}
@@ -558,7 +560,7 @@ const DROP_MULT=1.1; // flat bonus on every map's monster gold and ore drops and
 function zoneBonus(k){return (G.zone===0?(k==='chest'?1.15:1.1):G.zone===1?1.05:1)*(1+0.02*G.zone)*DROP_MULT;}
 function refMult(){return (1+0.25*(G.reforges||0))*renownGold();}
 function goldMult(){return bless('gold')*refMult();} /* every earned-gold source: kills, chests, milestones, quests and their events, Vael market, Catacombs, offline, taps; never salvage, refunds or dev grants */
-function oreMult(){return (1+0.05*treeLv('ore'))*bless('ore')*refMult();} /* every earned-ore source (same exclusions) */
+function oreMult(){return (1+0.05*treeLv('ore'))*bless('ore')*refMult()*shatterOreComp(G.reforges||0);} /* every earned-ore source (same exclusions) */
 function xpMult(){return bless('xp');} /* every earned XP source: kills, quests and their events, garrison, offline */
 const OATHS={iron:{name:'Oath of Iron',desc:'Enemies have +50% HP and attack',dust:1.5},solitude:{name:'Oath of Solitude',desc:'Only one hero may march',dust:1.6,renown:2},poverty:{name:'Oath of Poverty',desc:'Gold from the road is cut by 40%',dust:1.4},silence:{name:'Oath of Silence',desc:'Abilities charge 30% slower',dust:1.3}};
 const OMENS={blood:{name:'Blood Moon',desc:'Enemies deal +30% damage. Renown +40%.',edmg:1.3,renown:1.4},armored:{name:'Armored Road',desc:'Enemies +40% defense. Gear drops a rarity higher.',edef:1.4,gearUp:1},quick:{name:'Quickening',desc:'Everyone acts 30% faster.',speed:1.3},wither:{name:'Withering',desc:'Healing is halved. Gold +35%.',heal:0.5,gold:1.35},swarm:{name:'Swarming',desc:'One more enemy per fight. Gold +40%.',swarm:1,gold:1.4},gilded:{name:'Gilded Road',desc:'Enemies +30% HP. Gold +50%.',ehp:1.3,gold:1.5},thin:{name:'Thin Skin',desc:'Heroes take +25% damage. Renown +30%, ore +50%.',hdmg:1.25,renown:1.3,ore:1.5},veins:{name:'Rich Veins',desc:'Enemies +20% HP. Ore +80%.',ehp:1.2,ore:1.8}};
