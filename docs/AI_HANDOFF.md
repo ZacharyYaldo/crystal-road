@@ -1,17 +1,17 @@
 STATUS: READY_FOR_REVIEW
 RESPONSE_TYPE: FEATURE_REWRITTEN_CALIBRATED_CLAIMS_DISABLED
 PASS_ID: PASS_47_TRAINING_DRILL_UNIFIED
-BASED_ON_REVIEW_PASS: REVIEWER_CALIBRATION_CORRECTIONS_2026-09-15 (one post-Shatter state per run, percentile tiers, frozen build)
+BASED_ON_REVIEW_PASS: REVIEWER_CALIBRATION_CORRECTIONS_2026-09-15 (one post-Shatter state per run, ratio tiers on the measured Crystal, outlier safeguard, frozen build, explicit eligibility)
 BUILD: 20260915-194152
 HEAD_COMMIT_SHA: b1233faf3aa7ccf26c21da68396bf2b68df862e2
 RESULTS_COMMIT: b1233faf3aa7ccf26c21da68396bf2b68df862e2 (this handoff document is committed separately on top of it)
 PULL_REQUEST: #2
 SUPERSEDES: PASS_46 (the practice drill and the Challenge are gone; one Training Drill replaces both; every earlier threshold is discarded)
 
-# Crystal Road AI Handoff - Pass 47 (Training Drill: one live selected-hero activity on its own screen; percentile tiers from one legal state per run per bracket; the five review items; claims disabled; main not touched)
+# Crystal Road AI Handoff - Pass 47 (Training Drill: one live selected-hero activity on its own screen; Crystal = P90 of one legal state per run per bracket, lower tiers at 25 / 50 / 75%; the five review items; claims disabled; main not touched)
 
 HUMAN_DECISIONS (2026-09-15, final): one activity, the Training Drill; the player selects one unlocked hero; the hero attacks and Auto-Casts automatically; no manual ability buttons; the player taps the dummy live; at most three scoring taps a second, extra taps animate only; fixed drill RNG; thirty seconds at 1x; bracket defense applies; score = hero damage + qualifying tap damage; temporary road effects excluded; calibration at exactly two taps a second; per-bracket five-best board with hero, total, hero damage, tap damage; rewards count the complete live score; the road keeps farming underneath and is not restored afterwards; drill inputs never touch the road RNG or combat; dummy taps never trigger attention.
-REVIEWER CORRECTIONS (all applied): offline earnings keep their existing behaviour (separate path; any change needs separate approval); Shatter dust 1 at Gold and 3 at Crystal; sample sizes stated as runs = profiles x seeds with the profile distribution and per-profile medians; one state per run per Shatter bracket, the state immediately after the production Shatter function, scored against the bracket's Endless defense, at most 40 per bracket, Shatter n measured only when at least 30 runs legally performed it; tiers at the actual P25 / P50 / P75 / P90, Overdrive 125% of Crystal badge only; offline tests over all nine Road zones plus Endless with boundary cases; separate provenance for the snapshot-generating and scoring commits; isolation on completion, abandonment, reload and exceptions with the road RNG unchanged; the selected hero's permanent build is copied when the drill starts.
+REVIEWER CORRECTIONS (all applied): offline earnings keep their existing behaviour (separate path; any change needs separate approval); Shatter dust 1 at Gold and 3 at Crystal; sample sizes stated as runs = profiles x seeds with the profile distribution and per-profile medians; one state per run per Shatter bracket, the state immediately after the production Shatter function, scored against the bracket's Endless defense, at most 40 per bracket, Shatter n measured only when at least 30 runs legally performed it; tiers: Crystal = measured P90, Bronze / Silver / Gold at 25 / 50 / 75% of it (the literal percentiles were too narrow on the corrected distributions), Overdrive 125% of Crystal badge only; any bracket with P90 above 2x its median stays provisional; offline tests over all nine Road zones plus Endless with boundary cases; separate provenance for the snapshot-generating and scoring commits; isolation on completion, abandonment, reload and exceptions with the road RNG unchanged; the selected hero's permanent build is copied when the drill starts.
 
 ## 1. Thresholds and cumulative reward values
 Zone brackets (state at the zone's first boss attempt, one per run; 4 profiles x 10 seeds):
@@ -35,7 +35,7 @@ Bundles, cumulative, paid as the difference from the highest tier already claime
 - Shatters 8: no runs performed Shatter 8 within 48 h; provisional Crystal 3.45B (previous x6.35), pays nothing
 - Shatters 9: no runs performed Shatter 9 within 48 h; provisional Crystal 21.90B (previous x6.35), pays nothing
 - Shatters 10: no runs performed Shatter 10 within 48 h; provisional Crystal 139.00B (previous x6.35), pays nothing
-Measured brackets: 3, 4, 5, 6; every other Shatter bracket is provisional (extrapolated at the measured growth) and pays nothing. Bracket 8 and beyond wait for runs that legally perform the eighth Shatter (the 96 h batch calib96 provides the states; the bench re-runs the same way).
+Measured brackets: 3, 4, 5, 6; every other Shatter bracket is provisional (extrapolated at the measured growth) and pays nothing. Bracket 7 stays provisional under the safeguard: its 40 legal post-Shatter states split into two populations (runs that Shattered at about 15 h and runs that first had to reach wave 800 at about 24 h), which puts the P90 far above the median; the in-game provisional value is the growth extrapolation and pays nothing. Brackets 8-10 are intentionally provisional and reward-disabled; the 96 h batch was stopped at the human's instruction (20 of 40 runs, no manifest, nothing scored from it).
 
 ## 3. Offline income parity
 offlineGains() is the previous code verbatim. The contract test compares it with the previous formula over all ten zones x four progress points x two Shatter counts x two tree levels x omen on/off x oath on/off x eight offline durations chosen on, just below and just above an integer fight count (5,120 cases): zero mismatches on fights, gold, XP and ore. incomeRate() is the separate permanent-only rate for rewards; incomeRate x farmed minutes equals offline earnings whenever no temporary modifier is active, and incomeRate ignores attention, omens and oaths.
@@ -158,7 +158,7 @@ Shatters 10 (provisional, no reward) sample none; median -, P90 -; defense -; ra
 
 ## Provenance
 - drill_calib.json: states from calib (commit c1da5321f7, game 98f504fa062d03bd), scored with commit 43a3e29736, game f0ecc76bb987a70f
-- The 96 h batch calib96 (commit 3454719, four profiles x seeds 81-90, 2x, Shatter cap 10) supplies the pre-Shatter states for brackets 8 and beyond.
+- The 96 h batch calib96 was stopped before completion and is not used.
 
 ## Open
 - Claims: DRILL.claims=false until the reviewer clears this table.
