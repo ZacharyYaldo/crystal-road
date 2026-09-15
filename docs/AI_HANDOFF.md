@@ -1,52 +1,43 @@
-STATUS: READY_FOR_REVIEW
-RESPONSE_TYPE: ANALYSIS_AND_PROPOSALS_NO_GAME_CHANGE
-PASS_ID: PASS_44_SHATTER10_SUPPLEMENT_AND_BALANCE_REVIEW
-BASED_ON_REVIEW_PASS: REVIEWER_EIGHT_ITEM_LIST_RELAYED_BY_HUMAN_2026-09-15
-BUILD: 20260914-222955
-HEAD_COMMIT_SHA: 780efb81d1998744161a3a9b31e7aca511815bd6
-RESULTS_COMMIT: 780efb81d1998744161a3a9b31e7aca511815bd6 (this handoff document is committed separately on top of it)
+STATUS: CANDIDATE_ON_BRANCH_NOT_TESTED
+RESPONSE_TYPE: APPROVED_CANDIDATE_COMMITTED_AWAITING_MORE_HUMAN_CHANGES
+PASS_ID: PASS_45_GEOMETRIC_SHATTER_RULE_AND_GEAR_CAP_20
+BASED_ON_REVIEW_PASS: HUMAN_DECISIONS_2026-09-15 (six balance calls; linear/30 candidate rejected; bounded-growth criteria)
+BUILD: 20260915-162318
+HEAD_COMMIT_SHA: 20f3c814f1fdc87708c5974f2ee94b50c11fd402
+RESULTS_COMMIT: 20f3c814f1fdc87708c5974f2ee94b50c11fd402 (this handoff document is committed separately on top of it)
 PULL_REQUEST: #2
-SUPERSEDES: PASS_43 (its baselines stand as the reference)
+SUPERSEDES: PASS_44 (its analysis stands; the pass 43 baselines remain the reference for release.js comparisons)
 
-# Crystal Road AI Handoff - Pass 44 (Shatter-10 supplement; balance findings on the pass 43 data; proposals awaiting the human's approval; runner hardened)
+# Crystal Road AI Handoff - Pass 45 (approved candidate on the tuning branch; NOT tested; main untouched at 1aacfbf; the human is making further changes before the next batch)
 
-HUMAN_APPROVAL: none for game changes in this pass. The human asked for the Shatter-10 supplement and the analysis; every proposal below waits for a one-line approval. The runner hardening (item 7) is harness only and is applied.
+HUMAN_DECISIONS (2026-09-15, verbatim intent): 1 geometric Shatter requirement, requiredWave = 100 x 2^(nextShatter - 4), so Shatters 4-10 need waves 100, 200, 400, 800, 1600, 3200, 6400; 2 gear cap 20 levels per rank (20 / 40 / 60 / 80 / 100), keep the proposed flat ascension costs for this test; 3 accept 1T gold at about 35-40 h at 2x, no tripling rule; 4 keep the interaction candidate (attention +25%, Auto-Cast at 75% power); 5 keep the 1.75 price curve, cap the eight unlimited nodes at 50; 6 the reference matrix is 2x and continuous 4x. The linear/30 candidate is rejected. The "within 3x of the reference" criterion is replaced by bounded-growth checks. Commit to the tuning branch, keep main unchanged until results pass. Then: do not test yet, more changes are coming.
 
-DEVELOPER_POSITION per item: 1 AGREE that the approved income scheme, combined with the Endless Shatter loop, runs away (numbers below) and PROPOSE a pacing rule rather than reverting the multipliers; 2 and 3 data supplied, decision is the human's; 4 AGREE, three levers proposed; 5 AGREE, gear-level cap per ascension rank proposed; 6 DISAGREE with flattening the price curve while Endless income compounds, PROPOSE honest caps instead; 7 done; 8 conflict between the reviewer's 1x/2x and the human's 2x/4x rule, flagged.
+DEVELOPER_POSITION: AGREE on every item. Everything below is committed on ai-tuning-loop only. No batch has run on this build.
 
-## 1. Shatter-10 supplement (tests/sim/batch_out_shat10x2, 2x, seeds 81-90 x idleboost/light/casual/engaged x 96 h, Shatter cap 10; GATE PASS 40/40 against commit d91c4036249492af, game d81891b964e49fc1, harness f5c407044ac1127c:748490ec731a5c7d; the only game.js difference from the pass 43 reference build is the two-line market-icon redraw; report tests/sim/shat10x2_release.txt, manifest tests/sim/manifests/shat10x2.json)
-- Cadence: Shatters 1-3 as in the reference (3.1 / 6.0 / 9.7 h medians, gated by the sealed zones). Shatters 4-10 all happen in Endless at wave 100, every 41 to 64 minutes, the tenth at 17.0 h median; dust per Shatter 53 to 65. Nothing in the game discourages this loop: canReforge needs only Ironvein cleared, the gain threshold (15) is met at wave 100, and the run keeps heroes, gear, gold, ore and tree.
-- 1T gold: reached at 27 to 30 h (reference 52 to 57 h); 10T at 39 to 45 h (reference 82 to 93 h); gold earned by 96 h 241T / 242T / 400T / 494T (reference 6.5T / 6.4T / 10.7T / 13.0T), a 37x increase against a 6x income multiplier, because the extra gold buys tree ranks and ability ranks that push Endless deeper, where gold per kill grows 1.05 per enemy level.
-- Gear: item level at 96 h 143 / 141 / 144 / 144 (reference 125 / 123 / 126 / 126): 18 more levels, 1.12^18 = 7.7x item stats. Ascension rank unchanged (1.33 to 1.50 average) because ascension is unaffordable at any cap: cost scales 1.14 per item level, so rank 3 at item level 140 costs about 4.6e10 ore; zero ascensions were bought in any of the 80 runs at either cap, and all 224B ore went to level upgrades (engaged seed 81).
-- Endless: power at 96 h 186B / 164B / 217B / 232B (reference 13.5B / 11.6B / 16.5B / 16.1B, about 14x); best wave 1584 / 1585 / 1617 / 1651 (reference 1331 / 1331 / 1405 / 1400); defeats down 20 to 25%; renown about 1.8x.
-- Verdict: 1T is reachable in either configuration; the scheme accelerates gear and deepens the Endless runaway substantially, and the driver is the 40-minute Shatter loop in Endless rather than the 1.17 and 1.05 factors themselves.
-- Proposal (needs approval): pace the loop instead of reverting the multipliers. Each Shatter beyond the third requires the run to reach a new Endless depth: wave 100 x (n - 2) for the n-th Shatter (4th at 100, 5th at 200, 6th at 300 ...). Waves per hour fall from 48 to 5 as Endless deepens, so each further Shatter takes longer than the last and the loop cannot be spammed. Alternative if the human prefers a numeric brake: cap the linear +25% at three Shatters (gold at ten Shatters 4.9x instead of 16x). Either is a small change with contract tests; a 2x batch with cap 10 would confirm.
+## On the branch (source/game.js, since the pass 44 handoff)
+1. Shatter depth rule: canReforge() requires the Warlord AND G.run.endless >= reforgeNeedWave(), where reforgeNeedWave() = 0 for Shatters 1-3 and 100 x 2^(n-4) for the n-th Shatter from the fourth. The map button reads "Shatter at wave N" once the Warlord is beaten but the depth is short.
+2. Attention: a deliberate tap (an enemy tap, an ability tap, a reaction) sets G.attnUntil = RT + 10 s; goldMult() and xpMult() carry x1.25 while it holds; a "+25% attention" label shows in battle. Not saved; RT is the real-time counter.
+3. Cast power: AUTO_CAST_POWER 0.75 and MANUAL_CAST_POWER 1.3 in abilityAction() for damage abilities (heals and shields use abRise as before). The manual cast has ALWAYS been 1.3x in this code; the change is the Auto-Cast side. tapCastHero(h) is the production manual cast used by the ability button and the simulator.
+4. Gear: itemLvlCap(it) = 20 x (rank + 1); upgradeItem() stops at the cap and the gear sheet button reads "Lv cap N"; ascendCost(it) = ASCEND_COST[rank] = 1500 / 150000 / 15000000 / 200000000 ore, independent of item level; ascendCap() unchanged (rank 1 needs no Shatter, ranks 2-4 need one to three).
+5. Tree: Vigor, Might, Bulwark, Vanguard, Long Stride, Strike, Prospecting, Provisions cap at 50 (were 999). No migration: no save can be above 50 (rank 50 costs about 1e14 gold).
+6. Contract tests: tests/contract/balance.test.js pins all of the above (depth rule at every Shatter 1-10 including the one-wave-short refusal, attention on/off/expiry, cast power ratio, caps, flat ascension, tree caps); tests/run_tests.js: 4 suites green.
 
-## 2 and 3. Road pacing (pass 43 reference, 2x)
-- Road plus three Shatters: about 11.5 real hours in every profile (Endless entered at 11.3 to 11.9 h), so about 23 h at 1x and 6 h at 4x; the third Shatter at 9.0 to 9.7 h. The remaining 84 of 96 hours are Endless.
-- Engaged play versus boosted idle: identical trajectories within noise (Endless at 11.3 vs 11.9 h; level 337 vs 331 at 96 h; boosted idle is ahead at 8 h because it never turns Auto-Cast off).
-- Whether the Road is too short is the human's decision. Levers: fights per zone (36 on the later zones; each +33% adds about 3 h at 2x), the in-zone level slope (0.3 per fight), a fourth Shatter gate before the Foundry.
+## Evidence behind the decisions (all at 2x, seeds 81-90, zero assertion failures)
+- Linear/30 candidate, 96 h, GATE PASS 40/40 (tests/sim/batch_out_p45x2, manifest committed): Shatter 10 at 19-23 h, 1T at 26-30 h, power at 96 h 92-121x the cap-3 reference, item level 138-141 at rank 4. REJECTED. Engaged reached Endless 25.7% sooner than boosted idle, with fewer boss walls than the reference.
+- Simulator-override experiments (48 h, idleboost + engaged, --replaceFile, not committed): geometric rule alone (30/rank): 7 Shatters by 48 h, the eighth needs wave 1600 and is not reached, power at 48 h 15x / 53x; geometric + 22/rank: 7x / 11x; geometric + 20/rank: 4.8x / 6.6x at 48 h, engaged 20% ahead. The 48 h ratios overstate 96 h because the reference keeps levelling past 100 while the capped party cannot.
+- Why 1T cannot be 50 h: Endless depth sets gold per kill (1.05 per enemy level); seven Shatters' income multipliers reach that depth earlier than three. Every variant landed 1T at 30-39 h. The human accepted 35-40 h.
 
-## 4. Interaction problem (why tapping and active decisions add nothing)
-- Auto-Cast fires every ability, so an active player only replaces the same casts. Damage shares over the run: abilities 66 to 68%, basic 28 to 33%, taps 0 / 1 / 2 / 5% (idleboost / light / casual / engaged), Surge 0 to 1%; inside the active window taps reach 9 / 11 / 14%. Tap damage is avgAtk x 0.3 x 0.22 = 6.6% of one hero's attack per tap.
-- Ablation confirms it: Pickpocket is the only node that rewards tapping strongly (+152% arena gold at rank 5, +304% at rank 10); Strike rank 10 is +28% kills at 3 taps/s.
-- Proposed levers (approve any subset): (a) attention bonus: +25% XP and gold while the player tapped within the last 10 s; (b) Auto-Cast casts at 75% ability power, manual casts at 100%; (c) Crystal Surge strikes for 30% of every enemy's max HP (manual only) instead of 2.5x party attack. Recommended: (a) + (b). Target after the change: engaged reaches Endless 15 to 25% sooner than boosted idle at 2x. Simulation note: (b) needs a production manualCast() the bot can call, since the bot currently emulates manual casts by zeroing charge.
+## Bounded-growth evaluator (tests/sim/bounded.js, committed)
+node tests/sim/bounded.js --dir <batch> prints PASS/FAIL per profile: 1 Shatter 8 not before 48 h; 2 Shatter 10 not within 96 h; 3 gear at its cap (median share of equipped items within 2 levels of 20 x (rank+1) >= 50%); 4 power log-growth in 72-96 h <= 0.6 of 48-72 h; 5 Endless waves gained 72-96 h < 48-72 h; 6 no softlock (a Road boss never cleared after >= 3 attempts) and a usable ore economy (>= 1 ascension per run, ore spent in the last 24 h), with cleared loss streaks >= 8 listed as walls; 7 engaged 15-30% ahead of boosted idle on Endless entry. Smoke-tested on the rejected batch: fails 1 and 2 in every profile, passes 3-7; one Ashen Keep wall (eight losses, cleared on the ninth) in one seed per profile, worth watching once Auto-Cast is at 75%.
 
-## 5. Endless control lever
-- Mechanism: enemy level rises 0.15 per wave with HP 1.06 per level, so the party must grow exponentially and does, through gear (1.12 per item level; item level 84 at Endless entry, 126 at 96 h). Levels are not the driver (the XP curve slows them to about 1 per hour by 72 h). Power grows 1.46x per hour in the first 12 Endless hours and still 1.03x per hour at 72 h; gold per hour doubles every day.
-- Proposal: cap item upgrade level by ascension rank, 30 levels per rank (rank 0 caps at 30, rank 4 at 150). Because ascension is unaffordable (item 1), the cap only bites if ascension is repriced at the same time: proposed ascension cost independent of item level (flat per rank, for example 40 / 160 / 500 / 1000 ore x 3^rank) so the ladder becomes rank up, then level up, then rank up, tied to the Shatter-gated ascension cap. Secondary: Endless enemy level slope 0.15 to 0.2 per wave.
-
-## 6. Held price curve (ablation, current build, tests/sim/ablate.js seed 1)
-- Ranks 5 to 10 cost about 17x ranks 1 to 5 and add a fraction of the benefit: Might +30% kills for 3.1K then +80% for 53.7K; Vigor +22% for 2.5K then +26% for 42.9K; Focus +18% for 4.6K then +22% for 80.5K; Quickstep +10% for 9.2K then +21% for 161K; Bulwark +5% then +9%; Vanguard +5% then +10%.
-- Position: DISAGREE with flattening while Endless income compounds (cheaper deep ranks feed item 5). Propose caps of 50 on the 999-cap nodes (Vigor, Might, Bulwark, Vanguard, Long Stride, Strike, Prospecting, Provisions), above anything reachable in 96 h, so the UI stops implying endless stacking. Reopen the curve once item 5 lands.
-- Side findings: Bulwark and Vanguard barely move outcomes at any rank; Pickpocket is the strongest node per gold in the tree.
-
-## 7. Test runner (applied, commit be7884b)
-- tests/run_tests.js runs every contract suite in its own process and exits 1 on any failing or crashing suite; verified with a deliberately failing suite. README: never read a verdict through a pipe (a pipe returns the last command's exit code, which hid a failing speed test on 2026-09-15 for one push).
-
-## 8. Final reference matrix
-- The reviewer asks for 1x and 2x; the human's standing rule is 2x and 4x, never 1x. The human decides. Provenance and validator are ready for either.
+## Before the next simulation run (checklist)
+1. The human's further changes land on ai-tuning-loop with contract tests; node tests/run_tests.js green (never read a verdict through a pipe).
+2. python source/build.py, commit, push; node tests/sim/provenance.js for the expected commit, gameHash, harnessHash.
+3. No simulator overrides (no --replace / --replaceFile). Fresh 2x batch: node tests/sim/batch.js --seeds 10 --seedStart 81 --hours 96 --shatters 10 --profiles idleboost,light,casual,engaged --speed 2 --tag <tag>x2 --workers 4; then the same with --speed 4 --tag <tag>x4 (continuous 4x, the labelled upper bound). Keep the worktree untouched while workers run (use cr-main for anything else).
+4. Validate each: node tests/sim/validate38.js --dir batch_out_<tag>x2 --dt 0.016666667 --speed 2 --hours 96 --profiles idleboost,light,casual,engaged --seedStart 81 --seeds 10 --commit <sha> --gameHash <h> --harnessHash <h:h> (GATE PASS required); then node tests/sim/bounded.js --dir batch_out_<tag>x2 (BOUNDED PASS required at 2x; 4x reported as the upper bound); then node tests/sim/release.js --dir batch_out_<tag>x2 --ref batch_out_base43x2 --refStart 81 --refSeeds 10 --profiles idleboost,light,casual,engaged --seedStart 81 --seeds 10 for the side-by-side.
+5. Commit reports and manifests, write the handoff, and only if bounded PASS at 2x: fast-forward main (the human's call).
 
 ## Open
-- Approvals: item 1 pacing rule (or the +25% cap), items 4 and 5 levers, item 3 (lengthen the Road or not), item 6 caps, item 8 speeds.
-- Ascension pricing (found in item 1): dead at every cap; needs a decision with item 5.
+- The human's pending changes (unspecified as of this pass).
+- Ascension table 1.5K / 150K / 15M / 200M is provisional for this test.
+- The reviewer's pacing proposal in real hours against the 2x results, once they exist.
