@@ -1203,7 +1203,7 @@ function drawDrillYard(){const d=G.drill,run=!!(d&&d.running);const dum=run?d.g.
 // ============================================================ Challenge: a standardized 30-second party test on the dummy; one-time cumulative rewards per zone or Shatter bracket
 const CHALLENGE={tapsPerSec:2,seed:20260915,claims:false,tiers:['Bronze','Silver','Gold','Crystal'],tierPct:[0.25,0.5,0.75,1],overdrive:1.25,
   /* Crystal targets: measured 90th percentile of the production Challenge on saved states (tests/sim/drillbench.js --mode challenge); null = not calibrated, no tier is awarded */
-  targets:{zone:[null,null,null,null,null,null,null,null,null],shatter:{}},
+  targets:{zone:[775, 3560, 9750, 19600, 45900, 77100, 141000, 286000, 617000],shatter:{}}, /* zone Crystal targets: P90 of the production Challenge on 40 saved states per zone (first boss attempt), 2026-09-15 */
   /* cumulative first-clear bundles per tier: minutes of the bracket's permanent income rate (incomeRate) and one-time dust; a proposal until the human enables claims */
   bundles:{zone:[{gold:3,ore:0,dust:0},{gold:7,ore:0,dust:0},{gold:12,ore:2,dust:1},{gold:20,ore:5,dust:2}],shatter:[{gold:3,ore:0,dust:0},{gold:7,ore:1,dust:1},{gold:12,ore:2,dust:3},{gold:20,ore:5,dust:6}]}};
 function seededRng(seed){let x=seed>>>0;return()=>{x=(x*1664525+1013904223)>>>0;return x/4294967296;};}
