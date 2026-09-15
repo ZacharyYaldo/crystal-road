@@ -50,7 +50,7 @@ function load(opts={}){
   // virtual clock: Date.now() follows the simulation
   let simMs=opts.startMs||Date.now();
   const RealDate=Date;
-  const SimDate=new Proxy(RealDate,{construct(t,args){return args.length?new RealDate(...args):new RealDate(simMs);},get(t,k){if(k==='now')return()=>simMs;return Reflect.get(t,k);}});
+  const SimDate=new Proxy(RealDate,{construct(t,args){return args.length?new RealDate(...args):new RealDate(simMs);},get(t,k){if(k==='now')return()=>simMs;return Reflect.get(t,k);}}); /* simMs is refreshed by S.clock on every change */
   win.Date=SimDate;
   const assets=JSON.parse(fs.readFileSync(path.join(ROOT,'build','assets.json'),'utf8'));
   let src=fs.readFileSync(path.join(ROOT,'source','game.js'),'utf8');for(const [a,b] of (opts.replace||[])){if(!src.includes(a))throw new Error('replace target not found: '+a);src=src.replace(a,b);}
@@ -60,7 +60,11 @@ function load(opts={}){
   vm.runInContext(src+tail,ctx,{filename:'game.js'});
   const S=ctx.SIM;
   S.win=win;
-  S.clock={get:()=>simMs,advance:ms=>{simMs+=ms;},set:ms=>{simMs=ms;}};
+  /* frame-counted clock: now = start + extra + frames * step, one multiplication, never a running float sum (the old simMs += 1000/60 drifted about 34 ms per two hours).
+     frame() advances one frame of 1000/fps ms (default 60; setFps for another dt); advance(ms) is for arbitrary jumps (tests); mark()/restore() save and restore the whole clock state (boss replay). */
+  let startMs=simMs,extraMs=0,frames=0,fps=60;const clockNow=()=>startMs+extraMs+(frames*1000)/fps;simMs=clockNow();
+  /* (frames*1000)/fps rather than frames*(1000/fps): the division is correctly rounded, so whole seconds land on exact integers */
+  S.clock={get:clockNow,frame:()=>{frames++;simMs=clockNow();},setFps:f=>{fps=f;},fps:()=>fps,frames:()=>frames,advance:ms=>{extraMs+=ms;simMs=clockNow();},set:ms=>{startMs=ms;extraMs=0;frames=0;simMs=clockNow();},mark:()=>({startMs,extraMs,frames,fps}),restore:m=>{startMs=m.startMs;extraMs=m.extraMs;frames=m.frames;fps=m.fps;simMs=clockNow();}};
   S.reseed=s=>{seedRng(s);};S.seed=()=>rngState;S.rngCalls=()=>rngCalls; /* number of Math.random draws the game has made in this context (the equivalence gate compares it) */
   S.ready=new Promise(res=>{const chk=()=>{if(S.G.booted)res();else setTimeout(chk,5);};chk();});
   return S;

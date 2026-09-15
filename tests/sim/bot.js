@@ -7,6 +7,7 @@
 const {load}=require('./headless.js');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2);const n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
 const HOURS=args.hours||24,SHATTERS=args.shatters||0,DT=args.dt||(1/60),QUIET=!!args.quiet,SEED=args.seed||1;
+const FPS=Math.round(1/DT);if(!(Math.abs(1/FPS-DT)<1e-12))throw new Error('--dt must be 1/N for an integer N (frame-counted time): got '+DT); /* simulated seconds = frames/FPS, the game clock = start + frames*1000/FPS: exact at whole seconds, no running float sum */
 // player activity: taps per second on enemies while in battle (0 = idle player), abilities and surge always used when active
 // activeMin = minutes of manual play per simulated hour; the rest of the hour runs on Auto-Cast with no taps or Surge
 const PROFILES={idle:{activeMin:0,taps:0,boost:false},idleboost:{activeMin:0,taps:0,boost:true},light:{activeMin:5,taps:1,boost:true},casual:{activeMin:10,taps:1.5,boost:true},engaged:{activeMin:15,taps:2,boost:true},stress:{activeMin:60,taps:2,boost:true},active:{activeMin:60,taps:1,boost:true}};
@@ -42,9 +43,9 @@ function main(){
   const STALL_RULE=String(args.stallRule||'far');let farMark={};
   let retreatUntil=0,farmTarget=0,farmFights=0,trainingFor=0,tapAcc=0,lastProgressH=0,lastGold=G.gold,lastOre=G.ore,surgeReadyAt=0,wasActive=null,dmgMark={},bossStart=0,bossHpMax=0,bossZoneName='',prevBossFight=false;
   const t0=Date.now();
-  const target=HOURS*3600;
+  const target=HOURS*3600;S.clock.setFps(FPS);const frame0=S.clock.frames();
   while(simSec<target){
-    simSec+=DT;curTick=simSec;S.clock.advance(DT*1000);S.setRT(S.getRT()+DT);M.hours=simSec/3600;
+    S.clock.frame();simSec=(S.clock.frames()-frame0)/FPS;curTick=simSec;S.setRT(simSec);M.hours=simSec/3600; /* frame-counted time: simulated seconds, the game clock and RT all derive from the same integer frame count */
     G.title=false;if(G.tut!=null)G.tut=null;
     {const clk0=S.clock.get();if(M.speedCur&&!(G.speedUntil>clk0)){M.speedCur.realSec=+(simSec-M.speedCur.at).toFixed(3);M.speedCur.gameSec=+M.speedCur.gameSec.toFixed(3);M.speedCur=null;}if(SPEED===4&&!(G.speedUntil>clk0)&&M.speedBuys<SPEED4_BUYS){S.buySpeed4();M.speedBuys++;M.speedCur={h:+M.hours.toFixed(3),at:+simSec.toFixed(3),until:G.speedUntil,realSec:null,gameSec:0};M.speedBoosts.push(M.speedCur);}}
     const n=S.speedNow(); /* production speed every frame: 1, 2, or 4 while the boost runs and 2 after it lapses */
@@ -145,7 +146,7 @@ function main(){
       if(!did)break;}
   }
 
-  function replayFight(K){const keep=structuredClone(G);const rt0=S.getRT(),ms0=S.clock.get();let wins=0,n=0,res=[];for(let k=0;k<K;k++){for(const key of Object.keys(G))delete G[key];Object.assign(G,structuredClone(keep));S.setRT(rt0);S.clock.set(ms0);let out=null;for(let i=0;i<20*600;i++){S.setRT(S.getRT()+DT);S.clock.advance(DT*1000);G.tut=null;{const n=S.speedNow();for(let k=0;k<n;k++)S.update(DT,k===0);}G.parts.length=0;G.floats.length=0;if(ACTIVE){const act=inWindow();if(!act){ensureBoost();}else{G.autoCast=false;for(const h of G.active){if(!h.dead&&h.charge>=100&&!h.tapCast){if(S.reactTo(h))continue;h.tapCast=true;h.charge=0;}}}}if(G.mode==='victory'){out='W';break;}if(G.mode==='defeat'){out='L';break;}}if(out){n++;if(out==='W')wins++;res.push(out);}}for(const key of Object.keys(G))delete G[key];Object.assign(G,keep);S.setRT(rt0);S.clock.set(ms0);ev('replay',bossZoneName+' live-state replay x'+n+': '+Math.round(100*wins/Math.max(1,n))+'% wins ('+res.join('')+') window='+(inWindow()?'active':'auto'));}
+  function replayFight(K){const keep=structuredClone(G);const rt0=S.getRT(),ms0=S.clock.get(),cm=S.clock.mark();let wins=0,n=0,res=[];for(let k=0;k<K;k++){for(const key of Object.keys(G))delete G[key];Object.assign(G,structuredClone(keep));S.setRT(rt0);S.clock.restore(cm);let out=null;for(let i=0;i<20*600;i++){S.clock.frame();S.setRT(rt0+(i+1)/FPS);G.tut=null;{const n=S.speedNow();for(let k=0;k<n;k++)S.update(DT,k===0);}G.parts.length=0;G.floats.length=0;if(ACTIVE){const act=inWindow();if(!act){ensureBoost();}else{G.autoCast=false;for(const h of G.active){if(!h.dead&&h.charge>=100&&!h.tapCast){if(S.reactTo(h))continue;h.tapCast=true;h.charge=0;}}}}if(G.mode==='victory'){out='W';break;}if(G.mode==='defeat'){out='L';break;}}if(out){n++;if(out==='W')wins++;res.push(out);}}for(const key of Object.keys(G))delete G[key];Object.assign(G,keep);S.setRT(rt0);S.clock.restore(cm);ev('replay',bossZoneName+' live-state replay x'+n+': '+Math.round(100*wins/Math.max(1,n))+'% wins ('+res.join('')+') window='+(inWindow()?'active':'auto'));}
   function med(a){a=a.filter(v=>v!=null).sort((x,y)=>x-y);return a.length?a[Math.floor((a.length-1)/2)]:null;}
   function report(){
     if(M.speedCur){M.speedCur.partial=true;M.speedCur.realSec=+(simSec-M.speedCur.at).toFixed(3);M.speedCur.gameSec=+M.speedCur.gameSec.toFixed(3);M.speedCur=null;}
