@@ -174,7 +174,7 @@ const TREE=[
   {branch:'Party',id:'abil',name:'Focus',desc:'+2% ability power',max:30,base:150,cur:'gold'},
   {branch:'Party',id:'front',name:'Vanguard',desc:'+5% front hero DEF',total:r=>'+'+(5*r)+'% bought (15% base)',max:50,base:160,cur:'gold'},
   {branch:'Party',id:'regen',name:'Second Wind',desc:'Heal 1% HP each round',max:10,base:400,cur:'gold'},
-  {branch:'Party',id:'rest',name:'Warm Fire',desc:'+2% to the 15% fight heal',total:r=>'heals '+R(100*restHealAt(r))+'%',max:40,base:90,cur:'gold'},
+  {branch:'Party',id:'rest',name:'Warm Fire',desc:'+2% to the 15% post-fight heal',total:r=>'heals '+R(100*restHealAt(r))+'% after each fight',max:40,base:90,cur:'gold'},
   {branch:'Party',id:'march',name:'Long Stride',desc:'+4% march speed',max:50,base:60,cur:'gold'},
   {branch:'Tap',id:'tap',name:'Strike',desc:'+20% tap damage',max:50,base:40,cur:'gold'},
   {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +0.5',max:5,base:300,cur:'gold',growth:20}, /* 450, 9K, 180K, 3.6M, 72M: twenty-fold per rank, since each rank is worth far more than a normal node (human 2026-09-15) */
