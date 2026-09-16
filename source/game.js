@@ -1096,7 +1096,7 @@ addEventListener('pagehide',saveGame);
 
 // ============================================================ sheets (overlays)
 function openSheet(kind,data={}){G.sheet={kind,...data};}
-function closeSheet(){G.sheet=null;}
+function closeSheet(){const s=G.sheet;G.sheet=null;if(s&&s.kind==='drill'&&G.screen==='drill')G.screen='vael';} /* closing the drill results by any route (X, backdrop, Done) leaves the finished drill screen */
 function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.height);dimRect(0,0,W,H,0.75);hit(0,0,W,H,()=>{if(s.kind!=='welcome'){closeSheet();if(s.kind==='drill'&&G.screen==='drill')G.screen='vael';}});
   const camp=G.roster.filter(h=>!G.active.includes(h)),free=G.roster.filter(h=>heroStatus(h)==='camp');
   const hh=s.kind==='training'?276:s.kind==='drill'?172:s.kind==='omen'?(70+30*Math.max(1,(G.omenOffer||[]).length)+((G.omens||[]).length?12:0)):s.kind==='horde'?150:s.kind==='welcome'?(122+Math.ceil(((G.offline&&G.offline.levels)||[]).length/2)*11+((G.offline&&G.offline.items&&G.offline.items.length)?11:0)):s.kind==='blueprints'?36+30*Object.keys(STRUCTS).length:s.kind==='stats'?190:s.kind==='shatter'?352:s.kind==='delve'?54+30*G.roster.filter(h=>heroStatus(h)!=='quest').length:s.kind==='ad'?196:s.kind==='shatter'?96:s.kind==='speedad'?92:s.kind==='autoad'?92:s.kind==='welcome'?122:s.kind==='garrison'?46+30*Math.max(1,G.roster.filter(h=>['camp','garrison'].includes(heroStatus(h))).length):s.kind==='swap'?118+30*Math.max(1,camp.length):s.kind==='send'?(s.hero?40+38*QUESTS.length:40+30*Math.max(1,free.length)):s.kind==='settings'?404:s.kind==='backup'?132:96;
@@ -1229,7 +1229,7 @@ function abortDrill(){const d=G.drill;if(!d||!d.running)return false;d.running=f
 const DRILL_FLASH_PAL={o:'#fff4c0',Y:'#fff4c0',W:'#fff4c0',w:'#fff4c0'},DRILL_TIER_COL=['#d89a5a','#d0d8e4',null,'#8fdcff']; /* Bronze, Silver, Gold (the gold text colour), Crystal */
 function drillTierCol(t){return t<0?C.cream:(DRILL_TIER_COL[t]||C.goldL);}
 function mixHex(a,b,f){const h=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));const A=h(a),B=h(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*f).toString(16).padStart(2,'0')).join('');}
-function drawDummyBig(d){const u=d.g.enemies[0],sc=DRILL_UI.dummyScale,x0=DRILL_UI.dummyX-6*sc,y0=DRILL_UI.dummyTop;const shake=u.anim==='hurt'?(u.frame%2?2:-2):0;
+function drawDummyBig(d){const u=d.g.enemies[0],sc=DRILL_UI.dummyScale,x0=DRILL_UI.dummyX-6*sc,y0=DRILL_UI.dummyTop;const shake=(u.anim==='hurt'&&!u.done)?(u.frame%2?2:-2):0; /* a short wobble on each hit, then back to rest: no standing offset once the hurt frames are done */
   let pal=CPAL;if(u.flash>0){const f=Math.min(0.7,u.flash*5);pal=Object.assign({},CPAL);for(const k in DRILL_FLASH_PAL)pal[k]=mixHex(CPAL[k],DRILL_FLASH_PAL[k],f);}pixGrid(CASTLE_PIX.dummy,x0+shake,y0,sc,pal);} /* the hit flash is one opaque draw with the wood colours blended toward the flash tint: no translucent overlay, so no seams, and nothing outside the dummy's pixels */
 function drawDrillScreen(){const d=G.drill;if(!d){G.screen='vael';return;}const st=d.stats,br=d.bracket,live=drillLive(d),t=drillTarget(br);
   {const zi=br.kind==='zone'?br.zi:ZONES.length-1;const L=SCENES[ZONES[zi].scene]||SCENES.hills;if(L&&L.length){ctx.save();ctx.beginPath();ctx.rect(0,56,W,DRILL_UI.feetY-56+4);ctx.clip();for(const l of L){if(!l.img||!l.img.width)continue;const w=l.img.width||368;for(let x=-20;x<W+w;x+=w)ctx.drawImage(l.img,x,DRILL_UI.feetY+2-208);}ctx.restore();}}px(0,DRILL_UI.feetY+2,W,2,C.goldD); /* the bracket's own map */
