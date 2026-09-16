@@ -1240,7 +1240,7 @@ function drawDrillScreen(){const d=G.drill;if(!d){G.screen='vael';return;}const 
   else text(W/2,y+20,'Calibration pending - records only, no rewards.','xs',C.dimt,'center');
   if(d.running){text(W/2,y+42,'Tap the dummy!','xs',C.goldL,'center');button(W/2-28,y+56,56,16,false);text(W/2,y+60,'Stop','xs',C.cream,'center');hit(W/2-28,y+56,56,16,()=>{abortDrill();toast('Drill stopped - nothing recorded');});
     const sc2=DRILL_UI.dummyScale;hit(DRILL_UI.dummyX-6*sc2-10,DRILL_UI.dummyTop-10,12*sc2+20,17*sc2+20,()=>{withDrill(()=>tapEnemy(G.enemies[0]));});}}
-function drawDrillYard(){const wob=0;pixGrid(CASTLE_PIX.dummy,DRILL_UI.dummyX+108,150-17,1);button(172,60,90,16,true);text(217,64,'Training drill','xs',C.goldL,'center');hit(172,60,90,16,()=>{openTraining();});
+function drawDrillYard(){pixGrid(CASTLE_PIX.dummy,210,146-34,2); /* the yard dummy stands on the cobbles right of the gate, at twice the art size */button(172,60,90,16,true);text(217,64,'Training drill','xs',C.goldL,'center');hit(172,60,90,16,()=>{openTraining();});
   const rec=G.drillRec;const cur=drillBrackets().slice(-1)[0];const b=cur&&rec&&rec.best[drillBracketKey(cur)]&&rec.best[drillBracketKey(cur)][0];if(b)text(262,77,'Best '+fmtNum(b.total)+' · '+b.hero,'xs',C.dimt,'right');}
 function openTraining(){const brs=drillBrackets();if(!brs.length){toast('Beat the first boss to open the training grounds');return;}const sel=G.drillSel||{};const bi=Math.min(brs.length-1,sel.bracket==null?brs.length-1:sel.bracket),hs=G.roster.filter(h=>heroStatus(h)!=='quest'),hi=Math.max(0,Math.min(hs.length-1,sel.hero||0));G.drillSel={bracket:bi,hero:hi};openSheet('training');}
 // ============================================================ sound effects
