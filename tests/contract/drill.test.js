@@ -1,4 +1,4 @@
-// Training Drill contract tests against PRODUCTION functions: one selected hero, live taps capped at three scoring taps a second, fixed
+// Training Drill contract tests against PRODUCTION functions: one selected hero, live taps capped at ten scoring taps a second, fixed
 // drill luck, bracket defense, temporary road effects excluded, the road untouched by drill inputs; per-bracket five-best records;
 // one-time cumulative claims; incomeRate as the permanent reward rate and offlineGains unchanged.
 // Run: node tests/contract/drill.test.js   (exit code 1 on any failure)
@@ -21,9 +21,9 @@ function run(S,hero,br,tapsPerSec){const G=S.G;if(!S.startDrill(hero,br||cur(S))
     const lower=S.drillBrackets()[1];const l=run(S,h,lower,2);ok(l.bracket.zi===1&&l.g.enemies[0].def<a.g.enemies[0].def&&l.stats.total>a.stats.total,'a lower bracket can be selected: less defense, higher score');
     const idle=run(S,h,null,0);ok(idle.stats.tapDmg===0&&idle.stats.heroDmg>0&&idle.stats.ability>0,'without taps the hero still attacks and Auto-Casts on its own');
     ok(G.screen==='vael'&&!G.drillOn&&G.mode==='walk','back on the castle screen with the road context restored');}
-  // ---- taps: three a second score, the rest animate; taps never touch the road's attention or stats
-  {const S=await game(),G=S.G;const h=G.roster[0];const three=run(S,h,null,3),ten=run(S,h,null,10);ok(three.stats.taps===3*S.DRILL_SEC&&three.stats.tapsExtra===0,'three taps a second all score ('+three.stats.taps+')');
-    ok(ten.stats.taps===10*S.DRILL_SEC&&ten.stats.tapsExtra>0&&ten.stats.taps-ten.stats.tapsExtra<=3*S.DRILL_SEC+3,'ten taps a second: only three a second score ('+(ten.stats.taps-ten.stats.tapsExtra)+' scored, '+ten.stats.tapsExtra+' extra)');ok(ten.stats.tapDmg===three.stats.tapDmg,'extra taps add no damage (tap damage '+ten.stats.tapDmg+' with ten a second equals '+three.stats.tapDmg+' with three)');
+  // ---- taps: ten a second score (the production limiter pays 25% from the fourth), the rest animate; taps never touch the road's attention or stats
+  {const S=await game(),G=S.G;const h=G.roster[0];const three=run(S,h,null,10),ten=run(S,h,null,20);ok(three.stats.taps===10*S.DRILL_SEC&&three.stats.tapsExtra===0,'ten taps a second all score ('+three.stats.taps+')');
+    ok(ten.stats.taps===20*S.DRILL_SEC&&ten.stats.tapsExtra>0&&ten.stats.taps-ten.stats.tapsExtra<=10*S.DRILL_SEC+10,'twenty taps a second: only ten a second score ('+(ten.stats.taps-ten.stats.tapsExtra)+' scored, '+ten.stats.tapsExtra+' extra)');ok(ten.stats.tapDmg===three.stats.tapDmg,'extra taps add no damage (tap damage '+ten.stats.tapDmg+' with twenty a second equals '+three.stats.tapDmg+' with ten)');
     ok(!G.attnUntil&&G.stats.taps===0,'dummy taps never start the road attention bonus or count as road taps');}
   // ---- the road runs underneath and its random stream is never consumed by a drill
   {const S=await game(),G=S.G;const r0=S.rngCalls(),seed0=S.seed();run(S,G.roster[0],null,3);ok(S.rngCalls()===r0&&S.seed()===seed0,'with the road idle, a drill draws nothing from the road generator');
