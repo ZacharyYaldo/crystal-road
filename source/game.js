@@ -209,7 +209,7 @@ function dustBlessAt(r){return 1+0.10*r;}function dustBlessMult(){return dustBle
 function actionSpeedMult(){return 1+0.02*treeLv('spd');} /* Quickstep: hero gauge speed */
 const TALENTS={
   knight:[{id:'ironguard',name:'Iron Guard',desc:'Shield Wall also shields the hero behind'},{id:'riposte',name:'Riposte',desc:'While shielded, 20% chance to counter each hit'},{id:'unbroken',name:'Unbroken',desc:'Once per fight, survive a killing blow at 1 HP'}],
-  cleric:[{id:'mending',name:'Mending',desc:'Basic attacks heal the weakest ally 5%'},{id:'echo',name:'Divine Echo',desc:'Sanctuary heals again next turn at 15%'},{id:'lastrites',name:'Last Rites',desc:'Revived allies act immediately'}],
+  cleric:[{id:'mending',name:'Mending',desc:'Basic attacks heal the weakest ally 3%'},{id:'echo',name:'Divine Echo',desc:'Sanctuary heals again next turn at 15%'},{id:'lastrites',name:'Last Rites',desc:'Revived allies act immediately'}],
   rogue:[{id:'quickdraw',name:'Quickdraw',desc:'Start every fight with 30% ability charge'},{id:'executioner',name:'Executioner',desc:'Shadowstep +50% vs enemies under 30% HP'},{id:'poison',name:'Poisoned Steel',desc:'Critical hits poison the target'}],
   mage:[{id:'burn',name:'Arcane Burn',desc:'Spells make the target take 20% more damage'},{id:'stars',name:'Falling Stars',desc:'Meteor adds three small follow-up impacts'},{id:'overflow',name:'Overflow',desc:'Kills refund 20% ability charge'}],
   ranger:[{id:'pierce',name:'Piercing Shot',desc:'Attacks have a 50% chance to hit a second enemy'},{id:'mark',name:"Hunter's Mark",desc:'Each hit on the same enemy adds 5% damage, up to 50%'},{id:'deadeye',name:'Deadeye',desc:'15% crit chance against bleeding enemies'}],
@@ -507,7 +507,7 @@ function updateAction(dt){const a=G.action,u=a.u;
     else if(a.kind==='aoe'){for(const t of a.tgts)if(!t.dead)G.projs.push(magicProj(u,t,0.7));}
     else if(a.kind==='bolt'){if(a.tgt&&!a.tgt.dead)G.projs.push(magicProj(u,a.tgt,0.8));}
     else if(a.kind==='ranged'){if(a.tgt){const A=ATLAS[u.uid];G.projs.push({x:u.x+u.dx+(u.enemy?-10:10),y:GROUND+(u.yoff||0)-A.oy*0.62,tgt:a.tgt,src:u,t:0,dur:0.28,flip:u.enemy});if(!u.enemy&&u.talents&&tal(u,'pierce')&&rand()<0.5){const other=living(G.enemies).find(e=>e!==a.tgt);if(other)G.projs.push({x:u.x+u.dx+10,y:GROUND-A.oy*0.62,tgt:other,src:u,t:0,dur:0.32,flip:false,mult:0.6});}}}
-    if(!u.enemy&&u.talents&&tal(u,'mending')&&a.kind!=='ability'){const low=living(G.active).sort((p,q)=>p.hp/p.maxhp-q.hp/q.maxhp)[0];if(low&&low.hp<low.maxhp)heal(u,low,low.maxhp*0.05);}}
+    if(!u.enemy&&u.talents&&tal(u,'mending')&&a.kind!=='ability'){const low=living(G.active).sort((p,q)=>p.hp/p.maxhp-q.hp/q.maxhp)[0];if(low&&low.hp<low.maxhp)heal(u,low,low.maxhp*0.03);}} /* Mending: 3% of the ally's max HP per basic attack (was 5%; human 2026-09-16) */
   if(u.done)endAction();}
 function magicColor(u){if(u.enemy)return'#b06cff';const it=u.eq&&u.eq.weapon;const t=it?WTINT[Math.min(4,it.rank)]:null;if(!t)return u.cls==='cleric'?'#ffe9a8':'#7fd4ff';const[r,g,b]=hsv2rgb(t[0],t[1],1);return`rgb(${r},${g},${b})`;}
 function magicProj(u,t,mult){return{x:u.x+u.dx+(u.enemy?-12:12),y:GROUND+(u.yoff||0)-22,tgt:t,src:u,t:0,dur:0.32,flip:u.enemy,magic:true,mult,col:magicColor(u),srcKind:G.dmgSrc||null};}
