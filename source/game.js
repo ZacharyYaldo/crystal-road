@@ -186,7 +186,7 @@ const TREE=[
   {branch:'Camp',id:'keys',name:'Locksmith',desc:'Keys return 8% faster',max:10,base:500,cur:'gold'},
   {branch:'Camp',id:'haggle',name:'Haggling',desc:'Villagers 3% cheaper',max:20,base:250,cur:'gold'},
   {branch:'Camp',id:'swift',name:'Swift Return',desc:'Quests finish 3% sooner',total:r=>'quests x'+(1/(1-0.03*r)).toFixed(2)+' faster',max:20,base:350,cur:'gold'},
-  {branch:'Camp',id:'ore',name:'Prospecting',desc:'+5% ore from every source',max:50,base:150,cur:'gold'},
+  {branch:'Camp',id:'ore',name:'Prospecting',desc:'+5% ore from every source',max:50,base:150,cur:'gold',growth:1.85},
   {branch:'Camp',id:'offline',name:'Night Watch',desc:'+30 min offline cap',max:8,base:450,cur:'gold'},
   {branch:'Crystal',id:'b_hp',name:'Crystal Vigor',desc:'+10% max HP',max:99,base:4,cur:'dust'},
   {branch:'Crystal',id:'b_dmg',name:'Sharpened Fate',desc:'+8% attack and ability damage',max:99,base:4,cur:'dust'},
@@ -202,7 +202,7 @@ const TREE=[
 ];
 const xpNeed=l=>R(30*Math.pow(l,1.6)*Math.pow(1.03,l));
 const treeLv=id=>G.tree[id]||0;
-function nodeCost(n,lv){const isD=n.cur==='dust';return R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:1.75,lv));} /* price of the next rank when lv ranks are owned */
+function nodeCost(n,lv){const isD=n.cur==='dust';return R(n.base*(isD?1:1.5)*Math.pow(isD?1.5:(n.growth||1.75),lv));} /* a node may carry its own growth; Prospecting climbs at 1.85 so ore income does not outrun gold */ /* price of the next rank when lv ranks are owned */
 function buyTreeRank(n){if(treeLv(n.id)>=n.max)return false;const isD=n.cur==='dust',c=nodeCost(n,treeLv(n.id));if((isD?G.dust:G.gold)<c)return false;if(isD)G.dust-=c;else G.gold-=c;G.tree[n.id]=treeLv(n.id)+1;return true;} /* the one way a rank is bought */
 function restHealAt(r){return Math.min(1,0.15+0.02*r);}function restHealPct(){return restHealAt(treeLv('rest'));} /* after-fight heal: 15% base +2% per Warm Fire rank, never above 100% */
 function dustBlessAt(r){return 1+0.10*r;}function dustBlessMult(){return dustBlessAt(treeLv('b_dust'));} /* Crystal Memory: Shatter dust multiplier */
