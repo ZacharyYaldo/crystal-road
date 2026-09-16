@@ -177,7 +177,7 @@ const TREE=[
   {branch:'Party',id:'rest',name:'Warm Fire',desc:'+2% to the 15% fight heal',total:r=>'heals '+R(100*restHealAt(r))+'%',max:40,base:90,cur:'gold'},
   {branch:'Party',id:'march',name:'Long Stride',desc:'+4% march speed',max:50,base:60,cur:'gold'},
   {branch:'Tap',id:'tap',name:'Strike',desc:'+20% tap damage',max:50,base:40,cur:'gold'},
-  {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +0.5',max:5,base:300,cur:'gold'},
+  {branch:'Tap',id:'tapcharge',name:'Momentum',desc:'Taps charge abilities +0.5',max:5,base:300,cur:'gold',growth:5}, /* 450, 2.25K, 11.3K, 56.3K, 281K: five-fold per rank, since each rank is worth far more than a normal node (human 2026-09-15) */
   {branch:'Camp',id:'slots',name:'Bunks',desc:'+1 quest slot',max:3,base:400,cur:'gold'},
   {branch:'Camp',id:'quest',name:'Provisions',desc:'+6% primary quest reward',max:50,base:200,cur:'gold'},
   {branch:'Tap',id:'tapcrit',name:'Sharp Taps',desc:'+4% tap triple-hit chance',max:25,base:180,cur:'gold'},
