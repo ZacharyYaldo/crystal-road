@@ -795,7 +795,7 @@ function drawGear(){drawPanelScreen();const h=G.roster[G.gearHero]||G.roster[0];
   text(90,54,h.name,'h',C.cream);text(90,66,heroTitle(h)+' · Lv '+h.lvl+' · '+heroStatus(h),'s',C.muted);
   text(90,80,'HP','xs',C.muted);text(110,80,fmtNum(h.maxhp),'sb',C.cream);text(150,80,'ATK','xs',C.muted);text(172,80,fmtNum(h.atk),'sb',C.cream);
   text(90,91,'DEF','xs',C.muted);text(110,91,fmtNum(h.def),'sb',C.cream);text(150,91,'SPD','xs',C.muted);text(172,91,String(h.spd),'sb',C.cream);
-  if(n>1){button(232,72,26,24,false);text(245,76,'›','h',C.goldL,'center');hit(232,72,26,24,()=>{G.gearHero=(G.roster.indexOf(h)+1)%n;G.selItem=null;});} /* next hero, for players who do not spot the portrait row */
+  if(n>1){button(232,54,26,42,false);text(245,71,'›','h',C.goldL,'center');hit(232,54,26,42,()=>{G.gearHero=(G.roster.indexOf(h)+1)%n;G.selItem=null;});} /* next hero, for players who do not spot the portrait row */
   bar(90,104,166,5,h.xp/xpNeed(h.lvl),C.xp);text(90,111,'XP '+fmtNum(h.xp)+' / '+fmtNum(xpNeed(h.lvl)),'xs',C.muted);text(256,111,'Power '+fmtNum(h.maxhp+h.atk*6+h.def*4),'xs',C.goldL,'right');
   const MH=BIG?18:14,MY=138,SY=MY+MH+4,SLOTH=BIG?126:108,PACK_Y=SY+SLOTH+6;
   text(8,MY+MH/2-4,'Upgrades per tap','xs',C.muted);[1,5,25,'max'].forEach((m,i)=>{const x=64+i*48,on=G.mult===m;button(x,MY,46,MH,on);text(x+23,MY+MH/2-4,m==='max'?'Max':'×'+m,'xsb',on?C.goldL:C.cream,'center');hit(x,MY,46,MH,()=>{G.mult=m;});});
