@@ -296,10 +296,10 @@ function itemName(it){if(it.super&&SUPER[it.super])return SUPER[it.super].name;i
 function itemIcon(it){return it.slot==='weapon'?it.kind:it.slot==='cape'?'cape':(it.rank%2?'amulet':'ring');}
 function itemStatLabel(it){return (it.slot==='weapon'?'+'+fmtNum(itemStat(it))+' ATK':it.slot==='cape'?'+'+fmtNum(itemStat(it))+' DEF':'+'+fmtNum(itemStat(it))+' HP');}
 function wielders(it){return Object.values(CLASSES).filter(c=>c.weapon===it.kind).map(c=>c.name).join('/');}
-const ASCEND_COST=[1500,150000,15000000,200000000]; /* ore to ascend from rank r to r+1, flat per rank (pass 45 proposal): about ten upgrade levels at that rank's level cap, so ascending is always worth it once the cap binds */
-function ascendCost(it){return ASCEND_COST[Math.min(it.rank,ASCEND_COST.length-1)];}
+const ASCEND_BASE=[40,160,500,1000]; /* ore to ascend from rank r to r+1 at level 0; the price climbs 1.14x per item level, like the upgrade cost (reverted 2026-09-15 from the flat pass 45 table at the human's request) */
+function ascendCost(it){return R(ASCEND_BASE[Math.min(it.rank,ASCEND_BASE.length-1)]*Math.pow(1.14,it.lvl||0));}
 function ascendCap(){return Math.min(4,1+(G.reforges||0));}
-const ITEM_LVL_CAP=[50,50,50,75,100];function itemLvlCap(it){return (it.rank||0)>=5?Infinity:ITEM_LVL_CAP[it.rank||0]+50*(it.devoured||0);} /* upgrade level cap by rank (human 2026-09-15): Common, Uncommon and Rare 50, Epic 75, Legendary 100, Mythic unlimited; each devoured item of the same rarity adds 50 (it.devoured, feature pending) */
+function itemLvlCap(it){return Infinity;} /* item levels are unlimited again (human 2026-09-15); the capped branches below stay in place for a future cap and the Devour feature */
 function ascendItem(it,h){if(it.rank>=4){toast(it.rank>=5?'Nothing surpasses Crystal':'Already Sunforged');return;}if(it.rank>=ascendCap()){toast(RANKS[it.rank+1]+' needs '+(it.rank+1-(G.reforges||0))+' more Shatter'+(it.rank-(G.reforges||0)?'s':''));return;}const c=ascendCost(it);if(G.ore<c){toast('Need '+fmtNum(c)+' ore');return;}G.ore-=c;it.rank++;if(h)refreshStats(h);sfx('level',true);toast(itemName(it)+' - ascended to '+RANKS[it.rank],RANKHEX[it.rank]);}
 function upgradeCost(it){return R(3*Math.pow(2.2,it.rank)*Math.pow(1.14,it.lvl)*(built('forge')?0.85:1));}
 const DROP_TABLE=[[80,20,0,0,0],[55,35,10,0,0],[45,40,15,0,0],[35,40,20,5,0],[30,38,24,8,0],[25,36,27,10,2],[20,35,30,12,3],[15,32,32,16,5],[10,28,34,20,8]];
