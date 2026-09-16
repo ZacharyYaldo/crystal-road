@@ -1,0 +1,51 @@
+{
+ "tag": "d50base",
+ "createdAt": "2026-09-16T21:00:05.379Z",
+ "commit": "f8c2a813151a723e7b59e8416dff6f7694783cc6",
+ "gameHash": "ac0a6c644e3f04ab",
+ "harnessHash": "4206fe21302b1379:3a0f9ac35d56cdd5",
+ "provenanceSets": {
+  "f8c2a813151a723e7b59e8416dff6f7694783cc6|ac0a6c644e3f04ab|4206fe21302b1379:3a0f9ac35d56cdd5": 18
+ },
+ "config": {
+  "seedStart": 81,
+  "seeds": 6,
+  "hours": 48,
+  "profiles": [
+   "light",
+   "casual",
+   "engaged"
+  ],
+  "shatters": 10,
+  "dt": 0.016666666666666666,
+  "speed": 2,
+  "frameCap": 0.05,
+  "schedule": "2:2,2:8,2:8",
+  "model": {
+   "drills": true,
+   "double": true,
+   "boosts": true,
+   "clericBack": true
+  }
+ },
+ "files": {
+  "light_81.json": "8c92b8e6c0be8e6903a7122d5852eab9f7af39fc2d28341947474de2e95a85b7",
+  "light_82.json": "4c7b66d1d34b3041ce111eaee802d666bd32b5a8ca9c1a93303d8e2dab445686",
+  "light_83.json": "cf687886c5c8107f0664114b2dcc82044f5643c77f7dd66f5cfbe37467cb77cd",
+  "light_84.json": "200121683c29f7472dcf1c09fa3289c82fab50963561c06317efc7699d340b87",
+  "light_85.json": "0332b6e6145f4cca714de13f3396235bd473427858f7bb3b5dbd4749a7fd5299",
+  "light_86.json": "6702e2013c7294b5cc26022677825e63bd9a52d488d1af93473ecf5e0c38be90",
+  "casual_81.json": "c31ec694c4659f93172303a4c881f87f5f248a99760a12ce1a78d9d1fe2887e1",
+  "casual_82.json": "c49b5dec9c4ec92dd2952831e6ced881ccc0772d09cfc48554d75839604f44fa",
+  "casual_83.json": "8e515d70563f3be52924fdca32dacd41d4216b16aaa1dce9007b99483d168627",
+  "casual_84.json": "6ee5f37b39e38e629fb42fd4d0d855a0450e773980a53252dd718749a273f48c",
+  "casual_85.json": "414b0159567919505e9ee53ead0c7e4d2eaa82b7d78c4491c3e8b9cc668bc8cd",
+  "casual_86.json": "41261ec5caa670e40db328453bf9218ed1fbb6afd027a03a73fec077ce271245",
+  "engaged_81.json": "358aa1e896965e84f93aeebef0a98be2651ceaef44a91db958320b43cd705241",
+  "engaged_82.json": "1ffb1e5c9e9c51ce80daea13b4020f40b5c9eca2025b12e02c9481a87c6b316d",
+  "engaged_83.json": "61eaad61973e9826beef5a059ffff165a072e564372ab7fcec16275e7522b0c8",
+  "engaged_84.json": "59cddac1a33d93e2da6dd6820faa32605d6826ffca2577629da9b55aa89a8761",
+  "engaged_85.json": "11903513f719499a8359ddd85c70873f210e1035d0c4eb386ae33342b9bc9b2c",
+  "engaged_86.json": "0fb6d70a48601293d7adad2c8dac89634b99dbc80a6435b3247696626c498627"
+ }
+}

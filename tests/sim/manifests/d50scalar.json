@@ -1,0 +1,51 @@
+{
+ "tag": "d50scalar",
+ "createdAt": "2026-09-16T21:08:41.019Z",
+ "commit": "f8c2a813151a723e7b59e8416dff6f7694783cc6",
+ "gameHash": "a739a605523d4905",
+ "harnessHash": "4206fe21302b1379:292d8aea0622c78a",
+ "provenanceSets": {
+  "f8c2a813151a723e7b59e8416dff6f7694783cc6|a739a605523d4905|4206fe21302b1379:292d8aea0622c78a": 18
+ },
+ "config": {
+  "seedStart": 81,
+  "seeds": 6,
+  "hours": 48,
+  "profiles": [
+   "light",
+   "casual",
+   "engaged"
+  ],
+  "shatters": 10,
+  "dt": 0.016666666666666666,
+  "speed": 2,
+  "frameCap": 0.05,
+  "schedule": "2:2,2:8,2:8",
+  "model": {
+   "drills": true,
+   "double": true,
+   "boosts": true,
+   "clericBack": true
+  }
+ },
+ "files": {
+  "light_81.json": "3c4b1595e0ca3f84e18e08d68677f76424029557da017f90de85327e3bef2904",
+  "light_82.json": "3770fcdb0b3395a908b19149c82e76d0285b5c56829a513a557019570776a753",
+  "light_83.json": "861a99b734746b12aa1fd7008f91406f8724b290abdbc234311c7cb4cb56fccb",
+  "light_84.json": "e0266362dbb9a1731e480d39f988582d5dfade309f9941a9b9b4cdd56a23518d",
+  "light_85.json": "7329ab093ddefedf6456ff73bada8e5d535be50b06a3ca45e5619b8794f3c8cf",
+  "light_86.json": "00698587c243fc120a9eda8d44689347e4188d59da3a8c6e8f829372a648a747",
+  "casual_81.json": "ceae857aa602b17318f9c3d9188dee9100834517345855fb672b9f6698d1c4d9",
+  "casual_82.json": "78127592fded0c2621c40e9a407a4ef6d5b91cddb6e4bada8a6609d20ede22eb",
+  "casual_83.json": "9c80c3de2deea80fdacd9a9525b867b0c12266ff86524f6351a710fbdd630bfc",
+  "casual_84.json": "066ae49dc4afad6da2d24896211365ea6aa515810dfe64fd38b9742bfcabe725",
+  "casual_85.json": "12eb87f730d3f24ca9749556fb33bbcfd65c83513202c1f6f142715523237e73",
+  "casual_86.json": "6139baebbe29f77c81c3681b8b61dcb3ed625c6673df89484e7b13821783b717",
+  "engaged_81.json": "7d40fe4ad2c98aaa7925e2f4a5b5b13348d1fb2264366c20058683ff1e8e7584",
+  "engaged_82.json": "ab0b73857e52d36931bdb970e002bbf65365a3a6280d3b6f93610838d69f0c63",
+  "engaged_83.json": "66c1c7b8bb855ddc96a71680535eb601642f1fa77e066cebe72ba0dd7a7fa3fe",
+  "engaged_84.json": "76fd54a40fbd5ae5d28b453b243f86794cf45f76b5c8a6ad1b829881a82a8b4e",
+  "engaged_85.json": "025d9ae83f36cb1797579409ff49997d27f35cc9952ec9a3393c0b786226207c",
+  "engaged_86.json": "c20c22f8ab2182ac7b91c877bd48366946f7ab7c19d6b6f7f9ba4a1f17e57a37"
+ }
+}
