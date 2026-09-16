@@ -779,6 +779,7 @@ function drawCamp(){const CY=CAMP_Y,CH=TABY-4-TABTOP-CY,RH=Math.floor((CH-24)/3)
       else{text(38,cy+1,'Returned','xs',C.green);button(196,by,62,bh,true);text(227,by+bh/2-4.5,'Collect','sb',C.goldL,'center');hit(196,by,62,bh,()=>collectQuest(q));}}
     else{px(12,cy-9,24,18,'#141828');px(13,cy-8,22,16,'#1c2038');text(38,cy-4,'Empty slot','s',C.muted);const free=G.roster.filter(h=>heroStatus(h)==='camp');
       button(196,by,62,bh,false,!free.length);text(227,by+bh/2-4,'Send hero','xs',free.length?C.cream:C.dimt,'center');hit(196,by,62,bh,()=>{if(!free.length){toast('Everyone is marching or away');return;}openSheet('send');});}}
+  if(slots<3){const i=slots,y=CY+15+i*RH,bh=Math.min(BIG?30:22,RH-4),by=y+Math.floor((RH-bh)/2),cy=y+Math.floor(RH/2);if(i%2===0)px(8,y,254,RH,C.band);px(12,cy-9,24,18,'#141828');px(13,cy-8,22,16,'#1c2038');icon('lock',18,cy-6,0);text(38,cy-8,'Locked slot','s',C.dimt);text(38,cy+1,'Bunks in the Camp tree opens a third slot','xs',C.dimt);button(196,by,62,bh,false,true);text(227,by+bh/2-4,'Locked','xs',C.dimt,'center');hit(196,by,62,bh,()=>toast('Bunks in the Camp tree opens a third slot'));} /* the third row stays visible while locked so the camp never looks half empty */
 }
 
 // ============================================================ screens
