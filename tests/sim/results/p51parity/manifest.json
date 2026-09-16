@@ -1,0 +1,46 @@
+{
+ "tag": "p51parity",
+ "createdAt": "2026-09-16T22:19:51.745Z",
+ "commit": "afc2736dd77ef285a1ea785a393461aadca27602",
+ "gameHash": "9327f718e0d073d6",
+ "harnessHash": "97ce6f70faca68a2:3428d540609633d2",
+ "provenanceSets": {
+  "afc2736dd77ef285a1ea785a393461aadca27602|9327f718e0d073d6|97ce6f70faca68a2:3428d540609633d2": 12
+ },
+ "config": {
+  "seedStart": 81,
+  "seeds": 3,
+  "hours": 48,
+  "profiles": [
+   "idleboost",
+   "light",
+   "casual",
+   "engaged"
+  ],
+  "shatters": 10,
+  "dt": 0.016666666666666666,
+  "speed": 2,
+  "frameCap": 0.05,
+  "schedule": "2:2,2:8,2:8",
+  "model": {
+   "drills": true,
+   "double": true,
+   "boosts": true,
+   "clericBack": true
+  }
+ },
+ "files": {
+  "idleboost_81.json": "2fca4ad968c341652ee88767bffa6ff85ba5a3969f4b23bfb71d427163b09520",
+  "idleboost_82.json": "0bcc5576ed8531c080bde1d6a7c1546acbc33f0b711dc667dc3ff455e5632c51",
+  "idleboost_83.json": "b6fe2cf68ea53589e189d931c5ee1336da66541608be24c3e69fa9d1932f0527",
+  "light_81.json": "940e98e908893673cefb33a8e7fe60bf0ba2a76593641c1677ebadb3fd3fc641",
+  "light_82.json": "abe47fe0227c40efed7f39a6fdfedaf871c08b36d70394ad40eef30a55a7d8f8",
+  "light_83.json": "2d025e52b8845335a4ab750b998c611a89510a5492391525148b8f37bc14a897",
+  "casual_81.json": "58638c5d4e5c8e166926d51938062def8730c8bbd84e3f5d2505ca83ca03c2a8",
+  "casual_82.json": "b2a2e4bcc7e760c16a9263f303e14c260ee26f189c9ef3cf64ec31f0545ab75c",
+  "casual_83.json": "67cd5959f913af1d4b40b3482557a70b80e3ab3134dc774b8aa0ee177343d885",
+  "engaged_81.json": "47fa808253c07d861e841d2fda922c3a4e83d735b79724e2db5450171127bf08",
+  "engaged_82.json": "30306fb7ca1239d9adabf7e2e3a0f5123090791c707a2cb537c70c76bbaf66e6",
+  "engaged_83.json": "03697e3034c79dddf16437b137499c8a03f70bdb8019103d187ee5fc5716c276"
+ }
+}

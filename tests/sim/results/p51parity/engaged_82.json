@@ -1,0 +1,5999 @@
+{
+ "config": {
+  "hours": 48,
+  "shatters": 10,
+  "seed": 82,
+  "dt": 0.016666666666666666,
+  "frameCap": 0.05,
+  "profile": "engaged",
+  "commit": "afc2736dd77ef285a1ea785a393461aadca27602",
+  "dirty": [],
+  "replaced": null,
+  "gameHash": "9327f718e0d073d6",
+  "harnessHash": "97ce6f70faca68a2:3428d540609633d2",
+  "taps": 2,
+  "activeMin": 15,
+  "boost": true,
+  "speed": 2,
+  "speed4Buys": "unlimited",
+  "schedule": "2:2,2:8,2:8",
+  "drills": true,
+  "double": true,
+  "boosts": true,
+  "clericBack": true,
+  "retreatAfter": 0,
+  "retreatOn": "boss",
+  "trainUntil": "level",
+  "stallRule": "far",
+  "stallHours": 3,
+  "noAutoTrain": false
+ },
+ "hordes": {
+  "repelled": 3,
+  "lost": 0,
+  "fought": 3
+ },
+ "byZone": {
+  "Stillwater Lagoon": {
+   "defeats": 15,
+   "rewalk": 40,
+   "bossRewalk": 9,
+   "trainRewalk": 0
+  },
+  "Thornwood": {
+   "defeats": 79,
+   "rewalk": 181,
+   "bossRewalk": 0,
+   "trainRewalk": 0
+  },
+  "Ironvein Caverns": {
+   "defeats": 24,
+   "rewalk": 125,
+   "bossRewalk": 0,
+   "trainRewalk": 0
+  },
+  "Emberwaste": {
+   "defeats": 55,
+   "rewalk": 91,
+   "bossRewalk": 0,
+   "trainRewalk": 0
+  },
+  "Ashen Approach": {
+   "defeats": 44,
+   "rewalk": 97,
+   "bossRewalk": 0,
+   "trainRewalk": 0
+  },
+  "Ashen Keep": {
+   "defeats": 28,
+   "rewalk": 167,
+   "bossRewalk": 0,
+   "trainRewalk": 0
+  },
+  "The Foundry": {
+   "defeats": 54,
+   "rewalk": 104,
+   "bossRewalk": 11,
+   "trainRewalk": 0
+  },
+  "The Endless Road": {
+   "defeats": 6,
+   "rewalk": 62,
+   "bossRewalk": 0,
+   "trainRewalk": 0
+  }
+ },
+ "zoneTime": {
+  "Greenhollow Fields": {
+   "sec": 655.0166666663996,
+   "trainSec": 0
+  },
+  "Stillwater Lagoon": {
+   "sec": 2375.00000000263,
+   "trainSec": 0
+  },
+  "Thornwood": {
+   "sec": 5864.9999999988,
+   "trainSec": 0
+  },
+  "Ironvein Caverns": {
+   "sec": 4075.000000024276,
+   "trainSec": 0
+  },
+  "Emberwaste": {
+   "sec": 4140.000000023902,
+   "trainSec": 0
+  },
+  "Amberfall Woods": {
+   "sec": 859.9999999995465,
+   "trainSec": 0
+  },
+  "Ashen Approach": {
+   "sec": 3710.0000000196283,
+   "trainSec": 0
+  },
+  "Ashen Keep": {
+   "sec": 3820.000000021029,
+   "trainSec": 0
+  },
+  "The Foundry": {
+   "sec": 10129.999999936737,
+   "trainSec": 0
+  },
+  "The Endless Road": {
+   "sec": 7569.983333307323,
+   "trainSec": 0
+  }
+ },
+ "autoTrain": null,
+ "deadTime": {
+  "rewalkFights": 867,
+  "rewalkBossFights": 20,
+  "rewalkWhileTraining": 0,
+  "defeatsOutsideTraining": 305,
+  "encounters": 4738,
+  "secPerEncounter": 36.5
+ },
+ "dmgShare": {
+  "basic": 0.437,
+  "ability": 0.506,
+  "tap": 0.046,
+  "surge": 0.01
+ },
+ "dmgPerHour": {
+  "basic": 102596112,
+  "ability": 118862158,
+  "tap": 10889940,
+  "surge": 2456215,
+  "total": 234804425
+ },
+ "castsPerHour": 316,
+ "dmgActiveWindow": {
+  "share": {
+   "basic": 0.274,
+   "ability": 0.571,
+   "tap": 0.127,
+   "surge": 0.029
+  },
+  "perHour": 1376001825,
+  "hours": 3
+ },
+ "firsts": {
+  "first common": 0,
+  "first uncommon": 0.02,
+  "first rare": 0.06,
+  "first talent": 0.21,
+  "first epic": 4.11,
+  "shatter 1": 4.11,
+  "shatter 2": 14,
+  "first legendary": 14.22,
+  "first T1": 15.07,
+  "shatter 3": 24,
+  "shatter 4": 28.18,
+  "first mythic": 29.21,
+  "shatter 5": 29.54,
+  "first T2": 38,
+  "shatter 6": 39.24
+ },
+ "zoneRec": {
+  "Greenhollow Fields": {
+   "enterH": 0,
+   "lvAtEntry": 1,
+   "clearH": 0.05,
+   "lvAtClear": 10,
+   "hours": 0.05
+  },
+  "Stillwater Lagoon": {
+   "enterH": 0.05,
+   "lvAtEntry": 13,
+   "clearH": 0.53,
+   "lvAtClear": 14,
+   "hours": 0.48
+  },
+  "Thornwood": {
+   "enterH": 0.53,
+   "lvAtEntry": 13,
+   "clearH": 1.95,
+   "lvAtClear": 22,
+   "hours": 1.42
+  },
+  "Ironvein Caverns": {
+   "enterH": 1.96,
+   "lvAtEntry": 22,
+   "clearH": 4.11,
+   "lvAtClear": 30,
+   "hours": 2.15
+  },
+  "Emberwaste": {
+   "enterH": 5.04,
+   "lvAtEntry": 24,
+   "clearH": 14.2,
+   "lvAtClear": 23,
+   "hours": 9.16
+  },
+  "Amberfall Woods": {
+   "enterH": 14.2,
+   "lvAtEntry": 23,
+   "clearH": 14.29,
+   "lvAtClear": 28,
+   "hours": 0.09
+  },
+  "Ashen Approach": {
+   "enterH": 14.29,
+   "lvAtEntry": 28,
+   "clearH": 15.17,
+   "lvAtClear": 38,
+   "hours": 0.88
+  },
+  "Ashen Keep": {
+   "enterH": 15.17,
+   "lvAtEntry": 38,
+   "clearH": 24.36,
+   "lvAtClear": 37,
+   "hours": 9.19
+  },
+  "The Foundry": {
+   "enterH": 24.36,
+   "lvAtEntry": 37,
+   "clearH": 25.03,
+   "lvAtClear": 53,
+   "hours": 0.67
+  },
+  "The Endless Road": {
+   "enterH": 25.98,
+   "lvAtEntry": 68
+  }
+ },
+ "econPerHour": {
+  "goldEarned": 33750847,
+  "goldSpent": 17283399,
+  "oreEarned": 226842,
+  "oreSpent": 159713,
+  "renown": 1901
+ },
+ "simHours": 48,
+ "final": {
+  "zone": "The Endless Road",
+  "prog": 156,
+  "partyLv": 101,
+  "gold": 790437514,
+  "ore": 3222195,
+  "dust": 21,
+  "shatters": 6,
+  "wins": 4431,
+  "defeats": 307,
+  "castle": {
+   "mine": 23,
+   "market": 24,
+   "walls": 20
+  },
+  "renown": 91264
+ },
+ "profile": "engaged",
+ "boost": true,
+ "boostBuys": 6,
+ "schedule": [
+  {
+   "play": 2,
+   "off": 2
+  },
+  {
+   "play": 2,
+   "off": 8
+  },
+  {
+   "play": 2,
+   "off": 8
+  }
+ ],
+ "playHours": 12,
+ "offlineHours": 36,
+ "offline": [
+  {
+   "h": 4,
+   "offH": 2,
+   "fights": 212,
+   "gold": 159714,
+   "ore": 4030,
+   "doubled": true
+  },
+  {
+   "h": 14,
+   "offH": 8,
+   "fights": 709,
+   "gold": 2198840,
+   "ore": 42494,
+   "doubled": true
+  },
+  {
+   "h": 24,
+   "offH": 8,
+   "fights": 709,
+   "gold": 9823774,
+   "ore": 148718,
+   "doubled": true
+  },
+  {
+   "h": 28,
+   "offH": 2,
+   "fights": 212,
+   "gold": 13117790,
+   "ore": 137058,
+   "doubled": true
+  },
+  {
+   "h": 38,
+   "offH": 8,
+   "fights": 709,
+   "gold": 137586504,
+   "ore": 1218200,
+   "doubled": true
+  },
+  {
+   "h": 48,
+   "offH": 8,
+   "fights": 709,
+   "gold": 710687840,
+   "ore": 3166960,
+   "doubled": true
+  }
+ ],
+ "drills": {
+  "runs": 32,
+  "paid": 31,
+  "gold": 43901225,
+  "ore": 212095,
+  "dust": 16,
+  "tiers": {
+   "none": 1,
+   "Crystal": 20,
+   "Gold": 8,
+   "Silver": 1,
+   "Bronze": 2
+  },
+  "first": {
+   "zone": {
+    "claims": 12,
+    "gold": 6053011,
+    "dust": 5
+   },
+   "endless": {
+    "claims": 1,
+    "gold": 1259739,
+    "dust": 1
+   }
+  },
+  "repeat": {
+   "zone": {
+    "claims": 17,
+    "gold": 29207612,
+    "dust": 7.5
+   },
+   "endless": {
+    "claims": 1,
+    "gold": 7380863,
+    "dust": 2.5
+   }
+  }
+ },
+ "drillLog": [
+  {
+   "h": 0.01,
+   "played": 0.01,
+   "key": "zone:0",
+   "kind": "zone",
+   "shatters": 0,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": -1,
+   "total": 227,
+   "crystal": 3100,
+   "lv": 1,
+   "dust": 0,
+   "gold": 0
+  },
+  {
+   "h": 4.01,
+   "played": 2.01,
+   "key": "zone:0",
+   "kind": "zone",
+   "shatters": 0,
+   "firstCycle": true,
+   "attempt": 2,
+   "tier": 3,
+   "total": 7294,
+   "crystal": 3100,
+   "lv": 29,
+   "dust": 0,
+   "gold": 14085
+  },
+  {
+   "h": 4.02,
+   "played": 2.02,
+   "key": "zone:1",
+   "kind": "zone",
+   "shatters": 0,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 2,
+   "total": 12092,
+   "crystal": 17900,
+   "lv": 29,
+   "dust": 0,
+   "gold": 12922
+  },
+  {
+   "h": 4.03,
+   "played": 2.03,
+   "key": "zone:2",
+   "kind": "zone",
+   "shatters": 0,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 1,
+   "total": 11975,
+   "crystal": 54700,
+   "lv": 29,
+   "dust": 0,
+   "gold": 10060
+  },
+  {
+   "h": 4.03,
+   "played": 2.03,
+   "key": "zone:3",
+   "kind": "zone",
+   "shatters": 0,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 0,
+   "total": 10819,
+   "crystal": 121000,
+   "lv": 29,
+   "dust": 0,
+   "gold": 7459
+  },
+  {
+   "h": 14.01,
+   "played": 4.01,
+   "key": "zone:1",
+   "kind": "zone",
+   "shatters": 2,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 69138,
+   "crystal": 30200,
+   "lv": 7,
+   "dust": 0,
+   "gold": 66477
+  },
+  {
+   "h": 14.02,
+   "played": 4.02,
+   "key": "zone:2",
+   "kind": "zone",
+   "shatters": 2,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 149618,
+   "crystal": 92400,
+   "lv": 7,
+   "dust": 0,
+   "gold": 112842
+  },
+  {
+   "h": 14.03,
+   "played": 4.03,
+   "key": "zone:3",
+   "kind": "zone",
+   "shatters": 2,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 2,
+   "total": 147519,
+   "crystal": 204000,
+   "lv": 7,
+   "dust": 0,
+   "gold": 74755
+  },
+  {
+   "h": 14.03,
+   "played": 4.03,
+   "key": "zone:4",
+   "kind": "zone",
+   "shatters": 2,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 2,
+   "total": 146156,
+   "crystal": 366000,
+   "lv": 8,
+   "dust": 0,
+   "gold": 124822
+  },
+  {
+   "h": 24.01,
+   "played": 6.01,
+   "key": "zone:1",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 534672,
+   "crystal": 39300,
+   "lv": 10,
+   "dust": 0,
+   "gold": 89190
+  },
+  {
+   "h": 24.02,
+   "played": 6.02,
+   "key": "zone:2",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 528974,
+   "crystal": 120000,
+   "lv": 10,
+   "dust": 0,
+   "gold": 151397
+  },
+  {
+   "h": 24.03,
+   "played": 6.03,
+   "key": "zone:3",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 526643,
+   "crystal": 266000,
+   "lv": 10,
+   "dust": 1,
+   "gold": 300887
+  },
+  {
+   "h": 24.03,
+   "played": 6.03,
+   "key": "zone:4",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 524192,
+   "crystal": 476000,
+   "lv": 10,
+   "dust": 1,
+   "gold": 502409
+  },
+  {
+   "h": 24.04,
+   "played": 6.04,
+   "key": "zone:5",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 2,
+   "total": 522958,
+   "crystal": 775000,
+   "lv": 11,
+   "dust": 0,
+   "gold": 272715
+  },
+  {
+   "h": 24.05,
+   "played": 6.05,
+   "key": "zone:6",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 2,
+   "total": 514305,
+   "crystal": 1598000,
+   "lv": 11,
+   "dust": 1,
+   "gold": 452039
+  },
+  {
+   "h": 24.06,
+   "played": 6.06,
+   "key": "zone:7",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 0,
+   "total": 513412,
+   "crystal": 3614000,
+   "lv": 12,
+   "dust": 0,
+   "gold": 151533
+  },
+  {
+   "h": 28.01,
+   "played": 8.01,
+   "key": "zone:0",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 1473182,
+   "crystal": 6800,
+   "lv": 74,
+   "dust": 0,
+   "gold": 45213
+  },
+  {
+   "h": 28.02,
+   "played": 8.02,
+   "key": "zone:5",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 2,
+   "tier": 3,
+   "total": 2652235,
+   "crystal": 775000,
+   "lv": 73,
+   "dust": 1,
+   "gold": 749651
+  },
+  {
+   "h": 28.03,
+   "played": 8.03,
+   "key": "zone:6",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 2,
+   "tier": 3,
+   "total": 2678127,
+   "crystal": 1598000,
+   "lv": 74,
+   "dust": 1,
+   "gold": 1311256
+  },
+  {
+   "h": 28.03,
+   "played": 8.03,
+   "key": "zone:7",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 2,
+   "tier": 2,
+   "total": 2856924,
+   "crystal": 3614000,
+   "lv": 74,
+   "dust": 1,
+   "gold": 882542
+  },
+  {
+   "h": 28.04,
+   "played": 8.04,
+   "key": "zone:8",
+   "kind": "zone",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 2,
+   "total": 2848189,
+   "crystal": 6060000,
+   "lv": 74,
+   "dust": 1,
+   "gold": 2063927
+  },
+  {
+   "h": 28.05,
+   "played": 8.05,
+   "key": "endless:1",
+   "kind": "endless",
+   "shatters": 3,
+   "firstCycle": true,
+   "attempt": 1,
+   "tier": 2,
+   "total": 1912278,
+   "crystal": 5639000,
+   "lv": 75,
+   "dust": 1,
+   "gold": 1259739
+  },
+  {
+   "h": 38.01,
+   "played": 10.01,
+   "key": "zone:0",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 9985740,
+   "crystal": 11400,
+   "lv": 84,
+   "dust": 0,
+   "gold": 92678
+  },
+  {
+   "h": 38.02,
+   "played": 10.02,
+   "key": "zone:1",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 12243882,
+   "crystal": 66500,
+   "lv": 84,
+   "dust": 0,
+   "gold": 255086
+  },
+  {
+   "h": 38.03,
+   "played": 10.03,
+   "key": "zone:2",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 12232767,
+   "crystal": 203000,
+   "lv": 84,
+   "dust": 0,
+   "gold": 425573
+  },
+  {
+   "h": 38.03,
+   "played": 10.03,
+   "key": "zone:3",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 13566466,
+   "crystal": 449000,
+   "lv": 85,
+   "dust": 0.5,
+   "gold": 855154
+  },
+  {
+   "h": 38.04,
+   "played": 10.04,
+   "key": "zone:4",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 13567310,
+   "crystal": 804000,
+   "lv": 85,
+   "dust": 0.5,
+   "gold": 1416616
+  },
+  {
+   "h": 38.05,
+   "played": 10.05,
+   "key": "zone:5",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 13566507,
+   "crystal": 1310000,
+   "lv": 85,
+   "dust": 0.5,
+   "gold": 2293497
+  },
+  {
+   "h": 38.06,
+   "played": 10.06,
+   "key": "zone:6",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 13511655,
+   "crystal": 2701000,
+   "lv": 85,
+   "dust": 1,
+   "gold": 3895419
+  },
+  {
+   "h": 38.07,
+   "played": 10.07,
+   "key": "zone:7",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 13488273,
+   "crystal": 6108000,
+   "lv": 85,
+   "dust": 1.5,
+   "gold": 6506312
+  },
+  {
+   "h": 38.08,
+   "played": 10.08,
+   "key": "zone:8",
+   "kind": "zone",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 13425047,
+   "crystal": 10240000,
+   "lv": 85,
+   "dust": 1.5,
+   "gold": 12124107
+  },
+  {
+   "h": 38.08,
+   "played": 10.08,
+   "key": "endless:1",
+   "kind": "endless",
+   "shatters": 5,
+   "firstCycle": false,
+   "attempt": 1,
+   "tier": 3,
+   "total": 14373770,
+   "crystal": 9529000,
+   "lv": 85,
+   "dust": 2.5,
+   "gold": 7380863
+  }
+ ],
+ "boosts": {
+  "warps": 2,
+  "chests": 2,
+  "doubles": 6
+ },
+ "dustBySource": {
+  "shatters": 276,
+  "drills": 16
+ },
+ "model": {
+  "drills": true,
+  "double": true,
+  "boosts": true,
+  "clericBack": true
+ },
+ "speedModel": "toggle held",
+ "speedBoosts": [],
+ "speedBuys": 0,
+ "gameHours": 24,
+ "taps": 14954,
+ "tapsPerActiveSec": 1.385,
+ "assertFail": null,
+ "postChecks": [
+  {
+   "id": "wren",
+   "name": "Wren",
+   "at": 14790.016666666666,
+   "left0": 3600,
+   "done": true
+  },
+  {
+   "id": "bram",
+   "name": "Bram",
+   "at": 51460.01666666666,
+   "left0": 3600,
+   "done": true
+  }
+ ],
+ "recruits": {
+  "Sera": 0,
+  "Vex": 0.05,
+  "Morrow": 0.53,
+  "Wren": 4.11,
+  "Bram": 14.29
+ },
+ "zonesCleared": {
+  "Greenhollow Fields": 0.05,
+  "Stillwater Lagoon": 0.53,
+  "Thornwood": 1.95,
+  "Ironvein Caverns": 4.11,
+  "Emberwaste": 14.2,
+  "Amberfall Woods": 14.29,
+  "Ashen Approach": 15.17,
+  "Ashen Keep": 24.36,
+  "The Foundry": 25.03
+ },
+ "runZones": {
+  "0": {
+   "Greenhollow Fields": {
+    "enterH": 0,
+    "lvAtEntry": 1,
+    "power": 236,
+    "gear": "Aldric:-,-,-",
+    "ore": 0
+   },
+   "Stillwater Lagoon": {
+    "enterH": 0.05,
+    "lvAtEntry": 13,
+    "power": 1254,
+    "gear": "Aldric:1/12,1/12,1/7",
+    "ore": 8
+   },
+   "Thornwood": {
+    "enterH": 0.53,
+    "lvAtEntry": 13,
+    "power": 4439,
+    "gear": "Aldric:1/12,1/12,2/4|Vex:0/16,2/4,2/4|Sera:0/16,2/4,2/4|Morrow:-,2/1,-",
+    "ore": 5
+   },
+   "Ironvein Caverns": {
+    "enterH": 1.96,
+    "lvAtEntry": 22,
+    "power": 8550,
+    "gear": "Aldric:1/15,1/15,2/9|Vex:0/21,2/9,2/9|Morrow:2/8,2/9,1/15|Sera:0/21,2/9,2/9",
+    "ore": 38
+   }
+  },
+  "1": {
+   "Greenhollow Fields": {
+    "enterH": 4.11,
+    "lvAtEntry": 1,
+    "power": 13188,
+    "gear": "Aldric:1/21,1/21,2/15|Vex:1/21,2/15,2/15|Morrow:2/15,2/15,1/21|Sera:1/21,2/15,2/15",
+    "ore": 38
+   },
+   "Stillwater Lagoon": {
+    "enterH": 4.13,
+    "lvAtEntry": 6,
+    "power": 13904,
+    "gear": "Aldric:1/21,1/21,2/15|Vex:1/21,2/15,2/15|Morrow:2/15,2/15,1/21|Sera:1/21,2/15,2/15",
+    "ore": 5
+   },
+   "Thornwood": {
+    "enterH": 4.17,
+    "lvAtEntry": 11,
+    "power": 14609,
+    "gear": "Aldric:1/21,1/21,2/15|Vex:1/21,2/15,2/15|Morrow:2/15,2/15,1/21|Sera:1/21,2/15,2/15",
+    "ore": 45
+   },
+   "Ironvein Caverns": {
+    "enterH": 4.24,
+    "lvAtEntry": 14,
+    "power": 15039,
+    "gear": "Aldric:1/21,1/21,2/15|Vex:1/21,2/15,2/15|Morrow:2/15,2/15,1/21|Sera:1/21,2/15,2/15",
+    "ore": 36
+   },
+   "Emberwaste": {
+    "enterH": 5.04,
+    "lvAtEntry": 24,
+    "power": 19609,
+    "gear": "Aldric:1/23,1/23,2/17|Vex:1/23,2/17,2/17|Morrow:2/16,2/16,1/22|Sera:1/23,2/17,2/17",
+    "ore": 40
+   }
+  },
+  "2": {
+   "Greenhollow Fields": {
+    "enterH": 14,
+    "lvAtEntry": 7,
+    "power": 45208,
+    "gear": "Aldric:2/25,2/25,2/20|Vex:2/25,2/20,2/19|Morrow:2/19,2/19,2/25|Sera:2/25,2/20,2/20",
+    "ore": 20474
+   },
+   "Stillwater Lagoon": {
+    "enterH": 14.02,
+    "lvAtEntry": 8,
+    "power": 66993,
+    "gear": "Aldric:3/25,2/25,3/20|Vex:2/25,2/21,2/21|Morrow:2/20,2/21,2/25|Sera:2/25,2/21,2/21",
+    "ore": 218
+   },
+   "Thornwood": {
+    "enterH": 14.05,
+    "lvAtEntry": 11,
+    "power": 68907,
+    "gear": "Aldric:3/25,2/25,3/20|Vex:2/25,2/22,2/22|Morrow:2/21,2/21,2/25|Sera:2/25,2/22,2/22",
+    "ore": 210
+   },
+   "Ironvein Caverns": {
+    "enterH": 14.09,
+    "lvAtEntry": 15,
+    "power": 71682,
+    "gear": "Aldric:3/25,2/25,3/20|Vex:2/25,2/22,2/22|Morrow:2/22,2/22,2/25|Sera:2/25,2/22,2/22",
+    "ore": 85
+   },
+   "Emberwaste": {
+    "enterH": 14.13,
+    "lvAtEntry": 19,
+    "power": 73559,
+    "gear": "Aldric:3/25,2/25,3/20|Vex:2/25,2/23,2/23|Morrow:2/22,2/23,2/25|Sera:2/25,2/23,2/23",
+    "ore": 105
+   },
+   "Amberfall Woods": {
+    "enterH": 14.2,
+    "lvAtEntry": 23,
+    "power": 76309,
+    "gear": "Aldric:3/25,2/25,3/20|Vex:2/25,2/24,2/24|Morrow:2/23,2/23,2/25|Sera:2/25,2/24,2/24",
+    "ore": 84
+   },
+   "Ashen Approach": {
+    "enterH": 14.29,
+    "lvAtEntry": 28,
+    "power": 79522,
+    "gear": "Aldric:3/25,2/25,3/20|Vex:2/25,2/25,2/24|Morrow:2/24,2/24,2/25|Sera:2/25,2/25,2/25",
+    "ore": 49
+   },
+   "Ashen Keep": {
+    "enterH": 15.17,
+    "lvAtEntry": 38,
+    "power": 94020,
+    "gear": "Aldric:3/25,2/27,3/20|Vex:2/26,2/27,2/26|Morrow:2/26,2/26,2/26|Sera:2/27,2/27,2/27",
+    "ore": 401
+   }
+  },
+  "3": {
+   "Greenhollow Fields": {
+    "enterH": 24,
+    "lvAtEntry": 10,
+    "power": 295337,
+    "gear": "Aldric:3/25,3/29,3/24|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 3801
+   },
+   "Stillwater Lagoon": {
+    "enterH": 24.02,
+    "lvAtEntry": 10,
+    "power": 296669,
+    "gear": "Aldric:3/25,3/29,3/25|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 464
+   },
+   "Thornwood": {
+    "enterH": 24.05,
+    "lvAtEntry": 12,
+    "power": 303505,
+    "gear": "Aldric:3/26,3/29,3/26|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 902
+   },
+   "Ironvein Caverns": {
+    "enterH": 24.08,
+    "lvAtEntry": 15,
+    "power": 309813,
+    "gear": "Aldric:3/27,3/29,3/26|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 1079
+   },
+   "Emberwaste": {
+    "enterH": 24.11,
+    "lvAtEntry": 19,
+    "power": 312260,
+    "gear": "Aldric:3/27,3/29,3/27|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 428
+   },
+   "Amberfall Woods": {
+    "enterH": 24.15,
+    "lvAtEntry": 24,
+    "power": 313167,
+    "gear": "Aldric:3/27,3/29,3/27|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 358
+   },
+   "Ashen Approach": {
+    "enterH": 24.19,
+    "lvAtEntry": 28,
+    "power": 320135,
+    "gear": "Aldric:3/28,3/29,3/28|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 761
+   },
+   "Ashen Keep": {
+    "enterH": 24.25,
+    "lvAtEntry": 33,
+    "power": 322731,
+    "gear": "Aldric:3/28,3/29,3/28|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 1481
+   },
+   "The Foundry": {
+    "enterH": 24.36,
+    "lvAtEntry": 37,
+    "power": 337167,
+    "gear": "Aldric:3/29,3/30,3/29|Vex:3/29,3/29,3/29|Morrow:3/29,3/29,3/29|Sera:3/29,3/29,3/29",
+    "ore": 793
+   },
+   "The Endless Road": {
+    "enterH": 25.98,
+    "lvAtEntry": 68,
+    "power": 716343,
+    "gear": "Aldric:3/36,3/36,3/36|Vex:3/35,3/35,3/35|Morrow:3/35,3/35,3/35|Sera:3/35,3/36,3/35",
+    "ore": 1195
+   }
+  },
+  "4": {
+   "Greenhollow Fields": {
+    "enterH": 28.18,
+    "lvAtEntry": 13,
+    "power": 1771055,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/38,3/38,3/38|Morrow:3/38,3/38,3/38|Sera:3/38,3/39,3/38",
+    "ore": 2800
+   },
+   "Stillwater Lagoon": {
+    "enterH": 28.2,
+    "lvAtEntry": 13,
+    "power": 1771055,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/38,3/38,3/38|Morrow:3/38,3/38,3/38|Sera:3/38,3/39,3/38",
+    "ore": 3181
+   },
+   "Thornwood": {
+    "enterH": 28.23,
+    "lvAtEntry": 15,
+    "power": 1771665,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/38,3/38,3/38|Morrow:3/38,3/38,3/38|Sera:3/38,3/39,3/38",
+    "ore": 4154
+   },
+   "Ironvein Caverns": {
+    "enterH": 28.25,
+    "lvAtEntry": 17,
+    "power": 1772278,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/38,3/38,3/38|Morrow:3/38,3/38,3/38|Sera:3/38,3/39,3/38",
+    "ore": 5732
+   },
+   "Emberwaste": {
+    "enterH": 28.29,
+    "lvAtEntry": 20,
+    "power": 1785636,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/38,3/38,3/38|Morrow:3/38,3/38,3/38|Sera:3/38,3/39,3/39",
+    "ore": 3681
+   },
+   "Amberfall Woods": {
+    "enterH": 28.32,
+    "lvAtEntry": 23,
+    "power": 1812594,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/38,3/38,3/38|Morrow:3/38,3/38,3/38|Sera:3/39,3/39,3/39",
+    "ore": 3968
+   },
+   "Ashen Approach": {
+    "enterH": 28.35,
+    "lvAtEntry": 27,
+    "power": 1834936,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/38,3/39,3/39|Morrow:3/38,3/38,3/38|Sera:3/39,3/39,3/39",
+    "ore": 1847
+   },
+   "Ashen Keep": {
+    "enterH": 28.39,
+    "lvAtEntry": 31,
+    "power": 1874313,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/39,3/39,3/39|Morrow:3/38,3/39,3/38|Sera:3/39,3/39,3/39",
+    "ore": 2586
+   },
+   "The Foundry": {
+    "enterH": 28.44,
+    "lvAtEntry": 36,
+    "power": 1914780,
+    "gear": "Aldric:4/36,3/39,3/39|Vex:3/39,3/39,3/39|Morrow:3/39,3/39,3/39|Sera:3/39,3/39,3/39",
+    "ore": 1195
+   },
+   "The Endless Road": {
+    "enterH": 29.06,
+    "lvAtEntry": 68,
+    "power": 2608813,
+    "gear": "Aldric:4/36,3/43,3/43|Vex:3/42,3/42,3/42|Morrow:3/42,3/42,3/42|Sera:3/42,3/42,3/42",
+    "ore": 5051
+   }
+  },
+  "5": {
+   "Greenhollow Fields": {
+    "enterH": 29.54,
+    "lvAtEntry": 16,
+    "power": 4505773,
+    "gear": "Aldric:4/39,3/45,3/45|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 7970
+   },
+   "Stillwater Lagoon": {
+    "enterH": 29.56,
+    "lvAtEntry": 16,
+    "power": 4505773,
+    "gear": "Aldric:4/39,3/45,3/45|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 8417
+   },
+   "Thornwood": {
+    "enterH": 29.59,
+    "lvAtEntry": 17,
+    "power": 4506142,
+    "gear": "Aldric:4/39,3/45,3/45|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 9630
+   },
+   "Ironvein Caverns": {
+    "enterH": 29.62,
+    "lvAtEntry": 18,
+    "power": 4506526,
+    "gear": "Aldric:4/39,3/45,3/45|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 11545
+   },
+   "Emberwaste": {
+    "enterH": 29.65,
+    "lvAtEntry": 21,
+    "power": 4507637,
+    "gear": "Aldric:4/39,3/45,3/45|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 4627
+   },
+   "Amberfall Woods": {
+    "enterH": 29.68,
+    "lvAtEntry": 24,
+    "power": 4508749,
+    "gear": "Aldric:4/39,3/45,3/45|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 8675
+   },
+   "Ashen Approach": {
+    "enterH": 29.71,
+    "lvAtEntry": 27,
+    "power": 4533155,
+    "gear": "Aldric:4/39,3/46,3/45|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 6200
+   },
+   "Ashen Keep": {
+    "enterH": 29.74,
+    "lvAtEntry": 32,
+    "power": 4577429,
+    "gear": "Aldric:4/39,3/46,3/46|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/45,3/45",
+    "ore": 10391
+   },
+   "The Foundry": {
+    "enterH": 29.78,
+    "lvAtEntry": 36,
+    "power": 4640767,
+    "gear": "Aldric:4/39,3/46,3/46|Vex:3/45,3/45,3/45|Morrow:3/45,3/45,3/45|Sera:3/45,3/46,3/46",
+    "ore": 5119
+   },
+   "The Endless Road": {
+    "enterH": 38,
+    "lvAtEntry": 84,
+    "power": 6250457,
+    "gear": "Aldric:4/40,4/47,4/47|Vex:3/47,3/47,3/47|Morrow:3/46,3/46,3/46|Sera:3/47,3/47,3/47",
+    "ore": 205743
+   }
+  },
+  "6": {
+   "Greenhollow Fields": {
+    "enterH": 39.24,
+    "lvAtEntry": 16,
+    "power": 18343436,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/55",
+    "ore": 28750
+   },
+   "Stillwater Lagoon": {
+    "enterH": 39.26,
+    "lvAtEntry": 16,
+    "power": 18343436,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/55",
+    "ore": 29490
+   },
+   "Thornwood": {
+    "enterH": 39.29,
+    "lvAtEntry": 17,
+    "power": 18343900,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/55",
+    "ore": 30673
+   },
+   "Ironvein Caverns": {
+    "enterH": 39.31,
+    "lvAtEntry": 18,
+    "power": 18344357,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/55",
+    "ore": 33277
+   },
+   "Emberwaste": {
+    "enterH": 39.34,
+    "lvAtEntry": 21,
+    "power": 18345722,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/55",
+    "ore": 39503
+   },
+   "Amberfall Woods": {
+    "enterH": 39.37,
+    "lvAtEntry": 24,
+    "power": 18347087,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/55",
+    "ore": 45652
+   },
+   "Ashen Approach": {
+    "enterH": 39.4,
+    "lvAtEntry": 28,
+    "power": 18509935,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/56",
+    "ore": 13306
+   },
+   "Ashen Keep": {
+    "enterH": 39.44,
+    "lvAtEntry": 32,
+    "power": 18517043,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/56",
+    "ore": 26906
+   },
+   "The Foundry": {
+    "enterH": 39.47,
+    "lvAtEntry": 36,
+    "power": 18519421,
+    "gear": "Aldric:4/49,4/49,4/49|Vex:3/55,3/55,3/55|Morrow:3/55,3/55,3/55|Sera:3/55,3/56,3/56",
+    "ore": 48572
+   },
+   "The Endless Road": {
+    "enterH": 39.82,
+    "lvAtEntry": 68,
+    "power": 20486836,
+    "gear": "Aldric:4/50,4/50,4/50|Vex:3/56,3/56,3/56|Morrow:3/56,3/56,3/56|Sera:3/56,3/56,3/56",
+    "ore": 53288
+   }
+  }
+ },
+ "runClears": {
+  "0": {
+   "Greenhollow Fields": 0.05,
+   "Stillwater Lagoon": 0.53,
+   "Thornwood": 1.95,
+   "Ironvein Caverns": 4.11
+  },
+  "1": {
+   "Greenhollow Fields": 4.13,
+   "Stillwater Lagoon": 4.17,
+   "Thornwood": 4.24,
+   "Ironvein Caverns": 5.04
+  },
+  "2": {
+   "Greenhollow Fields": 14.02,
+   "Stillwater Lagoon": 14.05,
+   "Thornwood": 14.09,
+   "Ironvein Caverns": 14.13,
+   "Emberwaste": 14.2,
+   "Amberfall Woods": 14.29,
+   "Ashen Approach": 15.17
+  },
+  "3": {
+   "Greenhollow Fields": 24.02,
+   "Stillwater Lagoon": 24.05,
+   "Thornwood": 24.08,
+   "Ironvein Caverns": 24.11,
+   "Emberwaste": 24.15,
+   "Amberfall Woods": 24.19,
+   "Ashen Approach": 24.25,
+   "Ashen Keep": 24.36,
+   "The Foundry": 25.03
+  },
+  "4": {
+   "Greenhollow Fields": 28.2,
+   "Stillwater Lagoon": 28.23,
+   "Thornwood": 28.25,
+   "Ironvein Caverns": 28.29,
+   "Emberwaste": 28.32,
+   "Amberfall Woods": 28.35,
+   "Ashen Approach": 28.39,
+   "Ashen Keep": 28.44,
+   "The Foundry": 28.49
+  },
+  "5": {
+   "Greenhollow Fields": 29.56,
+   "Stillwater Lagoon": 29.59,
+   "Thornwood": 29.61,
+   "Ironvein Caverns": 29.65,
+   "Emberwaste": 29.68,
+   "Amberfall Woods": 29.71,
+   "Ashen Approach": 29.74,
+   "Ashen Keep": 29.78,
+   "The Foundry": 29.83
+  },
+  "6": {
+   "Greenhollow Fields": 39.26,
+   "Stillwater Lagoon": 39.29,
+   "Thornwood": 39.31,
+   "Ironvein Caverns": 39.34,
+   "Emberwaste": 39.37,
+   "Amberfall Woods": 39.4,
+   "Ashen Approach": 39.44,
+   "Ashen Keep": 39.47,
+   "The Foundry": 39.5
+  }
+ },
+ "dustBuys": [
+  {
+   "id": "b_start",
+   "cost": 6,
+   "rank": 1,
+   "dustLeft": 14,
+   "h": 4.11
+  },
+  {
+   "id": "b_start",
+   "cost": 9,
+   "rank": 2,
+   "dustLeft": 5,
+   "h": 4.11
+  },
+  {
+   "id": "b_hp",
+   "cost": 4,
+   "rank": 1,
+   "dustLeft": 1,
+   "h": 4.11
+  },
+  {
+   "id": "b_start",
+   "cost": 14,
+   "rank": 3,
+   "dustLeft": 11,
+   "h": 14
+  },
+  {
+   "id": "b_hp",
+   "cost": 6,
+   "rank": 2,
+   "dustLeft": 5,
+   "h": 14
+  },
+  {
+   "id": "b_dmg",
+   "cost": 4,
+   "rank": 1,
+   "dustLeft": 1,
+   "h": 14
+  },
+  {
+   "id": "b_dmg",
+   "cost": 6,
+   "rank": 2,
+   "dustLeft": 0,
+   "h": 14.23
+  },
+  {
+   "id": "b_start",
+   "cost": 20,
+   "rank": 4,
+   "dustLeft": 19,
+   "h": 24
+  },
+  {
+   "id": "b_hp",
+   "cost": 9,
+   "rank": 3,
+   "dustLeft": 10,
+   "h": 24
+  },
+  {
+   "id": "b_dmg",
+   "cost": 9,
+   "rank": 3,
+   "dustLeft": 1,
+   "h": 24
+  },
+  {
+   "id": "b_start",
+   "cost": 30,
+   "rank": 5,
+   "dustLeft": 23,
+   "h": 28.18
+  },
+  {
+   "id": "b_hp",
+   "cost": 14,
+   "rank": 4,
+   "dustLeft": 9,
+   "h": 28.18
+  },
+  {
+   "id": "b_dmg",
+   "cost": 14,
+   "rank": 4,
+   "dustLeft": 0,
+   "h": 29.21
+  },
+  {
+   "id": "b_hp",
+   "cost": 20,
+   "rank": 5,
+   "dustLeft": 42,
+   "h": 29.54
+  },
+  {
+   "id": "b_hp",
+   "cost": 30,
+   "rank": 6,
+   "dustLeft": 12,
+   "h": 29.54
+  },
+  {
+   "id": "b_hp",
+   "cost": 46,
+   "rank": 7,
+   "dustLeft": 36,
+   "h": 39.24
+  },
+  {
+   "id": "b_dmg",
+   "cost": 20,
+   "rank": 5,
+   "dustLeft": 16,
+   "h": 39.24
+  }
+ ],
+ "ascensions": [
+  {
+   "h": 0,
+   "run": 0,
+   "hero": "Aldric",
+   "slot": "weapon",
+   "id": 2,
+   "from": 0,
+   "to": 1,
+   "lvl": 0,
+   "cost": 40,
+   "cap": 1,
+   "oreBefore": 433,
+   "oreAfter": 393
+  },
+  {
+   "h": 0.01,
+   "run": 0,
+   "hero": "Aldric",
+   "slot": "charm",
+   "id": 4,
+   "from": 0,
+   "to": 1,
+   "lvl": 0,
+   "cost": 40,
+   "cap": 1,
+   "oreBefore": 101,
+   "oreAfter": 61
+  },
+  {
+   "h": 4,
+   "run": 0,
+   "hero": "Vex",
+   "slot": "weapon",
+   "id": 21,
+   "from": 0,
+   "to": 1,
+   "lvl": 21,
+   "cost": 627,
+   "cap": 1,
+   "oreBefore": 4074,
+   "oreAfter": 3447
+  },
+  {
+   "h": 4,
+   "run": 0,
+   "hero": "Sera",
+   "slot": "weapon",
+   "id": 18,
+   "from": 0,
+   "to": 1,
+   "lvl": 21,
+   "cost": 627,
+   "cap": 1,
+   "oreBefore": 3447,
+   "oreAfter": 2820
+  },
+  {
+   "h": 14,
+   "run": 1,
+   "hero": "Aldric",
+   "slot": "weapon",
+   "id": 2,
+   "from": 1,
+   "to": 2,
+   "lvl": 25,
+   "cost": 4234,
+   "cap": 2,
+   "oreBefore": 42672,
+   "oreAfter": 38438
+  },
+  {
+   "h": 14,
+   "run": 1,
+   "hero": "Aldric",
+   "slot": "cape",
+   "id": 1,
+   "from": 1,
+   "to": 2,
+   "lvl": 25,
+   "cost": 4234,
+   "cap": 2,
+   "oreBefore": 38438,
+   "oreAfter": 34204
+  },
+  {
+   "h": 14,
+   "run": 1,
+   "hero": "Vex",
+   "slot": "weapon",
+   "id": 21,
+   "from": 1,
+   "to": 2,
+   "lvl": 25,
+   "cost": 4234,
+   "cap": 2,
+   "oreBefore": 34204,
+   "oreAfter": 29970
+  },
+  {
+   "h": 14,
+   "run": 1,
+   "hero": "Morrow",
+   "slot": "charm",
+   "id": 27,
+   "from": 1,
+   "to": 2,
+   "lvl": 25,
+   "cost": 4234,
+   "cap": 2,
+   "oreBefore": 29970,
+   "oreAfter": 25736
+  },
+  {
+   "h": 14,
+   "run": 1,
+   "hero": "Sera",
+   "slot": "weapon",
+   "id": 18,
+   "from": 1,
+   "to": 2,
+   "lvl": 25,
+   "cost": 4234,
+   "cap": 2,
+   "oreBefore": 25736,
+   "oreAfter": 21502
+  },
+  {
+   "h": 14,
+   "run": 2,
+   "hero": "Aldric",
+   "slot": "weapon",
+   "id": 2,
+   "from": 2,
+   "to": 3,
+   "lvl": 25,
+   "cost": 13231,
+   "cap": 3,
+   "oreBefore": 20479,
+   "oreAfter": 7248
+  },
+  {
+   "h": 14,
+   "run": 2,
+   "hero": "Aldric",
+   "slot": "charm",
+   "id": 8,
+   "from": 2,
+   "to": 3,
+   "lvl": 20,
+   "cost": 6872,
+   "cap": 3,
+   "oreBefore": 7248,
+   "oreAfter": 376
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Aldric",
+   "slot": "cape",
+   "id": 1,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 231165,
+   "oreAfter": 208818
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Vex",
+   "slot": "weapon",
+   "id": 21,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 208818,
+   "oreAfter": 186471
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Vex",
+   "slot": "cape",
+   "id": 10,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 186471,
+   "oreAfter": 164124
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Vex",
+   "slot": "charm",
+   "id": 16,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 164124,
+   "oreAfter": 141777
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Morrow",
+   "slot": "weapon",
+   "id": 35,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 141777,
+   "oreAfter": 119430
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Morrow",
+   "slot": "cape",
+   "id": 24,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 119430,
+   "oreAfter": 97083
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Morrow",
+   "slot": "charm",
+   "id": 27,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 97083,
+   "oreAfter": 74736
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Sera",
+   "slot": "weapon",
+   "id": 18,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 74736,
+   "oreAfter": 52389
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Sera",
+   "slot": "cape",
+   "id": 9,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 52389,
+   "oreAfter": 30042
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "hero": "Sera",
+   "slot": "charm",
+   "id": 12,
+   "from": 2,
+   "to": 3,
+   "lvl": 29,
+   "cost": 22347,
+   "cap": 3,
+   "oreBefore": 30042,
+   "oreAfter": 7695
+  },
+  {
+   "h": 28,
+   "run": 3,
+   "hero": "Aldric",
+   "slot": "weapon",
+   "id": 2,
+   "from": 3,
+   "to": 4,
+   "lvl": 36,
+   "cost": 111834,
+   "cap": 4,
+   "oreBefore": 141217,
+   "oreAfter": 29383
+  },
+  {
+   "h": 38,
+   "run": 5,
+   "hero": "Aldric",
+   "slot": "cape",
+   "id": 1,
+   "from": 3,
+   "to": 4,
+   "lvl": 47,
+   "cost": 472637,
+   "cap": 4,
+   "oreBefore": 1230481,
+   "oreAfter": 757844
+  },
+  {
+   "h": 38,
+   "run": 5,
+   "hero": "Aldric",
+   "slot": "charm",
+   "id": 8,
+   "from": 3,
+   "to": 4,
+   "lvl": 47,
+   "cost": 472637,
+   "cap": 4,
+   "oreBefore": 757844,
+   "oreAfter": 285207
+  }
+ ],
+ "ascAnomalies": [],
+ "spendBy": {
+  "gearOre": 6441540,
+  "castleGold": 132848805,
+  "hiresGold": 10540,
+  "ranksGold": 212745634,
+  "treeGold": 482910404,
+  "ascendOre": 1323185,
+  "talentsGold": 5199200,
+  "blessingsDust": 261,
+  "promoteGold": 570000,
+  "promoteDust": 60
+ },
+ "promotions": {
+  "Aldric T1": 39.42,
+  "Sera T1": 39.42,
+  "Vex T1": 39.42,
+  "Morrow T1": 39.42,
+  "Aldric T2": 39.67,
+  "Sera T2": 39.67,
+  "Vex T2": 39.67,
+  "Morrow T2": 39.67
+ },
+ "talents": {
+  "Aldric: Iron Guard": 0.21,
+  "Sera: Mending": 0.66,
+  "Vex: Quickdraw": 0.76,
+  "Morrow: Arcane Burn": 1.07,
+  "Wren: Piercing Shot": 4.11,
+  "Aldric: Riposte": 14,
+  "Sera: Divine Echo": 14,
+  "Bram: Blood Frenzy": 14.29,
+  "Morrow: Falling Stars": 15.8,
+  "Vex: Executioner": 15.89,
+  "Aldric: Unbroken": 38.23,
+  "Sera: Last Rites": 38.23,
+  "Vex: Poisoned Steel": 38.23,
+  "Morrow: Overflow": 38.23
+ },
+ "shatters": [
+  {
+   "h": 4.11,
+   "run": 0,
+   "zone": "Ironvein Caverns",
+   "prog": 36,
+   "cleared": 4,
+   "lv": 30,
+   "power": 15780,
+   "gain": 20,
+   "dustBefore": 0,
+   "stallH": 0,
+   "reason": "sealed",
+   "farMark": 36,
+   "lastProgressH": 4.11,
+   "before": {
+    "hp": 0.85,
+    "minHp": 0.5,
+    "charge": 27,
+    "surge": 63,
+    "lv": 30.3,
+    "dead": 0
+   },
+   "defeatsAt": 96,
+   "winsAt": 361,
+   "trainSecAt": 0,
+   "byZoneAt": {
+    "Stillwater Lagoon": {
+     "defeats": 15,
+     "rewalk": 40,
+     "bossRewalk": 9,
+     "trainRewalk": 0
+    },
+    "Thornwood": {
+     "defeats": 79,
+     "rewalk": 181,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ironvein Caverns": {
+     "defeats": 1,
+     "rewalk": 11,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    }
+   },
+   "zoneTimeAt": {
+    "Greenhollow Fields": {
+     "sec": 180.01666666670206,
+     "trainSec": 0
+    },
+    "Stillwater Lagoon": {
+     "sec": 1734.9999999987508,
+     "trainSec": 0
+    },
+    "Thornwood": {
+     "sec": 5125.000000009569,
+     "trainSec": 0
+    },
+    "Ironvein Caverns": {
+     "sec": 549.9999999998284,
+     "trainSec": 0
+    }
+   },
+   "bossAt": {
+    "Greenhollow Fields": 1,
+    "Stillwater Lagoon": 2,
+    "Thornwood": 1,
+    "Ironvein Caverns": 1
+   },
+   "dustAfterGain": 20,
+   "purchases": [
+    {
+     "id": "b_start",
+     "cost": 6,
+     "rank": 1,
+     "dustLeft": 14,
+     "h": 4.11
+    },
+    {
+     "id": "b_start",
+     "cost": 9,
+     "rank": 2,
+     "dustLeft": 5,
+     "h": 4.11
+    },
+    {
+     "id": "b_hp",
+     "cost": 4,
+     "rank": 1,
+     "dustLeft": 1,
+     "h": 4.11
+    }
+   ],
+   "dustAfter": 1,
+   "treeAfter": {
+    "b_start": 2,
+    "b_hp": 1,
+    "b_dmg": 0
+   },
+   "startLvNextRun": 11,
+   "lvAfter": 1,
+   "powerAfter": 13188,
+   "dust": 1
+  },
+  {
+   "h": 14,
+   "run": 1,
+   "zone": "Emberwaste",
+   "prog": 24,
+   "cleared": 4,
+   "lv": 49,
+   "power": 47187,
+   "gain": 23,
+   "dustBefore": 2,
+   "stallH": 8.34,
+   "reason": "stalled",
+   "farMark": 32,
+   "lastProgressH": 5.66,
+   "before": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 57,
+    "surge": 3,
+    "lv": 48.8,
+    "dead": 0
+   },
+   "defeatsAt": 174,
+   "winsAt": 710,
+   "trainSecAt": 0,
+   "byZoneAt": {
+    "Stillwater Lagoon": {
+     "defeats": 15,
+     "rewalk": 40,
+     "bossRewalk": 9,
+     "trainRewalk": 0
+    },
+    "Thornwood": {
+     "defeats": 79,
+     "rewalk": 181,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ironvein Caverns": {
+     "defeats": 24,
+     "rewalk": 125,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Emberwaste": {
+     "defeats": 55,
+     "rewalk": 91,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    }
+   },
+   "zoneTimeAt": {
+    "Greenhollow Fields": {
+     "sec": 265.0166666667543,
+     "trainSec": 0
+    },
+    "Stillwater Lagoon": {
+     "sec": 1884.9999999986144,
+     "trainSec": 0
+    },
+    "Thornwood": {
+     "sec": 5360.000000006149,
+     "trainSec": 0
+    },
+    "Ironvein Caverns": {
+     "sec": 3445.000000016254,
+     "trainSec": 0
+    },
+    "Emberwaste": {
+     "sec": 3445.000000016254,
+     "trainSec": 0
+    }
+   },
+   "bossAt": {
+    "Greenhollow Fields": 2,
+    "Stillwater Lagoon": 3,
+    "Thornwood": 2,
+    "Ironvein Caverns": 2
+   },
+   "dustAfterGain": 25,
+   "purchases": [
+    {
+     "id": "b_start",
+     "cost": 14,
+     "rank": 3,
+     "dustLeft": 11,
+     "h": 14
+    },
+    {
+     "id": "b_hp",
+     "cost": 6,
+     "rank": 2,
+     "dustLeft": 5,
+     "h": 14
+    },
+    {
+     "id": "b_dmg",
+     "cost": 4,
+     "rank": 1,
+     "dustLeft": 1,
+     "h": 14
+    }
+   ],
+   "dustAfter": 1,
+   "treeAfter": {
+    "b_start": 3,
+    "b_hp": 2,
+    "b_dmg": 1
+   },
+   "startLvNextRun": 16,
+   "lvAfter": 7,
+   "powerAfter": 45208,
+   "dust": 1
+  },
+  {
+   "h": 24,
+   "run": 2,
+   "zone": "Ashen Keep",
+   "prog": 8,
+   "cleared": 7,
+   "lv": 73,
+   "power": 280774,
+   "gain": 38,
+   "dustBefore": 1,
+   "stallH": 8.33,
+   "reason": "stalled",
+   "farMark": 10,
+   "lastProgressH": 15.67,
+   "before": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 64,
+    "surge": 3,
+    "lv": 72.5,
+    "dead": 0
+   },
+   "defeatsAt": 246,
+   "winsAt": 1212,
+   "trainSecAt": 0,
+   "byZoneAt": {
+    "Stillwater Lagoon": {
+     "defeats": 15,
+     "rewalk": 40,
+     "bossRewalk": 9,
+     "trainRewalk": 0
+    },
+    "Thornwood": {
+     "defeats": 79,
+     "rewalk": 181,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ironvein Caverns": {
+     "defeats": 24,
+     "rewalk": 125,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Emberwaste": {
+     "defeats": 55,
+     "rewalk": 91,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Approach": {
+     "defeats": 44,
+     "rewalk": 97,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Keep": {
+     "defeats": 28,
+     "rewalk": 167,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    }
+   },
+   "zoneTimeAt": {
+    "Greenhollow Fields": {
+     "sec": 350.016666666677,
+     "trainSec": 0
+    },
+    "Stillwater Lagoon": {
+     "sec": 1994.9999999985143,
+     "trainSec": 0
+    },
+    "Thornwood": {
+     "sec": 5480.000000004403,
+     "trainSec": 0
+    },
+    "Ironvein Caverns": {
+     "sec": 3615.0000000184186,
+     "trainSec": 0
+    },
+    "Emberwaste": {
+     "sec": 3670.000000019119,
+     "trainSec": 0
+    },
+    "Amberfall Woods": {
+     "sec": 350.00000000001035,
+     "trainSec": 0
+    },
+    "Ashen Approach": {
+     "sec": 3145.000000012434,
+     "trainSec": 0
+    },
+    "Ashen Keep": {
+     "sec": 2995.000000010524,
+     "trainSec": 0
+    }
+   },
+   "bossAt": {
+    "Greenhollow Fields": 3,
+    "Stillwater Lagoon": 4,
+    "Thornwood": 3,
+    "Ironvein Caverns": 3,
+    "Emberwaste": 1,
+    "Amberfall Woods": 1,
+    "Ashen Approach": 1
+   },
+   "dustAfterGain": 39,
+   "purchases": [
+    {
+     "id": "b_start",
+     "cost": 20,
+     "rank": 4,
+     "dustLeft": 19,
+     "h": 24
+    },
+    {
+     "id": "b_hp",
+     "cost": 9,
+     "rank": 3,
+     "dustLeft": 10,
+     "h": 24
+    },
+    {
+     "id": "b_dmg",
+     "cost": 9,
+     "rank": 3,
+     "dustLeft": 1,
+     "h": 24
+    }
+   ],
+   "dustAfter": 1,
+   "treeAfter": {
+    "b_start": 4,
+    "b_hp": 3,
+    "b_dmg": 3
+   },
+   "startLvNextRun": 21,
+   "lvAfter": 10,
+   "powerAfter": 295337,
+   "dust": 1
+  },
+  {
+   "h": 28.18,
+   "run": 3,
+   "zone": "The Endless Road",
+   "prog": 100,
+   "cleared": 9,
+   "lv": 78,
+   "power": 1642928,
+   "gain": 53,
+   "dustBefore": 0,
+   "stallH": 0,
+   "reason": "endless",
+   "farMark": 100,
+   "lastProgressH": 28.18,
+   "before": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 34,
+    "surge": 42,
+    "lv": 77.8,
+    "dead": 0
+   },
+   "defeatsAt": 301,
+   "winsAt": 1956,
+   "trainSecAt": 0,
+   "byZoneAt": {
+    "Stillwater Lagoon": {
+     "defeats": 15,
+     "rewalk": 40,
+     "bossRewalk": 9,
+     "trainRewalk": 0
+    },
+    "Thornwood": {
+     "defeats": 79,
+     "rewalk": 181,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ironvein Caverns": {
+     "defeats": 24,
+     "rewalk": 125,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Emberwaste": {
+     "defeats": 55,
+     "rewalk": 91,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Approach": {
+     "defeats": 44,
+     "rewalk": 97,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Keep": {
+     "defeats": 28,
+     "rewalk": 167,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "The Foundry": {
+     "defeats": 54,
+     "rewalk": 104,
+     "bossRewalk": 11,
+     "trainRewalk": 0
+    }
+   },
+   "zoneTimeAt": {
+    "Greenhollow Fields": {
+     "sec": 425.0166666666088,
+     "trainSec": 0
+    },
+    "Stillwater Lagoon": {
+     "sec": 2094.9999999990646,
+     "trainSec": 0
+    },
+    "Thornwood": {
+     "sec": 5580.000000002948,
+     "trainSec": 0
+    },
+    "Ironvein Caverns": {
+     "sec": 3735.0000000199466,
+     "trainSec": 0
+    },
+    "Emberwaste": {
+     "sec": 3805.000000020838,
+     "trainSec": 0
+    },
+    "Amberfall Woods": {
+     "sec": 514.9999999998603,
+     "trainSec": 0
+    },
+    "Ashen Approach": {
+     "sec": 3340.000000014917,
+     "trainSec": 0
+    },
+    "Ashen Keep": {
+     "sec": 3400.000000015681,
+     "trainSec": 0
+    },
+    "The Foundry": {
+     "sec": 5834.999999999237,
+     "trainSec": 0
+    },
+    "The Endless Road": {
+     "sec": 714.9999999996784,
+     "trainSec": 0
+    }
+   },
+   "bossAt": {
+    "Greenhollow Fields": 4,
+    "Stillwater Lagoon": 5,
+    "Thornwood": 4,
+    "Ironvein Caverns": 4,
+    "Emberwaste": 2,
+    "Amberfall Woods": 2,
+    "Ashen Approach": 2,
+    "Ashen Keep": 1,
+    "The Foundry": 2,
+    "The Endless Road": 1
+   },
+   "dustAfterGain": 53,
+   "purchases": [
+    {
+     "id": "b_start",
+     "cost": 30,
+     "rank": 5,
+     "dustLeft": 23,
+     "h": 28.18
+    },
+    {
+     "id": "b_hp",
+     "cost": 14,
+     "rank": 4,
+     "dustLeft": 9,
+     "h": 28.18
+    }
+   ],
+   "dustAfter": 9,
+   "treeAfter": {
+    "b_start": 5,
+    "b_hp": 4,
+    "b_dmg": 3
+   },
+   "startLvNextRun": 26,
+   "lvAfter": 13,
+   "powerAfter": 1771055,
+   "dust": 9
+  },
+  {
+   "h": 29.54,
+   "run": 4,
+   "zone": "The Endless Road",
+   "prog": 200,
+   "cleared": 9,
+   "lv": 81,
+   "power": 4088844,
+   "gain": 62,
+   "dustBefore": 0,
+   "stallH": 0,
+   "reason": "endless",
+   "farMark": 200,
+   "lastProgressH": 29.54,
+   "before": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 50,
+    "surge": 100,
+    "lv": 80.8,
+    "dead": 0
+   },
+   "defeatsAt": 302,
+   "winsAt": 2776,
+   "trainSecAt": 0,
+   "byZoneAt": {
+    "Stillwater Lagoon": {
+     "defeats": 15,
+     "rewalk": 40,
+     "bossRewalk": 9,
+     "trainRewalk": 0
+    },
+    "Thornwood": {
+     "defeats": 79,
+     "rewalk": 181,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ironvein Caverns": {
+     "defeats": 24,
+     "rewalk": 125,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Emberwaste": {
+     "defeats": 55,
+     "rewalk": 91,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Approach": {
+     "defeats": 44,
+     "rewalk": 97,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Keep": {
+     "defeats": 28,
+     "rewalk": 167,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "The Foundry": {
+     "defeats": 54,
+     "rewalk": 104,
+     "bossRewalk": 11,
+     "trainRewalk": 0
+    },
+    "The Endless Road": {
+     "defeats": 1,
+     "rewalk": 8,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    }
+   },
+   "zoneTimeAt": {
+    "Greenhollow Fields": {
+     "sec": 505.016666666536,
+     "trainSec": 0
+    },
+    "Stillwater Lagoon": {
+     "sec": 2190.000000000274,
+     "trainSec": 0
+    },
+    "Thornwood": {
+     "sec": 5675.000000001565,
+     "trainSec": 0
+    },
+    "Ironvein Caverns": {
+     "sec": 3850.000000021411,
+     "trainSec": 0
+    },
+    "Emberwaste": {
+     "sec": 3920.000000022302,
+     "trainSec": 0
+    },
+    "Amberfall Woods": {
+     "sec": 634.9999999997511,
+     "trainSec": 0
+    },
+    "Ashen Approach": {
+     "sec": 3475.000000016636,
+     "trainSec": 0
+    },
+    "Ashen Keep": {
+     "sec": 3570.0000000178457,
+     "trainSec": 0
+    },
+    "The Foundry": {
+     "sec": 8079.999999966568,
+     "trainSec": 0
+    },
+    "The Endless Road": {
+     "sec": 2450.000000003585,
+     "trainSec": 0
+    }
+   },
+   "bossAt": {
+    "Greenhollow Fields": 5,
+    "Stillwater Lagoon": 6,
+    "Thornwood": 5,
+    "Ironvein Caverns": 5,
+    "Emberwaste": 3,
+    "Amberfall Woods": 3,
+    "Ashen Approach": 3,
+    "Ashen Keep": 2,
+    "The Foundry": 3,
+    "The Endless Road": 3
+   },
+   "dustAfterGain": 62,
+   "purchases": [
+    {
+     "id": "b_hp",
+     "cost": 20,
+     "rank": 5,
+     "dustLeft": 42,
+     "h": 29.54
+    },
+    {
+     "id": "b_hp",
+     "cost": 30,
+     "rank": 6,
+     "dustLeft": 12,
+     "h": 29.54
+    }
+   ],
+   "dustAfter": 12,
+   "treeAfter": {
+    "b_start": 5,
+    "b_hp": 6,
+    "b_dmg": 4
+   },
+   "startLvNextRun": 26,
+   "lvAfter": 16,
+   "powerAfter": 4505773,
+   "dust": 12
+  },
+  {
+   "h": 39.24,
+   "run": 5,
+   "zone": "The Endless Road",
+   "prog": 400,
+   "cleared": 9,
+   "lv": 110,
+   "power": 16969799,
+   "gain": 80,
+   "dustBefore": 2,
+   "stallH": 0,
+   "reason": "endless",
+   "farMark": 400,
+   "lastProgressH": 39.24,
+   "before": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 79,
+    "surge": 84,
+    "lv": 109.8,
+    "dead": 0
+   },
+   "defeatsAt": 307,
+   "winsAt": 3653,
+   "trainSecAt": 0,
+   "byZoneAt": {
+    "Stillwater Lagoon": {
+     "defeats": 15,
+     "rewalk": 40,
+     "bossRewalk": 9,
+     "trainRewalk": 0
+    },
+    "Thornwood": {
+     "defeats": 79,
+     "rewalk": 181,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ironvein Caverns": {
+     "defeats": 24,
+     "rewalk": 125,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Emberwaste": {
+     "defeats": 55,
+     "rewalk": 91,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Approach": {
+     "defeats": 44,
+     "rewalk": 97,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "Ashen Keep": {
+     "defeats": 28,
+     "rewalk": 167,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    },
+    "The Foundry": {
+     "defeats": 54,
+     "rewalk": 104,
+     "bossRewalk": 11,
+     "trainRewalk": 0
+    },
+    "The Endless Road": {
+     "defeats": 6,
+     "rewalk": 62,
+     "bossRewalk": 0,
+     "trainRewalk": 0
+    }
+   },
+   "zoneTimeAt": {
+    "Greenhollow Fields": {
+     "sec": 580.0166666664678,
+     "trainSec": 0
+    },
+    "Stillwater Lagoon": {
+     "sec": 2285.000000001484,
+     "trainSec": 0
+    },
+    "Thornwood": {
+     "sec": 5770.000000000183,
+     "trainSec": 0
+    },
+    "Ironvein Caverns": {
+     "sec": 3965.000000022875,
+     "trainSec": 0
+    },
+    "Emberwaste": {
+     "sec": 4035.0000000237665,
+     "trainSec": 0
+    },
+    "Amberfall Woods": {
+     "sec": 749.9999999996465,
+     "trainSec": 0
+    },
+    "Ashen Approach": {
+     "sec": 3595.000000018164,
+     "trainSec": 0
+    },
+    "Ashen Keep": {
+     "sec": 3710.0000000196283,
+     "trainSec": 0
+    },
+    "The Foundry": {
+     "sec": 8859.999999955218,
+     "trainSec": 0
+    },
+    "The Endless Road": {
+     "sec": 6919.999999983448,
+     "trainSec": 0
+    }
+   },
+   "bossAt": {
+    "Greenhollow Fields": 6,
+    "Stillwater Lagoon": 7,
+    "Thornwood": 6,
+    "Ironvein Caverns": 6,
+    "Emberwaste": 4,
+    "Amberfall Woods": 4,
+    "Ashen Approach": 4,
+    "Ashen Keep": 3,
+    "The Foundry": 4,
+    "The Endless Road": 7
+   },
+   "dustAfterGain": 82,
+   "purchases": [
+    {
+     "id": "b_hp",
+     "cost": 46,
+     "rank": 7,
+     "dustLeft": 36,
+     "h": 39.24
+    },
+    {
+     "id": "b_dmg",
+     "cost": 20,
+     "rank": 5,
+     "dustLeft": 16,
+     "h": 39.24
+    }
+   ],
+   "dustAfter": 16,
+   "treeAfter": {
+    "b_start": 5,
+    "b_hp": 7,
+    "b_dmg": 5
+   },
+   "startLvNextRun": 26,
+   "lvAfter": 16,
+   "powerAfter": 18343436,
+   "dust": 16
+  }
+ ],
+ "bossFailRates": {
+  "Greenhollow Fields": {
+   "attempts": 7,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0,
+   "lvFirst": 10,
+   "lvClear": 10,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "arrival": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 50,
+    "surge": 10,
+    "lv": 9.5,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 1588
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "active",
+     "hp": 1,
+     "charge": 50,
+     "surge": 10,
+     "win": true,
+     "bossAtk": 38,
+     "bossLv": 8,
+     "lv": 10,
+     "power": 1588,
+     "dur": 15.9,
+     "survivors": 3,
+     "partyHp": 1,
+     "telegraphs": 0,
+     "chargeHits": 0,
+     "chargeKills": 0,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 4,
+     "raised": 0,
+     "run": 0,
+     "chargeDetail": [],
+     "taken": {
+      "The Slime King": 16,
+      "Slime": 7
+     },
+     "deaths": 0
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 1,
+     "charge": 36,
+     "surge": 76,
+     "win": null,
+     "bossAtk": 49,
+     "bossLv": 8,
+     "lv": 6,
+     "power": 13904
+    },
+    {
+     "n": 3,
+     "window": "active",
+     "hp": 1,
+     "charge": 100,
+     "surge": 66,
+     "win": null,
+     "bossAtk": 63,
+     "bossLv": 8,
+     "lv": 8,
+     "power": 66993
+    },
+    {
+     "n": 4,
+     "window": "active",
+     "hp": 1,
+     "charge": 100,
+     "surge": 34,
+     "win": null,
+     "bossAtk": 82,
+     "bossLv": 8,
+     "lv": 10,
+     "power": 296669
+    },
+    {
+     "n": 5,
+     "window": "active",
+     "hp": 1,
+     "charge": 33,
+     "surge": 70,
+     "win": null,
+     "bossAtk": 107,
+     "bossLv": 8,
+     "lv": 13,
+     "power": 1771055
+    },
+    {
+     "n": 6,
+     "window": "auto",
+     "hp": 1,
+     "charge": 77,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 139,
+     "bossLv": 8,
+     "lv": 16,
+     "power": 4505773
+    },
+    {
+     "n": 7,
+     "window": "auto",
+     "hp": 1,
+     "charge": 85,
+     "surge": 89,
+     "win": null,
+     "bossAtk": 181,
+     "bossLv": 8,
+     "lv": 16,
+     "power": 18343436
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "trainH": 0,
+   "inZoneRetryH": 0,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 1,
+   "lvGain": 0,
+   "upsBetween": 0,
+   "lossDur": null,
+   "winDur": 1.8,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "Stillwater Lagoon": {
+   "attempts": 8,
+   "fails": 1,
+   "rate": 0.13,
+   "maxStreak": 1,
+   "stallH": 0.04,
+   "lvFirst": 14,
+   "lvClear": 14,
+   "attemptsToClear": 2,
+   "firstTryClear": 0,
+   "arrival": {
+    "hp": 0.74,
+    "minHp": 0.38,
+    "charge": 68,
+    "surge": 100,
+    "lv": 13.7,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 3826
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "auto",
+     "hp": 0.74,
+     "charge": 68,
+     "surge": 100,
+     "win": false,
+     "bossAtk": 162,
+     "bossLv": 17,
+     "lv": 14,
+     "power": 3826,
+     "dur": 32.2,
+     "hpLeft": 0.08,
+     "summoned": true,
+     "telegraphs": 0,
+     "chargeHits": 0,
+     "chargeKills": 0,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 17,
+     "raised": 0,
+     "run": 0,
+     "chargeDetail": [],
+     "taken": {
+      "The Alpha": 1998,
+      "Werewolf": 250
+     },
+     "summons": [
+      true
+     ],
+     "deaths": 3,
+     "enemiesAlive": [
+      "The Alpha"
+     ]
+    },
+    {
+     "n": 2,
+     "window": "auto",
+     "hp": 1,
+     "charge": 64,
+     "surge": 100,
+     "win": true,
+     "bossAtk": 162,
+     "bossLv": 17,
+     "lv": 14,
+     "power": 3893,
+     "dur": 27.2,
+     "survivors": 4,
+     "partyHp": 0.74,
+     "telegraphs": 0,
+     "chargeHits": 0,
+     "chargeKills": 0,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 11,
+     "raised": 0,
+     "run": 0,
+     "chargeDetail": [],
+     "taken": {
+      "The Alpha": 1085,
+      "Werewolf": 131
+     },
+     "deaths": 0
+    },
+    {
+     "n": 3,
+     "window": "active",
+     "hp": 1,
+     "charge": 61,
+     "surge": 64,
+     "win": null,
+     "bossAtk": 211,
+     "bossLv": 17,
+     "lv": 11,
+     "power": 14609
+    },
+    {
+     "n": 4,
+     "window": "active",
+     "hp": 1,
+     "charge": 69,
+     "surge": 5,
+     "win": null,
+     "bossAtk": 274,
+     "bossLv": 17,
+     "lv": 11,
+     "power": 68907
+    },
+    {
+     "n": 5,
+     "window": "active",
+     "hp": 1,
+     "charge": 100,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 357,
+     "bossLv": 17,
+     "lv": 12,
+     "power": 303505
+    },
+    {
+     "n": 6,
+     "window": "active",
+     "hp": 1,
+     "charge": 55,
+     "surge": 28,
+     "win": null,
+     "bossAtk": 464,
+     "bossLv": 17,
+     "lv": 15,
+     "power": 1771665
+    },
+    {
+     "n": 7,
+     "window": "auto",
+     "hp": 1,
+     "charge": 51,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 603,
+     "bossLv": 17,
+     "lv": 17,
+     "power": 4506142
+    },
+    {
+     "n": 8,
+     "window": "auto",
+     "hp": 1,
+     "charge": 62,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 784,
+     "bossLv": 17,
+     "lv": 17,
+     "power": 18343900
+    }
+   ],
+   "combatStallH": 0.01,
+   "retryStallH": 0.03,
+   "trainH": 0,
+   "inZoneRetryH": 0.03,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 9,
+   "lvGain": 0,
+   "upsBetween": 3,
+   "lossDur": 32.2,
+   "winDur": 1.7,
+   "hpLeft": 0.08,
+   "wipePct": 100,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "Thornwood": {
+   "attempts": 7,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0.01,
+   "lvFirst": 22,
+   "lvClear": 22,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "arrival": {
+    "hp": 0.94,
+    "minHp": 0.82,
+    "charge": 53,
+    "surge": 100,
+    "lv": 22,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 8550
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "auto",
+     "hp": 0.94,
+     "charge": 53,
+     "surge": 100,
+     "win": true,
+     "bossAtk": 517,
+     "bossLv": 23,
+     "lv": 22,
+     "power": 8550,
+     "dur": 40.2,
+     "survivors": 4,
+     "partyHp": 0.74,
+     "telegraphs": 3,
+     "chargeHits": 3,
+     "chargeKills": 3,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 7,
+     "raised": 0,
+     "run": 0,
+     "chargeDetail": [
+      {
+       "pct": 0.82,
+       "front": true,
+       "ranged": false
+      },
+      {
+       "pct": 0.19,
+       "front": true,
+       "ranged": false
+      },
+      {
+       "pct": 0.19,
+       "front": true,
+       "ranged": false
+      }
+     ],
+     "taken": {
+      "Old Growth": 7158
+     },
+     "deaths": 0
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 0.8,
+     "charge": 30,
+     "surge": 94,
+     "win": null,
+     "bossAtk": 672,
+     "bossLv": 23,
+     "lv": 14,
+     "power": 15039
+    },
+    {
+     "n": 3,
+     "window": "active",
+     "hp": 1,
+     "charge": 33,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 874,
+     "bossLv": 23,
+     "lv": 15,
+     "power": 71682
+    },
+    {
+     "n": 4,
+     "window": "active",
+     "hp": 1,
+     "charge": 41,
+     "surge": 85,
+     "win": null,
+     "bossAtk": 1136,
+     "bossLv": 23,
+     "lv": 15,
+     "power": 309813
+    },
+    {
+     "n": 5,
+     "window": "auto",
+     "hp": 1,
+     "charge": 81,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 1477,
+     "bossLv": 23,
+     "lv": 17,
+     "power": 1772278
+    },
+    {
+     "n": 6,
+     "window": "auto",
+     "hp": 1,
+     "charge": 24,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 1920,
+     "bossLv": 23,
+     "lv": 18,
+     "power": 4506526
+    },
+    {
+     "n": 7,
+     "window": "auto",
+     "hp": 1,
+     "charge": 63,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 2495,
+     "bossLv": 23,
+     "lv": 18,
+     "power": 18344357
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "trainH": 0,
+   "inZoneRetryH": 0,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 1,
+   "lvGain": 0,
+   "upsBetween": 0,
+   "lossDur": null,
+   "winDur": 1.4,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "Ironvein Caverns": {
+   "attempts": 7,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0.01,
+   "lvFirst": 30,
+   "lvClear": 30,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "arrival": {
+    "hp": 0.84,
+    "minHp": 0.47,
+    "charge": 68,
+    "surge": 36,
+    "lv": 30.3,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 15780
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "active",
+     "hp": 0.84,
+     "charge": 68,
+     "surge": 36,
+     "win": true,
+     "bossAtk": 691,
+     "bossLv": 31,
+     "lv": 30,
+     "power": 15780,
+     "dur": 28.7,
+     "survivors": 4,
+     "partyHp": 0.85,
+     "telegraphs": 1,
+     "chargeHits": 1,
+     "chargeKills": 1,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 5,
+     "raised": 0,
+     "run": 0,
+     "chargeDetail": [
+      {
+       "pct": 0.74,
+       "front": true,
+       "ranged": false
+      }
+     ],
+     "taken": {
+      "Orc Warlord": 3332,
+      "Orc": 1977
+     },
+     "deaths": 0
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 0.9,
+     "charge": 69,
+     "surge": 41,
+     "win": null,
+     "bossAtk": 898,
+     "bossLv": 31,
+     "lv": 24,
+     "power": 19338
+    },
+    {
+     "n": 3,
+     "window": "active",
+     "hp": 1,
+     "charge": 38,
+     "surge": 75,
+     "win": null,
+     "bossAtk": 1167,
+     "bossLv": 31,
+     "lv": 19,
+     "power": 73335
+    },
+    {
+     "n": 4,
+     "window": "active",
+     "hp": 1,
+     "charge": 57,
+     "surge": 83,
+     "win": null,
+     "bossAtk": 1517,
+     "bossLv": 31,
+     "lv": 19,
+     "power": 312260
+    },
+    {
+     "n": 5,
+     "window": "auto",
+     "hp": 1,
+     "charge": 51,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 1972,
+     "bossLv": 31,
+     "lv": 20,
+     "power": 1785636
+    },
+    {
+     "n": 6,
+     "window": "auto",
+     "hp": 1,
+     "charge": 63,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 2564,
+     "bossLv": 31,
+     "lv": 21,
+     "power": 4507637
+    },
+    {
+     "n": 7,
+     "window": "auto",
+     "hp": 1,
+     "charge": 54,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 3333,
+     "bossLv": 31,
+     "lv": 21,
+     "power": 18345722
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "trainH": 0,
+   "inZoneRetryH": 0,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 1,
+   "lvGain": 0,
+   "upsBetween": 0,
+   "lossDur": null,
+   "winDur": 3.4,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "Emberwaste": {
+   "attempts": 5,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0,
+   "lvFirst": 23,
+   "lvClear": 23,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "arrival": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 38,
+    "surge": 37,
+    "lv": 23,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 75996
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "active",
+     "hp": 1,
+     "charge": 38,
+     "surge": 37,
+     "win": true,
+     "bossAtk": 1821,
+     "bossLv": 38,
+     "lv": 23,
+     "power": 75996,
+     "dur": 14.9,
+     "survivors": 4,
+     "partyHp": 0.87,
+     "telegraphs": 1,
+     "chargeHits": 1,
+     "chargeKills": 0,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 2,
+     "raised": 0,
+     "run": 2,
+     "chargeDetail": [
+      {
+       "pct": 0.62,
+       "front": true,
+       "ranged": false
+      }
+     ],
+     "taken": {
+      "The Sand Tyrant": 5959,
+      "Sand Orc": 3269
+     },
+     "deaths": 0
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 1,
+     "charge": 41,
+     "surge": 28,
+     "win": null,
+     "bossAtk": 2367,
+     "bossLv": 38,
+     "lv": 23,
+     "power": 312979
+    },
+    {
+     "n": 3,
+     "window": "auto",
+     "hp": 1,
+     "charge": 42,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 3077,
+     "bossLv": 38,
+     "lv": 23,
+     "power": 1812594
+    },
+    {
+     "n": 4,
+     "window": "auto",
+     "hp": 1,
+     "charge": 38,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 4001,
+     "bossLv": 38,
+     "lv": 24,
+     "power": 4508749
+    },
+    {
+     "n": 5,
+     "window": "auto",
+     "hp": 1,
+     "charge": 84,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 5201,
+     "bossLv": 38,
+     "lv": 24,
+     "power": 18347087
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "trainH": 0,
+   "inZoneRetryH": 0,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 1,
+   "lvGain": 0,
+   "upsBetween": 0,
+   "lossDur": null,
+   "winDur": 3.2,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "Amberfall Woods": {
+   "attempts": 5,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0.01,
+   "lvFirst": 27,
+   "lvClear": 28,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "arrival": {
+    "hp": 1,
+    "minHp": 0.99,
+    "charge": 42,
+    "surge": 45,
+    "lv": 27,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 79409
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "auto",
+     "hp": 1,
+     "charge": 42,
+     "surge": 45,
+     "win": true,
+     "bossAtk": 2733,
+     "bossLv": 45,
+     "lv": 27,
+     "power": 79409,
+     "dur": 34,
+     "survivors": 4,
+     "partyHp": 0.99,
+     "telegraphs": 3,
+     "chargeHits": 3,
+     "chargeKills": 1,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 8,
+     "raised": 0,
+     "run": 2,
+     "chargeDetail": [
+      {
+       "pct": 0.54,
+       "front": true,
+       "ranged": true
+      },
+      {
+       "pct": 0.26,
+       "front": true,
+       "ranged": true
+      },
+      {
+       "pct": 0.5,
+       "front": true,
+       "ranged": true
+      }
+     ],
+     "taken": {
+      "The Hunter King": 24860,
+      "Skeleton Archer": 4804
+     },
+     "deaths": 0
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 1,
+     "charge": 67,
+     "surge": 27,
+     "win": null,
+     "bossAtk": 3553,
+     "bossLv": 45,
+     "lv": 28,
+     "power": 318218
+    },
+    {
+     "n": 3,
+     "window": "auto",
+     "hp": 1,
+     "charge": 43,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 4619,
+     "bossLv": 45,
+     "lv": 27,
+     "power": 1822495
+    },
+    {
+     "n": 4,
+     "window": "auto",
+     "hp": 1,
+     "charge": 77,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 6005,
+     "bossLv": 45,
+     "lv": 27,
+     "power": 4533155
+    },
+    {
+     "n": 5,
+     "window": "auto",
+     "hp": 1,
+     "charge": 49,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 7806,
+     "bossLv": 45,
+     "lv": 27,
+     "power": 18509477
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "trainH": 0,
+   "inZoneRetryH": 0,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 1,
+   "lvGain": 1,
+   "upsBetween": 0,
+   "lossDur": null,
+   "winDur": 3.5,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "Ashen Approach": {
+   "attempts": 5,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0.01,
+   "lvFirst": 38,
+   "lvClear": 38,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "arrival": {
+    "hp": 1,
+    "minHp": 0.99,
+    "charge": 55,
+    "surge": 60,
+    "lv": 38,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 93602
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "active",
+     "hp": 1,
+     "charge": 55,
+     "surge": 60,
+     "win": true,
+     "bossAtk": 9441,
+     "bossLv": 53,
+     "lv": 38,
+     "power": 93602,
+     "dur": 38.1,
+     "survivors": 4,
+     "partyHp": 0.83,
+     "telegraphs": 1,
+     "chargeHits": 0,
+     "chargeKills": 0,
+     "parried": 0,
+     "interrupted": 1,
+     "bossHits": 6,
+     "raised": 1,
+     "run": 2,
+     "chargeDetail": [],
+     "taken": {
+      "Grave Knight": 44109,
+      "Skeleton": 26678
+     },
+     "deaths": 0
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 1,
+     "charge": 38,
+     "surge": 55,
+     "win": null,
+     "bossAtk": 12273,
+     "bossLv": 53,
+     "lv": 33,
+     "power": 322731
+    },
+    {
+     "n": 3,
+     "window": "auto",
+     "hp": 1,
+     "charge": 60,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 15954,
+     "bossLv": 53,
+     "lv": 31,
+     "power": 1874313
+    },
+    {
+     "n": 4,
+     "window": "auto",
+     "hp": 1,
+     "charge": 60,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 20741,
+     "bossLv": 53,
+     "lv": 31,
+     "power": 4576949
+    },
+    {
+     "n": 5,
+     "window": "auto",
+     "hp": 1,
+     "charge": 67,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 26963,
+     "bossLv": 53,
+     "lv": 31,
+     "power": 18516458
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "trainH": 0,
+   "inZoneRetryH": 0,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 1,
+   "lvGain": 0,
+   "upsBetween": 1,
+   "lossDur": null,
+   "winDur": 5.9,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "Ashen Keep": {
+   "attempts": 4,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": 0.01,
+   "lvFirst": 37,
+   "lvClear": 37,
+   "attemptsToClear": 1,
+   "firstTryClear": 1,
+   "arrival": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 86,
+    "surge": 100,
+    "lv": 37,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 332427
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "auto",
+     "hp": 1,
+     "charge": 86,
+     "surge": 100,
+     "win": true,
+     "bossAtk": 13489,
+     "bossLv": 61,
+     "lv": 37,
+     "power": 332427,
+     "dur": 41.9,
+     "survivors": 4,
+     "partyHp": 0.87,
+     "telegraphs": 0,
+     "chargeHits": 0,
+     "chargeKills": 0,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 48,
+     "raised": 0,
+     "run": 3,
+     "chargeDetail": [],
+     "taken": {
+      "The Hollow King": 295150,
+      "Skeleton": 5687,
+      "Ash Skeleton": 18960
+     },
+     "deaths": 0
+    },
+    {
+     "n": 2,
+     "window": "auto",
+     "hp": 1,
+     "charge": 51,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 17536,
+     "bossLv": 61,
+     "lv": 35,
+     "power": 1914372
+    },
+    {
+     "n": 3,
+     "window": "auto",
+     "hp": 1,
+     "charge": 71,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 22796,
+     "bossLv": 61,
+     "lv": 36,
+     "power": 4640767
+    },
+    {
+     "n": 4,
+     "window": "auto",
+     "hp": 1,
+     "charge": 89,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 29635,
+     "bossLv": 61,
+     "lv": 36,
+     "power": 18519421
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0,
+   "trainH": 0,
+   "inZoneRetryH": 0,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 1,
+   "lvGain": 0,
+   "upsBetween": 0,
+   "lossDur": null,
+   "winDur": 5.2,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "The Foundry": {
+   "attempts": 5,
+   "fails": 1,
+   "rate": 0.2,
+   "maxStreak": 1,
+   "stallH": 0.11,
+   "lvFirst": 51,
+   "lvClear": 53,
+   "attemptsToClear": 2,
+   "firstTryClear": 0,
+   "arrival": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 37,
+    "surge": 100,
+    "lv": 50.5,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 441253
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "auto",
+     "hp": 1,
+     "charge": 37,
+     "surge": 100,
+     "win": false,
+     "bossAtk": 29353,
+     "bossLv": 71,
+     "lv": 51,
+     "power": 441253,
+     "dur": 12,
+     "hpLeft": 0.85,
+     "summoned": false,
+     "telegraphs": 1,
+     "chargeHits": 3,
+     "chargeKills": 2,
+     "parried": 0,
+     "interrupted": 0,
+     "bossHits": 10,
+     "raised": 0,
+     "run": 3,
+     "chargeDetail": [
+      {
+       "pct": 0.4,
+       "front": true,
+       "ranged": true
+      },
+      {
+       "pct": 0.27,
+       "front": false,
+       "ranged": true
+      },
+      {
+       "pct": 0.1,
+       "front": false,
+       "ranged": true
+      }
+     ],
+     "taken": {
+      "The Foundry Core": 209443
+     },
+     "summons": [
+      false
+     ],
+     "deaths": 4,
+     "enemiesAlive": [
+      "The Foundry Core"
+     ]
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 1,
+     "charge": 58,
+     "surge": 15,
+     "win": true,
+     "bossAtk": 29353,
+     "bossLv": 71,
+     "lv": 52,
+     "power": 462721,
+     "dur": 34.5,
+     "survivors": 4,
+     "partyHp": 0.95,
+     "telegraphs": 2,
+     "chargeHits": 7,
+     "chargeKills": 0,
+     "parried": 4,
+     "interrupted": 0,
+     "bossHits": 24,
+     "raised": 0,
+     "run": 3,
+     "chargeDetail": [
+      {
+       "pct": 0.36,
+       "front": true,
+       "ranged": true
+      },
+      {
+       "pct": 0.53,
+       "front": false,
+       "ranged": true
+      },
+      {
+       "pct": 0.76,
+       "front": false,
+       "ranged": true
+      },
+      {
+       "pct": 0.71,
+       "front": false,
+       "ranged": true
+      },
+      {
+       "pct": 0.51,
+       "front": true,
+       "ranged": true
+      },
+      {
+       "pct": 0.55,
+       "front": false,
+       "ranged": true
+      },
+      {
+       "pct": 0.77,
+       "front": false,
+       "ranged": true
+      }
+     ],
+     "taken": {
+      "The Foundry Core": 492135,
+      "Scout Droid": 104589
+     },
+     "deaths": 0
+    },
+    {
+     "n": 3,
+     "window": "auto",
+     "hp": 1,
+     "charge": 42,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 38159,
+     "bossLv": 71,
+     "lv": 41,
+     "power": 1916754
+    },
+    {
+     "n": 4,
+     "window": "auto",
+     "hp": 1,
+     "charge": 64,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 49607,
+     "bossLv": 71,
+     "lv": 42,
+     "power": 4738428
+    },
+    {
+     "n": 5,
+     "window": "auto",
+     "hp": 1,
+     "charge": 63,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 64489,
+     "bossLv": 71,
+     "lv": 42,
+     "power": 18801205
+    }
+   ],
+   "combatStallH": 0,
+   "retryStallH": 0.1,
+   "trainH": 0,
+   "inZoneRetryH": 0.1,
+   "trainLv": 0,
+   "trainFights": 0,
+   "fightsBetween": 22,
+   "lvGain": 2,
+   "upsBetween": 7,
+   "lossDur": 12,
+   "winDur": 10.9,
+   "hpLeft": 0.85,
+   "wipePct": 100,
+   "survivors": 4,
+   "partyHp": 1
+  },
+  "The Endless Road": {
+   "attempts": 5,
+   "fails": 0,
+   "rate": 0,
+   "maxStreak": 0,
+   "stallH": null,
+   "lvFirst": 78,
+   "lvClear": null,
+   "attemptsToClear": null,
+   "firstTryClear": null,
+   "arrival": {
+    "hp": 1,
+    "minHp": 1,
+    "charge": 69,
+    "surge": 41,
+    "lv": 77.8,
+    "dead": 0,
+    "trainingsBefore": 0,
+    "returnsBefore": 0,
+    "fightsSinceReturn": null,
+    "minSinceReturn": null,
+    "via": "progression",
+    "power": 1633954
+   },
+   "attemptLog": [
+    {
+     "n": 1,
+     "window": "active",
+     "hp": 1,
+     "charge": 69,
+     "surge": 41,
+     "win": null,
+     "bossAtk": 55366,
+     "bossLv": 85,
+     "lv": 78,
+     "power": 1633954
+    },
+    {
+     "n": 1,
+     "window": "active",
+     "hp": 1,
+     "charge": 62,
+     "surge": 82,
+     "win": null,
+     "bossAtk": 71975,
+     "bossLv": 85,
+     "lv": 73,
+     "power": 2994403
+    },
+    {
+     "n": 2,
+     "window": "auto",
+     "hp": 1,
+     "charge": 44,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 292202,
+     "bossLv": 100,
+     "lv": 81,
+     "power": 4088104
+    },
+    {
+     "n": 2,
+     "window": "active",
+     "hp": 1,
+     "charge": 52,
+     "surge": 90,
+     "win": null,
+     "bossAtk": 93568,
+     "bossLv": 85,
+     "lv": 86,
+     "power": 7704248
+    },
+    {
+     "n": 3,
+     "window": "auto",
+     "hp": 1,
+     "charge": 75,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 379862,
+     "bossLv": 100,
+     "lv": 91,
+     "power": 9139670
+    },
+    {
+     "n": 4,
+     "window": "auto",
+     "hp": 1,
+     "charge": 44,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 724338,
+     "bossLv": 115,
+     "lv": 99,
+     "power": 12753366
+    },
+    {
+     "n": 5,
+     "window": "active",
+     "hp": 1,
+     "charge": 37,
+     "surge": 81,
+     "win": null,
+     "bossAtk": 1167579,
+     "bossLv": 130,
+     "lv": 110,
+     "power": 16968601
+    },
+    {
+     "n": 5,
+     "window": "auto",
+     "hp": 1,
+     "charge": 74,
+     "surge": 100,
+     "win": null,
+     "bossAtk": 121638,
+     "bossLv": 85,
+     "lv": 73,
+     "power": 21094865
+    }
+   ],
+   "trainH": 0,
+   "inZoneRetryH": null,
+   "trainLv": 0,
+   "trainFights": 0,
+   "lossDur": null,
+   "winDur": 11.7,
+   "hpLeft": null,
+   "wipePct": null,
+   "survivors": 4,
+   "partyHp": 1
+  }
+ },
+ "rngCalls": 1260532,
+ "rngState": 2487302188,
+ "roster": [
+  {
+   "name": "Aldric",
+   "cls": "knight",
+   "lvl": 101,
+   "tier": 2,
+   "abLvl": 17,
+   "talents": [
+    "ironguard",
+    "riposte",
+    "unbroken"
+   ],
+   "gear": {
+    "weapon": {
+     "id": 2,
+     "rank": 4,
+     "lvl": 50
+    },
+    "cape": {
+     "id": 1,
+     "rank": 4,
+     "lvl": 50
+    },
+    "charm": {
+     "id": 8,
+     "rank": 4,
+     "lvl": 50
+    }
+   }
+  },
+  {
+   "name": "Sera",
+   "cls": "cleric",
+   "lvl": 101,
+   "tier": 2,
+   "abLvl": 17,
+   "talents": [
+    "echo",
+    "lastrites",
+    "mending"
+   ],
+   "gear": {
+    "weapon": {
+     "id": 18,
+     "rank": 3,
+     "lvl": 57
+    },
+    "cape": {
+     "id": 9,
+     "rank": 3,
+     "lvl": 57
+    },
+    "charm": {
+     "id": 12,
+     "rank": 3,
+     "lvl": 57
+    }
+   }
+  },
+  {
+   "name": "Vex",
+   "cls": "rogue",
+   "lvl": 101,
+   "tier": 2,
+   "abLvl": 17,
+   "talents": [
+    "executioner",
+    "poison",
+    "quickdraw"
+   ],
+   "gear": {
+    "weapon": {
+     "id": 21,
+     "rank": 3,
+     "lvl": 57
+    },
+    "cape": {
+     "id": 10,
+     "rank": 3,
+     "lvl": 57
+    },
+    "charm": {
+     "id": 16,
+     "rank": 3,
+     "lvl": 57
+    }
+   }
+  },
+  {
+   "name": "Morrow",
+   "cls": "mage",
+   "lvl": 101,
+   "tier": 2,
+   "abLvl": 17,
+   "talents": [
+    "burn",
+    "overflow",
+    "stars"
+   ],
+   "gear": {
+    "weapon": {
+     "id": 35,
+     "rank": 3,
+     "lvl": 56
+    },
+    "cape": {
+     "id": 24,
+     "rank": 3,
+     "lvl": 57
+    },
+    "charm": {
+     "id": 27,
+     "rank": 3,
+     "lvl": 56
+    }
+   }
+  },
+  {
+   "name": "Wren",
+   "cls": "ranger",
+   "lvl": 16,
+   "tier": 0,
+   "abLvl": 18,
+   "talents": [
+    "pierce"
+   ],
+   "gear": {
+    "weapon": {
+     "id": 80,
+     "rank": 0,
+     "lvl": 75
+    },
+    "cape": {
+     "id": 73,
+     "rank": 2,
+     "lvl": 63
+    },
+    "charm": {
+     "id": 69,
+     "rank": 3,
+     "lvl": 56
+    }
+   }
+  },
+  {
+   "name": "Bram",
+   "cls": "berserker",
+   "lvl": 16,
+   "tier": 0,
+   "abLvl": 18,
+   "talents": [
+    "frenzy"
+   ],
+   "gear": {
+    "weapon": {
+     "id": 187,
+     "rank": 2,
+     "lvl": 63
+    },
+    "cape": {
+     "id": 178,
+     "rank": 3,
+     "lvl": 56
+    },
+    "charm": {
+     "id": 176,
+     "rank": 3,
+     "lvl": 56
+    }
+   }
+  }
+ ],
+ "drops": {
+  "Greenhollow Fields": {
+   "common": 6,
+   "uncommon": 28,
+   "rare": 0,
+   "epic": 0,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Stillwater Lagoon": {
+   "common": 9,
+   "uncommon": 5,
+   "rare": 31,
+   "epic": 0,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Thornwood": {
+   "common": 20,
+   "uncommon": 18,
+   "rare": 33,
+   "epic": 0,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Ironvein Caverns": {
+   "common": 17,
+   "uncommon": 14,
+   "rare": 27,
+   "epic": 29,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Emberwaste": {
+   "common": 9,
+   "uncommon": 15,
+   "rare": 17,
+   "epic": 21,
+   "legendary": 0,
+   "mythic": 0
+  },
+  "Amberfall Woods": {
+   "common": 0,
+   "uncommon": 1,
+   "rare": 8,
+   "epic": 13,
+   "legendary": 11,
+   "mythic": 0
+  },
+  "Ashen Approach": {
+   "common": 0,
+   "uncommon": 6,
+   "rare": 18,
+   "epic": 14,
+   "legendary": 19,
+   "mythic": 0
+  },
+  "Ashen Keep": {
+   "common": 0,
+   "uncommon": 8,
+   "rare": 15,
+   "epic": 24,
+   "legendary": 19,
+   "mythic": 0
+  },
+  "The Foundry": {
+   "common": 0,
+   "uncommon": 6,
+   "rare": 38,
+   "epic": 65,
+   "legendary": 137,
+   "mythic": 0
+  },
+  "The Endless Road": {
+   "common": 0,
+   "uncommon": 3,
+   "rare": 24,
+   "epic": 36,
+   "legendary": 122,
+   "mythic": 3
+  }
+ },
+ "catacombs": {
+  "best": 5,
+  "runs": 3
+ },
+ "endless": {
+  "best": 400,
+  "milestones": 16
+ },
+ "stuck": [],
+ "hourly": [
+  {
+   "played": 1,
+   "h": 1,
+   "gold": 2254,
+   "ore": 17,
+   "dust": 0,
+   "zone": "Thornwood",
+   "prog": 15,
+   "lv": 16,
+   "wins": 157,
+   "power": 5389,
+   "run": 0,
+   "defeats": 46,
+   "earnedGold": 26567,
+   "earnedOre": 1502,
+   "spentGold": 24313,
+   "spentOre": 1485,
+   "spendBy": {
+    "gearOre": 1684,
+    "castleGold": 4044,
+    "hiresGold": 1319,
+    "ranksGold": 6201,
+    "treeGold": 16935,
+    "ascendOre": 80,
+    "talentsGold": 2400
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 133,
+   "treeLv": 37,
+   "castle": 11,
+   "trainSec": 0,
+   "itemRank": 1.25,
+   "itemLvl": 8.4
+  },
+  {
+   "played": 2,
+   "h": 2,
+   "gold": 5759,
+   "ore": 22,
+   "dust": 0,
+   "zone": "Ironvein Caverns",
+   "prog": 10,
+   "lv": 22,
+   "wins": 324,
+   "power": 8775,
+   "run": 0,
+   "defeats": 95,
+   "earnedGold": 68530,
+   "earnedOre": 3127,
+   "spentGold": 62771,
+   "spentOre": 3105,
+   "spendBy": {
+    "gearOre": 3408,
+    "castleGold": 7465,
+    "hiresGold": 1319,
+    "ranksGold": 14437,
+    "treeGold": 42936,
+    "ascendOre": 80,
+    "talentsGold": 3200
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 185,
+   "treeLv": 63,
+   "castle": 14,
+   "trainSec": 0,
+   "itemRank": 1.42,
+   "itemLvl": 12.7
+  },
+  {
+   "played": 2,
+   "h": 3,
+   "gold": 12061,
+   "ore": 2538,
+   "dust": 0,
+   "zone": "Ironvein Caverns",
+   "prog": 10,
+   "lv": 29,
+   "wins": 324,
+   "power": 11304,
+   "run": 0,
+   "defeats": 95,
+   "earnedGold": 228244,
+   "earnedOre": 7157,
+   "spentGold": 62771,
+   "spentOre": 3105,
+   "spendBy": {
+    "gearOre": 3690,
+    "castleGold": 60412,
+    "hiresGold": 10540,
+    "ranksGold": 71020,
+    "treeGold": 77597,
+    "ascendOre": 1334,
+    "talentsGold": 3200
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 191,
+   "treeLv": 88,
+   "castle": 25,
+   "trainSec": 0,
+   "itemRank": 1.58,
+   "itemLvl": 13.2
+  },
+  {
+   "played": 2,
+   "h": 4,
+   "gold": 12061,
+   "ore": 2538,
+   "dust": 0,
+   "zone": "Ironvein Caverns",
+   "prog": 10,
+   "lv": 29,
+   "wins": 324,
+   "power": 11304,
+   "run": 0,
+   "defeats": 95,
+   "earnedGold": 228244,
+   "earnedOre": 7157,
+   "spentGold": 62771,
+   "spentOre": 3105,
+   "spendBy": {
+    "gearOre": 3690,
+    "castleGold": 60412,
+    "hiresGold": 10540,
+    "ranksGold": 71020,
+    "treeGold": 77597,
+    "ascendOre": 1334,
+    "talentsGold": 3200
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 191,
+   "treeLv": 88,
+   "castle": 25,
+   "trainSec": 0,
+   "itemRank": 1.58,
+   "itemLvl": 13.2
+  },
+  {
+   "played": 3,
+   "h": 5,
+   "gold": 28234,
+   "ore": 65,
+   "dust": 1,
+   "zone": "Ironvein Caverns",
+   "prog": 24,
+   "lv": 23,
+   "wins": 583,
+   "power": 18876,
+   "run": 1,
+   "defeats": 119,
+   "earnedGold": 421089,
+   "earnedOre": 11922,
+   "spentGold": 392855,
+   "spentOre": 11857,
+   "spendBy": {
+    "gearOre": 11508,
+    "castleGold": 60412,
+    "hiresGold": 10540,
+    "ranksGold": 88785,
+    "treeGold": 235704,
+    "ascendOre": 1334,
+    "talentsGold": 4000,
+    "blessingsDust": 19
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 334,
+   "treeLv": 122,
+   "castle": 25,
+   "trainSec": 0,
+   "itemRank": 1.58,
+   "itemLvl": 18.9
+  },
+  {
+   "played": 4,
+   "h": 6,
+   "gold": 39380,
+   "ore": 142,
+   "dust": 2,
+   "zone": "Emberwaste",
+   "prog": 24,
+   "lv": 30,
+   "wins": 710,
+   "power": 25189,
+   "run": 1,
+   "defeats": 174,
+   "earnedGold": 596779,
+   "earnedOre": 17116,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 16857,
+    "castleGold": 60412,
+    "hiresGold": 10540,
+    "ranksGold": 153823,
+    "treeGold": 335210,
+    "ascendOre": 1334,
+    "talentsGold": 4000,
+    "blessingsDust": 19
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 373,
+   "treeLv": 136,
+   "castle": 25,
+   "trainSec": 0,
+   "itemRank": 1.58,
+   "itemLvl": 21.5
+  },
+  {
+   "played": 4,
+   "h": 7,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 4,
+   "h": 8,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 4,
+   "h": 9,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 4,
+   "h": 10,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 4,
+   "h": 11,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 4,
+   "h": 12,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 4,
+   "h": 13,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 4,
+   "h": 14,
+   "gold": 11533,
+   "ore": 20474,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 7,
+   "wins": 710,
+   "power": 45208,
+   "run": 2,
+   "defeats": 174,
+   "earnedGold": 2795619,
+   "earnedOre": 59610,
+   "spentGold": 557399,
+   "spentOre": 16974,
+   "spendBy": {
+    "gearOre": 17885,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1539442,
+    "treeGold": 758013,
+    "ascendOre": 22504,
+    "talentsGold": 28000,
+    "blessingsDust": 43
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 379,
+   "treeLv": 173,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2,
+   "itemLvl": 21.8
+  },
+  {
+   "played": 5,
+   "h": 15,
+   "gold": 137468,
+   "ore": 110,
+   "dust": 4,
+   "zone": "Ashen Approach",
+   "prog": 24,
+   "lv": 35,
+   "wins": 1002,
+   "power": 86316,
+   "run": 2,
+   "defeats": 212,
+   "earnedGold": 3958931,
+   "earnedOre": 80921,
+   "spentGold": 3821463,
+   "spentOre": 80811,
+   "spendBy": {
+    "gearOre": 40617,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1689833,
+    "treeGold": 1641799,
+    "ascendOre": 42607,
+    "talentsGold": 31200,
+    "blessingsDust": 49
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 501,
+   "treeLv": 196,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2.17,
+   "itemLvl": 25
+  },
+  {
+   "played": 6,
+   "h": 16,
+   "gold": 317356,
+   "ore": 356,
+   "dust": 1,
+   "zone": "Ashen Keep",
+   "prog": 8,
+   "lv": 45,
+   "wins": 1212,
+   "power": 118979,
+   "run": 2,
+   "defeats": 246,
+   "earnedGold": 5238183,
+   "earnedOre": 109724,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 70072,
+    "castleGold": 454677,
+    "hiresGold": 10540,
+    "ranksGold": 1689833,
+    "treeGold": 2683163,
+    "ascendOre": 42607,
+    "talentsGold": 79200,
+    "blessingsDust": 49,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 562,
+   "treeLv": 211,
+   "castle": 36,
+   "trainSec": 0,
+   "itemRank": 2.17,
+   "itemLvl": 28.2
+  },
+  {
+   "played": 6,
+   "h": 17,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 6,
+   "h": 18,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 6,
+   "h": 19,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 6,
+   "h": 20,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 6,
+   "h": 21,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 6,
+   "h": 22,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 6,
+   "h": 23,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 6,
+   "h": 24,
+   "gold": 327468,
+   "ore": 3801,
+   "dust": 1,
+   "zone": "Greenhollow Fields",
+   "prog": 0,
+   "lv": 10,
+   "wins": 1212,
+   "power": 295337,
+   "run": 3,
+   "defeats": 246,
+   "earnedGold": 15061957,
+   "earnedOre": 258442,
+   "spentGold": 4920827,
+   "spentOre": 109368,
+   "spendBy": {
+    "gearOre": 73966,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 5680452,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 10000,
+    "promoteDust": 10
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 568,
+   "treeLv": 245,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 28.3
+  },
+  {
+   "played": 7,
+   "h": 25,
+   "gold": 1243203,
+   "ore": 2012,
+   "dust": 0,
+   "zone": "The Foundry",
+   "prog": 29,
+   "lv": 52,
+   "wins": 1621,
+   "power": 449993,
+   "run": 3,
+   "defeats": 268,
+   "earnedGold": 21759985,
+   "earnedOre": 364161,
+   "spentGold": 20516782,
+   "spentOre": 362149,
+   "spendBy": {
+    "gearOre": 182816,
+    "castleGold": 2813330,
+    "hiresGold": 10540,
+    "ranksGold": 10734729,
+    "treeGold": 11447745,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 25000,
+    "promoteDust": 15
+   },
+   "renown": 0,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 652,
+   "treeLv": 261,
+   "castle": 46,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 31.4
+  },
+  {
+   "played": 8,
+   "h": 26,
+   "gold": 2303488,
+   "ore": 3919,
+   "dust": 0,
+   "zone": "The Endless Road",
+   "prog": 12,
+   "lv": 68,
+   "wins": 1868,
+   "power": 850682,
+   "run": 3,
+   "defeats": 301,
+   "earnedGold": 32476630,
+   "earnedOre": 539941,
+   "spentGold": 30173142,
+   "spentOre": 536022,
+   "spendBy": {
+    "gearOre": 357271,
+    "castleGold": 3397264,
+    "hiresGold": 10540,
+    "ranksGold": 11773667,
+    "treeGold": 19481233,
+    "ascendOre": 266077,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 25000,
+    "promoteDust": 15
+   },
+   "renown": 12,
+   "wave": 12,
+   "bestWave": 12,
+   "enemyLv": 71,
+   "gearUps": 724,
+   "treeLv": 277,
+   "castle": 47,
+   "trainSec": 0,
+   "itemRank": 3,
+   "itemLvl": 35.4
+  },
+  {
+   "played": 8,
+   "h": 27,
+   "gold": 3781363,
+   "ore": 10579,
+   "dust": 0,
+   "zone": "The Endless Road",
+   "prog": 12,
+   "lv": 74,
+   "wins": 1868,
+   "power": 1057258,
+   "run": 3,
+   "defeats": 301,
+   "earnedGold": 45594420,
+   "earnedOre": 676999,
+   "spentGold": 30173142,
+   "spentOre": 536022,
+   "spendBy": {
+    "gearOre": 376075,
+    "castleGold": 10147255,
+    "hiresGold": 10540,
+    "ranksGold": 13100121,
+    "treeGold": 23044703,
+    "ascendOre": 377911,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 25000,
+    "promoteDust": 15
+   },
+   "renown": 12,
+   "wave": 12,
+   "bestWave": 12,
+   "enemyLv": 71,
+   "gearUps": 730,
+   "treeLv": 286,
+   "castle": 53,
+   "trainSec": 0,
+   "itemRank": 3.08,
+   "itemLvl": 35.9
+  },
+  {
+   "played": 8,
+   "h": 28,
+   "gold": 3781363,
+   "ore": 10579,
+   "dust": 0,
+   "zone": "The Endless Road",
+   "prog": 12,
+   "lv": 74,
+   "wins": 1868,
+   "power": 1057258,
+   "run": 3,
+   "defeats": 301,
+   "earnedGold": 45594420,
+   "earnedOre": 676999,
+   "spentGold": 30173142,
+   "spentOre": 536022,
+   "spendBy": {
+    "gearOre": 376075,
+    "castleGold": 10147255,
+    "hiresGold": 10540,
+    "ranksGold": 13100121,
+    "treeGold": 23044703,
+    "ascendOre": 377911,
+    "talentsGold": 79200,
+    "blessingsDust": 87,
+    "promoteGold": 25000,
+    "promoteDust": 15
+   },
+   "renown": 12,
+   "wave": 12,
+   "bestWave": 12,
+   "enemyLv": 71,
+   "gearUps": 730,
+   "treeLv": 286,
+   "castle": 53,
+   "trainSec": 0,
+   "itemRank": 3.08,
+   "itemLvl": 35.9
+  },
+  {
+   "played": 9,
+   "h": 29,
+   "gold": 8634395,
+   "ore": 2071,
+   "dust": 9,
+   "zone": "The Foundry",
+   "prog": 36,
+   "lv": 65,
+   "wins": 2525,
+   "power": 2574380,
+   "run": 4,
+   "defeats": 301,
+   "earnedGold": 78384881,
+   "earnedOre": 1189538,
+   "spentGold": 69750486,
+   "spentOre": 1187467,
+   "spendBy": {
+    "gearOre": 899765,
+    "castleGold": 14685509,
+    "hiresGold": 10540,
+    "ranksGold": 13100121,
+    "treeGold": 46418878,
+    "ascendOre": 377911,
+    "talentsGold": 79200,
+    "blessingsDust": 131,
+    "promoteGold": 50000,
+    "promoteDust": 20
+   },
+   "renown": 959,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 835,
+   "treeLv": 309,
+   "castle": 55,
+   "trainSec": 0,
+   "itemRank": 3.08,
+   "itemLvl": 41.5
+  },
+  {
+   "played": 10,
+   "h": 30,
+   "gold": 14667933,
+   "ore": 11798,
+   "dust": 12,
+   "zone": "The Foundry",
+   "prog": 36,
+   "lv": 56,
+   "wins": 3199,
+   "power": 5136078,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 140338710,
+   "earnedOre": 1964988,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1666946,
+    "castleGold": 25512288,
+    "hiresGold": 10540,
+    "ranksGold": 31835187,
+    "treeGold": 72761698,
+    "ascendOre": 377911,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 70000,
+    "promoteDust": 20
+   },
+   "renown": 8697,
+   "wave": null,
+   "bestWave": null,
+   "enemyLv": null,
+   "gearUps": 913,
+   "treeLv": 325,
+   "castle": 58,
+   "trainSec": 0,
+   "itemRank": 3.08,
+   "itemLvl": 45.7
+  },
+  {
+   "played": 10,
+   "h": 31,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 10,
+   "h": 32,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 10,
+   "h": 33,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 10,
+   "h": 34,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 10,
+   "h": 35,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 10,
+   "h": 36,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 10,
+   "h": 37,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 10,
+   "h": 38,
+   "gold": 18828114,
+   "ore": 205743,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 0,
+   "lv": 84,
+   "wins": 3199,
+   "power": 6250457,
+   "run": 5,
+   "defeats": 302,
+   "earnedGold": 277925214,
+   "earnedOre": 3183188,
+   "spentGold": 125670777,
+   "spentOre": 1953190,
+   "spendBy": {
+    "gearOre": 1746410,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 104811515,
+    "ascendOre": 1323185,
+    "talentsGold": 79200,
+    "blessingsDust": 195,
+    "promoteGold": 130000,
+    "promoteDust": 30
+   },
+   "renown": 8697,
+   "wave": 0,
+   "bestWave": 0,
+   "enemyLv": 70,
+   "gearUps": 919,
+   "treeLv": 337,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 46.2
+  },
+  {
+   "played": 11,
+   "h": 39,
+   "gold": 44672621,
+   "ore": 41938,
+   "dust": 2,
+   "zone": "The Endless Road",
+   "prog": 357,
+   "lv": 104,
+   "wins": 3589,
+   "power": 14845115,
+   "run": 5,
+   "defeats": 305,
+   "earnedGold": 580434609,
+   "earnedOre": 5766820,
+   "spentGold": 535761988,
+   "spentOre": 5724882,
+   "spendBy": {
+    "gearOre": 4496238,
+    "castleGold": 77104572,
+    "hiresGold": 10540,
+    "ranksGold": 81559409,
+    "treeGold": 376176403,
+    "ascendOre": 1323185,
+    "talentsGold": 5199200,
+    "blessingsDust": 195,
+    "promoteGold": 310000,
+    "promoteDust": 60
+   },
+   "renown": 68002,
+   "wave": 357,
+   "bestWave": 357,
+   "enemyLv": 123,
+   "gearUps": 1040,
+   "treeLv": 368,
+   "castle": 64,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 52.5
+  },
+  {
+   "played": 12,
+   "h": 40,
+   "gold": 79749674,
+   "ore": 55235,
+   "dust": 21,
+   "zone": "The Endless Road",
+   "prog": 156,
+   "lv": 77,
+   "wins": 4431,
+   "power": 21837997,
+   "run": 6,
+   "defeats": 307,
+   "earnedGold": 909352838,
+   "earnedOre": 7721474,
+   "spentGold": 829603164,
+   "spentOre": 7666239,
+   "spendBy": {
+    "gearOre": 6441540,
+    "castleGold": 132848805,
+    "hiresGold": 10540,
+    "ranksGold": 212745634,
+    "treeGold": 482910404,
+    "ascendOre": 1323185,
+    "talentsGold": 5199200,
+    "blessingsDust": 261,
+    "promoteGold": 570000,
+    "promoteDust": 60
+   },
+   "renown": 91264,
+   "wave": 156,
+   "bestWave": 156,
+   "enemyLv": 93,
+   "gearUps": 1086,
+   "treeLv": 379,
+   "castle": 67,
+   "trainSec": 0,
+   "itemRank": 3.25,
+   "itemLvl": 55.1
+  }
+ ]
+}
