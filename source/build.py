@@ -2,12 +2,14 @@ import time,json,os,sys
 root=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sh=open(os.path.join(root,'source/shell.html'),encoding='utf-8').read()
 g=open(os.path.join(root,'source/game.js'),encoding='utf-8').read()
+fxdir=os.path.join(root,'source/fx')
+fx='\n'.join(open(os.path.join(fxdir,f),encoding='utf-8').read() for f in sorted(os.listdir(fxdir)) if f.endswith('.js')) if os.path.isdir(fxdir) else ''  # battle effect scripts: page only, never loaded by the simulator
 if not os.path.exists(os.path.join(root,'build/assets.json')):
     sys.exit('build/assets.json is missing; it is tracked in git, or regenerate it with source/build_assets.py (needs the art packs and PIL)')
 aj=open(os.path.join(root,'build/assets.json'),encoding='utf-8').read()
 build=time.strftime('%Y%m%d-%H%M%S')
 aj=aj.replace('.mp3"','.mp3?v='+build+'"')
-html=sh.replace('__ASSETS__',aj).replace('__GAME__',g).replace('__BUILD__',build)
+html=sh.replace('__ASSETS__',aj).replace('__FX__',fx).replace('__GAME__',g).replace('__BUILD__',build)
 for i in range(5):
     try:
         open(os.path.join(root,'index.html'),'w',encoding='utf-8',newline='\n').write(html);break

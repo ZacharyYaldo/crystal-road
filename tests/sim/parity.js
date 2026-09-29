@@ -10,5 +10,6 @@ const h16=s=>crypto.createHash('sha256').update(s).digest('hex').slice(0,16);
 let fails=0;const say=(ok,m)=>{console.log('  '+(ok?'PASS ':'FAIL ')+m);if(!ok)fails++;};
 say(html.includes(src),'index.html embeds source/game.js verbatim (source hash '+h16(src)+')');
 say(html.includes(ver.build),'index.html carries build '+ver.build+' from version.json');
+{const fxDir=path.join(ROOT,'source','fx');const fxFiles=fs.existsSync(fxDir)?fs.readdirSync(fxDir).filter(f=>f.endsWith('.js')).sort():[];for(const f of fxFiles){const s=rd('source/fx/'+f);say(html.includes(s),'index.html embeds source/fx/'+f+' verbatim (hash '+h16(s)+')');}}
 if(args.manifest){const m=JSON.parse(rd(String(args.manifest)));say(m.gameHash===h16(src),'manifest '+path.basename(String(args.manifest))+' game hash '+m.gameHash+' equals the source hash '+h16(src));const dirtyRuns=Object.keys(m.provenanceSets||{}).length;say(dirtyRuns===1,'one provenance set in the manifest ('+dirtyRuns+')');}
 console.log(fails?'PARITY FAIL ('+fails+')':'PARITY PASS');process.exit(fails?1:0);

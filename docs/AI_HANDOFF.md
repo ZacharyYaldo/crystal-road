@@ -1,38 +1,32 @@
-STATUS: FULL_BATCHES_COMPLETE_TUNING_BRANCH_ONLY
-RESPONSE_TYPE: REFERENCE_AND_UPPER_BOUND_BATCHES
-PASS_ID: PASS_52_FULL_BATCHES
-BASED_ON_REVIEW_PASS: REVIEWER_COMBINED_VERDICT_2026-09-16, the owner's "Go", and the owner's word after the pass 51 parity batch passed
-BUILD: 20260916-181649 (tuning branch; main untouched at f8c2a81)
-HEAD_COMMIT_SHA: d97be00 (the code both batches ran; this handoff and the raw results are committed on top, no game or harness change)
+STATUS: NEW_HEROES_ON_TUNING_BRANCH_UNSIMULATED
+RESPONSE_TYPE: CONTENT_ADDITION
+PASS_ID: PASS_53_NEW_HEROES
+BASED_ON_REVIEW_PASS: OWNER_DIRECTIVE_2026-09-29 (four character bundles plus the knight bundle; owner answers on the six points and the four missed items)
+BUILD: 20260929 (tuning branch; main untouched at f8c2a81)
+HEAD_COMMIT_SHA: see git log (this handoff is committed with the code)
 PULL_REQUEST: #2
-SUPERSEDES: PASS_51
+SUPERSEDES: PASS_52 (its batch results and open items stand; see the previous handoff in git history)
 
-# Crystal Road AI Handoff - Pass 52 (2x reference and continuous-4x upper bound on the real-player model, raw results committed)
+# Crystal Road AI Handoff - Pass 53 (Engineer, Summoner, Bard; fire archer on the ranger; crusader sheet and Shield Wall visuals on the knight)
 
-## What ran
-Both batches on commit d97be00 from a clean tree, 96 wall hours, seeds 81-90, profiles idleboost / light / casual / engaged, Shatter cap 10, schedule 2:2,2:8,2:8 (play 2 h, offline 2 h, play 2 h, offline 8 h, play 2 h, offline 8 h, repeating), drills, doubled offline rewards, Time Warp and daily chest, cleric last. Speed 2 is the reference; speed 4 is the labelled upper bound (purchases at session starts only, no offline speed factor).
-- tests/sim/results/p52x2/ and tests/sim/results/p52x4/: 40 run files, summary and manifest each; all 80 run-file sha256 hashes match tests/sim/manifests/p52x2.json and p52x4.json.
-- Provenance: one configuration set per batch, commit d97be00, game 9327f718e0d073d6, harness 97ce6f70faca68a2:3428d540609633d2, dirty tree [] in all 80 runs. tests/sim/parity.js --manifest PASS for both (bundle embeds the source; manifest hash equals the source hash).
-- Zero assertion failures, zero boss softlocks, zero batch errors in all 80 runs.
+## What was added (source/game.js, build/assets.json, source/fx/*.js)
+- Three heroes: Osric the Engineer (joins after Thornwood), Idris the Summoner (after Emberwaste), Perrin the Bard (after Ashen Approach). They join the bench like Wren and Bram do today (party cap 4), so the simulator's active party and the pass 52 batches are unaffected. Stats: Engineer 95 HP / 15 ATK / 6 DEF / 9 SPD (+10 / +2.4 / +0.8 per level), Summoner 75 / 14 / 3 / 10 (+8 / +2.5 / +0.5), Bard 85 / 11 / 4 / 13 (+9 / +1.8 / +0.6). Weapon kinds reuse existing item kinds (axe, staff, bow) so drops and the weapon tint work unchanged.
+- Abilities. Deploy Turret: three shots at 90% x AB_BOOST x power each, one per enemy in order, repeating targets when fewer than three remain (owner point 1); four with the Overclock talent; a shot whose target died retargets on landing; the shots are hidden projectiles that land at 1.02 s then every 0.32 s, matching the turret effect. Great Summon: the familiar charges through every enemy left to right for 150% x AB_BOOST x power, damage landing as it passes each one. Battle Hymn: party attack and gauge speed x1.2 for 3 turns (5 with Encore), counted down on each hero's own action; a support ability, so the same effect tapped or Auto-Cast (no 0.75 scaling).
+- Talents: Engineer Shrapnel (bombs also hit the next enemy for 40%), Overclock, Salvage (kills refund 20% charge); Summoner Feral Bite (20% crit on familiar bites), Searing Spirit (Great Summon burns 3 turns), Attuned (30% starting charge); Bard Encore, Crescendo (Hymn heals 10%), Dissonance (waves take 20 off the target's gauge). Titles per rank from the bundles. Three new 12x12 ability icons (turret, summon, hymn).
+- Fire archer: the ranger draws from firearcher0-3 by tier at every tier (owner point 2). Rain of Arrows is renamed Rain of Fire; its damage (1.1 x AB_BOOST x power per enemy) and bleed (3 + floor(rank/2) turns) are untouched and pinned by tests; damage is still dealt at the game's hit frame, the burning arrows land just after (timing note). The ranger's tier palette keeps only the rank-3 size: no recolour, leaves, weapon glow, hawk or trail over the new sheets; firePromoFx draws the tier effects (missed item 2). One cosmetic change: the ranger's ability now plays the sheet's cast row (8 frames at 13 fps instead of 9 at 13.05), hit frame 4 as before.
+- Knight: rank 2 draws from the new crusader sheet (templar with the winged great helm; the existing rank-2 silver recolour is kept, as the bundle requires). Shield Wall's gold ring is replaced by the barrier dome that tracks status.shield on every unit (so it lasts exactly the shield's turns), cast rings on the knight, the Iron Guard ally and the parry, sparks on shielded hits, taunt marks over enemies while a hero is shielded, a slash where the melee hit lands, and Crusader/Warden promotion effects. Nothing about how the knight plays changed.
+- Knockback (missed item 1): the effect files' knockback values become a sprite-only nudge (u.kx) read by drawUnit and decayed by the effect step; positions, hit tests, damage and timing never read it.
+- Hymn glow (missed item 4): the bard's glow and notes follow the buff, rising while any hero carries status.hymn and fading out when the last turn ends, not the file's fixed 4.4 s.
+- Existing saves (owner point 4): grantRecruits() on load adds any recruit whose zone is cleared this run or was ever passed (highestZoneEver), once, at the zone level, with the usual join message.
+- Effect scripts live in source/fx/*.js (the bundles' files verbatim). build.py embeds them in index.html before game.js; the simulator never loads them, so FX_ON is false there and every hook returns at once: no effect can touch the RNG or timing. tests/sim/parity.js now also checks each effect script is embedded verbatim. Page size 1.29 MB to 1.53 MB.
 
-## 2x reference (tests/sim/bounded.js --dir batch_out_p52x2): BOUNDED FAIL, 2 checks
-- PASS 1 and 2: no run reaches Shatter 8 before 48 h; no run reaches Shatter 10 in 96 h; median 7 Shatters (seed 81: 4.1, 14.0, 24.0, 25.9, 29.4, 48.0, 72.5 h).
-- Check 4 (final-day power growth no more than 0.8 of the previous day, log ratio): light 0.77, casual 0.71, engaged 0.65 PASS; idleboost 0.81 FAIL by 0.01 (x8.46 vs x13.92). The boosted idle profile is the one with no taps and the least spending; its late curve flattens slightly slower than the others.
-- PASS 5: Endless waves gained 72-96 h below 48-72 h in every profile (241 vs 400 idleboost, 234 vs 410 light, 249 vs 393 casual, 258 vs 542 engaged); best wave at 96 h 989-1015.
-- PASS 6: no softlocks; 31-37 ascensions per run; 1.2-1.4B ore spent in the last 24 h. Walls (loss streak of 8 or more, then cleared): 3 idleboost runs and 2 light runs, e.g. Ashen Keep x9, The Foundry x8.
-- PASS 8: drill dust 6.8 / 8.3 / 8.2 / 8.2% of all dust (30-36 drill dust vs 401-407 Shatter dust per run); first-cycle claims 11-13 dust, repeat claims 18-24 dust across the run.
-- PASS 7a: engaged enters Endless 9.5% earlier than boosted idle in wall hours (25.6 vs 28.3 h; want 5-12).
-- FAIL 7b: 8.5% earlier in played hours (7.6 vs 8.3 h; want 15-30). Same shape as passes 49 and 51 (9.3-11.7%). The played-hours gap is small because Endless entry lands in the second session for every profile; taps and boosts shorten the wall clock more than the played clock. This is a criterion question for the reviewer and the owner, not a defect.
-- Records: 1T gold reached in 1/10 idleboost, 0/10 light, 1/10 casual, 3/10 engaged runs (h 79-88); Endless entered 25.6-28.3 h; power at 96 h 3.5-4.2B; level 233-239; item level 91-92 at rank 4.
+## Tests (tests/contract/heroes.test.js, 149 assertions; all 8 suites pass; parity PASS)
+Tables and sheets for every rank; recruit zones old and new; sprite keys by rank (knight, crusader, lancer; firearcher0-3); ranger palette; Rain of Fire mean damage within 3% of atk x 1.1 x AB_BOOST x power x 1.3 and the exact bleed turns, no projectiles; hidden basic shots with fixed flight times (ranger 0.28 s and pierce 0.32 s unchanged, enemy arrows untouched); Shrapnel and Dissonance; turret target repetition, timing, Auto-Cast multiplier, retargeting, Overclock; Great Summon ordering, multiplier, Searing Spirit; Hymn x1.2 attack (600-sample means) and x1.2 gauge, no enemy effect, per-turn countdown, Encore, Crescendo, same effect tapped or auto; knight rank-2 sheet and unchanged Shield Wall values; the recruit grant in every case including through a real save and load; the effect bridge off in the simulator.
 
-## Continuous 4x upper bound (batch_out_p52x4): BOUNDED PASS (informational by design)
-- Checks 1, 2, 4, 5, 6, 8 all pass: median 7 Shatters, no Shatter 10; check 4 ratios 0.50-0.58; drill dust 7.5-8.8%; 1T gold in 10/10 runs at h 65-73; Endless entered 15.7-24.0 h; best wave 1142-1169; power at 96 h 11.5-14.8B.
-- Check 7 recorded only: engaged ahead of boosted idle by 34.4% wall, 4.3% played.
+## Verified in the page (built index.html, ?dev, effects on)
+Zero console errors across walks, fights, every ability, party swaps, promotions and a full Training Drill with the engineer. Seen: turret mast and tracers, bomb and explosion, familiar hover, bite and 2.4x charge with the circle, bard wave, hymn glow and notes, crusader barrier with cast rings and taunt marks, fire arrow with the warm flash, Rain of Fire drops, rank-3 promotion effects for all four, the Heroes screen with the new plates. One defect found and fixed during the check: a wave or arrow drawn on the frame it was launched had no position yet (non-finite gradient, which stops the page's frame loop); the bridge now steps the effects once at launch.
 
-## Open for the owner and reviewer
-1. Check 4 idleboost at 0.81 vs the 0.8 bound (one profile, one hundredth). Options: accept as within noise of a 10-seed median, or ask for a targeted late-game change; no change made.
-2. Criterion 7b (15-30% played-hours lead) has not been met in any real-player batch (8.5-11.7%). Either the criterion or the active-play advantage needs a decision.
-3. Whether to fast-forward main to the tuning branch. main is frozen at f8c2a81; nothing has been pushed there.
-
-## Next
-No game or harness changes were made in this pass. Awaiting decisions on the three items above; no further batches unless asked.
+## Not done, by design
+- No simulation batch: the newcomers sit on the bench in the bot's party and nothing on the active four or the ranger's numbers changed. Say the word if you want them simulated in the party.
+- main stays at f8c2a81. Pass 52's open items (check 4 idleboost 0.81, criterion 7b, the main fast-forward) still await decisions.
+- The cleric bundle is next per the owner.
