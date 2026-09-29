@@ -1,32 +1,33 @@
-STATUS: NEW_HEROES_ON_TUNING_BRANCH_UNSIMULATED
-RESPONSE_TYPE: CONTENT_ADDITION
-PASS_ID: PASS_53_NEW_HEROES
-BASED_ON_REVIEW_PASS: OWNER_DIRECTIVE_2026-09-29 (four character bundles plus the knight bundle; owner answers on the six points and the four missed items)
+STATUS: PASS_53_REVIEW_ITEMS_2_3_5_DONE_TUNING_BRANCH_ONLY
+RESPONSE_TYPE: DEFECT_FIXES_AND_HARNESS_ADDITION
+PASS_ID: PASS_53B_REVIEW_FIXES
+BASED_ON_REVIEW_PASS: REVIEWER_VERDICT_2026-09-29 on 137d857 (not cleared for main) and the owner's approval of items 1-4 on tuning with the quest affinities and the --party rules
 BUILD: 20260929 (tuning branch; main untouched at f8c2a81)
 HEAD_COMMIT_SHA: see git log (this handoff is committed with the code)
 PULL_REQUEST: #2
-SUPERSEDES: PASS_52 (its batch results and open items stand; see the previous handoff in git history)
+SUPERSEDES: PASS_53
 
-# Crystal Road AI Handoff - Pass 53 (Engineer, Summoner, Bard; fire archer on the ranger; crusader sheet and Shield Wall visuals on the knight)
+# Crystal Road AI Handoff - Pass 53b (Battle Hymn caster turn, quest affinities and events, stale recruit fields, party-composition tests, bot --party)
 
-## What was added (source/game.js, build/assets.json, source/fx/*.js)
-- Three heroes: Osric the Engineer (joins after Thornwood), Idris the Summoner (after Emberwaste), Perrin the Bard (after Ashen Approach). They join the bench like Wren and Bram do today (party cap 4), so the simulator's active party and the pass 52 batches are unaffected. Stats: Engineer 95 HP / 15 ATK / 6 DEF / 9 SPD (+10 / +2.4 / +0.8 per level), Summoner 75 / 14 / 3 / 10 (+8 / +2.5 / +0.5), Bard 85 / 11 / 4 / 13 (+9 / +1.8 / +0.6). Weapon kinds reuse existing item kinds (axe, staff, bow) so drops and the weapon tint work unchanged.
-- Abilities. Deploy Turret: three shots at 90% x AB_BOOST x power each, one per enemy in order, repeating targets when fewer than three remain (owner point 1); four with the Overclock talent; a shot whose target died retargets on landing; the shots are hidden projectiles that land at 1.02 s then every 0.32 s, matching the turret effect. Great Summon: the familiar charges through every enemy left to right for 150% x AB_BOOST x power, damage landing as it passes each one. Battle Hymn: party attack and gauge speed x1.2 for 3 turns (5 with Encore), counted down on each hero's own action; a support ability, so the same effect tapped or Auto-Cast (no 0.75 scaling).
-- Talents: Engineer Shrapnel (bombs also hit the next enemy for 40%), Overclock, Salvage (kills refund 20% charge); Summoner Feral Bite (20% crit on familiar bites), Searing Spirit (Great Summon burns 3 turns), Attuned (30% starting charge); Bard Encore, Crescendo (Hymn heals 10%), Dissonance (waves take 20 off the target's gauge). Titles per rank from the bundles. Three new 12x12 ability icons (turret, summon, hymn).
-- Fire archer: the ranger draws from firearcher0-3 by tier at every tier (owner point 2). Rain of Arrows is renamed Rain of Fire; its damage (1.1 x AB_BOOST x power per enemy) and bleed (3 + floor(rank/2) turns) are untouched and pinned by tests; damage is still dealt at the game's hit frame, the burning arrows land just after (timing note). The ranger's tier palette keeps only the rank-3 size: no recolour, leaves, weapon glow, hawk or trail over the new sheets; firePromoFx draws the tier effects (missed item 2). One cosmetic change: the ranger's ability now plays the sheet's cast row (8 frames at 13 fps instead of 9 at 13.05), hit frame 4 as before.
-- Knight: rank 2 draws from the new crusader sheet (templar with the winged great helm; the existing rank-2 silver recolour is kept, as the bundle requires). Shield Wall's gold ring is replaced by the barrier dome that tracks status.shield on every unit (so it lasts exactly the shield's turns), cast rings on the knight, the Iron Guard ally and the parry, sparks on shielded hits, taunt marks over enemies while a hero is shielded, a slash where the melee hit lands, and Crusader/Warden promotion effects. Nothing about how the knight plays changed.
-- Knockback (missed item 1): the effect files' knockback values become a sprite-only nudge (u.kx) read by drawUnit and decayed by the effect step; positions, hit tests, damage and timing never read it.
-- Hymn glow (missed item 4): the bard's glow and notes follow the buff, rising while any hero carries status.hymn and fading out when the last turn ends, not the file's fixed 4.4 s.
-- Existing saves (owner point 4): grantRecruits() on load adds any recruit whose zone is cleared this run or was ever passed (highestZoneEver), once, at the zone level, with the usual join message.
-- Effect scripts live in source/fx/*.js (the bundles' files verbatim). build.py embeds them in index.html before game.js; the simulator never loads them, so FX_ON is false there and every hook returns at once: no effect can touch the RNG or timing. tests/sim/parity.js now also checks each effect script is embedded verbatim. Page size 1.29 MB to 1.53 MB.
+## Corrections to the pass 53 handoff
+- "Bench recruits cannot affect the simulation" was wrong. The bot gears, promotes, posts and delves the whole roster, and Osric adds axe drops through the roster-derived weapon pool. The pass 52 batches describe commit d97be00 only; pass 53 and later need fresh batches before any balance claim (reviewer item 4, deferred by the owner).
 
-## Tests (tests/contract/heroes.test.js, 149 assertions; all 8 suites pass; parity PASS)
-Tables and sheets for every rank; recruit zones old and new; sprite keys by rank (knight, crusader, lancer; firearcher0-3); ranger palette; Rain of Fire mean damage within 3% of atk x 1.1 x AB_BOOST x power x 1.3 and the exact bleed turns, no projectiles; hidden basic shots with fixed flight times (ranger 0.28 s and pierce 0.32 s unchanged, enemy arrows untouched); Shrapnel and Dissonance; turret target repetition, timing, Auto-Cast multiplier, retargeting, Overclock; Great Summon ordering, multiplier, Searing Spirit; Hymn x1.2 attack (600-sample means) and x1.2 gauge, no enemy effect, per-turn countdown, Encore, Crescendo, same effect tapped or auto; knight rank-2 sheet and unchanged Shield Wall values; the recruit grant in every case including through a real save and load; the effect bridge off in the simulator.
+## Fixes (source/game.js)
+- Battle Hymn (reviewer, medium): the caster's own action ended right after the cast and took a turn off him, so Perrin got 2 future turns to everyone's 3 (Encore 4 vs 5). He now receives one extra count, the same way Shield Wall does, so a completed cast leaves the caster and every ally on the same number: 3, or 5 with Encore. Test: a full cast driven by the production update loop, then the counts.
+- Quests (reviewer, medium; owner's design): Engineer favours Hunt and Scout, Summoner Forage and Pilgrimage, Bard Scout and Pilgrimage (questBonus 1.3 on those, as for the originals). Class events, pushed twice into the event pool like every original class: Engineer "Salvaged old machinery" pays round((8 + level) x 1.5 x oreMult) ore; Summoner "Communed with a spirit" pays 40% of a level x xpMult; Bard "Played a roadside performance" pays round(0.8 x (30 + 8 x level) x goldMult) gold. No dust from any of them.
+- Recruit metadata (reviewer, low): the unused zone fields on the hero list are gone; the zone table's recruit fields are the one source.
 
-## Verified in the page (built index.html, ?dev, effects on)
-Zero console errors across walks, fights, every ability, party swaps, promotions and a full Training Drill with the engineer. Seen: turret mast and tracers, bomb and explosion, familiar hover, bite and 2.4x charge with the circle, bard wave, hymn glow and notes, crusader barrier with cast rings and taunt marks, fire arrow with the warm flash, Rain of Fire drops, rank-3 promotion effects for all four, the Heroes screen with the new plates. One defect found and fixed during the check: a wave or arrow drawn on the frame it was launched had no position yet (non-finite gradient, which stops the page's frame loop); the bridge now steps the effects once at launch.
+## Simulator (tests/sim)
+- bot.js --party a,b,c,d: a preferred ordered lineup, front first. A hero is swapped in only after production has recruited them and only while they are at camp; the rest of the party keeps its current members; the cleric-to-the-back rule still applies afterwards. Preferred heroes are reserved: the bot never posts them to the garrison and does not pick them for the Catacombs while anyone else can go. Duplicate or unknown ids are rejected before the run (exit 2). Provenance: config.party and model.party carry the request; partyRequested, partyActual (ordered, at the end) and partyChanges (hour and lineup at every change) are in the result; batch.js forwards the flag and records it in the manifest model. Without the flag the result is byte-identical to the previous harness: tests/sim/equiv.js --ref 137d857 --mode exact PASS, 24 pairs identical (RNG call counts and canonical hashes). The gate now treats the dirty-tree flag as provenance like the commit, because the reference harness runs from a checkout without git and reports it as unknown.
+- Verified on seed 81 casual 2x: Osric recruited at 2.68 h and fielded within the quarter hour, holding the requested slot.
 
-## Not done, by design
-- No simulation batch: the newcomers sit on the bench in the bot's party and nothing on the active four or the ranger's numbers changed. Say the word if you want them simulated in the party.
-- main stays at f8c2a81. Pass 52's open items (check 4 idleboost 0.81, criterion 7b, the main fast-forward) still await decisions.
-- The cleric bundle is next per the owner.
+## Tests
+- tests/contract/party.test.js (69 assertions): six lineups fielded through six minutes of live road encounters each (every newcomer beside originals, the four bundled heroes together, the three newcomers with the knight): invariants (finite currencies, HP in range, party cap, well-formed projectiles), the party wins fights, every hero attacks, every bundled hero casts its ability, basic and ability damage both counted. Then the bot with --party: exit 0, request recorded, every fielded hero recruited first, Osric never fielded before his recruitment hour and fielded within a quarter hour of it, the front follows the request, duplicate and unknown ids rejected.
+- tests/contract/heroes.test.js grew to 526 assertions (hymn through a full cast, quest affinities, bonuses, events, weighting, payouts and no dust, no stale zone fields).
+- All 9 suites pass (2,547 assertions); parity PASS (game.js and the five effect scripts embedded verbatim).
+
+## Still open
+- Reviewer item 1 (developer rows visible in Settings): parked by the owner.
+- Item 4: fresh 2x and continuous 4x batches from the final head, parked by the owner; when run, consider a matched --party batch that fields the newcomers.
+- Item 6: criterion 7b, the owner's decision.
+- main stays at f8c2a81.

@@ -4,7 +4,7 @@
 //
 // --mode exact (default): every pair must be identical: assertions, RNG-call count and final RNG state, final currencies and progress,
 //   milestones (zone clears, Shatters, recruits, promotions, Endless), roster and gear, boss outcomes, hourly series, events, and the canonical
-//   hash of the whole result (volatile fields removed: commit, harness hash, real times). Fields present on only one side (new telemetry) are
+//   hash of the whole result (volatile fields removed: commit, harness hash, dirty tree flag, real times). Fields present on only one side (new telemetry) are
 //   listed and do not fail the gate. Use it for every harness change that must not alter a single frame.
 // --mode stat: for a change that legitimately moves frame timing (the clock migration), per-seed equality cannot hold because the runs are
 //   chaotic; this mode compares the DISTRIBUTIONS over seeds per profile and speed (medians and a Mann-Whitney rank test on the key metrics),
@@ -32,7 +32,7 @@ const fileOf=j=>path.join(outDir,j.side+'_'+j.p+'_'+j.s+'_x'+j.sp+'.json');
 const t0=Date.now();const wall={old:0,new:0,new2:0};let idx=0,done=0;
 function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[botOf(j.side),'--hours',String(HOURS),'--seed',String(j.s),'--profile',j.p,'--speed',String(j.sp),'--quiet','--json',fileOf(j)];const t=Date.now();const c=cp.spawn(process.execPath,a,{stdio:['ignore','ignore','inherit']});c.on('exit',()=>{wall[j.side]+=Date.now()-t;done++;process.stdout.write('\r'+done+'/'+jobs.length+' runs ('+((Date.now()-t0)/1000).toFixed(0)+'s)   ');if(done===jobs.length)(MODE==='stat'?compareStat:compareExact)();else next();});}
 for(let i=0;i<Math.min(WORKERS,jobs.length);i++)next();
-const VOLATILE=/^(commit|harnessHash|realSec|realSeconds|wallSec|elapsedSec)$/;
+const VOLATILE=/^(commit|harnessHash|dirty|realSec|realSeconds|wallSec|elapsedSec)$/; /* dirty is provenance like commit: the reference harness runs from a checkout without git and reports it as unknown */
 function canon(o){if(Array.isArray(o))return o.map(canon);if(o&&typeof o==='object'){const r={};for(const k of Object.keys(o).sort()){if(VOLATILE.test(k))continue;r[k]=canon(o[k]);}return r;}return o;}
 function shared(a,b){const A=canon(a),B=canon(b);const onlyA=Object.keys(A).filter(k=>!(k in B)),onlyB=Object.keys(B).filter(k=>!(k in A));const SA={},SB={};for(const k of Object.keys(A))if(k in B){SA[k]=A[k];SB[k]=B[k];}return{SA,SB,onlyA,onlyB};}
 const H=o=>crypto.createHash('sha256').update(JSON.stringify(o)).digest('hex').slice(0,16);

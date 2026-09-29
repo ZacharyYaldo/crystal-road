@@ -114,13 +114,13 @@ const CLASSES={
 const HEROES=[
   {id:'aldric',name:'Aldric',cls:'knight',start:true},
   {id:'sera',name:'Sera',cls:'cleric',campfire:true},
-  {id:'vex',name:'Vex',cls:'rogue',zone:0},
-  {id:'morrow',name:'Morrow',cls:'mage',zone:1},
-  {id:'wren',name:'Wren',cls:'ranger',zone:2},
-  {id:'bram',name:'Bram',cls:'berserker',zone:3},
-  {id:'osric',name:'Osric',cls:'engineer',zone:2},
-  {id:'idris',name:'Idris',cls:'summoner',zone:4},
-  {id:'perrin',name:'Perrin',cls:'bard',zone:6},
+  {id:'vex',name:'Vex',cls:'rogue'},
+  {id:'morrow',name:'Morrow',cls:'mage'},
+  {id:'wren',name:'Wren',cls:'ranger'},
+  {id:'bram',name:'Bram',cls:'berserker'},
+  {id:'osric',name:'Osric',cls:'engineer'},
+  {id:'idris',name:'Idris',cls:'summoner'},
+  {id:'perrin',name:'Perrin',cls:'bard'},
 ];
 const LORDS=['bonewarden','palewidow','hollowking'];
 function zoneThreats(z){return threatsOf((z.pool||[]).concat(z.boss?[z.boss]:[]));}
@@ -547,7 +547,7 @@ function applyAbility0(a){const u=a.u,pow=a.pow;
     case 'rain':for(const t of a.tgts)if(!t.dead){dealDamage(u,t,1.1*AB_BOOST*pow);t.status.bleed=(3+Math.floor(u.abLvl/2))*(sup(u,'bow')?2:1);}break;
     case 'turret':{const live=a.tgts.filter(t=>!t.dead);if(!live.length)break;const order=turretOrder(a,live);for(let k=0;k<order.length;k++)G.projs.push({x:u.x+u.dx,y:GROUND+(u.yoff||0)-30,tgt:order[k],src:u,t:0,dur:TURRET_FIRST+TURRET_GAP*k,hidden:true,retarget:true,mult:0.9*AB_BOOST*pow,srcKind:'ability'});break;} /* three shots (four with Overclock) land one after another; with fewer enemies the turret repeats targets; a shot whose target died retargets on landing */
     case 'summon':{const live=a.tgts.filter(t=>!t.dead).sort((p,q)=>(p.x+p.dx)-(q.x+q.dx));if(!live.length)break;const sc=unitScale(u),cx=u.x+u.dx+SUMMON_CIRCLE*sc,endX=W+40,hitT=a.hit/a.fps;for(const t of live){const frac=Math.max(0,Math.min(1,((t.x+t.dx)-cx)/Math.max(1,endX-cx)));G.projs.push({x:cx,y:GROUND+(u.yoff||0)-16,tgt:t,src:u,t:0,dur:Math.max(0.05,SUMMON_GROW-hitT+SUMMON_CHARGE*frac),hidden:true,spell:true,mult:1.5*AB_BOOST*pow,srcKind:'ability',burn:(u.talents&&tal(u,'searing'))?3:0});}break;} /* the charge reaches each enemy in x order; damage lands when the familiar passes it */
-    case 'hymn':for(const h of living(G.active)){h.status.hymn=hymnDur(u);if(u.talents&&tal(u,'crescendo'))heal(u,h,h.maxhp*0.10);}break; /* a support ability: full effect whether tapped or Auto-Cast */
+    case 'hymn':for(const h of living(G.active)){h.status.hymn=hymnDur(u)+(h===u?1:0);if(u.talents&&tal(u,'crescendo'))heal(u,h,h.maxhp*0.10);}break; /* a support ability: full effect whether tapped or Auto-Cast */
     case 'rage':u.status.rage=rageDur(u);if(u.talents&&tal(u,'warcry'))for(const h of living(G.active))if(h!==u)h.status.cry=3;break;
   }}
 function updateAction(dt){const a=G.action,u=a.u;
@@ -650,7 +650,7 @@ function doReforge(){abortDrill();{const rec=drillRecords();rec.claimed={};rec.r
 function marchSpeed(){return 28*(1+0.04*treeLv('march'));}
 
 // ============================================================ quests
-const QUEST_CLASS={forage:['cleric','mage'],hunt:['berserker','ranger'],scout:['ranger','rogue'],pilgrim:['knight','cleric']};
+const QUEST_CLASS={forage:['cleric','mage','summoner'],hunt:['berserker','ranger','engineer'],scout:['ranger','rogue','engineer','bard'],pilgrim:['knight','cleric','summoner','bard']};
 function questBonus(h,q){return (QUEST_CLASS[q.id].includes(h.cls)?1.3:1)*(1+0.1*(h.tier||0));}
 function questEvent(h){const L=h.lvl,ev=[];const gq=()=>R((30+L*8)*goldMult());
   ev.push(()=>{const g=R(gq()*0.5);G.gold+=g;return 'Found a hidden cache: +'+fmtNum(g)+' gold';});
@@ -663,7 +663,10 @@ function questEvent(h){const L=h.lvl,ev=[];const gq=()=>R((30+L*8)*goldMult());
     rogue:()=>{const g=R(gq()*0.7);G.gold+=g;return 'Picked a few pockets: +'+fmtNum(g)+' gold';},
     mage:()=>{h.xp+=R(xpNeed(h.lvl)*0.4*xpMult());return 'Deciphered old runes: +40% of a level';},
     ranger:()=>{if(G.pack.length<15){G.pack.push(makeItem(G.zone));return 'Tracked a rare beast: gear found';}const o=R((8+L)*1.5*oreMult());G.ore+=o;return 'Tracked a rare beast: +'+fmtNum(o)+' ore';},
-    berserker:()=>{const o=R((8+L)*2*oreMult());G.ore+=o;h.hp=Math.max(1,R(h.maxhp*0.5));return 'Won a tavern brawl: +'+fmtNum(o)+' ore, a few bruises';}};
+    berserker:()=>{const o=R((8+L)*2*oreMult());G.ore+=o;h.hp=Math.max(1,R(h.maxhp*0.5));return 'Won a tavern brawl: +'+fmtNum(o)+' ore, a few bruises';},
+    engineer:()=>{const o=R((8+L)*1.5*oreMult());G.ore+=o;return 'Salvaged old machinery: +'+fmtNum(o)+' ore';},
+    summoner:()=>{h.xp+=R(xpNeed(h.lvl)*0.4*xpMult());return 'Communed with a spirit: +40% of a level';},
+    bard:()=>{const g=R(gq()*0.8);G.gold+=g;return 'Played a roadside performance: +'+fmtNum(g)+' gold';}};
   if(cls[h.cls]){ev.push(cls[h.cls]);ev.push(cls[h.cls]);}
   return ev[Math.floor(rand()*ev.length)]();}
 function questSlots(){return 2+treeLv('slots');} /* base 2 = the heroes a full party leaves at camp; Bunks adds one per rank */
