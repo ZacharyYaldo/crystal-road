@@ -113,7 +113,7 @@ def vael():
            ('coin','Market','Lv 3','2 villagers · +40 gold/h · hire villager: 150','Upgrade',True),
            ('dummy','Training Yard','','Not built · heroes at camp gain XP while resting','Build 200',False),
            ('wall','Walls','Lv 2','Defense +8 · raises building caps','Upgrade',False),
-           ('shield','Garrison','2 / 3','Aldric, Bram · Defense +6 · they train while posted','Assign',True)]
+           ('shield','Garrison','2 / 3','Hale, Bram · Defense +6 · they train while posted','Assign',True)]
     for i,(ic,name,lv,desc,btn,gold) in enumerate(cards):
         y=180+i*50;frame(d,4,y,262,46)
         rect(d,10,y+7,32,32,OUT);rect(d,11,y+8,30,30,(34,40,68,255))
@@ -130,7 +130,7 @@ def vael():
     text(D,8,17,'Vael','title',GOLD_L);text(D,44,22,'Castle Lv 3','xs',MUTED);text(D,8,31,'12 villagers · 4 idle','xs',MUTED)
     text(D,136,21,'Defense 14','sb',(150,230,170,255),anchor='ma');text(D,136,29,'walls 8 · garrison 6','xs',(120,170,130,255),anchor='ma')
     text(D,223,21,'Horde 11 · 5:12:40','sb',(255,150,150,255),anchor='ma');text(D,223,29,'skeletons, from the Lagoon','xs',(200,120,120,255),anchor='ma')
-    text(D,136,164,'Garrison: Aldric, Bram','xs',(230,220,200,255),anchor='ma');text(D,241,152,'plot','xs',(200,190,160,255),anchor='ma')
+    text(D,136,164,'Garrison: Hale, Bram','xs',(230,220,200,255),anchor='ma');text(D,241,152,'plot','xs',(200,190,160,255),anchor='ma')
     for i,(ic,name,lv,desc,btn,gold) in enumerate(cards):
         y=180+i*50
         text(D,48,y+8,name,'sb',CREAM);text(D,48+len(name)*4.5+6,y+9,lv,'xs',GOLD_L)

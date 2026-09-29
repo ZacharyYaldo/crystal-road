@@ -144,7 +144,7 @@ def main_screen():
     bar(d,204,FY-34,20,4,0.45,RED);bar(d,236,FY-22,20,4,0.9,RED)
     for hx,hp in ((44,0.61),(78,0.95),(112,0.33),(150,0.82)):bar(d,hx-10,FY-32,20,4,hp,GREEN if hp>0.35 else RED)
     # hero cards
-    heroes=[('knight','Aldric','Knight',12,0.82,1.0,'shield'),('cleric','Sera','Cleric',11,0.61,0.35,'heal'),('rogue','Vex','Rogue',12,0.95,0.7,'daggers'),('mage','Morrow','Mage',10,0.33,0.15,'meteor')]
+    heroes=[('knight','Hale','Knight',12,0.82,1.0,'shield'),('cleric','Sera','Cleric',11,0.61,0.35,'heal'),('rogue','Vex','Rogue',12,0.95,0.7,'daggers'),('mage','Morrow','Mage',10,0.33,0.15,'meteor')]
     for i,(uid,name,cls,lv,hp,ch,ab) in enumerate(heroes):
         x=4+i*66;frame(d,x,18,62,74)
         icon(im,'swap',x+46,22,'common');d=ImageDraw.Draw(im)
@@ -187,7 +187,7 @@ def main_screen():
     text(D,9,102,'Greenhollow Fields','sb',GOLD_L);text(D,9,111,'Danger Lv 1  ·  Shard 5/8','xs',MUTED)
     text(D,232,FY-58,'27','h',CREAM,anchor='ma');text(D,150,FY-52,'CRIT 41','bb',GOLD_L,anchor='ma')
     text(D,12,358,'Camp','sb',GOLD_L);text(D,258,359,'Quests 2 / 3','xs',MUTED,anchor='ra')
-    text(D,38,371,'Wren · Scout','s',CREAM);text(D,38,380,'Returns in 1:42:10','xs',MUTED)
+    text(D,38,371,'Ash · Scout','s',CREAM);text(D,38,380,'Returns in 1:42:10','xs',MUTED)
     text(D,38,393,'Bram · Hunt','s',CREAM);text(D,38,402,'Returned','xs',GREEN)
     text(D,38,416,'Empty slot','s',MUTED)
     text(D,231,373,'Waiting','xs',MUTED,anchor='ma');text(D,231,395,'Collect','sb',GOLD_L,anchor='ma');text(D,231,417,'Send hero','xs',CREAM,anchor='ma')
@@ -239,7 +239,7 @@ def gear_screen():
     big=im.resize((W*S,H*S),Image.NEAREST);D=ImageDraw.Draw(big)
     currency_text(D)
     text(D,8,26,'Equipment','title',GOLD_L)
-    text(D,90,54,'Aldric','h',CREAM);text(D,90,66,'Knight · Lv 12','s',MUTED)
+    text(D,90,54,'Hale','h',CREAM);text(D,90,66,'Knight · Lv 12','s',MUTED)
     text(D,90,80,'HP','xs',MUTED);text(D,110,80,'288','sb',CREAM);text(D,150,80,'ATK','xs',MUTED);text(D,172,80,'38','sb',CREAM)
     text(D,90,91,'DEF','xs',MUTED);text(D,110,91,'20','sb',CREAM);text(D,150,91,'SPD','xs',MUTED);text(D,172,91,'9','sb',CREAM)
     text(D,90,111,'XP 1,120 / 1,806','xs',MUTED);text(D,256,111,'Power 412','xs',GOLD_L,anchor='ra')
