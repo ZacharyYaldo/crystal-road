@@ -34,7 +34,7 @@ function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[botOf(j.
 for(let i=0;i<Math.min(WORKERS,jobs.length);i++)next();
 const VOLATILE=/^(commit|harnessHash|dirty|realSec|realSeconds|wallSec|elapsedSec)$/; /* dirty is provenance like commit: the reference harness runs from a checkout without git and reports it as unknown */
 function canon(o){if(Array.isArray(o))return o.map(canon);if(o&&typeof o==='object'){const r={};for(const k of Object.keys(o).sort()){if(VOLATILE.test(k))continue;r[k]=canon(o[k]);}return r;}return o;}
-function shared(a,b){const A=canon(a),B=canon(b);const onlyA=Object.keys(A).filter(k=>!(k in B)),onlyB=Object.keys(B).filter(k=>!(k in A));const SA={},SB={};for(const k of Object.keys(A))if(k in B){SA[k]=A[k];SB[k]=B[k];}return{SA,SB,onlyA,onlyB};}
+function shared(a,b){const A=canon(a),B=canon(b);const onlyA=Object.keys(A).filter(k=>!(k in B)),onlyB=Object.keys(B).filter(k=>!(k in A));const SA={},SB={};for(const k of Object.keys(A))if(k in B){SA[k]=A[k];SB[k]=B[k];}for(const k of ['config','model']){const a=SA[k],b=SB[k];if(a&&b&&typeof a==='object'&&typeof b==='object'&&!Array.isArray(a)&&!Array.isArray(b)){for(const q of Object.keys(a))if(!(q in b)){onlyA.push(k+'.'+q);delete a[q];}for(const q of Object.keys(b))if(!(q in a)){onlyB.push(k+'.'+q);delete b[q];}}} /* a key of config or model present on one side only is listed and not compared (the explicit default party of the new harness) */return{SA,SB,onlyA,onlyB};}
 const H=o=>crypto.createHash('sha256').update(JSON.stringify(o)).digest('hex').slice(0,16);
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const readJ=j=>JSON.parse(fs.readFileSync(fileOf(j)));

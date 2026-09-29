@@ -3,6 +3,7 @@
 // every run has assertFail null, explicit config.dt / config.speed / config.hours / config.frameCap / config.seed / config.profile matching expectations,
 // simHours >= hours, provenance (commit, gameHash, harnessHash) equal to the values given on the command line, at least one completed garrison check,
 // every due garrison check completed and every post timer correct; and manifest.json lists every run with a matching sha256.
+// The requested party is part of the gate: --party a,b,c,d (or nothing for the explicit default) must equal config.party, the result, the model and the manifest exactly.
 // Usage: node tests/sim/validate38.js --dir batch_out_base40 --dt 0.016666667 --speed 1 --hours 96 --profiles idleboost,light,casual,engaged --seedStart 71 --seeds 10 --commit <sha> --gameHash <16hex> --harnessHash <16hex:16hex>
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
@@ -13,6 +14,7 @@ else{
 const dir=path.join(__dirname,String(args.dir)),DT=Number(args.dt),SPEED=Number(args.speed),HOURS=Number(args.hours);
 const PROFILES=String(args.profiles).split(','),SEED0=Number(args.seedStart),NSEEDS=Number(args.seeds);
 const EXP={commit:String(args.commit),gameHash:String(args.gameHash),harnessHash:String(args.harnessHash)};
+const PL=require('./party.js');let EXP_PARTY;try{EXP_PARTY=PL.canonParty(args.party);}catch(e){EXP_PARTY=null;} /* --party a,b,c,d: the requested lineup the batch must carry, compared exactly; without the flag the batch must carry the explicit default */
 const expected=[];for(const p of PROFILES)for(let s=SEED0;s<SEED0+NSEEDS;s++)expected.push(p+'_'+s+'.json');
 const present=fs.existsSync(dir)?fs.readdirSync(dir).filter(f=>f.endsWith('.json')):[];
 const unexpected=present.filter(f=>!expected.includes(f)&&f!=='summary.json'&&f!=='manifest.json');
@@ -21,7 +23,9 @@ const sha=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,f)
 let manifest=null,manifestWhy=[];
 if(present.includes('manifest.json')){try{manifest=JSON.parse(fs.readFileSync(path.join(dir,'manifest.json'),'utf8'));}catch(e){manifestWhy.push('manifest unreadable: '+e.message);}}
 else manifestWhy.push('manifest.json missing');
+if(EXP_PARTY===null)manifestWhy.push('--party expectation is not a valid list');
 if(manifest){for(const k of ['commit','gameHash','harnessHash'])if(manifest[k]!==EXP[k])manifestWhy.push('manifest '+k+' '+manifest[k]+' != expected '+EXP[k]);
+  {const mp=manifest.config&&manifest.config.model?manifest.config.model.party:undefined;if(PL.partyKey(mp)!==PL.partyKey(EXP_PARTY))manifestWhy.push('manifest party '+PL.partyKey(mp)+' != expected '+PL.partyKey(EXP_PARTY));}
   for(const f of expected){if(!manifest.files||!manifest.files[f])manifestWhy.push('manifest lacks '+f);else if(present.includes(f)&&manifest.files[f]!==sha(f))manifestWhy.push('sha256 mismatch for '+f);}}
 let ok=0;const rejects=[],perProfile={};
 for(const f of files){
@@ -35,6 +39,9 @@ for(const f of files){
   const fseed=Number(f.replace(/^.*_(\d+)\.json$/,'$1')),fprof=f.replace(/_\d+\.json$/,'');
   if(c.seed!==fseed)why.push('seed '+c.seed+' != file '+fseed);if(c.profile!==fprof)why.push('profile '+c.profile+' != file '+fprof);
   for(const k of ['commit','gameHash','harnessHash']){if(!c[k])why.push('no '+k+' recorded');else if(c[k]!==EXP[k])why.push(k+' '+c[k]+' != expected '+EXP[k]);}
+  if(c.party===undefined)why.push('config.party missing');else if(PL.partyKey(c.party)!==PL.partyKey(EXP_PARTY))why.push('config.party '+PL.partyKey(c.party)+' != expected '+PL.partyKey(EXP_PARTY));
+  if(JSON.stringify(r.partyRequested)!==JSON.stringify(c.party)||JSON.stringify((r.model||{}).party)!==JSON.stringify(c.party))why.push('party in the result or the model differs from config.party');
+  if(!Array.isArray(r.partyActual)||!Array.isArray(r.partyAvailable)||!Array.isArray(r.partyChanges))why.push('party lineup not recorded');else if(Array.isArray(c.party)&&(!PL.lineupOk(c.party,r.partyAvailable,r.partyActual)||r.partyChanges.some(x=>!PL.lineupOk(c.party,x.available,x.party))))why.push('party lineup does not follow the request: actual '+JSON.stringify(r.partyActual)+', available '+JSON.stringify(r.partyAvailable));else if(c.party===PL.DEFAULT&&(r.partyAvailable.length||r.partyChanges.length))why.push('default party run records lineup changes');
   const posts=r.postChecks||[];const endSec=(r.simHours||0)*3600;
   const due=posts.filter(p=>endSec-p.at>=3600+1),incomplete=due.filter(p=>!p.done),bad0=posts.filter(p=>!(p.left0>3599&&p.left0<=3600));
   if(incomplete.length)why.push('garrison checks incomplete: '+incomplete.map(p=>p.name+'@'+(p.at/3600).toFixed(1)+'h').join(','));

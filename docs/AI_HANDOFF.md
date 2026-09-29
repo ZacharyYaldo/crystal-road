@@ -1,33 +1,40 @@
-STATUS: PASS_53_REVIEW_ITEMS_2_3_5_DONE_TUNING_BRANCH_ONLY
-RESPONSE_TYPE: DEFECT_FIXES_AND_HARNESS_ADDITION
-PASS_ID: PASS_53B_REVIEW_FIXES
-BASED_ON_REVIEW_PASS: REVIEWER_VERDICT_2026-09-29 on 137d857 (not cleared for main) and the owner's approval of items 1-4 on tuning with the quest affinities and the --party rules
+STATUS: PARTY_PATH_AND_BINDING_DONE_TUNING_BRANCH_ONLY
+RESPONSE_TYPE: DEFECT_FIXES_AND_VALIDATION_BINDING
+PASS_ID: PASS_53C_PARTY_PATH
+BASED_ON_REVIEW_PASS: REVIEWER_VERDICT_2026-09-29 on 6fb4845 (Hymn, quests and metadata cleared; --party not cleared) and the owner's "Go" with two acceptance details
 BUILD: 20260929 (tuning branch; main untouched at f8c2a81)
 HEAD_COMMIT_SHA: see git log (this handoff is committed with the code)
 PULL_REQUEST: #2
-SUPERSEDES: PASS_53
+SUPERSEDES: PASS_53B
 
-# Crystal Road AI Handoff - Pass 53b (Battle Hymn caster turn, quest affinities and events, stale recruit fields, party-composition tests, bot --party)
+# Crystal Road AI Handoff - Pass 53c (one production party path, strict reservation, size check, lineup bound into validation and manifests)
 
-## Corrections to the pass 53 handoff
-- "Bench recruits cannot affect the simulation" was wrong. The bot gears, promotes, posts and delves the whole roster, and Osric adds axe drops through the roster-derived weapon pool. The pass 52 batches describe commit d97be00 only; pass 53 and later need fresh batches before any balance claim (reviewer item 4, deferred by the owner).
+## Correction to the pass 53b handoff
+The counts were 71 party assertions and 2,549 in total, not 69 and 2,547.
 
-## Fixes (source/game.js)
-- Battle Hymn (reviewer, medium): the caster's own action ended right after the cast and took a turn off him, so Perrin got 2 future turns to everyone's 3 (Encore 4 vs 5). He now receives one extra count, the same way Shield Wall does, so a completed cast leaves the caster and every ally on the same number: 3, or 5 with Encore. Test: a full cast driven by the production update loop, then the counts.
-- Quests (reviewer, medium; owner's design): Engineer favours Hunt and Scout, Summoner Forage and Pilgrimage, Bard Scout and Pilgrimage (questBonus 1.3 on those, as for the originals). Class events, pushed twice into the event pool like every original class: Engineer "Salvaged old machinery" pays round((8 + level) x 1.5 x oreMult) ore; Summoner "Communed with a spirit" pays 40% of a level x xpMult; Bard "Played a roadside performance" pays round(0.8 x (30 + 8 x level) x goldMult) gold. No dust from any of them.
-- Recruit metadata (reviewer, low): the unused zone fields on the hero list are gone; the zone table's recruit fields are the one source.
+## One production party path (source/game.js)
+- partyReorder(i, j), partyToCamp(i) and partyBringIn(hero, slot) now hold the Party sheet's logic, moved verbatim with every side effect: the replaced or departing marcher's action is cancelled, statuses are cleared, a fallen newcomer is revived at half health, the newcomer enters from the left with the walk or idle animation, a posted hero is recalled, layout and the build-changed hook run exactly where they ran before, the same messages are shown. The sheet calls these three and writes nothing to the party itself.
+- partyCanField(hero): recruited, and either marching, at camp, or on the walls with the post finished. Never a hero on a quest, never someone outside the roster.
+- partySetOrder(ids): enforces the current partyMax(); fields every requested hero that can legally be fielded, in the requested order from the front; the other places keep their marchers in their order; repeated and unknown ids are ignored; an order that already holds changes nothing (no swap, no side effect). Every change it makes is one of the three steps above.
 
 ## Simulator (tests/sim)
-- bot.js --party a,b,c,d: a preferred ordered lineup, front first. A hero is swapped in only after production has recruited them and only while they are at camp; the rest of the party keeps its current members; the cleric-to-the-back rule still applies afterwards. Preferred heroes are reserved: the bot never posts them to the garrison and does not pick them for the Catacombs while anyone else can go. Duplicate or unknown ids are rejected before the run (exit 2). Provenance: config.party and model.party carry the request; partyRequested, partyActual (ordered, at the end) and partyChanges (hour and lineup at every change) are in the result; batch.js forwards the flag and records it in the manifest model. Without the flag the result is byte-identical to the previous harness: tests/sim/equiv.js --ref 137d857 --mode exact PASS, 24 pairs identical (RNG call counts and canonical hashes). The gate now treats the dirty-tree flag as provenance like the commit, because the reference harness runs from a checkout without git and reports it as unknown.
-- Verified on seed 81 casual 2x: Osric recruited at 2.68 h and fielded within the quarter hour, holding the requested slot.
+- party.js: the canonical form shared by bot.js, batch.js, bounded.js and validate38.js. canonParty gives an ordered lower-case id list, or the explicit value "default" when the flag is missing; partyKey compares exactly; partyProblems rejects unknown ids, duplicates and lists above the legal party size; lineupOk states the rule a lineup must obey.
+- bot.js: the request is validated before the run (exit 2 on unknown, duplicate, empty or more than partyMax heroes). The lineup is applied only through S.partySetOrder, on the walk, with the requested order authoritative and the cleric last only among the other members; the default cleric reorder never runs together with --party. Requested heroes are strictly reserved: never posted to the garrison, never sent into the Catacombs; with nobody else to send the bot skips that run and counts it (partyDelveSkips). config.party and model.party are always explicit; partyRequested, partyAvailable (as of the last application), partyActual (final, ordered) and partyChanges (hour, available, lineup) are in every result.
+- batch.js: the manifest carries the canonical request in config.model.party, plus partySets and partyActualSets.
+- bounded.js: the requested party is part of the behavioural signature and is compared exactly (a run without the field counts as absent, never as default); every run must record lineups that obey its request, including every entry of the history; the manifest must carry the same party.
+- validate38.js: takes --party (nothing means the explicit default) and rejects a run whose config.party, result or model differ from it, whose lineup is not recorded or breaks the request, and a manifest with another party. Legacy batches that never recorded a party therefore fail this gate by design.
+- equiv.js: a key of config or model that exists on one side only is listed and not compared, like a top-level one. Default-run gate: tests/sim/equiv.js --ref 6fb4845 --mode exact, EQUIV PASS, 24 pairs identical (RNG call counts and canonical hashes); the listed one-sided fields are the party telemetry and config.party / model.party.
 
-## Tests
-- tests/contract/party.test.js (69 assertions): six lineups fielded through six minutes of live road encounters each (every newcomer beside originals, the four bundled heroes together, the three newcomers with the knight): invariants (finite currencies, HP in range, party cap, well-formed projectiles), the party wins fights, every hero attacks, every bundled hero casts its ability, basic and ability damage both counted. Then the bot with --party: exit 0, request recorded, every fielded hero recruited first, Osric never fielded before his recruitment hour and fielded within a quarter hour of it, the front follows the request, duplicate and unknown ids rejected.
-- tests/contract/heroes.test.js grew to 526 assertions (hymn through a full cast, quest affinities, bonuses, events, weighting, payouts and no dust, no stale zone fields).
-- All 9 suites pass (2,547 assertions); parity PASS (game.js and the five effect scripts embedded verbatim).
+## Tests (all 9 suites pass, 2,605 assertions; parity PASS)
+tests/contract/party.test.js, 127 assertions:
+- every side effect of reorder, bring in (on the walk and in a battle), send to camp, join, and the refusals (full party, quest, held post, last marcher, outside the roster);
+- partySetOrder: nothing touched when the order holds, Osric then Idris then Perrin taking their requested places as they are recruited, repeated and unknown ids, a request longer than the party, the Oath of Solitude cap;
+- source contract: the sheet block and the bot's party line contain no direct write to the party;
+- the bot: five heroes and an empty list rejected, canonical recording of " Osric , ALDRIC ", the explicit default, the default bot entering the Catacombs where the reserved run makes 0 runs and counts its skips, no requested hero posted;
+- adversarial validation on a real two-run batch and tampered copies: another order, a missing field, a final lineup out of order, a broken history entry, a model that disagrees, a manifest with another party, a recorded request of five. The evaluator and the strict validator refuse each one and accept the untouched batch.
+Verified in the page as well: the Party sheet's own tap handlers reorder, swap in, send to camp and add through the shared functions, no console errors.
 
 ## Still open
-- Reviewer item 1 (developer rows visible in Settings): parked by the owner.
-- Item 4: fresh 2x and continuous 4x batches from the final head, parked by the owner; when run, consider a matched --party batch that fields the newcomers.
-- Item 6: criterion 7b, the owner's decision.
-- main stays at f8c2a81.
+- Reviewer item 1 of the earlier verdict (developer rows visible in Settings): parked by the owner.
+- Fresh 2x and continuous 4x batches from the final head: not run in this pass, as instructed.
+- Criterion 7b: the owner's decision. main stays at f8c2a81.

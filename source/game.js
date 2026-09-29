@@ -670,6 +670,18 @@ function questEvent(h){const L=h.lvl,ev=[];const gq=()=>R((30+L*8)*goldMult());
   if(cls[h.cls]){ev.push(cls[h.cls]);ev.push(cls[h.cls]);}
   return ev[Math.floor(rand()*ev.length)]();}
 function questSlots(){return 2+treeLv('slots');} /* base 2 = the heroes a full party leaves at camp; Bunks adds one per rank */
+function partyReorder(i,j){const a=G.active[i],b=G.active[j];if(i===j||!a||!b)return false;G.active[i]=b;G.active[j]=a;layout();buildChanged();return true;} /* two marchers trade places */
+function partyToCamp(i){const h=G.active[i];if(!h||G.active.length<=1)return false;if(G.action&&G.action.u===h){G.action=null;h.dx=0;}G.active.splice(i,1);h.status={};layout();buildChanged();toast(h.name+' heads to camp');return true;}
+function partyBringIn(h,slot){if(!h||G.active.includes(h)||heroStatus(h)==='quest')return false;const inBattle=G.mode==='battle'||G.mode==='enter';if(heroStatus(h)==='garrison')recallHero(h);let done=false; /* slot = the marcher to replace; without one the hero joins an open place */
+  if(slot!=null){const out=G.active[slot];if(out){if(G.action&&G.action.u===out){G.action=null;out.dx=0;}G.active[slot]=h;h.dead=false;h.status={};if(h.hp<=0)h.hp=R(h.maxhp*0.5);h.x=-30;setAnim(h,inBattle?'idle':'walk');toast(h.name+' takes '+out.name+"'s place");done=true;}}
+  else if(G.active.length<partyMax()){G.active.push(h);h.dead=false;h.status={};h.x=-30;setAnim(h,inBattle?'idle':'walk');toast(h.name+(inBattle?' runs in to join the fight':' falls in'));done=true;}else toast('Pick a marcher to replace first');layout();return done;}
+function partyCanField(h){if(!h||!G.roster.includes(h))return false;if(G.active.includes(h))return true;const st=heroStatus(h);return st==='camp'||(st==='garrison'&&postLeft(h)<=0);} /* recruited, and not away on a quest or holding a post */
+function partySetOrder(ids){const cap=partyMax(),want=[]; /* the requested order from the front, for every requested hero that can legally be fielded now; the other places keep their marchers in their order. Every change goes through the three steps above, the same ones the Party sheet uses; an order that already holds changes nothing */
+  for(const id of ids){const h=G.roster.find(x=>x.id===id);if(h&&want.length<cap&&!want.includes(h)&&partyCanField(h))want.push(h);}for(const h of G.active)if(want.length<cap&&!want.includes(h))want.push(h);
+  for(const h of want){if(G.active.includes(h))continue;const out=G.active.findIndex(x=>!want.includes(x));partyBringIn(h,out>=0?out:null);}
+  for(let k=G.active.length-1;k>=0&&G.active.length>cap;k--)if(!want.includes(G.active[k]))partyToCamp(k);
+  for(let i=0;i<want.length;i++){const j=G.active.indexOf(want[i]);if(j>=0&&j!==i)partyReorder(i,j);}
+  return G.active.map(h=>h.id);}
 function heroStatus(h){if(G.active.includes(h))return'marching';if(G.quests.find(q=>q.hero===h))return'quest';if(G.castle&&G.castle.garrison.includes(h.id))return'garrison';return'camp';}
 function questDur(q){return q.dur*(G.fast?1/120:1)*(1-0.03*treeLv('swift'))*(built('kennels')?0.85:1);}
 function startQuest(h,qdef){G.quests.push({hero:h,q:qdef,end:now()+questDur(qdef)*1000});toast(h.name+' sets out to '+qdef.name.toLowerCase());}
@@ -1172,17 +1184,15 @@ function drawSheet(){const s=G.sheet;if(!s)return;tx.clearRect(0,0,tc.width,tc.h
   if(s.kind!=='welcome'){icon('x',242,y0+8,0);hit(232,y0,30,28,closeSheet);}
   if(s.kind==='swap'){text(16,y0+8,'Party',"h",C.goldL);text(16,y0+20,'Tap a marcher, then a hero at camp to trade places.','xs',C.muted);text(16,y0+29,'Two marchers to reorder. Left slot is the front.','xs',C.muted);
     for(let i=0;i<4;i++){const x=16+i*60,h=G.active[i],sel=s.pick===i;button(x,y0+44,54,44,sel);if(h){drawSprite(h,x+27,y0+78,0,'idle',false);text(x+27,y0+46,h.name,'xs',sel?C.goldL:C.cream,'center');}else text(x+27,y0+62,'empty','xs',C.dimt,'center');
-      hit(x,y0+44,54,44,()=>{if(s.pick==null){if(h)s.pick=i;}else if(s.pick===i)s.pick=null;else{if(h){[G.active[s.pick],G.active[i]]=[G.active[i],G.active[s.pick]];layout();buildChanged();}s.pick=null;}});}
+      hit(x,y0+44,54,44,()=>{if(s.pick==null){if(h)s.pick=i;}else if(s.pick===i)s.pick=null;else{if(h)partyReorder(s.pick,i);s.pick=null;}});}
     if(s.pick==null&&s.slot!=null&&G.active[s.slot])s.pick=s.slot,s.slot=null;
-    if(s.pick!=null&&G.active.length>1){button(180,y0+92,74,14,true);text(217,y0+94.5,'Send to camp','xs',C.goldL,'center');hit(180,y0+92,74,14,()=>{const h=G.active[s.pick];if(!h)return;if(G.action&&G.action.u===h){G.action=null;h.dx=0;}G.active.splice(s.pick,1);h.status={};layout();buildChanged();s.pick=null;toast(h.name+' heads to camp');});}
+    if(s.pick!=null&&G.active.length>1){button(180,y0+92,74,14,true);text(217,y0+94.5,'Send to camp','xs',C.goldL,'center');hit(180,y0+92,74,14,()=>{if(partyToCamp(s.pick))s.pick=null;});}
     text(16,y0+96,'At camp','sb',C.muted);let y=y0+108;
     if(!camp.length)text(16,y+4,'No one at camp yet - recruits join as you recover shards.','xs',C.dimt);
     for(const h of camp){if(y>H-80)break;const st=heroStatus(h),busy=st==='quest';if(st==='garrison')text(46,y+14,'On the walls - tap to recall and bring in','xs',C.goldL);px(14,y,242,26,C.band);ctx.globalAlpha=busy?0.45:1;drawSprite(h,28,y+22,0,'idle',false);ctx.globalAlpha=1;
       text(46,y+4,h.name+' · '+CLASSES[h.cls].name+' Lv '+h.lvl,'s',busy?C.dimt:C.cream);if(st!=='garrison')text(46,y+14,busy?'On a quest':(s.pick!=null?'Tap to bring in':'Resting'),'xs',busy?C.dimt:(s.pick!=null?C.goldL:C.muted));
       if(!busy){button(196,y+5,54,16,s.pick!=null);text(223,y+8,s.pick!=null?'Swap in':'Add','xs',C.cream,'center');
-        hit(14,y,242,26,()=>{const inBattle=G.mode==='battle'||G.mode==='enter';if(heroStatus(h)==='garrison')recallHero(h);
-          if(s.pick!=null){const ia=s.pick;const out=G.active[ia];if(G.action&&G.action.u===out){G.action=null;out.dx=0;}G.active[ia]=h;h.dead=false;h.status={};if(h.hp<=0)h.hp=R(h.maxhp*0.5);h.x=-30;setAnim(h,inBattle?'idle':'walk');s.pick=null;toast(h.name+' takes '+out.name+"'s place");}
-          else if(G.active.length<partyMax()){G.active.push(h);h.dead=false;h.status={};h.x=-30;setAnim(h,inBattle?'idle':'walk');toast(h.name+(inBattle?' runs in to join the fight':' falls in'));}else toast('Pick a marcher to replace first');layout();});}
+        hit(14,y,242,26,()=>{partyBringIn(h,s.pick);s.pick=null;});} /* the Party sheet and the simulator share partyReorder, partyToCamp and partyBringIn */
       y+=30;}}
   else if(s.kind==='send'){text(16,y0+8,'Send a hero','h',C.goldL);
     if(!s.hero){text(16,y0+20,'Who goes?','xs',C.muted);let y=y0+34;for(const h of free){px(14,y,242,26,C.band);drawSprite(h,28,y+22,0,'idle',false);text(46,y+4,h.name+' · '+CLASSES[h.cls].name+' Lv '+h.lvl,'s',C.cream);button(196,y+5,54,16,true);text(223,y+8,'Choose','xs',C.goldL,'center');hit(14,y,242,26,()=>{s.hero=h;});y+=30;}}
