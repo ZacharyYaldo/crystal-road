@@ -40,8 +40,7 @@ for(const f of files){
   if(c.seed!==fseed)why.push('seed '+c.seed+' != file '+fseed);if(c.profile!==fprof)why.push('profile '+c.profile+' != file '+fprof);
   for(const k of ['commit','gameHash','harnessHash']){if(!c[k])why.push('no '+k+' recorded');else if(c[k]!==EXP[k])why.push(k+' '+c[k]+' != expected '+EXP[k]);}
   if(c.party===undefined)why.push('config.party missing');else if(PL.partyKey(c.party)!==PL.partyKey(EXP_PARTY))why.push('config.party '+PL.partyKey(c.party)+' != expected '+PL.partyKey(EXP_PARTY));
-  if(JSON.stringify(r.partyRequested)!==JSON.stringify(c.party)||JSON.stringify((r.model||{}).party)!==JSON.stringify(c.party))why.push('party in the result or the model differs from config.party');
-  if(!Array.isArray(r.partyActual)||!Array.isArray(r.partyAvailable)||!Array.isArray(r.partyChanges))why.push('party lineup not recorded');else if(Array.isArray(c.party)&&(!PL.lineupOk(c.party,r.partyAvailable,r.partyActual)||r.partyChanges.some(x=>!PL.lineupOk(c.party,x.available,x.party))))why.push('party lineup does not follow the request: actual '+JSON.stringify(r.partyActual)+', available '+JSON.stringify(r.partyAvailable));else if(c.party===PL.DEFAULT&&(r.partyAvailable.length||r.partyChanges.length))why.push('default party run records lineup changes');
+  if(c.party!==undefined)for(const w of PL.lineupProblems(r))why.push(w); /* judged against the recorded roster and recruit hours, never against the run's own partyAvailable */
   const posts=r.postChecks||[];const endSec=(r.simHours||0)*3600;
   const due=posts.filter(p=>endSec-p.at>=3600+1),incomplete=due.filter(p=>!p.done),bad0=posts.filter(p=>!(p.left0>3599&&p.left0<=3600));
   if(incomplete.length)why.push('garrison checks incomplete: '+incomplete.map(p=>p.name+'@'+(p.at/3600).toFixed(1)+'h').join(','));

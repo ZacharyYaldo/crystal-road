@@ -112,15 +112,15 @@ const CLASSES={
   bard:{name:'Bard',hp:85,atk:11,def:4,spd:13,ghp:9,gatk:1.8,gdef:0.6,range:'ranged',weapon:'bow',wclass:'bright',ab:{id:'hymn',name:'Battle Hymn',icon:'hymn',desc:'The party attacks and moves 20% faster for 3 turns.'}},
 };
 const HEROES=[
-  {id:'aldric',name:'Aldric',cls:'knight',start:true},
+  {id:'hale',name:'Hale',cls:'knight',start:true},
   {id:'sera',name:'Sera',cls:'cleric',campfire:true},
   {id:'vex',name:'Vex',cls:'rogue'},
   {id:'morrow',name:'Morrow',cls:'mage'},
-  {id:'wren',name:'Wren',cls:'ranger'},
+  {id:'ash',name:'Ash',cls:'ranger'},
   {id:'bram',name:'Bram',cls:'berserker'},
-  {id:'osric',name:'Osric',cls:'engineer'},
-  {id:'idris',name:'Idris',cls:'summoner'},
-  {id:'perrin',name:'Perrin',cls:'bard'},
+  {id:'fitz',name:'Fitz',cls:'engineer'},
+  {id:'kit',name:'Kit',cls:'summoner'},
+  {id:'lark',name:'Lark',cls:'bard'},
 ];
 const LORDS=['bonewarden','palewidow','hollowking'];
 function zoneThreats(z){return threatsOf((z.pool||[]).concat(z.boss?[z.boss]:[]));}
@@ -154,11 +154,11 @@ const ENEMIES={
 const ZONES=[
   {name:'Greenhollow Fields',lv:1,fights:24,pool:['slime','bat','orc'],boss:'slimeking',scene:'hills',recruit:'vex'},
   {name:'Stillwater Lagoon',lv:8,fights:30,pool:['skeleton','marshbat','werewolf','bogslime'],boss:'alphawolf',scene:'lagoon',recruit:'morrow'},
-  {name:'Thornwood',lv:14,fights:30,pool:['werewolf','orc','werebear','direwolf'],boss:'oldgrowth',scene:'forest',recruit:'osric'},
-  {name:'Ironvein Caverns',lv:20,fights:36,pool:['armoredorc','skelarcher','eliteorc','cavetroll','frostbat'],boss:'warlord',scene:'cave',recruit:'wren'},
-  {name:'Emberwaste',lv:27,fights:36,pool:['orcrider','eliteorc','skeleton','sandorc'],boss:'sandtyrant',scene:'desert',recruit:'idris'},
+  {name:'Thornwood',lv:14,fights:30,pool:['werewolf','orc','werebear','direwolf'],boss:'oldgrowth',scene:'forest',recruit:'fitz'},
+  {name:'Ironvein Caverns',lv:20,fights:36,pool:['armoredorc','skelarcher','eliteorc','cavetroll','frostbat'],boss:'warlord',scene:'cave',recruit:'ash'},
+  {name:'Emberwaste',lv:27,fights:36,pool:['orcrider','eliteorc','skeleton','sandorc'],boss:'sandtyrant',scene:'desert',recruit:'kit'},
   {name:'Amberfall Woods',lv:34,fights:36,pool:['werebear','skelarcher','werewolf'],boss:'hunterking',scene:'lightforest',recruit:'bram'},
-  {name:'Ashen Approach',lv:42,fights:36,pool:['armoredskel','greatskel','skelarcher'],boss:'graveknight',scene:'sunset',recruit:'perrin'},
+  {name:'Ashen Approach',lv:42,fights:36,pool:['armoredskel','greatskel','skelarcher'],boss:'graveknight',scene:'sunset',recruit:'lark'},
   {name:'Ashen Keep',lv:50,fights:36,pool:['armoredskel','greatskel','eliteorc'],boss:'necromancer',scene:'door'},
   {name:'The Foundry',lv:60,fights:36,pool:['ironhusk','sentinel','scoutdroid','warddroid'],boss:'core',scene:'tech'},
   {name:'The Endless Road',lv:70,fights:1e9,pool:['slime'],boss:null,scene:'hills',endless:true},
@@ -485,17 +485,17 @@ const HYMN_MULT=1.2,SHOT_DUR={engineer:0.55,summoner:0.26,bard:0.4,ranger:0.28},
 function hymnDur(h){return (h.talents&&tal(h,'encore'))?5:3;}
 function turretShots(h){return (h.talents&&tal(h,'overclock'))?4:3;}
 function turretOrder(a,live){if(!a.turretOrder){const n=turretShots(a.u),o=[];for(let k=0;k<n&&live.length;k++)o.push(live[k%live.length]);a.turretOrder=o;}return a.turretOrder;}
-function grantRecruits(){if(!G.roster.length)return;for(let i=0;i<ZONES.length;i++){const Z=ZONES[i];if(!Z.recruit||!(G.cleared[i]||(G.highestZoneEver||0)>i))continue;const rdef=HEROES.find(d=>d.id===Z.recruit);if(rdef&&!G.roster.find(h=>h.id===rdef.id)){const h=addHero(rdef,Math.max(1,Z.lv));G.pending=h.name+' the '+CLASSES[h.cls].name+' joins the road';}}} /* recruits added after a save passed their zone join on load, once */
 const FX_ON=(typeof bardFxState==='function'&&typeof document!=='undefined'&&!!document.createElement);
 function fxs(){if(!G.fxs)G.fxs={eng:engineerFxState(),sum:summonerFxState(),bard:bardFxState(),fire:fireFxState(),kn:knightFxState(),hymn:0};return G.fxs;}
 function unitScale(u){if(G.drillOn)return 2;return US*(tierFx(u).size||1);}
 function unitTier(u){return Math.min(3,u.tier||0);}
 function groundOf(u){return GROUND+(u.yoff||0);}
 function fxHit(t,v){if(!t||!v)return;t.flash=Math.max(t.flash||0,v.flash||0);t.kx=(t.kx||0)+(t.enemy?1:-1)*(v.knockback||0)*0.3;if(v.shake)G.shake=Math.max(G.shake||0,v.shake);} /* the knockback is a sprite nudge only: kx is read by drawUnit and decays in fxStep; positions, hits and timing never see it */
+function fxTouch(t,v){if(v)fxHit(t,{flash:v.flash,knockback:v.knockback});} /* a regular attack flashes and nudges its target and never shakes the screen (owner 2026-09-29); only abilities pass their shake to fxHit */
 function fxStep(dt){if(!FX_ON)return;const F=fxs();for(const u of G.active.concat(G.enemies))if(u.kx)u.kx*=Math.exp(-dt*9);engineerFxStep(F.eng,dt,RT);bardFxStep(F.bard,dt);fireFxStep(F.fire,dt);knightFxStep(F.kn,dt);
   const sm=G.active.find(h=>h.cls==='summoner'&&!h.dead);if(sm){const sc=unitScale(sm),t=unitTier(sm);summonerFxStep(F.sum,dt,{x:sm.x+sm.dx+SUMMONER_FX.home[0]*sc,y:groundOf(sm)+SUMMONER_FX.home[1]*sc},RT,t,ATLAS['familiar'+t]);}
   const on=G.active.some(h=>!h.dead&&h.status&&h.status.hymn>0)?1:0;F.hymn+=(on-F.hymn)*Math.min(1,dt*(on?6:2.5));} /* the hymn glow follows the buff: up while any hero carries it, fading out when the last turn ends */
-function fxDrawUnder(){if(!FX_ON)return;const F=fxs();knightFxDrawUnder(ctx,1,F.kn);const en=G.active.find(h=>h.cls==='engineer');if(en&&F.eng.turret){const t=unitTier(en);engineerTurretDraw(ctx,1,F.eng,IMG['turret'+t],ATLAS['turret'+t],unitScale(en));}
+function fxDrawUnder(){if(!FX_ON)return;const F=fxs();knightFxDrawUnder(ctx,1,F.kn);fireFxDrawUnder(ctx,1,F.fire);const en=G.active.find(h=>h.cls==='engineer');if(en&&F.eng.turret){const t=unitTier(en);engineerTurretDraw(ctx,1,F.eng,IMG['turret'+t],ATLAS['turret'+t],unitScale(en));}
   const sm=G.active.find(h=>h.cls==='summoner');if(sm)summonerFxDrawUnder(ctx,1,F.sum,unitTier(sm));
   const bd=G.active.find(h=>h.cls==='bard');if(bd){const t=unitTier(bd);bardFxDrawUnder(ctx,1,F.bard,t);if(F.hymn>0.01)for(const h of living(G.active))bardHymnGlow(ctx,1,R(h.x+h.dx),groundOf(h),RT,F.hymn,t);}}
 function fxDrawOver(){if(!FX_ON)return;const F=fxs();const sm=G.active.find(h=>h.cls==='summoner'&&!h.dead);if(sm&&F.sum.fam.init){const t=unitTier(sm);summonerFamiliarDraw(ctx,1,F.sum,IMG['familiar'+t],ATLAS['familiar'+t],G.drillOn?2:US,t);}
@@ -506,12 +506,12 @@ function fxDrawOver(){if(!FX_ON)return;const F=fxs();const sm=G.active.find(h=>h
 function fxPromo(u,x,y,sc,before){if(!FX_ON)return;const t=unitTier(u),at=u.anim==='attack'||u.anim==='cast';if(u.cls==='knight')knightPromoFx(ctx,x,y,sc,t,RT,before);else if(u.cls==='engineer')engineerPromoFx(ctx,x,y,sc,t,RT,before);else if(u.cls==='summoner')summonerPromoFx(ctx,x,y,sc,t,RT,before);else if(u.cls==='bard')bardPromoFx(ctx,x,y,sc,t,RT,at,before);else if(u.cls==='ranger')firePromoFx(ctx,x,y,sc,t,RT,at,before);}
 function fxShieldCast(u){if(!FX_ON||!u)return;knightShieldCast(fxs().kn,u,u.x+u.dx,groundOf(u),unitScale(u),unitTier(u));}
 function fxShieldHit(t){if(!FX_ON||!t)return;const D=KNIGHT_DOMES[t.uid]||KNIGHT_DOMES.DEFAULT,sc=unitScale(t);knightShieldHit(fxs().kn,t.x+t.dx+D.dx*sc+(t.enemy?-1:1)*D.rx*sc*0.7,groundOf(t)-D.cy*sc);}
-function fxMeleeHit(u,tgt){if(!FX_ON||u.enemy||u.cls!=='knight'||!tgt)return;const v=knightSlash(fxs().kn,tgt.x+tgt.dx,groundOf(tgt)-14,unitTier(u));fxHit(tgt,{flash:v.flash,shake:v.shake});} /* the slash is drawn where the knight's hit already landed; flash and shake are the bundle's optional cosmetics */
+function fxMeleeHit(u,tgt){if(!FX_ON||u.enemy||u.cls!=='knight'||!tgt)return;const v=knightSlash(fxs().kn,tgt.x+tgt.dx,groundOf(tgt)-14,unitTier(u));fxTouch(tgt,v);} /* the slash is drawn where the knight's hit already landed; a flash on the enemy, no screen shake */
 function fxBasicShot(u,tgt){if(!FX_ON||!tgt)return;const F=fxs(),sc=unitScale(u),t=unitTier(u),gx=u.x+u.dx,gy=groundOf(u),tx=tgt.x+tgt.dx,gt=groundOf(tgt),ty=gt-16;
-  if(u.cls==='engineer')engineerThrow(F.eng,gx+ENGINEER_FX.throwFrom[0]*sc,gy+ENGINEER_FX.throwFrom[1]*sc,tx,gt-6,tgt,tg=>fxHit(tg,engineerExplosion(F.eng,tx,gt-6,t)));
-  else if(u.cls==='summoner')summonerAttack(F.sum,{x:tx},gt,t,()=>fxHit(tgt,summonerImpact(F.sum,tx,ty,t,false)));
-  else if(u.cls==='bard')bardAttack(F.bard,gx+BARD_FX.launch[0]*sc,gy+BARD_FX.launch[1]*sc,tx,ty,t,()=>fxHit(tgt,bardImpact(F.bard,tx,ty,t)));
-  else if(u.cls==='ranger'){const v=fireShoot(F.fire,gx+FIRE_FX.launch[0]*sc,gy+FIRE_FX.launch[1]*sc,tx,ty,tgt,t,tg=>fxHit(tg,fireImpact(F.fire,tx,ty,t)));if(v&&v.shake)G.shake=Math.max(G.shake||0,v.shake);}
+  if(u.cls==='engineer')engineerThrow(F.eng,gx+ENGINEER_FX.throwFrom[0]*sc,gy+ENGINEER_FX.throwFrom[1]*sc,tx,gt-6,tgt,tg=>fxTouch(tg,engineerExplosion(F.eng,tx,gt-6,t)));
+  else if(u.cls==='summoner')summonerAttack(F.sum,{x:tx},gt,t,()=>fxTouch(tgt,summonerImpact(F.sum,tx,ty,t,false)));
+  else if(u.cls==='bard')bardAttack(F.bard,gx+BARD_FX.launch[0]*sc,gy+BARD_FX.launch[1]*sc,tx,ty,t,()=>fxTouch(tgt,bardImpact(F.bard,tx,ty,t)));
+  else if(u.cls==='ranger'){fireShoot(F.fire,gx+FIRE_FX.launch[0]*sc,gy+FIRE_FX.launch[1]*sc,tx,ty,tgt,t,tg=>fxTouch(tg,fireImpact(F.fire,tx,ty,t)));}
   fxSettle(F);}
 function fxSettle(F){engineerFxStep(F.eng,0,RT);bardFxStep(F.bard,0);fireFxStep(F.fire,0);} /* a zero-length step right after a launch gives every new bomb, wave and arrow its first position before the frame is drawn */
 function fxAbilityFrame(a){if(!FX_ON)return;const u=a.u,F=fxs(),sc=unitScale(u),t=unitTier(u),gx=u.x+u.dx,gy=groundOf(u);
@@ -672,7 +672,7 @@ function questEvent(h){const L=h.lvl,ev=[];const gq=()=>R((30+L*8)*goldMult());
 function questSlots(){return 2+treeLv('slots');} /* base 2 = the heroes a full party leaves at camp; Bunks adds one per rank */
 function partyReorder(i,j){const a=G.active[i],b=G.active[j];if(i===j||!a||!b)return false;G.active[i]=b;G.active[j]=a;layout();buildChanged();return true;} /* two marchers trade places */
 function partyToCamp(i){const h=G.active[i];if(!h||G.active.length<=1)return false;if(G.action&&G.action.u===h){G.action=null;h.dx=0;}G.active.splice(i,1);h.status={};layout();buildChanged();toast(h.name+' heads to camp');return true;}
-function partyBringIn(h,slot){if(!h||G.active.includes(h)||heroStatus(h)==='quest')return false;const inBattle=G.mode==='battle'||G.mode==='enter';if(heroStatus(h)==='garrison')recallHero(h);let done=false; /* slot = the marcher to replace; without one the hero joins an open place */
+function partyBringIn(h,slot){if(!h||G.active.includes(h)||heroStatus(h)==='quest')return false;const inBattle=G.mode==='battle'||G.mode==='enter';if(heroStatus(h)==='garrison'){recallHero(h);if(heroStatus(h)==='garrison'){layout();return false;}}let done=false; /* slot = the marcher to replace; without one the hero joins an open place. A hero whose post is not over stays on the wall (recallHero says how long) and is not brought in */
   if(slot!=null){const out=G.active[slot];if(out){if(G.action&&G.action.u===out){G.action=null;out.dx=0;}G.active[slot]=h;h.dead=false;h.status={};if(h.hp<=0)h.hp=R(h.maxhp*0.5);h.x=-30;setAnim(h,inBattle?'idle':'walk');toast(h.name+' takes '+out.name+"'s place");done=true;}}
   else if(G.active.length<partyMax()){G.active.push(h);h.dead=false;h.status={};h.x=-30;setAnim(h,inBattle?'idle':'walk');toast(h.name+(inBattle?' runs in to join the fight':' falls in'));done=true;}else toast('Pick a marcher to replace first');layout();return done;}
 function partyCanField(h){if(!h||!G.roster.includes(h))return false;if(G.active.includes(h))return true;const st=heroStatus(h);return st==='camp'||(st==='garrison'&&postLeft(h)<=0);} /* recruited, and not away on a quest or holding a post */
@@ -1134,13 +1134,15 @@ function serialize(){return JSON.stringify({v:1,t:now(),zone:G.zone,prog:G.prog,
   roster:G.roster.map(h=>({id:h.id,lvl:h.lvl,xp:h.xp,hp:h.hp,abLvl:h.abLvl,eq:h.eq,tier:h.tier||0,tierMax:h.tierMax||0,postedAt:h.postedAt||0,talents:h.talents||{}})),active:G.active.map(h=>h.id),pack:G.pack,
   quests:G.quests.map(q=>({hero:q.hero.id,q:q.q.id,end:q.end})),castle:G.castle,fast:G.fast});}
 function saveGame(){if(G.title||G.noSave||G.delve||G.hordeFight)return;if(storeSet(serialize()))G.lastSaveT=now();}
-function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.parse(raw);}catch(e){return false;}if(!d||d.v!==1)return false;G.drill=null;G.drillOn=false;if(G.screen==='drill')G.screen='vael'; /* a drill never survives a reload */
+const HERO_RENAME={aldric:'hale',wren:'ash',osric:'fitz',idris:'kit',perrin:'lark'}; /* heroes renamed on 2026-09-29; saves written before that carry the old ids */
+function renameSavedHeroes(d){const m=id=>HERO_RENAME[id]||id;if(Array.isArray(d.roster))for(const r of d.roster)if(r)r.id=m(r.id);if(Array.isArray(d.active))d.active=d.active.map(m);if(Array.isArray(d.quests))for(const q of d.quests)if(q)q.hero=m(q.hero);if(d.castle&&Array.isArray(d.castle.garrison))d.castle.garrison=d.castle.garrison.map(m);return d;}
+function loadGame(){const raw=storeGet();if(!raw)return false;let d;try{d=JSON.parse(raw);}catch(e){return false;}if(!d||d.v!==1)return false;renameSavedHeroes(d);G.drill=null;G.drillOn=false;if(G.screen==='drill')G.screen='vael'; /* a drill never survives a reload */
   while(d.prog.length<ZONES.length)d.prog.push(0);while(d.cleared.length<ZONES.length)d.cleared.push(false);
   Object.assign(G,{zone:d.zone,prog:d.prog,cleared:d.cleared,gold:d.gold,ore:d.ore,dust:d.dust,wins:d.wins,campfireDone:d.campfireDone,tree:d.tree||{},autoCast:!!d.autoCast,music:d.music!==false,sfx:d.sfx!==false,reforges:d.reforges||0,surge:d.surge||0,chestAt:d.chestAt||0,warpAt:d.warpAt||0,far:d.far||[],highestZoneEver:Math.max(d.highestZoneEver||0,d.zoneMax||0,(d.cleared||[]).lastIndexOf(true)+1,d.zone||0,((d.far||[]).findLastIndex?((d.far||[]).findLastIndex(v=>v>0)):0)),defShort:!!d.defShort,everReachedEndless:!!(d.everReachedEndless||d.zone===ZONES.length-1||((d.far||[])[ZONES.length-1]||0)>0||(d.cleared||[])[ZONES.length-2]), /* migration for saves that predate the fields: from the road position, the furthest fights and the cleared zones */run:d.run||{start:d.t,fights:0,bosses:0,gold:0,bestFloor:0},stats:Object.assign({kills:0,bosses:0,hit:0,gold:0,ore:0,items:0,legendary:0,hordes:0,offline:0,defeats:0,delveRuns:0,taps:0},d.stats||{}),simT:d.simT||0,zoneT:d.zoneT||[],treeTab:d.treeTab||'Party',delveKeys:d.delveKeys==null?3:d.delveKeys,keyAt:d.keyAt||now(),delveBest:d.delveBest||0,speedUntil:d.speedUntil||0,drillRec:(d.drill&&typeof d.drill==='object')?Object.assign({best:d.drill.best||{},claimed:d.drill.claimed||{},badges:d.drill.badges||{},runBest:d.drill.runBest||null},d.drill.portionPays?{portionPays:d.drill.portionPays,portionPaid:d.drill.portionPaid||{},dustCarry:d.drill.dustCarry||0}:{}):null, /* the dust history loads only when the save has it; older saves migrate in drillRecords() */autoSalvage:d.autoSalvage||0,musicVol:d.musicVol==null?0.55:d.musicVol,sfxVol:d.sfxVol==null?1:d.sfxVol,tutDone:!!d.tutDone,vaelSeen:!!d.vaelSeen,treeSeen:!!d.treeSeen,keysSeen:!!d.keysSeen,dustFrac:d.dustFrac||0,heroesSeen:d.heroesSeen||[],cpHinted:!!d.cpHinted,bossStreak:d.bossStreak||0,gearHinted:!!d.gearHinted,firstBossHinted:d.firstBossHinted!=null?!!d.firstBossHinted:!!(d.cleared&&d.cleared[0]),speedHinted:d.speedHinted!=null?!!d.speedHinted:!!d.campfireDone,speedUsed:!!d.speedUsed||(d.speed||1)>1,train:d.train||null,danger:d.danger||null,keepPushing:d.keepPushing||{},autoTrainOff:!!d.autoTrainOff,powerHist:d.powerHist||[],endlessSeen:!!d.endlessSeen,endMilestone:d.endMilestone||0,oath:d.oath||null,omens:d.omens||[],omenOffer:d.omenOffer||null,omenMarks:d.omenMarks||[],renown:d.renown||0,boostSeen:!!d.boostSeen,vaelNew:!!d.vaelNew,autoUntil:d.autoUntil||0,fast:!!d.fast,migV:d.migV||0});padZones();migrateSave();
   itemSeq=d.itemSeq||itemSeq;G.pack=d.pack||[];
   G.roster=[];for(const r of d.roster){const def=HEROES.find(x=>x.id===r.id);if(!def)continue;const h=mkHero(def);h.lvl=r.lvl;h.xp=r.xp;h.abLvl=r.abLvl||1;h.eq=r.eq||{};h.tier=r.tier||0;h.tierMax=Math.max(r.tierMax||0,h.tier);h.postedAt=r.postedAt||0;h.uid=heroUid(h);h.talents=r.talents||{};refreshStats(h);h.hp=Math.min(h.maxhp,r.hp>0?r.hp:h.maxhp);G.roster.push(h);}
   G.active=(d.active||[]).map(id=>G.roster.find(h=>h.id===id)).filter(Boolean);if(!G.active.length&&G.roster.length)G.active=[G.roster[0]];
-  G.active.forEach(h=>{h.x=null;});layout();grantRecruits();
+  G.active.forEach(h=>{h.x=null;});layout();
   G.quests=(d.quests||[]).map(q=>({hero:G.roster.find(h=>h.id===q.hero),q:QUESTS.find(x=>x.id===q.q),end:q.end})).filter(q=>q.hero&&q.q);
   if(d.castle){G.castle=d.castle;G.castle.walk=[];}
   G.enemies=[];G.projs=[];G.action=null;G.mode='walk';G.enc=3;G.delve=null;G.hordeFight=null;if(G.castle)G.castle.hordeDue=false;

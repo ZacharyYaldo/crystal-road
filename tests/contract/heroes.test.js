@@ -25,8 +25,8 @@ function land(S,maxT=10){const G=S.G;let t=0;while(G.projs.length&&t<maxT){S.upd
       const def=S.HEROES.find(d=>d.cls===cls);ok(!!def,'a hero of class '+cls+' is on the roster list');}
     for(let t=0;t<4;t++){ok(!!atlas['turret'+t]&&atlas['turret'+t].anims.fire,'turret'+t+' sheet present');ok(!!atlas['familiar'+t]&&atlas['familiar'+t].anims.bite,'familiar'+t+' sheet present');ok(!!atlas['firearcher'+t]&&atlas['firearcher'+t].anims.cast&&atlas['firearcher'+t].cw===40,'firearcher'+t+' sheet present with a cast row');}
     ok(!!atlas.crusader&&atlas.crusader.cw===51&&atlas.crusader.ch===30&&atlas.crusader.ox===24&&atlas.crusader.oy===28&&atlas.crusader.anims.attack.n===7,'crusader sheet is the templar frame with headroom, 51x30 anchored at 24,28, attack 7');
-    ok(S.ZONES[2].recruit==='osric'&&S.ZONES[4].recruit==='idris'&&S.ZONES[6].recruit==='perrin','recruits: Thornwood -> Osric, Emberwaste -> Idris, Ashen Approach -> Perrin');
-    ok(S.ZONES[0].recruit==='vex'&&S.ZONES[1].recruit==='morrow'&&S.ZONES[3].recruit==='wren'&&S.ZONES[5].recruit==='bram','the original recruit zones are unchanged');
+    ok(S.ZONES[2].recruit==='fitz'&&S.ZONES[4].recruit==='kit'&&S.ZONES[6].recruit==='lark','recruits: Thornwood -> Fitz, Emberwaste -> Kit, Ashen Approach -> Lark');
+    ok(S.ZONES[0].recruit==='vex'&&S.ZONES[1].recruit==='morrow'&&S.ZONES[3].recruit==='ash'&&S.ZONES[5].recruit==='bram','the original recruit zones are unchanged');
     // sprite key per rank
     const uid=(cls,tier)=>S.heroUid({cls,tier});
     ok(uid('knight',0)==='knight'&&uid('knight',1)==='templar'&&uid('knight',2)==='crusader'&&uid('knight',3)==='lancer','knight sheets: knight, templar, crusader, lancer');
@@ -93,15 +93,11 @@ function land(S,maxT=10){const G=S.G;let t=0;while(G.projs.length&&t<maxT){S.upd
     foes(S,2);const a=S.abilityAction(kn,true);S.applyAbility(a);ok(kn.status.shield===S.shieldDur(kn)+1&&Math.abs(kn.status.shieldPct-S.shieldPct(kn))<1e-12,'Shield Wall duration and reduction are the game\'s own values');
     const kn2=Object.assign({},kn);ok(S.fxShieldCast(kn)===undefined&&S.fxShieldHit(kn)===undefined&&S.fxMeleeHit(kn,G.enemies[0])===undefined&&G.fxs===undefined,'shield and slash hooks are no-ops in the simulator');}
 
-  // ---- saved games: a one-time grant for recruits whose zone is already behind the player
-  {const S=await game(8),G=S.G;const has=id=>!!G.roster.find(h=>h.id===id);
-    G.cleared=S.ZONES.map(()=>false);G.highestZoneEver=0;S.grantRecruits();ok(!has('osric')&&!has('idris')&&!has('perrin'),'nothing cleared: no grant');
-    G.cleared[2]=true;S.grantRecruits();ok(has('osric')&&!has('idris'),'Thornwood cleared: Osric joins');const o=G.roster.find(h=>h.id==='osric');ok(o.lvl===S.ZONES[2].lv&&o.uid==='engineer0'&&/Osric the Engineer joins/.test(G.pending||''),'he joins at the zone level on the engineer0 sheet with the join message');
-    G.cleared=S.ZONES.map(()=>false);G.highestZoneEver=5;S.grantRecruits();ok(has('idris')&&!has('perrin'),'a Shattered save that once passed Emberwaste gets Idris, not Perrin');
-    G.cleared[6]=true;S.grantRecruits();S.grantRecruits();ok(has('perrin')&&G.roster.filter(h=>h.id==='perrin').length===1,'Perrin joins once, never twice');
-    // through a real save and load
-    G.roster.find(h=>h.id==='perrin').lvl=77;const raw=S.serialize();S.storeSet(raw);const d=JSON.parse(raw);d.roster=d.roster.filter(r=>r.id!=='idris');S.storeSet(JSON.stringify(d));ok(S.loadGame(),'the save loads');ok(has('idris')&&has('perrin')&&G.roster.find(h=>h.id==='perrin').lvl===77&&G.roster.find(h=>h.id==='perrin').uid==='bard0','the missing recruit is granted on load; saved heroes keep their level and sheet');
-    ok(G.active.length<=S.partyMax(),'the party never exceeds its cap');}
+  // ---- saved games: no grant on load (owner 2026-09-29); recruits join where production recruits them, at their zone's boss
+  {const S=await game(8),G=S.G;const has=id=>!!G.roster.find(h=>h.id===id);ok(S.grantRecruits===undefined,'there is no grant function');
+    G.cleared=S.ZONES.map((z,i)=>i<8);G.highestZoneEver=8;const raw=S.serialize();S.storeSet(raw);ok(S.loadGame(),'a save far past the recruit zones loads');
+    ok(G.roster.length===4&&!has('fitz')&&!has('kit')&&!has('lark')&&!has('ash')&&!has('bram'),'loading grants nobody: the roster is the saved one ('+G.roster.map(h=>h.id).join(',')+')');ok(!G.pending,'and no join message is queued');
+    const src=require('fs').readFileSync(require('path').join(__dirname,'..','..','source','game.js'),'utf8');ok((src.match(/addHero\(/g)||[]).length===4&&/const rdef=HEROES\.find\(d=>d\.id===Z\.recruit\);if\(rdef&&!G\.roster\.find\(h=>h\.id===rdef\.id\)\)\{const h=addHero\(rdef,Math\.max\(1,Z\.lv\)\)/.test(src),'heroes are added in three places only (plus the definition): the start, the campfire and a zone boss with a recruit');}
 
   // ---- Battle Hymn through a complete cast: the caster ends on the same count as everyone else
   {const S=await game(9),G=S.G;const bd=hero(S,'bard',60);foes(S,2);for(const e of G.enemies)e.gauge=0;for(const h of G.active){h.gauge=0;h.charge=0;h.status={};}bd.gauge=100;bd.charge=100;G.autoCast=true;G.autoUntil=S.clock.get()+3600e3;let seen=false,n=0;while(n<3000&&!(seen&&!G.action)){S.setRT(S.getRT()+1/60);S.clock.frame();S.update(1/60,true);if(G.action&&G.action.u===bd&&G.action.kind==='ability')seen=true;n++;}
@@ -115,5 +111,35 @@ function land(S,maxT=10){const G=S.G;let t=0;while(G.projs.length&&t<maxT){S.upd
       ok(G.dust===d0,cls+' quest events never add dust');ok(hits>60&&hits<200,cls+' class event weighted like the originals: two of five draws ('+hits+'/300)');}
     const eng=hero(S,'engineer',40),L=eng.lvl;let o=null;for(let k=0;k<200&&o==null;k++){const o0=G.ore;const m=S.questEvent(eng);if(m.includes('Salvaged'))o=G.ore-o0;eng.hp=eng.maxhp;}ok(o===Math.round((8+L)*1.5*S.oreMult()),'engineer ore = round((8 + level) x 1.5 x oreMult) (got '+o+')');
     ok(S.HEROES.every(d=>d.zone===undefined),'hero definitions carry no recruit zone (the zone table is the one source)');}
+  // ---- regular attacks never shake the screen; abilities may
+  {const src=require('fs').readFileSync(require('path').join(__dirname,'..','..','source','game.js'),'utf8');const cut=(a,b)=>{const i=src.indexOf(a),j=src.indexOf(b,i+1);return i>=0&&j>i?src.slice(i,j):null;};
+    const basic=cut('function fxBasicShot(u,tgt){','function fxSettle(F)'),melee=cut('function fxMeleeHit(u,tgt){','function fxBasicShot('),touch=cut('function fxTouch(t,v){','function fxStep('),abil=cut('function fxAbilityFrame(a){','const AUTO_CAST_POWER');
+    ok(!!basic&&!/shake/.test(basic)&&!/fxHit\(/.test(basic)&&(basic.match(/fxTouch\(/g)||[]).length===4,'the four ranged basic attacks go through fxTouch and never mention shake');
+    ok(!!melee&&!/G\.shake|shake:/.test(melee)&&/fxTouch\(tgt,v\)/.test(melee),'the knight\'s slash does not shake the screen');
+    ok(!!touch&&/fxHit\(t,\{flash:v\.flash,knockback:v\.knockback\}\)/.test(touch),'fxTouch passes the flash and the nudge only');
+    ok(!!abil&&/G\.shake=/.test(abil)&&/fxHit\(/.test(abil),'abilities keep their shake');}
+  // ---- the roster as named by the owner on 2026-09-29, and saves written under the old names
+  {const S=await game(11),G=S.G;const want=[['knight','Hale','hale'],['cleric','Sera','sera'],['rogue','Vex','vex'],['mage','Morrow','morrow'],['ranger','Ash','ash'],['berserker','Bram','bram'],['bard','Lark','lark'],['summoner','Kit','kit'],['engineer','Fitz','fitz']];
+    ok(S.HEROES.length===9&&want.every(([cls,name,id])=>{const d=S.HEROES.find(x=>x.cls===cls);return d&&d.name===name&&d.id===id;}),'nine heroes with the names and ids of the owner\'s table');
+    ok(S.HEROES.every(d=>d.id===d.name.toLowerCase()),'every id is the lower-case name (the validators rely on it)');
+    ok(S.ZONES.map(z=>z.recruit||'').join()==='vex,morrow,fitz,ash,kit,bram,lark,,,','recruit order by zone: Vex, Morrow, Fitz, Ash, Kit, Bram, Lark');
+    const old={aldric:'hale',wren:'ash',osric:'fitz',idris:'kit',perrin:'lark'};ok(JSON.stringify(S.HERO_RENAME)===JSON.stringify(old),'the rename table covers the five renamed heroes');
+    for(const id of ['ash','fitz','kit','lark'])if(!G.roster.find(h=>h.id===id))S.addHero(S.HEROES.find(d=>d.id===id),33);G.roster.find(h=>h.id==='ash').lvl=61;G.roster.find(h=>h.id==='hale').tier=2;S.partySetOrder(['lark','hale','ash','sera']);
+    const kit=G.roster.find(h=>h.id==='kit'),fitz=G.roster.find(h=>h.id==='fitz');G.quests.push({hero:kit,q:S.QUESTS[1],end:S.clock.get()+1e6});G.castle.garrison=[fitz.id];
+    const d=JSON.parse(S.serialize());const back={hale:'aldric',ash:'wren',fitz:'osric',kit:'idris',lark:'perrin'},b=id=>back[id]||id;for(const r of d.roster)r.id=b(r.id);d.active=d.active.map(b);for(const q of d.quests)q.hero=b(q.hero);d.castle.garrison=d.castle.garrison.map(b);
+    ok(d.roster.some(r=>r.id==='aldric')&&d.active.join()==='perrin,aldric,wren,sera'&&d.quests[0].hero==='idris'&&d.castle.garrison[0]==='osric','a save as it was written before the rename');
+    S.storeSet(JSON.stringify(d));ok(S.loadGame(),'the old save loads');
+    ok(G.roster.length===8&&G.roster.every(h=>S.HEROES.find(x=>x.id===h.id&&x.name===h.name))&&!G.roster.some(h=>back[h.id]&&false),'all eight saved heroes are back under their new names');
+    ok(G.active.map(h=>h.id).join()==='lark,hale,ash,sera','the party and its order are kept');ok(G.roster.find(h=>h.id==='ash').lvl===61&&G.roster.find(h=>h.id==='hale').tier===2&&G.roster.find(h=>h.id==='hale').uid==='crusader','levels, ranks and sheets are kept');
+    ok(G.quests.length===1&&G.quests[0].hero.id==='kit'&&JSON.stringify(G.castle.garrison)==='["fitz"]','the quest and the garrison post follow the renamed heroes');
+    const d2=JSON.parse(S.serialize());ok(!JSON.stringify([d2.roster.map(r=>r.id),d2.active,d2.quests.map(q=>q.hero),d2.castle.garrison]).match(/aldric|wren|osric|idris|perrin/),'the next save carries only the new ids');}
+  // ---- no old name is left anywhere a player can read it
+  {const fs=require('fs'),path=require('path'),root=path.join(__dirname,'..','..');const OLD=/\b(aldric|wren|osric|idris|perrin)\b/i;
+    const gsrc=fs.readFileSync(path.join(root,'source','game.js'),'utf8');const lines=gsrc.split('\n').filter(l=>OLD.test(l));ok(lines.length===1&&/^const HERO_RENAME=/.test(lines[0]),'source/game.js mentions an old name on one line only, the save rename table ('+lines.length+' lines)');
+    for(const f of ['source/shell.html','source/fx/bard.js','source/fx/engineer.js','source/fx/firearcher.js','source/fx/knight.js','source/fx/summoner.js'])ok(!OLD.test(fs.readFileSync(path.join(root,f),'utf8')),f+' carries no old name');
+    const aj=JSON.parse(fs.readFileSync(path.join(root,'build','assets.json'),'utf8'));const strip=o=>JSON.stringify(o,(k,v)=>typeof v==='string'&&v.length>400?'':v);ok(!OLD.test(strip(aj)),'build/assets.json carries no old name outside image and sound data');
+    const html=fs.readFileSync(path.join(root,'index.html'),'utf8').split('\n').filter(l=>l.length<4000&&OLD.test(l)&&!/^const HERO_RENAME=/.test(l));ok(html.length===0,'the built page has no old name in any text line besides the save rename table ('+html.length+')');
+    const S=await game(12);const texts=[];for(const h of S.HEROES){texts.push(h.name);}for(const c of Object.values(S.CLASSES)){texts.push(c.name,c.ab.name,c.ab.desc);}for(const list of Object.values(S.TALENTS))for(const x of list)texts.push(x.name,x.desc);for(const list of Object.values(S.TITLES))texts.push(...list);for(const q of S.QUESTS)texts.push(q.name,q.desc);for(const z of S.ZONES)texts.push(z.name);
+    ok(texts.length>100&&!texts.some(x=>OLD.test(String(x))),'hero, class, ability, talent, title, quest and zone texts carry no old name ('+texts.length+' strings)');}
   console.log(out.join('\n'));console.log((fail?'FAIL':'PASS')+'  '+pass+' passed, '+fail+' failed');process.exit(fail?1:0);
 })().catch(e=>{console.error(e);process.exit(1);});

@@ -11,7 +11,7 @@
 //   requires the new harness to be deterministic (the first seed of every group runs twice and must match exactly), and prints the new
 //   canonical hashes so they can be recorded as the reference.
 // Speeds 1 and 2 are the equivalence surface; balance batches never run at 1x.
-// Usage: node tests/sim/equiv.js --ref <commit> [--mode exact|stat] [--seeds 3] [--seedStart 900] [--profiles idleboost,light,casual,engaged] [--speeds 1,2] [--hours 3] [--workers 4] [--keep]
+// Usage: node tests/sim/equiv.js --ref <commit> [--mode exact|stat] [--seeds 3] [--seedStart 900] [--profiles idleboost,light,casual,engaged] [--speeds 1,2] [--hours 3] [--workers 4] [--keep] [--model clericBack,drills,double,boosts] [--schedule 2:2,2:8,2:8] [--party a,b,c,d]
 'use strict';
 const fs=require('fs'),path=require('path'),os=require('os'),cp=require('child_process'),crypto=require('crypto');
 const args=(()=>{const a={};const v=process.argv.slice(2);for(let i=0;i<v.length;i++){if(v[i].startsWith('--')){const k=v[i].slice(2),n=v[i+1];if(n&&!n.startsWith('--')){a[k]=isNaN(Number(n))?n:Number(n);i++;}else a[k]=true;}}return a;})();
@@ -24,13 +24,16 @@ const tmp=path.join(os.tmpdir(),'crystal-equiv',refCommit.slice(0,10));
 const oldDir=path.join(tmp,'old'),outDir=path.join(tmp,'out');
 fs.rmSync(tmp,{recursive:true,force:true});
 for(const d of ['source','build','tests/sim'])fs.mkdirSync(path.join(oldDir,d),{recursive:true});fs.mkdirSync(outDir,{recursive:true});
-for(const f of ['bot.js','headless.js'])fs.writeFileSync(path.join(oldDir,'tests/sim',f),cp.execSync('git show '+refCommit+':tests/sim/'+f,{cwd:ROOT,maxBuffer:1<<26}));
+const refHas=f=>{try{cp.execSync('git cat-file -e '+refCommit+':tests/sim/'+f,{cwd:ROOT,stdio:['ignore','ignore','ignore']});return true;}catch(e){return false;}};
+const refFiles=(()=>{let list=['bot.js','headless.js'];if(refHas('harness.js')){const m=/HARNESS_FILES=\[([^\]]*)\]/.exec(cp.execSync('git show '+refCommit+':tests/sim/harness.js',{cwd:ROOT}).toString());if(m)list=m[1].split(',').map(s=>s.trim().replace(/['"]/g,'')).filter(Boolean);}for(const f of ['party.js','harness.js'])if(!list.includes(f)&&refHas(f))list.push(f);return list;})(); /* the reference harness is every file it needs at that commit: its own HARNESS_FILES list, or bot.js and headless.js plus any helper that already existed */
+for(const f of refFiles)fs.writeFileSync(path.join(oldDir,'tests/sim',f),cp.execSync('git show '+refCommit+':tests/sim/'+f,{cwd:ROOT,maxBuffer:1<<26}));
+const MODEL=String(args.model||'').split(',').map(s=>s.trim()).filter(Boolean),EXTRA=[];for(const k of MODEL){if(!['drills','double','boosts','clericBack'].includes(k)){console.log('EQUIV FAIL: --model takes drills,double,boosts,clericBack');process.exit(1);}EXTRA.push('--'+k);}if(args.schedule)EXTRA.push('--schedule',String(args.schedule));if(args.party)EXTRA.push('--party',String(args.party)); /* --model clericBack,drills,double,boosts --schedule 2:2,2:8,2:8 [--party a,b]: the same behavioural flags on both sides, so the gate can cover the real-player batch configuration */
 fs.copyFileSync(path.join(ROOT,'source/game.js'),path.join(oldDir,'source/game.js'));fs.copyFileSync(path.join(ROOT,'build/assets.json'),path.join(oldDir,'build/assets.json'));
 const jobs=[];for(const p of PROFILES)for(let s=SEED0;s<SEED0+SEEDS;s++)for(const sp of SPEEDS){for(const side of ['old','new'])jobs.push({p,s,sp,side});if(MODE==='stat'&&s===SEED0)jobs.push({p,s,sp,side:'new2'});}
 const botOf=side=>side==='old'?path.join(oldDir,'tests/sim/bot.js'):path.join(__dirname,'bot.js');
 const fileOf=j=>path.join(outDir,j.side+'_'+j.p+'_'+j.s+'_x'+j.sp+'.json');
 const t0=Date.now();const wall={old:0,new:0,new2:0};let idx=0,done=0;
-function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[botOf(j.side),'--hours',String(HOURS),'--seed',String(j.s),'--profile',j.p,'--speed',String(j.sp),'--quiet','--json',fileOf(j)];const t=Date.now();const c=cp.spawn(process.execPath,a,{stdio:['ignore','ignore','inherit']});c.on('exit',()=>{wall[j.side]+=Date.now()-t;done++;process.stdout.write('\r'+done+'/'+jobs.length+' runs ('+((Date.now()-t0)/1000).toFixed(0)+'s)   ');if(done===jobs.length)(MODE==='stat'?compareStat:compareExact)();else next();});}
+function next(){if(idx>=jobs.length)return;const j=jobs[idx++];const a=[botOf(j.side),'--hours',String(HOURS),'--seed',String(j.s),'--profile',j.p,'--speed',String(j.sp),'--quiet','--json',fileOf(j)].concat(EXTRA);const t=Date.now();const c=cp.spawn(process.execPath,a,{stdio:['ignore','ignore','inherit']});c.on('exit',()=>{wall[j.side]+=Date.now()-t;done++;process.stdout.write('\r'+done+'/'+jobs.length+' runs ('+((Date.now()-t0)/1000).toFixed(0)+'s)   ');if(done===jobs.length)(MODE==='stat'?compareStat:compareExact)();else next();});}
 for(let i=0;i<Math.min(WORKERS,jobs.length);i++)next();
 const VOLATILE=/^(commit|harnessHash|dirty|realSec|realSeconds|wallSec|elapsedSec)$/; /* dirty is provenance like commit: the reference harness runs from a checkout without git and reports it as unknown */
 function canon(o){if(Array.isArray(o))return o.map(canon);if(o&&typeof o==='object'){const r={};for(const k of Object.keys(o).sort()){if(VOLATILE.test(k))continue;r[k]=canon(o[k]);}return r;}return o;}
@@ -38,7 +41,7 @@ function shared(a,b){const A=canon(a),B=canon(b);const onlyA=Object.keys(A).filt
 const H=o=>crypto.createHash('sha256').update(JSON.stringify(o)).digest('hex').slice(0,16);
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const readJ=j=>JSON.parse(fs.readFileSync(fileOf(j)));
-function header(){console.log('\nequivalence gate ('+MODE+'): ref '+refCommit.slice(0,10)+' (old harness) vs working tree (new harness), same source/game.js, '+PROFILES.join('/')+' x seeds '+SEED0+'-'+(SEED0+SEEDS-1)+' x speeds '+SPEEDS.join('/')+', '+HOURS+'h each');}
+function header(){console.log('\nequivalence gate ('+MODE+'): ref '+refCommit.slice(0,10)+' (old harness) vs working tree (new harness), same source/game.js, '+PROFILES.join('/')+' x seeds '+SEED0+'-'+(SEED0+SEEDS-1)+' x speeds '+SPEEDS.join('/')+', '+HOURS+'h each'+(EXTRA.length?', flags '+EXTRA.join(' '):'')+'; reference harness files '+refFiles.join(', '));}
 function finish(fails,label){console.log('wall time per run: old '+(wall.old/1000/(jobs.filter(j=>j.side==='old').length)).toFixed(1)+'s  new '+(wall.new/1000/(jobs.filter(j=>j.side==='new').length)).toFixed(1)+'s');for(const f of fails)console.log('DIFF '+f);console.log(fails.length?'EQUIV FAIL':'EQUIV PASS ('+label+')');if(!args.keep)fs.rmSync(tmp,{recursive:true,force:true});process.exit(fails.length?1:0);}
 function compareExact(){
   header();const fails=[];let pairs=0;const newFields=new Set(),lostFields=new Set();
