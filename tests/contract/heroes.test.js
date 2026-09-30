@@ -162,5 +162,12 @@ function land(S,maxT=10){const G=S.G;let t=0;while(G.projs.length&&t<maxT){S.upd
     const G=S.G;const eng=S.addHero(S.HEROES.find(d=>d.cls==='engineer'),20),kn=G.roster.find(h=>h.cls==='knight');ok(S.fxShift(eng)===-3&&S.fxShift(kn)===1&&S.fxShift(G.roster.find(h=>h.cls==='cleric'))===0,'the effect shift is the difference between the two anchors: engineer -3, knight +1, cleric 0');
     const src=require('fs').readFileSync(require('path').join(__dirname,'..','..','source','game.js'),'utf8');ok(!/headDx|LIST_DX/.test(src),'no per-screen nudge remains');
     for(const f of ['fxBasicShot','fxAbilityFrame','fxShieldCast','fxPromo'])ok(new RegExp('function '+f+'\\([^\\n]*fxShift\\(').test(src),f+' shifts the hero anchor for the effect scripts');}
+  // ---- one hero per id: the campfire never adds Sera twice, and a save that already has two copies keeps the stronger one
+  {const S=await game(14),G=S.G;const sera=G.roster.find(h=>h.id==='sera');ok(!!sera,'Sera is on the roster');G.campfireDone=false;G.wins=5;G.mode='walk';
+    const src=require('fs').readFileSync(require('path').join(__dirname,'..','..','source','game.js'),'utf8');ok(/if\(!G\.campfireDone&&G\.wins>=2\)\{G\.campfireDone=true;if\(!G\.roster\.find\(x=>x\.id===HEROES\[1\]\.id\)\)\{const h=addHero/.test(src),'the campfire recruit checks the roster first');
+    const dup=S.mkHero(S.HEROES[1]);dup.lvl=3;G.roster.push(dup);const strong=G.roster.find(h=>h.id==='sera');strong.lvl=40;ok(G.roster.filter(h=>h.id==='sera').length===2,'two Seras on the roster');
+    const raw=S.serialize();ok(JSON.parse(raw).roster.filter(r=>r.id==='sera').length===2,'the save carries both');S.storeSet(raw);ok(S.loadGame(),'it loads');
+    const seras=G.roster.filter(h=>h.id==='sera');ok(seras.length===1&&seras[0].lvl===40&&G.campfireDone===true,'after the load one Sera remains, the Lv 40 one, and the campfire is marked done');ok(new Set(G.active.map(h=>h.id)).size===G.active.length,'the party holds no duplicate');
+    ok(new Set(G.roster.map(h=>h.id)).size===G.roster.length,'every id is unique');}
   console.log(out.join('\n'));console.log((fail?'FAIL':'PASS')+'  '+pass+' passed, '+fail+' failed');process.exit(fail?1:0);
 })().catch(e=>{console.error(e);process.exit(1);});
