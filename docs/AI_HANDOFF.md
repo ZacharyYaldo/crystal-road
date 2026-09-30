@@ -1,13 +1,13 @@
 STATUS: OWNER_CHANGES_ON_TUNING_BRANCH_AFTER_RELEASE
 RESPONSE_TYPE: OWNER_CONTENT_CHANGES
-PASS_ID: PASS_54_RAIN_VOLLEYS
+PASS_ID: PASS_54_RAIN_VOLLEYS_AND_CAMP
 BASED_ON_REVIEW_PASS: OWNER_REQUESTS_2026-09-30 after the release of 2aadf75 to main
 BUILD: 20260930 (tuning branch; main at 2aadf75, live build 20260929-173949)
 HEAD_COMMIT_SHA: see git log (this handoff is committed with the code)
 PULL_REQUEST: #2
 SUPERSEDES: PASS_53E (released)
 
-# Crystal Road AI Handoff - Pass 54 (Rain of Fire volleys, no screen flash on Ash's regular shot, Send a hero layout)
+# Crystal Road AI Handoff - Pass 54 (Rain of Fire volleys, no screen flash on Ash's regular shot, Send a hero layout, Camp panel for five quest slots)
 
 ## Rain of Fire (balance change, owner's design)
 - Before: one hit per living enemy, whatever the count.
@@ -21,9 +21,12 @@ No warm screen flash any more (the effect raised it on every arrow). Rain of Fir
 ## Send a hero sheet
 With the longer favoured-class lists the "favors" text ran under the Send button. Each quest row is taller and shows three lines: name and duration, the reward, then "Class bonus for <class>" or "Favors A, B, C" wrapped inside the space left of the button.
 
+## Camp panel: every Bunks rank usable
+Bunks stacks to five quest slots, but the Camp panel drew three fixed rows, so a fourth or fifth hero could never be sent (owner note 2026-09-30). The panel now lists returned quests first, then the running ones by return time, then every open slot; when more than three rows are needed the third row sums up the rest ("2 more on quests", "3 more open slots") with Quests n / slots and a Send another button while a slot is open, or Full when none is. Collect and Send stay reachable at every rank; a hidden running quest moves to the top when it returns. Without Bunks the two empty slots and the locked third row are as before. Test in audit.test.js renders the panel with the real draw and reads the rows and the tappable buttons at ranks 0, 1 and 3, with four and five quests.
+
 ## Tests and evidence
 - heroes.test.js: the Rain of Fire block now covers the volley order, one hit each in a large pack, three volleys on a lone enemy, two and one on a pair, the fallen-enemy redirect, bleed once per enemy, the ability text, and that the regular shot clears the flash while Rain of Fire keeps it.
-- 9 suites pass, 2,684 assertions; parity PASS.
+- 9 suites pass, 2,694 assertions; parity PASS.
 - Exact equivalence against 2aadf75 (same game.js on both sides): default 24 pairs, real-player configuration 12 pairs, recorded in the commit message.
 - Checked in the page: three regular shots by Ash with the screen flash at 0; Rain of Fire on two enemies made three hitting volleys, bleed 3 on each, flash 0.6 on the ability; the Send a hero sheet lays out cleanly.
 
