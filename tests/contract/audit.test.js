@@ -61,5 +61,9 @@ function toBattle(S){const G=S.G;G.zone=0;G.mode='walk';G.enc=0.01;let n=0;while
     G.tree.slots=1;G.quests=G.quests.slice(0,3);r=drawn();ok(S.questSlots()===3&&r.seen.filter(s=>/^Returns in|^Returned/.test(s)).length===3&&!r.seen.some(s=>/more|another|Full/.test(s)),'Bunks rank 1 with three quests: three quest rows, no summary');
     G.quests=[];ok(S.campItems().length===3&&S.campItems().every(it=>!it.q),'no quests: every open slot listed');}
 
+  // ---- the Shatter summary sheet holds its buttons inside the frame, whatever its rows
+  {const S=await game(),G=S.G;G.noSave=true;G.screen='road';G.reforges=2;G.run={start:S.clock.get()-7*3600e3,fights:712,bosses:8,gold:12.7e6,bestFloor:0,endless:0};G.cleared=S.ZONES.map((z,i)=>i<8);for(const h of G.roster)h.lvl=113;
+    const check=label=>{S.openSheet('shatter');S.getHits().length=0;S.draw();const hits=S.getHits();const hh=S.shatterSheetH(),frame=hits.find(h=>h.w===254&&h.h===hh),btns=hits.filter(h=>h.w===110&&h.h===22);ok(!!frame&&btns.length===2,label+': the sheet frame and both buttons are drawn');if(frame&&btns.length===2)ok(btns.every(b=>b.y+b.h<=frame.y+frame.h-6&&b.y>frame.y),label+': Begin run and Not yet sit inside the frame (button bottom '+Math.max(...btns.map(b=>b.y+b.h))+', frame bottom '+(frame.y+frame.h)+')');S.closeSheet();};
+    G.oath=null;G.tree.b_dust=0;check('no oath, no blessing');G.oath='silence';for(const h of G.roster)S.refreshStats(h);check('an oath');G.tree.b_dust=3;check('an oath and a dust blessing');ok(S.shatterSheetH()>352,'the sheet is taller than the old fixed 352 when the blessing and oath lines are present ('+S.shatterSheetH()+')');G.oath=null;G.tree.b_dust=0;}
   if(out.length)console.log(out.join('\n'));console.log((fail?'FAIL  ':'PASS  ')+pass+' passed, '+fail+' failed');process.exit(fail?1:0);
 })().catch(e=>{console.error(e);process.exit(1);});

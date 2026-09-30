@@ -24,9 +24,14 @@ With the longer favoured-class lists the "favors" text ran under the Send button
 ## Camp panel: every Bunks rank usable (owner's rules, second version)
 Bunks stacks to five quest slots, but the Camp panel drew three fixed rows, so a fourth or fifth hero could never be sent. Now: quests fill from the top (returned first, then running by return time), and every row below them is an ordinary Empty slot with Send hero until more quests are out than the three rows hold. Only then does the third row become a summary: the heroes away on the hidden quests stand where a row's hero would, "n more on quests", Quests n / slots, and Send another while a slot is open or Full when none is. A returned hidden quest jumps to the top row with Collect. Without Bunks the two empty slots and the locked third row are as before. The audit suite renders the panel at ranks 0, 1 and 3 with zero to five quests and reads the rows, the drawn heroes and the tappable buttons.
 
+## Later owner notes the same day
+- Repeat volleys read as separate hits: the n-th hit on the same enemy in one cast floats its damage number 11 px higher (dealDamage opts.stack), so three volleys on one enemy show three numbers in a column instead of one blur. Ordinary hits are unchanged.
+- Rain of Fire's screen flash is removed as well; only its shake remains. Ash's regular shot has neither.
+- The Shatter summary sheet is sized from its own rows (shatterSheetH), so Begin run and Not yet sit inside the frame even with the dust blessing and oath lines present. A rendered test checks the button and frame positions in three configurations.
+
 ## Tests and evidence
 - heroes.test.js: the Rain of Fire block now covers the volley order, one hit each in a large pack, three volleys on a lone enemy, two and one on a pair, the fallen-enemy redirect, bleed once per enemy, the ability text, and that the regular shot clears the flash while Rain of Fire keeps it.
-- 9 suites pass, 2,696 assertions; parity PASS.
+- 9 suites pass, 2,707 assertions; parity PASS.
 - Exact equivalence against 2aadf75 (same game.js on both sides): default 24 pairs, real-player configuration 12 pairs, recorded in the commit message.
 - Checked in the page: three regular shots by Ash with the screen flash at 0; Rain of Fire on two enemies made three hitting volleys, bleed 3 on each, flash 0.6 on the ability; the Send a hero sheet lays out cleanly.
 
