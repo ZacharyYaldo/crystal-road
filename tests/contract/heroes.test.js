@@ -39,11 +39,17 @@ function land(S,maxT=10){const G=S.G;let t=0;while(G.projs.length&&t<maxT){S.upd
     const e=S.mkHero(S.HEROES.find(d=>d.cls==='engineer'));ok(e.uid==='engineer0','a new engineer starts on the engineer0 sheet');
     ok(S.FX_ON===false,'the effect bridge is off in the simulator (no effect script is loaded)');S.fxStep(1/60);S.fxDrawUnder();S.fxDrawOver();ok(S.G.fxs===undefined,'effect hooks are no-ops without the scripts: no effect state is created');}
 
-  // ---- Rain of Fire: damage and bleed exactly as before (1.1 x AB_BOOST x power per enemy; bleed 3 + floor(rank/2) turns)
-  {const S=await game(2),G=S.G;const r=hero(S,'ranger',80);r.abLvl=5;const N=400;foes(S,N);const a=S.abilityAction(r,true);ok(a.anim==='cast'&&a.hit===4&&a.tgts.length===N,'Rain of Fire plays the cast row; hit frame 4; every enemy targeted');
-    const hp0=G.enemies.map(e=>e.hp);S.applyAbility(a);const dmg=G.enemies.map((e,i)=>hp0[i]-e.hp);const mean=dmg.reduce((p,q)=>p+q,0)/N;const want=r.atk*1.1*S.AB_BOOST*S.abilityPower(r)*S.MANUAL_CAST_POWER;
-    near(mean/want,1,0.03,'Rain of Fire mean damage per enemy = atk x 1.1 x AB_BOOST x power x 1.3 (tapped)');ok(G.enemies.every(e=>e.status.bleed===3+Math.floor(r.abLvl/2)),'every enemy bleeds 3 + floor(rank/2) = '+(3+Math.floor(r.abLvl/2))+' turns');
-    ok(G.projs.length===0,'Rain of Fire deals its damage at the hit frame, not through projectiles');ok(G.stats.dmgBy.ability>0&&G.stats.dmgBy.basic===0,'counted as ability damage');}
+  // ---- Rain of Fire: three volleys at least, every enemy at least once, the rest spread in turn; the bleed once per enemy per cast (owner 2026-09-30)
+  {const S=await game(2),G=S.G;const r=hero(S,'ranger',80);r.abLvl=5;const per=r.atk*1.1*S.AB_BOOST*S.abilityPower(r)*S.MANUAL_CAST_POWER,bleed=3+Math.floor(r.abLvl/2);
+    ok(S.RAIN_VOLLEYS===3&&S.rainOrder(['a']).join()==='a,a,a'&&S.rainOrder(['a','b']).join()==='a,b,a'&&S.rainOrder(['a','b','c']).join()==='a,b,c'&&S.rainOrder(['a','b','c','d','e']).join()==='a,b,c,d,e','the volley order: one enemy thrice, two enemies two and one, three or more once each');
+    const N=400;foes(S,N);const a=S.abilityAction(r,true);ok(a.anim==='cast'&&a.hit===4&&a.tgts.length===N,'Rain of Fire plays the cast row; hit frame 4; every enemy targeted');
+    let hp0=G.enemies.map(e=>e.hp);S.applyAbility(a);const dmg=G.enemies.map((e,i)=>hp0[i]-e.hp);const mean=dmg.reduce((p,q)=>p+q,0)/N;
+    near(mean/per,1,0.03,'with many enemies each takes one hit of atk x 1.1 x AB_BOOST x power x 1.3 (tapped)');ok(dmg.every(d=>d>=per*0.84&&d<=per*1.16),'no enemy of a large pack is hit twice');ok(G.enemies.every(e=>e.status.bleed===bleed),'every enemy bleeds '+bleed+' turns');
+    ok(G.projs.length===0&&G.stats.dmgBy.ability>0&&G.stats.dmgBy.basic===0,'damage at the hit frame, counted as ability damage');
+    const [one]=foes(S,1);r.charge=100;hp0=one.hp;S.applyAbility(S.abilityAction(r,true));const d1=hp0-one.hp;ok(d1>=per*2.5&&d1<=per*3.5,'a lone enemy takes three volleys ('+(d1/per).toFixed(2)+' hits worth)');ok(one.status.bleed===bleed,'and bleeds '+bleed+' turns, not three times that');
+    const [p,q]=foes(S,2);r.charge=100;const hp=[p.hp,q.hp];S.applyAbility(S.abilityAction(r,true));const dp=hp[0]-p.hp,dq=hp[1]-q.hp;ok(dp>=per*1.65&&dp<=per*2.35&&dq>=per*0.84&&dq<=per*1.16,'two enemies: the first takes two volleys, the second one ('+(dp/per).toFixed(2)+' and '+(dq/per).toFixed(2)+')');ok(p.status.bleed===bleed&&q.status.bleed===bleed,'both bleed once');
+    const [x,y]=foes(S,2);x.hp=x.maxhp=1;r.charge=100;const hy=y.hp;S.applyAbility(S.abilityAction(r,true));ok(x.dead&&hy-y.hp>=per*1.65&&hy-y.hp<=per*2.35,'a volley whose enemy already fell goes to the next living enemy ('+((hy-y.hp)/per).toFixed(2)+' hits on the survivor)');
+    ok(/3 volleys of [\d.]+% spread across the enemies, each hit at least once; bleeds them 5 turns/.test(S.abilityDesc(r)),'ability text: '+S.abilityDesc(r));}
 
   // ---- basic shots: hidden projectiles with fixed flight times; the ranger keeps 0.28 s (pierce 0.32 s); enemy arrows unchanged
   {const S=await game(3),G=S.G;const shot=(u,tgt)=>{G.projs=[];G.action={u,kind:'ranged',tgt,anim:'attack',fps:13,hit:4,hitDone:false,pt:0};u.frame=4;u.done=false;S.updateAction(1/60);return G.projs.slice();};
@@ -115,6 +121,7 @@ function land(S,maxT=10){const G=S.G;let t=0;while(G.projs.length&&t<maxT){S.upd
   {const src=require('fs').readFileSync(require('path').join(__dirname,'..','..','source','game.js'),'utf8');const cut=(a,b)=>{const i=src.indexOf(a),j=src.indexOf(b,i+1);return i>=0&&j>i?src.slice(i,j):null;};
     const basic=cut('function fxBasicShot(u,tgt){','function fxSettle(F)'),melee=cut('function fxMeleeHit(u,tgt){','function fxBasicShot('),touch=cut('function fxTouch(t,v){','function fxStep('),abil=cut('function fxAbilityFrame(a){','const AUTO_CAST_POWER');
     ok(!!basic&&!/shake/.test(basic)&&!/fxHit\(/.test(basic)&&(basic.match(/fxTouch\(/g)||[]).length===4,'the four ranged basic attacks go through fxTouch and never mention shake');
+    ok(!!basic&&/fireShoot\([^;]*;F\.fire\.flash=0;/.test(basic),'the fire archer\'s regular shot clears the screen flash the effect raises');ok(!!abil&&/fireRain\(/.test(abil)&&!/F\.fire\.flash=0/.test(abil),'Rain of Fire keeps its screen flash');
     ok(!!melee&&!/G\.shake|shake:/.test(melee)&&/fxTouch\(tgt,v\)/.test(melee),'the knight\'s slash does not shake the screen');
     ok(!!touch&&/fxHit\(t,\{flash:v\.flash,knockback:v\.knockback\}\)/.test(touch),'fxTouch passes the flash and the nudge only');
     ok(!!abil&&/G\.shake=/.test(abil)&&/fxHit\(/.test(abil),'abilities keep their shake');}

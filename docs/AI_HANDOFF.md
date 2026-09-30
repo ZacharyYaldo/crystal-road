@@ -1,39 +1,32 @@
-STATUS: RELEASE_BLOCKER_FIXED_TUNING_BRANCH_AWAITING_OWNER_WORD_FOR_MAIN
-RESPONSE_TYPE: DEFECT_FIX
-PASS_ID: PASS_53E_DEV_ROWS
-BASED_ON_REVIEW_PASS: REVIEWER_VERDICT_2026-09-29 on fe3c8a9 (one release blocker: developer controls visible to normal users; minor: old names in the mock scripts)
-BUILD: 20260929 (tuning branch; main untouched at f8c2a81)
+STATUS: OWNER_CHANGES_ON_TUNING_BRANCH_AFTER_RELEASE
+RESPONSE_TYPE: OWNER_CONTENT_CHANGES
+PASS_ID: PASS_54_RAIN_VOLLEYS
+BASED_ON_REVIEW_PASS: OWNER_REQUESTS_2026-09-30 after the release of 2aadf75 to main
+BUILD: 20260930 (tuning branch; main at 2aadf75, live build 20260929-173949)
 HEAD_COMMIT_SHA: see git log (this handoff is committed with the code)
 PULL_REQUEST: #2
-SUPERSEDES: PASS_53D (its content stands; see git history)
+SUPERSEDES: PASS_53E (released)
 
-# Crystal Road AI Handoff - Pass 53e (developer rows really gated, rendered-row test, mock names)
+# Crystal Road AI Handoff - Pass 54 (Rain of Fire volleys, no screen flash on Ash's regular shot, Send a hero layout)
 
-## The defect and its cause
-The pass 51 handoff said the developer rows of Settings appear only on a ?dev page. That was false. The filter I added then was inserted into the click handler of one row ("reset all promotions") instead of onto the row list, so the sheet kept drawing all sixteen rows for every player, and the test only checked the value of the flag. The reviewer was right on both counts.
+## Rain of Fire (balance change, owner's design)
+- Before: one hit per living enemy, whatever the count.
+- Now: at least three volleys. Every living enemy is hit once; when fewer than three enemies stand, the remaining volleys go round again in order. One enemy takes three volleys, two enemies take two and one, three or more take one each. Damage per volley is unchanged (1.1 x AB_BOOST x power). The bleed is set once per enemy per cast, never extended by the repeat volleys. A volley whose enemy already fell goes to the next living enemy. Damage still lands at the game's hit frame; the effect shows the same volley order.
+- Ability text: "3 volleys of X% spread across the enemies, each hit at least once; bleeds them N turns."
+- Against packs of three or more nothing changes. Against one or two enemies the ability deals up to three times what it did, so this is a buff to the ranger in small fights and needs the next batches before any balance claim. Ash is benched in the default bot party; a --party batch would show it.
 
-## The fix (source/game.js)
-- settingsRows() is the one list the Settings sheet draws. Every row is built lazily and tagged; a developer row is built and returned only when DEV_TOOLS is true (a ?dev page). A player gets five rows: Music, Sound effects, Statistics, Backup or restore your save, Reset the road. The eleven developer rows are: +1T gold, ore and dust; horde arrives now; Layout; Dev timer; music loop seam; reset all promotions; Endless Road back to fight 1; skip to the next milestone boss; +4h auto-cast boost; Dev road speed; Fast quests and castle.
-- The sheet height follows the number of rows.
-- The broken handler is restored.
-- A save cannot carry the testing speed into a normal page: the saved fast flag is honoured only on a ?dev page. Anything a player already took through the public rows (gold, skips) stays in that save; nothing is removed.
+## Ash's regular shot
+No warm screen flash any more (the effect raised it on every arrow). Rain of Fire keeps its flash and its shake, as the owner asked.
 
-## Tests
-tests/contract/audit.test.js, 44 assertions (was 26). The new block renders the real sheet in both page modes and reads what was drawn and what can be tapped:
-- normal page: no developer text among the drawn strings; exactly five rows drawn; exactly five tappable row regions; tapping every one of them except the wipe adds no currency, sets no testing or road speed, gives no boost, summons no horde, resets no promotion and skips no progress;
-- ?dev page: sixteen rows drawn and tappable, eleven of them developer rows, the player rows in their places, and the treasury row works;
-- a save written with the testing speed loads with it off on a normal page and on with ?dev;
-- source: the eleven developer labels exist only inside settingsRows, and the sheet draws settingsRows and nothing else.
-The headless loader takes the page's query string (opts.search) and exposes the hit regions, so a test can render either page.
-Checked in the built page as well: index.html shows five rows, index.html?dev shows sixteen.
+## Send a hero sheet
+With the longer favoured-class lists the "favors" text ran under the Send button. Each quest row is taller and shows three lines: name and duration, the reward, then "Class bonus for <class>" or "Favors A, B, C" wrapped inside the space left of the button.
 
-## Minor
-The mock scripts (source/mock.py, source/mock_vael.py and their copies under assets/) use the new hero names.
-
-## Evidence on the final tree
-- 9 suites pass, 2,675 assertions. Source and bundle parity PASS (game.js and the five effect scripts).
-- Exact equivalence against fe3c8a9: default runs, speeds 1 and 2, 24 pairs; real-player configuration (clericBack, drills, double, boosts, schedule 2:2,2:8,2:8, 6 h, speed 2), 12 pairs. Results are recorded in the commit message of this pass.
+## Tests and evidence
+- heroes.test.js: the Rain of Fire block now covers the volley order, one hit each in a large pack, three volleys on a lone enemy, two and one on a pair, the fallen-enemy redirect, bleed once per enemy, the ability text, and that the regular shot clears the flash while Rain of Fire keeps it.
+- 9 suites pass, 2,684 assertions; parity PASS.
+- Exact equivalence against 2aadf75 (same game.js on both sides): default 24 pairs, real-player configuration 12 pairs, recorded in the commit message.
+- Checked in the page: three regular shots by Ash with the screen flash at 0; Rain of Fire on two enemies made three hitting volleys, bleed 3 on each, flash 0.6 on the ability; the Send a hero sheet lays out cleanly.
 
 ## Open
-- main stays at f8c2a81 until the owner gives the word; the reviewer asks for no balance batch before that push.
-- Criterion 7b and fresh batches remain open items after the push.
+- main stays at 2aadf75 until the owner says otherwise. Criterion 7b and fresh batches (with a --party batch that fields the newcomers and Ash) remain open.
+- Harness nit from the reviewer: two equiv.js gates at once share one temporary directory; sequential runs are valid.
