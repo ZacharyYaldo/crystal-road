@@ -20,7 +20,7 @@ const MODE=String(args.mode||'exact');if(!['exact','stat'].includes(MODE)){conso
 const ROOT=path.join(__dirname,'..','..'),REF=String(args.ref),SEEDS=Number(args.seeds||(MODE==='stat'?5:3)),SEED0=Number(args.seedStart||900),HOURS=Number(args.hours||(MODE==='stat'?6:3)),WORKERS=Number(args.workers||4);
 const PROFILES=String(args.profiles||'idleboost,light,casual,engaged').split(','),SPEEDS=String(args.speeds||'1,2').split(',').map(Number);
 const refCommit=cp.execSync('git rev-parse '+REF,{cwd:ROOT}).toString().trim();
-const tmp=path.join(os.tmpdir(),'crystal-equiv',refCommit.slice(0,10));
+fs.mkdirSync(path.join(os.tmpdir(),'crystal-equiv'),{recursive:true});const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'crystal-equiv',refCommit.slice(0,10)+'-')); /* every invocation gets its own directory, so two gates against the same reference can run at once (reviewer nit, pass 53e) */
 const oldDir=path.join(tmp,'old'),outDir=path.join(tmp,'out');
 fs.rmSync(tmp,{recursive:true,force:true});
 for(const d of ['source','build','tests/sim'])fs.mkdirSync(path.join(oldDir,d),{recursive:true});fs.mkdirSync(outDir,{recursive:true});

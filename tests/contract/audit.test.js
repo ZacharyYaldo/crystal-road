@@ -65,5 +65,68 @@ function toBattle(S){const G=S.G;G.zone=0;G.mode='walk';G.enc=0.01;let n=0;while
   {const S=await game(),G=S.G;G.noSave=true;G.screen='road';G.reforges=2;G.run={start:S.clock.get()-7*3600e3,fights:712,bosses:8,gold:12.7e6,bestFloor:0,endless:0};G.cleared=S.ZONES.map((z,i)=>i<8);for(const h of G.roster)h.lvl=113;
     const check=label=>{S.openSheet('shatter');S.getHits().length=0;S.draw();const hits=S.getHits();const hh=S.shatterSheetH(),frame=hits.find(h=>h.w===254&&h.h===hh),btns=hits.filter(h=>h.w===110&&h.h===22);ok(!!frame&&btns.length===2,label+': the sheet frame and both buttons are drawn');if(frame&&btns.length===2)ok(btns.every(b=>b.y+b.h<=frame.y+frame.h-6&&b.y>frame.y),label+': Begin run and Not yet sit inside the frame (button bottom '+Math.max(...btns.map(b=>b.y+b.h))+', frame bottom '+(frame.y+frame.h)+')');S.closeSheet();};
     G.oath=null;G.tree.b_dust=0;check('no oath, no blessing');G.oath='silence';for(const h of G.roster)S.refreshStats(h);check('an oath');G.tree.b_dust=3;check('an oath and a dust blessing');ok(S.shatterSheetH()>352,'the sheet is taller than the old fixed 352 when the blessing and oath lines are present ('+S.shatterSheetH()+')');G.oath=null;G.tree.b_dust=0;}
+  // ==================================================== pass 54: the reviewer's six defects (2026-09-30), each through production functions
+  const KEY='crystal_road_save_v1',srcP54=require('fs').readFileSync(require('path').join(__dirname,'..','..','source','game.js'),'utf8');
+  const stored=S=>S.win.localStorage.getItem(KEY),countReloads=S=>{const c={n:0};S.win.location.reload=()=>{c.n++;};return c;};
+  // ---- 1. opening Settings never writes to the save
+  {const S=await game(21),G=S.G;G.screen='road';G.noSave=false;S.saveGame();const raw=stored(S);ok(!!raw&&JSON.parse(raw).v===1,'a real save is stored');
+    S.openSheet('settings');const seen=[],orig=S.win.text;S.win.text=function(x,y,str){seen.push(String(str));return orig.apply(this,arguments);};try{for(let k=0;k<5;k++)S.draw();}finally{S.win.text=orig;}
+    ok(stored(S)===raw,'after five frames of the Settings sheet the stored save is byte-identical');ok(seen.includes('Progress saves automatically on this device.'),'the footer still reports that saving works');
+    ok(S.storeOk()===true&&S.win.localStorage.getItem(S.SAVE_PROBE)===null&&S.SAVE_PROBE!==KEY,'the storage test uses its own key and leaves nothing behind');
+    ok(!/storeSet\(\s*'__probe'/.test(srcP54),'no code path saves a probe through storeSet');
+    S.win.localStorage.setItem(KEY,'__probe');ok(S.loadGame()===false,'a save an older build already overwrote with the probe word is treated as no save, not a crash');}
+  // ---- 2. Reset the road needs two separate taps
+  {const S=await game(22),G=S.G;G.screen='road';G.noSave=false;S.saveGame();const raw=stored(S),rl=countReloads(S);S.openSheet('settings');
+    const row=()=>S.settingsRows().find(r=>/Reset the road|delete ALL progress/.test(r[0]));ok(/^Reset the road/.test(row()[0]),'the row reads Reset the road');
+    S.setRT(100);row()[2]();ok(stored(S)===raw&&rl.n===0&&S.resetArmed(),'the first tap deletes nothing and arms the row');ok(row()[0]==='Tap again to delete ALL progress','the armed row says what the next tap does');
+    S.setRT(100.2);row()[2]();ok(stored(S)===raw&&rl.n===0,'a second tap 0.2 s later (a double tap) is ignored');
+    S.setRT(106);ok(!S.resetArmed()&&/^Reset the road/.test(row()[0]),'the row disarms by itself after five seconds');row()[2]();ok(stored(S)===raw&&S.resetArmed(),'a tap after that only arms it again');
+    S.closeSheet();ok(!S.resetArmed(),'closing the sheet disarms');S.openSheet('settings');S.setRT(200);row()[2]();S.setRT(201);row()[2]();ok(stored(S)===null&&rl.n===1&&G.noSave===true,'tap, wait, tap: the save is deleted and the page reloads once');}
+  // ---- 3. a posted hero cannot enter the Catacombs
+  {const S=await game(23),G=S.G;const wall=S.addHero(S.HEROES.find(d=>!G.roster.find(h=>h.id===d.id)),30),camp=S.addHero(S.HEROES.find(d=>!G.roster.find(h=>h.id===d.id)),30);G.delveKeys=3;G.mode='walk';G.screen='road';
+    G.castle.garrison.push(wall.id);wall.postedAt=S.gameNow();ok(S.heroStatus(wall)==='garrison'&&S.heroStatus(camp)==='camp','one hero on the wall, one at camp');
+    S.startDelve(wall);ok(G.delve==null&&G.delveKeys===3&&G.castle.garrison.includes(wall.id),'startDelve refuses the posted hero: no delve, no key spent, still on the wall');ok(/posted on the wall/.test(S.delveBlock(wall)),'and says why: '+S.delveBlock(wall));
+    S.openSheet('delve');const seen=[],orig=S.win.text;S.win.text=function(x,y,str){seen.push(String(str));return orig.apply(this,arguments);};try{S.draw();}finally{S.win.text=orig;}
+    {const rowOf=h=>h.name+' · '+S.CLASSES[h.cls].name+' Lv '+h.lvl;ok(seen.includes(rowOf(camp))&&seen.includes(rowOf(G.active[0]))&&!seen.includes(rowOf(wall)),'the Catacombs sheet lists the camp hero and the marching ones, and not the posted one');}S.closeSheet();
+    ok(S.delveBlock(camp)===''&&S.delveBlock(G.active[0])==='','camp and marching heroes may go');S.startDelve(camp);ok(!!G.delve&&G.delve.hero===camp&&G.delveKeys===2,'the camp hero descends and a key is spent');}
+  // ---- 4. the chosen road speed survives a reload
+  {const trip=async(speed,until)=>{const S=await game(24),G=S.G;G.screen='road';G.noSave=false;G.speed=speed;G.speedUntil=until(S.gameNow());S.saveGame();G.speed=1;ok(S.loadGame()===true,'speed '+speed+': the save loads');return G.speed;};
+    ok(await trip(2,()=>0)===2,'2x is still 2x after a reload');ok(await trip(1,()=>0)===1,'1x stays 1x');
+    ok(await trip(4,n=>n+3600e3)===4,'4x with an hour of boost left is still 4x');ok(await trip(4,n=>n-1)===2,'4x whose boost has run out comes back as 2x, as speedNow would leave it');
+    const S=await game(24);ok(S.savedSpeed({speed:7})===1&&S.savedSpeed({})===1&&S.savedSpeed({speed:'4',speedUntil:9e15})===1,'anything that is not a real speed loads as 1x');ok(/fast:G\.fast,speed:G\.speed\|\|1\}\)/.test(srcP54),'serialize writes the speed');}
+  // ---- 5. duplicate heroes: one copy survives and nothing is lost
+  {const S=await game(25),G=S.G;G.screen='road';G.noSave=false;const mk=(slot,rank,lvl)=>{const it=S.makeItem(0,rank);it.slot=slot;it.rank=rank;it.lvl=lvl;if(slot==='weapon')it.kind=S.CLASSES.cleric.weapon;return it;};
+    const a=G.roster.find(h=>h.id==='sera');ok(!!a,'Sera is on the roster');a.lvl=40;a.abLvl=1;a.tier=0;a.tierMax=0;a.talents={};a.eq={weapon:mk('weapon',0,0),cape:mk('cape',3,20)};
+    const b=S.mkHero(S.HEROES.find(d=>d.id==='sera'));b.lvl=30;b.abLvl=4;b.tier=1;b.tierMax=1;const tk=Object.keys(S.TALENTS.cleric||{})[0]||'t0';b.talents={[tk]:1};b.eq={weapon:mk('weapon',4,30),cape:mk('cape',0,0),charm:mk('charm',2,5)};G.roster.push(b);
+    const ids=h=>Object.values(h.eq).map(it=>it.id),all=new Set(ids(a).concat(ids(b)).concat(G.pack.map(it=>it.id))),best={weapon:b.eq.weapon.id,cape:a.eq.cape.id,charm:b.eq.charm.id},packBefore=G.pack.length;
+    S.saveGame();ok(JSON.parse(stored(S)).roster.filter(r=>r.id==='sera').length===2,'the save carries two Seras');ok(S.loadGame()===true,'it loads');
+    const seras=G.roster.filter(h=>h.id==='sera'),k=seras[0];ok(seras.length===1&&k.lvl===40,'one Sera remains, the Lv 40 one');ok(k.abLvl===4&&k.tier===1&&k.tierMax===1&&k.uid===S.heroUid(k),'she has the higher ability rank and the promotion of the other copy (ability '+k.abLvl+', rank '+k.tier+')');
+    ok(k.talents[tk]===1,'and the other copy\'s talent');ok(k.eq.weapon.id===best.weapon&&k.eq.cape.id===best.cape&&k.eq.charm.id===best.charm,'each slot wears the better of the two items, and an empty slot takes the other copy\'s');
+    const after=new Set(Object.values(k.eq).map(it=>it.id).concat(G.pack.map(it=>it.id)));ok([...all].every(id=>after.has(id))&&G.pack.length===packBefore+2,'the two items she does not wear are in the pack: no item was destroyed');
+    ok(new Set(G.roster.map(h=>h.id)).size===G.roster.length&&new Set(G.active).size===G.active.length&&G.campfireDone===true,'every id is unique, the party holds no duplicate, the campfire is done');
+    const raw2=S.serialize();S.win.localStorage.setItem(KEY,raw2);S.loadGame();ok(G.roster.filter(h=>h.id==='sera').length===1&&G.pack.length===packBefore+2,'loading again changes nothing');}
+  // ---- 6. save codes: shape check, trial load, and a start that cannot get stuck
+  {const S=await game(26),G=S.G;G.screen='road';G.noSave=false;S.saveGame();const good=stored(S),d0=()=>JSON.parse(good);ok(S.saveProblems(d0())==='','a real save has no problems');
+    const bad=(f,why)=>{const d=d0();f(d);ok(S.saveProblems(d)!=='','rejected: '+why+' ('+S.saveProblems(d)+')');};
+    bad(d=>{d.v=2;},'another version');bad(d=>{delete d.prog;},'no road progress');bad(d=>{d.prog='x';},'progress that is not a list');bad(d=>{d.zone=99;},'a zone off the map');bad(d=>{d.zone=1.5;},'a fractional zone');bad(d=>{d.gold='lots';},'gold that is not a number');bad(d=>{d.ore=-5;},'negative ore');bad(d=>{d.gold=null;},'no gold');
+    bad(d=>{d.roster=[];},'an empty roster');bad(d=>{d.roster=[{id:'nobody',lvl:5,xp:0}];},'no known hero');bad(d=>{d.roster[0].lvl='9';},'a hero level that is not a number');bad(d=>{d.roster[0].eq=7;},'hero gear that is not an object');bad(d=>{d.roster.push(null);},'a null hero');
+    bad(d=>{d.pack={};},'a pack that is not a list');bad(d=>{d.pack=[5];},'a pack item that is not an item');bad(d=>{d.castle=[];},'a castle that is not an object');bad(d=>{d.castle={};},'a castle without its parts');bad(d=>{d.quests='x';},'quests that are not a list');bad(d=>{d.tree=3;},'a tree that is not an object');bad(d=>{delete d.t;},'no save time');
+    ok(S.saveProblems(null)!==''&&S.saveProblems([])!==''&&S.saveProblems('x')!=='','not an object at all');{const d=d0();d.roster[0].id='aldric';ok(S.saveProblems(d)==='','a save from before the renames is still valid');}
+    for(const k of ['TextDecoder','TextEncoder','atob','btoa'])if(!S.win[k])S.win[k]=globalThis[k]; /* the headless page has no text codecs of its own */
+    const code=json=>{const bytes=new TextEncoder().encode(json);return'CR1.'+S.b64u(bytes)+'.'+S.hash32(bytes);};
+    ok(await S.readSaveCode(code(good))===good,'a sound code reads back to the save');
+    let err='';try{const d=d0();delete d.prog;await S.readSaveCode(code(JSON.stringify(d)));}catch(e){err=e.message;}ok(/does not hold a valid save: the road progress is malformed/.test(err),'a code with a valid checksum but a malformed save is refused before anything is stored: '+err);
+    err='';try{await S.readSaveCode(code('{not json'));}catch(e){err=e.message;}ok(/does not hold a valid save/.test(err),'so is a code whose payload is not JSON');ok(stored(S)===good,'the stored save is untouched by refused codes');}
+  {const S=await game(27),G=S.G;G.screen='road';G.noSave=false;S.saveGame();const mine=stored(S),rl=countReloads(S);const d=JSON.parse(mine);d.prog=null; /* passes JSON, throws inside loadGame */const why=S.importSave(JSON.stringify(d));
+    ok(why!==''&&rl.n===1,'an import that throws in loadGame is reported ('+why+') and the page reloads');ok(stored(S)===mine,'the player\'s own save is back in storage');ok(S.sideGet(S.SAVE_PREV)===null&&/could not be loaded/.test(S.sideGet(S.SAVE_NOTE)||''),'no stale backup is left, and a note waits for the next start');ok(G.noSave===true,'nothing autosaves the half-loaded state');}
+  {const S=await game(28),G=S.G;G.screen='road';G.noSave=false;G.gold=111;S.saveGame();const mine=stored(S),rl=countReloads(S);const d=JSON.parse(mine);d.gold=987654;const theirs=JSON.stringify(d);
+    ok(S.importSave(theirs)===''&&rl.n===1,'a sound import is accepted and the page reloads');ok(stored(S)===theirs&&S.sideGet(S.SAVE_PREV)===mine&&S.sideGet(S.SAVE_NOTE)===null,'the import is stored and the replaced save is kept aside');}
+  {const S=await game(29),G=S.G;G.screen='road';G.noSave=false;S.saveGame();const mine=stored(S),rl=countReloads(S);ok(S.bootLoad()===true&&rl.n===0,'a sound save starts normally');
+    const d=JSON.parse(mine);d.prog=null;const broken=JSON.stringify(d);S.win.localStorage.setItem(KEY,broken);S.sideSet(S.SAVE_PREV,mine);
+    ok(S.bootLoad()==='reload'&&rl.n===1,'a stored save that throws does not stop the start: the page reloads');ok(stored(S)===mine&&S.sideGet(S.SAVE_BAD)===broken&&S.sideGet(S.SAVE_PREV)===null,'the save from before the restore is back, the broken one is set aside, the backup is used up');
+    ok(/before the last restore is back/.test(S.sideGet(S.SAVE_NOTE)||''),'the note says so');G.toast=null;S.bootNote();ok(S.sideGet(S.SAVE_NOTE)===null&&!!G.toast,'the note is shown once and cleared');}
+  {const S=await game(30),G=S.G;G.screen='road';G.noSave=false;S.saveGame();const d=JSON.parse(stored(S));d.prog=null;const broken=JSON.stringify(d),rl=countReloads(S);S.win.localStorage.setItem(KEY,broken);S.sideSet(S.SAVE_PREV,null);
+    ok(S.bootLoad()==='reload'&&stored(S)===null&&S.sideGet(S.SAVE_BAD)===broken&&rl.n===1,'with no backup the broken save is set aside and the road starts new, once');ok(S.bootLoad()===false&&rl.n===1,'the next start finds no save and does not reload again: no loop');
+    ok(/const resumed=bootLoad\(\);if\(resumed==='reload'\)return;/.test(srcP54)&&/\['Replace',\(\)=>\{saveBoxHide\(\);importSave\(json\);\},true\]/.test(srcP54),'the page start and the Replace button use these paths');}
   if(out.length)console.log(out.join('\n'));console.log((fail?'FAIL  ':'PASS  ')+pass+' passed, '+fail+' failed');process.exit(fail?1:0);
 })().catch(e=>{console.error(e);process.exit(1);});
