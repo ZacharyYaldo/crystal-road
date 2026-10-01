@@ -156,5 +156,15 @@ function run(S,minutes,watch){const G=S.G;G.zone=0;G.mode='walk';const acts={};l
       d=tamper('noroster',j=>{j.roster=[];});ok(/FAIL lineups recorded/.test(bounded(d))&&/REJECT casual_81\.json[^\n]*no roster recorded/.test(gate(d)),'without a roster the lineup cannot be judged and the run is refused');
     }finally{for(const m of made){try{fs.rmSync(m,{recursive:true,force:true});}catch(e){}}}}
 
+  // ---- --focus (pass 54): ore and rank gold go to the fielded party only; without the flag the whole roster is levelled and the record is unchanged
+  {const bot=path.join(__dirname,'..','sim','bot.js');const run=extra=>{const tmp=path.join(os.tmpdir(),'cr_focus_'+process.pid+'_'+Math.random().toString(36).slice(2)+'.json');const r=cp.spawnSync(process.execPath,[bot,'--hours','8','--seed','81','--profile','casual','--speed','2','--quiet','--json',tmp].concat(extra),{encoding:'utf8',maxBuffer:1<<26});let res=null;try{res=JSON.parse(fs.readFileSync(tmp,'utf8'));fs.unlinkSync(tmp);}catch(e){}return{status:r.status,res};};
+    const invested=h=>h.abLvl>1||Object.values(h.gear||{}).some(it=>it&&it.lvl>0);
+    const f=run(['--focus']),d=run([]);ok(f.status===0&&f.res&&d.status===0&&d.res,'both runs finish');
+    if(f.res&&d.res){const fielded=new Set(f.res.partyActual),name2id=n=>String(n).toLowerCase();const benchF=f.res.roster.filter(h=>!fielded.has(name2id(h.name))),partyF=f.res.roster.filter(h=>fielded.has(name2id(h.name)));
+      ok(benchF.length>=1&&partyF.length===4,'the focused run recruited a bench hero ('+benchF.map(h=>h.name).join(', ')+') beside its party of four');
+      ok(benchF.every(h=>!invested(h)),'under --focus no bench hero has a bought ability rank or an upgraded item');ok(partyF.every(h=>h.abLvl>1),'and every party hero has bought ranks');
+      const fieldedD=new Set(d.res.partyActual),benchD=d.res.roster.filter(h=>!fieldedD.has(name2id(h.name)));ok(benchD.some(invested),'without the flag the bench is levelled too (the historical policy): '+benchD.map(h=>h.name+' rank '+h.abLvl).join(', '));
+      ok(f.res.config.focus===true&&f.res.model.focus===true,'the focused run records focus in its config and model');ok(!('focus' in d.res.config)&&!('focus' in d.res.model),'a run without the flag records nothing new, so default results keep their shape');
+      const lv=r=>Math.max(...r.roster.map(h=>h.lvl));ok(f.res.assertFail==null&&d.res.assertFail==null,'no assertion failures in either run');out.push('  info: party level after 8 h: focused '+lv(f.res)+', whole roster '+lv(d.res));}}
   console.log(out.join('\n'));console.log((fail?'FAIL':'PASS')+'  '+pass+' passed, '+fail+' failed');process.exit(fail?1:0);
 })().catch(e=>{console.error(e);process.exit(1);});
