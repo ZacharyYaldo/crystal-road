@@ -169,5 +169,10 @@ function land(S,maxT=10){const G=S.G;let t=0;while(G.projs.length&&t<maxT){S.upd
     const raw=S.serialize();ok(JSON.parse(raw).roster.filter(r=>r.id==='sera').length===2,'the save carries both');S.storeSet(raw);ok(S.loadGame(),'it loads');
     const seras=G.roster.filter(h=>h.id==='sera');ok(seras.length===1&&seras[0].lvl===40&&G.campfireDone===true,'after the load one Sera remains, the Lv 40 one, and the campfire is marked done');ok(new Set(G.active.map(h=>h.id)).size===G.active.length,'the party holds no duplicate');
     ok(new Set(G.roster.map(h=>h.id)).size===G.roster.length,'every id is unique');}
+  // ---- Shatter: ranks go back to 0 with the sprite to match, and a rank reached before costs no dust the second time
+  {const S=await game(15),G=S.G;const kn=G.roster.find(h=>h.cls==='knight');kn.lvl=60;kn.tier=2;kn.tierMax=2;kn.uid=S.heroUid(kn);ok(kn.uid==='crusader','a rank 2 knight wears the crusader sheet');
+    G.cleared[3]=true;S.doReforge();ok(kn.tier===0&&kn.uid==='knight'&&kn.tierMax===2,'after the Shatter the rank is 0, the sheet is the knight again, and the best rank is remembered');
+    const q=S.promoteReq(kn);ok(q.dust===0&&q.gold===5000&&q.lvl===30,'the first promotion costs gold only on the way back up: '+q.gold+' gold, '+q.dust+' dust');
+    kn.tier=2;ok(S.promoteReq(kn).dust===15,'a rank never reached before still costs dust');}
   console.log(out.join('\n'));console.log((fail?'FAIL':'PASS')+'  '+pass+' passed, '+fail+' failed');process.exit(fail?1:0);
 })().catch(e=>{console.error(e);process.exit(1);});
