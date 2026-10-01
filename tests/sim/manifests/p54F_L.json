@@ -1,0 +1,67 @@
+{
+ "tag": "p54F_L",
+ "createdAt": "2026-10-01T04:29:55.389Z",
+ "commit": "6683881e3813a793edddab080ae40732940db0d4",
+ "gameHash": "b8518ce613556c45",
+ "harnessHash": "3510bc76ff36e547:56e6c4d79e7701a4:731b00a2ee7c850c:09d3007da6876545",
+ "provenanceSets": {
+  "6683881e3813a793edddab080ae40732940db0d4|b8518ce613556c45|3510bc76ff36e547:56e6c4d79e7701a4:731b00a2ee7c850c:09d3007da6876545": 20
+ },
+ "config": {
+  "seedStart": 81,
+  "seeds": 5,
+  "hours": 96,
+  "profiles": [
+   "idleboost",
+   "light",
+   "casual",
+   "engaged"
+  ],
+  "shatters": 10,
+  "dt": 0.016666666666666666,
+  "speed": 2,
+  "frameCap": 0.05,
+  "schedule": "2:2,2:8,2:8",
+  "model": {
+   "drills": true,
+   "double": true,
+   "boosts": true,
+   "clericBack": true,
+   "focus": true,
+   "party": [
+    "hale",
+    "bram",
+    "morrow",
+    "sera"
+   ]
+  }
+ },
+ "partySets": {
+  "[\"hale\",\"bram\",\"morrow\",\"sera\"]": 20
+ },
+ "partyActualSets": {
+  "[\"hale\",\"bram\",\"morrow\",\"sera\"]": 20
+ },
+ "files": {
+  "idleboost_81.json": "cad8538786e71f569dd8f702f8cc7ddc95d3ff2a43d07c4450fbfd4103ff97bd",
+  "idleboost_82.json": "f34251364502b10b3a7e9c0574a127f4aff66663475d340cdc65fe4326a47a7a",
+  "idleboost_83.json": "6ce1181aaf6aeabdf27f88bcfa6a9c90e12fd73c381cd8382f3cef8ebb23fbd4",
+  "idleboost_84.json": "28d33ca752a3cb1ed5c2feb97d40be597e54d7f0a8bb8810fbed57c55f191fc1",
+  "idleboost_85.json": "b8941a0d89e33d7549d6a27b059836fee8bf320e344d96bbdf06bee5d941a2c5",
+  "light_81.json": "5446eee28b675f2fe81242a5df783c0fba2fbcfbb9173d835eed096b938fe435",
+  "light_82.json": "4021f8c8a8f88c1d5708d69ec899eaa828be5469ce5ba836e79c31e075986dac",
+  "light_83.json": "228ea170b522f9f385048581b07ba046f6e38333e14e849b0dd4d329f4656faf",
+  "light_84.json": "4a18f4810f64966b4ce5d9112acb2c71bcc0be12cabd59bd27a72c8ebc2a452f",
+  "light_85.json": "758782787ceece50e30712d256413109c8455b6429815c187bce6775bbf139fd",
+  "casual_81.json": "56b549e2b6820fdc20b23a9697a1227705345481174350b0d585c62bbea26c18",
+  "casual_82.json": "28d975f56a6ee3d3e00dee40f9a74490776f885745dc7c0335664c543757212f",
+  "casual_83.json": "a3fda12c325618608ab11e26a599f25d1609776a6ad21c9506e28e873ca47c96",
+  "casual_84.json": "01a022965fbaa7e05ee470df48c2b8bf60255ae1b7d91b69497de33442514f6f",
+  "casual_85.json": "e8829fcf4e9d9a7b22272dbfbc649554ec9cc61a76066730c9c2cd9fe486f00d",
+  "engaged_81.json": "89db1e07d58053c1b45a5e75c7830a9519242587f18ed1442c724737f339c390",
+  "engaged_82.json": "0f669b2f713357cedcd88cf80358121ec0a13a78cd9f8536a40f1e14dde3cd21",
+  "engaged_83.json": "ce6438eab7df09f7c7a5417308b8b5429518c01c69ff599ebf2b249a016ab8c4",
+  "engaged_84.json": "0b162d48d1106e49a77dfe8a477f30b38cdc7e270b904ad035e742dac66300f1",
+  "engaged_85.json": "6f7cb2a48e0d14bf1061621330aa67531f1f1228a1b2b3602e99d9bf67c0d395"
+ }
+}

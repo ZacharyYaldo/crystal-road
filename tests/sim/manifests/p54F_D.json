@@ -1,0 +1,67 @@
+{
+ "tag": "p54F_D",
+ "createdAt": "2026-10-01T03:12:25.891Z",
+ "commit": "6683881e3813a793edddab080ae40732940db0d4",
+ "gameHash": "b8518ce613556c45",
+ "harnessHash": "3510bc76ff36e547:56e6c4d79e7701a4:731b00a2ee7c850c:09d3007da6876545",
+ "provenanceSets": {
+  "6683881e3813a793edddab080ae40732940db0d4|b8518ce613556c45|3510bc76ff36e547:56e6c4d79e7701a4:731b00a2ee7c850c:09d3007da6876545": 20
+ },
+ "config": {
+  "seedStart": 81,
+  "seeds": 5,
+  "hours": 96,
+  "profiles": [
+   "idleboost",
+   "light",
+   "casual",
+   "engaged"
+  ],
+  "shatters": 10,
+  "dt": 0.016666666666666666,
+  "speed": 2,
+  "frameCap": 0.05,
+  "schedule": "2:2,2:8,2:8",
+  "model": {
+   "drills": true,
+   "double": true,
+   "boosts": true,
+   "clericBack": true,
+   "focus": true,
+   "party": [
+    "hale",
+    "kit",
+    "ash",
+    "sera"
+   ]
+  }
+ },
+ "partySets": {
+  "[\"hale\",\"kit\",\"ash\",\"sera\"]": 20
+ },
+ "partyActualSets": {
+  "[\"hale\",\"kit\",\"ash\",\"sera\"]": 20
+ },
+ "files": {
+  "idleboost_81.json": "8fea0d42eba506ac893c97ac9166e8043b5a2ebef75a75a61ed1777cb87c254e",
+  "idleboost_82.json": "b4d2dd474aef00b440a9b634ef7528049505ca13437e459a94a5c71a9591431c",
+  "idleboost_83.json": "ca0d9ecc41b1b6fd1999e589efed9820b20fe5c68f018a2a53e34296e44da1a1",
+  "idleboost_84.json": "285a9861b90daa2ac8fd64eef2b6abf02503af2f0af643b2b0e58d65b33d3b48",
+  "idleboost_85.json": "84b7042f0e46b1a39e114acbd14eda483536e50c4c1d10fb0def5caa7a22618e",
+  "light_81.json": "cfcbb22d03be48449d0621246fdd8a65d2b7ead5b47ccacdd3a87836c22ed91e",
+  "light_82.json": "713c8337246cbd01e145cc2be5f2502a8ae79a35b07a424d5e019237b76bedb6",
+  "light_83.json": "deea793f31352449f3e3002c7b85f2a8691f5e740f497b2bfaa0435038c8192e",
+  "light_84.json": "79098031d8b1bf181809760fa6d602096948b88e0da960f2bcef00e0e2904740",
+  "light_85.json": "935cc09433cea816940fa1565893eea893061e26daf39b8e318dc08d35fdb0fe",
+  "casual_81.json": "bab35fd0d2f6d6314a0b95b043d37bcce73dc97319cb2b3f7315906d82b1760d",
+  "casual_82.json": "d944097c38704d5c81f9f2a02b1602091df7c9c4f8cb7c492757a08345bedc71",
+  "casual_83.json": "d1b94ed5572d6d11f8dfc61b11a304ed8bea06fef28b76c71e9d588dae8baf0a",
+  "casual_84.json": "e9f0c00204831edb031de2796d3804838a18b4b88388e6a52046dfb32d840c81",
+  "casual_85.json": "6596dc162227219ec42e66c755c11c57388a01bc183e3f7fe40ad9309c7de7ba",
+  "engaged_81.json": "821f9674d299f79f9edd61d119cd8e6bd717b4a2316ff4fe2ab66dab450f1e18",
+  "engaged_82.json": "f2b1cbd06c414fabe6ebe80527d0129a1cd167c895165b3212a2e57010fb6072",
+  "engaged_83.json": "b126c176ac3ea353dcd61623565c770605429852c3edb6cad26a31ad8ebb9f72",
+  "engaged_84.json": "d559f510c0d50f42163d014e14c86e6e2ce35f245dafe0cccba02480d7c8b351",
+  "engaged_85.json": "460eb829f619aec73f5d7c0fd1e09ea71ba15130bbf2afb0a693fc3b1b2a936d"
+ }
+}

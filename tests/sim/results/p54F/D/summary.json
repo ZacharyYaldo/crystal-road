@@ -1,0 +1,6593 @@
+{
+ "config": {
+  "SEEDS": 5,
+  "HOURS": 96,
+  "PROFILES": [
+   "idleboost",
+   "light",
+   "casual",
+   "engaged"
+  ],
+  "SHATTERS": 10
+ },
+ "rows": [
+  {
+   "metric": "clear Greenhollow Fields (h)",
+   "idleboost": [
+    0.05,
+    0.05,
+    0.06
+   ],
+   "light": [
+    0.04,
+    0.05,
+    0.05
+   ],
+   "casual": [
+    0.04,
+    0.05,
+    0.05
+   ],
+   "engaged": [
+    0.04,
+    0.05,
+    0.05
+   ]
+  },
+  {
+   "metric": "clear Stillwater Lagoon (h)",
+   "idleboost": [
+    0.62,
+    0.67,
+    0.99
+   ],
+   "light": [
+    0.57,
+    0.67,
+    0.73
+   ],
+   "casual": [
+    0.41,
+    0.49,
+    0.81
+   ],
+   "engaged": [
+    0.47,
+    0.53,
+    0.68
+   ]
+  },
+  {
+   "metric": "clear Thornwood (h)",
+   "idleboost": [
+    4.02,
+    4.03,
+    4.04
+   ],
+   "light": [
+    4.03,
+    4.05,
+    4.06
+   ],
+   "casual": [
+    2.74,
+    4.05,
+    4.05
+   ],
+   "engaged": [
+    1.52,
+    1.98,
+    4.06
+   ]
+  },
+  {
+   "metric": "clear Ironvein Caverns (h)",
+   "idleboost": [
+    4.61,
+    5.12,
+    5.31
+   ],
+   "light": [
+    4.42,
+    4.86,
+    5.03
+   ],
+   "casual": [
+    4.12,
+    4.19,
+    5.03
+   ],
+   "engaged": [
+    4.08,
+    4.11,
+    4.93
+   ]
+  },
+  {
+   "metric": "clear Emberwaste (h)",
+   "idleboost": [
+    14.23,
+    14.28,
+    14.42
+   ],
+   "light": [
+    14.23,
+    14.25,
+    14.28
+   ],
+   "casual": [
+    9.07,
+    14.21,
+    14.28
+   ],
+   "engaged": [
+    5.65,
+    14.2,
+    14.22
+   ]
+  },
+  {
+   "metric": "clear Amberfall Woods (h)",
+   "idleboost": [
+    14.47,
+    15.12,
+    15.46
+   ],
+   "light": [
+    14.37,
+    14.84,
+    14.98
+   ],
+   "casual": [
+    14.37,
+    14.47,
+    15.03
+   ],
+   "engaged": [
+    14.33,
+    14.45,
+    14.81
+   ]
+  },
+  {
+   "metric": "clear Ashen Approach (h)",
+   "idleboost": [
+    15.12,
+    24.28,
+    24.29
+   ],
+   "light": [
+    15.27,
+    15.56,
+    20.9
+   ],
+   "casual": [
+    14.98,
+    15.27,
+    20.83
+   ],
+   "engaged": [
+    14.76,
+    15.07,
+    20.73
+   ]
+  },
+  {
+   "metric": "clear Ashen Keep (h)",
+   "idleboost": [
+    24.32,
+    24.38,
+    24.72
+   ],
+   "light": [
+    24.34,
+    24.36,
+    24.41
+   ],
+   "casual": [
+    24.32,
+    24.33,
+    24.36
+   ],
+   "engaged": [
+    24.3,
+    24.31,
+    24.36
+   ]
+  },
+  {
+   "metric": "clear The Foundry (h)",
+   "idleboost": [
+    24.6,
+    25.48,
+    27.11
+   ],
+   "light": [
+    24.5,
+    25.01,
+    25.5
+   ],
+   "casual": [
+    24.72,
+    24.97,
+    25.04
+   ],
+   "engaged": [
+    24.58,
+    24.87,
+    24.98
+   ]
+  },
+  {
+   "metric": "zones cleared @end",
+   "idleboost": [
+    9,
+    9,
+    9
+   ],
+   "light": [
+    9,
+    9,
+    9
+   ],
+   "casual": [
+    9,
+    9,
+    9
+   ],
+   "engaged": [
+    9,
+    9,
+    9
+   ]
+  },
+  {
+   "metric": "party Lv @end",
+   "idleboost": [
+    248.6,
+    259,
+    285.6
+   ],
+   "light": [
+    258,
+    264,
+    286.2
+   ],
+   "casual": [
+    257.8,
+    263,
+    282.2
+   ],
+   "engaged": [
+    258.6,
+    277,
+    285.4
+   ]
+  },
+  {
+   "metric": "first rare (h)",
+   "idleboost": [
+    0.2,
+    0.24,
+    0.44
+   ],
+   "light": [
+    0.12,
+    0.52,
+    1.14
+   ],
+   "casual": [
+    0.07,
+    0.08,
+    0.48
+   ],
+   "engaged": [
+    0.21,
+    0.26,
+    0.72
+   ]
+  },
+  {
+   "metric": "first epic (h)",
+   "idleboost": [
+    4.49,
+    4.72,
+    5.23
+   ],
+   "light": [
+    4.07,
+    4.55,
+    4.79
+   ],
+   "casual": [
+    4.32,
+    4.91,
+    5.51
+   ],
+   "engaged": [
+    1.57,
+    2,
+    4.14
+   ]
+  },
+  {
+   "metric": "first legendary (h)",
+   "idleboost": [
+    14.36,
+    14.52,
+    14.56
+   ],
+   "light": [
+    14.3,
+    14.5,
+    14.57
+   ],
+   "casual": [
+    9.12,
+    14.67,
+    14.79
+   ],
+   "engaged": [
+    14.24,
+    14.29,
+    14.51
+   ]
+  },
+  {
+   "metric": "first talent (h)",
+   "idleboost": [
+    0.23,
+    0.27,
+    0.33
+   ],
+   "light": [
+    0.22,
+    0.24,
+    0.26
+   ],
+   "casual": [
+    0.16,
+    0.18,
+    0.19
+   ],
+   "engaged": [
+    0.16,
+    0.18,
+    0.23
+   ]
+  },
+  {
+   "metric": "first T1 (h)",
+   "idleboost": [
+    14.5,
+    14.78,
+    15.46
+   ],
+   "light": [
+    14.52,
+    14.58,
+    14.97
+   ],
+   "casual": [
+    14.43,
+    14.55,
+    14.96
+   ],
+   "engaged": [
+    9.27,
+    14.49,
+    14.92
+   ]
+  },
+  {
+   "metric": "first T2 (h)",
+   "idleboost": [
+    28.8,
+    38.15,
+    38.98
+   ],
+   "light": [
+    28.11,
+    29.27,
+    34.72
+   ],
+   "casual": [
+    28.27,
+    29.16,
+    34.75
+   ],
+   "engaged": [
+    28.05,
+    29.1,
+    29.44
+   ]
+  },
+  {
+   "metric": "shatter 1 (h)",
+   "idleboost": [
+    4.61,
+    5.12,
+    5.31
+   ],
+   "light": [
+    4.42,
+    4.86,
+    5.03
+   ],
+   "casual": [
+    4.12,
+    4.19,
+    5.04
+   ],
+   "engaged": [
+    4.08,
+    4.11,
+    4.93
+   ]
+  },
+  {
+   "metric": "shatter 2 (h)",
+   "idleboost": [
+    14,
+    14,
+    14
+   ],
+   "light": [
+    14,
+    14,
+    14
+   ],
+   "casual": [
+    14,
+    14,
+    14
+   ],
+   "engaged": [
+    14,
+    14,
+    14
+   ]
+  },
+  {
+   "metric": "shatter 3 (h)",
+   "idleboost": [
+    24,
+    24,
+    24
+   ],
+   "light": [
+    24,
+    24,
+    24
+   ],
+   "casual": [
+    24,
+    24,
+    24
+   ],
+   "engaged": [
+    24,
+    24,
+    24
+   ]
+  },
+  {
+   "metric": "boss fail% Greenhollow Fields",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss fail% Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    11
+   ],
+   "light": [
+    0,
+    0,
+    16.4
+   ],
+   "casual": [
+    0,
+    0,
+    11
+   ],
+   "engaged": [
+    0,
+    0,
+    11
+   ]
+  },
+  {
+   "metric": "boss fail% Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    12
+   ],
+   "casual": [
+    0,
+    20,
+    27.8
+   ],
+   "engaged": [
+    0,
+    11,
+    11
+   ]
+  },
+  {
+   "metric": "boss fail% Ironvein Caverns",
+   "idleboost": [
+    14.6,
+    20,
+    24.2
+   ],
+   "light": [
+    4.4,
+    11,
+    16.4
+   ],
+   "casual": [
+    0,
+    11,
+    20.6
+   ],
+   "engaged": [
+    0,
+    0,
+    20.6
+   ]
+  },
+  {
+   "metric": "boss fail% Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    15
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    21.6
+   ]
+  },
+  {
+   "metric": "boss fail% Amberfall Woods",
+   "idleboost": [
+    0,
+    0,
+    25
+   ],
+   "light": [
+    0,
+    0,
+    8.4
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss fail% Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    8.4
+   ],
+   "light": [
+    0,
+    14,
+    25
+   ],
+   "casual": [
+    0,
+    14,
+    26.6
+   ],
+   "engaged": [
+    0,
+    14,
+    25.4
+   ]
+  },
+  {
+   "metric": "boss fail% Ashen Keep",
+   "idleboost": [
+    0,
+    0,
+    33.2
+   ],
+   "light": [
+    0,
+    0,
+    10.2
+   ],
+   "casual": [
+    0,
+    0,
+    17.4
+   ],
+   "engaged": [
+    0,
+    0,
+    30
+   ]
+  },
+  {
+   "metric": "boss fail% The Foundry",
+   "idleboost": [
+    0,
+    0,
+    38
+   ],
+   "light": [
+    6.8,
+    29,
+    47.6
+   ],
+   "casual": [
+    6.8,
+    29,
+    41.6
+   ],
+   "engaged": [
+    0,
+    0,
+    38
+   ]
+  },
+  {
+   "metric": "boss max streak Greenhollow Fields",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss max streak Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    1
+   ],
+   "light": [
+    0,
+    0,
+    1.6
+   ],
+   "casual": [
+    0,
+    0,
+    1
+   ],
+   "engaged": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "metric": "boss max streak Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    1.2
+   ],
+   "casual": [
+    0,
+    2,
+    3.2
+   ],
+   "engaged": [
+    0,
+    1,
+    1
+   ]
+  },
+  {
+   "metric": "boss max streak Ironvein Caverns",
+   "idleboost": [
+    1.4,
+    2,
+    2
+   ],
+   "light": [
+    0.4,
+    1,
+    1.6
+   ],
+   "casual": [
+    0,
+    1,
+    2.2
+   ],
+   "engaged": [
+    0,
+    0,
+    2.2
+   ]
+  },
+  {
+   "metric": "boss max streak Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    1.2
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    2.4
+   ]
+  },
+  {
+   "metric": "boss max streak Amberfall Woods",
+   "idleboost": [
+    0,
+    0,
+    2
+   ],
+   "light": [
+    0,
+    0,
+    0.6
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss max streak Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    0.6
+   ],
+   "light": [
+    0,
+    1,
+    2
+   ],
+   "casual": [
+    0,
+    1,
+    2.2
+   ],
+   "engaged": [
+    0,
+    1,
+    2.2
+   ]
+  },
+  {
+   "metric": "boss max streak Ashen Keep",
+   "idleboost": [
+    0,
+    0,
+    2.8
+   ],
+   "light": [
+    0,
+    0,
+    0.6
+   ],
+   "casual": [
+    0,
+    0,
+    1.2
+   ],
+   "engaged": [
+    0,
+    0,
+    3
+   ]
+  },
+  {
+   "metric": "boss max streak The Foundry",
+   "idleboost": [
+    0,
+    0,
+    3
+   ],
+   "light": [
+    0.4,
+    2,
+    4.6
+   ],
+   "casual": [
+    0.4,
+    2,
+    3.6
+   ],
+   "engaged": [
+    0,
+    0,
+    3.2
+   ]
+  },
+  {
+   "metric": "boss stall h Greenhollow Fields",
+   "idleboost": [
+    0,
+    0.01,
+    0.01
+   ],
+   "light": [
+    0,
+    0,
+    0.01
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0.01
+   ]
+  },
+  {
+   "metric": "boss stall h Stillwater Lagoon",
+   "idleboost": [
+    0.01,
+    0.01,
+    0.06
+   ],
+   "light": [
+    0.01,
+    0.01,
+    0.26
+   ],
+   "casual": [
+    0.01,
+    0.01,
+    0.1
+   ],
+   "engaged": [
+    0.01,
+    0.01,
+    0.11
+   ]
+  },
+  {
+   "metric": "boss stall h Thornwood",
+   "idleboost": [
+    0.01,
+    0.01,
+    0.01
+   ],
+   "light": [
+    0,
+    0,
+    1.37
+   ],
+   "casual": [
+    0,
+    0.4,
+    2.66
+   ],
+   "engaged": [
+    0,
+    0.08,
+    1.79
+   ]
+  },
+  {
+   "metric": "boss stall h Ironvein Caverns",
+   "idleboost": [
+    0.17,
+    0.22,
+    0.44
+   ],
+   "light": [
+    0.03,
+    0.14,
+    0.32
+   ],
+   "casual": [
+    0,
+    0.05,
+    0.52
+   ],
+   "engaged": [
+    0,
+    0.01,
+    0.43
+   ]
+  },
+  {
+   "metric": "boss stall h Emberwaste",
+   "idleboost": [
+    0.01,
+    0.01,
+    0.01
+   ],
+   "light": [
+    0.01,
+    0.01,
+    5.21
+   ],
+   "casual": [
+    0,
+    0.01,
+    0.01
+   ],
+   "engaged": [
+    0,
+    0,
+    0.22
+   ]
+  },
+  {
+   "metric": "boss stall h Amberfall Woods",
+   "idleboost": [
+    0.01,
+    0.01,
+    0.31
+   ],
+   "light": [
+    0.01,
+    0.01,
+    0.09
+   ],
+   "casual": [
+    0.01,
+    0.01,
+    0.01
+   ],
+   "engaged": [
+    0.01,
+    0.01,
+    0.01
+   ]
+  },
+  {
+   "metric": "boss stall h Ashen Approach",
+   "idleboost": [
+    0,
+    0.01,
+    0.05
+   ],
+   "light": [
+    0.1,
+    0.29,
+    5.17
+   ],
+   "casual": [
+    0.01,
+    0.14,
+    5.2
+   ],
+   "engaged": [
+    0,
+    0.05,
+    0.29
+   ]
+  },
+  {
+   "metric": "boss stall h Ashen Keep",
+   "idleboost": [
+    0.01,
+    0.01,
+    5.25
+   ],
+   "light": [
+    0.01,
+    0.01,
+    0.03
+   ],
+   "casual": [
+    0.01,
+    0.01,
+    5.06
+   ],
+   "engaged": [
+    0.01,
+    0.01,
+    5.47
+   ]
+  },
+  {
+   "metric": "boss stall h The Foundry",
+   "idleboost": [
+    0.01,
+    0.01,
+    0.22
+   ],
+   "light": [
+    0.03,
+    0.25,
+    0.51
+   ],
+   "casual": [
+    0.02,
+    0.14,
+    0.35
+   ],
+   "engaged": [
+    0,
+    0.01,
+    0.33
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Greenhollow Fields",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0.01
+   ],
+   "casual": [
+    0,
+    0,
+    0.01
+   ],
+   "engaged": [
+    0,
+    0,
+    0.01
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0.01
+   ],
+   "casual": [
+    0,
+    0.01,
+    1.22
+   ],
+   "engaged": [
+    0,
+    0,
+    0.01
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Ironvein Caverns",
+   "idleboost": [
+    0,
+    0.02,
+    0.02
+   ],
+   "light": [
+    0,
+    0.01,
+    0.02
+   ],
+   "casual": [
+    0,
+    0,
+    0.02
+   ],
+   "engaged": [
+    0,
+    0,
+    0.02
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0.01
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0.02
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Amberfall Woods",
+   "idleboost": [
+    0,
+    0,
+    0.01
+   ],
+   "light": [
+    0,
+    0,
+    0.01
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0.01,
+    0.01
+   ],
+   "casual": [
+    0,
+    0.01,
+    0.01
+   ],
+   "engaged": [
+    0,
+    0,
+    0.01
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h Ashen Keep",
+   "idleboost": [
+    0,
+    0,
+    0.01
+   ],
+   "light": [
+    0,
+    0,
+    0.01
+   ],
+   "casual": [
+    0,
+    0,
+    0.01
+   ],
+   "engaged": [
+    0,
+    0,
+    0.01
+   ]
+  },
+  {
+   "metric": "boss COMBAT stall h The Foundry",
+   "idleboost": [
+    0,
+    0,
+    0.02
+   ],
+   "light": [
+    0,
+    0.01,
+    0.02
+   ],
+   "casual": [
+    0,
+    0.01,
+    0.02
+   ],
+   "engaged": [
+    0,
+    0,
+    0.02
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Greenhollow Fields",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    0.05
+   ],
+   "light": [
+    0,
+    0,
+    0.25
+   ],
+   "casual": [
+    0,
+    0,
+    0.09
+   ],
+   "engaged": [
+    0,
+    0,
+    0.09
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    1.36
+   ],
+   "casual": [
+    0,
+    0.28,
+    1.88
+   ],
+   "engaged": [
+    0,
+    0.07,
+    1.79
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Ironvein Caverns",
+   "idleboost": [
+    0.14,
+    0.2,
+    0.41
+   ],
+   "light": [
+    0.02,
+    0.12,
+    0.31
+   ],
+   "casual": [
+    0,
+    0.04,
+    0.49
+   ],
+   "engaged": [
+    0,
+    0,
+    0.41
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    5.2
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0.2
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Amberfall Woods",
+   "idleboost": [
+    0,
+    0,
+    0.3
+   ],
+   "light": [
+    0,
+    0,
+    0.08
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    0.04
+   ],
+   "light": [
+    0,
+    0.22,
+    0.4
+   ],
+   "casual": [
+    0,
+    0.12,
+    5.18
+   ],
+   "engaged": [
+    0,
+    0.05,
+    0.27
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h Ashen Keep",
+   "idleboost": [
+    0,
+    0,
+    5.23
+   ],
+   "light": [
+    0,
+    0,
+    0.02
+   ],
+   "casual": [
+    0,
+    0,
+    5.05
+   ],
+   "engaged": [
+    0,
+    0,
+    5.45
+   ]
+  },
+  {
+   "metric": "boss RETRY stall h The Foundry",
+   "idleboost": [
+    0,
+    0,
+    0.19
+   ],
+   "light": [
+    0.02,
+    0.23,
+    0.49
+   ],
+   "casual": [
+    0.01,
+    0.13,
+    0.33
+   ],
+   "engaged": [
+    0,
+    0,
+    0.31
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers total",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN returns",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN keep-pushing uses",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Greenhollow Fields",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Ironvein Caverns",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Amberfall Woods",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for Ashen Keep",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN triggers for The Foundry",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Greenhollow Fields",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Stillwater Lagoon",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Thornwood",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Ironvein Caverns",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Emberwaste",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Amberfall Woods",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Ashen Approach",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes Ashen Keep",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med minutes The Foundry",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Greenhollow Fields",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Stillwater Lagoon",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Thornwood",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Ironvein Caverns",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Emberwaste",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Amberfall Woods",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Ashen Approach",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights Ashen Keep",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med fights The Foundry",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Greenhollow Fields",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Stillwater Lagoon",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Thornwood",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Ironvein Caverns",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Emberwaste",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Amberfall Woods",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Ashen Approach",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned Ashen Keep",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN med levels earned The Foundry",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Greenhollow Fields",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Stillwater Lagoon",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Thornwood",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Ironvein Caverns",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Emberwaste",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Amberfall Woods",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Ashen Approach",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before Ashen Keep",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv before The Foundry",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Greenhollow Fields",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Stillwater Lagoon",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Thornwood",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Ironvein Caverns",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Emberwaste",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Amberfall Woods",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Ashen Approach",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after Ashen Keep",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN Lv after The Foundry",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Greenhollow Fields",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Stillwater Lagoon",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Thornwood",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Ironvein Caverns",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Emberwaste",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Amberfall Woods",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Ashen Approach",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before Ashen Keep",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% before The Foundry",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Greenhollow Fields",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Stillwater Lagoon",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Thornwood",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Ironvein Caverns",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Emberwaste",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Amberfall Woods",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Ashen Approach",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after Ashen Keep",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AUTO-TRAIN win% after The Foundry",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Greenhollow Fields",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    0.05
+   ],
+   "light": [
+    0,
+    0,
+    0.25
+   ],
+   "casual": [
+    0,
+    0,
+    0.09
+   ],
+   "engaged": [
+    0,
+    0,
+    0.09
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    1.36
+   ],
+   "casual": [
+    0,
+    0.28,
+    1.88
+   ],
+   "engaged": [
+    0,
+    0.07,
+    1.79
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Ironvein Caverns",
+   "idleboost": [
+    0.14,
+    0.2,
+    0.41
+   ],
+   "light": [
+    0.02,
+    0.12,
+    0.31
+   ],
+   "casual": [
+    0,
+    0.04,
+    0.49
+   ],
+   "engaged": [
+    0,
+    0,
+    0.41
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    5.2
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0.2
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Amberfall Woods",
+   "idleboost": [
+    0,
+    0,
+    0.3
+   ],
+   "light": [
+    0,
+    0,
+    0.08
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    0.04
+   ],
+   "light": [
+    0,
+    0.22,
+    0.4
+   ],
+   "casual": [
+    0,
+    0.12,
+    5.18
+   ],
+   "engaged": [
+    0,
+    0.05,
+    0.27
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h Ashen Keep",
+   "idleboost": [
+    0,
+    0,
+    5.23
+   ],
+   "light": [
+    0,
+    0,
+    0.02
+   ],
+   "casual": [
+    0,
+    0,
+    5.05
+   ],
+   "engaged": [
+    0,
+    0,
+    5.45
+   ]
+  },
+  {
+   "metric": "boss IN-ZONE retry h The Foundry",
+   "idleboost": [
+    0,
+    0,
+    0.19
+   ],
+   "light": [
+    0.02,
+    0.23,
+    0.49
+   ],
+   "casual": [
+    0.01,
+    0.13,
+    0.33
+   ],
+   "engaged": [
+    0,
+    0,
+    0.31
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon party HP%",
+   "idleboost": [
+    62.8,
+    88,
+    100
+   ],
+   "light": [
+    56.6,
+    87,
+    90.2
+   ],
+   "casual": [
+    32,
+    87,
+    99.2
+   ],
+   "engaged": [
+    44,
+    76,
+    93.2
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon min hero HP%",
+   "idleboost": [
+    14,
+    70,
+    100
+   ],
+   "light": [
+    19.2,
+    67,
+    74.8
+   ],
+   "casual": [
+    8.4,
+    70,
+    97.6
+   ],
+   "engaged": [
+    16.8,
+    59,
+    84.2
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon avg charge",
+   "idleboost": [
+    26.2,
+    43,
+    67.2
+   ],
+   "light": [
+    52.2,
+    58,
+    63.8
+   ],
+   "casual": [
+    41.8,
+    54,
+    76.8
+   ],
+   "engaged": [
+    43.4,
+    57,
+    79
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon surge",
+   "idleboost": [
+    100,
+    100,
+    100
+   ],
+   "light": [
+    100,
+    100,
+    100
+   ],
+   "casual": [
+    100,
+    100,
+    100
+   ],
+   "engaged": [
+    100,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon Lv",
+   "idleboost": [
+    14.94,
+    15.7,
+    15.7
+   ],
+   "light": [
+    13.4,
+    14,
+    15.6
+   ],
+   "casual": [
+    13.7,
+    15,
+    15.54
+   ],
+   "engaged": [
+    14,
+    14.3,
+    15.7
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon power",
+   "idleboost": [
+    3809.2,
+    4013,
+    4102.8
+   ],
+   "light": [
+    3158,
+    3331,
+    3969.8
+   ],
+   "casual": [
+    3455.6,
+    3863,
+    4069.6
+   ],
+   "engaged": [
+    3380.6,
+    3515,
+    3912.6
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon trainings before",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon fights since return",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon min since return",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "ARRIVAL Stillwater Lagoon via training-return %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns party HP%",
+   "idleboost": [
+    67.2,
+    83,
+    93.6
+   ],
+   "light": [
+    61.2,
+    87,
+    96.8
+   ],
+   "casual": [
+    65.8,
+    95,
+    98.4
+   ],
+   "engaged": [
+    55.8,
+    92,
+    100
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns min hero HP%",
+   "idleboost": [
+    0,
+    39,
+    79.8
+   ],
+   "light": [
+    18.8,
+    53,
+    83.6
+   ],
+   "casual": [
+    0,
+    83,
+    94
+   ],
+   "engaged": [
+    23.6,
+    72,
+    100
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns avg charge",
+   "idleboost": [
+    42.8,
+    53,
+    68.8
+   ],
+   "light": [
+    34.4,
+    49,
+    63.4
+   ],
+   "casual": [
+    38,
+    41,
+    57.6
+   ],
+   "engaged": [
+    29.4,
+    42,
+    46.2
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns surge",
+   "idleboost": [
+    100,
+    100,
+    100
+   ],
+   "light": [
+    100,
+    100,
+    100
+   ],
+   "casual": [
+    10.6,
+    28,
+    86.8
+   ],
+   "engaged": [
+    7.8,
+    61,
+    97.6
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns Lv",
+   "idleboost": [
+    30.82,
+    32.3,
+    32.72
+   ],
+   "light": [
+    30.88,
+    31.3,
+    32.7
+   ],
+   "casual": [
+    30.92,
+    32.8,
+    32.92
+   ],
+   "engaged": [
+    30.5,
+    32.3,
+    33.8
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns power",
+   "idleboost": [
+    14104.8,
+    15124,
+    16720.6
+   ],
+   "light": [
+    14493.8,
+    15842,
+    16230.2
+   ],
+   "casual": [
+    14874,
+    16412,
+    18499.8
+   ],
+   "engaged": [
+    14048,
+    15038,
+    21128
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns trainings before",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns fights since return",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns min since return",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "ARRIVAL Ironvein Caverns via training-return %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "RETRIGGER same-zone within 10 fresh fights",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "RETRIGGER same-zone within 20 fresh fights",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "RETRIGGER share of triggers within 20 %",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "RETRIGGER med fresh fights to same-zone retrigger",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "RETRIGGER med minutes to same-zone retrigger",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AFTER RETURN win% first 10 fights (med)",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AFTER RETURN win% first 20 fights (med)",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AT TRIGGER win% in window (med)",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AT TRIGGER enemy Lv minus party Lv (med)",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "AT TRIGGER zone progress % (med)",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "DEAD TIME defeats outside training",
+   "idleboost": [
+    368.6,
+    437,
+    506.6
+   ],
+   "light": [
+    346,
+    457,
+    499
+   ],
+   "casual": [
+    359,
+    433,
+    529.8
+   ],
+   "engaged": [
+    371.4,
+    422,
+    505.8
+   ]
+  },
+  {
+   "metric": "DEAD TIME rewalk fights outside training",
+   "idleboost": [
+    1868.2,
+    2181,
+    2606.4
+   ],
+   "light": [
+    1839,
+    2104,
+    2489.6
+   ],
+   "casual": [
+    2168,
+    2270,
+    2576.2
+   ],
+   "engaged": [
+    2154.8,
+    2333,
+    2635.4
+   ]
+  },
+  {
+   "metric": "DEAD TIME rewalk fights after boss losses",
+   "idleboost": [
+    58.4,
+    133,
+    257
+   ],
+   "light": [
+    106.8,
+    173,
+    190.6
+   ],
+   "casual": [
+    96.8,
+    168,
+    253.8
+   ],
+   "engaged": [
+    86.4,
+    134,
+    211.8
+   ]
+  },
+  {
+   "metric": "DEAD TIME rewalk hours equiv (non-boss, outside training)",
+   "idleboost": [
+    21.12,
+    23.39,
+    28.5
+   ],
+   "light": [
+    20.92,
+    22.97,
+    26.9
+   ],
+   "casual": [
+    23.38,
+    24.33,
+    26.81
+   ],
+   "engaged": [
+    23.92,
+    24.76,
+    27.46
+   ]
+  },
+  {
+   "metric": "DEAD TIME rewalk hours equiv (after boss losses)",
+   "idleboost": [
+    0.65,
+    1.43,
+    2.79
+   ],
+   "light": [
+    1.19,
+    1.89,
+    2.09
+   ],
+   "casual": [
+    1.06,
+    1.72,
+    2.7
+   ],
+   "engaged": [
+    0.91,
+    1.49,
+    2.26
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE HP% before training",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE HP% at end of training",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE HP% after return",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE HP% at next boss",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE charge before training",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE charge at end",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE charge after return",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE charge at next boss",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE surge before",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE surge after return",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "TRAIN TRACE surge at next boss",
+   "idleboost": [
+    null,
+    null,
+    null
+   ],
+   "light": [
+    null,
+    null,
+    null
+   ],
+   "casual": [
+    null,
+    null,
+    null
+   ],
+   "engaged": [
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Greenhollow Fields",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    1
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Stillwater Lagoon",
+   "idleboost": [
+    1,
+    1,
+    13.8
+   ],
+   "light": [
+    1,
+    1,
+    49.8
+   ],
+   "casual": [
+    1,
+    1,
+    22.8
+   ],
+   "engaged": [
+    1,
+    1,
+    21.4
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Thornwood",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    38.8
+   ],
+   "casual": [
+    1,
+    60,
+    151.2
+   ],
+   "engaged": [
+    1,
+    18,
+    80.2
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Ironvein Caverns",
+   "idleboost": [
+    30.8,
+    42,
+    73.8
+   ],
+   "light": [
+    5,
+    27,
+    68.2
+   ],
+   "casual": [
+    1,
+    11,
+    99.8
+   ],
+   "engaged": [
+    1,
+    1,
+    86.4
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Emberwaste",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    141.4
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    56.8
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Amberfall Woods",
+   "idleboost": [
+    1,
+    1,
+    76.6
+   ],
+   "light": [
+    1,
+    1,
+    18.4
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Ashen Approach",
+   "idleboost": [
+    1,
+    1,
+    8.8
+   ],
+   "light": [
+    18.6,
+    58,
+    178.4
+   ],
+   "casual": [
+    1,
+    25,
+    193.6
+   ],
+   "engaged": [
+    1,
+    11,
+    67.6
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear Ashen Keep",
+   "idleboost": [
+    1,
+    1,
+    225
+   ],
+   "light": [
+    1,
+    1,
+    7
+   ],
+   "casual": [
+    1,
+    1,
+    172.6
+   ],
+   "engaged": [
+    1,
+    1,
+    258.4
+   ]
+  },
+  {
+   "metric": "fights between 1st try and clear The Foundry",
+   "idleboost": [
+    1,
+    1,
+    66.4
+   ],
+   "light": [
+    5,
+    71,
+    155.2
+   ],
+   "casual": [
+    5,
+    43,
+    106.4
+   ],
+   "engaged": [
+    1,
+    1,
+    102.8
+   ]
+  },
+  {
+   "metric": "levels gained before clear Greenhollow Fields",
+   "idleboost": [
+    0,
+    0,
+    1
+   ],
+   "light": [
+    0,
+    0,
+    0.6
+   ],
+   "casual": [
+    0,
+    0,
+    0
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "levels gained before clear Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    1
+   ],
+   "light": [
+    0,
+    0,
+    2.6
+   ],
+   "casual": [
+    0,
+    0,
+    1
+   ],
+   "engaged": [
+    0,
+    0,
+    1.6
+   ]
+  },
+  {
+   "metric": "levels gained before clear Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    4.8
+   ],
+   "casual": [
+    0,
+    2,
+    9.8
+   ],
+   "engaged": [
+    0,
+    1,
+    5.8
+   ]
+  },
+  {
+   "metric": "levels gained before clear Ironvein Caverns",
+   "idleboost": [
+    1,
+    1,
+    1.6
+   ],
+   "light": [
+    0,
+    1,
+    1.6
+   ],
+   "casual": [
+    0,
+    0,
+    2.8
+   ],
+   "engaged": [
+    0,
+    0,
+    3
+   ]
+  },
+  {
+   "metric": "levels gained before clear Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0.6
+   ],
+   "light": [
+    -3,
+    0,
+    0.6
+   ],
+   "casual": [
+    0,
+    0,
+    1
+   ],
+   "engaged": [
+    0,
+    1,
+    2.8
+   ]
+  },
+  {
+   "metric": "levels gained before clear Amberfall Woods",
+   "idleboost": [
+    0,
+    1,
+    3.6
+   ],
+   "light": [
+    0,
+    0,
+    1.2
+   ],
+   "casual": [
+    0,
+    0,
+    0.6
+   ],
+   "engaged": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "levels gained before clear Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    1
+   ],
+   "light": [
+    -7.2,
+    3,
+    5.2
+   ],
+   "casual": [
+    -6,
+    0,
+    4.4
+   ],
+   "engaged": [
+    0.4,
+    1,
+    4.6
+   ]
+  },
+  {
+   "metric": "levels gained before clear Ashen Keep",
+   "idleboost": [
+    -7.8,
+    0,
+    6.4
+   ],
+   "light": [
+    0,
+    0,
+    1.6
+   ],
+   "casual": [
+    -8.4,
+    1,
+    1
+   ],
+   "engaged": [
+    -3,
+    0,
+    0
+   ]
+  },
+  {
+   "metric": "levels gained before clear The Foundry",
+   "idleboost": [
+    0,
+    0,
+    4.8
+   ],
+   "light": [
+    1.4,
+    4,
+    9.2
+   ],
+   "casual": [
+    0.8,
+    5,
+    7.8
+   ],
+   "engaged": [
+    0,
+    1,
+    8.2
+   ]
+  },
+  {
+   "metric": "gear changes before clear Greenhollow Fields",
+   "idleboost": [
+    0,
+    1,
+    1
+   ],
+   "light": [
+    0,
+    0,
+    0.6
+   ],
+   "casual": [
+    0,
+    0,
+    1.2
+   ],
+   "engaged": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "metric": "gear changes before clear Stillwater Lagoon",
+   "idleboost": [
+    0,
+    0,
+    4.4
+   ],
+   "light": [
+    0.4,
+    1,
+    19.6
+   ],
+   "casual": [
+    0,
+    0,
+    12.8
+   ],
+   "engaged": [
+    0,
+    1,
+    12.4
+   ]
+  },
+  {
+   "metric": "gear changes before clear Thornwood",
+   "idleboost": [
+    0,
+    0,
+    0.6
+   ],
+   "light": [
+    0,
+    0,
+    22.8
+   ],
+   "casual": [
+    0,
+    23,
+    63.6
+   ],
+   "engaged": [
+    0,
+    7,
+    35.4
+   ]
+  },
+  {
+   "metric": "gear changes before clear Ironvein Caverns",
+   "idleboost": [
+    7.2,
+    12,
+    20
+   ],
+   "light": [
+    1.6,
+    6,
+    15.8
+   ],
+   "casual": [
+    0.4,
+    2,
+    24
+   ],
+   "engaged": [
+    0.4,
+    1,
+    19
+   ]
+  },
+  {
+   "metric": "gear changes before clear Emberwaste",
+   "idleboost": [
+    0,
+    0,
+    0.6
+   ],
+   "light": [
+    0,
+    1,
+    30.4
+   ],
+   "casual": [
+    0,
+    0,
+    0.6
+   ],
+   "engaged": [
+    0,
+    0,
+    12
+   ]
+  },
+  {
+   "metric": "gear changes before clear Amberfall Woods",
+   "idleboost": [
+    0.4,
+    2,
+    15.6
+   ],
+   "light": [
+    0,
+    0,
+    4
+   ],
+   "casual": [
+    0,
+    1,
+    1
+   ],
+   "engaged": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "metric": "gear changes before clear Ashen Approach",
+   "idleboost": [
+    0,
+    0,
+    3.4
+   ],
+   "light": [
+    4.4,
+    12,
+    27.2
+   ],
+   "casual": [
+    0.4,
+    7,
+    32
+   ],
+   "engaged": [
+    0.4,
+    3,
+    16.2
+   ]
+  },
+  {
+   "metric": "gear changes before clear Ashen Keep",
+   "idleboost": [
+    0,
+    1,
+    34.2
+   ],
+   "light": [
+    0,
+    0,
+    0.6
+   ],
+   "casual": [
+    0.4,
+    1,
+    23.2
+   ],
+   "engaged": [
+    0,
+    0,
+    38.8
+   ]
+  },
+  {
+   "metric": "gear changes before clear The Foundry",
+   "idleboost": [
+    0.4,
+    1,
+    10.2
+   ],
+   "light": [
+    0.8,
+    13,
+    27.8
+   ],
+   "casual": [
+    1.8,
+    8,
+    17.4
+   ],
+   "engaged": [
+    0,
+    0,
+    20.4
+   ]
+  },
+  {
+   "metric": "party Lv entering Greenhollow Fields",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    1
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "metric": "party Lv entering Stillwater Lagoon",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    1
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    1.6
+   ]
+  },
+  {
+   "metric": "party Lv entering Thornwood",
+   "idleboost": [
+    14,
+    14,
+    14
+   ],
+   "light": [
+    13,
+    14,
+    14
+   ],
+   "casual": [
+    12.4,
+    14,
+    14
+   ],
+   "engaged": [
+    13,
+    14,
+    14
+   ]
+  },
+  {
+   "metric": "party Lv entering Ironvein Caverns",
+   "idleboost": [
+    28,
+    29,
+    30
+   ],
+   "light": [
+    27.8,
+    29,
+    30
+   ],
+   "casual": [
+    26.6,
+    29,
+    32
+   ],
+   "engaged": [
+    22.8,
+    25,
+    29.6
+   ]
+  },
+  {
+   "metric": "party Lv entering Emberwaste",
+   "idleboost": [
+    18,
+    18,
+    23.6
+   ],
+   "light": [
+    18.4,
+    20,
+    22.4
+   ],
+   "casual": [
+    19.4,
+    20,
+    23
+   ],
+   "engaged": [
+    18.4,
+    20,
+    21.6
+   ]
+  },
+  {
+   "metric": "party Lv entering Amberfall Woods",
+   "idleboost": [
+    22,
+    22,
+    24.2
+   ],
+   "light": [
+    22,
+    22,
+    23.6
+   ],
+   "casual": [
+    23,
+    23,
+    28.8
+   ],
+   "engaged": [
+    23.4,
+    24,
+    33
+   ]
+  },
+  {
+   "metric": "party Lv entering Ashen Approach",
+   "idleboost": [
+    28.6,
+    36,
+    36
+   ],
+   "light": [
+    27,
+    32,
+    33
+   ],
+   "casual": [
+    28,
+    29,
+    34
+   ],
+   "engaged": [
+    28.4,
+    30,
+    32.8
+   ]
+  },
+  {
+   "metric": "party Lv entering Ashen Keep",
+   "idleboost": [
+    31,
+    31,
+    38.8
+   ],
+   "light": [
+    33.8,
+    41,
+    42.6
+   ],
+   "casual": [
+    34,
+    38,
+    42.6
+   ],
+   "engaged": [
+    33.4,
+    38,
+    42
+   ]
+  },
+  {
+   "metric": "party Lv entering The Foundry",
+   "idleboost": [
+    35.4,
+    36,
+    42.6
+   ],
+   "light": [
+    36,
+    36,
+    37.2
+   ],
+   "casual": [
+    36,
+    36,
+    37
+   ],
+   "engaged": [
+    37,
+    37,
+    37.6
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Greenhollow Fields",
+   "idleboost": [
+    100,
+    100,
+    100
+   ],
+   "light": [
+    100,
+    100,
+    100
+   ],
+   "casual": [
+    100,
+    100,
+    100
+   ],
+   "engaged": [
+    100,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Stillwater Lagoon",
+   "idleboost": [
+    0,
+    100,
+    100
+   ],
+   "light": [
+    0,
+    100,
+    100
+   ],
+   "casual": [
+    0,
+    100,
+    100
+   ],
+   "engaged": [
+    0,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Thornwood",
+   "idleboost": [
+    100,
+    100,
+    100
+   ],
+   "light": [
+    40,
+    100,
+    100
+   ],
+   "casual": [
+    0,
+    0,
+    100
+   ],
+   "engaged": [
+    0,
+    0,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Ironvein Caverns",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    60
+   ],
+   "casual": [
+    0,
+    0,
+    100
+   ],
+   "engaged": [
+    0,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Emberwaste",
+   "idleboost": [
+    100,
+    100,
+    100
+   ],
+   "light": [
+    40,
+    100,
+    100
+   ],
+   "casual": [
+    100,
+    100,
+    100
+   ],
+   "engaged": [
+    40,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Amberfall Woods",
+   "idleboost": [
+    0,
+    100,
+    100
+   ],
+   "light": [
+    40,
+    100,
+    100
+   ],
+   "casual": [
+    100,
+    100,
+    100
+   ],
+   "engaged": [
+    100,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Ashen Approach",
+   "idleboost": [
+    40,
+    100,
+    100
+   ],
+   "light": [
+    0,
+    0,
+    100
+   ],
+   "casual": [
+    0,
+    0,
+    100
+   ],
+   "engaged": [
+    0,
+    0,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% Ashen Keep",
+   "idleboost": [
+    0,
+    100,
+    100
+   ],
+   "light": [
+    40,
+    100,
+    100
+   ],
+   "casual": [
+    40,
+    100,
+    100
+   ],
+   "engaged": [
+    40,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "boss 1st-try clear% The Foundry",
+   "idleboost": [
+    0,
+    100,
+    100
+   ],
+   "light": [
+    0,
+    0,
+    60
+   ],
+   "casual": [
+    0,
+    0,
+    60
+   ],
+   "engaged": [
+    0,
+    100,
+    100
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Greenhollow Fields",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    1
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Stillwater Lagoon",
+   "idleboost": [
+    1,
+    1,
+    2
+   ],
+   "light": [
+    1,
+    1,
+    2.6
+   ],
+   "casual": [
+    1,
+    1,
+    2
+   ],
+   "engaged": [
+    1,
+    1,
+    2
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Thornwood",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    2.2
+   ],
+   "casual": [
+    1,
+    3,
+    4.2
+   ],
+   "engaged": [
+    1,
+    2,
+    2
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Ironvein Caverns",
+   "idleboost": [
+    2,
+    3,
+    3
+   ],
+   "light": [
+    1.4,
+    2,
+    2.6
+   ],
+   "casual": [
+    1,
+    2,
+    3.2
+   ],
+   "engaged": [
+    1,
+    1,
+    3.2
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Emberwaste",
+   "idleboost": [
+    1,
+    1,
+    1
+   ],
+   "light": [
+    1,
+    1,
+    2.2
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    3.4
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Amberfall Woods",
+   "idleboost": [
+    1,
+    1,
+    3
+   ],
+   "light": [
+    1,
+    1,
+    1.6
+   ],
+   "casual": [
+    1,
+    1,
+    1
+   ],
+   "engaged": [
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Ashen Approach",
+   "idleboost": [
+    1,
+    1,
+    1.6
+   ],
+   "light": [
+    1,
+    2,
+    3
+   ],
+   "casual": [
+    1,
+    2,
+    3.2
+   ],
+   "engaged": [
+    1,
+    2,
+    3.2
+   ]
+  },
+  {
+   "metric": "boss attempts to clear Ashen Keep",
+   "idleboost": [
+    1,
+    1,
+    3.8
+   ],
+   "light": [
+    1,
+    1,
+    1.6
+   ],
+   "casual": [
+    1,
+    1,
+    2.2
+   ],
+   "engaged": [
+    1,
+    1,
+    4
+   ]
+  },
+  {
+   "metric": "boss attempts to clear The Foundry",
+   "idleboost": [
+    1,
+    1,
+    4
+   ],
+   "light": [
+    1.4,
+    3,
+    5.6
+   ],
+   "casual": [
+    1.4,
+    3,
+    4.6
+   ],
+   "engaged": [
+    1,
+    1,
+    4.2
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Greenhollow Fields",
+   "idleboost": [
+    9,
+    10,
+    10
+   ],
+   "light": [
+    9.4,
+    10,
+    10
+   ],
+   "casual": [
+    10,
+    10,
+    10
+   ],
+   "engaged": [
+    10,
+    10,
+    10
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Stillwater Lagoon",
+   "idleboost": [
+    15,
+    16,
+    16
+   ],
+   "light": [
+    13.4,
+    14,
+    15.6
+   ],
+   "casual": [
+    14,
+    15,
+    15.6
+   ],
+   "engaged": [
+    14,
+    14,
+    16
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Thornwood",
+   "idleboost": [
+    28,
+    29,
+    30
+   ],
+   "light": [
+    24,
+    29,
+    29.6
+   ],
+   "casual": [
+    21.8,
+    24,
+    29
+   ],
+   "engaged": [
+    21,
+    24,
+    27
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Ironvein Caverns",
+   "idleboost": [
+    31,
+    32,
+    32.6
+   ],
+   "light": [
+    31,
+    31,
+    32.6
+   ],
+   "casual": [
+    30.8,
+    33,
+    33
+   ],
+   "engaged": [
+    30.4,
+    32,
+    33.8
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Emberwaste",
+   "idleboost": [
+    21.4,
+    22,
+    23.8
+   ],
+   "light": [
+    22,
+    22,
+    25
+   ],
+   "casual": [
+    22,
+    23,
+    28.4
+   ],
+   "engaged": [
+    23,
+    23,
+    31.4
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Amberfall Woods",
+   "idleboost": [
+    28.2,
+    32,
+    34.8
+   ],
+   "light": [
+    27,
+    30,
+    33
+   ],
+   "casual": [
+    27.4,
+    29,
+    34
+   ],
+   "engaged": [
+    28.4,
+    30,
+    32.8
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Ashen Approach",
+   "idleboost": [
+    30.4,
+    31,
+    38.2
+   ],
+   "light": [
+    36.4,
+    38,
+    41.8
+   ],
+   "casual": [
+    36.4,
+    38,
+    41.6
+   ],
+   "engaged": [
+    32.8,
+    37,
+    37.6
+   ]
+  },
+  {
+   "metric": "boss Lv at first try Ashen Keep",
+   "idleboost": [
+    35.4,
+    36,
+    43.6
+   ],
+   "light": [
+    35.4,
+    36,
+    36
+   ],
+   "casual": [
+    35.4,
+    36,
+    44.4
+   ],
+   "engaged": [
+    37,
+    37,
+    40.6
+   ]
+  },
+  {
+   "metric": "boss Lv at first try The Foundry",
+   "idleboost": [
+    42.6,
+    55,
+    64.8
+   ],
+   "light": [
+    41.4,
+    44,
+    52.6
+   ],
+   "casual": [
+    43.6,
+    46,
+    52.8
+   ],
+   "engaged": [
+    45.4,
+    46,
+    50.6
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Greenhollow Fields",
+   "idleboost": [
+    10,
+    10,
+    10
+   ],
+   "light": [
+    10,
+    10,
+    10
+   ],
+   "casual": [
+    10,
+    10,
+    10
+   ],
+   "engaged": [
+    10,
+    10,
+    10
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Stillwater Lagoon",
+   "idleboost": [
+    16,
+    16,
+    16
+   ],
+   "light": [
+    14.4,
+    16,
+    16
+   ],
+   "casual": [
+    14.4,
+    15,
+    16
+   ],
+   "engaged": [
+    14.4,
+    16,
+    16
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Thornwood",
+   "idleboost": [
+    28,
+    29,
+    30
+   ],
+   "light": [
+    27.8,
+    29,
+    30
+   ],
+   "casual": [
+    26.6,
+    29,
+    32
+   ],
+   "engaged": [
+    22.8,
+    25,
+    29.6
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Ironvein Caverns",
+   "idleboost": [
+    32,
+    33,
+    34
+   ],
+   "light": [
+    31.4,
+    32,
+    33.6
+   ],
+   "casual": [
+    33,
+    33,
+    33.6
+   ],
+   "engaged": [
+    31.4,
+    33,
+    35
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Emberwaste",
+   "idleboost": [
+    22,
+    22,
+    23.8
+   ],
+   "light": [
+    22,
+    22,
+    22.6
+   ],
+   "casual": [
+    23,
+    23,
+    28.4
+   ],
+   "engaged": [
+    23.4,
+    24,
+    33
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Amberfall Woods",
+   "idleboost": [
+    28.6,
+    36,
+    36
+   ],
+   "light": [
+    27,
+    32,
+    33
+   ],
+   "casual": [
+    28,
+    29,
+    34
+   ],
+   "engaged": [
+    28.4,
+    30,
+    32.8
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Ashen Approach",
+   "idleboost": [
+    31,
+    31,
+    38.8
+   ],
+   "light": [
+    33.8,
+    41,
+    42.6
+   ],
+   "casual": [
+    34,
+    38,
+    42.6
+   ],
+   "engaged": [
+    33.4,
+    38,
+    42
+   ]
+  },
+  {
+   "metric": "boss Lv at clear Ashen Keep",
+   "idleboost": [
+    35.4,
+    36,
+    42.6
+   ],
+   "light": [
+    36,
+    36,
+    37.2
+   ],
+   "casual": [
+    36,
+    36,
+    37
+   ],
+   "engaged": [
+    37,
+    37,
+    37.6
+   ]
+  },
+  {
+   "metric": "boss Lv at clear The Foundry",
+   "idleboost": [
+    45,
+    55,
+    66
+   ],
+   "light": [
+    43,
+    54,
+    58.8
+   ],
+   "casual": [
+    49,
+    53,
+    54.6
+   ],
+   "engaged": [
+    46.8,
+    52,
+    54.2
+   ]
+  },
+  {
+   "metric": "dmg share basic %",
+   "idleboost": [
+    47.4,
+    48,
+    48.6
+   ],
+   "light": [
+    45.4,
+    46,
+    46.6
+   ],
+   "casual": [
+    42.4,
+    43,
+    43.6
+   ],
+   "engaged": [
+    39.4,
+    40,
+    40.6
+   ]
+  },
+  {
+   "metric": "dmg share ability %",
+   "idleboost": [
+    51.4,
+    52,
+    52.6
+   ],
+   "light": [
+    52.4,
+    53,
+    53.6
+   ],
+   "casual": [
+    53.4,
+    54,
+    54.6
+   ],
+   "engaged": [
+    53.8,
+    55,
+    55.6
+   ]
+  },
+  {
+   "metric": "dmg share tap %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    1,
+    1,
+    1
+   ],
+   "casual": [
+    2.4,
+    3,
+    3
+   ],
+   "engaged": [
+    4.4,
+    5,
+    5
+   ]
+  },
+  {
+   "metric": "dmg share surge %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    0,
+    0,
+    0
+   ],
+   "casual": [
+    0,
+    0,
+    0.6
+   ],
+   "engaged": [
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "metric": "dmg/h basic",
+   "idleboost": [
+    43123771896.6,
+    64189667830,
+    211979532031.8
+   ],
+   "light": [
+    58546512058,
+    74792069010,
+    180643809365.2
+   ],
+   "casual": [
+    56127635279.2,
+    84193792709,
+    145174757644.4
+   ],
+   "engaged": [
+    69526108902.2,
+    122993256846,
+    162111189357
+   ]
+  },
+  {
+   "metric": "dmg/h ability",
+   "idleboost": [
+    45909841586.6,
+    70183986778,
+    239070329176.6
+   ],
+   "light": [
+    67161335122.4,
+    83876451364,
+    211995683546
+   ],
+   "casual": [
+    71501761237,
+    101861912867,
+    182315125925.8
+   ],
+   "engaged": [
+    95454357678.4,
+    169319888863,
+    221406347282.2
+   ]
+  },
+  {
+   "metric": "dmg/h tap",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    1038735721.2,
+    1214913745,
+    4032084908.6
+   ],
+   "casual": [
+    3165476762,
+    4830777032,
+    9065848358
+   ],
+   "engaged": [
+    8076273812.6,
+    15133422827,
+    20022426440
+   ]
+  },
+  {
+   "metric": "dmg/h surge",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    243215347.4,
+    295057313,
+    756286547.6
+   ],
+   "casual": [
+    549726278,
+    875921608,
+    1292070922.2
+   ],
+   "engaged": [
+    1074953129.8,
+    1859599888,
+    2706135220.2
+   ]
+  },
+  {
+   "metric": "dmg/h total",
+   "idleboost": [
+    89033613483,
+    134373654609,
+    451049861208.4
+   ],
+   "light": [
+    126993617315.6,
+    160178491432,
+    397427864367.4
+   ],
+   "casual": [
+    131344599556.8,
+    191762404216,
+    337847802850.4
+   ],
+   "engaged": [
+    174945918494.8,
+    309306168424,
+    406246098299.4
+   ]
+  },
+  {
+   "metric": "ACTIVE WINDOW dmg share basic %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    28.8,
+    33,
+    34
+   ],
+   "casual": [
+    27,
+    27,
+    29
+   ],
+   "engaged": [
+    24.4,
+    25,
+    25.6
+   ]
+  },
+  {
+   "metric": "ACTIVE WINDOW dmg share ability %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    55,
+    57,
+    60.2
+   ],
+   "casual": [
+    57.4,
+    59,
+    59.6
+   ],
+   "engaged": [
+    56.8,
+    59,
+    60.2
+   ]
+  },
+  {
+   "metric": "ACTIVE WINDOW dmg share tap %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    9,
+    9,
+    9
+   ],
+   "casual": [
+    11.4,
+    12,
+    12
+   ],
+   "engaged": [
+    13.4,
+    14,
+    15
+   ]
+  },
+  {
+   "metric": "ACTIVE WINDOW dmg share surge %",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    2,
+    2,
+    2
+   ],
+   "casual": [
+    2,
+    2,
+    2
+   ],
+   "engaged": [
+    2,
+    2,
+    2
+   ]
+  },
+  {
+   "metric": "ACTIVE WINDOW dmg/h",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    575825373121.4,
+    684998403492,
+    2117453288400.8
+   ],
+   "casual": [
+    666931280446.2,
+    970812725925,
+    1818676722264.4
+   ],
+   "engaged": [
+    914029075659.4,
+    1671632494970,
+    2203007328500.2
+   ]
+  },
+  {
+   "metric": "active hours",
+   "idleboost": [
+    0,
+    0,
+    0
+   ],
+   "light": [
+    2,
+    2,
+    2
+   ],
+   "casual": [
+    4,
+    4,
+    4
+   ],
+   "engaged": [
+    6,
+    6,
+    6
+   ]
+  },
+  {
+   "metric": "ability casts/h",
+   "idleboost": [
+    422.6,
+    438,
+    453.4
+   ],
+   "light": [
+    426.2,
+    435,
+    450
+   ],
+   "casual": [
+    424.8,
+    438,
+    447.4
+   ],
+   "engaged": [
+    438,
+    456,
+    458.6
+   ]
+  },
+  {
+   "metric": "gold earned/h",
+   "idleboost": [
+    13415857850,
+    19627533081,
+    66277554947.8
+   ],
+   "light": [
+    19185762565.6,
+    24884852518,
+    51892705081.6
+   ],
+   "casual": [
+    18745534378.8,
+    23926850535,
+    46630037780
+   ],
+   "engaged": [
+    19049830767.6,
+    36529876543,
+    54579667955.4
+   ]
+  },
+  {
+   "metric": "ore earned/h",
+   "idleboost": [
+    25393127.2,
+    30503291,
+    78902728.2
+   ],
+   "light": [
+    30594821.8,
+    37430683,
+    66741856.8
+   ],
+   "casual": [
+    30591577,
+    37243244,
+    59903719.8
+   ],
+   "engaged": [
+    31154672.8,
+    49490537,
+    66840811
+   ]
+  },
+  {
+   "metric": "defeats @end",
+   "idleboost": [
+    373.4,
+    450,
+    514
+   ],
+   "light": [
+    353.6,
+    463,
+    509.8
+   ],
+   "casual": [
+    368.4,
+    448,
+    536.2
+   ],
+   "engaged": [
+    381.8,
+    430,
+    511
+   ]
+  }
+ ]
+}

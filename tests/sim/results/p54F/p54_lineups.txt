@@ -1,0 +1,37 @@
+tag | party | n | asserts | power x default (paired median) | runs ahead | wave | d wave | power | gold | level | Shatters | S6 h | Endless h | defeats
+D | hale,kit,ash,sera | 20 | 0 | 1.88 | 17/20 | 1.05K | +90 | 6.45B | 1.15T | 263.5 | 7.0 | 39.0 | 27.0 | 449.0
+M | vex,morrow,ash,sera | 20 | 0 | 1.77 | 18/20 | 1.03K | +36 | 8.71B | 1.10T | 271.0 | 7.0 | 38.5 | 27.0 | 602.5
+J | hale,ash,kit,lark | 20 | 0 | 1.65 | 17/20 | 1.00K | +38 | 6.14B | 836.98B | 258.5 | 7.0 | 39.3 | 29.0 | 608.0
+O | hale,morrow,lark,sera | 20 | 0 | 1.55 | 16/20 | 1.05K | +88 | 6.05B | 1.12T | 261.0 | 7.0 | 38.9 | 29.0 | 352.5
+K | bram,ash,kit,sera | 20 | 0 | 1.50 | 17/20 | 980.5 | +8 | 5.79B | 598.20B | 254.0 | 7.0 | 39.1 | 29.0 | 528.0
+B | hale,ash,morrow,sera | 20 | 0 | 1.44 | 18/20 | 1.05K | +36 | 6.74B | 1.06T | 265.5 | 7.0 | 38.9 | 27.0 | 508.0
+E | hale,lark,ash,sera | 20 | 0 | 1.43 | 17/20 | 1.04K | +82 | 5.02B | 1.01T | 258.5 | 7.0 | 39.1 | 27.0 | 387.0
+G | hale,kit,lark,sera | 20 | 0 | 1.35 | 15/20 | 1.04K | +69 | 5.67B | 1.01T | 256.5 | 7.0 | 39.3 | 27.0 | 335.0
+N | hale,vex,lark,sera | 20 | 0 | 1.24 | 12/20 | 1.04K | +50 | 5.15B | 1.02T | 256.0 | 7.0 | 39.1 | 27.0 | 276.5
+A | hale,fitz,ash,sera | 20 | 0 | 1.12 | 11/20 | 989.0 | +14 | 4.31B | 709.17B | 252.0 | 7.0 | 39.5 | 27.0 | 447.0
+H | hale,bram,lark,sera | 20 | 0 | 1.10 | 11/20 | 1.03K | +16 | 5.12B | 949.76B | 253.5 | 7.0 | 48.2 | 28.0 | 340.0
+C | hale,fitz,morrow,sera | 20 | 0 | 1.03 | 10/20 | 984.0 | -3 | 4.44B | 672.73B | 251.0 | 7.0 | 39.1 | 28.0 | 429.0
+F | hale,bram,ash,sera | 20 | 0 | 1.03 | 11/20 | 1.03K | +8 | 5.09B | 887.68B | 256.0 | 7.0 | 39.5 | 29.0 | 435.5
+default | hale,vex,morrow,sera (default) | 20 | 0 | 1.00 | 0/20 | 987.5 | +0 | 4.03B | 694.97B | 253.0 | 7.0 | 39.2 | 27.0 | 387.0
+P | hale,morrow,kit,sera | 20 | 0 | 0.95 | 10/20 | 972.5 | -18 | 3.96B | 616.55B | 249.5 | 7.0 | 39.2 | 27.0 | 414.0
+L | hale,bram,morrow,sera | 20 | 0 | 0.90 | 8/20 | 960.0 | -31 | 3.67B | 568.93B | 245.0 | 7.0 | 39.7 | 27.0 | 398.0
+I | hale,fitz,kit,sera | 20 | 0 | 0.76 | 7/20 | 947.5 | -48 | 3.43B | 477.89B | 243.0 | 7.0 | 44.0 | 30.0 | 399.5
+
+power at 96 h by profile (median of 5 seeds)
+D        idle 6.34B       ligh 6.25B       casu 7.23B       enga 9.57B       | final lineups: hale,kit,ash,sera
+M        idle 5.10B       ligh 8.77B       casu 8.64B       enga 10.02B      | final lineups: vex,morrow,ash,sera
+J        idle 5.51B       ligh 5.95B       casu 6.92B       enga 10.09B      | final lineups: hale,ash,kit,lark
+O        idle 5.27B       ligh 4.73B       casu 10.30B      enga 11.70B      | final lineups: hale,morrow,lark,sera
+K        idle 4.74B       ligh 5.63B       casu 6.61B       enga 7.45B       | final lineups: bram,ash,kit,sera
+B        idle 5.09B       ligh 6.89B       casu 7.81B       enga 6.88B       | final lineups: hale,ash,morrow,sera
+E        idle 4.68B       ligh 5.66B       casu 4.91B       enga 10.76B      | final lineups: hale,lark,ash,sera
+G        idle 5.69B       ligh 5.82B       casu 5.09B       enga 6.05B       | final lineups: hale,kit,lark,sera
+N        idle 4.76B       ligh 5.84B       casu 5.87B       enga 3.89B       | final lineups: hale,vex,lark,sera
+A        idle 3.79B       ligh 4.83B       casu 3.78B       enga 5.38B       | final lineups: hale,fitz,ash,sera
+H        idle 4.93B       ligh 4.50B       casu 5.95B       enga 5.31B       | final lineups: hale,bram,lark,sera
+C        idle 2.61B       ligh 3.45B       casu 5.43B       enga 6.84B       | final lineups: hale,fitz,morrow,sera
+F        idle 4.60B       ligh 5.04B       casu 5.11B       enga 5.57B       | final lineups: hale,bram,ash,sera
+default  idle 2.73B       ligh 4.10B       casu 4.81B       enga 6.16B       | final lineups: hale,vex,morrow,sera
+P        idle 3.61B       ligh 3.62B       casu 4.09B       enga 5.27B       | final lineups: hale,morrow,kit,sera
+L        idle 4.19B       ligh 3.34B       casu 3.50B       enga 4.69B       | final lineups: hale,bram,morrow,sera
+I        idle 5.89B       ligh 3.65B       casu 2.96B       enga 3.35B       | final lineups: hale,fitz,kit,sera

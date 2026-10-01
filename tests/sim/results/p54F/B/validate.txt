@@ -1,0 +1,7 @@
+dir batch_out_p54F_B  expected dt 0.016667 speed 2 hours 96  commit 6683881e38 game b8518ce613556c45 harness 3510bc76ff36e547:56e6c4d79e7701a4:731b00a2ee7c850c:09d3007da6876545
+matrix 20 runs (idleboost,light,casual,engaged x seeds 81-85)  present 20  missing 0  unexpected 0  valid 20  rejected 0
+  idleboost  valid 5 rejected 0 | garrison posts 20, due checks 20
+  light      valid 5 rejected 0 | garrison posts 20, due checks 20
+  casual     valid 5 rejected 0 | garrison posts 20, due checks 20
+  engaged    valid 5 rejected 0 | garrison posts 20, due checks 20
+GATE PASS

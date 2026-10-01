@@ -1,0 +1,59 @@
+bounded-growth checks: batch_out_p54fx2  profiles idleboost/light/casual/engaged  seeds 81-90
+
+== configuration binding
+  PASS one behavioural configuration across 40 runs (1 distinct): {"commit":"6683881e3813a793edddab080ae40732940db0d4","dirty":[],"replaced":null,"gameHash":"b8518ce613556c45","harnessHash":"3510bc76ff36e547:56e6c4d79e7701a4:731b00a2ee7c850c:09d3007da6876545","speed":2,"speed4Buys":"unlimited","shatters":10,"hours":96,"dt":0.016666666666666666,"schedule":"2:2,2:8,2:8","drills":true,"double":true,"boosts":true,"clericBack":true,"focus":true,"party":"default","retreatAfter":0,"retreatOn":"boss","trainUntil":"level","stallRule":"far","stallHours":3,"noAutoTrain":false}
+  PASS one requested party across the batch, compared exactly ("default")
+  PASS lineups recorded and consistent with the request, the roster and the recruit hours in every run (0 of 40 inconsistent)
+  PASS the manifest carries the same requested party as the runs (manifest "default")
+  PASS clean source tree at run time (0 runs from a dirty tree)
+  INFO profiles (taps/activeMin/boost): idleboost:0/0/true, light:1/5/true, casual:1.5/10/true, engaged:2/15/true
+
+== idleboost (n=10, speed 2, commit 6683881e38, game b8518ce613556c45, 96 h, windows 48-72 vs 72-96)
+  PASS assertion failures: 0
+  PASS 1. Shatter 8 before 48 h in 0 of 10 runs (median hour -, Shatter hours seed 81: 4.2, 14.0, 24.0, 28.2, 29.6, 39.6, 73.7)
+  PASS 2. Shatter 10 reached within 96 h in 0 of 10 runs (median Shatters 7)
+  INFO 3. gear (no level cap since 2026-09-16, recorded only): item level at the end 94, rank 3.42; ascensions per run 31
+  PASS 4. power growth 72-96 h vs 48-72 h: x4.14 vs x20.54 (ratio of log growth 0.47, want <= 0.8)
+  PASS 5. Endless waves gained 72-96 h 182 < 48-72 h 594 (best wave at 96 h 946)
+  PASS 6. boss softlocks 0; ascensions per run 31; ore spent in the last 24 h 1027.9M
+  PASS 8. drill dust 29 vs Shatter dust 401 per run: 6.8% of all dust (want < 20%); first-cycle claims 15 dust, repeat claims 14 dust
+  record: 1T gold at h 79 (1/10 runs); Endless entered 25.8 h; power at quarter marks 0.00B / 0.03B / 0.79B / 3.29B; waves 0 / 52 / 760 / 946; level at 96 h 224; defeats 370
+
+== light (n=10, speed 2, commit 6683881e38, game b8518ce613556c45, 96 h, windows 48-72 vs 72-96)
+  PASS assertion failures: 0
+  PASS 1. Shatter 8 before 48 h in 0 of 10 runs (median hour -, Shatter hours seed 81: 4.1, 14.0, 15.8, 25.3, 28.6, 38.6, 63.6)
+  PASS 2. Shatter 10 reached within 96 h in 0 of 10 runs (median Shatters 7)
+  INFO 3. gear (no level cap since 2026-09-16, recorded only): item level at the end 95, rank 3.58; ascensions per run 30
+  PASS 4. power growth 72-96 h vs 48-72 h: x4.19 vs x20.02 (ratio of log growth 0.48, want <= 0.8)
+  PASS 5. Endless waves gained 72-96 h 196 < 48-72 h 560 (best wave at 96 h 963)
+  PASS 6. boss softlocks 0; ascensions per run 30; ore spent in the last 24 h 1139.1M
+  PASS 8. drill dust 37 vs Shatter dust 401 per run: 8.3% of all dust (want < 20%); first-cycle claims 15 dust, repeat claims 22 dust
+  record: 1T gold at h 79 (1/10 runs); Endless entered 28.0 h; power at quarter marks 0.00B / 0.04B / 0.86B / 3.37B; waves 0 / 210 / 767 / 963; level at 96 h 231; defeats 368
+
+== casual (n=10, speed 2, commit 6683881e38, game b8518ce613556c45, 96 h, windows 48-72 vs 72-96)
+  PASS assertion failures: 0
+  PASS 1. Shatter 8 before 48 h in 0 of 10 runs (median hour -, Shatter hours seed 81: 4.1, 14.0, 15.9, 28.3, 29.7, 39.5, 73.1)
+  PASS 2. Shatter 10 reached within 96 h in 0 of 10 runs (median Shatters 7)
+  INFO 3. gear (no level cap since 2026-09-16, recorded only): item level at the end 96, rank 3.50; ascensions per run 31
+  PASS 4. power growth 72-96 h vs 48-72 h: x4.60 vs x20.18 (ratio of log growth 0.51, want <= 0.8)
+  PASS 5. Endless waves gained 72-96 h 214 < 48-72 h 412 (best wave at 96 h 999)
+  PASS 6. boss softlocks 0; ascensions per run 31; ore spent in the last 24 h 1367.1M
+  PASS 8. drill dust 37 vs Shatter dust 403 per run: 8.4% of all dust (want < 20%); first-cycle claims 16 dust, repeat claims 21 dust
+  record: 1T gold at h 87 (3/10 runs); Endless entered 28.0 h; power at quarter marks 0.00B / 0.04B / 0.93B / 4.81B; waves 0 / 249 / 769 / 999; level at 96 h 240; defeats 426
+
+== engaged (n=10, speed 2, commit 6683881e38, game b8518ce613556c45, 96 h, windows 48-72 vs 72-96)
+  PASS assertion failures: 0
+  PASS 1. Shatter 8 before 48 h in 0 of 10 runs (median hour -, Shatter hours seed 81: 4.1, 5.9, 24.0, 28.2, 29.2, 39.1, 72.0)
+  PASS 2. Shatter 10 reached within 96 h in 0 of 10 runs (median Shatters 7)
+  INFO 3. gear (no level cap since 2026-09-16, recorded only): item level at the end 98, rank 3.92; ascensions per run 27
+  PASS 4. power growth 72-96 h vs 48-72 h: x4.69 vs x15.74 (ratio of log growth 0.56, want <= 0.8)
+  PASS 5. Endless waves gained 72-96 h 273 < 48-72 h 335 (best wave at 96 h 1111)
+  PASS 6. boss softlocks 0; ascensions per run 27; ore spent in the last 24 h 2304.7M  [walls, loss streak >= 8 but cleared: 2 in 10 runs, e.g. Ashen Keep x8]
+  PASS 8. drill dust 39 vs Shatter dust 403 per run: 8.8% of all dust (want < 20%); first-cycle claims 15 dust, repeat claims 23 dust
+  record: 1T gold at h 79 (9/10 runs); Endless entered 25.3 h; power at quarter marks 0.00B / 0.10B / 1.62B / 7.95B; waves 0 / 480 / 790 / 1111; level at 96 h 261; defeats 346
+
+== interaction
+  FAIL 7a. engaged ahead of boosted idle on Endless entry by 1.9% in wall hours (25.3 vs 25.8 h; want 5-12% at 2x)
+  FAIL 7b. engaged ahead by 6.3% in played hours (7.3 vs 7.8 h; want 15-30%)
+
+BOUNDED FAIL (2 checks)
